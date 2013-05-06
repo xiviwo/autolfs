@@ -1,0 +1,4 @@
+autolfs
+=======
+
+auto build lfs
