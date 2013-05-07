@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Starting KDE
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;28.&nbsp;The KDE Core
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kde-workspace.html" title=
+          "Kde-workspace-4.10.1">Prev</a>
+          <p>
+            Kde-workspace-4.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="add.html" title=
+          "KDE Additional Packages">Next</a>
+          <p>
+            KDE Additional Packages
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapter&nbsp;28.&nbsp;The KDE Core">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="kde-core-config" name="kde-core-config"></a>Starting KDE
+      </h1>
+      <p>
+        After <span class="application">Kde-workspace</span> has been
+        installed, the first important milestone has been reached. Now you
+        need to configure your system to start KDE.
+      </p>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Starting KDE from the command prompt
+        </h2>
+        <p>
+          To start <span class="application">KDE</span> from the command
+          prompt, you first need to modify your <code class=
+          "filename">.xinitrc</code> file:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; ~/.xinitrc &lt;&lt; EOF
+<code class="literal"># Begin .xinitrc
+
+exec ck-launch-session dbus-launch --exit-with-session startkde
+
+# End .xinitrc</code>
+EOF</kbd>
+</pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If you are not using <span class="application">ConsoleKit</span>,
+            remove <strong class=
+            "userinput"><code>ck-launch-session</code></strong>.
+          </p>
+        </div>
+        <p>
+          You can now start KDE using the <span class=
+          "command"><strong>startx</strong></span> command.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Starting KDE at boot
+        </h2>
+        <p>
+          KDE comes with a graphical login interface called KDM (the KDE
+          Display Manager), which provides a customizable graphical login at
+          boot. To use KDM, you need to edit your <code class=
+          "filename">/etc/inittab</code> file (as the <code class=
+          "systemitem">root</code> user). First, setup run-level 5 to start
+          KDM (adjust the path to kdm according to your system):
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt;&gt; /etc/inittab &lt;&lt; EOF
+<code class="literal">kd:5:respawn:/opt/kde/bin/kdm</code>
+EOF</kbd>
+</pre>
+        <p>
+          Additionally, you need to change the default run-level from 3 to 5:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's#id:3:initdefault:#id:5:initdefault:#' /etc/inittab</kbd>
+</pre>
+        <p>
+          You can now restart your system and see the KDE login screen.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installing further KDE packages
+        </h2>
+        <p>
+          Every subsequent package can be built while having <span class=
+          "application">KDE</span> up and running, but remember to keep
+          <code class="envar">$KDE_PREFIX</code> and <code class=
+          "envar">$QTDIR</code> set.
+        </p>
+      </div>
+      <p class="updated">
+        Last updated on 2013-02-11 18:51:17 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kde-workspace.html" title=
+          "Kde-workspace-4.10.1">Prev</a>
+          <p>
+            Kde-workspace-4.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="add.html" title=
+          "KDE Additional Packages">Next</a>
+          <p>
+            KDE Additional Packages
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapter&nbsp;28.&nbsp;The KDE Core">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

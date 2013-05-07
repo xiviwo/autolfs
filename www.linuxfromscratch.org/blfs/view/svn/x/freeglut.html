@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Freeglut-2.8.0
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;25.&nbsp;X Libraries
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="colord-gtk.html" title=
+          "colord-gtk-0.1.25">Prev</a>
+          <p>
+            colord-gtk-0.1.25
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.26.5">Next</a>
+          <p>
+            gdk-pixbuf-2.26.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapter&nbsp;25.&nbsp;X Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="freeglut" name="freeglut"></a>Freeglut-2.8.0
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Freeglut
+        </h2>
+        <p>
+          <span class="application">Freeglut</span> is intended to be a 100%
+          compatible, completely opensourced clone of the GLUT library. GLUT
+          is a window system independent toolkit for writing OpenGL programs,
+          implementing a simple windowing API, which makes learning about and
+          exploring OpenGL programming very easy.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.3
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://downloads.sourceforge.net/freeglut/freeglut-2.8.0.tar.gz">
+                http://downloads.sourceforge.net/freeglut/freeglut-2.8.0.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 5db8651af306bc403fbfd36934a20e1d
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 960 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 10 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/freeglut-2.8.0-remove_smooth_opengl3_demo-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/freeglut-2.8.0-remove_smooth_opengl3_demo-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Freeglut Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="mesalib.html" title=
+          "MesaLib-9.1.1">MesaLib-9.1.1</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/freeglut">http://wiki.linuxfromscratch.org/blfs/wiki/freeglut</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Freeglut
+        </h2>
+        <p>
+          Install <span class="application">Freeglut</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../freeglut-2.8.0-remove_smooth_opengl3_demo-1.patch &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Library:</strong>
+              <span class="segbody">libglut.so</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libglut" name="libglut"></a><span class=
+                    "term"><code class="filename">libglut.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains functions that implement the OpenGL Utility
+                    Toolkit.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-06 03:05:17 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="colord-gtk.html" title=
+          "colord-gtk-0.1.25">Prev</a>
+          <p>
+            colord-gtk-0.1.25
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.26.5">Next</a>
+          <p>
+            gdk-pixbuf-2.26.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapter&nbsp;25.&nbsp;X Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

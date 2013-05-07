@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      FreeTTS-1.2.2
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;39.&nbsp;Audio Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cdparanoia.html" title=
+          "CDParanoia-III-10.2">Prev</a>
+          <p>
+            CDParanoia-III-10.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="audacious.html" title=
+          "Audacious-3.3.3">Next</a>
+          <p>
+            Audacious-3.3.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="audioutils.html" title=
+          "Chapter&nbsp;39.&nbsp;Audio Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="freetts" name="freetts"></a>FreeTTS-1.2.2
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to FreeTTS
+        </h2>
+        <p>
+          The <span class="application">FreeTTS</span> package contains a
+          speech synthesis system written entirely in the <span class=
+          "application">Java</span> programming language. It is based upon
+          <a class="ulink" href="http://www.cmuflite.org/">Flite</a>: a small
+          run-time speech synthesis engine developed at Carnegie Mellon
+          University. <span class="application">Flite</span> is derived from
+          the <a class="ulink" href=
+          "http://www.cstr.ed.ac.uk/projects/festival/">Festival</a> Speech
+          Synthesis System from the University of Edinburgh and the <a class=
+          "ulink" href="http://festvox.org/">FestVox</a> project from
+          Carnegie Mellon University. The <span class=
+          "application">FreeTTS</span> package is used to convert text to
+          audible speech through the system audio hardware.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://downloads.sourceforge.net/freetts/freetts-1.2.2-src.zip">
+                http://downloads.sourceforge.net/freetts/freetts-1.2.2-src.zip</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 692b5ece251fed88539736e55af5f391
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 13.5 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 92 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.3 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Test suite: <a class="ulink" href=
+                "http://downloads.sourceforge.net/freetts/freetts-1.2.2-tst.zip">
+                http://downloads.sourceforge.net/freetts/freetts-1.2.2-tst.zip</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 4348c7db928612d4b6f6eb2fd621a949
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 3.8 MB
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          FreeTTS Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/apache-ant.html" title=
+          "apache-ant-1.8.4">apache-ant-1.8.4</a>, <a class="xref" href=
+          "../general/sharutils.html" title=
+          "Sharutils-4.13.3">Sharutils-4.13.3</a> (for the <span class=
+          "command"><strong>uudecode</strong></span> program), and working
+          audio hardware/software.
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/freetts">http://wiki.linuxfromscratch.org/blfs/wiki/freetts</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of FreeTTS
+        </h2>
+        <p>
+          The <span class="application">FreeTTS</span> package is distributed
+          in ZIP format and the <span class=
+          "command"><strong>unzip</strong></span> command will default to
+          creating an unused source directory. Additionally, unzipping the
+          test suite file will prompt for questions about overwriting
+          existing files. Use the following commands to <span class=
+          "command"><strong>unzip</strong></span> the source files:
+        </p>
+        <pre class="userinput">
+<kbd class="command">unzip -q freetts-1.2.2-src.zip -x META-INF/* &amp;&amp;
+unzip -q freetts-1.2.2-tst.zip -x META-INF/*</kbd>
+</pre>
+        <div class="admon tip">
+          <img alt="[Tip]" src="../images/tip.png" />
+          <h3>
+            Tip
+          </h3>
+          <p>
+            The <span class="command"><strong>sh jsapi.sh</strong></span>
+            command below installs the Java Speech API components into the
+            <span class="application">FreeTTS</span> source tree. You will be
+            required to view, and then accept (by entering a <span class=
+            "keycap"><strong>y</strong></span> keypress), a license agreement
+            before the installation will continue. If you are scripting
+            (automating) the build, you'll need to account for this. There is
+            information about automating build commands in the <a class=
+            "xref" href="../introduction/unpacking.html#automating-builds"
+            title="Automated Building Procedures">Automated Building
+            Procedures</a> section of Chapter 2. Towards the end of this
+            section, specific information for automating this type of
+            installation is discussed.
+          </p>
+        </div>
+        <p>
+          Install <span class="application">FreeTTS</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i 's/value="src/value="./' build.xml &amp;&amp;
+cd lib      &amp;&amp;
+sh jsapi.sh &amp;&amp;
+cd ..       &amp;&amp;
+ant</kbd>
+</pre>
+        <p>
+          To test the results, issue:
+        </p>
+        <pre class="userinput">
+<kbd class="command">ant junit &amp;&amp;
+cd tests &amp;&amp;
+sh regression.sh &amp;&amp;
+cd ..</kbd>
+</pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">
+install -v -m755 -d /opt/freetts-1.2.2/{lib,docs/{audio,images}} &amp;&amp;
+install -v -m644 lib/*.jar /opt/freetts-1.2.2/lib                &amp;&amp;
+install -v -m644 *.txt RELEASE_NOTES docs/*.{pdf,html,txt,sx{w,d}} \
+                               /opt/freetts-1.2.2/docs           &amp;&amp;
+install -v -m644 docs/audio/*  /opt/freetts-1.2.2/docs/audio     &amp;&amp;
+install -v -m644 docs/images/* /opt/freetts-1.2.2/docs/images    &amp;&amp;
+cp -v -R javadoc               /opt/freetts-1.2.2                &amp;&amp;
+ln -v -s freetts-1.2.2 /opt/freetts</kbd>
+</pre>
+        <p>
+          Optionally, install any or all of the additional <span class=
+          "application">FreeTTS</span> components using the following
+          commands as the <code class="systemitem">root</code> user (see the
+          Command Explanations section for details):
+        </p>
+        <pre class="root">
+<kbd class="command">cp -v -R bin    /opt/freetts-1.2.2        &amp;&amp;
+install -v -m644 speech.properties $JAVA_HOME/jre/lib &amp;&amp;
+cp -v -R tools  /opt/freetts-1.2.2        &amp;&amp;
+cp -v -R mbrola /opt/freetts-1.2.2        &amp;&amp;
+cp -v -R demo   /opt/freetts-1.2.2</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i 's/value="src/value="./'
+          build.xml</strong></span>: Fix an error in the build file to allow
+          the program to find the source.
+        </p>
+        <p>
+          <span class="command"><strong>sh jsapi.sh</strong></span>: This
+          command installs the <span class="application">Java Speech
+          API</span> components into the <span class=
+          "application">FreeTTS</span> source tree.
+        </p>
+        <p>
+          <span class="command"><strong>ant</strong></span>: <span class=
+          "application">FreeTTS</span> uses the <span class=
+          "application">Apache Ant</span> build system instead of the GNU
+          <span class="application">autotools</span>. This commands builds
+          everything, including the class libraries, tools and demos.
+        </p>
+        <p>
+          <span class="command"><strong>cp -v -R bin ...</strong></span>;
+          <span class="command"><strong>install -v -m644
+          speech.properties</strong></span>: These two commands install the
+          demonstration programs. Optionally copy the <code class=
+          "filename">speech.properties</code> file to <code class=
+          "filename">~/speech.properties</code> if you don't want to make it
+          available system-wide.
+        </p>
+        <p>
+          <span class="command"><strong>cp -v -R tools ...</strong></span>:
+          This installs the voice data import utilities. See the <code class=
+          "filename">README.html</code> files in the <code class=
+          "filename">tools/</code> subdirectories for information and
+          instructions about using the tools.
+        </p>
+        <p>
+          <span class="command"><strong>cp -v -R mbrola ...</strong></span>:
+          This installs the <code class="filename">mbrola.jar</code> file,
+          required if you use the <a class="ulink" href=
+          "http://freetts.sourceforge.net/mbrola/README.html">MBROLA</a>
+          voices.
+        </p>
+        <p>
+          <span class="command"><strong>cp -v -R demo ...</strong></span>:
+          This installs the sources and documentation for the demonstration
+          programs.
+        </p>
+        <p>
+          For additional information and documentation about the <span class=
+          "application">FreeTTS</span> project, visit the main web page at
+          <a class="ulink" href=
+          "http://freetts.sourceforge.net">http://freetts.sourceforge.net</a>.
+        </p>
+      </div>
+      <div class="testing" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Testing the Installation
+        </h2>
+        <p>
+          Test the installation using the following command:
+        </p>
+        <pre class="userinput">
+<kbd class="command">java -jar /opt/freetts/lib/freetts.jar \
+    -text "This is a test of the FreeTTS speech synthesis system"</kbd>
+</pre>
+        <p>
+          Depending on the setup of your audio drivers and software, you may
+          have to add the <code class="option">-streaming</code> switch to
+          the command as shown below:
+        </p>
+        <pre class="userinput">
+<kbd class="command">java -jar /opt/freetts/lib/freetts.jar -streaming \
+    -text "This is a test of the FreeTTS speech synthesis system"</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">/opt/freetts-1.2.2/lib/*.jar</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directory:</strong>
+              <span class="segbody">/opt/freetts-1.2.2</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <span class="term"><code class=
+                    "filename">*.jar</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the class libraries which make up the
+                    <span class="application">FreeTTS</span> speech synthesis
+                    system.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2012-10-28 23:20:45 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cdparanoia.html" title=
+          "CDParanoia-III-10.2">Prev</a>
+          <p>
+            CDParanoia-III-10.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="audacious.html" title=
+          "Audacious-3.3.3">Next</a>
+          <p>
+            Audacious-3.3.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="audioutils.html" title=
+          "Chapter&nbsp;39.&nbsp;Audio Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

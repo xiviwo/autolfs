@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      bzr-2.5.0
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;13.&nbsp;Programming
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="prog.html" title="Programming">Prev</a>
+          <p>
+            Programming
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="check.html" title="Check-0.9.9">Next</a>
+          <p>
+            Check-0.9.9
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="bazaar" name="bazaar"></a>bzr-2.5.0
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Bazaar
+        </h2>
+        <p>
+          <span class="application">Bazaar</span> is a version control system
+          that helps track project history over time and collaborate with
+          others.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "https://launchpad.net/bzr/2.5/2.5.0/+download/bzr-2.5.0.tar.gz">
+                https://launchpad.net/bzr/2.5/2.5.0/+download/bzr-2.5.0.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 44eb47b77995098a28f017e2daa606b6
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 9.5 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 69 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Required Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/">Pyrex-0.9.9
+                (http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/)</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Bazaar Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="python2.html" title=
+          "Python-2.7.3">Python-2.7.3</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../postlfs/openssh.html" title=
+          "OpenSSH-6.1p1">OpenSSH-6.1p1</a>, <a class="ulink" href=
+          "http://www.python.org/pypi/pycrypto/">pyCrypto</a>, <a class=
+          "ulink" href="http://www.python.org/pypi/paramiko/">paramike</a>,
+          and <a class="ulink" href=
+          "http://wiki.bazaar.canonical.com/BzrTools">bzrtools</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/bazaar">http://wiki.linuxfromscratch.org/blfs/wiki/bazaar</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Bazaar
+        </h2>
+        <p>
+          Install <span class="application">Bazaar</span> by first installing
+          a required package.
+        </p>
+        <pre class="userinput">
+<kbd class="command">tar -xf ../Pyrex-0.9.9.tar.gz</kbd>
+</pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="userinput">
+<kbd class="command">pushd Pyrex-0.9.9                        &amp;&amp;
+python setup.py install                  &amp;&amp;
+install -v -m755 -d /usr/share/doc/Pyrex &amp;&amp;
+cp      -v -R Doc/* /usr/share/doc/Pyrex &amp;&amp;
+popd </kbd>
+</pre>
+        <p>
+          Continue with installing the main package as the <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="userinput">
+<kbd class="command">python setup.py install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">bzr, pyrexc</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/share/doc/Pyrex,
+              /usr/lib/python2.7/site-packages/bzrlib</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="bazaar-prog" name="bazaar-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>bzr</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command-line client program used to access bcr
+                    repositories.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pyrexc" name="pyrexc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pyrexc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a Python-like compiler that is used to create C
+                    modules for Python.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-02-11 18:51:17 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="prog.html" title="Programming">Prev</a>
+          <p>
+            Programming
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="check.html" title="Check-0.9.9">Next</a>
+          <p>
+            Check-0.9.9
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

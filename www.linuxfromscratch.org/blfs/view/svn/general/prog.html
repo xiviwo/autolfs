@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Chapter&nbsp;13.&nbsp;Programming
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Part&nbsp;III.&nbsp;General Libraries and Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="zip.html" title="Zip-3.0">Prev</a>
+          <p>
+            Zip-3.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="bazaar.html" title="bzr-2.5.0">Next</a>
+          <p>
+            bzr-2.5.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="general.html" title=
+          "Part&nbsp;III.&nbsp;General Libraries and Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="en" xml:lang="en">
+      <h1 class="chapter">
+        <a id="general-prog" name="general-prog"></a>Programming
+      </h1>
+      <p>
+        A base LFS system can be used as a development platform, however the
+        base system only includes language support for <span class=
+        "application">C</span>, <span class="application">C++</span> and
+        <span class="application">Perl</span>. This chapter provides
+        instructions to build many popular programming environments to
+        greatly expand your system's development capabilities.
+      </p>
+      <div class="toc">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="bazaar.html">bzr-2.5.0</a>
+          </li>
+          <li class="sect1">
+            <a href="check.html">Check-0.9.9</a>
+          </li>
+          <li class="sect1">
+            <a href="cmake.html">CMake-2.8.10.2</a>
+          </li>
+          <li class="sect1">
+            <a href="cvs.html">CVS-1.11.23</a>
+          </li>
+          <li class="sect1">
+            <a href="cvsserver.html">Running a CVS Server</a>
+          </li>
+          <li class="sect1">
+            <a href="dejagnu.html">DejaGnu-1.5.1</a>
+          </li>
+          <li class="sect1">
+            <a href="doxygen.html">Doxygen-1.8.3.1</a>
+          </li>
+          <li class="sect1">
+            <a href="expect.html">Expect-5.45</a>
+          </li>
+          <li class="sect1">
+            <a href="gcc.html">GCC-4.7.2</a>
+          </li>
+          <li class="sect1">
+            <a href="gc.html">GC-7.2d</a>
+          </li>
+          <li class="sect1">
+            <a href="gdb.html">GDB-7.5</a>
+          </li>
+          <li class="sect1">
+            <a href="git.html">Git-1.8.2</a>
+          </li>
+          <li class="sect1">
+            <a href="guile.html">Guile-2.0.7</a>
+          </li>
+          <li class="sect1">
+            <a href="openjdk.html">OpenJDK-1.7.0.9</a>
+          </li>
+          <li class="sect1">
+            <a href="junit.html">JUnit-4.10</a>
+          </li>
+          <li class="sect1">
+            <a href="librep.html">Librep-0.92.2.1</a>
+          </li>
+          <li class="sect1">
+            <a href="llvm.html">LLVM-3.2</a>
+          </li>
+          <li class="sect1">
+            <a href="mercurial.html">mercurial-2.5.2</a>
+          </li>
+          <li class="sect1">
+            <a href="NASM.html">NASM-2.10.07</a>
+          </li>
+          <li class="sect1">
+            <a href="perl-modules.html">Perl Modules</a>
+          </li>
+          <li class="sect1">
+            <a href="php.html">PHP-5.4.11</a>
+          </li>
+          <li class="sect1">
+            <a href="pkgconfig.html">pkg-config-0.28</a>
+          </li>
+          <li class="sect1">
+            <a href="python2.html">Python-2.7.3</a>
+          </li>
+          <li class="sect1">
+            <a href="python3.html">Python-3.3.0</a>
+          </li>
+          <li class="sect1">
+            <a href="python-modules.html">Python Modules</a>
+          </li>
+          <li class="sect1">
+            <a href="ruby.html">Ruby-1.9.3-p392</a>
+          </li>
+          <li class="sect1">
+            <a href="slang.html">S-Lang-2.2.4</a>
+          </li>
+          <li class="sect1">
+            <a href="subversion.html">Subversion-1.7.8</a>
+          </li>
+          <li class="sect1">
+            <a href="svnserver.html">Running a Subversion Server</a>
+          </li>
+          <li class="sect1">
+            <a href="tcl.html">Tcl-8.6.0</a>
+          </li>
+          <li class="sect1">
+            <a href="tk.html">Tk-8.6.0</a>
+          </li>
+          <li class="sect1">
+            <a href="vala.html">Vala-0.18.1</a>
+          </li>
+          <li class="sect1">
+            <a href="yasm.html">yasm-1.2.0</a>
+          </li>
+          <li class="sect1">
+            <a href="other-tools.html">Other Programming Tools</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="zip.html" title="Zip-3.0">Prev</a>
+          <p>
+            Zip-3.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="bazaar.html" title="bzr-2.5.0">Next</a>
+          <p>
+            bzr-2.5.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="general.html" title=
+          "Part&nbsp;III.&nbsp;General Libraries and Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

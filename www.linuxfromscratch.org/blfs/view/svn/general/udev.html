@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Udev-Installed LFS Version
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;12.&nbsp;System Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="sysstat.html" title=
+          "Sysstat-10.0.5">Prev</a>
+          <p>
+            Sysstat-10.0.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="udev-extras.html" title=
+          "Udev Extras (from systemd)">Next</a>
+          <p>
+            Udev Extras (from systemd)
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="sysutils.html" title=
+          "Chapter&nbsp;12.&nbsp;System Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="udev" name="udev"></a>Udev-Installed LFS Version
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Udev
+        </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If you installed LFS from SVN-20120719, LFS-7.2, or later, use
+            <a class="xref" href="udev-extras.html" title=
+            "Udev Extras (from systemd)">udev-extras (from systemd)</a>
+            instead of this page.
+          </p>
+        </div>
+        <p>
+          <span class="application">Udev</span> was indeed installed in LFS
+          and there is no reason to reinstall it unless you are going to
+          install a package such as <span class="application">UPower</span>.
+          This installation of <span class="application">Udev</span> enables
+          extra features which includes <span class=
+          "application">gudev</span>, a requirement for <span class=
+          "application">UPower</span> and optionally used by other packages.
+        </p>
+        <p>
+          Unlike any other package in the BLFS book, there is no set version
+          of <span class="application">Udev</span> specified to download.
+          Several version updates to LFS and none to BLFS means there are
+          probably many different versions of <span class=
+          "application">Udev</span> on the platforms that BLFS is being built
+          upon. Therefore, you should download and use the version of
+          <span class="application">Udev</span> your computer currently uses.
+          The BLFS team has no experience updating (or reverting to an older
+          version) the <span class="application">Udev</span> package
+          &ldquo;<span class="quote">on the fly.</span>&rdquo; To discover
+          the version of <span class="application">Udev</span> your computer
+          currently uses, issue <span class="command"><strong>/sbin/udevadm
+          --version</strong></span>.
+        </p>
+        <p>
+          You should look at the LFS instructions for the version you used,
+          to check that you are using the correct testfiles (for some
+          versions, this was a separate tarball, extracted in the udev
+          directory with --strip-components=1) and to compare the configure
+          options you are about to use against those which you used to build
+          the version you are running (sometimes, the options change).
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.0
+          platform. (Using Udev-173)
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.1
+          platform. (Using Udev-182)
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://www.kernel.org/pub/linux/utils/kernel/hotplug/">http://www.kernel.org/pub/linux/utils/kernel/hotplug/</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: ~500 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: ~10 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: ~1.8 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Udev Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../postlfs/acl.html" title=
+          "acl-2.2.51">acl-2.2.51</a>, <a class="xref" href="glib2.html"
+          title="GLib-2.34.3">GLib-2.34.3</a>, <a class="xref" href=
+          "gperf.html" title="Gperf-3.0.4">Gperf-3.0.4</a>, <a class="xref"
+          href="pciutils.html" title="PCI Utils-3.1.10">PCI Utils-3.1.10</a>,
+          and <a class="xref" href="usbutils.html" title="USB Utils-006">USB
+          Utils-006</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="gobject-introspection.html" title=
+          "gobject-introspection-1.34.2">gobject-introspection-1.34.2</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/udev">http://wiki.linuxfromscratch.org/blfs/wiki/udev</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Udev
+        </h2>
+        <p>
+          Install <span class="application">Udev</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr                  \
+            --sysconfdir=/etc              \
+            --sbindir=/sbin                \
+            --with-rootlibdir=/lib         \
+            --libexecdir=/lib              \
+            --with-systemdsystemunitdir=no \
+            --disable-introspection        \
+            --docdir=/usr/share/doc/&lt;udev-Installed LFS Version&gt; &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <span class="application">GTK-Doc</span> is installed and you wish
+          to rebuild and install the API documentation.
+        </p>
+        <p>
+          <code class="option">--disable-introspection</code>: Remove this
+          option if the optional dependency gobject-introspection is
+          installed.
+        </p>
+        <p>
+          <code class="option">--with-systemdsystemunitdir=no</code>: systemd
+          is not used in (B)LFS.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <p>
+          A list of the installed files, along with their short descriptions
+          can be found at <a class="ulink" href=
+          "http://www.linuxfromscratch.org/lfs/view/development/chapter06/udev.html#contents-udev">
+          ../../../../lfs/view/development/chapter06/udev.html#contents-udev</a>.
+        </p>
+        <p>
+          The following is some additional content information.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">findkeyboards, firmware, input_id,
+              keyboard-force-release.sh, keymap, modem-modeswitch, pci-db,
+              udev-acl, usb-db, and v4l_id</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Library:</strong>
+              <span class="segbody">libgudev-1.0.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/lib/udev/keymaps/force-release,
+              /usr/{include/gudev-1.0/gudev,share/{doc/udev-Installed LFS
+              Version, gtk-doc/html/gudev}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="keymap" name="keymap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>keymap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    configures computer model specific key mappings.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libgudev-1.0" name="libgudev-1.0"></a><span class=
+                    "term"><code class=
+                    "filename">libgudev-1.0.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a GObject-based wrapper library for libudev.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-02-11 18:51:17 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="sysstat.html" title=
+          "Sysstat-10.0.5">Prev</a>
+          <p>
+            Sysstat-10.0.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="udev-extras.html" title=
+          "Udev Extras (from systemd)">Next</a>
+          <p>
+            Udev Extras (from systemd)
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="sysutils.html" title=
+          "Chapter&nbsp;12.&nbsp;System Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

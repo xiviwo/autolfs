@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Chapter&nbsp;4.&nbsp;Security
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Part&nbsp;II.&nbsp;Post LFS Configuration and Extra Software
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lsb-release.html" title=
+          "lsb_release-1.4">Prev</a>
+          <p>
+            lsb_release-1.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="vulnerabilities.html" title=
+          "Vulnerabilities">Next</a>
+          <p>
+            Vulnerabilities
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="postlfs.html" title=
+          "Part&nbsp;II.&nbsp;Post LFS Configuration and Extra Software">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="en" xml:lang="en">
+      <h1 class="chapter">
+        <a id="postlfs-security" name="postlfs-security"></a>Security
+      </h1>
+      <p>
+        Security takes many forms in a computing environment. After some
+        initial discussion, this chapter gives examples of three different
+        types of security: access, prevention and detection.
+      </p>
+      <p>
+        Access for users is usually handled by <span class=
+        "command"><strong>login</strong></span> or an application designed to
+        handle the login function. In this chapter, we show how to enhance
+        <span class="command"><strong>login</strong></span> by setting
+        policies with <span class="application">PAM</span> modules. Access
+        via networks can also be secured by policies set by <span class=
+        "application">iptables</span>, commonly referred to as a firewall.
+        The Network Security Services (NSS) and Netscape Portable Runtime
+        (NSPR) libraries can be installed and shared among the many
+        applications requiring them. For applications that don't offer the
+        best security, you can use the <span class=
+        "application">Stunnel</span> package to wrap an application daemon
+        inside an SSL tunnel.
+      </p>
+      <p>
+        Prevention of breaches, like a trojan, are assisted by applications
+        like <span class="application">GnuPG</span>, specifically the ability
+        to confirm signed packages, which recognizes modifications of the
+        tarball after the packager creates it.
+      </p>
+      <p>
+        Finally, we touch on detection with a package that stores
+        "signatures" of critical files (defined by the administrator) and
+        then regenerates those "signatures" and compares for files that have
+        been changed.
+      </p>
+      <div class="toc">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="vulnerabilities.html">Vulnerabilities</a>
+          </li>
+          <li class="sect1">
+            <a href="acl.html">acl-2.2.51</a>
+          </li>
+          <li class="sect1">
+            <a href="attr.html">attr-2.4.46</a>
+          </li>
+          <li class="sect1">
+            <a href="cacerts.html">Certificate Authority Certificates</a>
+          </li>
+          <li class="sect1">
+            <a href="consolekit.html">ConsoleKit-0.4.6</a>
+          </li>
+          <li class="sect1">
+            <a href="cracklib.html">CrackLib-2.8.22</a>
+          </li>
+          <li class="sect1">
+            <a href="cyrus-sasl.html">Cyrus SASL-2.1.25</a>
+          </li>
+          <li class="sect1">
+            <a href="gnupg.html">GnuPG-1.4.13</a>
+          </li>
+          <li class="sect1">
+            <a href="gnupg2.html">GnuPG-2.0.19</a>
+          </li>
+          <li class="sect1">
+            <a href="gnutls.html">GnuTLS-3.1.10</a>
+          </li>
+          <li class="sect1">
+            <a href="gpgme.html">GPGME-1.4.0</a>
+          </li>
+          <li class="sect1">
+            <a href="iptables.html">Iptables-1.4.18</a>
+          </li>
+          <li class="sect1">
+            <a href="firewall.html">Setting Up a Network Firewall</a>
+          </li>
+          <li class="sect1">
+            <a href="libcap2.html">libcap2-2.22</a>
+          </li>
+          <li class="sect1">
+            <a href="liboauth.html">liboauth-1.0.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libpwquality.html">libpwquality-1.2.1</a>
+          </li>
+          <li class="sect1">
+            <a href="linux-pam.html">Linux-PAM-1.1.6</a>
+          </li>
+          <li class="sect1">
+            <a href="mitkrb.html">MIT Kerberos V5-1.11.1</a>
+          </li>
+          <li class="sect1">
+            <a href="nettle.html">Nettle-2.6</a>
+          </li>
+          <li class="sect1">
+            <a href="nss.html">NSS-3.14.3</a>
+          </li>
+          <li class="sect1">
+            <a href="openssh.html">OpenSSH-6.1p1</a>
+          </li>
+          <li class="sect1">
+            <a href="openssl.html">OpenSSL-1.0.1e</a>
+          </li>
+          <li class="sect1">
+            <a href="p11-kit.html">p11-kit-0.15.2</a>
+          </li>
+          <li class="sect1">
+            <a href="polkit.html">Polkit-0.110</a>
+          </li>
+          <li class="sect1">
+            <a href="shadow.html">Shadow-4.1.5.1</a>
+          </li>
+          <li class="sect1">
+            <a href="stunnel.html">stunnel-4.54</a>
+          </li>
+          <li class="sect1">
+            <a href="sudo.html">Sudo-1.8.6p3</a>
+          </li>
+          <li class="sect1">
+            <a href="tripwire.html">Tripwire-2.4.2.2</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lsb-release.html" title=
+          "lsb_release-1.4">Prev</a>
+          <p>
+            lsb_release-1.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="vulnerabilities.html" title=
+          "Vulnerabilities">Next</a>
+          <p>
+            Vulnerabilities
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="postlfs.html" title=
+          "Part&nbsp;II.&nbsp;Post LFS Configuration and Extra Software">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

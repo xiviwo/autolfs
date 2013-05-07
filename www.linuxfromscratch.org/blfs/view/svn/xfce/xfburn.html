@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Xfburn-0.4.3
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;34.&nbsp;Xfce Applications
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xfce4-terminal.html" title=
+          "xfce4-terminal-0.6.1">Prev</a>
+          <p>
+            xfce4-terminal-0.6.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="ristretto.html" title=
+          "Ristretto-0.6.3">Next</a>
+          <p>
+            Ristretto-0.6.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-apps.html" title=
+          "Chapter&nbsp;34.&nbsp;Xfce Applications">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="xfburn" name="xfburn"></a>Xfburn-0.4.3
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Xfburn
+        </h2>
+        <p>
+          <span class="application">Xfburn</span> is a <span class=
+          "application">GTK+ 2</span> GUI frontend for <span class=
+          "application">Libisoburn</span>. This is useful for creating CDs
+          and DVDs from files on your computer or ISO images downloaded from
+          elsewhere.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.3
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://archive.xfce.org/src/apps/xfburn/0.4/xfburn-0.4.3.tar.bz2">
+                http://archive.xfce.org/src/apps/xfburn/0.4/xfburn-0.4.3.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 147cdc2d909e751125be16103b8dc81f
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 640 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 17 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.3 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Xfburn Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="exo.html" title="Exo-0.10.2">Exo-0.10.2</a>,
+          <a class="xref" href="libxfcegui4.html" title=
+          "libxfcegui4-4.10.0">libxfcegui4-4.10.0</a> and <a class="xref"
+          href="../multimedia/libisoburn.html" title=
+          "libisoburn-1.2.8">libisoburn-1.2.8</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/xfburn">http://wiki.linuxfromscratch.org/blfs/wiki/xfburn</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Xfburn
+        </h2>
+        <p>
+          Install <span class="application">Xfburn</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i '/&lt;glib.h&gt;/a#include &lt;glib-object.h&gt;' xfburn/xfburn-settings.h &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i '/&lt;glib.h&gt;/a#include
+          &lt;glib-object.h&gt;' xfburn/xfburn-settings.h</strong></span>:
+          This sed is needed to compile with <span class=
+          "application">Glib</span> 2.32 installed.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Program:</strong>
+              <span class="segbody">xfburn</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directory:</strong>
+              <span class="segbody">/usr/share/xfburn</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfburn-prog" name="xfburn-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xfburn</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a <span class="application">GTK+ 2</span> application
+                    for creating CDs and DVDs.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-28 00:12:39 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xfce4-terminal.html" title=
+          "xfce4-terminal-0.6.1">Prev</a>
+          <p>
+            xfce4-terminal-0.6.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="ristretto.html" title=
+          "Ristretto-0.6.3">Next</a>
+          <p>
+            Ristretto-0.6.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-apps.html" title=
+          "Chapter&nbsp;34.&nbsp;Xfce Applications">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

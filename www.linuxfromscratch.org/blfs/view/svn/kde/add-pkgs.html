@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Further KDE packages
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;29.&nbsp;KDE Additional Packages
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gwenview.html" title=
+          "Gwenview-4.10.1">Prev</a>
+          <p>
+            Gwenview-4.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../gnome/gnome.html" title="GNOME">Next</a>
+          <p>
+            GNOME
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="add.html" title=
+          "Chapter&nbsp;29.&nbsp;KDE Additional Packages">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="kde-add-pkgs" name="kde-add-pkgs"></a>Further KDE packages
+      </h1>
+      <p>
+        This section did not provide instructions for all of the available
+        packages in the KDE Software Compilation. The included packages were
+        selected based on what most people would want to use on a standard
+        desktop computer.
+      </p>
+      <p>
+        For a full list of available packages, have a look on the KDE servers
+        (<a class="ulink" href=
+        "http://download.kde.org/stable/4.10.1/src/">http</a> or <a class=
+        "ulink" href="ftp://ftp.kde.org/pub/kde/stable/4.10.1/src/">ftp</a>).
+      </p>
+      <p>
+        Some additional packages worth mentioning are:
+      </p>
+      <div class="itemizedlist">
+        <ul>
+          <li>
+            <p>
+              Kdeartwork: Collection of wallpapers, icon themes,
+              screensavers, widget styles etc.
+            </p>
+          </li>
+          <li>
+            <p>
+              Juk: A lightweight music player.
+            </p>
+          </li>
+          <li>
+            <p>
+              Dragon: A video player.
+            </p>
+          </li>
+          <li>
+            <p>
+              Kcalc: A scientific calculator.
+            </p>
+          </li>
+          <li>
+            <p>
+              PyKDE4: Python bindings.
+            </p>
+          </li>
+          <li>
+            <p>
+              Kdegames: Collection of desktop games.
+            </p>
+          </li>
+          <li>
+            <p>
+              Kaccessible: Accessibility utilities.
+            </p>
+          </li>
+          <li>
+            <p>
+              Kdetoys: Collection of desktop toys.
+            </p>
+          </li>
+          <li>
+            <p>
+              Kwallet: Credentials management application.
+            </p>
+          </li>
+          <li>
+            <p>
+              Marble: A global map program.
+            </p>
+          </li>
+          <li>
+            <p>
+              Kdesdk: Tools for developers.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <p>
+        Most of these packages can be built with the standard KDE
+        instructions:
+      </p>
+      <pre class="userinput">
+<kbd class="command">mkdir build &amp;&amp;
+cd build &amp;&amp;
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
+      -DSYSCONF_INSTALL_DIR=/etc/kde \
+      .. &amp;&amp;
+make</kbd>
+</pre>
+      <p>
+        And as the <code class="systemitem">root</code> user:
+      </p>
+      <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      <p class="updated">
+        Last updated on 2013-02-12 00:13:43 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gwenview.html" title=
+          "Gwenview-4.10.1">Prev</a>
+          <p>
+            Gwenview-4.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../gnome/gnome.html" title="GNOME">Next</a>
+          <p>
+            GNOME
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="add.html" title=
+          "Chapter&nbsp;29.&nbsp;KDE Additional Packages">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      KDE Pre-installation Configuration
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;27.&nbsp;Introduction
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kdeintro.html" title=
+          "Introduction to KDE">Prev</a>
+          <p>
+            Introduction to KDE
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="core.html" title="The KDE Core">Next</a>
+          <p>
+            The KDE Core
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="introduction.html" title=
+          "Chapter&nbsp;27.&nbsp;Introduction">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="kde-pre-install-config" name="kde-pre-install-config"></a>KDE
+        Pre-installation Configuration
+      </h1>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installing in /usr
+        </h2>
+        <p>
+          One option is to put <span class="application">KDE</span> into the
+          <code class="filename">/usr</code> hierarchy. This creates a
+          simpler setup but makes it more difficult to try multiple versions
+          of <span class="application">KDE</span>.
+        </p>
+        <pre class="userinput">
+<kbd class="command">export KDE_PREFIX=/usr</kbd>
+</pre>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installing in /opt
+        </h2>
+        <p>
+          A method of building multiple versions installs <span class=
+          "application">KDE</span> in the <code class="filename">/opt</code>
+          hierarchy:
+        </p>
+        <pre class="userinput">
+<kbd class="command">export KDE_PREFIX=/opt/kde</kbd>
+</pre>
+        <p>
+          If you are not installing <span class="application">KDE</span> in
+          <code class="filename">/usr</code>, you will need to make some
+          additional configuration changes. Best practice is to add those to
+          your system or personal profile:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; /etc/profile.d/kde.sh &lt;&lt; EOF
+<code class="literal"># Begin /etc/profile.d/kde.sh
+
+KDE_PREFIX=/opt/kde
+KDEDIR=$KDE_PREFIX
+
+pathappend $KDE_PREFIX/bin             PATH
+pathappend $KDE_PREFIX/lib/pkgconfig   PKG_CONFIG_PATH
+pathappend $KDE_PREFIX/share/pkgconfig PKG_CONFIG_PATH
+pathappend $KDE_PREFIX/share           XDG_DATA_DIRS
+pathappend /etc/kde/xdg                XDG_CONFIG_DIRS
+
+export KDE_PREFIX KDEDIR
+
+# End /etc/profile.d/kde.sh</code>
+EOF
+</kbd>
+</pre>
+        <p>
+          Add to your <code class="filename">/etc/ld.so.conf</code>:
+        </p>
+        <pre class="root">
+<kbd class="command">cat &gt;&gt; /etc/ld.so.conf &lt;&lt; EOF
+<code class="literal"># Begin kde addition
+
+/opt/kde/lib
+
+# End kde addition</code>
+EOF</kbd>
+</pre>
+        <p>
+          Several KDE packages install files into D-Bus and polkit
+          directories. When installing KDE in a location other than
+          <code class="filename">/usr</code>, D-Bus and polkit need to find
+          these files. The easiest way to achieve this is to create the
+          following symlinks (as the <code class="systemitem">root</code>
+          user):
+        </p>
+        <pre class="root">
+<kbd class="command">install -d $KDE_PREFIX/share &amp;&amp;
+ln -svf /usr/share/dbus-1 $KDE_PREFIX/share &amp;&amp;
+ln -svf /usr/share/polkit-1 $KDE_PREFIX/share</kbd>
+</pre>
+        <p>
+          D-Bus also needs to find the configuration files for the
+          system-wide bus, which, if you follow the books instructions, are
+          installed in <code class=
+          "filename">/etc/kde/dbus-1/system.d</code>. Fix this by issuing the
+          following (as <code class="systemitem">root</code>):
+        </p>
+        <pre class="root">
+<kbd class="command">mkdir -pv /etc/dbus-1 &amp;&amp;
+cat &gt; /etc/dbus-1/system-local.conf &lt;&lt; EOF
+<code class="literal">&lt;!DOCTYPE busconfig PUBLIC
+ "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd"&gt;
+&lt;busconfig&gt;
+
+  &lt;includedir&gt;/etc/kde/dbus-1/system.d&lt;/includedir&gt;
+
+&lt;/busconfig&gt;</code>
+EOF</kbd>
+</pre>
+        <div class="admon tip">
+          <img alt="[Tip]" src="../images/tip.png" />
+          <h3>
+            Tip
+          </h3>
+          <p>
+            Sometimes, the installation paths are coded into installed files.
+            This is the reason why <code class="filename">/opt/kde</code> is
+            used as installation prefix instead of <code class=
+            "filename">/opt/kde-4.10.1</code>. After installing <span class=
+            "application">KDE</span>, you may rename the directory and create
+            a symlink:
+          </p>
+          <pre class="root">
+<kbd class="command">mv /opt/kde{,-4.10.1} &amp;&amp;
+ln -svf kde-4.10.1 /opt/kde</kbd>
+</pre>
+          <p>
+            Later on, you may want to install other versions of <span class=
+            "application">KDE</span>. To do that, just remove the symlink and
+            use <code class="filename">/opt/kde</code> as the prefix again
+            (<span class="application">KDE</span> must not be started). Which
+            version of <span class="application">KDE</span> you use depends
+            only on where the symlink points to. No other reconfiguration
+            will be needed.
+          </p>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-02-11 18:51:17 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kdeintro.html" title=
+          "Introduction to KDE">Prev</a>
+          <p>
+            Introduction to KDE
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="core.html" title="The KDE Core">Next</a>
+          <p>
+            The KDE Core
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="introduction.html" title=
+          "Chapter&nbsp;27.&nbsp;Introduction">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

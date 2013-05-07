@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Part&nbsp;III.&nbsp;General Libraries and Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="wv.html" title="wv-1.2.9">Prev</a>
+          <p>
+            wv-1.2.9
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="aalib.html" title="AAlib-1.4rc5">Next</a>
+          <p>
+            AAlib-1.4rc5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="general.html" title=
+          "Part&nbsp;III.&nbsp;General Libraries and Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="en" xml:lang="en">
+      <h1 class="chapter">
+        <a id="general-graphlib" name="general-graphlib"></a>Graphics and
+        Font Libraries
+      </h1>
+      <p>
+        Depending on what your system will be used for, you may or may not
+        require the graphics and font libraries. Most desktop machines will
+        want them for use with graphical applications. Most servers on the
+        other hand, will not require them.
+      </p>
+      <div class="toc">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="aalib.html">AAlib-1.4rc5</a>
+          </li>
+          <li class="sect1">
+            <a href="babl.html">babl-0.1.10</a>
+          </li>
+          <li class="sect1">
+            <a href="exiv2.html">Exiv2-0.23</a>
+          </li>
+          <li class="sect1">
+            <a href="freetype2.html">FreeType-2.4.11</a>
+          </li>
+          <li class="sect1">
+            <a href="fontconfig.html">Fontconfig-2.10.2</a>
+          </li>
+          <li class="sect1">
+            <a href="fribidi.html">FriBidi-0.19.5</a>
+          </li>
+          <li class="sect1">
+            <a href="gegl.html">gegl-0.2.0</a>
+          </li>
+          <li class="sect1">
+            <a href="giflib.html">giflib-4.1.6</a>
+          </li>
+          <li class="sect1">
+            <a href="harfbuzz.html">Harfbuzz-0.9.14</a>
+          </li>
+          <li class="sect1">
+            <a href="ijs.html">IJS-0.35</a>
+          </li>
+          <li class="sect1">
+            <a href="imlib2.html">Imlib2-1.4.5</a>
+          </li>
+          <li class="sect1">
+            <a href="jasper.html">JasPer-1.900.1</a>
+          </li>
+          <li class="sect1">
+            <a href="lcms.html">Little CMS-1.19</a>
+          </li>
+          <li class="sect1">
+            <a href="lcms2.html">Little CMS-2.4</a>
+          </li>
+          <li class="sect1">
+            <a href="libart_lgpl.html">libart_lgpl-2.3.21</a>
+          </li>
+          <li class="sect1">
+            <a href="libexif.html">libexif-0.6.21</a>
+          </li>
+          <li class="sect1">
+            <a href="libjpeg.html">libjpeg-turbo-1.2.1</a>
+          </li>
+          <li class="sect1">
+            <a href="libmng.html">libmng-1.0.10</a>
+          </li>
+          <li class="sect1">
+            <a href="libpng.html">libpng-1.5.14</a>
+          </li>
+          <li class="sect1">
+            <a href="librsvg.html">librsvg-2.36.4</a>
+          </li>
+          <li class="sect1">
+            <a href="libtiff.html">LibTIFF-4.0.3</a>
+          </li>
+          <li class="sect1">
+            <a href="openjpeg.html">OpenJPEG-1.5.1</a>
+          </li>
+          <li class="sect1">
+            <a href="pixman.html">Pixman-0.28.2</a>
+          </li>
+          <li class="sect1">
+            <a href="poppler.html">Poppler-0.22.2</a>
+          </li>
+          <li class="sect1">
+            <a href="qpdf.html">Qpdf-4.0.1</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="wv.html" title="wv-1.2.9">Prev</a>
+          <p>
+            wv-1.2.9
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="aalib.html" title="AAlib-1.4rc5">Next</a>
+          <p>
+            AAlib-1.4rc5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="general.html" title=
+          "Part&nbsp;III.&nbsp;General Libraries and Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      GDB-7.5
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;13.&nbsp;Programming
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gc.html" title="GC-7.2d">Prev</a>
+          <p>
+            GC-7.2d
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="git.html" title="Git-1.8.2">Next</a>
+          <p>
+            Git-1.8.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="gdb" name="gdb"></a>GDB-7.5
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to GDB
+        </h2>
+        <p>
+          <span class="application">GDB</span>, the GNU Project debugger,
+          allows you to see what is going on &ldquo;<span class=
+          "quote">inside</span>&rdquo; another program while it executes --
+          or what another program was doing at the moment it crashed. Note
+          that <span class="application">GDB</span> is most effective when
+          tracing programs and libraries that were built with debugging
+          symbols and not stripped.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnu.org/gnu/gdb/gdb-7.5.tar.bz2">http://ftp.gnu.org/gnu/gdb/gdb-7.5.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnu.org/gnu/gdb/gdb-7.5.tar.bz2">ftp://ftp.gnu.org/gnu/gdb/gdb-7.5.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 24a6779a9fe0260667710de1b082ef61
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 20 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 314 MB (444 MB with checks)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 1.9 SBU (5.9 SBU with checks)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          GDB Dependencies
+        </h3>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="dejagnu.html" title=
+          "DejaGnu-1.5.1">DejaGnu-1.5.1</a> (for tests)
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gdb">http://wiki.linuxfromscratch.org/blfs/wiki/gdb</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of GDB
+        </h2>
+        <p>
+          Install <span class="application">GDB</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make -k
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make -C gdb install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">gdb and gdbserver</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Library:</strong>
+              <span class="segbody">libinproctrace.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/gdb, /usr/share/gdb, and
+              /usr/share/doc/gdb-7.5</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gdb-prog" name="gdb-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gdb</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the GNU Debugger.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gdbserver" name="gdbserver"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gdbserver</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a remote server for the GNU debugger (it allows
+                    programs to be debugged from a different machine).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libinproctrace" name=
+                    "libinproctrace"></a><span class="term"><code class=
+                    "filename">libinproctrace.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains functions for the in-process tracing agent. The
+                    agent allows for installing fast tracepoints, listing
+                    static tracepoint markers, probing static tracepoints
+                    markers, and starting trace monitoring.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-03 16:59:09 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gc.html" title="GC-7.2d">Prev</a>
+          <p>
+            GC-7.2d
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="git.html" title="Git-1.8.2">Next</a>
+          <p>
+            Git-1.8.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

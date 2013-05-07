@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Ristretto-0.6.3
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;34.&nbsp;Xfce Applications
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xfburn.html" title="Xfburn-0.4.3">Prev</a>
+          <p>
+            Xfburn-0.4.3
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libunique.html" title=
+          "libunique-1.1.6">Next</a>
+          <p>
+            libunique-1.1.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-apps.html" title=
+          "Chapter&nbsp;34.&nbsp;Xfce Applications">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="ristretto" name="ristretto"></a>Ristretto-0.6.3
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Ristretto
+        </h2>
+        <p>
+          <span class="application">Ristretto</span> is a fast and
+          lightweight image viewer for the <span class=
+          "application">Xfce</span> desktop.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://archive.xfce.org/src/apps/ristretto/0.6/ristretto-0.6.3.tar.bz2">
+                http://archive.xfce.org/src/apps/ristretto/0.6/ristretto-0.6.3.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 6b8c9a5d7ed319e4c84a9fefaa18792c
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 488 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 11 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Ristretto Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/libexif.html" title=
+          "libexif-0.6.21">libexif-0.6.21</a> and <a class="xref" href=
+          "libxfce4ui.html" title="libxfce4ui-4.10.0">libxfce4ui-4.10.0</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/ristretto">http://wiki.linuxfromscratch.org/blfs/wiki/ristretto</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Ristretto
+        </h2>
+        <p>
+          Install <span class="application">Ristretto</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Program:</strong>
+              <span class="segbody">ristretto</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">None</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ristretto-prog" name=
+                    "ristretto-prog"></a><span class="term"><span class=
+                    "command"><strong>ristretto</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a fast and lightweight image viewer.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-16 22:44:22 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xfburn.html" title="Xfburn-0.4.3">Prev</a>
+          <p>
+            Xfburn-0.4.3
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libunique.html" title=
+          "libunique-1.1.6">Next</a>
+          <p>
+            libunique-1.1.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="xfce-apps.html" title=
+          "Chapter&nbsp;34.&nbsp;Xfce Applications">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

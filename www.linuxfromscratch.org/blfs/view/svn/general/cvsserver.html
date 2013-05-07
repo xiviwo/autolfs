@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Running a CVS Server
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;13.&nbsp;Programming
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cvs.html" title="CVS-1.11.23">Prev</a>
+          <p>
+            CVS-1.11.23
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dejagnu.html" title="DejaGnu-1.5.1">Next</a>
+          <p>
+            DejaGnu-1.5.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="cvsserver" name="cvsserver"></a>Running a CVS Server
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Running a CVS Server
+        </h2>
+        <p>
+          This section will describe how to set up, administer and secure a
+          CVS server.
+        </p>
+        <h3>
+          CVS Server Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          <a class="xref" href="cvs.html" title="CVS-1.11.23">CVS-1.11.23</a>
+          and <a class="xref" href="../postlfs/openssh.html" title=
+          "OpenSSH-6.1p1">OpenSSH-6.1p1</a>
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Setting up a CVS Server.
+        </h2>
+        <p>
+          A CVS server will be set up using OpenSSH as the remote access
+          method. Other access methods, including :pserver: and :server: will
+          not be used for write access to the CVS repository. The :pserver:
+          method sends clear text passwords over the network and the :server:
+          method is not supported in all CVS ports. Instructions for
+          anonymous, read only CVS access using :pserver: can be found at the
+          end of this section.
+        </p>
+        <p>
+          Configuration of the CVS server consists of four steps:
+        </p>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            1. Create a Repository.
+          </h3>
+          <p>
+            Create a new CVS repository with the following commands:
+          </p>
+          <pre class="root">
+<kbd class="command">mkdir          /srv/cvsroot &amp;&amp;
+chmod 1777     /srv/cvsroot &amp;&amp;
+export CVSROOT=/srv/cvsroot &amp;&amp;
+cvs init</kbd>
+</pre>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            2. Import Source Code Into the Repository.
+          </h3>
+          <p>
+            Import a source module into the repository with the following
+            commands, issued from a user account on the same machine as the
+            CVS repository:
+          </p>
+          <pre class="userinput">
+<kbd class="command">cd <em class=
+"replaceable"><code>&lt;sourcedir&gt;</code></em> &amp;&amp;
+cvs import -m "<em class=
+"replaceable"><code>&lt;repository test&gt;</code></em>" <em class=
+"replaceable"><code>&lt;cvstest&gt;</code></em> <em class=
+"replaceable"><code>&lt;vendortag&gt;</code></em> <em class=
+"replaceable"><code>&lt;releasetag&gt;</code></em></kbd>
+</pre>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            3. Verify Local Repository Access.
+          </h3>
+          <p>
+            Test access to the CVS repository from the same user account with
+            the following command:
+          </p>
+          <pre class="userinput">
+<kbd class="command">cvs co cvstest</kbd>
+</pre>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            4. Verify Remote Repository Access.
+          </h3>
+          <p>
+            Test access to the CVS repository from a remote machine using a
+            user account that has <span class=
+            "command"><strong>ssh</strong></span> access to the CVS server
+            with the following commands:
+          </p>
+          <div class="admon note">
+            <img alt="[Note]" src="../images/note.png" />
+            <h3>
+              Note
+            </h3>
+            <p>
+              Replace <em class=
+              "replaceable"><code>&lt;servername&gt;</code></em> with the IP
+              address or host name of the CVS repository machine. You will be
+              prompted for the user's shell account password before CVS
+              checkout can continue.
+            </p>
+          </div>
+          <pre class="userinput">
+<kbd class="command">export CVS_RSH=/usr/bin/ssh &amp;&amp;
+cvs -d:ext:<em class=
+"replaceable"><code>&lt;servername&gt;</code></em>:/srv/cvsroot co cvstest</kbd>
+</pre>
+        </div>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="cvsserver-config" name="cvsserver-config"></a>Configuring
+          CVS for Anonymous Read Only Access.
+        </h2>
+        <p>
+          CVS can be set up to allow anonymous read only access using the
+          :pserver: method by logging on as <code class=
+          "systemitem">root</code> and executing the following commands:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">(grep anonymous /etc/passwd || useradd anonymous -s /bin/false -u 98) &amp;&amp;
+echo anonymous: &gt; /srv/cvsroot/CVSROOT/passwd &amp;&amp;
+echo anonymous &gt; /srv/cvsroot/CVSROOT/readers</kbd>
+</pre>
+        <p>
+          Testing anonymous access to the new repository requires an account
+          on another machine that can reach the CVS server via network. No
+          account on the CVS repository is needed. To test anonymous access
+          to the CVS repository, log in to another machine as an unprivileged
+          user and execute the following command:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cvs -d:pserver:anonymous@<em class=
+"replaceable"><code>&lt;servername&gt;</code></em>:/srv/cvsroot co cvstest</kbd>
+</pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Replace <em class=
+            "replaceable"><code>&lt;servername&gt;</code></em> with the IP
+            address or hostname of the CVS server.
+          </p>
+        </div>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>mkdir /srv/cvsroot</strong></span>:
+          Create the CVS repository directory.
+        </p>
+        <p>
+          <span class="command"><strong>chmod 1777
+          /srv/cvsroot</strong></span>: Set sticky bit permissions for
+          <code class="envar">CVSROOT</code>.
+        </p>
+        <p>
+          <span class="command"><strong>export
+          CVSROOT=/srv/cvsroot</strong></span>: Specify new <code class=
+          "envar">CVSROOT</code> for all <span class=
+          "command"><strong>cvs</strong></span> commands.
+        </p>
+        <p>
+          <span class="command"><strong>cvs init</strong></span>: Initialize
+          the new CVS repository.
+        </p>
+        <p>
+          <span class="command"><strong>cvs import -m "repository test"
+          cvstest vendortag releasetag</strong></span>: All source code
+          modules must be imported into the CVS repository before use, with
+          the <span class="command"><strong>cvs import</strong></span>
+          command. The <code class="option">-m</code> flags specifies an
+          initial descriptive entry for the new module. The <code class=
+          "option">cvstest</code> parameter is the name used for the module
+          in all subsequent <span class="command"><strong>cvs</strong></span>
+          commands. The <code class="option">vendortag</code> and
+          <code class="option">releasetag</code> parameters are used to
+          further identify each CVS module and are mandatory whether used or
+          not.
+        </p>
+        <p>
+          <span class="command"><strong>(grep anonymous /etc/passwd ||
+          useradd anonymous -s /bin/false -u 98)</strong></span>: Check for
+          an existing <code class="systemitem">anonymous</code> user and
+          create one if not found.
+        </p>
+        <p>
+          <span class="command"><strong>echo anonymous: &gt;
+          /srv/cvsroot/CVSROOT/passwd</strong></span>: Add the <code class=
+          "systemitem">anonymous</code> user to the CVS passwd file, which is
+          unused for anything else in this configuration.
+        </p>
+        <p>
+          <span class="command"><strong>echo anonymous &gt;
+          /srv/cvsroot/CVSROOT/readers</strong></span>: Add the <code class=
+          "systemitem">anonymous</code> user to the CVS readers file, a list
+          of users who have read only access to the repository.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/srv/cvsroot</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-02-11 18:51:17 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cvs.html" title="CVS-1.11.23">Prev</a>
+          <p>
+            CVS-1.11.23
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dejagnu.html" title="DejaGnu-1.5.1">Next</a>
+          <p>
+            DejaGnu-1.5.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

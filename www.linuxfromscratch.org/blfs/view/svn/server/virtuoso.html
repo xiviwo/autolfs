@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Virtuoso-6.1.6
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;23.&nbsp;Other Server Software
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="openldap.html" title=
+          "OpenLDAP-2.4.34">Prev</a>
+          <p>
+            OpenLDAP-2.4.34
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="soprano.html" title="Soprano-2.9.0">Next</a>
+          <p>
+            Soprano-2.9.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="other.html" title=
+          "Chapter&nbsp;23.&nbsp;Other Server Software">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="virtuoso" name="virtuoso"></a>Virtuoso-6.1.6
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Virtuoso
+        </h2>
+        <p>
+          <span class="application">Virtuoso</span> is a cross-platform
+          server that implements multiple server-side protocols as part of a
+          single-server product offering. There is one server product that
+          offers WebDAV/HTTP, Application, and Database-server functionality
+          alongside Native XML Storage, Universal Data-Access Middleware,
+          Business Process Integration and a Web-Services Platform.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://downloads.sourceforge.net/virtuoso/virtuoso-opensource-6.1.6.tar.gz">
+                http://downloads.sourceforge.net/virtuoso/virtuoso-opensource-6.1.6.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 3991149c570f3738c3e819ce603e487f
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 113 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 770 MB (additional 2 GB to run
+                the test suite)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 5.0 SBU (additional 10 SBU to run the
+                test suite)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Virtuoso Dependencies
+        </h3>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/libiodbc.html" title=
+          "libiodbc-3.52.8">libiodbc-3.52.8</a>, <a class="xref" href=
+          "../general/libxml2.html" title="libxml2-2.9.0">libxml2-2.9.0</a>,
+          <a class="xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, and <a class="xref" href=
+          "openldap.html" title="OpenLDAP-2.4.34">OpenLDAP-2.4.34</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/imagemagick.html" title=
+          "ImageMagick-6.8.2-8">ImageMagick-6.8.2-8</a>, <a class="xref"
+          href="../general/python2.html" title=
+          "Python-2.7.3">Python-2.7.3</a>, and <a class="xref" href=
+          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.1">MIT
+          Kerberos V5-1.11.1</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/virtuoso">http://wiki.linuxfromscratch.org/blfs/wiki/virtuoso</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Virtuoso
+        </h2>
+        <p>
+          Install <span class="application">virtuoso</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i "s|virt_iodbc_dir/include|&amp;/iodbc|" configure  &amp;&amp;
+./configure --prefix=/usr                             \
+            --sysconfdir=/etc                         \
+            --localstatedir=/var                      \
+            --with-iodbc=/usr                         \
+            --with-readline                           \
+            --without-internal-zlib                   \
+            --program-transform-name="s/isql/isql-v/" \
+            --disable-all-vads                        \
+            --disable-static                          &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue <span class="command"><strong>make -k
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+install -v -m755 -d /usr/share/doc/virtuoso-6.1.6 &amp;&amp;
+ln -s   -v          ../../virtuoso/doc \
+                    /usr/share/doc/virtuoso-6.1.6</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i ...</strong></span>: This
+          command is used to modify the <code class="envar">CPPFLAGS</code>
+          variable so that the <span class="application">libiodbc</span>
+          interface headers are found by the <span class=
+          "command"><strong>configure</strong></span> script.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-iodbc=/usr</code></em>: This
+          parameter is used so that the build will use the system
+          <span class="application">libiodbc</span> interface headers and not
+          the headers in the source tree.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-readline</code></em>: This
+          parameter is used so that the system <span class=
+          "application">Readline</span> library is used.
+        </p>
+        <p>
+          <em class="parameter"><code>--without-internal-zlib</code></em>:
+          This parameter is set so that the installed <span class=
+          "application">zlib</span> library is used and not the bundled one.
+        </p>
+        <p>
+          <em class="parameter"><code>--program-transform-name</code></em>:
+          Both <span class="application">Virtuoso</span> and <span class=
+          "application">unixODBC</span> install a program named <span class=
+          "command"><strong>isql</strong></span>. Use this parameter to
+          rename <span class="application">virtuoso</span>s program to
+          <span class="command"><strong>isql-v</strong></span>.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-all-vads</code></em>: This
+          parameter disables building all the VAD packages (tutorials, demos,
+          etc.).
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          option disables building static libraries. However, the main
+          <span class="application">Virtuoso</span> libraries, <code class=
+          "filename">libvirtuoso-t</code> and <code class=
+          "filename">libvirtuoso-iodbc-t</code> are still built as static
+          libraries.
+        </p>
+        <p>
+          <code class="option">--enable-python</code>: Add this option if
+          <span class="application">Python</span> is installed to enable
+          building <span class="application">Python</span> bindings.
+        </p>
+        <p>
+          <code class="option">--with-port</code>: Add this if you want the
+          <span class="application">Virtuoso</span> server to listen on a
+          port other than 1111.
+        </p>
+        <p>
+          <code class="option">--enable-aio</code>: Add this if you want
+          <span class="application">Virtuoso</span> to perform asynchronous
+          file I/O operations instead of synchronous file I/O.
+        </p>
+        <p>
+          <code class="option">--enable-perl</code>: Do not use this option
+          if you built Perl according to the LFS instructions. The build will
+          fail with a note similar to <code class="computeroutput">Your perl
+          should be compiled w -Dusemultiplicity. Check the output of perl
+          -V:usemultiplicity</code>.
+        </p>
+        <p>
+          Note that passing the <code class=
+          "option">with-jdk4=${JAVA_HOME}</code>, <code class=
+          "option">--enable-php5=/usr</code>, <code class=
+          "option">--enable-ruby</code>, and <code class=
+          "option">--enable-wbxml2=/usr</code> options all will fail during
+          the <span class="command"><strong>configure</strong></span> phase
+          of the build. They will not break the build, but the desired
+          support will not be included in the build.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuration
+        </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If <span class="application">Virtuoso</span> is only to be used
+            for <span class="application">KDE</span>, there is no need to
+            start the <span class="application">Virtuoso</span> server at
+            boot time.
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="virtuoso-init" name="virtuoso-init"></a>Boot Script
+          </h3>
+          <p>
+            If you want the <span class="application">Virtuoso</span> server
+            to start automatically when the system is booted, install the
+            <code class="filename">/etc/rc.d/init.d/virtuoso</code> init
+            script included in the <a class="xref" href=
+            "../introduction/bootscripts.html" title=
+            "BLFS Boot Scripts">blfs-bootscripts-20130324</a> package.
+          </p>
+          <pre class="root">
+<kbd class="command">make install-virtuoso</kbd>
+</pre>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="virtuoso-users" name="virtuoso-users"></a>User accounts
+          </h3>
+          <p>
+            When the server is started using the start script, there is a web
+            interface to <span class="application">Virtuoso</span> at
+            <a class="ulink" href=
+            "http://localhost:8890/">http://localhost:8890/</a>. Several
+            links are pointing to the OpenLink site, but the <span class=
+            "application">Conductor</span> at <a class="ulink" href=
+            "http://localhost:8890/conductor/">http://localhost:8890/conductor/</a>.
+            This is a full featured configuration site for <span class=
+            "application">Virtuoso</span>. Login as <code class=
+            "systemitem">dba</code> with the predefined password <code class=
+            "literal">dba</code>.
+          </p>
+          <div class="admon warning">
+            <img alt="[Warning]" src="../images/warning.png" />
+            <h3>
+              Change password
+            </h3>
+            <p>
+              Remember to immediatly change the password of user <code class=
+              "systemitem">dba</code> as well as of all other predefined
+              users. Click on <code class="literal">[System Admin]</code> and
+              than on <code class="literal">[User Accounts]</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">inifile, isql-v, isql-vw, virt_mail and
+              virtuoso-t</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libvirtuoso-t.a, virtodbc.so,
+              virtodbc_r.so, virtodbcu.so and virtodbcu_r.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/var/lib/virtuoso,
+              /usr/lib/{hibernate,jdbc-{2,3,4}.0,jena,sesame,virtuoso} and
+              /usr/share/virtuoso</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="isql-v" name="isql-v"></a><span class=
+                    "term"><span class=
+                    "command"><strong>isql-v</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a interactive SQL utility.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="virtuoso-t" name="virtuoso-t"></a><span class=
+                    "term"><span class=
+                    "command"><strong>virtuoso-t</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Universial Server daemon.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-02-13 02:41:32 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="openldap.html" title=
+          "OpenLDAP-2.4.34">Prev</a>
+          <p>
+            OpenLDAP-2.4.34
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="soprano.html" title="Soprano-2.9.0">Next</a>
+          <p>
+            Soprano-2.9.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="other.html" title=
+          "Chapter&nbsp;23.&nbsp;Other Server Software">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Wicd-1.7.2.4
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;16.&nbsp;Networking Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="whois.html" title="Whois-5.0.20">Prev</a>
+          <p>
+            Whois-5.0.20
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="wireshark.html" title=
+          "Wireshark-1.8.3">Next</a>
+          <p>
+            Wireshark-1.8.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netutils.html" title=
+          "Chapter&nbsp;16.&nbsp;Networking Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="wicd" name="wicd"></a>Wicd-1.7.2.4
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Wicd
+        </h2>
+        <p>
+          <span class="application">Wicd</span> is a network manager written
+          in Python. It simplifies network setup by automatically detecting
+          and connecting to wireless and wired networks. Wicd includes
+          support for WPA authentication and DHCP configuration. It provides
+          Curses- and GTK-based graphical frontends for user-friendly
+          control. An excellent KDE-based frontend is also available
+          <a class="ulink" href=
+          "http://projects.kde.org/projects/extragear/network/wicd-kde">here</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://launchpad.net/wicd/1.7/1.7.2.4/+download/wicd-1.7.2.4.tar.gz">
+                http://launchpad.net/wicd/1.7/1.7.2.4/+download/wicd-1.7.2.4.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: c2435ddfdef0b9898852d72a85a45f0f
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 429 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 4.2 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: less than 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Wicd Dependencies
+        </h3>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Wicd uses <span class="command"><strong>ifconfig</strong></span>
+            to activate network connections. <span class=
+            "command"><strong>ifconfig</strong></span> is provided by both
+            the Inetutils and Net-tools packages. The Inetutils package is
+            part of LFS, but the <span class=
+            "command"><strong>ifconfig</strong></span> command is not
+            installed by the LFS instructions. If you choose to install the
+            Inetutils version of <code class="option">ifconfig</code>, you
+            need to reinstall the package and configure it without the
+            <code class="option">--disable-ifconfig</code> switch.
+          </p>
+        </div>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/python2.html" title=
+          "Python-2.7.3">Python-2.7.3</a>, <a class="xref" href=
+          "../general/dbus-bindings.html#dbus-python" title=
+          "D-Bus Python Bindings">D-Bus Python Bindings-1.1.1</a>, <a class=
+          "xref" href="wireless_tools.html" title=
+          "Wireless Tools-29">Wireless Tools-29</a> and <a class="xref" href=
+          "net-tools.html" title=
+          "Net-tools-CVS_20101030">Net-tools-CVS_20101030</a> (Wicd needs
+          <span class="command"><strong>ifconfig</strong></span> and
+          <span class="command"><strong>mii-tool</strong></span> from this
+          package)
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/python-modules.html#pygtk" title=
+          "PyGTK-2.24.0">PyGTK-2.24.0</a> (for the GTK frontend), <a class=
+          "xref" href="wpa_supplicant.html" title=
+          "wpa_supplicant-2.0">wpa_supplicant-2.0</a> (for WPA support) and
+          <a class="xref" href="dhcpcd.html" title=
+          "dhcpcd-5.6.7">dhcpcd-5.6.7</a> or <a class="xref" href="dhcp.html"
+          title="DHCP-4.2.5-P1">DHCP-4.2.5-P1</a> (for DHCP support)
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="ulink" href="http://excess.org/urwid/">Urwid</a> (for the
+          Curses-based frontend), <a class="ulink" href=
+          "http://pm-utils.freedesktop.org/wiki/">pm-utils</a> (for
+          suspend/resume integration) and <a class="ulink" href=
+          "http://babel.edgewall.org/">Babel</a> (for internationalization)
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/wicd">http://wiki.linuxfromscratch.org/blfs/wiki/wicd</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Wicd
+        </h2>
+        <p>
+          Install <span class="application">Wicd</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i '/wpath.logrotate\|wpath.systemd/d' setup.py &amp;&amp;
+python setup.py configure --no-install-kde \
+                          --no-install-acpi \
+                          --no-install-pmutils \
+                          --no-install-init</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user, install the
+          package:
+        </p>
+        <pre class="root">
+<kbd class="command">python setup.py install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i '/wpath...</strong></span>:
+          This <span class="command"><strong>sed</strong></span> prevents
+          installation of <span class=
+          "command"><strong>logrotate</strong></span> and systemd
+          configuration files. You may omit it if you use these utilities.
+        </p>
+        <p>
+          <code class="option">--no-install-kde</code>: Prevent installation
+          of an autostart desktop file for KDE. If you use KDE, you should
+          instead install the <a class="ulink" href=
+          "http://projects.kde.org/projects/extragear/network/wicd-kde">Wicd
+          KDE Client</a>.
+        </p>
+        <p>
+          <code class="option">--no-install-acpi</code>: Prevent installation
+          of <span class="command"><strong>suspend</strong></span> and
+          <span class="command"><strong>resume</strong></span> scripts for
+          acpid. Omit this option if you use acpid.
+        </p>
+        <p>
+          <code class="option">--no-install-pmutils</code>: Prevent
+          installation of hooks for pm-utils. Omit this option if you use
+          pm-utils.
+        </p>
+        <p>
+          <code class="option">--no-install-init</code>: Prevent installation
+          of any init scripts, as a bootscript is installed later in the
+          instructions.
+        </p>
+        <p>
+          <code class="option">--wicdgroup=<em class=
+          "replaceable"><code>&lt;group&gt;</code></em></code>: The group
+          that will have permission to use the Wicd client (default is the
+          <code class="systemitem">users</code> group).
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring Wicd
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="wicd-config" name="wicd-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">/etc/wicd/manager-settings.conf</code>,
+            <code class="filename">/etc/wicd/wired-settings.conf</code> and
+            <code class="filename">/etc/wicd/wireless-settings.conf</code>
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="wicd-init" name="wicd-init"></a>Configuration Information
+          </h3>
+          <p>
+            To automatically start Wicd at boot time, you need to first
+            install the Wicd bootscript, <code class=
+            "filename">/etc/rc.d/init.d/wicd</code>, included in the
+            <a class="xref" href="../introduction/bootscripts.html" title=
+            "BLFS Boot Scripts">blfs-bootscripts-20130324</a> package (as
+            user <code class="systemitem">root</code>):
+          </p>
+          <pre class="root">
+<kbd class="command">make install-wicd</kbd>
+</pre>
+          <p>
+            Since Wicd will now handle all configuration of network devices,
+            the network bootscript installed by LFS should be disabled. This
+            can be achieved by either removing any <code class=
+            "filename">S*network</code> and <code class=
+            "filename">K*network</code> symlinks in the <code class=
+            "filename">/etc/rc*.d</code> directories or by setting
+            <code class="literal">ONBOOT=no</code> in any <code class=
+            "filename">/etc/sysconfig/ifconfig.*</code> files.
+          </p>
+          <p>
+            No manual configuration of Wicd is needed if you use the
+            graphical frontends. If you are only going to use Wicd from
+            command-line, you can configure it using the configuration files
+            in <code class="filename">/etc/wicd</code>. For a list of
+            available options, look at the man-pages for:
+            wicd-manager-settings.conf, wicd-wired-settings.conf and
+            wicd-wireless-settings.conf.
+          </p>
+          <p>
+            Be sure to add all users who are to have rights to open and close
+            network connections with Wicd to the <code class=
+            "systemitem">users</code> group (or the group specified with the
+            <code class="option">--wicdgroup</code> configuration option).
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">wicd, wicd-cli, wicd-client, wicd-curses
+              and wicd-gtk</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">none</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/etc/wicd,
+              /usr/lib/python2.7/site-packages/wicd, /usr/share/doc/wicd,
+              /usr/share/pixmaps/wicd, /usr/share/wicd, /var/lib/wicd and
+              /var/log/wicd</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicdd" name="wicdd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the wicd daemon.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicd-cli" name="wicd-cli"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd-cli</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command line interface for configuring the wicd
+                    daemon.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicd-client" name="wicd-client"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd-client</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the wicd client. This script attempts to automatically
+                    choose the relevant configuration interface.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicd-curses" name="wicd-curses"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd-curses</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a curses interface for configuring the wicd daemon.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wicd-gtk" name="wicd-gtk"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wicd-gtk</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a GTK interface for configuring the wicd daemon
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-02-12 00:13:43 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="whois.html" title="Whois-5.0.20">Prev</a>
+          <p>
+            Whois-5.0.20
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="wireshark.html" title=
+          "Wireshark-1.8.3">Next</a>
+          <p>
+            Wireshark-1.8.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netutils.html" title=
+          "Chapter&nbsp;16.&nbsp;Networking Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

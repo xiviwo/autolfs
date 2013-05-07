@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      GTK-Doc-1.18
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;11.&nbsp;General Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="graphviz.html" title=
+          "Graphviz-2.30.1">Prev</a>
+          <p>
+            Graphviz-2.30.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="hd2u.html" title="Hd2u-1.0.3">Next</a>
+          <p>
+            Hd2u-1.0.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genutils.html" title=
+          "Chapter&nbsp;11.&nbsp;General Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="gtk-doc" name="gtk-doc"></a>GTK-Doc-1.18
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to GTK-Doc
+        </h2>
+        <p>
+          The <span class="application">GTK-Doc</span> package contains a
+          code documenter. This is useful for extracting specially formatted
+          comments from the code to create API documentation. This package is
+          <span class="emphasis"><em>optional</em></span>; if it is not
+          installed, packages will not build the documentation. This does not
+          mean that you will not have any documentation. If <span class=
+          "application">GTK-Doc</span> is not available, the install process
+          will copy any pre-built documentation to your system.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.3
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.18/gtk-doc-1.18.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.18/gtk-doc-1.18.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.18/gtk-doc-1.18.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.18/gtk-doc-1.18.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 3927bed60fdd0fc9093a1d00018e746a
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 628 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 10 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          GTK-Doc Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../pst/DocBook.html" title=
+          "docbook-xml-4.5">docbook-xml-4.5</a>, <a class="xref" href=
+          "../pst/docbook-xsl.html" title=
+          "docbook-xsl-1.77.1">docbook-xsl-1.77.1</a>, and <a class="xref"
+          href="libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="pkgconfig.html" title=
+          "pkg-config-0.28">pkg-config-0.28</a> (to use some of the optional
+          deps)
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/dblatex/">dblatex</a> or <a class=
+          "xref" href="../pst/fop.html" title="fop-1.1">fop-1.1</a> (XML PDF
+          support), <a class="xref" href="glib2.html" title=
+          "GLib-2.34.3">GLib-2.34.3</a> (for the test suite), <a class="xref"
+          href="../gnome/gnome-doc-utils.html" title=
+          "gnome-doc-utils-0.20.10">gnome-doc-utils-0.20.10</a> and <a class=
+          "xref" href="which.html" title=
+          "Which-2.20 and Alternatives">which-2.20</a> (required for the test
+          suite and gtk-doc documentation), <a class="xref" href=
+          "../pst/openjade.html" title="OpenJade-1.3.2">OpenJade-1.3.2</a>
+          with <a class="xref" href="../pst/sgml-dtd.html" title=
+          "docbook-4.5">docbook-4.5</a> and <a class="xref" href=
+          "../pst/docbook-dsssl.html" title=
+          "docbook-dsssl-1.79">docbook-dsssl-1.79</a> (SGML support, not
+          actively maintained any more), <a class="xref" href="python2.html"
+          title="Python-2.7.3">Python-2.7.3</a> (builds gtkdoc-depscan), and
+          <a class="xref" href="rarian.html" title=
+          "Rarian-0.8.1">Rarian-0.8.1</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gtk-doc">http://wiki.linuxfromscratch.org/blfs/wiki/gtk-doc</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of GTK-Doc
+        </h2>
+        <p>
+          Install <span class="application">GTK-Doc</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not have a working testsuite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">gtkdoc-check, gtkdoc-depscan,
+              gtkdoc-fixxref, gtkdocize, gtkdoc-mkdb, gtkdoc-mkhtml,
+              gtkdoc-mkman, gtkdoc-mkpdf, gtkdoc-mktmpl, gtkdoc-rebase,
+              gtkdoc-scan, gtkdoc-scangobj, and gtkdoc-scanobj</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class=
+              "segbody">/usr/share/{gnome/help/gtk-doc-manual/*,gtk-doc/data,omf/gtk-doc-manual,sgml/gtk-doc}</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gtkdoc" name="gtkdoc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gtkdoc*</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    these are all shell, <span class=
+                    "application">Perl</span>, or <span class=
+                    "application">Python</span> scripts used by package
+                    <code class="filename">Makefile</code> scripts to
+                    generate documentation for the package being built.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-12 00:31:48 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="graphviz.html" title=
+          "Graphviz-2.30.1">Prev</a>
+          <p>
+            Graphviz-2.30.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="hd2u.html" title="Hd2u-1.0.3">Next</a>
+          <p>
+            Hd2u-1.0.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genutils.html" title=
+          "Chapter&nbsp;11.&nbsp;General Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

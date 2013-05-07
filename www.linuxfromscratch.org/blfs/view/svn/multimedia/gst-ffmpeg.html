@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      gst-ffmpeg-0.10.13
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gst-plugins-ugly.html" title=
+          "gst-plugins-ugly-0.10.19">Prev</a>
+          <p>
+            gst-plugins-ugly-0.10.19
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gstreamer10.html" title=
+          "GStreamer-1.0.6">Next</a>
+          <p>
+            GStreamer-1.0.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="gst-ffmpeg" name="gst-ffmpeg"></a>gst-ffmpeg-0.10.13
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Gst FFMpeg
+        </h2>
+        <p>
+          The <span class="application">Gst FFMpeg</span> contains GStreamer
+          plugins for <span class="application">FFMpeg</span>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.3
+          platform.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            <span class="application">GStreamer</span> 1.0 series is not API
+            or ABI compatible with <span class="application">GStreamer</span>
+            0.10 series and both can be installed on the same system.
+          </p>
+        </div>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://gstreamer.freedesktop.org/src/gst-ffmpeg/gst-ffmpeg-0.10.13.tar.bz2">
+                http://gstreamer.freedesktop.org/src/gst-ffmpeg/gst-ffmpeg-0.10.13.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 7f5beacaf1312db2db30a026b36888c4
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 4.6 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 272 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 2.9 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/gst-ffmpeg-0.10.13-gcc-4.7-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/gst-ffmpeg-0.10.13-gcc-4.7-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Gst FFMpeg Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="gst-plugins-base.html" title=
+          "gst-plugins-base-0.10.36">gst-plugins-base-0.10.36</a> and
+          <a class="xref" href="../general/yasm.html" title=
+          "yasm-1.2.0">yasm-1.2.0</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "http://code.entropywave.com/projects/orc/">ORC</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gst-ffmpeg">http://wiki.linuxfromscratch.org/blfs/wiki/gst-ffmpeg</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Gst FFMpeg
+        </h2>
+        <p>
+          Install <span class="application">Gst FFMpeg</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -p1 &lt; ../gst-ffmpeg-0.10.13-gcc-4.7-1.patch &amp;&amp;
+./configure --prefix=/usr &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed GStreamer Plugins:</strong>
+              <span class="segbody">libgstffmpeg.so, libgstffmpegscale.so and
+              libgstpostproc.so</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-28 00:12:39 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gst-plugins-ugly.html" title=
+          "gst-plugins-ugly-0.10.19">Prev</a>
+          <p>
+            gst-plugins-ugly-0.10.19
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gstreamer10.html" title=
+          "GStreamer-1.0.6">Next</a>
+          <p>
+            GStreamer-1.0.6
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

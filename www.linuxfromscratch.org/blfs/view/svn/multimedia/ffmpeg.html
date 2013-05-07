@@ -1,0 +1,725 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      FFmpeg-1.2
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;40.&nbsp;Video Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="videoutils.html" title=
+          "Video Utilities">Prev</a>
+          <p>
+            Video Utilities
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="mplayer.html" title="MPlayer-1.1">Next</a>
+          <p>
+            MPlayer-1.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="videoutils.html" title=
+          "Chapter&nbsp;40.&nbsp;Video Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="ffmpeg" name="ffmpeg"></a>FFmpeg-1.2
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to FFmpeg
+        </h2>
+        <p>
+          <span class="application">FFmpeg</span> is a solution to record,
+          convert and stream audio and video. It is a very fast video and
+          audio converter and it can also acquire from a live audio/video
+          source. Designed to be intuitive, the command-line interface
+          (<span class="command"><strong>ffmpeg</strong></span>) tries to
+          figure out all the parameters, when possible. <span class=
+          "application">FFmpeg</span> can also convert from any sample rate
+          to any other, and resize video on the fly with a high quality
+          polyphase filter. <span class="application">FFmpeg</span> can use a
+          Video4Linux compatible video source and any Open Sound System audio
+          source.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ffmpeg.org/releases/ffmpeg-1.2.tar.bz2">http://ffmpeg.org/releases/ffmpeg-1.2.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: c871d20559cb64c015b5cf0858812a56
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 5.7 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 100 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 4.0 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          FFmpeg Dependencies
+        </h3>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="faac.html" title="FAAC-1.28">FAAC-1.28</a>,
+          <a class="xref" href="../general/freetype2.html" title=
+          "FreeType-2.4.11">FreeType-2.4.11</a>, <a class="xref" href=
+          "lame.html" title="LAME-3.99.5">LAME-3.99.5</a>, <a class="xref"
+          href="../general/openjpeg.html" title=
+          "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a>, <a class="xref" href=
+          "pulseaudio.html" title="PulseAudio-3.0">PulseAudio-3.0</a>,
+          <a class="xref" href="speex.html" title=
+          "Speex-1.2rc1">Speex-1.2rc1</a>, <a class="xref" href=
+          "libtheora.html" title="libtheora-1.1.1">libtheora-1.1.1</a>,
+          <a class="xref" href="libvorbis.html" title=
+          "libvorbis-1.3.3">libvorbis-1.3.3</a>, <a class="xref" href=
+          "libvpx.html" title="libvpx-v1.1.0">libvpx-1.1.0</a>, <a class=
+          "xref" href="xvid.html" title="XviD-1.3.2">XviD-1.3.2</a>,
+          <a class="xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
+          "sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>, <a class="xref" href=
+          "../x/x7lib.html" title="Xorg Libraries">Xorg Libraries</a>,
+          <a class="xref" href="../general/yasm.html" title=
+          "yasm-1.2.0">yasm-1.2.0</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/fontconfig.html" title=
+          "Fontconfig-2.10.2">Fontconfig-2.10.2</a>, <a class="ulink" href=
+          "http://www.piksel.org/frei0r">frei0r</a>, <a class="xref" href=
+          "../postlfs/gnutls.html" title="GnuTLS-3.1.10">GnuTLS-3.1.10</a>,
+          <a class="ulink" href="http://tipok.org.ua/node/17">libaacplus</a>,
+          <a class="ulink" href=
+          "http://code.google.com/p/libass/">libass</a>, <a class="ulink"
+          href=
+          "http://www.videolan.org/developers/libbluray.html">libbluray</a>,
+          <a class="ulink" href="http://caca.zoy.org/">libcaca</a>, <a class=
+          "ulink" href="http://www.celt-codec.org/">libcelt</a>, <a class=
+          "ulink" href="http://ftp.gnu.org/pub/gnu/libcdio/">libcdio</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/libdc1394">libdc1394</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/opencore-amr/files/fdk-aac/">fdk-aac</a>,
+          <a class="ulink" href=
+          "http://www.speech.cs.cmu.edu/flite/">Flite</a>, <a class="ulink"
+          href="http://libgsm.sourcearchive.com/">GSM</a>, <a class="ulink"
+          href=
+          "https://ieee1394.wiki.kernel.org/index.php/Libraries">libiec61883</a>,
+          <a class="ulink" href=
+          "https://github.com/dekkers/libilbc">libilbc</a>, <a class="ulink"
+          href=
+          "http://sourceforge.net/projects/modplug-xmms/">libmodplug</a>,
+          <a class="ulink" href=
+          "http://svn.mplayerhq.hu/nut/src/trunk/">libnut</a> (SVN checkout),
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/opencore-amr">OpenCore AMR</a>,
+          <a class="ulink" href="http://opencv.org/">OpenCV</a>, <a class=
+          "ulink" href="http://www.opus-codec.org/">Opus</a>, <a class=
+          "ulink" href="http://sourceforge.net/projects/librtmp">librtmp</a>,
+          <a class="ulink" href="http://diracvideo.org/">Schroedinger</a>,
+          <a class="ulink" href="http://www.twolame.org/">TwoLAME</a>,
+          <a class="ulink" href=
+          "http://linuxtv.org/downloads/v4l-utils/">Video4Linux</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/opencore-amr/files/vo-aacenc/">vo-aaenc</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/opencore-amr/files/vo-amrwbenc/">vo-amrwbenc</a>,
+          <a class="ulink" href=
+          "http://www.videolan.org/developers/x264.html">x264</a>, <a class=
+          "ulink" href="http://xavs.sourceforge.net/">libxavs</a> (SVN
+          checkout), <a class="ulink" href=
+          "http://kcat.strangesoft.net/openal-releases/">OpenAL</a>, and
+          <a class="ulink" href=
+          "http://www.nongnu.org/texi2html">texi2html</a> (to build HTML
+          documentation)
+        </p>
+        <h4>
+          Optional (For Hardware Video Decoding)
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "http://www.freedesktop.org/wiki/Software/vaapi">VA-API (libva)</a>
+          with corresponding drivers, including: <a class="ulink" href=
+          "http://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/">
+          Intel Driver (i965 chipsets only)</a>, <a class="ulink" href=
+          "http://www.splitted-desktop.com/static/libva/xvba-video/">XVBA
+          Driver for AMD Radeon Cards</a>, and <a class="ulink" href=
+          "http://www.freedesktop.org/software/vaapi/releases/libva-vdpau-driver/">
+          VDPAU Driver for VDPAU capable Cards</a> (requires <a class="ulink"
+          href=
+          "http://cgit.freedesktop.org/~aplattner/libvdpau/">libvdpau</a>)
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/ffmpeg">http://wiki.linuxfromscratch.org/blfs/wiki/ffmpeg</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of FFmpeg
+        </h2>
+        <p>
+          If <span class="application">Xorg</span> is installed in a prefix
+          other than <code class="filename">/usr</code>, the build will fail.
+          Fix this by issuing the following command:
+        </p>
+        <pre class="userinput">
+<kbd class="command">export LIBRARY_PATH=$XORG_PREFIX/lib</kbd>
+</pre>
+        <p>
+          Install <span class="application">FFmpeg</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's/-lflite"/-lflite -lasound"/' configure &amp;&amp;
+./configure --prefix=/usr        \
+            --enable-gpl         \
+            --enable-version3    \
+            --enable-nonfree     \
+            --disable-static     \
+            --enable-shared      \
+            --enable-x11grab     \
+            --enable-libfaac     \
+            --enable-libfreetype \
+            --enable-libmp3lame  \
+            --enable-libopenjpeg \
+            --enable-libpulse    \
+            --enable-libspeex    \
+            --enable-libtheora   \
+            --enable-libvorbis   \
+            --enable-libvpx      \
+            --enable-libxvid     \
+            --enable-openssl     \
+            --disable-debug      &amp;&amp;
+make &amp;&amp;
+gcc tools/qt-faststart.c -o tools/qt-faststart &amp;&amp;
+unset LIBRARY_PATH</kbd>
+</pre>
+        <p>
+          HTML documentation was built in the previous step if <a class=
+          "ulink" href="http://www.nongnu.org/texi2html">texi2html</a> is
+          installed. If the HTML was built (check for any <code class=
+          "filename">.html</code> files in the <code class=
+          "filename">doc</code> directory) and you have <a class="xref" href=
+          "../pst/texlive.html" title="texlive-20120701">texlive-20120701</a>
+          installed and wish to build PDF and Postscript versions of the
+          documentation, issue the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">pushd doc &amp;&amp;
+for DOCNAME in `basename -s .html *.html`
+do
+    texi2pdf -b $DOCNAME.texi &amp;&amp;
+    texi2dvi -b $DOCNAME.texi &amp;&amp;
+    dvips -o    $DOCNAME.ps   \
+                $DOCNAME.dvi  &amp;&amp;
+done                          &amp;&amp;
+popd                          &amp;&amp;
+unset DOCNAME</kbd>
+</pre>
+        <p>
+          If you have <a class="xref" href="../general/doxygen.html" title=
+          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a> installed and wish to create
+          the API documentation (takes about 300 MB of space), issue the
+          command <span class="command"><strong>doxygen
+          doc/Doxyfile</strong></span>.
+        </p>
+        <p>
+          To properly test the installation you must have <a class="xref"
+          href="../basicnet/rsync.html" title="rsync-3.0.9">rsync-3.0.9</a>
+          installed and follow the instructions for the <a class="ulink"
+          href="http://ffmpeg.org/fate.html">FFmpeg Automated Testing
+          Environment</a>. Note that the BLFS team has not performed this
+          regression testing.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+install -v -m755    tools/qt-faststart /usr/bin &amp;&amp;
+install -v -m755 -d /usr/share/doc/ffmpeg-1.2 &amp;&amp;
+install -v -m644    doc/*.txt \
+                    /usr/share/doc/ffmpeg-1.2</kbd>
+</pre>
+        <p>
+          If HTML documentation was built, issue the following command to
+          install it:
+        </p>
+        <pre class="root">
+<kbd class="command">install -v -m644 doc/*.html \
+                 /usr/share/doc/ffmpeg-1.2</kbd>
+</pre>
+        <p>
+          If you used <span class="command"><strong>doxygen</strong></span>
+          to create the API documentation, install it (another 300 MB of
+          space) by issuing the following commands as the <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">install -v -m755 -d /usr/share/doc/ffmpeg-1.2/api &amp;&amp;
+install -v -m644    doc/doxy/html/* \
+                    /usr/share/doc/ffmpeg-1.2/api</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i ...</strong></span>: This
+          command adds the <span class="application">ALSA</span> library to
+          the <span class="application">Flite</span> <code class=
+          "envar">LDFLAGS</code> variable and enables the discovery of
+          <span class="application">Flite</span>.
+        </p>
+        <p>
+          <span class="command"><strong>gcc tools/qt-faststart.c -o
+          tools/qt-faststart</strong></span>: This builds the <span class=
+          "command"><strong>qt-faststart</strong></span> program which can
+          modify QuickTime formatted movies (<code class=
+          "filename">.mov</code> or <code class="filename">.mp4</code>) so
+          that the header information is located at the beginning of the file
+          instead of the end. This allows the movie file to begin playing
+          before the entire file has been downloaded.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-gpl</code></em>: Enables the
+          use of GPL code and permits support for postprocessing, swscale and
+          many other features.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-version3</code></em>: Enables
+          the use of (L)GPL version 3 code.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-nonfree</code></em>: Enables
+          the use of nonfree code. Note that the resulting libraries and
+          binaries will be unredistributable.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-shared</code></em>: Enables
+          building shared libraries, otherwise only static libraries are
+          built and installed.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-x11grab</code></em>: Enables
+          X11 grabbing.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libfaac</code></em>: Enables
+          AAC encoding via <code class="filename">libfaac</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libfreetype</code></em>:
+          Enables the use of <code class="filename">libfreetype</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libmp3lame</code></em>:
+          Enables MP3 encoding via <code class="filename">libmp3lame</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libopenjpeg</code></em>:
+          Enables JPEG 2000 de/encoding via <code class=
+          "filename">libopenjpeg</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libpulse</code></em>: Enables
+          <span class="application">Pulseaudio</span> input via <code class=
+          "filename">libpulse</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libspeex</code></em>: Enables
+          <span class="application">Speex</span> de/encoding via <code class=
+          "filename">libspeex</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libtheora</code></em>: Enables
+          <span class="application">Theora</span> encoding via <code class=
+          "filename">libtheora</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libvorbis</code></em>: Enables
+          <span class="application">Vorbis</span> de/encoding via
+          <code class="filename">libvorbis</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libvpx</code></em>: Enables
+          VP8 de/encoding via <code class="filename">libvpx</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libxvid</code></em>: Enables
+          <span class="application">Xvid</span> encoding via <code class=
+          "filename">libxvidcore</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-openssl</code></em>: Enables
+          <span class="application">OpenSSL</span> cryptography.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-debug</code></em>: Disables
+          building debugging symbols into the programs and libraries.
+        </p>
+        <p>
+          <code class="option">--enable-<em class=
+          "replaceable"><code>&lt;codec&gt;</code></em></code>: <span class=
+          "application">FFmpeg</span> comes with code to compile decoders for
+          almost every codec you could think of. The only reason to enable a
+          specific codec (and make <span class="application">FFmpeg</span>
+          link to the prerequisite shared library installed on your system)
+          is to make <span class="application">FFmpeg</span> compile an
+          <span class="emphasis"><em>encoder</em></span> for that codec.
+          <span class="application">FFmpeg</span> provides an excellent
+          collection of decoders. If you just want to use <span class=
+          "application">FFmpeg</span> to watch video or listen to music (via
+          other applications such as <span class=
+          "application">Gstreamer</span> or <span class=
+          "application">Xine</span>) then you will not benefit from linking
+          <span class="application">FFmpeg</span> to other codec libraries.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring FFmpeg
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="ffmpeg-config" name="ffmpeg-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">/etc/ffserver.conf</code> and <code class=
+            "filename">~/.ffmpeg/ffserver-config</code>
+          </p>
+          <p>
+            You'll find a sample <span class=
+            "command"><strong>ffserver</strong></span> configuration file at
+            <code class="filename">doc/ffserver.conf</code> in the source
+            tree.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">ffmpeg, ffplay, ffprobe, ffserver and
+              qt-faststart</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libavcodec.so, libavdevice.so,
+              libavfilter.so, libavformat.so, libavutil.so, libpostproc.so,
+              libswresample and libswscale.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/libavcodec,
+              /usr/include/libavdevice, /usr/include/libavfilter,
+              /usr/include/libavformat, /usr/include/libavutil,
+              /usr/include/libpostproc, /usr/include/libswresample
+              /usr/include/libswscale, /usr/share/ffmpeg and
+              /usr/share/doc/ffmpeg-1.2</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ffmpeg-prog" name="ffmpeg-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ffmpeg</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command-line tool to convert video files, network
+                    streams and input from a TV card to several video
+                    formats.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ffplay" name="ffplay"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ffplay</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a very simple and portable media player using the
+                    <code class="filename">ffmpeg</code> libraries and the
+                    SDL library.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ffprobe" name="ffprobe"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ffprobe</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gathers information from multimedia streams and prints it
+                    in a human and machine-readable fashion.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ffserver" name="ffserver"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ffserver</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a streaming server for everything that <span class=
+                    "command"><strong>ffmpeg</strong></span> could use as
+                    input (files, streams, TV card input, webcam, etc).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="qt-faststart" name="qt-faststart"></a><span class=
+                    "term"><span class=
+                    "command"><strong>qt-faststart</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    moves the index file to the front of quicktime (mov/mp4)
+                    videos.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libavcodec" name="libavcodec"></a><span class=
+                    "term"><code class="filename">libavcodec.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a library containing the <span class=
+                    "application">FFmpeg</span> codecs (both encoding and
+                    decoding).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libavdevice" name="libavdevice"></a><span class=
+                    "term"><code class=
+                    "filename">libavdevice.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the <span class="application">FFmpeg</span> device
+                    handling library.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libavfilter" name="libavfilter"></a><span class=
+                    "term"><code class=
+                    "filename">libavfilter.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a library of filters that can alter video or audio
+                    between the decoder and the encoder (or output).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libavformat" name="libavformat"></a><span class=
+                    "term"><code class=
+                    "filename">libavformat.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a library containing the file formats handling (mux
+                    and demux code for several formats) used by <span class=
+                    "command"><strong>ffplay</strong></span> as well as
+                    allowing the generation of audio or video streams.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libavutil" name="libavutil"></a><span class=
+                    "term"><code class="filename">libavutil.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the <span class="application">FFmpeg</span> utility
+                    library.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libpostproc" name="libpostproc"></a><span class=
+                    "term"><code class=
+                    "filename">libpostproc.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the <span class="application">FFmpeg</span> post
+                    processing library.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libswresample" name=
+                    "libswresample"></a><span class="term"><code class=
+                    "filename">libswresample.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the <span class="application">FFmpeg</span> audio
+                    rescaling library, it contains functions for converting
+                    audio sample formats.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libswscale" name="libswscale"></a><span class=
+                    "term"><code class="filename">libswscale.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the <span class="application">FFmpeg</span> image
+                    rescaling library.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-24 16:03:50 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="videoutils.html" title=
+          "Video Utilities">Prev</a>
+          <p>
+            Video Utilities
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="mplayer.html" title="MPlayer-1.1">Next</a>
+          <p>
+            MPlayer-1.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="videoutils.html" title=
+          "Chapter&nbsp;40.&nbsp;Video Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

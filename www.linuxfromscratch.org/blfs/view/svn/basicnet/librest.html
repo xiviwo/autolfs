@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      librest-0.7.90
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;17.&nbsp;Networking Libraries
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libpcap.html" title="libpcap-1.3.0">Prev</a>
+          <p>
+            libpcap-1.3.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libsoup.html" title=
+          "libsoup-2.40.3">Next</a>
+          <p>
+            libsoup-2.40.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netlibs.html" title=
+          "Chapter&nbsp;17.&nbsp;Networking Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="librest" name="librest"></a>librest-0.7.90
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to librest
+        </h2>
+        <p>
+          <span class="application">librest</span> was designed to make it
+          easier to access web services that claim to be "RESTful". It
+          includes convenience wrappers for libsoup and libxml to ease remote
+          use of the RESTful API.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/rest/0.7/rest-0.7.90.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/rest/0.7/rest-0.7.90.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/rest/0.7/rest-0.7.90.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/rest/0.7/rest-0.7.90.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 639d51e9e9276726db93b1b4c46887f2
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 300 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 7.0 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          librest Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../postlfs/cacerts.html" title=
+          "Certificate Authority Certificates">Certificate Authority
+          Certificates</a> and <a class="xref" href="libsoup.html" title=
+          "libsoup-2.40.3">libsoup-2.40.3</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/gobject-introspection.html" title=
+          "gobject-introspection-1.34.2">gobject-introspection-1.34.2</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.18">GTK-Doc-1.18</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/librest">http://wiki.linuxfromscratch.org/blfs/wiki/librest</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of librest
+        </h2>
+        <p>
+          Install <span class="application">librest</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr \
+            --with-ca-certificates=/etc/ssl/ca-bundle.crt &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class=
+          "parameter"><code>--with-ca-certificates=/etc/ssl/ca-bundle.crt</code></em>:
+          The configure script needs to be pointed to the certificates.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">librest-0.7.so and
+              librest-extras-0.7.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/rest-0.7 and
+              /usr/share/gtk-doc/html/rest-0.7</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="librest-0" name="librest-0"></a><span class=
+                    "term"><code class=
+                    "filename">librest-0.7.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the RESTful Web API Query functions.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="librest-extras-0" name=
+                    "librest-extras-0"></a><span class="term"><code class=
+                    "filename">librest-extras-0.7.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains extra RESTful Web API Query functions.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-01-25 16:32:25 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libpcap.html" title="libpcap-1.3.0">Prev</a>
+          <p>
+            libpcap-1.3.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libsoup.html" title=
+          "libsoup-2.40.3">Next</a>
+          <p>
+            libsoup-2.40.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netlibs.html" title=
+          "Chapter&nbsp;17.&nbsp;Networking Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

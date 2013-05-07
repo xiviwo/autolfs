@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      xinetd-2.3.15
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;23.&nbsp;Other Server Software
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="soprano.html" title="Soprano-2.9.0">Prev</a>
+          <p>
+            Soprano-2.9.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../x/x.html" title=
+          "X + Window Managers">Next</a>
+          <p>
+            X + Window Managers
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="other.html" title=
+          "Chapter&nbsp;23.&nbsp;Other Server Software">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="xinetd" name="xinetd"></a>xinetd-2.3.15
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to xinetd
+        </h2>
+        <p>
+          <span class="application">xinetd</span> is the eXtended InterNET
+          services daemon, a secure replacement for <span class=
+          "command"><strong>inetd</strong></span>.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://www.xinetd.org/xinetd-2.3.15.tar.gz">http://www.xinetd.org/xinetd-2.3.15.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://mirror.ovh.net/gentoo-distfiles/distfiles/xinetd-2.3.15.tar.gz">
+                ftp://mirror.ovh.net/gentoo-distfiles/distfiles/xinetd-2.3.15.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 77358478fd58efa6366accae99b8b04c
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 308 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 5.0 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: less than 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          xinetd Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../basicnet/libtirpc.html" title=
+          "libtirpc-0.2.3">libtirpc-0.2.3</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "ftp://ftp.porcupine.org/pub/security/">tcpwrappers
+          (deprecated)</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/xinetd">http://wiki.linuxfromscratch.org/blfs/wiki/xinetd</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of xinetd
+        </h2>
+        <p>
+          Install <span class="application">xinetd</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i -e "/^LIBS/s/-lpset/&amp; -ltirpc/" xinetd/Makefile.in       &amp;&amp;
+sed -i -e "/register unsigned count/s/register//" xinetd/itox.c &amp;&amp;
+./configure --prefix=/usr --with-loadavg                        &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed ...
+          xinetd/Makefile.in</strong></span>: Ensure the program links
+          against the libtirpc library.
+        </p>
+        <p>
+          <span class="command"><strong>sed ...
+          xinetd/itox.c</strong></span>: Fix some compiler warnings.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring xinetd
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="xinetd-config" name="xinetd-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">/etc/xinetd.conf</code> and <code class=
+            "filename">/etc/xinetd.d/*</code>
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Configuration Information
+          </h3>
+          <p>
+            Ensure the path to all daemons is <code class=
+            "filename">/usr/sbin</code>, rather than the default path of
+            <code class="filename">/usr/bin</code>, and install the
+            <span class="application">xinetd</span> configuration files by
+            running the following commands as the <code class=
+            "systemitem">root</code> user:
+          </p>
+          <pre class="root">
+<kbd class="command">cat &gt; /etc/xinetd.conf &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/xinetd
+# Configuration file for xinetd
+
+defaults
+{
+      instances       = 60
+      log_type        = SYSLOG daemon
+      log_on_success  = HOST PID USERID
+      log_on_failure  = HOST USERID
+      cps             = 25 30
+}
+
+# All service files are stored in the /etc/xinetd.d directory
+
+includedir /etc/xinetd.d
+
+# End /etc/xinetd</code>
+EOF</kbd>
+</pre>
+          <p>
+            All of the following files have the statement, "disable = yes".
+            To activate any of the services, this statement will need to be
+            changed to "disable = no".
+          </p>
+          <div class="admon note">
+            <img alt="[Note]" src="../images/note.png" />
+            <h3>
+              Note
+            </h3>
+            <p>
+              The following files are listed to demonstrate several
+              <span class="application">xinetd</span> applications. In many
+              cases, these applications are not needed. Some classic
+              applications are considered security risks. For example,
+              <span class="command"><strong>telnet</strong></span>,
+              <span class="command"><strong>rlogin</strong></span>,
+              <span class="command"><strong>rexec</strong></span>, and
+              <span class="command"><strong>rsh</strong></span> transmit
+              unencrypted usernames and passwords over the network and can be
+              easily replaced with a more secure alternative: <span class=
+              "command"><strong>ssh</strong></span>.
+            </p>
+          </div>
+          <pre class="root">
+<kbd class="command">install -v -d -m755 /etc/xinetd.d &amp;&amp;
+
+cat &gt; /etc/xinetd.d/systat &lt;&lt; "EOF" &amp;&amp;
+<code class="literal"># Begin /etc/xinetd.d/systat
+
+service systat
+{
+   disable           = yes
+   socket_type       = stream
+   wait              = no
+   user              = nobody
+   server            = /usr/bin/ps
+   server_args       = -auwwx
+   only_from         = 128.138.209.0
+   log_on_success    = HOST
+}
+
+# End /etc/xinetd.d/systat</code>
+EOF
+
+cat &gt; /etc/xinetd.d/echo &lt;&lt; "EOF" &amp;&amp;
+<code class="literal"># Begin /etc/xinetd.d/echo
+
+service echo
+{
+   disable     = yes
+   type        = INTERNAL
+   id          = echo-stream
+   socket_type = stream
+   protocol    = tcp
+   user        = root
+   wait        = no
+}
+
+service echo
+{
+   disable     = yes
+   type        = INTERNAL
+   id          = echo-dgram
+   socket_type = dgram
+   protocol    = udp
+   user        = root
+   wait        = yes
+}
+
+# End /etc/xinetd.d/echo</code>
+EOF
+
+cat &gt; /etc/xinetd.d/chargen &lt;&lt; "EOF" &amp;&amp;
+<code class="literal"># Begin /etc/xinetd.d/chargen
+
+service chargen
+{
+   disable        = yes
+   type           = INTERNAL
+   id             = chargen-stream
+   socket_type    = stream
+   protocol       = tcp
+   user           = root
+   wait           = no
+}
+
+service chargen
+{
+   disable        = yes
+   type           = INTERNAL
+   id             = chargen-dgram
+   socket_type    = dgram
+   protocol       = udp
+   user           = root
+   wait           = yes
+}
+
+# End /etc/xinetd.d/chargen</code>
+EOF
+
+cat &gt; /etc/xinetd.d/daytime &lt;&lt; "EOF" &amp;&amp;
+<code class="literal"># Begin /etc/xinetd.d/daytime
+
+service daytime
+{
+   disable        = yes
+   type           = INTERNAL
+   id             = daytime-stream
+   socket_type    = stream
+   protocol       = tcp
+   user           = root
+   wait           = no
+}
+
+service daytime
+{
+   disable        = yes
+   type           = INTERNAL
+   id             = daytime-dgram
+   socket_type    = dgram
+   protocol       = udp
+   user           = root
+   wait           = yes
+}
+
+# End /etc/xinetd.d/daytime</code>
+EOF
+
+cat &gt; /etc/xinetd.d/time &lt;&lt; "EOF" &amp;&amp;
+<code class="literal"># Begin /etc/xinetd.d/time
+
+service time
+{
+   disable        = yes
+   type           = INTERNAL
+   id             = time-stream
+   socket_type    = stream
+   protocol       = tcp
+   user           = root
+   wait           = no
+}
+
+service time
+{
+   disable        = yes
+   type           = INTERNAL
+   id             = time-dgram
+   socket_type    = dgram
+   protocol       = udp
+   user           = root
+   wait           = yes
+}
+
+# End /etc/xinetd.d/time</code>
+EOF</kbd>
+</pre>
+          <p>
+            The format of the <code class="filename">/etc/xinetd.conf</code>
+            is documented in the <code class="filename">xinetd.conf.5</code>
+            man page. Further information can be found at <a class="ulink"
+            href="http://www.xinetd.org">http://www.xinetd.org</a>.
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="xinetd-init" name="xinetd-init"></a>Boot Script
+          </h3>
+          <p>
+            As the <code class="systemitem">root</code> user, install the
+            <code class="filename">/etc/rc.d/init.d/xinetd</code> init script
+            included in the <a class="xref" href=
+            "../introduction/bootscripts.html" title=
+            "BLFS Boot Scripts">blfs-bootscripts-20130324</a> package.
+          </p>
+          <pre class="root">
+<kbd class="command">make install-xinetd</kbd>
+</pre>
+          <p>
+            As the <code class="systemitem">root</code> user, use the new
+            boot script to start <span class=
+            "command"><strong>xinetd</strong></span>:
+          </p>
+          <pre class="root">
+<kbd class="command">/etc/rc.d/init.d/xinetd start</kbd>
+</pre>
+          <p>
+            Check the <code class="filename">/var/log/daemon.log</code> to
+            ensure the appropriate services are started. If no services are
+            enabled, the program will not start without the <code class=
+            "option">-stayalive</code> option.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">itox, xconv.pl, and xinetd</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/etc/xinetd.d/</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="itox" name="itox"></a><span class=
+                    "term"><span class=
+                    "command"><strong>itox</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a utility used for converting <code class=
+                    "filename">inetd.conf</code> files to <code class=
+                    "filename">xinetd.conf</code> format.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xconv.pl" name="xconv.pl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xconv.pl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a <span class="application">Perl</span> script used
+                    for converting <code class="filename">inetd.conf</code>
+                    files to <code class="filename">xinetd.conf</code>
+                    format, similar to <span class=
+                    "command"><strong>itox</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xinetd-prog" name="xinetd-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xinetd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Internet services daemon.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-02-11 18:51:17 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="soprano.html" title="Soprano-2.9.0">Prev</a>
+          <p>
+            Soprano-2.9.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../x/x.html" title=
+          "X + Window Managers">Next</a>
+          <p>
+            X + Window Managers
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="other.html" title=
+          "Chapter&nbsp;23.&nbsp;Other Server Software">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Part&nbsp;III.&nbsp;General Libraries and Utilities
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../postlfs/qemu.html" title=
+          "qemu-1.4.0">Prev</a>
+          <p>
+            qemu-1.4.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="genlib.html" title=
+          "General Libraries">Next</a>
+          <p>
+            General Libraries
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="part" lang="en" xml:lang="en">
+      <h1 class="part">
+        <a id="general" name="general"></a>General Libraries and Utilities
+      </h1>
+      <div class="toc">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li class="chapter">
+            <h4>
+              <a href="genlib.html">9. General Libraries</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="apr.html">Apr-1.4.6</a>
+              </li>
+              <li class="sect1">
+                <a href="aspell.html">Aspell-0.60.6.1</a>
+              </li>
+              <li class="sect1">
+                <a href="boost.html">Boost-1.53.0</a>
+              </li>
+              <li class="sect1">
+                <a href="enchant.html">enchant-1.6.0</a>
+              </li>
+              <li class="sect1">
+                <a href="exempi.html">Exempi-2.2.0</a>
+              </li>
+              <li class="sect1">
+                <a href="expat.html">Expat-2.1.0</a>
+              </li>
+              <li class="sect1">
+                <a href="gamin.html">Gamin-0.1.10</a>
+              </li>
+              <li class="sect1">
+                <a href="glib2.html">GLib-2.34.3</a>
+              </li>
+              <li class="sect1">
+                <a href="glibmm.html">GLibmm-2.34.1</a>
+              </li>
+              <li class="sect1">
+                <a href="gmime.html">GMime-2.6.15</a>
+              </li>
+              <li class="sect1">
+                <a href=
+                "gobject-introspection.html">gobject-introspection-1.34.2</a>
+              </li>
+              <li class="sect1">
+                <a href="gsl.html">Gsl-1.15</a>
+              </li>
+              <li class="sect1">
+                <a href="icu.html">ICU-51.1</a>
+              </li>
+              <li class="sect1">
+                <a href="iso-codes.html">ISO Codes-3.40</a>
+              </li>
+              <li class="sect1">
+                <a href="json-c.html">JSON-C-0.10</a>
+              </li>
+              <li class="sect1">
+                <a href="json-glib.html">JSON-GLib-0.15.2</a>
+              </li>
+              <li class="sect1">
+                <a href="keyutils.html">keyutils-1.5.5</a>
+              </li>
+              <li class="sect1">
+                <a href="libassuan.html">libassuan-2.1.0</a>
+              </li>
+              <li class="sect1">
+                <a href="libatasmart.html">libatasmart-0.19</a>
+              </li>
+              <li class="sect1">
+                <a href="libatomic_ops.html">libatomic_ops-7.2d</a>
+              </li>
+              <li class="sect1">
+                <a href="libcroco.html">libcroco-0.6.8</a>
+              </li>
+              <li class="sect1">
+                <a href="libdaemon.html">libdaemon-0.14</a>
+              </li>
+              <li class="sect1">
+                <a href="libdbusmenu-qt.html">libdbusmenu-qt-0.9.2</a>
+              </li>
+              <li class="sect1">
+                <a href="libdrm.html">libdrm-2.4.43</a>
+              </li>
+              <li class="sect1">
+                <a href="libesmtp.html">libESMTP-1.0.6</a>
+              </li>
+              <li class="sect1">
+                <a href="libffi.html">libffi-3.0.13</a>
+              </li>
+              <li class="sect1">
+                <a href="libgcrypt.html">libgcrypt-1.5.1</a>
+              </li>
+              <li class="sect1">
+                <a href="libglade.html">libglade-2.6.4</a>
+              </li>
+              <li class="sect1">
+                <a href="libgpg-error.html">libgpg-error-1.11</a>
+              </li>
+              <li class="sect1">
+                <a href="libgsf.html">libgsf-1.14.26</a>
+              </li>
+              <li class="sect1">
+                <a href="libgusb.html">libgusb-0.1.6</a>
+              </li>
+              <li class="sect1">
+                <a href="libical.html">libical-0.48</a>
+              </li>
+              <li class="sect1">
+                <a href="libidl.html">LibIDL-0.8.14</a>
+              </li>
+              <li class="sect1">
+                <a href="libidn.html">Libidn-1.25</a>
+              </li>
+              <li class="sect1">
+                <a href="libksba.html">Libksba-1.3.0</a>
+              </li>
+              <li class="sect1">
+                <a href="libsigc.html">libsigc++-2.2.11</a>
+              </li>
+              <li class="sect1">
+                <a href="libtasn1.html">libtasn1-3.2</a>
+              </li>
+              <li class="sect1">
+                <a href="libunique3.html">libunique-3.0.2</a>
+              </li>
+              <li class="sect1">
+                <a href="libunistring.html">libunistring-0.9.3</a>
+              </li>
+              <li class="sect1">
+                <a href="libusb.html">libusb-1.0.9</a>
+              </li>
+              <li class="sect1">
+                <a href="libusb-compat.html">libusb-compat-0.1.4</a>
+              </li>
+              <li class="sect1">
+                <a href="libxml2.html">libxml2-2.9.0</a>
+              </li>
+              <li class="sect1">
+                <a href="libxslt.html">libxslt-1.1.28</a>
+              </li>
+              <li class="sect1">
+                <a href="LZO.html">LZO-2.06</a>
+              </li>
+              <li class="sect1">
+                <a href="mtdev.html">mtdev-1.1.3</a>
+              </li>
+              <li class="sect1">
+                <a href="nspr.html">NSPR-4.9.6</a>
+              </li>
+              <li class="sect1">
+                <a href="openobex.html">OpenOBEX-1.6</a>
+              </li>
+              <li class="sect1">
+                <a href="pcre.html">PCRE-8.32</a>
+              </li>
+              <li class="sect1">
+                <a href="popt.html">Popt-1.16</a>
+              </li>
+              <li class="sect1">
+                <a href="pth.html">Pth-2.0.7</a>
+              </li>
+              <li class="sect1">
+                <a href="ptlib.html">Ptlib-2.10.10</a>
+              </li>
+              <li class="sect1">
+                <a href="qca.html">Qca-2.0.3</a>
+              </li>
+              <li class="sect1">
+                <a href="sbc.html">SBC-1.0</a>
+              </li>
+              <li class="sect1">
+                <a href="slib.html">SLIB-3b3</a>
+              </li>
+              <li class="sect1">
+                <a href="talloc.html">Talloc-2.0.8</a>
+              </li>
+              <li class="sect1">
+                <a href="telepathy-glib.html">telepathy-glib-0.20.1</a>
+              </li>
+              <li class="sect1">
+                <a href="telepathy-logger.html">telepathy-logger-0.8.0</a>
+              </li>
+              <li class="sect1">
+                <a href=
+                "telepathy-farstream.html">telepathy-farstream-0.6.0</a>
+              </li>
+              <li class="sect1">
+                <a href=
+                "telepathy-mission-control.html">telepathy-mission-control-5.14.0</a>
+              </li>
+              <li class="sect1">
+                <a href="wv.html">wv-1.2.9</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="graphlib.html">10. Graphics and Font Libraries</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="aalib.html">AAlib-1.4rc5</a>
+              </li>
+              <li class="sect1">
+                <a href="babl.html">babl-0.1.10</a>
+              </li>
+              <li class="sect1">
+                <a href="exiv2.html">Exiv2-0.23</a>
+              </li>
+              <li class="sect1">
+                <a href="freetype2.html">FreeType-2.4.11</a>
+              </li>
+              <li class="sect1">
+                <a href="fontconfig.html">Fontconfig-2.10.2</a>
+              </li>
+              <li class="sect1">
+                <a href="fribidi.html">FriBidi-0.19.5</a>
+              </li>
+              <li class="sect1">
+                <a href="gegl.html">gegl-0.2.0</a>
+              </li>
+              <li class="sect1">
+                <a href="giflib.html">giflib-4.1.6</a>
+              </li>
+              <li class="sect1">
+                <a href="harfbuzz.html">Harfbuzz-0.9.14</a>
+              </li>
+              <li class="sect1">
+                <a href="ijs.html">IJS-0.35</a>
+              </li>
+              <li class="sect1">
+                <a href="imlib2.html">Imlib2-1.4.5</a>
+              </li>
+              <li class="sect1">
+                <a href="jasper.html">JasPer-1.900.1</a>
+              </li>
+              <li class="sect1">
+                <a href="lcms.html">Little CMS-1.19</a>
+              </li>
+              <li class="sect1">
+                <a href="lcms2.html">Little CMS-2.4</a>
+              </li>
+              <li class="sect1">
+                <a href="libart_lgpl.html">libart_lgpl-2.3.21</a>
+              </li>
+              <li class="sect1">
+                <a href="libexif.html">libexif-0.6.21</a>
+              </li>
+              <li class="sect1">
+                <a href="libjpeg.html">libjpeg-turbo-1.2.1</a>
+              </li>
+              <li class="sect1">
+                <a href="libmng.html">libmng-1.0.10</a>
+              </li>
+              <li class="sect1">
+                <a href="libpng.html">libpng-1.5.14</a>
+              </li>
+              <li class="sect1">
+                <a href="librsvg.html">librsvg-2.36.4</a>
+              </li>
+              <li class="sect1">
+                <a href="libtiff.html">LibTIFF-4.0.3</a>
+              </li>
+              <li class="sect1">
+                <a href="openjpeg.html">OpenJPEG-1.5.1</a>
+              </li>
+              <li class="sect1">
+                <a href="pixman.html">Pixman-0.28.2</a>
+              </li>
+              <li class="sect1">
+                <a href="poppler.html">Poppler-0.22.2</a>
+              </li>
+              <li class="sect1">
+                <a href="qpdf.html">Qpdf-4.0.1</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="genutils.html">11. General Utilities</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="apr-util.html">Apr-Util-1.5.1</a>
+              </li>
+              <li class="sect1">
+                <a href="bc.html">bc-1.06.95</a>
+              </li>
+              <li class="sect1">
+                <a href="compface.html">Compface-1.5.2</a>
+              </li>
+              <li class="sect1">
+                <a href="desktop-file-utils.html">desktop-file-utils-0.21</a>
+              </li>
+              <li class="sect1">
+                <a href="gperf.html">Gperf-3.0.4</a>
+              </li>
+              <li class="sect1">
+                <a href="graphviz.html">Graphviz-2.30.1</a>
+              </li>
+              <li class="sect1">
+                <a href="gtk-doc.html">GTK-Doc-1.18</a>
+              </li>
+              <li class="sect1">
+                <a href="hd2u.html">Hd2u-1.0.3</a>
+              </li>
+              <li class="sect1">
+                <a href="icon-naming-utils.html">icon-naming-utils-0.8.90</a>
+              </li>
+              <li class="sect1">
+                <a href="imagemagick.html">ImageMagick-6.8.2-8</a>
+              </li>
+              <li class="sect1">
+                <a href="intltool.html">Intltool-0.50.2</a>
+              </li>
+              <li class="sect1">
+                <a href="libiodbc.html">libiodbc-3.52.8</a>
+              </li>
+              <li class="sect1">
+                <a href="pinentry.html">PIN-Entry-0.8.2</a>
+              </li>
+              <li class="sect1">
+                <a href="rarian.html">Rarian-0.8.1</a>
+              </li>
+              <li class="sect1">
+                <a href="rep-gtk.html">Rep-gtk-0.90.8.1</a>
+              </li>
+              <li class="sect1">
+                <a href="rxvt-unicode.html">rxvt-unicode-9.15</a>
+              </li>
+              <li class="sect1">
+                <a href="screen.html">Screen-4.0.3</a>
+              </li>
+              <li class="sect1">
+                <a href="sharutils.html">Sharutils-4.13.3</a>
+              </li>
+              <li class="sect1">
+                <a href="SpiderMonkey.html">SpiderMonkey-1.0.0</a>
+              </li>
+              <li class="sect1">
+                <a href="tidy.html">HTML Tidy-cvs_20101110</a>
+              </li>
+              <li class="sect1">
+                <a href="unixodbc.html">unixODBC-2.3.1</a>
+              </li>
+              <li class="sect1">
+                <a href="xscreensaver.html">XScreenSaver-5.21</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="sysutils.html">12. System Utilities</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="apache-ant.html">apache-ant-1.8.4</a>
+              </li>
+              <li class="sect1">
+                <a href="at.html">at-3.1.13</a>
+              </li>
+              <li class="sect1">
+                <a href="autofs.html">autofs-5.0.7</a>
+              </li>
+              <li class="sect1">
+                <a href="bluez.html">BlueZ-4.101</a>
+              </li>
+              <li class="sect1">
+                <a href="colord.html">Colord-0.1.31</a>
+              </li>
+              <li class="sect1">
+                <a href="cpio.html">cpio-2.11</a>
+              </li>
+              <li class="sect1">
+                <a href="dbus.html">D-Bus-1.6.8</a>
+              </li>
+              <li class="sect1">
+                <a href="dbus-bindings.html">D-Bus Bindings</a>
+              </li>
+              <li class="sect1">
+                <a href="eject.html">Eject-2.1.5</a>
+              </li>
+              <li class="sect1">
+                <a href="fcron.html">Fcron-3.1.2</a>
+              </li>
+              <li class="sect1">
+                <a href="gpm.html">GPM-1.20.7</a>
+              </li>
+              <li class="sect1">
+                <a href="hdparm.html">Hdparm-9.43</a>
+              </li>
+              <li class="sect1">
+                <a href="ibus.html">IBus-1.5.1</a>
+              </li>
+              <li class="sect1">
+                <a href="itools.html">LSB Tools for managing bootscripts</a>
+              </li>
+              <li class="sect1">
+                <a href="libarchive.html">libarchive-3.1.2</a>
+              </li>
+              <li class="sect1">
+                <a href="lm_sensors.html">lm_sensors-3.3.3</a>
+              </li>
+              <li class="sect1">
+                <a href="mc.html">MC-4.8.6</a>
+              </li>
+              <li class="sect1">
+                <a href="obex-data-server.html">obex-data-server-0.4.6</a>
+              </li>
+              <li class="sect1">
+                <a href="obexd.html">Obexd-0.48</a>
+              </li>
+              <li class="sect1">
+                <a href="pciutils.html">PCI Utils-3.1.10</a>
+              </li>
+              <li class="sect1">
+                <a href="raptor.html">Raptor-2.0.9</a>
+              </li>
+              <li class="sect1">
+                <a href="rasqal.html">Rasqal-0.9.30</a>
+              </li>
+              <li class="sect1">
+                <a href="redland.html">Redland-1.0.16</a>
+              </li>
+              <li class="sect1">
+                <a href="sg3_utils.html">sg3_utils-1.35</a>
+              </li>
+              <li class="sect1">
+                <a href="strigi.html">Strigi-0.7.8</a>
+              </li>
+              <li class="sect1">
+                <a href="sysstat.html">Sysstat-10.0.5</a>
+              </li>
+              <li class="sect1">
+                <a href="udev.html">Udev-Installed LFS Version</a>
+              </li>
+              <li class="sect1">
+                <a href="udev-extras.html">Udev Extras (from systemd)</a>
+              </li>
+              <li class="sect1">
+                <a href="udisks.html">UDisks-1.0.4</a>
+              </li>
+              <li class="sect1">
+                <a href="udisks2.html">UDisks-2.1.0</a>
+              </li>
+              <li class="sect1">
+                <a href="unrar.html">UnRar-4.2.4</a>
+              </li>
+              <li class="sect1">
+                <a href="unzip.html">UnZip-6.0</a>
+              </li>
+              <li class="sect1">
+                <a href="upower.html">UPower-0.9.20</a>
+              </li>
+              <li class="sect1">
+                <a href="usbutils.html">USB Utils-006</a>
+              </li>
+              <li class="sect1">
+                <a href="which.html">Which-2.20 and Alternatives</a>
+              </li>
+              <li class="sect1">
+                <a href="zip.html">Zip-3.0</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="prog.html">13. Programming</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="bazaar.html">bzr-2.5.0</a>
+              </li>
+              <li class="sect1">
+                <a href="check.html">Check-0.9.9</a>
+              </li>
+              <li class="sect1">
+                <a href="cmake.html">CMake-2.8.10.2</a>
+              </li>
+              <li class="sect1">
+                <a href="cvs.html">CVS-1.11.23</a>
+              </li>
+              <li class="sect1">
+                <a href="cvsserver.html">Running a CVS Server</a>
+              </li>
+              <li class="sect1">
+                <a href="dejagnu.html">DejaGnu-1.5.1</a>
+              </li>
+              <li class="sect1">
+                <a href="doxygen.html">Doxygen-1.8.3.1</a>
+              </li>
+              <li class="sect1">
+                <a href="expect.html">Expect-5.45</a>
+              </li>
+              <li class="sect1">
+                <a href="gcc.html">GCC-4.7.2</a>
+              </li>
+              <li class="sect1">
+                <a href="gc.html">GC-7.2d</a>
+              </li>
+              <li class="sect1">
+                <a href="gdb.html">GDB-7.5</a>
+              </li>
+              <li class="sect1">
+                <a href="git.html">Git-1.8.2</a>
+              </li>
+              <li class="sect1">
+                <a href="guile.html">Guile-2.0.7</a>
+              </li>
+              <li class="sect1">
+                <a href="openjdk.html">OpenJDK-1.7.0.9</a>
+              </li>
+              <li class="sect1">
+                <a href="junit.html">JUnit-4.10</a>
+              </li>
+              <li class="sect1">
+                <a href="librep.html">Librep-0.92.2.1</a>
+              </li>
+              <li class="sect1">
+                <a href="llvm.html">LLVM-3.2</a>
+              </li>
+              <li class="sect1">
+                <a href="mercurial.html">mercurial-2.5.2</a>
+              </li>
+              <li class="sect1">
+                <a href="NASM.html">NASM-2.10.07</a>
+              </li>
+              <li class="sect1">
+                <a href="perl-modules.html">Perl Modules</a>
+              </li>
+              <li class="sect1">
+                <a href="php.html">PHP-5.4.11</a>
+              </li>
+              <li class="sect1">
+                <a href="pkgconfig.html">pkg-config-0.28</a>
+              </li>
+              <li class="sect1">
+                <a href="python2.html">Python-2.7.3</a>
+              </li>
+              <li class="sect1">
+                <a href="python3.html">Python-3.3.0</a>
+              </li>
+              <li class="sect1">
+                <a href="python-modules.html">Python Modules</a>
+              </li>
+              <li class="sect1">
+                <a href="ruby.html">Ruby-1.9.3-p392</a>
+              </li>
+              <li class="sect1">
+                <a href="slang.html">S-Lang-2.2.4</a>
+              </li>
+              <li class="sect1">
+                <a href="subversion.html">Subversion-1.7.8</a>
+              </li>
+              <li class="sect1">
+                <a href="svnserver.html">Running a Subversion Server</a>
+              </li>
+              <li class="sect1">
+                <a href="tcl.html">Tcl-8.6.0</a>
+              </li>
+              <li class="sect1">
+                <a href="tk.html">Tk-8.6.0</a>
+              </li>
+              <li class="sect1">
+                <a href="vala.html">Vala-0.18.1</a>
+              </li>
+              <li class="sect1">
+                <a href="yasm.html">yasm-1.2.0</a>
+              </li>
+              <li class="sect1">
+                <a href="other-tools.html">Other Programming Tools</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../postlfs/qemu.html" title=
+          "qemu-1.4.0">Prev</a>
+          <p>
+            qemu-1.4.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="genlib.html" title=
+          "General Libraries">Next</a>
+          <p>
+            General Libraries
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

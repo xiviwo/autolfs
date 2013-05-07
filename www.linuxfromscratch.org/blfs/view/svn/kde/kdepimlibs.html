@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Kdepimlibs-4.10.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;28.&nbsp;The KDE Core
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="nepomuk-widgets.html" title=
+          "Nepomuk-widgets-4.10.1">Prev</a>
+          <p>
+            Nepomuk-widgets-4.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="kactivities.html" title=
+          "Kactivities-4.10.1">Next</a>
+          <p>
+            Kactivities-4.10.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapter&nbsp;28.&nbsp;The KDE Core">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="kdepimlibs" name="kdepimlibs"></a>Kdepimlibs-4.10.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Kdepimlibs
+        </h2>
+        <p>
+          <span class="application">Kdepimlibs</span> is the common library
+          for <span class="application">KDE</span> PIM applications like
+          <span class="command"><strong>kmail</strong></span>, <span class=
+          "command"><strong>kalarm</strong></span>, etc.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.3
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://download.kde.org/stable/4.10.1/src/kdepimlibs-4.10.1.tar.xz">
+                http://download.kde.org/stable/4.10.1/src/kdepimlibs-4.10.1.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.kde.org/pub/kde/stable/4.10.1/src/kdepimlibs-4.10.1.tar.xz">
+                ftp://ftp.kde.org/pub/kde/stable/4.10.1/src/kdepimlibs-4.10.1.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 8de5cb639df2156146815a5d7aba75fc
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 2.8 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 153 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 7.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Kdepimlibs Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="nepomuk-core.html" title=
+          "Nepomuk-core-4.10.1">nepomuk-core-4.10.1</a>, <a class="xref"
+          href="../general/libxslt.html" title=
+          "libxslt-1.1.28">libxslt-1.1.28</a>, <a class="xref" href=
+          "../postlfs/gpgme.html" title="GPGME-1.4.0">GPGME-1.4.0</a>,
+          <a class="xref" href="../general/libical.html" title=
+          "libical-0.48">libical-0.48</a>, <a class="xref" href=
+          "akonadi.html" title="Akonadi-1.9.1">Akonadi-1.9.1</a>, <a class=
+          "xref" href="../postlfs/cyrus-sasl.html" title=
+          "Cyrus SASL-2.1.25">Cyrus SASL-2.1.25</a> and <a class="xref" href=
+          "../general/boost.html" title="Boost-1.53.0">Boost-1.53.0</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../server/openldap.html" title=
+          "OpenLDAP-2.4.34">OpenLDAP-2.4.34</a> and <a class="ulink" href=
+          "http://qjson.sourceforge.net/">QJson</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/kdepimlibs">http://wiki.linuxfromscratch.org/blfs/wiki/kdepimlibs</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Kdepimlibs
+        </h2>
+        <p>
+          Install <span class="application">kdepimlibs</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mkdir build &amp;&amp;
+cd build &amp;&amp;
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
+      -DCMAKE_BUILD_TYPE=Release \
+      .. &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          The full test suite for this package is not enabled by default and
+          not tested by the BLFS team.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">akonadi_benchmarker and
+              akonaditest</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">several in $KDE_PREFIX/lib</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">several in $KDE_PREFIX/include,
+              $KDE_PREFIX/lib and $KDE_PREFIX/share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-10 12:50:47 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="nepomuk-widgets.html" title=
+          "Nepomuk-widgets-4.10.1">Prev</a>
+          <p>
+            Nepomuk-widgets-4.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="kactivities.html" title=
+          "Kactivities-4.10.1">Next</a>
+          <p>
+            Kactivities-4.10.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapter&nbsp;28.&nbsp;The KDE Core">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

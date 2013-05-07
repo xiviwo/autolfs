@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Kdelibs-4.10.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;28.&nbsp;The KDE Core
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="oxygen-icons.html" title=
+          "Oxygen-icons-4.10.1">Prev</a>
+          <p>
+            Oxygen-icons-4.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="polkit-kde-agent.html" title=
+          "Polkit-kde-agent-0.99.0">Next</a>
+          <p>
+            Polkit-kde-agent-0.99.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapter&nbsp;28.&nbsp;The KDE Core">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="kdelibs" name="kdelibs"></a>Kdelibs-4.10.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Kdelibs
+        </h2>
+        <p>
+          This package includes programs and libraries that are central to
+          development and execution of KDE programs.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.3
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://download.kde.org/stable/4.10.1/src/kdelibs-4.10.1.tar.xz">
+                http://download.kde.org/stable/4.10.1/src/kdelibs-4.10.1.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.kde.org/pub/kde/stable/4.10.1/src/kdelibs-4.10.1.tar.xz">
+                ftp://ftp.kde.org/pub/kde/stable/4.10.1/src/kdelibs-4.10.1.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: c90b95d95e7e5cbe92017ee957b5d691
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 12.0 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 370 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 24 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Kdelibs Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="phonon.html" title=
+          "Phonon-4.6.0">phonon-4.6.0</a>, <a class="xref" href="attica.html"
+          title="Attica-0.4.1">attica-0.4.1</a>, <a class="xref" href=
+          "../server/soprano.html" title="Soprano-2.9.0">Soprano-2.9.0</a>,
+          <a class="xref" href="../general/strigi.html" title=
+          "Strigi-0.7.8">strigi-0.7.8</a>, <a class="xref" href=
+          "../general/qca.html" title="Qca-2.0.3">qca-2.0.3</a>, <a class=
+          "xref" href="../general/libdbusmenu-qt.html" title=
+          "libdbusmenu-qt-0.9.2">libdbusmenu-qt-0.9.2</a>, <a class="xref"
+          href="../pst/DocBook.html" title=
+          "docbook-xml-4.5">docbook-xml-4.5</a>, <a class="xref" href=
+          "../pst/docbook-xsl.html" title=
+          "docbook-xsl-1.77.1">docbook-xsl-1.77.1</a>, <a class="xref" href=
+          "shared-desktop-ontologies.html" title=
+          "Shared-desktop-ontologies-0.10.0">shared-desktop-ontologies-0.10.0</a>
+          and <a class="xref" href="../x/shared-mime-info.html" title=
+          "shared-mime-info-1.1">shared-mime-info-1.1</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="polkit-qt.html" title=
+          "Polkit-Qt-0.103.0">polkit-qt-0.103.0</a>, <a class="xref" href=
+          "../general/libpng.html" title="libpng-1.5.14">libpng-1.5.14</a>,
+          <a class="xref" href="../general/libjpeg.html" title=
+          "libjpeg-turbo-1.2.1">libjpeg-turbo-1.2.1</a>, <a class="xref"
+          href="../general/giflib.html" title=
+          "giflib-4.1.6">giflib-4.1.6</a>, <a class="xref" href=
+          "../general/upower.html" title="UPower-0.9.20">UPower-0.9.20</a>
+          and <a class="xref" href="../general/udisks.html" title=
+          "UDisks-1.0.4">UDisks-1.0.4</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/jasper.html" title=
+          "JasPer-1.900.1">JasPer-1.900.1</a>, <a class="xref" href=
+          "../general/pcre.html" title="PCRE-8.32">PCRE-8.32</a>, <a class=
+          "xref" href="../basicnet/avahi.html" title=
+          "Avahi-0.6.31">Avahi-0.6.31</a>, <a class="xref" href=
+          "../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
+          "../postlfs/acl.html" title="acl-2.2.51">acl-2.2.51</a>, <a class=
+          "xref" href="../general/aspell.html" title=
+          "Aspell-0.60.6.1">Aspell-0.60.6.1</a>, <a class="xref" href=
+          "../general/enchant.html" title="enchant-1.6.0">enchant-1.6.0</a>,
+          <a class="ulink" href="http://hspell.ivrix.org.il/">Hspell</a>,
+          <a class="ulink" href=
+          "http://www.gitorious.org/grantlee/pages/Home">Grantlee</a>,
+          <a class="ulink" href="http://oss.sgi.com/projects/fam/">FAM</a>,
+          <a class="ulink" href="http://www.herqq.org/">HUPnP</a>, <a class=
+          "xref" href="../postlfs/mitkrb.html" title=
+          "MIT Kerberos V5-1.11.1">MIT Kerberos V5-1.11.1</a>, <a class=
+          "ulink" href="http://www.openexr.com/">OpenEXR</a> and <a class=
+          "ulink" href=
+          "http://www.freedesktop.org/wiki/Software/media-player-info">media-player-info</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/kdelibs">http://wiki.linuxfromscratch.org/blfs/wiki/kdelibs</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Kdelibs
+        </h2>
+        <p>
+          Fix file conflicts with <span class="application">GNOME
+          Menus</span> by running the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i "s@{SYSCONF_INSTALL_DIR}/xdg/menus@&amp; RENAME kde-applications.menu@" \
+        kded/CMakeLists.txt &amp;&amp;
+sed -i "s@applications.menu@kde-&amp;@" \
+        kded/kbuildsycoca.cpp</kbd>
+</pre>
+        <p>
+          Install <span class="application">Kdelibs</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mkdir build &amp;&amp;
+cd build &amp;&amp;
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
+      -DSYSCONF_INSTALL_DIR=/etc \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DDOCBOOKXML_CURRENTDTD_DIR=/usr/share/xml/docbook/xml-dtd-4.5 \
+      .. &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          The unit regression tests are designed to be run after <span class=
+          "application">kdelibs</span> is installed.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          To run the unit regression tests, you must have a current KDE
+          session running and issue <span class="command"><strong>make
+          test</strong></span>.
+        </p>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">-DSYSCONF_INSTALL_DIR=/etc</code>: This switch
+          is used to install configuration files in /etc.
+        </p>
+        <p>
+          <code class="option">-DCMAKE_BUILD_TYPE=Release</code>: This switch
+          is used to apply higher level of compiler optimizations.
+        </p>
+        <p>
+          <code class="option">-DDOCBOOKXML_CURRENTDTD_DIR=...</code>: This
+          switch is used to tell <span class=
+          "command"><strong>cmake</strong></span> where to find the XML DTDs.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">checkXML, kbuildsycoca4,
+              kconfig_compiler, kcookiejar4, kde4-config, kded4, kdeinit4,
+              kdeinit4_shutdown, kdeinit4_wrapper, kfilemetadatareader, kjs,
+              kjscmd, kmailservice, kross, kshell4, ktelnetservice,
+              kunittestmodrunner, kwrapper4, makekdewidgets, meinproc4,
+              meinproc4_simple, nepomuk-rcgen and preparetips</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">several in $KDE_PREFIX/lib</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">several in $KDE_PREFIX/include,
+              $KDE_PREFIX/lib and $KDE_PREFIX/share</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="checkXML" name="checkXML"></a><span class=
+                    "term"><span class=
+                    "command"><strong>checkXML</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a tool used to check for syntax errors in KDE DocBook
+                    XML files.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kbuildsycoca4" name=
+                    "kbuildsycoca4"></a><span class="term"><span class=
+                    "command"><strong>kbuildsycoca4</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to rebuild the system configuration cache.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kconfig_compiler" name=
+                    "kconfig_compiler"></a><span class="term"><span class=
+                    "command"><strong>kconfig_compiler</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the KDE configuration compiler.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kcookiejar4" name="kcookiejar4"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kcookiejar4</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the KDE HTTP cookie daemon.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kde4-config" name="kde4-config"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kde4-config</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to print the KDE installation paths.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kded4" name="kded4"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kded4</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the KDE daemon.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kdeinit4" name="kdeinit4"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kdeinit4</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the KDE process launcher.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kjs" name="kjs"></a><span class=
+                    "term"><span class="command"><strong>kjs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the KDE ECMAScript/JavaScript engine.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kjscmd" name="kjscmd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kjscmd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a tool used for launching KJSEmbed scripts from the
+                    command line.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kross" name="kross"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kross</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the KDE application used to run kross scripts.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="makekdewidgets" name=
+                    "makekdewidgets"></a><span class="term"><span class=
+                    "command"><strong>makekdewidgets</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to build Qt widget plugins from an ini style
+                    description file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="meinproc4" name="meinproc4"></a><span class=
+                    "term"><span class=
+                    "command"><strong>meinproc4</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to convert DocBook files to HTML.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="preparetips" name="preparetips"></a><span class=
+                    "term"><span class=
+                    "command"><strong>preparetips</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a script used to extract the text from a tips file.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-03-10 12:50:47 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="oxygen-icons.html" title=
+          "Oxygen-icons-4.10.1">Prev</a>
+          <p>
+            Oxygen-icons-4.10.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="polkit-kde-agent.html" title=
+          "Polkit-kde-agent-0.99.0">Next</a>
+          <p>
+            Polkit-kde-agent-0.99.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapter&nbsp;28.&nbsp;The KDE Core">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

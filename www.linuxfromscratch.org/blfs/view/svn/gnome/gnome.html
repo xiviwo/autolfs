@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Part&nbsp;VIII.&nbsp;GNOME
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../kde/add-pkgs.html" title=
+          "Further KDE packages">Prev</a>
+          <p>
+            Further KDE packages
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="core.html" title=
+          "GNOME Core Packages">Next</a>
+          <p>
+            GNOME Core Packages
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="part" lang="en" xml:lang="en">
+      <h1 class="part">
+        <a id="gnome" name="gnome"></a>GNOME
+      </h1>
+      <div class="partintro" lang="en" xml:lang="en">
+        <h2 class="partintro">
+          Introduction to GNOME
+        </h2>
+        <p>
+          This chapter presents the instructions to install a complete
+          GNOME-3.6.2 desktop environment. The order of the installed
+          packages follows the build order defined by the GNOME development
+          team and has been thoroughly tested by the BLFS team.
+        </p>
+        <p>
+          The installation of GNOME-3.6.2 is a large undertaking and one we
+          would like to see you complete with the least amount of stress. One
+          of the first goals in this installation is to protect your
+          previously installed software, especially if you are testing GNOME
+          on your machine. GNOME-3.6 packages utilize the <code class=
+          "option">--prefix=option</code> passed to <span class=
+          "command"><strong>configure</strong></span>, so you will use that
+          and an environment variable (<code class=
+          "envar">GNOME_PREFIX</code>) to add flexibility to the
+          installation.
+        </p>
+        <p>
+          To install GNOME as your desktop of choice, it is recommended that
+          you install using <code class="option">--prefix=/usr</code>. If you
+          are not sure that you are going to keep the GNOME installation, or
+          you think you will update to the newest releases as they become
+          available, you should install with <code class=
+          "option">--prefix=/opt/gnome-3.6.2</code>. Setting the environment
+          variable and the additional edits required by the second option are
+          covered in the Pre-Installation Configuration section.
+        </p>
+        <p>
+          If you choose the second option, removal of GNOME-3.6.2 is as easy
+          as removing the edits from the pre-installation page and issuing
+          the following command (you may need to become the <code class=
+          "systemitem">root</code> user):
+        </p>
+        <pre class="root">
+<kbd class="command">rm -rf /opt/gnome-3.6.2</kbd>
+</pre>
+        <p>
+          If your system was completely built per LFS and BLFS instructions,
+          you have a very good chance of using GNOME-3.6.2 after your first
+          installation. If you are a typical LFS user, you have made
+          modifications to the instructions along the way knowing that you
+          have to take those modifications into account on future
+          installations. You should have no problems integrating GNOME-3.6.2
+          into your unique setup, but you will have to install well over 50
+          packages before you can run GNOME through any testing (assuming
+          your windowing system is preinstalled and tested). You should
+          anticipate that you will be rebuilding GNOME at least once to make
+          adjustments for your setup.
+        </p>
+        <h3>
+          Alternate Installation Methods
+        </h3>
+        <p>
+          As was previously mentioned, building a GNOME desktop from sources
+          is a significant project. Some may find it too tedious or
+          time-consuming to perform a full installation following the BLFS
+          book. You may wish to review the automated methods mentioned in the
+          GNOME-3.6 <a class="ulink" href=
+          "http://www.gnome.org/start/3.6/notes/en/rninstallation.html">Release
+          Notes</a>. Note that using any other method to install GNOME-3.6.2
+          other than using the BLFS instructions cannot be supported by the
+          BLFS team. Alternate methods are only mentioned as a courtesy to
+          builders who would like to build GNOME from sources but do not have
+          the time/desire/patience/whatever to follow the BLFS book.
+        </p>
+        <div class="toc">
+          <h3>
+            Table of Contents
+          </h3>
+          <ul>
+            <li class="chapter">
+              <h4>
+                <a href="core.html">30. GNOME Core Packages</a>
+              </h4>
+              <ul>
+                <li class="sect1">
+                  <span class="dummy">Platform</span>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-dbus-python.html">dbus-python-1.1.1</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-desktop-file-utils.html">desktop-file-utils-0.21</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-shared-mime-info.html">shared-mime-info-1.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="accountsservice.html">AccountsService-0.6.30</a>
+                </li>
+                <li class="sect1">
+                  <a href="polkit-gnome.html">polkit-gnome-0.105</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-doc-utils.html">gnome-doc-utils-0.20.10</a>
+                </li>
+                <li class="sect1">
+                  <a href="yelp-xsl.html">yelp-xsl-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgnome-keyring.html">libgnome-keyring-3.6.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="libsecret.html">libsecret-0.14</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gsettings-desktop-schemas.html">gsettings-desktop-schemas-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="dconf.html">DConf-0.14.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="GConf.html">GConf-3.2.6</a>
+                </li>
+                <li class="sect1">
+                  <a href="gcr.html">Gcr-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgee.html">libgee-0.6.7</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgweather.html">libgweather-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="libwnck.html">libwnck-3.4.4</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgnomekbd.html">libgnomekbd-3.6.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgtop.html">libgtop-2.28.4</a>
+                </li>
+                <li class="sect1">
+                  <a href="libwacom.html">libwacom-0.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-online-accounts.html">gnome-online-accounts-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgdata.html">libgdata-0.13.2</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "evolution-data-server.html">evolution-data-server-3.6.4</a>
+                </li>
+                <li class="sect1">
+                  <a href="libzeitgeist.html">libzeitgeist-0.3.18</a>
+                </li>
+                <li class="sect1">
+                  <a href="folks.html">Folks-0.8.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-js-common.html">gnome-js-common-0.1.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gjs.html">Gjs-1.34.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="seed.html">Seed-3.2.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="libpeas.html">libpeas-1.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gtksourceview.html">gtksourceview-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gtkhtml.html">GtkHTML-4.6.4</a>
+                </li>
+                <li class="sect1">
+                  <a href="totem-pl-parser.html">totem-pl-parser-3.4.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="vte.html">VTE-0.34.2</a>
+                </li>
+                <li class="sect1">
+                  <span class="dummy">Desktop</span>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-backgrounds.html">gnome-backgrounds-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-icon-theme.html">gnome-icon-theme-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-icon-theme-extras.html">gnome-icon-theme-extras-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-icon-theme-symbolic.html">gnome-icon-theme-symbolic-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-themes-standard.html">gnome-themes-standard-3.6.5</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-video-effects.html">gnome-video-effects-0.4.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-desktop.html">gnome-desktop-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-keyring.html">gnome-keyring-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-menus.html">gnome-menus-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-panel.html">gnome-panel-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gvfs.html">Gvfs-1.14.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="nautilus.html">Nautilus-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="nautilus-sendto.html">Nautilus-Sendto-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-screensaver.html">gnome-screensaver-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-power-manager.html">gnome-power-manager-3.6.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-bluetooth.html">gnome-bluetooth-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-user-share.html">gnome-user-share-3.0.4</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-settings-daemon.html">gnome-settings-daemon-3.6.4</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-control-center.html">gnome-control-center-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-terminal.html">gnome-terminal-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="zenity.html">Zenity-3.6.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="metacity.html">Metacity-2.34.13</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "network-manager-applet.html">network-manager-applet-0.9.8.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="caribou.html">Caribou-0.4.4.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="mutter.html">Mutter-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-shell.html">gnome-shell-3.6.3.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-session.html">gnome-session-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-user-docs.html">gnome-user-docs-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="yelp.html">Yelp-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <span class="dummy">System Services</span>
+                </li>
+                <li class="sect1">
+                  <a href="gdm.html">GDM-3.6.2</a>
+                </li>
+              </ul>
+            </li>
+            <li class="chapter">
+              <h4>
+                <a href="applications.html">31. GNOME Applications</a>
+              </h4>
+              <ul>
+                <li class="sect1">
+                  <a href="aisleriot.html">Aisleriot-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="alacarte.html">Alacarte-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="baobab.html">Baobab-3.6.4</a>
+                </li>
+                <li class="sect1">
+                  <a href="brasero.html">Brasero-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="cheese.html">Cheese-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="empathy.html">Empathy-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="eog.html">EOG-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="epiphany.html">Epiphany-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "epiphany-extensions.html">Epiphany-Extensions-3.6.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="evince.html">Evince-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="evolution.html">Evolution-3.6.4</a>
+                </li>
+                <li class="sect1">
+                  <a href="file-roller.html">File-Roller-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="gcalctool.html">Gcalctool-6.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gedit.html">Gedit-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-color-manager.html">gnome-color-manager-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-contacts.html">gnome-contacts-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-dictionary.html">gnome-dictionary-3.6.0</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-disk-utility.html">gnome-disk-utility-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-games.html">gnome-games-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-nettool.html">gnome-nettool-3.2.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-screenshot.html">gnome-screenshot-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-search-tool.html">gnome-search-tool-3.6.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-system-log.html">gnome-system-log-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href=
+                  "gnome-system-monitor.html">gnome-system-monitor-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-tweak-tool.html">gnome-tweak-tool-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gucharmap.html">Gucharmap-3.6.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="mousetweaks.html">Mousetweaks-3.6.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="orca.html">Orca-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="seahorse.html">Seahorse-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="sound-juicer.html">Sound-Juicer-3.4.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="totem.html">Totem-3.6.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="vinagre.html">Vinagre-3.6.2</a>
+                </li>
+                <li class="sect1">
+                  <a href="vino.html">Vino-3.6.2</a>
+                </li>
+              </ul>
+            </li>
+            <li class="chapter">
+              <h4>
+                <a href="deprecated.html">32. Deprecated GNOME Packages</a>
+              </h4>
+              <ul>
+                <li class="sect1">
+                  <span class="dummy">Legacy Gnome-2 libraries</span>
+                </li>
+                <li class="sect1">
+                  <a href="ORBit2.html">ORBit2-2.14.19</a>
+                </li>
+                <li class="sect1">
+                  <a href="libbonobo.html">libbonobo-2.32.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-mime-data.html">gnome-mime-data-2.18.0</a>
+                </li>
+                <li class="sect1">
+                  <a href="gnome-vfs.html">gnome-vfs-2.24.4</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgnome.html">libgnome-2.32.1</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgnomecanvas.html">libgnomecanvas-2.30.3</a>
+                </li>
+                <li class="sect1">
+                  <a href="libbonoboui.html">LibBonoboUI-2.24.5</a>
+                </li>
+                <li class="sect1">
+                  <a href="libgnomeui.html">libgnomeui-2.24.5</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../kde/add-pkgs.html" title=
+          "Further KDE packages">Prev</a>
+          <p>
+            Further KDE packages
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="core.html" title=
+          "GNOME Core Packages">Next</a>
+          <p>
+            GNOME Core Packages
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

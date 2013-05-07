@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      libgnome-2.32.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-03-31">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+      </h4>
+      <h3>
+        Chapter&nbsp;32.&nbsp;Deprecated GNOME Packages
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gnome-vfs.html" title=
+          "gnome-vfs-2.24.4">Prev</a>
+          <p>
+            gnome-vfs-2.24.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libgnomecanvas.html" title=
+          "libgnomecanvas-2.30.3">Next</a>
+          <p>
+            libgnomecanvas-2.30.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="deprecated.html" title=
+          "Chapter&nbsp;32.&nbsp;Deprecated GNOME Packages">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="libgnome" name="libgnome"></a>libgnome-2.32.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to libgnome
+        </h2>
+        <p>
+          The <span class="application">libgnome</span> package contains the
+          <code class="filename">libgnome</code> library.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.2
+          platform.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This is a legacy <span class="application">GNOME-2</span> package
+            which has been deprecated by the <span class=
+            "application">GNOME</span> developers and will be removed from
+            the book in due course. Please ensure that you really want or
+            need it before you build it.
+          </p>
+        </div>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/libgnome/2.32/libgnome-2.32.1.tar.bz2">
+                http://ftp.gnome.org/pub/gnome/sources/libgnome/2.32/libgnome-2.32.1.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/libgnome/2.32/libgnome-2.32.1.tar.bz2">
+                ftp://ftp.gnome.org/pub/gnome/sources/libgnome/2.32/libgnome-2.32.1.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: a4345e6087ae6195d65a4674ffdca559
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 1.7 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 28 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          libgnome Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="libbonobo.html" title=
+          "libbonobo-2.32.1">libbonobo-2.32.1</a> and <a class="xref" href=
+          "gnome-vfs.html" title="gnome-vfs-2.24.4">gnome-vfs-2.24.4</a>
+        </p>
+        <h4>
+          Recommended (if you plan on installing the GNOME-2 deprecated
+          packages)
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../multimedia/libcanberra.html" title=
+          "libcanberra-0.30">libcanberra-0.30</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.18">GTK-Doc-1.18</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libgnome">http://wiki.linuxfromscratch.org/blfs/wiki/libgnome</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of libgnome
+        </h2>
+        <p>
+          Install <span class="application">libgnome</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">ORBit=$(pkg-config --variable=prefix ORBit-2.0) &amp;&amp;
+
+./configure --prefix=$ORBit                \
+            --sysconfdir=/etc/gnome/2.30.2 \
+            --localstatedir=/var/lib       \
+            --mandir=$ORBit/share/man &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--prefix=$(pkg-config --variable=prefix
+          ORBit-2.0)</code></em>: Setting the prefix using this parameter
+          instead of with <code class="envar">$GNOME_PREFIX</code> will
+          ensure that the prefix is consistent with the installation
+          environment and the package will be installed in the correct
+          location.
+        </p>
+        <p>
+          <em class="parameter"><code>--sysconfdir=<code class=
+          "envar">/etc/gnome/2.30.2</code></code></em>: This parameter causes
+          the configuration files to be installed in <code class=
+          "filename">/etc/gnome/2.30.2</code> instead of <code class=
+          "filename">$GNOME_PREFIX/etc</code>. You may prefer to use a
+          simpler value such as <code class="filename">/etc/gnome</code> or
+          even <code class="filename">/etc</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--localstatedir=/var/lib</code></em>:
+          This parameter sets <code class=
+          "envar">LIBGNOME_LOCALSTATEDIR</code> to <code class=
+          "filename">/var/lib</code> instead of <code class=
+          "filename">/usr/var</code> to synchronize with the <span class=
+          "application">GNOME Games</span> installation and properly record
+          high scores in <code class="filename">/var/lib/games</code>.
+        </p>
+        <p>
+          <code class="option">--disable-static</code>: This switch prevents
+          the static libraries being installed.
+        </p>
+        <p>
+          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <span class="application">GTK-Doc</span> is installed and you wish
+          to rebuild and install the API documentation.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Program:</strong>
+              <span class="segbody">gnome-open</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libgnome-2.{so,a} and the
+              libmoniker_extra_2.{so,a} (bonobo library)</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/etc/gnome/2.30.2/sound/events,
+              <code class=
+              "envar">$GNOME_PREFIX</code>/{include/libgnome-2.0/libgnome,
+              share/gtk-doc/html/libgnome}</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libgnome-2" name="libgnome-2"></a><span class=
+                    "term"><code class=
+                    "filename">libgnome-2.{so,a}</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    are the non-GUI portion of the <span class=
+                    "application">GNOME</span> libraries.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2012-10-02 18:49:50 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gnome-vfs.html" title=
+          "gnome-vfs-2.24.4">Prev</a>
+          <p>
+            gnome-vfs-2.24.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libgnomecanvas.html" title=
+          "libgnomecanvas-2.30.3">Next</a>
+          <p>
+            libgnomecanvas-2.30.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="deprecated.html" title=
+          "Chapter&nbsp;32.&nbsp;Deprecated GNOME Packages">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
