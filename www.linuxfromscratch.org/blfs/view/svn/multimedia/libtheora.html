@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
@@ -118,7 +118,7 @@
         <p class="optional">
           <a class="xref" href="sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>
           and <a class="xref" href="../general/libpng.html" title=
-          "libpng-1.5.14">libpng-1.5.14</a> (both to build the example
+          "libpng-1.6.2">libpng-1.6.2</a> (both to build the example
           players), <a class="xref" href="../general/doxygen.html" title=
           "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a>, <a class="xref" href=
           "../pst/texlive.html" title=
@@ -142,7 +142,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class=
+"command">sed -i 's/png_\(sizeof\)/\1/g' examples/png2theora.c &amp;&amp;
+./configure --prefix=/usr &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -169,6 +171,12 @@ install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <span class="command"><strong>sed -i 's/png_\(sizeof\)/\1/g'
+          examples/png2theora.c</strong></span>: This <span class=
+          "command"><strong>sed</strong></span> fixes build with <span class=
+          "application">libpng</span> 1.6.
+        </p>
         <p>
           <code class="option">--disable-static</code>: This switch prevents
           building static libraries.
@@ -224,7 +232,7 @@ install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-15 16:26:39 +0000
+        Last updated on 2013-04-05 22:01:58 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -249,7 +257,7 @@ install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

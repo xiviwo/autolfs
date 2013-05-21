@@ -1,8 +1,15 @@
 #!/bin/bash
-# 
-exec 4> build.log 2>&4 # Redirect STDERR to logfile
+# Version 1.02
+# 2013-05-09
+# Avoid to user hardcoded func name for BLFS, 
+# like Wget_1_14_C15, since it's subject to change anytime 
+#
 
+[ $EUID -ne 0 ] && { echo "You are not root!"; exit 1; }
 export DEBUG_="true"
+
+[[ ${DEBUG_} = "true" ]] && exec 4> build.log 2>&4 || exec 4> build.log # Redirect STDERR to logfile
+
 
 unset_env(){
 
@@ -19,7 +26,7 @@ exlist=${exlist%|}
 
 for a in $(compgen -A function ; compgen -A variable)
 do
-[[ ${DEBUG_} = "true" ]] || echo $a
+[[ ${DEBUG_} = "true" ]] && echo $a
 done
 
 for a in $(compgen -A function ; compgen -A variable)
@@ -53,9 +60,8 @@ export LFS=/mnt/lfs
 export script=$(readlink -f "$0")
 export CWD=$(dirname "$script")
 export MAKEFLAGS='-j 4'
-export DEBUG_="true"
 export TERM=xterm
-export HOME="/home/"$(whoami) #/home/lfs/.xinitrc: No such file or directory, Setting_Up_the_Environment_C4 fail, decide ~ stand for 
+[[ $(whoami) = "root" ]] && export HOME=/root || export HOME="/home/"$(whoami) #/home/lfs/.xinitrc: No such file or directory, Setting_Up_the_Environment_C4 fail, decide ~ stand for 
 export SHELL=/bin/bash
 export PS1='\u:\w\$ '
 #############WILL CHANGE IN NEW SYSTEM#################
@@ -92,16 +98,20 @@ export wgetlist=${sources}/"wget-list"
 #sources="$LFS/sources"
 #CMDS=${CWD}/cmds;  FUNCTIONS=${CWD}/functions.sh;} || {  CMDS=${LFSBUILD}/cmds;  FUNCTIONS=${LFSBUILD}/functions.sh;} 
 export SUCCESS=${sources}/"LFSSUCCESS"
-source ${FUNCTIONS} 2>/dev/null
-#trap onexit 1 2 3 15 ERR
+source ${FUNCTIONS} 
+source ${CMDS} 
 export tmp=${sources}/killpid
 [ -f "$LFS/etc/profile" ] && export PKG_CONFIG_PATH=/opt/lib/pkgconfig:/opt/share/pkgconfig:/usr/lib/pkgconfig
-[ -f "$LFS/etc/profile" ] && export LIBRARY_PATH=${LIBRARY_PATH:-}:/lib64:/lib:/usr/lib:/opt/lib 
+[ -f "$LFS/etc/profile" ] && export LIBRARY_PATH="/lib64:/lib:/usr/lib:/opt/lib"
 [ -f "$LFS/etc/profile" ] && source "$LFS/etc/profile"
 [ -f "$LFS/etc/profile.d/xorg.sh" ] && source "$LFS/etc/profile.d/xorg.sh"
 [ -f "$LFS/etc/profile.d/kde.sh" ] && source "$LFS/etc/profile.d/kde.sh"
 [ -f "$LFS/etc/profile.d/qt.sh" ] && source "$LFS/etc/profile.d/qt.sh" 
 [ -f "$LFS/etc/profile" ] && export KDE_PREFIX=/opt/kde
+[ -f "$LFS/etc/profile" ] && export C_INCLUDE_PATH=/opt/include:/usr/include
+[ -f "$LFS/etc/profile" ] && export QMAKE_INCDIR_X11=/opt/include:/usr/include
+[ -f "$LFS/etc/profile" ] && export QMAKE_LIBDIR_X11="/lib64:/lib:/usr/lib:/opt/lib:/opt/qt/lib "
+
 trap "cleanup $? $LINENO" 0 1 2 3 13 15 ERR
 
 cleanup(){
@@ -181,7 +191,7 @@ if ! is_success $FUNCNAME ; then
 
 	#### Begin to download package list, md5sums and packages of course.
 	log "Download the sources package list... to ${sources}"
-	progress wget -nc ${wget_list} -P ${sources} 
+	progress wget -nc ${wget_list} -P ${sources}
 	log "Download the checksum file... to ${sources}"
 	progress wget -nc $md5sums -P ${sources}
 	log "Download all sources packages... to ${sources}"
@@ -258,7 +268,7 @@ if ! is_success "$CHAPTER" ; then
 	IFS=$(echo -en " \t\n\b")
 	for func in $(eval echo \$$CHAPTER)
 	do	
-		into_folder "$sources"
+		
 		case "$func" in
 		Preparing_Virtual_Kernel_File_Systems_C6|Package_Management_C6|*Chroot*|Cleaning_Up_C6|Changing_Ownership_C5|Rebooting_the_System_C9|About_Devices_C3)
 		log "Will not run $func,skipped"
@@ -392,14 +402,14 @@ run_cmdstr(){
 		type ${cmdstr} | sed "/${cmdstr}/d" | head -50
 	
 		case  "$cmdstr" in
-		*Stripping*|Creating_the_LFS_tools_Directory_C4|Creating_Directories_C6|Creating_Essential_Files_and_Symlinks_C6|Preparing_Virtual_Kernel_File_Systems_C6|Stripping_Again_C6|Creating_Custom_Symlinks_to_Devices_C7|Introduction_to_Xorg_7_7_C24|Adding_the_LFS_User_C4)
+		*Stripping*|Creating_the_LFS_tools_Directory_C4|Creating_Directories_C6|Creating_Essential_Files_and_Symlinks_C6|Preparing_Virtual_Kernel_File_Systems_C6|Stripping_Again_C6|Creating_Custom_Symlinks_to_Devices_C7|Introduction_to_Xorg*|Adding_the_LFS_User_C4)
 		time progress ${cmdstr} || true ;;
-		Xorg_Drivers_C24)
+		Xorg_Drivers_C*)
 		;;
-		Linux_3_8_1_C8)
+		Linux_3_8_1_C8|Tripwire*)
 		time ${cmdstr} ;;
 		*)
-		time progress ${cmdstr} ;; #|| return 1 ;;
+		time progress ${cmdstr}   ;; #|| return 1 ;;
 		esac 
 		IFS=$inIFS
 
@@ -424,7 +434,7 @@ build_dependency(){
 	for dependfunc in  $func_list
 	do
 	block "Building dependency : $dependfunc for $func" 
-	time pack_install $dependfunc "$sources" #  || error 1  PACKBUILDFAILURE "$dependfunc failed to build in $FUNCNAME"
+	time pack_install $dependfunc "$sources"  #  || error 1  PACKBUILDFAILURE "$dependfunc failed to build in $FUNCNAME"
 
 	done
 	IFS=$SAVEIFS
@@ -494,7 +504,7 @@ post_download(){
 	 
 	log "Download ${link} to ${sources}"
 
-	progress wget --no-check-certificate -nc --timeout=60 --tries=5 "$link"  -P "${sources}" || true
+	wget --no-check-certificate -nc --timeout=60 --tries=5 "$link"  -P "${sources}" || true
 
 	done
 	IFS=$SAVEIFS
@@ -510,14 +520,10 @@ pack_install(){
 		[ ! -z "$successpack" ] || error 1  NULLPACKSTR "Package name is null"
 		[ -d "$sources" ] || error 1  DIRNOTEXIST "Sources Directory not exists"
 		#[ ! -z "$CHAPTER" ] || error 1  NULLSTR "CHAPTER name is null"
-		case "$successpack" in
-			OpenSSL_1_0_1e_C4 )
-			export MAKEFLAGS='-j 1'
-			;;
-			*)
-			export MAKEFLAGS='-j 4'
-			;;
-		esac
+
+		into_folder "$sources"
+
+
 
 		if ! is_callable "$successpack" ;then 
 			log "$successpack is not defined,skipped"
@@ -555,7 +561,15 @@ pack_install(){
 
 				[ -f  "$package" ] && do_cleanup_untar_stuff  "$package" "$sources" "$packstr"
 
-			
+				case "$successpack" in
+				OpenSSL*|NSS*|WebKitGTK*|NSS*|mdadm*|zsh*)
+				export MAKEFLAGS='-j 1'
+				;;
+				*)
+				export MAKEFLAGS='-j 4'
+				;;
+				esac
+				#block "$MAKEFLAGS"
 				run_cmdstr ${successpack} #|| error 1  PACKBUILDFAILURE "${successpack} failed to build in $FUNCNAME" 
 
 				[ ! -z "$package" ] && log "${package} building Complete!" || log "${successpack} running Complete!"
@@ -623,255 +637,6 @@ CHROOT=$(type chroot | cut -d' ' -f3)
 
 }
 
-part1(){
-
-sed -i "s/PAGE=<paper_size>/PAGE=${paper_size}/" ${CMDS}
-#sed -n "/${paper_size}/p" ${CMDS}
-
-safe_pattern=$(printf '%s\n' "$timezone" | sed 's/[[\.*^$/]/\\&/g')
-# now you can safely do
-sed -i "s/remove-destination \/usr\/share\/zoneinfo\/<xxx>/remove-destination \/usr\/share\/zoneinfo\/${safe_pattern}/ " ${CMDS}
-#sed -n "/${safe_pattern}/p" ${CMDS}
-
-
-sed -i 's/<[xxx|yyy|zzz]*>//'  ${CMDS}
-
-#sed -n '/<[xxx|yyy|zzz]*>/p'  ${CMDS}
-
-sed -i "s/HOSTNAME=<lfs>/HOSTNAME=${HOSTNAME}/" ${CMDS}
-#sed -n "/${HOSTNAME}/p" ${CMDS}
-
-sed -i "s/^BROADCAST=[0-9]*.[0-9]*.[0-9]*.[0-9]*$/BROADCAST=${BROADCAST}/" ${CMDS}
-#sed -n "/BROADCAST=/p" ${CMDS}
-
-sed -i "s/^IP=[0-9]*.[0-9]*.[0-9]*.[0-9]*$/IP=${IP}/" ${CMDS}
-#sed -n "/IP=/p" ${CMDS}
-
-sed -i "s/^GATEWAY=[0-9]*.[0-9]*.[0-9]*.[0-9]*$/GATEWAY=${GATEWAY}/" ${CMDS}
-#sed -n "/GATEWAY=/p" ${CMDS}
-
-sed -i "s/domain <Your Domain Name>/domain ${domain}/ " ${CMDS}
-#sed -n "/domain/p" ${CMDS}
-
-#sed -i '/nameserver <IP address of your primary nameserver>/d' ${CMDS}
-#sed -i '/nameserver <IP address of your secondary nameserver>/d' ${CMDS}
-
-sed -i "/nameserver /d" ${CMDS}
-
-for nserver in $(echo ${nameserver} | sort -rn)
-do
-echo $nserver
-#sed -i "/nameserver /d" ${CMDS}
-sed -i "/domain ${domain}/a nameserver $nserver" ${CMDS}
-done
-
-
-#sed -i "N;N;s/\n<IP address of your primary nameserver>/ ${nameserver}/ " ${CMDS}
-#sed -n "/nameserver/p" ${CMDS}
-
-#sed -i "N;s/\n<IP address of your secondary nameserver>/ ${nameserver}/ " ${CMDS}
-##sed -n "/${nameserver}/p" ${CMDS}grep Error glibc-check-log
-
-sed -i "s/LANG=<host_LANG_value>/LANG=en_US/ " ${CMDS}
-#sed -n "/make LANG=/p" ${CMDS}
-
-sed -i "/locale -a/d" ${CMDS}
-sed -i "/LC_ALL=<locale name>/d" ${CMDS}
-#sed -n "/LC_ALL=<locale name>/p" ${CMDS}
-
-sed -i "s/export LANG=<ll>_<CC>.<charmap><@modifiers>/export LANG=${LANG}/" ${CMDS}
-#sed -n "/export LANG=/p" ${CMDS}
-
-sed -i '/make.*[^_]check\|make.*[^_]test/d' ${CMDS}
-#sed -n '/make.*[^_]check\|make.*[^_]test/p' ${CMDS}
-
-sed -i '/exec[ ]*[\/tools]*\/bin\/bash[ ]*--login[ ]*+h/d' ${CMDS}
-
-sed -i '/su nobody -s \/bin\/bash \\/d' ${CMDS}
-#sed -n '/su nobody -s \/bin\/bash \\/p' ${CMDS}
-sed -i '/gmp-check-log/d' ${CMDS}
-sed -i '/glibc-check-log/d' ${CMDS}
-sed -i "/^ABI=32 \.\/configure \.\.\.$/d" ${CMDS} 
-sed -i "s/^\.\/configure --prefix=\/usr --enable-cxx$/ABI=${ABI} &/" ${CMDS}
-#sed -n '/ABI=/p' ${CMDS}
-
-sed -i '/pushd testsuite/,/popd/d' ${CMDS}
-
-sed -i "/passwd root$/ {s/$/ << EOF/;s/$/\n/;s/$/${PASSWORD}/;s/$/\n/;s/$/${PASSWORD}/;s/$/\n/;s/$/EOF/}" ${CMDS}
-#sed -n '/passwd root/ {N;N;N;N;p} ' ${CMDS}
-
-sed -i "/passwd lfs$/ {s/$/ << EOF/;s/$/\n/;s/$/${PASSWORD}/;s/$/\n/;s/$/${PASSWORD}/;s/$/\n/;s/$/EOF/}" ${CMDS}
-#sed -n '/passwd lfs/ {N;N;N;N;p} ' ${CMDS}
-
-sed -i "/vim -c ':options'/d" ${CMDS}
-#sed -n "/vim -c/p" ${CMDS}
-sed -i "/^logout$/d" ${CMDS}
-#sed -n "/^logout$/p" ${CMDS}
-sed -i '/chroot $LFS/,/--login/d' ${CMDS}
-#sed -n '/chroot $LFS/,/--login/p' ${CMDS}
-
-sed -i '/127.0.0.1 localhost/d' ${CMDS}
-sed -i '/<192.168.1.1> <HOSTNAME.example.org>/d' $CMDS
-
-sed -i "s/127.0.0.1 <HOSTNAME.example.org> <HOSTNAME> localhost/127.0.0.1 ${HOSTNAME} localhost/" $CMDS
-
-sed -i "/${IP}[ \t]*${HOSTNAME}/d" $CMDS
-sed -i "/127.0.0.1 ${HOSTNAME} localhost/a ${IP}	${HOSTNAME}" $CMDS
-#sed -n "/127.0.0.1/p" $CMDS
-#sed -n "/${IP}[ \t]*${HOSTNAME}/p" $CMDS
-
-sed -i "s/KEYMAP=\"de-latin1\"/KEYMAP=\"${KEYMAP}\"/"  $CMDS
-
-sed -i '/KEYMAP_CORRECTIONS="euro2"/d' $CMDS
-sed -i '/LEGACY_CHARSET="iso-8859-15"/d' $CMDS
-sed -i '/FONT="LatArCyrHeb-16 -m 8859-15"/d' $CMDS
-
-#sed -n "/UNICODE=\"1\"/,/KEYMAP=\"${KEYMAP}\"/p" $CMDS
-
-sed -i "s/\/dev\/[ \t]*\/[ \t]*<fff>/\/dev\/${firstdev}     \/            ${FS}/" $CMDS
-sed -i "s/\/dev\/     swap         swap/\/dev\/${seconddev}     swap         swap/" $CMDS
-#sed -n '/# Begin \/etc\/fstab/,/# End \/etc\/fstab/p' $CMDS
-
-dev_pattern=$(printf '%s\n' "$hostdev" | sed 's/[[\.*^$/]/\\&/g')
-
-sed -i "s/grub-install \/dev\/sda/grub-install ${dev_pattern}/" $CMDS
-#sed -n "/grub-install \/dev\//p" $CMDS
-
-sed -i "s/root=\/dev\/sda2/root=\/dev\/${firstdev}/" $CMDS
-#sed -n "/root=\/dev\//p" $CMDS
-
-sed -i "/exec env -i HOME=\$HOME TERM=\$TERM/d" $CMDS
-#sed -n "/exec env -i HOME=\$HOME TERM=\$TERM/p" $CMDS
-
-sed -i "/^\. ~\/.bashrc$/d" $CMDS
-sed -i "/cat > ~\/.bash_profile << \"EOF\"/a . ~/.bashrc" $CMDS
-#sed -n "/cat > ~\/.bash_profile << \"EOF\"/,/cat > ~\/.bashrc << \"EOF\"/p" $CMDS
-
-}
-part2(){
-
-#safe=$(printf '%s\n' "${LFSBUILD}/cmds" | sed 's/[[\.*^$/]/\\&/g')
-#sed -i "/${safe}/d" $CMDS
-
-#sed -i "/export LFS LC_ALL LFS_TGT PATH/a source  $safe" $CMDS
-##sed -n "/${safe}/p" $CMDS
-
-#safe2=$(printf '%s\n' "${LFSBUILD}/functions.sh" | sed 's/[[\.*^$/]/\\&/g')
-#sed -i "/${safe2}/d" $CMDS
-#sed -i "/export LFS LC_ALL LFS_TGT PATH/a source  $safe2" $CMDS
-##sed -n "/${safe2}/p" $CMDS
-
-
-sed -i '/Typography_C0(){/,/}/d' $CMDS
-#sed -n '/Typography_C0(){/,/}/p' $CMDS
-
-sed -i '/About_SBUs_C4(){/,/}/d' $CMDS
-#sed -n '/About_SBUs_C4(){/,/}/p' $CMDS
-
-sed -i "/Package_Management_C6(){/,/}/d" $CMDS
-#sed -n "/Package_Management_C6(){/,/}/p" $CMDS
-
-sed -i '/su - lfs/d' $CMDS
-#sed -n '/su - lfs/p' $CMDS
-
-
-sed -i '/tzselect/d' $CMDS
-#sed -n '/tzselect/p' $CMDS
-sed -i '/hdparm -I \/dev\/sda | grep NCQ/d' $CMDS
-#sed -n '/hdparm -I \/dev\/sda | grep NCQ/p' $CMDS
-
-sed -i '/cd \/tmp &&/,/blank=as_needed grub-img.iso/d' $CMDS
-#sed -n '/cd \/tmp &&/,/blank=as_needed grub-img.iso/p' $CMDS
-
-sed -i 's/mkdir -v/mkdir -pv/' $CMDS
-#sed -n '/mkdir -v/p' $CMDS
-
-sed -i 's/ln -sv/ln -sfv/' $CMDS
-#sed -n '/ln -sv/p' $CMDS
-
-sed -i 's/mkdir[ \t]*\//mkdir -pv \//' $CMDS
-#sed -n '/mkdir[ \t]*\//p' $CMDS
-
-sed -i 's/chown -v/chown -R/' $CMDS
-#sed -n '/chown -R/p' $CMDS
-sed -i '/if ignore_if; then continue; fi/d' $CMDS
-sed -i "/build\/udevadm hwdb --update/a sed -i 's/if ignore_if; then continue; fi/#&/' udev-lfs-197-2/init-net-rules.sh" $CMDS
-
-sed -i '/\" \/etc\/udev\/rules.d\/70-persistent-net.rule/d' $CMDS
-sed -i '/bash udev-lfs-197-2\/init-net-rules.sh/a  sed -i "s/\\"00:0c:29:[^\\".]*\\"/\\"00:0c:29:*:*:*\\"/" /etc/udev/rules.d/70-persistent-net.rules '  $CMDS 
-#sed -n '/\" \/etc\/udev\/rules.d\/70-persistent-net.rule/p' $CMDS
-
-sed -i '/Conventions_Used_in_this_Book_C1(){/,/}/d' $CMDS
-#sed -n '/Conventions_Used_in_this_Book_C1(){/,/}/p' $CMDS
-
-
-sed -i '/Notes_on_Building_Software_C2(){/,/}/d' $CMDS
-#sed -n '/Notes_on_Building_Software_C2(){/,/}/p' $CMDS
-
-sed -i '/cat > \/etc\/krb5\.conf << "EOF"/,/make install-krb5/d' $CMDS
-#sed -n '/cat > \/etc\/krb5\.conf << "EOF"/,/make install-krb5/p' $CMDS
-
-
-sed -i "s/useradd -m <newuser>/useradd -m ${newuser}/" $CMDS
-#sed -n "/useradd -m ${newuser}/p" $CMDS
-
-sed -i '/<report-name.twr>/d' $CMDS
-
-sed -i "s/<udev-Installed LFS Version>/1\.8\.8/" $CMDS
-#sed -n '/<udev-Installed LFS Version>/p' $CMDS
-
-sed -i '/convmv/d' $CMDS
-sed -i '/<\/path\/to\/unzipped\/files>/d' $CMDS
-
-sed -i '/Running_a_CVS_Server_C13(){/,/}/d' $CMDS
-
-sed -i 's/export PATH="$PATH/export PATH=$PATH/' $CMDS
-#sed -n '/export PATH="$PATH/p' $CMDS
-
- sed -i "s/<username>/${username}/" $CMDS
- #sed -n "/${username}/p" $CMDS
-
- sed -i "s/<password>/${PASSWORD}/" $CMDS
-
-sed -i "s/<PREFIX>/\/opt/" $CMDS
-#sed -n "/<PREFIX>/p" $CMDS
-
-sed -i '/Perl_Modules_C13(){/,/}/d' $CMDS
-
-sed -i "s/dhclient <eth0>/dhclient eth0/" $CMDS
-
-sed  -i "s/\/etc\/openldap\/schema[ \t]*\&\&/\/etc\/openldap\/schema/" $CMDS
-#sed  -n "/\/etc\/openldap\/schema[ \t]*\&\&/p" $CMDS
-
-sed -i "s/root password <new-password>/root password ${PASSWORD}/" $CMDS
-#sed -n '/root password <new-password>/p' $CMDS
-
-sed -i 's/$DOCNAME.dvi  &&/$DOCNAME.dvi/' $CMDS
-
-sed -i '/lp -o number-up=2 <filename>/d' $CMDS
-###########################################
-sed -i '/^mkdir -pv \$LFS$/d' $CMDS
-sed -i '/^mount -v -t ext3 \/dev\/ \$LFS$/d' $CMDS
-sed -i '/^mkdir -pv \$LFS\/usr$/d'  $CMDS
-sed -i '/^mount -v -t ext3 \/dev\/ \$LFS\/usr$/d' $CMDS
-
-sed -i "/\/sbin\/swapon -v \/dev/a mount -v -t ext3 ${hostfirstdev} $LFS"  $CMDS
-
-sed -i '/\/sbin\/swapon -v \/dev/a mkdir -pv $LFS'  $CMDS
-
-sed -i '/\/sbin\/swapon -v \/dev/d' $CMDS
-
-###################################################
-
- sed -i '/shutdown -r now/d' $CMDS
-sed -i 's/"EOF" \&\&/"EOF"/'  $CMDS
-sed -i '/^bash -e$/d' $CMDS
-sed -i '/^exit$/d' $CMDS
-
-sed -i 's/^set root=(hd0,2)$/set root=(hd0,1)/' $CMDS
-sed -i '/^grep FATAL check.log$/d' $CMDS
-}
-
 parse_book(){
 
 if ! is_success $FUNCNAME ; then
@@ -880,10 +645,10 @@ if ! is_success $FUNCNAME ; then
 [ ! -s "${CMDS}" ] && { log "Parsing online LFS book and generating ${CMDS}"; python ${CWD}/parsebook.py >&4; } || log "Will not parse LFS book, as ${CMDS} exists."
 [ ! -s "${CMDS}" ] && error 1  CMDSMISS "Online LFS Book parse fail!"
 
-log "Modify generated ${CMDS} according to actual requirement"
+#log "Modify generated ${CMDS} according to actual requirement"
 
 exec 3>&1 
-exec >&4
+#exec >&4
 
 #time part1
 #time part2
@@ -896,7 +661,6 @@ else
 log "$FUNCNAME built/ran,skipped"
 fi
 
-time source ${CMDS} 2>/dev/null
 
 }
 	
@@ -937,8 +701,9 @@ return 0
 }
 
 restart_or_not(){
+[ -z "$BLFSCHAPTERS" ] && RESUMEFLAG="C9_TheEnd" || RESUMEFLAG="C47_Typesetting"
 
-if is_success "C9_TheEnd" ;then
+if is_success  $RESUMEFLAG ;then
 log "Looking like previous build had been done; Restart a new build ?"
 
 echo "Choose (yes/no): "
@@ -966,12 +731,14 @@ fi
 mount_lfs_and_virtual(){
 
 #&& [ $(cat "$SUCCESS" | wc -l) -gt 0 ]
-if  ! grep "$LFS"  /proc/mounts ; then 
+
+if  ! grep "${LFS}/dev"  /proc/mounts ; then 
 
 log "Looking like $LFS not mounted, mounting $LFS and Virtual Kernel File system"
 
 exec 3<&2
-Mounting_the_New_Partition_C2 && { Preparing_Virtual_Kernel_File_Systems_C6 || true; }  || error 1 CANNOTMOUNT "Cannot mount $LFS"
+Mounting_the_New_Partition_C2 || true 
+Preparing_Virtual_Kernel_File_Systems_C6 || true #; }  || error 1 CANNOTMOUNT "Cannot mount $LFS"
 exec 3>&1
 fi
 
@@ -981,17 +748,18 @@ SuInstall(){
 
 local ch=$1
 local sources=$2 
+chown -v lfs.lfs "$SUCCESS"
+
+[ ! -f "$tmp" ] && { touch "$tmp"; chown -v lfs.lfs "$tmp"; }
+
+#chown -Rv lfs.lfs "$sources" >&4 
 
 #########do NOT use su - lfs#################
 su lfs /bin/bash -c  "ConstructingaTemporarySystem $ch ${sources}"
 #########do NOT use su - lfs#################
 
 }
-gtrap(){
 
-trap "echo $$; echo 'catch trap';cleanup $? $LINENO" 0 1 2 3 13 15
-
-}
 find_child_pid(){
 
     curPid=$1
@@ -1024,7 +792,7 @@ ConstructingaTemporarySystem(){
 local ch=$1
 local sources=$2
 export HOME=/home/lfs
-set -xve
+[[ ${DEBUG_} = "true" ]] && set -xve || set -e
 env HOME=$HOME TERM=$TERM bash -c "intoTemporarySystem $ch ${sources}" 
 return 0
 
@@ -1034,12 +802,12 @@ intoTemporarySystem(){
 local ch=$1
 local sources=$2
 
-set -xve
-#find_child_pid $$
+[[ ${DEBUG_} = "true" ]] && set -xve || set -e
 source ~/.bashrc
 blockid
 blockpwd
 blockscript
+
 chapterinstall $ch ${sources}
 
 }
@@ -1047,16 +815,23 @@ InstallSystem(){
 
 local ch=$1
 local sources=$2
-#trap "cleanup $? $LINENO" 0 1 2 3 13 15 ERR
-set -xve
+
+setup_env
+chapterinstall $ch  "${sources}"
+
+}
+setup_env(){
+echo ${DEBUG_}
+[[ ${DEBUG_} = "true" ]] && set -xve || set -e
+[[ ${DEBUG_} = "true" ]] && blockid
+[[ ${DEBUG_} = "true" ]] && blockpwd
+[[ ${DEBUG_} = "true" ]] && blockscript
+[[ ${DEBUG_} = "true" ]] && block "$PKG_CONFIG_PATH"
 export SUCCESS=${sources}/"LFSSUCCESS"
 export tmp=${sources}/killpid
 export wgetlist=${sources}/"wget-list"
-export HOME="/home/"$(whoami)
-blockid
-blockpwd
-blockscript
-chapterinstall $ch  "${sources}"
+[[ $(whoami) = "root" ]] && export HOME=/root || export HOME="/home/"$(whoami) 
+[ -z "$BLFSCHAPTERS" ] && [ ! -f "/etc/profile.d/xorg.sh" ] &&  { cd ${sources};type Introduction_to_Xorg_7_7_C24; Introduction_to_Xorg_7_7_C24 || true ; source "/etc/profile.d/xorg.sh" ;} || true
 
 }
 
@@ -1066,16 +841,8 @@ local pack=$1
 local sources=$2
 local ch=$3
 
-set -xve
-export SUCCESS=${sources}/"LFSSUCCESS"
-export tmp=${sources}/killpid
-export wgetlist=${sources}/"wget-list"
-[ ! -f $SUCCESS ] && error 1  PROGRESSMISS "$SUCCESS missing !"
+setup_env
 
-
-blockid
-blockpwd
-blockscript
 pack_install $pack  "$sources" 
 
 }
@@ -1083,7 +850,7 @@ bookinstall(){
 
 local inIFS=$IFS
 IFS=$(echo -en " \t\n\b")
-for ch in $LFSCHAPTERS
+for ch in $LFSCHAPTERS $BLFSCHAPTERS 
 do
 	
 	block $ch
@@ -1118,14 +885,21 @@ do
 		bootstrapchroot  "InstallSystem $ch '/sources' "
 		;;
 		*)
-		break
+		bootstrapchroot  "InstallSystem $ch '/sources' "
 		;;
 	esac
 done
 IFS=$inIFS
 
 }
+install_openssh(){
 
+post_download "Wget_1_14_C15" "/mnt/lfs/sources"
+post_download "OpenSSL_1_0_1e_C4" "/mnt/lfs/sources"
+time bootstrapchroot 'InstallSpecificPack "Wget_1_14_C15" "/sources"'
+time bootstrapchroot 'InstallSpecificPack "OpenSSH_6_1p1_C4" "/sources" '
+
+}
 
 parse_book 
 
@@ -1135,26 +909,36 @@ restart_or_not
 
 time export_func 2>/dev/null
 
-#post_download "LVM2_2_02_98_C5" "/mnt/lfs/sources"
-post_download "Wget_1_14_C15" "/mnt/lfs/sources"
-post_download "OpenSSL_1_0_1e_C4" "/mnt/lfs/sources"
-time bootstrapchroot 'InstallSpecificPack "Wget_1_14_C15" "/sources"'
-time bootstrapchroot 'InstallSpecificPack "About_initramfs_C5" "/sources"'
 bookinstall
+
+#post_download "LVM2_2_02_98_C5" "/mnt/lfs/sources"
+#post_download "Wget_1_14_C15" "/mnt/lfs/sources"
+#post_download "OpenSSL_1_0_1e_C4" "/mnt/lfs/sources"
+#time bootstrapchroot 'InstallSpecificPack "Wget_1_14_C15" "/sources"'
+#time bootstrapchroot 'InstallSpecificPack "About_initramfs_C5" "/sources"'
+
 
 #time bootstrapchroot 'InstallSpecificPack "OpenSSL_1_0_1e_C4" "/sources"'
 #post_download "OpenSSL_1_0_1e_C4" "/mnt/lfs/sources"
-time bootstrapchroot 'InstallSpecificPack "OpenSSH_6_1p1_C4" "/sources" '
+#time bootstrapchroot 'InstallSpecificPack "OpenSSH_6_1p1_C4" "/sources" '
 
-
-#bootstrapchroot  "InstallSystem 'C4_Security' '/sources' "
-#bootstrapchroot  "InstallSystem 'C24_XWindowSystemEnvironment' '/sources' "
+#InstallSpecificPack "DocBook_utils_0_6_14_C44" "/sources"
+#InstallSystem 'C4_Security' '/sources'
+#chapterinstall 'C24_XWindowSystemEnvironment' '/sources'
 #bootstrapchroot  "InstallSystem 'C33_XfceDesktop' '/sources' "
 
 #pack_install "Linux_3_8_1_C8" "${sources}"
 #pack_install "shared_mime_info_1_1_C25" "${sources}"
-#pack_install "GnuPG_1_4_13_C4" "${sources}"
+#pack_install "Xorg_Evdev_Driver_2_8_0_C24" "${sources}"
+#pack_install "SQLite_3_7_16_1_C22" "${sources}"
+#chapterinstall "C3_AfterLFSConfigurationIssues" "$sources"
 #chapterinstall "C27_Introduction" "$sources"
+#pack_install "ATK_2_6_0_C25" "/sources"
+#pack_install "Vala_0_18_1_C13" "/sources"
+
+#pack_install "gobject_introspection_1_34_2_C9" "/sources"
+#block $LIBRARY_PATH
+#chapterinstall 'C33_XfceDesktop' '/sources'
 #chapterinstall "C28_TheKDECore" "$sources"
 #chapterinstall "C30_GNOMECorePackages" "$sources"
 cleanup 0 $LINENO

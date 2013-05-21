@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;40.&nbsp;Video Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="vlc.html" title="VLC-2.0.5">Prev</a>
+          <a accesskey="p" href="vlc.html" title="VLC-2.0.6">Prev</a>
           <p>
-            VLC-2.0.5
+            VLC-2.0.6
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
@@ -105,6 +105,21 @@
           </ul>
         </div>
         <h3>
+          Additional Patches
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Recommended patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/xine-ui-0.99.7-upstream_fix-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/xine-ui-0.99.7-upstream_fix-1.patch</a>
+                (without this, opening files from the menu doesn't work).
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
           Xine User Interface Dependencies
         </h3>
         <h4>
@@ -122,7 +137,7 @@
         <p class="optional">
           <a class="xref" href="../general/pkgconfig.html" title=
           "pkg-config-0.28">pkg-config-0.28</a>, <a class="xref" href=
-          "../basicnet/curl.html" title="cURL-7.29.0">cURL-7.29.0</a>,
+          "../basicnet/curl.html" title="cURL-7.30.0">cURL-7.30.0</a>,
           <a class="xref" href="../general/aalib.html" title=
           "AAlib-1.4rc5">AAlib-1.4rc5</a>, <a class="ulink" href=
           "http://www.lirc.org">LIRC</a> and <a class="ulink" href=
@@ -137,6 +152,14 @@
         <h2 class="sect2">
           Installation of Xine User Interface
         </h2>
+        <p>
+          If you have downloaded the recommended patch, apply it by running
+          the following command:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../xine-ui-0.99.7-upstream_fix-1.patch</kbd>
+</pre>
         <p>
           Install <span class="application">xine User Interface</span> by
           running the following commands:
@@ -375,15 +398,15 @@ update-desktop-database</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-28 00:12:39 +0000
+        Last updated on 2013-04-21 18:22:49 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="vlc.html" title="VLC-2.0.5">Prev</a>
+          <a accesskey="p" href="vlc.html" title="VLC-2.0.6">Prev</a>
           <p>
-            VLC-2.0.5
+            VLC-2.0.6
           </p>
         </li>
         <li class="next">
@@ -399,7 +422,7 @@ update-desktop-database</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

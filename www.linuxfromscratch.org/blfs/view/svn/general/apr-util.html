@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Apr-Util-1.5.1
+      Apr-Util-1.5.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;11.&nbsp;General Utilities
@@ -40,17 +40,17 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="apr-util" name="apr-util"></a>Apr-Util-1.5.1
+        <a id="apr-util" name="apr-util"></a>Apr-Util-1.5.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
-          Introduction to Apr-Util
+          Introduction to Apr Util
         </h2>
         <p>
           The Apache Portable Runtime Utility Library provides a predictable
@@ -71,29 +71,22 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://archive.apache.org/dist/apr/apr-util-1.5.1.tar.bz2">http://archive.apache.org/dist/apr/apr-util-1.5.1.tar.bz2</a>
+                "http://archive.apache.org/dist/apr/apr-util-1.5.2.tar.bz2">http://archive.apache.org/dist/apr/apr-util-1.5.2.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download (FTP): <a class="ulink" href=
-                "ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-util-1.5.1.tar.bz2">
-                ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-util-1.5.1.tar.bz2</a>
+                Download MD5 sum: 89c1348aa79e898d7c34a6206311c9c2
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 9c1db8606e520f201c451ec9a0b095f6
+                Download size: 680 KB
               </p>
             </li>
             <li>
               <p>
-                Download size: 644 KB
-              </p>
-            </li>
-            <li>
-              <p>
-                Estimated disk space required: 8.6 MB
+                Estimated disk space required: 11 MB
               </p>
             </li>
             <li>
@@ -104,34 +97,37 @@
           </ul>
         </div>
         <h3>
-          Apr-Util Dependencies
+          Apr Util Dependencies
         </h3>
         <h4>
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="apr.html" title="Apr-1.4.6">Apr-1.4.6</a>.
+          <a class="xref" href="apr.html" title="Apr-1.4.6">Apr-1.4.6</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
+          <a class="xref" href="../server/db.html" title=
+          "Berkeley DB-5.3.21">Berkeley DB-5.3.21</a>, <a class="xref" href=
+          "expat.html" title="Expat-2.1.0">expat-2.1.0</a>, <a class="ulink"
+          href="http://www.freetds.org/">FreeTDS</a>, <a class="xref" href=
+          "../server/mysql.html" title="MySQL-5.6.11">MySQL-5.6.11</a>,
           <a class="xref" href="../server/openldap.html" title=
-          "OpenLDAP-2.4.34">OpenLDAP-2.4.34</a>, <a class="xref" href=
-          "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
-          "expat.html" title="Expat-2.1.0">expat-2.1.0</a>, <a class="xref"
-          href="unixodbc.html" title="unixODBC-2.3.1">unixODBC-2.3.1</a>,
-          <a class="xref" href="../server/mysql.html" title=
-          "MySQL-5.5.30">MySQL-5.5.30</a>, <a class="xref" href=
+          "OpenLDAP-2.4.35">OpenLDAP-2.4.35</a>, <a class="xref" href=
           "../server/postgresql.html" title=
-          "PostgreSQL-9.2.2">PostgreSQL-9.2.2</a>, <a class="ulink" href=
-          "http://www.oracle.com/us/products/database/index.html">Oracle
-          11g</a>, <a class="ulink" href=
-          "http://www.freetds.org/">FreeTDS</a> <a class="xref" href=
-          "../server/sqlite.html" title="SQLite-3.7.16.1">SQLite-3.7.16.1</a>
-          and <a class="xref" href="../server/db.html" title=
-          "Berkeley DB-5.3.21">Berkeley DB-5.3.21</a>.
+          "PostgreSQL-9.2.4">PostgreSQL-9.2.4</a>, <a class="xref" href=
+          "../server/sqlite.html" title="SQLite-3.7.16.2">SQLite-3.7.16.2</a>
+          and <a class="xref" href="unixodbc.html" title=
+          "unixODBC-2.3.1">unixODBC-2.3.1</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -140,15 +136,18 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          Installation of Apr-Util
+          Installation of Apr Util
         </h2>
         <p>
-          Install <span class="application">Apr-Util</span> by running the
+          Install <span class="application">Apr Util</span> by running the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">./configure --prefix=/usr --with-apr=/usr --with-gdbm=/usr &amp;&amp;
+<kbd class="command">./configure --prefix=/usr       \
+            --with-apr=/usr     \
+            --with-gdbm=/usr    \
+            --with-openssl=/usr \
+            --with-crypto &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -167,21 +166,23 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--with-gdbm=/usr</code>: This option makes it
-          compile the <code class="filename">apr_dbm_gdbm-1.so</code> plugin.
+          <em class="parameter"><code>--with-gdbm=/usr</code></em>: This
+          switch enables the <code class="filename">apr_dbm_gdbm-1.so</code>
+          plugin.
         </p>
         <p>
-          <code class="option">--with-berkeley-db=/usr</code>: If you have
-          installed <a class="xref" href="../server/db.html" title=
-          "Berkeley DB-5.3.21">Berkeley DB-5.3.21</a> use this option to
+          <em class="parameter"><code>--with-openssl=/usr
+          --with-crypto</code></em>: These switches enable the <code class=
+          "filename">apr_crypto_openssl-1.so</code> plugin. Remove them if
+          you have not installed <a class="xref" href=
+          "../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-berkeley-db=/usr</code></em>: If
+          you have installed <a class="xref" href="../server/db.html" title=
+          "Berkeley DB-5.3.21">Berkeley DB-5.3.21</a>, use this switch to
           compile the <code class="filename">apr_dbm_db-1.so</code> plugin.
-        </p>
-        <p>
-          <code class="option">--with-openssl=/usr</code> and <code class=
-          "option">--with-crypto</code>: If you have installed <a class=
-          "xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, use these options to compile
-          the <code class="filename">apr_crypto_openssl-1.so</code> plugin.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -214,21 +215,6 @@ make</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="apu-1-config" name="apu-1-config"></a><span class=
-                    "term"><span class=
-                    "command"><strong>apu-1-config</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is a simple script that provides information about the
-                    installed APR-Util program.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="libaprutil-1" name="libaprutil-1"></a><span class=
                     "term"><code class=
                     "filename">libaprutil-1.so</code></span>
@@ -247,7 +233,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-04 18:52:20 +0000
+        Last updated on 2013-04-27 18:04:22 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -271,7 +257,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

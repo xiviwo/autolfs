@@ -12,26 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="openssh.html" title="OpenSSH-6.1p1">Prev</a>
+          <a accesskey="p" href="openssh.html" title="OpenSSH-6.2p1">Prev</a>
           <p>
-            OpenSSH-6.1p1
+            OpenSSH-6.2p1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="p11-kit.html" title=
-          "p11-kit-0.15.2">Next</a>
+          "p11-kit-0.18.1">Next</a>
           <p>
-            p11-kit-0.15.2
+            p11-kit-0.18.1
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
@@ -110,8 +110,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.1e-fix_manpages-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.1e-fix_manpages-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.1e-fix_parallel_build-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.1e-fix_parallel_build-1.patch</a>
               </p>
             </li>
           </ul>
@@ -126,7 +126,7 @@
           <a class="xref" href="../general/bc.html" title=
           "bc-1.06.95">bc-1.06.95</a> (required for full coverage by the test
           suite during the build) and <a class="xref" href="mitkrb.html"
-          title="MIT Kerberos V5-1.11.1">MIT Kerberos V5-1.11.1</a>
+          title="MIT Kerberos V5-1.11.2">MIT Kerberos V5-1.11.2</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -143,7 +143,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../openssl-1.0.1e-fix_manpages-1.patch &amp;&amp;
+"command">patch -Np1 -i ../openssl-1.0.1e-fix_parallel_build-1.patch &amp;&amp;
 
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
@@ -166,9 +166,9 @@ make</kbd>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class=
-"command">make MANDIR=/usr/share/man install              &amp;&amp;
-install -dv -m755 /usr/share/doc/openssl-1.0.1e &amp;&amp;
+<kbd class="command">
+make MANDIR=/usr/share/man MANSUFFIX=ssl install &amp;&amp;
+install -dv -m755 /usr/share/doc/openssl-1.0.1e  &amp;&amp;
 cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
 </pre>
       </div>
@@ -195,10 +195,12 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
         </p>
         <p>
           <span class="command"><strong>make MANDIR=/usr/share/man
-          install</strong></span>: This command installs <span class=
-          "application">OpenSSL</span> with the man pages in <code class=
-          "filename">/usr/share/man</code> instead of <code class=
-          "filename">/etc/ssl/man</code>.
+          MANSUFFIX=ssl install</strong></span>: This command installs
+          <span class="application">OpenSSL</span> with the man pages in
+          <code class="filename">/usr/share/man</code> instead of
+          <code class="filename">/etc/ssl/man</code> and appends "ssl" suffix
+          to the manual page names to avoid conflicts with manual pages
+          installed by other packages.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -221,9 +223,9 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
             Most users will want to install Certificate Authority
             Certificates for validation of downloaded certificates. For
             example, these certificates can be used by <a class="xref" href=
-            "../general/git.html" title="Git-1.8.2">git-1.8.2</a>, <a class=
-            "xref" href="../basicnet/curl.html" title=
-            "cURL-7.29.0">cURL-7.29.0</a> or <a class="xref" href=
+            "../general/git.html" title="Git-1.8.2.2">git-1.8.2.2</a>,
+            <a class="xref" href="../basicnet/curl.html" title=
+            "cURL-7.30.0">cURL-7.30.0</a> or <a class="xref" href=
             "../basicnet/wget.html" title="Wget-1.14">Wget-1.14</a> when
             accessing secure (https protocol) sites. To do this, follow the
             instructions from the <a class="xref" href="cacerts.html" title=
@@ -347,22 +349,22 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-08 03:49:03 +0000
+        Last updated on 2013-05-05 18:17:32 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="openssh.html" title="OpenSSH-6.1p1">Prev</a>
+          <a accesskey="p" href="openssh.html" title="OpenSSH-6.2p1">Prev</a>
           <p>
-            OpenSSH-6.1p1
+            OpenSSH-6.2p1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="p11-kit.html" title=
-          "p11-kit-0.15.2">Next</a>
+          "p11-kit-0.18.1">Next</a>
           <p>
-            p11-kit-0.15.2
+            p11-kit-0.18.1
           </p>
         </li>
         <li class="up">
@@ -371,7 +373,7 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

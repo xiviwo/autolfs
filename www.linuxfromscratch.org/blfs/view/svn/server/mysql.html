@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      MySQL-5.5.30
+      MySQL-5.6.11
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;22.&nbsp;Databases
@@ -29,9 +29,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="postgresql.html" title=
-          "PostgreSQL-9.2.2">Next</a>
+          "PostgreSQL-9.2.4">Next</a>
           <p>
-            PostgreSQL-9.2.2
+            PostgreSQL-9.2.4
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mysql" name="mysql"></a>MySQL-5.5.30
+        <a id="mysql" name="mysql"></a>MySQL-5.6.11
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           libraries.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.3
           platform.
         </p>
         <h3>
@@ -70,30 +70,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://cdn.mysql.com/Downloads/MySQL-5.5/mysql-5.5.30.tar.gz">
-                http://cdn.mysql.com/Downloads/MySQL-5.5/mysql-5.5.30.tar.gz</a>
+                "http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.11.tar.gz">
+                http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.11.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: f0cdd56f89e781e800cf223bd9edd00c
+                Download MD5 sum: 9241be729964ab4594de11baa30aec48
               </p>
             </li>
             <li>
               <p>
-                Download size: 24 MB
+                Download size: 34 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 760 MB (additional 170 MB to
-                run the test suite)
+                Estimated disk space required: 1.0 GB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 4.0 SBU (Test suite is an additional 45
-                minutes, only partially CPU dependent)
+                Estimated build time: 4.5 SBU
               </p>
             </li>
           </ul>
@@ -107,8 +105,8 @@
               <p>
                 Optional patch (recommended if building for Amarok):
                 <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/mysql-5.5.30-embedded_library_shared-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/mysql-5.5.30-embedded_library_shared-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/svn/mysql-5.6.11-embedded_library_shared-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/mysql-5.6.11-embedded_library_shared-1.patch</a>
               </p>
             </li>
             <li>
@@ -133,15 +131,18 @@
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          <a class="xref" href="../basicnet/libevent.html" title=
+          "libevent-2.0.21">libevent-2.0.21</a> and <a class="xref" href=
+          "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="ulink" href=
-          "http://packages.debian.org/source/sid/libaio">libaio</a>
+          "http://packages.debian.org/source/sid/libaio">libaio</a> and
+          <a class="ulink" href=
+          "http://www.thrysoee.dk/editline/">libedit</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -168,22 +169,20 @@ useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql</kbd>
           <span class="command"><strong>cmake</strong></span> command below.
         </p>
         <p>
-          MySQL contains an embedded server library which can be enabled with
-          the cmake option <em class=
-          "parameter"><code>-DWITH_EMBEDDED_SERVER=ON</code></em>. By default
-          this server is built as a statically linked library, <code class=
+          MySQL contains an embedded server library. By default, it is built
+          as a statically linked library, <code class=
           "filename">libmysqld.a</code>, but by applying the optional patch,
           a shared version of this library can be built. The library is
           needed by certain applications, such as <span class=
-          "application">Amarok</span> and we recommend use of the shared
-          libraries.
+          "application">Amarok</span> and it is recommend to use the shared
+          libraries whenever it is possible.
         </p>
         <p>
-          There are numerous options available to <strong class=
-          "userinput"><code>cmake</code></strong>. Check the output of the
-          `<strong class="userinput"><code>cmake . -LH</code></strong>` for
+          There are numerous options available to <span class=
+          "command"><strong>cmake</strong></span>. Check the output of the
+          `<span class="command"><strong>cmake . -LH</strong></span>` for
           additional customization options. See the <a class="ulink" href=
-          "http://dev.mysql.com/doc/refman/5.5/en/source-configuration-options.html">
+          "http://dev.mysql.com/doc/refman/5.6/en/source-configuration-options.html">
           MySQL Documentation</a> for a full listing of all options.
         </p>
         <p>
@@ -192,7 +191,7 @@ useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql</kbd>
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../mysql-5.5.30-embedded_library_shared-1.patch</kbd>
+"command">patch -Np1 -i ../mysql-5.6.11-embedded_library_shared-1.patch</kbd>
 </pre>
         <p>
           Install <span class="application">MySQL</span> by running the
@@ -216,39 +215,26 @@ cmake -DCMAKE_BUILD_TYPE=Release                    \
       -DINSTALL_MYSQLDATADIR=/srv/mysql             \
       -DINSTALL_MYSQLSHAREDIR=share/mysql           \
       -DINSTALL_MYSQLTESTDIR=share/mysql/test       \
-      -DINSTALL_PLUGINDIR=lib/mysql                 \
+      -DINSTALL_PLUGINDIR=lib/mysql/plugin          \
       -DINSTALL_SBINDIR=sbin                        \
       -DINSTALL_SCRIPTDIR=bin                       \
       -DINSTALL_SQLBENCHDIR=share/mysql/bench       \
-      -DINSTALL_SUPPORTFILESDIR=share/mysql/support \
+      -DINSTALL_SUPPORTFILESDIR=share/mysql         \
       -DMYSQL_DATADIR=/srv/mysql                    \
-      -DMYSQL_UNIX_ADDR=/var/run/mysqld/mysql.sock  \
+      -DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock     \
       -DSYSCONFDIR=/etc/mysql                       \
       -DWITH_PARTITION_STORAGE_ENGINE=OFF           \
       -DWITH_PERFSCHEMA_STORAGE_ENGINE=OFF          \
-      -DWITH_READLINE=system                        \
+      -DWITH_EXTRA_CHARSETS=complex                 \
+      -DWITH_LIBEVENT=system                        \
       -DWITH_SSL=system                             \
       .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
-          test-force 2&gt;&amp;1 | tee test.log</strong></span>. This forces
-          the test to run to completion and logs all the test output. There
-          will be many tests that are not run due to configuration options
-          and developer considerations. Otherwise many of the tests will
-          fail. Also, two tests will fail if ipv6 is not available in the
-          kernel either as a module or built in.
+          test</strong></span>.
         </p>
-        <div class="admon note">
-          <img alt="[Note]" src="../images/note.png" />
-          <h3>
-            Note
-          </h3>
-          <p>
-            The SSL tests may fail due to expired certificates.
-          </p>
-        </div>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
@@ -279,27 +265,26 @@ make</kbd>
           directories for some components.
         </p>
         <p>
-          <em class=
-          "parameter"><code>-DWITH_&lt;engine&gt;_STORAGE_ENGINE=ON</code></em>:
-          The default instructions only build the innobase (InnoDB) storage
-          engine. If other storage engines are desired use this switch to
-          enable them. Valid choices are ARCHIVE, BLACKHOLE, EXAMPLE,
-          FEDERATED, INNOBASE, NDBCLUSTER, PARTITION and PERFSCHEMA.
-        </p>
-        <p>
           <em class="parameter"><code>-DWITHOUT_SERVER=ON</code></em>: Use
           this switch if you don't want the server and would like to build
           the client only.
         </p>
         <p>
-          <em class="parameter"><code>-DWITH_EMBEDDED_SERVER=ON</code></em>:
-          Use this switch to build the embedded server library.
+          <em class=
+          "parameter"><code>-DWITH_EXTRA_CHARSETS=complex</code></em>: This
+          switch enables support for the complex character sets.
+        </p>
+        <p>
+          <em class="parameter"><code>-DWITH_LIBEVENT=system</code></em>:
+          This switch is used to tell the build system to use installed
+          <span class="application">libevent</span>. Remove it if you didn't
+          install <span class="application">libevent</span>.
         </p>
         <p>
           <em class="parameter"><code>-DWITH_SSL=system</code></em>: This
-          switch is used to tell the build system to use system version of
-          the <span class="application">OpenSSL</span>. Remove it if you
-          didn't install <span class="application">OpenSSL</span>.
+          switch is used to tell the build system to use installed
+          <span class="application">OpenSSL</span>. Remove it if you didn't
+          install <span class="application">OpenSSL</span>.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -319,19 +304,97 @@ make</kbd>
           <h3 class="sect3">
             Configuration Information
           </h3>
+          <div class="admon note">
+            <img alt="[Note]" src="../images/note.png" />
+            <h3>
+              Note
+            </h3>
+            <p>
+              If you are upgrading from previous major version of
+              <span class="application">MySQL</span>, be sure to consult the
+              <a class="ulink" href=
+              "https://dev.mysql.com/doc/refman/5.6/en/upgrading-from-previous-series.html">
+              MySQL Reference Manual</a> for notes on upgrading the software.
+            </p>
+          </div>
           <p>
-            There are several default configuration files available in
-            <code class="filename">/usr/share/mysql</code> which you can use.
-            When creating the file, ensure binary logs are disabled unless
-            you are doing database replication. Create <code class=
-            "filename">/etc/mysql/my.cnf</code> using the following commands
-            as the <code class="systemitem">root</code> user:
+            Create basic <code class="filename">/etc/mysql/my.cnf</code>
+            using the following command as the <code class=
+            "systemitem">root</code> user:
           </p>
           <pre class="root">
-<kbd class=
-"command">install -v -Dm644 /usr/share/mysql/support/my-medium.cnf /etc/mysql/my.cnf &amp;&amp;
-sed -i 's/^log-bin/#log-bin/' /etc/mysql/my.cnf &amp;&amp;
-sed -i 's/^binlog/#binlog/' /etc/mysql/my.cnf</kbd>
+<kbd class="command">install -v -dm 755 /etc/mysql &amp;&amp;
+cat &gt; /etc/mysql/my.cnf &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/mysql/my.cnf
+
+# The following options will be passed to all MySQL clients
+[client]
+#password       = your_password
+port            = 3306
+socket          = /run/mysqld/mysqld.sock
+
+# The MySQL server
+[mysqld]
+port            = 3306
+socket          = /run/mysqld/mysqld.sock
+datadir         = /srv/mysql
+skip-external-locking
+key_buffer = 16M
+max_allowed_packet = 1M
+sort_buffer_size = 512K
+net_buffer_length = 16K
+myisam_sort_buffer_size = 8M
+
+# Don't listen on a TCP/IP port at all.
+skip-networking
+
+# required unique id between 1 and 2^32 - 1
+server-id       = 1
+
+# Uncomment the following if you are using BDB tables
+#bdb_cache_size = 4M
+#bdb_max_lock = 10000
+
+# Uncomment the following if you are using InnoDB tables
+#innodb_data_home_dir = /srv/mysql
+#innodb_data_file_path = ibdata1:10M:autoextend
+#innodb_log_group_home_dir = /srv/mysql
+# You can set .._buffer_pool_size up to 50 - 80 %
+# of RAM but beware of setting memory usage too high
+#innodb_buffer_pool_size = 16M
+#innodb_additional_mem_pool_size = 2M
+# Set .._log_file_size to 25 % of buffer pool size
+#innodb_log_file_size = 5M
+#innodb_log_buffer_size = 8M
+#innodb_flush_log_at_trx_commit = 1
+#innodb_lock_wait_timeout = 50
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+
+[mysql]
+no-auto-rehash
+# Remove the next comment character if you are not familiar with SQL
+#safe-updates
+
+[isamchk]
+key_buffer = 20M
+sort_buffer_size = 20M
+read_buffer = 2M
+write_buffer = 2M
+
+[myisamchk]
+key_buffer_size = 20M
+sort_buffer_size = 20M
+read_buffer = 2M
+write_buffer = 2M
+
+[mysqlhotcopy]
+interactive-timeout
+
+# End /etc/mysql/my.cnf</code>
+EOF</kbd>
 </pre>
           <p>
             You can now install a database and change the ownership to the
@@ -382,7 +445,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
             Install the <code class="filename">/etc/rc.d/init.d/mysql</code>
             init script included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130324</a> package as the
+            "BLFS Boot Scripts">blfs-bootscripts-20130505</a> package as the
             <code class="systemitem">root</code> user to start the
             <span class="application">MySQL</span> server during system
             boot-up.
@@ -404,7 +467,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
               myisam_ftdump, myisamlog, myisampack, my_print_defaults, mysql,
               mysqlaccess, mysqlaccess.conf, mysqladmin, mysqlbinlog,
               mysqlbug, mysqlcheck, mysql_client_test,
-              mysql_client_test_embedded, mysql_config,
+              mysql_client_test_embedded, mysql_config, mysql_config_editor,
               mysql_convert_table_format, mysqld, mysqld_multi, mysqld_safe,
               mysqldump, mysqldumpslow, mysql_embedded, mysql_find_rows,
               mysql_fix_extensions, mysqlhotcopy, mysqlimport,
@@ -417,8 +480,8 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libmysqlclient.{so,a},
-              libmysqlclient_r.{so,a}, libmysqld.{so,a}, libmysqlservices.a
-              and several in /usr/lib/mysql</span>
+              libmysqlclient_r.{so,a}, libmysqld.{so,a} and
+              libmysqlservices.a</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -436,7 +499,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
           pages long. Instead, consult the <code class=
           "filename">mysql.info</code> documentation or the on-line reference
           manual at <a class="ulink" href=
-          "http://dev.mysql.com/doc/refman/5.5/en/index.html">http://dev.mysql.com/doc/refman/5.5/en/index.html</a>.
+          "http://dev.mysql.com/doc/refman/5.6/en/index.html">http://dev.mysql.com/doc/refman/5.6/en/index.html</a>.
         </p>
         <p>
           The <span class="application">Perl</span> DBI modules must be
@@ -445,7 +508,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
         </p>
       </div>
       <p class="updated">
-        Last updated on 2013-03-24 11:02:49 +0000
+        Last updated on 2013-04-29 16:18:11 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -458,9 +521,9 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="postgresql.html" title=
-          "PostgreSQL-9.2.2">Next</a>
+          "PostgreSQL-9.2.4">Next</a>
           <p>
-            PostgreSQL-9.2.2
+            PostgreSQL-9.2.4
           </p>
         </li>
         <li class="up">
@@ -469,7 +532,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

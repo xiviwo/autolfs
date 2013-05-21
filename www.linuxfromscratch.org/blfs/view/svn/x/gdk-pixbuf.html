@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="freeglut.html" title=
-          "Freeglut-2.8.0">Prev</a>
+          "Freeglut-2.8.1">Prev</a>
           <p>
-            Freeglut-2.8.0
+            Freeglut-2.8.1
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
@@ -119,9 +119,9 @@
           "GLib-2.34.3">GLib-2.34.3</a>, <a class="xref" href=
           "../general/libjpeg.html" title=
           "libjpeg-turbo-1.2.1">libjpeg-turbo-1.2.1</a>, <a class="xref"
-          href="../general/libpng.html" title=
-          "libpng-1.5.14">libpng-1.5.14</a> and <a class="xref" href=
-          "../general/libtiff.html" title="LibTIFF-4.0.3">LibTIFF-4.0.3</a>
+          href="../general/libpng.html" title="libpng-1.6.2">libpng-1.6.2</a>
+          and <a class="xref" href="../general/libtiff.html" title=
+          "LibTIFF-4.0.3">LibTIFF-4.0.3</a>
         </p>
         <h4>
           Recommended
@@ -161,7 +161,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --with-x11 &amp;&amp;
+<kbd class=
+"command">sed -e "s@&lt;stdlib.h&gt;@&amp;\n#include &lt;string.h&gt;@g" \
+    -i gdk-pixbuf/io-png.c &amp;&amp;
+./configure --prefix=/usr --with-x11 &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -195,6 +198,13 @@ make</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <span class="command"><strong>sed -e
+          "s@&lt;stdlib.h&gt;@&amp;\n#include &lt;string.h&gt;@g"
+          ..</strong></span>: This <span class=
+          "command"><strong>sed</strong></span> silences compiler warnings
+          when using GCC 4.8.
+        </p>
         <p>
           <code class="option">--with-x11</code>: This switch enables
           building of the <span class="application">Gdk Pixbuf</span>
@@ -311,16 +321,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-06 03:05:17 +0000
+        Last updated on 2013-04-03 20:21:38 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="freeglut.html" title=
-          "Freeglut-2.8.0">Prev</a>
+          "Freeglut-2.8.1">Prev</a>
           <p>
-            Freeglut-2.8.0
+            Freeglut-2.8.1
           </p>
         </li>
         <li class="next">
@@ -336,7 +346,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

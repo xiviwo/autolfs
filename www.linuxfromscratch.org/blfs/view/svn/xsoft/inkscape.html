@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;37.&nbsp;Other X-based Programs
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
@@ -128,7 +128,7 @@
           "ImageMagick-6.8.2-8">ImageMagick-6.8.2-8</a>, <a class="ulink"
           href="http://libwpg.sourceforge.net/">libwpg</a>, <a class="xref"
           href="../general/poppler.html" title=
-          "Poppler-0.22.2">Poppler-0.22.2</a> and <a class="xref" href=
+          "Poppler-0.22.3">Poppler-0.22.3</a> and <a class="xref" href=
           "../general/popt.html" title="Popt-1.16">popt-1.16</a>
         </p>
         <h4>
@@ -164,7 +164,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class=
+"command">sed -e "s@commands_toolbox,@commands_toolbox@" -i src/widgets/desktop-widget.h &amp;&amp;
+./configure --prefix=/usr &amp;&amp;
 make &amp;&amp;
 unset LIBRARY_PATH</kbd>
 </pre>
@@ -207,6 +209,17 @@ unset LIBRARY_PATH</kbd>
 update-desktop-database</kbd>
 </pre>
         </div>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -e
+          "s@commands_toolbox,@commands_toolbox@" ...</strong></span>: This
+          <span class="command"><strong>sed</strong></span> fixes building
+          with GCC 4.8.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -268,7 +281,7 @@ update-desktop-database</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:30:03 +0000
+        Last updated on 2013-04-03 20:21:38 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -292,7 +305,7 @@ update-desktop-database</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

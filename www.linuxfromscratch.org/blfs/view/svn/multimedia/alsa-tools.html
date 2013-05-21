@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      alsa-tools-1.0.25
+      alsa-tools-1.0.27
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="alsa-utils.html" title=
-          "alsa-utils-1.0.26">Prev</a>
+          "alsa-utils-1.0.27">Prev</a>
           <p>
-            alsa-utils-1.0.26
+            alsa-utils-1.0.27
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="alsa-firmware.html" title=
-          "alsa-firmware-1.0.25">Next</a>
+          "alsa-firmware-1.0.27">Next</a>
           <p>
-            alsa-firmware-1.0.25
+            alsa-firmware-1.0.27
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="alsa-tools" name="alsa-tools"></a>alsa-tools-1.0.25
+        <a id="alsa-tools" name="alsa-tools"></a>alsa-tools-1.0.27
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           advanced tools for certain sound cards.
         </p>
         <p>
-          This package is known to build using an LFS 7.0 platform but has
+          This package is known to build using an LFS 7.3 platform but has
           not been tested.
         </p>
         <h3>
@@ -68,31 +68,36 @@
           <ul class="compact">
             <li>
               <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://alsa.cybermirror.org/tools/alsa-tools-1.0.27.tar.bz2">
+                http://alsa.cybermirror.org/tools/alsa-tools-1.0.27.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.25.tar.bz2">
-                ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.25.tar.bz2</a>
+                "ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.27.tar.bz2">
+                ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.27.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 57bfec98a814d12e0f7ab379aaeccd87
+                Download MD5 sum: 1ea381d00a6069a98613aa7effa4cb51
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.5 MB
+                Download size: 1.6 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 14-17 MB depending on the tool
-                being built
+                Estimated disk space required: 25 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.1-0.5 SBU depending on the tool being
-                built
+                Estimated build time: 0.5 SBU
               </p>
             </li>
           </ul>
@@ -105,21 +110,22 @@
         </h4>
         <p class="required">
           <a class="xref" href="alsa-lib.html" title=
-          "alsa-lib-1.0.26">alsa-lib-1.0.26</a>
+          "alsa-lib-1.0.27">alsa-lib-1.0.27</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../general/pkgconfig.html" title=
-          "pkg-config-0.28">pkg-config-0.28</a> and <a class="ulink" href=
-          "ftp://ftp.gtk.org/pub/gtk/v1.2/">GTK+1</a> (to build <span class=
+          <a class="xref" href="../x/gtk2.html" title=
+          "GTK+-2.24.17">GTK+-2.24.17</a> (to build <span class=
           "command"><strong>echomixer</strong></span>, <span class=
           "command"><strong>envy24control</strong></span> and <span class=
-          "command"><strong>rmedigicontrol</strong></span>), <a class="ulink"
-          href="http://www.fltk.org/">FLTK</a> (to build <span class=
-          "command"><strong>hdspconf</strong></span> and <span class=
-          "command"><strong>hdspmixer</strong></span>)
+          "command"><strong>rmedigicontrol</strong></span>), <a class="xref"
+          href="../x/gtk3.html" title="GTK+-3.6.4">GTK+-3.6.4</a> (to build
+          <span class="command"><strong>hdajackretask</strong></span>) and
+          <a class="ulink" href="http://www.fltk.org/">FLTK</a> (to build
+          <span class="command"><strong>hdspconf</strong></span> and
+          <span class="command"><strong>hdspmixer</strong></span>)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -142,10 +148,7 @@
 make</kbd>
 </pre>
         <p>
-          The <span class="command"><strong>ac3dec</strong></span> tool comes
-          with a test suite, but it is not functional since it does not
-          contain the reference results for the <span class=
-          "command"><strong>dither_test</strong></span> program.
+          This package does not come with a test suite.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -162,12 +165,12 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">ac3dec, extract_ac3, as10k1, dl10k1,
-              echomixer, envy24control, hdspconf, hdsploader, hdspmixer,
-              init_audigy, init_audigy_eq10, init_live, lo10k1, ld10k1,
-              ld10k1d, mixartloader, pcxhrloader, qlo10k1, rmedigicontrol,
-              cspctl, sbiload, sscape_ctl, us428control, usx2yloader, and
-              vxloader</span>
+              <span class="segbody">as10k1, cspctl, dl10k1, echomixer,
+              envy24control, hdajackretask, hda-verb, hdspconf, hdsploader,
+              hdspmixer, hwmixvolume, init_audigy, init_audigy_eq10,
+              init_live, lo10k1, ld10k1, ld10k1d, mixartloader, pcxhrloader,
+              qlo10k1, rmedigicontrol, sbiload, sscape_ctl, us428control,
+              usx2yloader and vxloader</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
@@ -175,9 +178,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/share/applications,
-              /usr/share/pixmaps, /usr/include/lo10k1, /usr/share/ld10k1, and
-              /usr/share/sounds</span>
+              <span class="segbody">/usr/include/lo10k1, /usr/share/ld10k1
+              and /usr/share/sounds</span>
             </div>
           </div>
         </div>
@@ -188,35 +190,6 @@ make</kbd>
           <table border="0">
             <col align="left" valign="top" />
             <tbody>
-              <tr>
-                <td>
-                  <p>
-                    <a id="ac3dec" name="ac3dec"></a><span class=
-                    "term"><span class=
-                    "command"><strong>ac3dec</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is a free AC-3 stream decoder.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="extract_ac3" name="extract_ac3"></a><span class=
-                    "term"><span class=
-                    "command"><strong>extract_ac3</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    will take an MPEG-2 stream and produce AC-3 audio to
-                    stdout if it exists.
-                  </p>
-                </td>
-              </tr>
               <tr>
                 <td>
                   <p>
@@ -231,6 +204,21 @@ make</kbd>
                     Creative SB Live, PCI 512, and emu APS sound cards. It is
                     used to make audio effects such as a flanger, chorus or
                     reverb.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cspctl" name="cspctl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cspctl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an SB16/AWE32 Creative Signal Processor (ASP/CSP)
+                    control program.
                   </p>
                 </td>
               </tr>
@@ -442,21 +430,6 @@ make</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="cspctl" name="cspctl"></a><span class=
-                    "term"><span class=
-                    "command"><strong>cspctl</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is an SB16/AWE32 Creative Signal Processor (ASP/CSP)
-                    control program.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="sbiload" name="sbiload"></a><span class=
                     "term"><span class=
                     "command"><strong>sbiload</strong></span></span>
@@ -537,23 +510,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-12 02:50:39 +0000
+        Last updated on 2013-04-14 12:48:41 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="alsa-utils.html" title=
-          "alsa-utils-1.0.26">Prev</a>
+          "alsa-utils-1.0.27">Prev</a>
           <p>
-            alsa-utils-1.0.26
+            alsa-utils-1.0.27
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="alsa-firmware.html" title=
-          "alsa-firmware-1.0.25">Next</a>
+          "alsa-firmware-1.0.27">Next</a>
           <p>
-            alsa-firmware-1.0.25
+            alsa-firmware-1.0.27
           </p>
         </li>
         <li class="up">
@@ -562,7 +535,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

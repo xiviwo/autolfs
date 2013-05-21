@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      cURL-7.29.0
+      cURL-7.30.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;17.&nbsp;Networking Libraries
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="curl" name="curl"></a>cURL-7.29.0
+        <a id="curl" name="curl"></a>cURL-7.30.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -73,17 +73,17 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://curl.haxx.se/download/curl-7.29.0.tar.bz2">http://curl.haxx.se/download/curl-7.29.0.tar.bz2</a>
+                "http://curl.haxx.se/download/curl-7.30.0.tar.bz2">http://curl.haxx.se/download/curl-7.30.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: fa5f37f38a8042020e292ce7ec5341ce
+                Download MD5 sum: 0db5ec03a5001b42a2edc03bf63b5ceb
               </p>
             </li>
             <li>
               <p>
-                Download size: 2.5 MB
+                Download size: 2.6 MB
               </p>
             </li>
             <li>
@@ -95,20 +95,6 @@
             <li>
               <p>
                 Estimated build time: 0.5 SBU (additional 3.5 SBU for tests)
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/curl-7.29.0-upstream_fixes-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/curl-7.29.0-upstream_fixes-1.patch</a>
               </p>
             </li>
           </ul>
@@ -137,10 +123,10 @@
           "Libidn-1.25">Libidn-1.25</a>, <a class="ulink" href=
           "https://launchpad.net/libmetalink/">libmetalink</a>, <a class=
           "ulink" href="http://www.libssh2.org">libssh2</a>, <a class="xref"
-          href="../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.1">MIT
-          Kerberos V5-1.11.1</a>, <a class="xref" href=
+          href="../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.2">MIT
+          Kerberos V5-1.11.2</a>, <a class="xref" href=
           "../server/openldap.html" title=
-          "OpenLDAP-2.4.34">OpenLDAP-2.4.34</a> and <a class="ulink" href=
+          "OpenLDAP-2.4.35">OpenLDAP-2.4.35</a> and <a class="ulink" href=
           "http://www.vintela.com/resources/topics/spnego/">SPNEGO</a>
         </p>
         <h4>
@@ -165,8 +151,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../curl-7.29.0-upstream_fixes-1.patch &amp;&amp;
-sed -i '/--static-libs)/{N;s#echo .*#echo #;}' curl-config.in &amp;&amp;
+"command">sed -i '/--static-libs)/{N;s#echo .*#echo #;}' curl-config.in &amp;&amp;
 ./configure --prefix=/usr              \
             --disable-static           \
             --enable-threaded-resolver \
@@ -183,8 +168,8 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 find docs \( -name "Makefile*" -o -name "*.1" -o -name "*.3" \) -exec rm {} \; &amp;&amp;
-install -v -d -m755 /usr/share/doc/curl-7.29.0 &amp;&amp;
-cp -v -R docs/*     /usr/share/doc/curl-7.29.0</kbd>
+install -v -d -m755 /usr/share/doc/curl-7.30.0 &amp;&amp;
+cp -v -R docs/*     /usr/share/doc/curl-7.30.0</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -255,7 +240,7 @@ cp -v -R docs/*     /usr/share/doc/curl-7.29.0</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/curl and
-              /usr/share/doc/curl-7.29.0</span>
+              /usr/share/doc/curl-7.30.0</span>
             </div>
           </div>
         </div>
@@ -316,7 +301,7 @@ cp -v -R docs/*     /usr/share/doc/curl-7.29.0</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-13 17:58:54 +0000
+        Last updated on 2013-04-14 12:48:41 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -341,7 +326,7 @@ cp -v -R docs/*     /usr/share/doc/curl-7.29.0</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

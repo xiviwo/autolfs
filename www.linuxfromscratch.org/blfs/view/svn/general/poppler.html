@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Poppler-0.22.2
+      Poppler-0.22.3
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="poppler" name="poppler"></a>Poppler-0.22.2
+        <a id="poppler" name="poppler"></a>Poppler-0.22.3
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -69,12 +69,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://poppler.freedesktop.org/poppler-0.22.2.tar.gz">http://poppler.freedesktop.org/poppler-0.22.2.tar.gz</a>
+                "http://poppler.freedesktop.org/poppler-0.22.3.tar.gz">http://poppler.freedesktop.org/poppler-0.22.3.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 3939740201c59c470bc7198003450a20
+                Download MD5 sum: be915388eaad6865cee5a156c8119ec1
               </p>
             </li>
             <li>
@@ -147,20 +147,20 @@
           "Cairo-1.12.14">Cairo-1.12.14</a>, <a class="xref" href=
           "libjpeg.html" title="libjpeg-turbo-1.2.1">libjpeg-turbo-1.2.1</a>
           and <a class="xref" href="libpng.html" title=
-          "libpng-1.5.14">libpng-1.5.14</a>
+          "libpng-1.6.2">libpng-1.6.2</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.29.0">cURL-7.29.0</a>, <a class="xref" href=
+          "cURL-7.30.0">cURL-7.30.0</a>, <a class="xref" href=
           "../x/gtk2.html" title="GTK+-2.24.17">GTK+-2.24.17</a>, <a class=
           "xref" href="lcms.html" title="Little CMS-1.19">Little CMS-1.19</a>
           or <a class="xref" href="lcms2.html" title="Little CMS-2.4">Little
           CMS-2.4</a>, <a class="xref" href="libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>, <a class="xref" href=
-          "libxml2.html" title="libxml2-2.9.0">libxml2-2.9.0</a>, <a class=
+          "libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>, <a class=
           "xref" href="openjpeg.html" title=
           "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a> and <a class="xref" href=
           "../x/qt.html" title="Qt-4.8.4">Qt-4.8.4</a> (the <code class=
@@ -183,7 +183,6 @@
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr     \
             --sysconfdir=/etc \
-            --enable-zlib     \
             --disable-static  \
             --enable-xpdf-headers &amp;&amp;
 make</kbd>
@@ -196,8 +195,8 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-install -v -m755 -d      /usr/share/doc/poppler-0.22.2 &amp;&amp;
-install -v -m644 README* /usr/share/doc/poppler-0.22.2</kbd>
+install -v -m755 -d      /usr/share/doc/poppler-0.22.3 &amp;&amp;
+install -v -m644 README* /usr/share/doc/poppler-0.22.3</kbd>
 </pre>
         <p>
           If you downloaded the additional encoding data package, install it
@@ -219,12 +218,6 @@ cd poppler-data-0.4.6</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--enable-zlib</code>: This option makes
-          <span class="application">Poppler</span> link with the
-          system-installed <code class="filename">libz</code> library to
-          enable compressed PDF functionality.
-        </p>
-        <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
         </p>
@@ -234,10 +227,6 @@ cd poppler-data-0.4.6</kbd>
           programs (e.g. <span class="application">Okular</span>,
           <span class="application">LibreOffice</span> and <span class=
           "application">Inkscape</span>).
-        </p>
-        <p>
-          <code class="option">--enable-libcurl</code>: This option enables
-          support for HTTP using <span class="application">libcurl</span>.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -260,7 +249,7 @@ cd poppler-data-0.4.6</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/poppler,
-              /usr/share/doc/poppler-0.22.2, /usr/share/gtk-doc/html/poppler
+              /usr/share/doc/poppler-0.22.3, /usr/share/gtk-doc/html/poppler
               and /usr/share/poppler</span>
             </div>
           </div>
@@ -509,7 +498,7 @@ cd poppler-data-0.4.6</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-23 00:09:51 +0000
+        Last updated on 2013-04-14 12:48:41 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -532,7 +521,7 @@ cd poppler-data-0.4.6</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

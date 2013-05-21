@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gst-plugins-bad-1.0.6
+      gst-plugins-bad-1.0.7
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gst10-plugins-good.html" title=
-          "gst-plugins-good-1.0.6">Prev</a>
+          "gst-plugins-good-1.0.7">Prev</a>
           <p>
-            gst-plugins-good-1.0.6
+            gst-plugins-good-1.0.7
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gst10-plugins-ugly.html" title=
-          "gst-plugins-ugly-1.0.6">Next</a>
+          "gst-plugins-ugly-1.0.7">Next</a>
           <p>
-            gst-plugins-ugly-1.0.6
+            gst-plugins-ugly-1.0.7
           </p>
         </li>
         <li class="up">
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="gst10-plugins-bad" name=
-        "gst10-plugins-bad"></a>gst-plugins-bad-1.0.6
+        "gst10-plugins-bad"></a>gst-plugins-bad-1.0.7
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,7 +62,7 @@
           set of tests, a real live maintainer, or some actual wide use.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.3
           platform.
         </p>
         <div class="admon note">
@@ -84,18 +84,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.0.6.tar.xz">
-                http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.0.6.tar.xz</a>
+                "http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.0.7.tar.xz">
+                http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.0.7.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 5fe353942c6e5adac23f35542b131484
+                Download MD5 sum: d1493d1219b836a8cbf54f4fba962420
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.1 MB
+                Download size: 3.0 MB
               </p>
             </li>
             <li>
@@ -118,7 +118,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="gst10-plugins-base.html" title=
-          "gst-plugins-base-1.0.6">gst-plugins-base-1.0.6</a>
+          "gst-plugins-base-1.0.7">gst-plugins-base-1.0.7</a>
         </p>
         <h4>
           Recommended
@@ -135,7 +135,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.29.0">cURL-7.29.0</a>, <a class="xref" href="faac.html"
+          "cURL-7.30.0">cURL-7.30.0</a>, <a class="xref" href="faac.html"
           title="FAAC-1.28">FAAC-1.28</a>, <a class="xref" href="faad2.html"
           title="FAAD2-2.7">FAAD2-2.7</a>, <a class="xref" href=
           "../x/gtk3.html" title="GTK+-3.6.4">GTK+-3.6.4</a>, <a class="xref"
@@ -143,8 +143,8 @@
           "libexif-0.6.21">libexif-0.6.21</a>, <a class="xref" href=
           "libmpeg2.html" title="libmpeg2-0.5.1">libmpeg2-0.5.1</a>,
           <a class="xref" href="../x/mesalib.html" title=
-          "MesaLib-9.1.1">MesaLib-9.1.1</a>, <a class="xref" href=
-          "mpg123.html" title="Mpg123-1.15.1">mpg123-1.15.1</a>, <a class=
+          "MesaLib-9.1.2">MesaLib-9.1.2</a>, <a class="xref" href=
+          "mpg123.html" title="Mpg123-1.15.3">mpg123-1.15.3</a>, <a class=
           "xref" href="../postlfs/openssl.html" title=
           "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
           "../x/x7lib.html" title="Xorg Libraries">Xorg Libraries</a>,
@@ -190,7 +190,7 @@
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
-            --with-package-name="GStreamer Bad Plugins 1.0.6 BLFS" \
+            --with-package-name="GStreamer Bad Plugins 1.0.7 BLFS" \
             --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &amp;&amp;
 make</kbd>
 </pre>
@@ -237,23 +237,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-23 00:09:51 +0000
+        Last updated on 2013-04-27 18:04:22 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="gst10-plugins-good.html" title=
-          "gst-plugins-good-1.0.6">Prev</a>
+          "gst-plugins-good-1.0.7">Prev</a>
           <p>
-            gst-plugins-good-1.0.6
+            gst-plugins-good-1.0.7
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gst10-plugins-ugly.html" title=
-          "gst-plugins-ugly-1.0.6">Next</a>
+          "gst-plugins-ugly-1.0.7">Next</a>
           <p>
-            gst-plugins-ugly-1.0.6
+            gst-plugins-ugly-1.0.7
           </p>
         </li>
         <li class="up">
@@ -262,7 +262,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>

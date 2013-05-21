@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-03-31">
+  <body class="blfs" id="blfs-2013-05-08">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-03-31
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
       </h4>
       <h3>
         Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="alsa-firmware.html" title=
-          "alsa-firmware-1.0.25">Prev</a>
+          "alsa-firmware-1.0.27">Prev</a>
           <p>
-            alsa-firmware-1.0.25
+            alsa-firmware-1.0.27
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
@@ -59,14 +59,21 @@
           to use the ALSA OSS sound interface.
         </p>
         <p>
-          This package is known to build using an LFS 7.0 platform but has
-          not been tested.
+          This package is known to build and work properly using an LFS-7.3
+          platform.
         </p>
         <h3>
           Package Information
         </h3>
         <div class="itemizedlist">
           <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://alsa.cybermirror.org/oss-lib/alsa-oss-1.0.25.tar.bz2">
+                http://alsa.cybermirror.org/oss-lib/alsa-oss-1.0.25.tar.bz2</a>
+              </p>
+            </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
@@ -104,7 +111,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="alsa-lib.html" title=
-          "alsa-lib-1.0.26">alsa-lib-1.0.26</a>
+          "alsa-lib-1.0.27">alsa-lib-1.0.27</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -120,7 +127,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure &amp;&amp;
+<kbd class="command">./configure --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -133,26 +140,14 @@ make</kbd>
 <kbd class="command">make install</kbd>
 </pre>
       </div>
-      <div class="configuration" lang="en" xml:lang="en">
+      <div class="commands" lang="en" xml:lang="en">
         <h2 class="sect2">
-          Configuring ALSA OSS
+          Command Explanations
         </h2>
-        <div class="sect3" lang="en" xml:lang="en">
-          <h3 class="sect3">
-            Configuration Information
-          </h3>
-          <p>
-            As with most libraries, there is no configuration to do, save
-            that the library directory, i.e., <code class=
-            "filename">/opt/lib</code> or <code class=
-            "filename">/usr/local/lib</code> should appear in <code class=
-            "filename">/etc/ld.so.conf</code> so that <span class=
-            "command"><strong>ldd</strong></span> can find the shared
-            libraries. After checking that this is the case, <span class=
-            "command"><strong>/sbin/ldconfig</strong></span> should be run
-            while logged in as <code class="systemitem">root</code>.
-          </p>
-        </div>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -166,8 +161,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libalsatoss.{so,a}, libaoss.{so,a}, and
-              libossredir.{so,a}</span>
+              <span class="segbody">libalsatoss.so, libaoss.so and
+              libossredir.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -204,16 +199,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-12 02:50:39 +0000
+        Last updated on 2013-04-14 12:48:41 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="alsa-firmware.html" title=
-          "alsa-firmware-1.0.25">Prev</a>
+          "alsa-firmware-1.0.27">Prev</a>
           <p>
-            alsa-firmware-1.0.25
+            alsa-firmware-1.0.27
           </p>
         </li>
         <li class="next">
@@ -229,7 +224,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-03-31">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
         </li>
       </ul>
     </div>
