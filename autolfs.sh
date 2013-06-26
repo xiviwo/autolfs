@@ -26,7 +26,7 @@ exlist=${exlist%|}
 
 for a in $(compgen -A function ; compgen -A variable)
 do
-[[ ${DEBUG_} = "true" ]] && echo $a
+[[ ${DEBUG_} = "true" ]] && : || echo $a
 done
 
 for a in $(compgen -A function ; compgen -A variable)
@@ -89,12 +89,13 @@ export LC_ALL=C
 export PASSWORD="ping"
 export KEYMAP="us"
 export FS="ext3"
-export wget_list="http://www.linuxfromscratch.org/lfs/view/stable/wget-list"
-export md5sums="http://www.linuxfromscratch.org/lfs/view/stable/md5sums"
+export wget_list="http://www.linuxfromscratch.org/lfs/view/development/wget-list"
+export md5sums="http://www.linuxfromscratch.org/lfs/view/development/md5sums"
 export sources=$LFS/sources
 export CMDS=${CWD}/cmds.sh
 export FUNCTIONS=${CWD}/functions.sh
 export wgetlist=${sources}/"wget-list"
+export md5file=${sources}/"md5sums"
 #sources="$LFS/sources"
 #CMDS=${CWD}/cmds;  FUNCTIONS=${CWD}/functions.sh;} || {  CMDS=${LFSBUILD}/cmds;  FUNCTIONS=${LFSBUILD}/functions.sh;} 
 export SUCCESS=${sources}/"LFSSUCCESS"
@@ -406,7 +407,7 @@ run_cmdstr(){
 		time progress ${cmdstr} || true ;;
 		Xorg_Drivers_C*)
 		;;
-		Linux_3_8_1_C8|Tripwire*)
+		Linux_*_*_*_C8|Tripwire*)
 		time ${cmdstr} ;;
 		*)
 		time progress ${cmdstr}   ;; #|| return 1 ;;
@@ -652,7 +653,7 @@ exec 3>&1
 
 #time part1
 #time part2
-
+echo "this ia test "
 
 exec 1>&3
 
@@ -712,6 +713,9 @@ echo "Choose (yes/no): "
 		Y|y|yes)
 			debug "Empty $SUCCESS to restart"
 			>"$SUCCESS"
+			rm -f "$wgetlist"
+			rm -f "$md5file"
+			rm -f "$tmp"
 			;;
 		N|n|no) 
 			exit 0;;
