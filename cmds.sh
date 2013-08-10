@@ -828,7 +828,7 @@ sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
        -e 's@/var/spool/mail@/var/mail@' etc/login.defs
 sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' \
     etc/login.defs
-./configure --sysconfdir=/etc --with-libpam=no
+./configure --sysconfdir=/etc --with-libpam=no           
 make
 make install
 mv -v /usr/bin/passwd /bin
@@ -1284,6 +1284,7 @@ tar -xvf ../udev-lfs-204-1.tar.bz2
 make -f udev-lfs-204-1/Makefile.lfs
 make -f udev-lfs-204-1/Makefile.lfs install
 sed -i 's/if ignore_if; then continue; fi/#&/' udev-lfs-204-1/init-net-rules.sh
+sed -i 's/if ignore_if; then continue; fi/#&/' udev-lfs-197-2/init-net-rules.sh
 build/udevadm hwdb --update
 bash udev-lfs-204-1/init-net-rules.sh
 }

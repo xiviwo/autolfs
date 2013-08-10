@@ -1,0 +1,421 @@
++ unset_env EUID
+set -e
+export LFS=/mnt/lfs
+LFS=/mnt/lfs
+readlink -f autolfs.sh
+export script=/home/tomwu/autolfs/autolfs.sh
+script=/home/tomwu/autolfs/autolfs.sh
+dirname /home/tomwu/autolfs/autolfs.sh
+export CWD=/home/tomwu/autolfs
+CWD=/home/tomwu/autolfs
+export 'MAKEFLAGS=-j 4'
+MAKEFLAGS='-j 4'
+export TERM=xterm
+TERM=xterm
+whoami
+[[ root = \r\o\o\t ]]
+export HOME=/root
+HOME=/root
+export SHELL=/bin/bash
+SHELL=/bin/bash
+export 'PS1=\u:\w\$ '
+PS1='\u:\w\$ '
+export username=mao
+username=mao
+export newuser=mao
+newuser=mao
+export hostdev=/dev/loop0
+hostdev=/dev/loop0
+export hostfirstdev=/dev/mapper/loop0p1
+hostfirstdev=/dev/mapper/loop0p1
+export firstdev=vda1
+firstdev=vda1
+export seconddev=vda2
+seconddev=vda2
+export diskdev=vda
+diskdev=vda
+export IP=192.168.122.12
+IP=192.168.122.12
+export GATEWAY=192.168.122.2
+GATEWAY=192.168.122.2
+export BROADCAST=192.168.122.255
+BROADCAST=192.168.122.255
+export 'nameserver=192.168.122.2 192.168.122.1'
+nameserver='192.168.122.2 192.168.122.1'
+uname -m
+'[' x86_64 = x86_64 ']'
+ABI=64
+/sbin/udevadm --version
+export udevversion=147
+udevversion=147
+export paper_size=A4
+paper_size=A4
+export HOSTNAME=ALFS
+HOSTNAME=ALFS
+export domain=ibm.com
+domain=ibm.com
+export timezone=Asia/Shanghai
+timezone=Asia/Shanghai
+export LANG=en_US.utf8
+LANG=en_US.utf8
+export LANGUAGE=en_US.utf8
+LANGUAGE=en_US.utf8
+export LC_ALL=C
+LC_ALL=C
+export PASSWORD=ping
+PASSWORD=ping
+export KEYMAP=us
+KEYMAP=us
+export FS=ext3
+FS=ext3
+export wget_list=http://www.linuxfromscratch.org/lfs/view/development/wget-list
+wget_list=http://www.linuxfromscratch.org/lfs/view/development/wget-list
+export md5sums=http://www.linuxfromscratch.org/lfs/view/development/md5sums
+md5sums=http://www.linuxfromscratch.org/lfs/view/development/md5sums
+export sources=/mnt/lfs/sources
+sources=/mnt/lfs/sources
+export CMDS=/home/tomwu/autolfs/cmds.sh
+CMDS=/home/tomwu/autolfs/cmds.sh
+export FUNCTIONS=/home/tomwu/autolfs/functions.sh
+FUNCTIONS=/home/tomwu/autolfs/functions.sh
+export wgetlist=/mnt/lfs/sources/wget-list
+wgetlist=/mnt/lfs/sources/wget-list
+export md5file=/mnt/lfs/sources/md5sums
+md5file=/mnt/lfs/sources/md5sums
+export SUCCESS=/mnt/lfs/sources/LFSSUCCESS
+SUCCESS=/mnt/lfs/sources/LFSSUCCESS
+source /home/tomwu/autolfs/functions.sh
+declare -r 'BLACK=[1;30m'
+declare -r 'DK_GRAY=[0;30m'
+export 'RED=\[\e[1;31m\]'
+RED='\[\e[1;31m\]'
+export 'GREEN=\[\e[1;32m\]'
+GREEN='\[\e[1;32m\]'
+declare -r 'YELLOW=[33m'
+declare -r 'BLUE=[34m'
+declare -r 'MAGENTA=[35m'
+declare -r 'CYAN=[36m'
+declare -r 'WHITE=[37m'
+declare -r 'OFF=[0m'
+declare -r 'BOLD=[1m'
+declare -r 'REVERSE=[7m'
+declare -r 'HIDDEN=[8m'
+declare -r 'tab_=	'
+declare -r 'nl_=
+'
+declare -r 'DD_BORDER=[1m==============================================================================[0m'
+declare -r 'SD_BORDER=[1m------------------------------------------------------------------------------[0m'
+declare -r 'STAR_BORDER=[1m******************************************************************************[0m'
+declare -r 'R_arrow=[1;33m>[0m'
+declare -r 'L_arrow=[1;33m<[0m'
+declare -r TRUE=0
+declare -r FALSE=1
+declare -r PASSWD_FILE=/etc/passwd
+export BLACK DK_GRAY RED GREEN YELLOW BLUE MAGENTA CYAN WHITE OFF BOLD REVERSE HIDDEN tab_ nl_ DD_BORDER SD_BORDER STAR_BORDER R_arrow L_arrow TRUE FALSE
+source /home/tomwu/autolfs/cmds.sh
+export Host_System_Requirements_C0_download=
+Host_System_Requirements_C0_download=
+export Host_System_Requirements_C0_packname=
+Host_System_Requirements_C0_packname=
+export 'C0_Preface=Foreword_C0 Audience_C0 LFS_Target_Architectures_C0 LFS_and_Standards_C0 Rationale_for_Packages_in_the_Book_C0 Prerequisites_C0 Host_System_Requirements_C0 Typography_C0 Structure_C0 Errata_C0 '
+C0_Preface='Foreword_C0 Audience_C0 LFS_Target_Architectures_C0 LFS_and_Standards_C0 Rationale_for_Packages_in_the_Book_C0 Prerequisites_C0 Host_System_Requirements_C0 Typography_C0 Structure_C0 Errata_C0 '
+export 'C1_Introduction=How_to_Build_an_LFS_System_C1 What_s_new_since_the_last_release_C1 Changelog_C1 Resources_C1 Help_C1 '
+C1_Introduction='How_to_Build_an_LFS_System_C1 What_s_new_since_the_last_release_C1 Changelog_C1 Resources_C1 Help_C1 '
+export 'C2_PreparingaNewPartition=Introduction_C2 Creating_a_New_Partition_C2 Creating_a_File_System_on_the_Partition_C2 Mounting_the_New_Partition_C2 '
+C2_PreparingaNewPartition='Introduction_C2 Creating_a_New_Partition_C2 Creating_a_File_System_on_the_Partition_C2 Mounting_the_New_Partition_C2 '
+export 'C3_PackagesandPatches=Introduction_C3 All_Packages_C3 Needed_Patches_C3 '
+C3_PackagesandPatches='Introduction_C3 All_Packages_C3 Needed_Patches_C3 '
+export 'C4_FinalPreparations=About_LFS_C4 Creating_the_LFS_tools_Directory_C4 Adding_the_LFS_User_C4 Setting_Up_the_Environment_C4 About_SBUs_C4 About_the_Test_Suites_C4 '
+C4_FinalPreparations='About_LFS_C4 Creating_the_LFS_tools_Directory_C4 Adding_the_LFS_User_C4 Setting_Up_the_Environment_C4 About_SBUs_C4 About_the_Test_Suites_C4 '
+export 'C5_ConstructingaTemporarySystem=Introduction_C5 Toolchain_Technical_Notes_C5 General_Compilation_Instructions_C5 Binutils_2_23_2_Pass_1_C5 GCC_4_8_1_Pass_1_C5 Linux_3_9_6_API_Headers_C5 Glibc_2_17_C5 Libstdc_4_8_1_C5 Binutils_2_23_2_Pass_2_C5 GCC_4_8_1_Pass_2_C5 Tcl_8_6_0_C5 Expect_5_45_C5 DejaGNU_1_5_1_C5 Check_0_9_10_C5 Ncurses_5_9_C5 Bash_4_2_C5 Bzip2_1_0_6_C5 Coreutils_8_21_C5 Diffutils_3_3_C5 File_5_14_C5 Findutils_4_4_2_C5 Gawk_4_1_0_C5 Gettext_0_18_2_1_C5 Grep_2_14_C5 Gzip_1_6_C5 M4_1_4_16_C5 Make_3_82_C5 Patch_2_7_1_C5 Perl_5_18_0_C5 Sed_4_2_2_C5 Tar_1_26_C5 Texinfo_5_1_C5 Xz_5_0_4_C5 Stripping_C5 Changing_Ownership_C5 '
+C5_ConstructingaTemporarySystem='Introduction_C5 Toolchain_Technical_Notes_C5 General_Compilation_Instructions_C5 Binutils_2_23_2_Pass_1_C5 GCC_4_8_1_Pass_1_C5 Linux_3_9_6_API_Headers_C5 Glibc_2_17_C5 Libstdc_4_8_1_C5 Binutils_2_23_2_Pass_2_C5 GCC_4_8_1_Pass_2_C5 Tcl_8_6_0_C5 Expect_5_45_C5 DejaGNU_1_5_1_C5 Check_0_9_10_C5 Ncurses_5_9_C5 Bash_4_2_C5 Bzip2_1_0_6_C5 Coreutils_8_21_C5 Diffutils_3_3_C5 File_5_14_C5 Findutils_4_4_2_C5 Gawk_4_1_0_C5 Gettext_0_18_2_1_C5 Grep_2_14_C5 Gzip_1_6_C5 M4_1_4_16_C5 Make_3_82_C5 Patch_2_7_1_C5 Perl_5_18_0_C5 Sed_4_2_2_C5 Tar_1_26_C5 Texinfo_5_1_C5 Xz_5_0_4_C5 Stripping_C5 Changing_Ownership_C5 '
+export 'C6_InstallingBasicSystemSoftware=Introduction_C6 Preparing_Virtual_Kernel_File_Systems_C6 Package_Management_C6 Entering_the_Chroot_Environment_C6 Creating_Directories_C6 Creating_Essential_Files_and_Symlinks_C6 Linux_3_9_6_API_Headers_C6 Man_pages_3_51_C6 Glibc_2_17_C6 Adjusting_the_Toolchain_C6 Zlib_1_2_8_C6 File_5_14_C6 Binutils_2_23_2_C6 GMP_5_1_2_C6 MPFR_3_1_2_C6 MPC_1_0_1_C6 GCC_4_8_1_C6 Sed_4_2_2_C6 Bzip2_1_0_6_C6 Pkg_config_0_28_C6 Ncurses_5_9_C6 Shadow_4_1_5_1_C6 Util_linux_2_23_1_C6 Psmisc_22_20_C6 Procps_ng_3_3_8_C6 E2fsprogs_1_42_7_C6 Coreutils_8_21_C6 Iana_Etc_2_30_C6 M4_1_4_16_C6 Bison_2_7_1_C6 Grep_2_14_C6 Readline_6_2_C6 Bash_4_2_C6 Bc_1_06_95_C6 Libtool_2_4_2_C6 GDBM_1_10_C6 Inetutils_1_9_1_C6 Perl_5_18_0_C6 Autoconf_2_69_C6 Automake_1_13_4_C6 Diffutils_3_3_C6 Gawk_4_1_0_C6 Findutils_4_4_2_C6 Flex_2_5_37_C6 Gettext_0_18_2_1_C6 Groff_1_22_2_C6 Xz_5_0_4_C6 GRUB_2_00_C6 Less_458_C6 Gzip_1_6_C6 IPRoute2_3_9_0_C6 Kbd_1_15_5_C6 Kmod_13_C6 Libpipeline_1_2_4_C6 Make_3_82_C6 Man_DB_2_6_3_C6 Patch_2_7_1_C6 Sysklogd_1_5_C6 Sysvinit_2_88dsf_C6 Tar_1_26_C6 Texinfo_5_1_C6 Udev_204_Extracted_from_systemd_204__C6 Vim_7_3_C6 About_Debugging_Symbols_C6 Stripping_Again_C6 Cleaning_Up_C6 '
+C6_InstallingBasicSystemSoftware='Introduction_C6 Preparing_Virtual_Kernel_File_Systems_C6 Package_Management_C6 Entering_the_Chroot_Environment_C6 Creating_Directories_C6 Creating_Essential_Files_and_Symlinks_C6 Linux_3_9_6_API_Headers_C6 Man_pages_3_51_C6 Glibc_2_17_C6 Adjusting_the_Toolchain_C6 Zlib_1_2_8_C6 File_5_14_C6 Binutils_2_23_2_C6 GMP_5_1_2_C6 MPFR_3_1_2_C6 MPC_1_0_1_C6 GCC_4_8_1_C6 Sed_4_2_2_C6 Bzip2_1_0_6_C6 Pkg_config_0_28_C6 Ncurses_5_9_C6 Shadow_4_1_5_1_C6 Util_linux_2_23_1_C6 Psmisc_22_20_C6 Procps_ng_3_3_8_C6 E2fsprogs_1_42_7_C6 Coreutils_8_21_C6 Iana_Etc_2_30_C6 M4_1_4_16_C6 Bison_2_7_1_C6 Grep_2_14_C6 Readline_6_2_C6 Bash_4_2_C6 Bc_1_06_95_C6 Libtool_2_4_2_C6 GDBM_1_10_C6 Inetutils_1_9_1_C6 Perl_5_18_0_C6 Autoconf_2_69_C6 Automake_1_13_4_C6 Diffutils_3_3_C6 Gawk_4_1_0_C6 Findutils_4_4_2_C6 Flex_2_5_37_C6 Gettext_0_18_2_1_C6 Groff_1_22_2_C6 Xz_5_0_4_C6 GRUB_2_00_C6 Less_458_C6 Gzip_1_6_C6 IPRoute2_3_9_0_C6 Kbd_1_15_5_C6 Kmod_13_C6 Libpipeline_1_2_4_C6 Make_3_82_C6 Man_DB_2_6_3_C6 Patch_2_7_1_C6 Sysklogd_1_5_C6 Sysvinit_2_88dsf_C6 Tar_1_26_C6 Texinfo_5_1_C6 Udev_204_Extracted_from_systemd_204__C6 Vim_7_3_C6 About_Debugging_Symbols_C6 Stripping_Again_C6 Cleaning_Up_C6 '
+export 'C7_SettingUpSystemBootscripts=Introduction_C7 General_Network_Configuration_C7 Customizing_the_etc_hosts_File_C7 Device_and_Module_Handling_on_an_LFS_System_C7 Creating_Custom_Symlinks_to_Devices_C7 LFS_Bootscripts_20130515_C7 How_Do_These_Bootscripts_Work__C7 Configuring_the_system_hostname_C7 Configuring_the_setclock_Script_C7 Configuring_the_Linux_Console_C7 Configuring_the_sysklogd_Script_C7 The_rc_site_File_C7 The_Bash_Shell_Startup_Files_C7 Creating_the_etc_inputrc_File_C7 '
+C7_SettingUpSystemBootscripts='Introduction_C7 General_Network_Configuration_C7 Customizing_the_etc_hosts_File_C7 Device_and_Module_Handling_on_an_LFS_System_C7 Creating_Custom_Symlinks_to_Devices_C7 LFS_Bootscripts_20130515_C7 How_Do_These_Bootscripts_Work__C7 Configuring_the_system_hostname_C7 Configuring_the_setclock_Script_C7 Configuring_the_Linux_Console_C7 Configuring_the_sysklogd_Script_C7 The_rc_site_File_C7 The_Bash_Shell_Startup_Files_C7 Creating_the_etc_inputrc_File_C7 '
+export 'C8_MakingtheLFSSystemBootable=Introduction_C8 Creating_the_etc_fstab_File_C8 Linux_3_9_6_C8 Using_GRUB_to_Set_Up_the_Boot_Process_C8 '
+C8_MakingtheLFSSystemBootable='Introduction_C8 Creating_the_etc_fstab_File_C8 Linux_3_9_6_C8 Using_GRUB_to_Set_Up_the_Boot_Process_C8 '
+export 'C9_TheEnd=The_End_C9 Get_Counted_C9 Rebooting_the_System_C9 What_Now__C9 '
+C9_TheEnd='The_End_C9 Get_Counted_C9 Rebooting_the_System_C9 What_Now__C9 '
+export 'LFSCHAPTERS=C0_Preface C1_Introduction C2_PreparingaNewPartition C3_PackagesandPatches C4_FinalPreparations C5_ConstructingaTemporarySystem C6_InstallingBasicSystemSoftware C7_SettingUpSystemBootscripts C8_MakingtheLFSSystemBootable C9_TheEnd '
+LFSCHAPTERS='C0_Preface C1_Introduction C2_PreparingaNewPartition C3_PackagesandPatches C4_FinalPreparations C5_ConstructingaTemporarySystem C6_InstallingBasicSystemSoftware C7_SettingUpSystemBootscripts C8_MakingtheLFSSystemBootable C9_TheEnd '
+export tmp=/mnt/lfs/sources/killpid
+tmp=/mnt/lfs/sources/killpid
+'[' -f /mnt/lfs/etc/profile ']'
+export PKG_CONFIG_PATH=/opt/lib/pkgconfig:/opt/share/pkgconfig:/usr/lib/pkgconfig
+PKG_CONFIG_PATH=/opt/lib/pkgconfig:/opt/share/pkgconfig:/usr/lib/pkgconfig
+'[' -f /mnt/lfs/etc/profile ']'
+export LIBRARY_PATH=/lib64:/lib:/usr/lib:/opt/lib
+LIBRARY_PATH=/lib64:/lib:/usr/lib:/opt/lib
+'[' -f /mnt/lfs/etc/profile ']'
+source /mnt/lfs/etc/profile
+export LANG=en_US.utf8
+LANG=en_US.utf8
+'[' -f /mnt/lfs/etc/profile.d/xorg.sh ']'
+'[' -f /mnt/lfs/etc/profile.d/kde.sh ']'
+'[' -f /mnt/lfs/etc/profile.d/qt.sh ']'
+'[' -f /mnt/lfs/etc/profile ']'
+export KDE_PREFIX=/opt/kde
+KDE_PREFIX=/opt/kde
+'[' -f /mnt/lfs/etc/profile ']'
+export C_INCLUDE_PATH=/opt/include:/usr/include
+C_INCLUDE_PATH=/opt/include:/usr/include
+'[' -f /mnt/lfs/etc/profile ']'
+export QMAKE_INCDIR_X11=/opt/include:/usr/include
+QMAKE_INCDIR_X11=/opt/include:/usr/include
+'[' -f /mnt/lfs/etc/profile ']'
+export 'QMAKE_LIBDIR_X11=/lib64:/lib:/usr/lib:/opt/lib:/opt/qt/lib '
+QMAKE_LIBDIR_X11='/lib64:/lib:/usr/lib:/opt/lib:/opt/qt/lib '
+trap 'cleanup 0 ' 0 1 2 3 13 15 ERR
+parse_book
+is_success parse_book
+local func=parse_book
+'[' '!' -f /mnt/lfs/sources/LFSSUCCESS ']'
+grep parse_book /mnt/lfs/sources/LFSSUCCESS
+return 0
+log 'parse_book built/ran,skipped'
+local 'msg=parse_book built/ran,skipped'
+date '+%Y-%d-%m %T'
+echo '[1m\[\e[1;32m\]INFO : [2013-20-06 22:33:46][0m parse_book built/ran,skipped'
+mount_lfs_and_virtual
+grep /mnt/lfs/dev /proc/mounts
+restart_or_not
+'[' -z '' ']'
+RESUMEFLAG=C9_TheEnd
+is_success C9_TheEnd
+local func=C9_TheEnd
+'[' '!' -f /mnt/lfs/sources/LFSSUCCESS ']'
+grep C9_TheEnd /mnt/lfs/sources/LFSSUCCESS
+return 1
+export_func
+
+real	0m0.022s
+user	0m0.010s
+sys	0m0.007s
+bookinstall
+local inIFS=
+echo -en ' \t\n\b'
+IFS=' 	
+'
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C0_Preface
+local msg=C0_Preface
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:46]-------------------------'
+echo -en '               \n[1m[1;30mC0_Preface[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+chapterinstall C0_Preface /mnt/lfs/sources
+local CHAPTER=C0_Preface
+local sources=/mnt/lfs/sources
+local SUCCESS=/mnt/lfs/sources/LFSSUCCESS
+debug CHAPTER
+[[ '' = \t\r\u\e ]]
+debug sources
+[[ '' = \t\r\u\e ]]
+debug SUCCESS
+[[ '' = \t\r\u\e ]]
+'[' '!' -d /mnt/lfs/sources ']'
+'[' '!' -f /mnt/lfs/sources/LFSSUCCESS ']'
+is_success C0_Preface
+local func=C0_Preface
+'[' '!' -f /mnt/lfs/sources/LFSSUCCESS ']'
+grep C0_Preface /mnt/lfs/sources/LFSSUCCESS
+return 0
+log 'Chapter :C0_Preface been built,skip'
+local 'msg=Chapter :C0_Preface been built,skip'
+date '+%Y-%d-%m %T'
+echo '[1m\[\e[1;32m\]INFO : [2013-20-06 22:33:46][0m Chapter :C0_Preface been built,skip'
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C1_Introduction
+local msg=C1_Introduction
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:46]-------------------------'
+echo -en '               \n[1m[1;30mC1_Introduction[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+log 'Chapter: C1_Introduction is skipped'
+local 'msg=Chapter: C1_Introduction is skipped'
+date '+%Y-%d-%m %T'
+echo '[1m\[\e[1;32m\]INFO : [2013-20-06 22:33:46][0m Chapter: C1_Introduction is skipped'
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C2_PreparingaNewPartition
+local msg=C2_PreparingaNewPartition
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:46]-------------------------'
+echo -en '               \n[1m[1;30mC2_PreparingaNewPartition[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+log 'Chapter: C2_PreparingaNewPartition is skipped'
+local 'msg=Chapter: C2_PreparingaNewPartition is skipped'
+date '+%Y-%d-%m %T'
+echo '[1m\[\e[1;32m\]INFO : [2013-20-06 22:33:46][0m Chapter: C2_PreparingaNewPartition is skipped'
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C3_PackagesandPatches
+local msg=C3_PackagesandPatches
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:46]-------------------------'
+echo -en '               \n[1m[1;30mC3_PackagesandPatches[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+download_packages /mnt/lfs/sources
+local sources=/mnt/lfs/sources
+is_success download_packages
+local func=download_packages
+'[' '!' -f /mnt/lfs/sources/LFSSUCCESS ']'
+grep download_packages /mnt/lfs/sources/LFSSUCCESS
+return 0
+log 'download_packages built, skip'
+local 'msg=download_packages built, skip'
+date '+%Y-%d-%m %T'
+echo '[1m\[\e[1;32m\]INFO : [2013-20-06 22:33:46][0m download_packages built, skip'
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C4_FinalPreparations
+local msg=C4_FinalPreparations
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:46]-------------------------'
+echo -en '               \n[1m[1;30mC4_FinalPreparations[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+chapterinstall C4_FinalPreparations /mnt/lfs/sources
+local CHAPTER=C4_FinalPreparations
+local sources=/mnt/lfs/sources
+local SUCCESS=/mnt/lfs/sources/LFSSUCCESS
+debug CHAPTER
+[[ '' = \t\r\u\e ]]
+debug sources
+[[ '' = \t\r\u\e ]]
+debug SUCCESS
+[[ '' = \t\r\u\e ]]
+'[' '!' -d /mnt/lfs/sources ']'
+'[' '!' -f /mnt/lfs/sources/LFSSUCCESS ']'
+is_success C4_FinalPreparations
+local func=C4_FinalPreparations
+'[' '!' -f /mnt/lfs/sources/LFSSUCCESS ']'
+grep C4_FinalPreparations /mnt/lfs/sources/LFSSUCCESS
+return 0
+log 'Chapter :C4_FinalPreparations been built,skip'
+local 'msg=Chapter :C4_FinalPreparations been built,skip'
+date '+%Y-%d-%m %T'
+echo '[1m\[\e[1;32m\]INFO : [2013-20-06 22:33:46][0m Chapter :C4_FinalPreparations been built,skip'
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C5_ConstructingaTemporarySystem
+local msg=C5_ConstructingaTemporarySystem
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:46]-------------------------'
+echo -en '               \n[1m[1;30mC5_ConstructingaTemporarySystem[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+SuInstall C5_ConstructingaTemporarySystem /mnt/lfs/sources
+local ch=C5_ConstructingaTemporarySystem
+local sources=/mnt/lfs/sources
+chown -v lfs.lfs /mnt/lfs/sources/LFSSUCCESS
+'[' '!' -f /mnt/lfs/sources/killpid ']'
+touch /mnt/lfs/sources/killpid
+chown -v lfs.lfs /mnt/lfs/sources/killpid
+su lfs /bin/bash -c 'ConstructingaTemporarySystem C5_ConstructingaTemporarySystem /mnt/lfs/sources'
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C6_InstallingBasicSystemSoftware
+local msg=C6_InstallingBasicSystemSoftware
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:47]-------------------------'
+echo -en '               \n[1m[1;30mC6_InstallingBasicSystemSoftware[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+PreparingVirtualKernelFileSystems
+grep PreparingVirtualKernelFileSystems /mnt/lfs/sources/LFSSUCCESS
+log 'PreparingVirtualKernelFileSystems built/run,skip'
+local 'msg=PreparingVirtualKernelFileSystems built/run,skip'
+date '+%Y-%d-%m %T'
+echo '[1m\[\e[1;32m\]INFO : [2013-20-06 22:33:47][0m PreparingVirtualKernelFileSystems built/run,skip'
+prechroot 'InstallSystem C6_InstallingBasicSystemSoftware '\''/sources'\'' '
+local cmdline=
+'[' 1 -eq 0 ']'
+cmdline='InstallSystem C6_InstallingBasicSystemSoftware '\''/sources'\'' '
+type chroot
+cut '-d ' -f3
+CHROOT=/usr/sbin/chroot
+/usr/sbin/chroot /mnt/lfs /tools/bin/env HOME=/root TERM=xterm PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin /tools/bin/bash --login +h -c 'InstallSystem C6_InstallingBasicSystemSoftware '\''/sources'\'' '
+/tools/bin/bash: line 12: type: Introduction_to_Xorg_7_7_C24: not found
+/tools/bin/bash: line 13: Introduction_to_Xorg_7_7_C24: command not found
+/tools/bin/bash: line 14: /etc/profile.d/xorg.sh: No such file or directory
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C7_SettingUpSystemBootscripts
+local msg=C7_SettingUpSystemBootscripts
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:47]-------------------------'
+echo -en '               \n[1m[1;30mC7_SettingUpSystemBootscripts[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+bootstrapchroot 'InstallSystem C7_SettingUpSystemBootscripts '\''/sources'\'' '
+local cmdline=
+'[' 1 -eq 0 ']'
+cmdline='InstallSystem C7_SettingUpSystemBootscripts '\''/sources'\'' '
+type chroot
+cut '-d ' -f3
+CHROOT=/usr/sbin/chroot
+/usr/sbin/chroot /mnt/lfs /usr/bin/env HOME=/root TERM=xterm PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login -c 'InstallSystem C7_SettingUpSystemBootscripts '\''/sources'\'' '
+/bin/bash: line 12: type: Introduction_to_Xorg_7_7_C24: not found
+/bin/bash: line 13: Introduction_to_Xorg_7_7_C24: command not found
+/bin/bash: line 14: /etc/profile.d/xorg.sh: No such file or directory
+for ch in '$LFSCHAPTERS' '$BLFSCHAPTERS'
+block C8_MakingtheLFSSystemBootable
+local msg=C8_MakingtheLFSSystemBootable
+date '+%Y-%d-%m %T'
+echo '-----------------INFO : [2013-20-06 22:33:47]-------------------------'
+echo -en '               \n[1m[1;30mC8_MakingtheLFSSystemBootable[0m\n'
+echo ----------------------------------------------------------------------
+case $ch in
+bootstrapchroot 'InstallSystem C8_MakingtheLFSSystemBootable '\''/sources'\'' '
+local cmdline=
+'[' 1 -eq 0 ']'
+cmdline='InstallSystem C8_MakingtheLFSSystemBootable '\''/sources'\'' '
+type chroot
+cut '-d ' -f3
+CHROOT=/usr/sbin/chroot
+/usr/sbin/chroot /mnt/lfs /usr/bin/env HOME=/root TERM=xterm PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login -c 'InstallSystem C8_MakingtheLFSSystemBootable '\''/sources'\'' '
+/bin/bash: line 12: type: Introduction_to_Xorg_7_7_C24: not found
+/bin/bash: line 13: Introduction_to_Xorg_7_7_C24: command not found
+/bin/bash: line 14: /etc/profile.d/xorg.sh: No such file or directory
+
+real	0m0.005s
+user	0m0.000s
+sys	0m0.002s
+
+real	0m0.008s
+user	0m0.000s
+sys	0m0.002s
+fs/compat_ioctl.c: In function ‘serial_struct_ioctl’:
+fs/compat_ioctl.c:611:38: warning: typedef ‘SS’ locally defined but not used [-Wunused-local-typedefs]
+         typedef struct serial_struct SS;
+                                      ^
+Setup is 15264 bytes (padded to 15360 bytes).
+System is 5200 kB
+CRC 77aa9f8a
+
+real	29m26.184s
+user	21m44.276s
+sys	3m9.083s
+
+real	29m26.427s
+user	21m44.280s
+sys	3m9.100s
+changed ownership of '/sources/killpid' from 501 to root
+Path `/boot/grub' is not readable by GRUB on boot. Installation is impossible. Aborting.
+cleanup 0
+exec
+local exit_status=0
+local lineno=
+local 'inIFS= 	
+'
+echo -en '\n\b'
+IFS='
+'
+cat /mnt/lfs/sources/killpid
+for pid in '$(cat $tmp 2>/dev/null )'
+kill -9 15682
+IFS=' 	
+'
+rm -f /mnt/lfs/sources/killpid
+echo Exiting autolfs.sh with 0 at line
+exit 0
