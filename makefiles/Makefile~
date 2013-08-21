@@ -1,0 +1,613 @@
+LFS=/mnt/lfs
+SHELL 	= /bin/bash
+SOURCES = $(LFS)/sources
+BOLD    = '\033[1m'
+RED     = '\e[1;31m'
+GREEN   = '\e[0;32m'
+ORANGE  = '\e[0;33m'
+BLUE    = '\e[1;34m'
+WHITE   = '\033[37m'
+YELLOW  = '\e[1;33m'
+
+OFF     = '\e[0m'
+REVERSE = '\e[7m'
+
+tab_    = '	'
+nl_     = ''
+
+define echo_message
+  @echo $(BOLD)--------------------------------------------------------------------------------
+  @echo -e $(BOLD)$(1) target $(BLUE)$@$(BOLD)$(WHITE)
+endef
+all :   chapter4 chapter5 chapter6 chapter7 chapter8 chapter9
+chapter4 : 400-about-lfs 401-creating-the-lfs-tools-directory 402-adding-the-lfs-user 403-setting-up-the-environment 404-about-sbus 
+chapter5 : 502-general-compilation-instructions 503-binutils-2-23-2-pass-1 504-gcc-4-8-1-pass-1 505-linux-3-9-6-api-headers 506-glibc-2-17 507-libstdc-4-8-1 508-binutils-2-23-2-pass-2 509-gcc-4-8-1-pass-2 510-tcl-8-6-0 511-expect-5-45 512-dejagnu-1-5-1 513-check-0-9-10 514-ncurses-5-9 515-bash-4-2 516-bzip2-1-0-6 517-coreutils-8-21 518-diffutils-3-3 519-file-5-14 520-findutils-4-4-2 521-gawk-4-1-0 522-gettext-0-18-2-1 523-grep-2-14 524-gzip-1-6 525-m4-1-4-16 526-make-3-82 527-patch-2-7-1 528-perl-5-18-0 529-sed-4-2-2 530-tar-1-26 531-texinfo-5-1 532-xz-5-0-4 533-stripping 534-changing-ownership 
+chapter6 : 601-preparing-virtual-kernel-file-systems 602-package-management 603-entering-the-chroot-environment 604-creating-directories 605-creating-essential-files-and-symlinks 606-linux-3-9-6-api-headers 607-man-pages-3-51 608-glibc-2-17 609-adjusting-the-toolchain 610-zlib-1-2-8 611-file-5-14 612-binutils-2-23-2 613-gmp-5-1-2 614-mpfr-3-1-2 615-mpc-1-0-1 616-gcc-4-8-1 617-sed-4-2-2 618-bzip2-1-0-6 619-pkg-config-0-28 620-ncurses-5-9 621-shadow-4-1-5-1 622-util-linux-2-23-1 623-psmisc-22-20 624-procps-ng-3-3-8 625-e2fsprogs-1-42-7 626-coreutils-8-21 627-iana-etc-2-30 628-m4-1-4-16 629-bison-2-7-1 630-grep-2-14 631-readline-6-2 632-bash-4-2 633-bc-1-06-95 634-libtool-2-4-2 635-gdbm-1-10 636-inetutils-1-9-1 637-perl-5-18-0 638-autoconf-2-69 639-automake-1-13-4 640-diffutils-3-3 641-gawk-4-1-0 642-findutils-4-4-2 643-flex-2-5-37 644-gettext-0-18-2-1 645-groff-1-22-2 646-xz-5-0-4 647-grub-2-00 648-less-458 649-gzip-1-6 650-iproute2-3-9-0 651-kbd-1-15-5 652-kmod-13 653-libpipeline-1-2-4 654-make-3-82 655-man-db-2-6-3 656-patch-2-7-1 657-sysklogd-1-5 658-sysvinit-2-88dsf 659-tar-1-26 660-texinfo-5-1 661-udev-204-extracted-from-systemd-204- 662-vim-7-3 664-stripping-again 665-cleaning-up 
+chapter7 : 701-general-network-configuration 702-customizing-the-etc-hosts-file 704-creating-custom-symlinks-to-devices 705-lfs-bootscripts-20130515 706-how-do-these-bootscripts-work- 707-configuring-the-system-hostname 708-configuring-the-setclock-script 709-configuring-the-linux-console 712-the-bash-shell-startup-files 713-creating-the-etc-inputrc-file 
+chapter8 : 801-creating-the-etc-fstab-file 802-linux-3-9-6 803-using-grub-to-set-up-the-boot-process 
+chapter9 : 900-the-end 902-rebooting-the-system 
+
+400-about-lfs : 
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+401-creating-the-lfs-tools-directory : 400-about-lfs
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+402-adding-the-lfs-user : 401-creating-the-lfs-tools-directory
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+403-setting-up-the-environment : 402-adding-the-lfs-user
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+404-about-sbus : 403-setting-up-the-environment
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+502-general-compilation-instructions : 404-about-sbus
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+503-binutils-2-23-2-pass-1 : 502-general-compilation-instructions
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+504-gcc-4-8-1-pass-1 : 503-binutils-2-23-2-pass-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+505-linux-3-9-6-api-headers : 504-gcc-4-8-1-pass-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+506-glibc-2-17 : 505-linux-3-9-6-api-headers
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+507-libstdc-4-8-1 : 506-glibc-2-17
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+508-binutils-2-23-2-pass-2 : 507-libstdc-4-8-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+509-gcc-4-8-1-pass-2 : 508-binutils-2-23-2-pass-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+510-tcl-8-6-0 : 509-gcc-4-8-1-pass-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+511-expect-5-45 : 510-tcl-8-6-0
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+512-dejagnu-1-5-1 : 511-expect-5-45
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+513-check-0-9-10 : 512-dejagnu-1-5-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+514-ncurses-5-9 : 513-check-0-9-10
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+515-bash-4-2 : 514-ncurses-5-9
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+516-bzip2-1-0-6 : 515-bash-4-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+517-coreutils-8-21 : 516-bzip2-1-0-6
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+518-diffutils-3-3 : 517-coreutils-8-21
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+519-file-5-14 : 518-diffutils-3-3
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+520-findutils-4-4-2 : 519-file-5-14
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+521-gawk-4-1-0 : 520-findutils-4-4-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+522-gettext-0-18-2-1 : 521-gawk-4-1-0
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+523-grep-2-14 : 522-gettext-0-18-2-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+524-gzip-1-6 : 523-grep-2-14
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+525-m4-1-4-16 : 524-gzip-1-6
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+526-make-3-82 : 525-m4-1-4-16
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+527-patch-2-7-1 : 526-make-3-82
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+528-perl-5-18-0 : 527-patch-2-7-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+529-sed-4-2-2 : 528-perl-5-18-0
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+530-tar-1-26 : 529-sed-4-2-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+531-texinfo-5-1 : 530-tar-1-26
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+532-xz-5-0-4 : 531-texinfo-5-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+533-stripping : 532-xz-5-0-4
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+534-changing-ownership : 533-stripping
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+601-preparing-virtual-kernel-file-systems : 534-changing-ownership
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+602-package-management : 601-preparing-virtual-kernel-file-systems
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+603-entering-the-chroot-environment : 602-package-management
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+604-creating-directories : 603-entering-the-chroot-environment
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+605-creating-essential-files-and-symlinks : 604-creating-directories
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+606-linux-3-9-6-api-headers : 605-creating-essential-files-and-symlinks
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+607-man-pages-3-51 : 606-linux-3-9-6-api-headers
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+608-glibc-2-17 : 607-man-pages-3-51
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+609-adjusting-the-toolchain : 608-glibc-2-17
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+610-zlib-1-2-8 : 609-adjusting-the-toolchain
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+611-file-5-14 : 610-zlib-1-2-8
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+612-binutils-2-23-2 : 611-file-5-14
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+613-gmp-5-1-2 : 612-binutils-2-23-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+614-mpfr-3-1-2 : 613-gmp-5-1-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+615-mpc-1-0-1 : 614-mpfr-3-1-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+616-gcc-4-8-1 : 615-mpc-1-0-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+617-sed-4-2-2 : 616-gcc-4-8-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+618-bzip2-1-0-6 : 617-sed-4-2-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+619-pkg-config-0-28 : 618-bzip2-1-0-6
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+620-ncurses-5-9 : 619-pkg-config-0-28
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+621-shadow-4-1-5-1 : 620-ncurses-5-9
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+622-util-linux-2-23-1 : 621-shadow-4-1-5-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+623-psmisc-22-20 : 622-util-linux-2-23-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+624-procps-ng-3-3-8 : 623-psmisc-22-20
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+625-e2fsprogs-1-42-7 : 624-procps-ng-3-3-8
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+626-coreutils-8-21 : 625-e2fsprogs-1-42-7
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+627-iana-etc-2-30 : 626-coreutils-8-21
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+628-m4-1-4-16 : 627-iana-etc-2-30
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+629-bison-2-7-1 : 628-m4-1-4-16
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+630-grep-2-14 : 629-bison-2-7-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+631-readline-6-2 : 630-grep-2-14
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+632-bash-4-2 : 631-readline-6-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+633-bc-1-06-95 : 632-bash-4-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+634-libtool-2-4-2 : 633-bc-1-06-95
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+635-gdbm-1-10 : 634-libtool-2-4-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+636-inetutils-1-9-1 : 635-gdbm-1-10
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+637-perl-5-18-0 : 636-inetutils-1-9-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+638-autoconf-2-69 : 637-perl-5-18-0
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+639-automake-1-13-4 : 638-autoconf-2-69
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+640-diffutils-3-3 : 639-automake-1-13-4
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+641-gawk-4-1-0 : 640-diffutils-3-3
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+642-findutils-4-4-2 : 641-gawk-4-1-0
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+643-flex-2-5-37 : 642-findutils-4-4-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+644-gettext-0-18-2-1 : 643-flex-2-5-37
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+645-groff-1-22-2 : 644-gettext-0-18-2-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+646-xz-5-0-4 : 645-groff-1-22-2
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+647-grub-2-00 : 646-xz-5-0-4
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+648-less-458 : 647-grub-2-00
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+649-gzip-1-6 : 648-less-458
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+650-iproute2-3-9-0 : 649-gzip-1-6
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+651-kbd-1-15-5 : 650-iproute2-3-9-0
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+652-kmod-13 : 651-kbd-1-15-5
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+653-libpipeline-1-2-4 : 652-kmod-13
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+654-make-3-82 : 653-libpipeline-1-2-4
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+655-man-db-2-6-3 : 654-make-3-82
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+656-patch-2-7-1 : 655-man-db-2-6-3
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+657-sysklogd-1-5 : 656-patch-2-7-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+658-sysvinit-2-88dsf : 657-sysklogd-1-5
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+659-tar-1-26 : 658-sysvinit-2-88dsf
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+660-texinfo-5-1 : 659-tar-1-26
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+661-udev-204-extracted-from-systemd-204- : 660-texinfo-5-1
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+662-vim-7-3 : 661-udev-204-extracted-from-systemd-204-
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+664-stripping-again : 662-vim-7-3
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+665-cleaning-up : 664-stripping-again
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+701-general-network-configuration : 665-cleaning-up
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+702-customizing-the-etc-hosts-file : 701-general-network-configuration
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+704-creating-custom-symlinks-to-devices : 702-customizing-the-etc-hosts-file
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+705-lfs-bootscripts-20130515 : 704-creating-custom-symlinks-to-devices
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+706-how-do-these-bootscripts-work- : 705-lfs-bootscripts-20130515
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+707-configuring-the-system-hostname : 706-how-do-these-bootscripts-work-
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+708-configuring-the-setclock-script : 707-configuring-the-system-hostname
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+709-configuring-the-linux-console : 708-configuring-the-setclock-script
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+712-the-bash-shell-startup-files : 709-configuring-the-linux-console
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+713-creating-the-etc-inputrc-file : 712-the-bash-shell-startup-files
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+801-creating-the-etc-fstab-file : 713-creating-the-etc-inputrc-file
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+802-linux-3-9-6 : 801-creating-the-etc-fstab-file
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+803-using-grub-to-set-up-the-boot-process : 802-linux-3-9-6
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+900-the-end : 803-using-grub-to-set-up-the-boot-process
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
+
+902-rebooting-the-system : 900-the-end
+	@$(call echo_message, Building)
+	@bash scripts/$@.sh > logs/$@.log 2>&1 
+	@touch $@
