@@ -1,0 +1,1357 @@
+
+--------------------adding--------------------------
+Delete line : 1 : su - lfs from :
+
+su - lfs
+
+--------------------glibc-2.17-------------------------
+Delete line : 1 : echo 'main(){}' > dummy.c from :
+
+echo 'main(){}' > dummy.c
+$LFS_TGT-gcc dummy.c
+readelf -l a.out | grep ': /tools'
+
+--------------------glibc-2.17-------------------------
+Delete line : 2 : $LFS_TGT-gcc dummy.c from :
+
+echo 'main(){}' > dummy.c
+$LFS_TGT-gcc dummy.c
+readelf -l a.out | grep ': /tools'
+
+--------------------glibc-2.17-------------------------
+Delete line : 3 : readelf -l a.out | grep ': /tools' from :
+
+echo 'main(){}' > dummy.c
+$LFS_TGT-gcc dummy.c
+readelf -l a.out | grep ': /tools'
+
+--------------------glibc-2.17-------------------------
+Delete line : 1 : rm -v dummy.c a.out from :
+
+rm -v dummy.c a.out
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : echo 'main(){}' > dummy.c from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c
+readelf -l a.out | grep ': /tools'
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 2 : cc dummy.c from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c
+readelf -l a.out | grep ': /tools'
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 3 : readelf -l a.out | grep ': /tools' from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c
+readelf -l a.out | grep ': /tools'
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : rm -v dummy.c a.out from :
+
+rm -v dummy.c a.out
+
+--------------------tcl-8.6.0-------------------------
+Delete line : 1 : TZ=UTC make test from :
+
+TZ=UTC make test
+
+--------------------expect-5.45-------------------------
+Delete line : 1 : make test from :
+
+make test
+
+--------------------dejagnu-1.5-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------check-0.9.9-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------bash-4.2-------------------------
+Delete line : 1 : make tests from :
+
+make tests
+
+--------------------coreutils-8.21-------------------------
+Delete line : 1 : make RUN_EXPENSIVE_TESTS=yes check from :
+
+make RUN_EXPENSIVE_TESTS=yes check
+
+--------------------diffutils-3.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------file-5.13-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------findutils-4.4.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------gawk-4.0.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------grep-2.14-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------gzip-1.5-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------m4-1.4.16-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------make-3.82-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------patch-2.7.1-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------sed-4.2.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------tar-1.26-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------texinfo-5.0-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------xz-5.0.4-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------creating--------------------------
+Delete line : 1 : exec /tools/bin/bash --login +h from :
+
+exec /tools/bin/bash --login +h
+
+--------------------glibc-2.17-------------------------
+Delete line : 1 : make -k check 2>&1 | tee glibc-check-log from :
+
+make -k check 2>&1 | tee glibc-check-log
+grep Error glibc-check-log
+
+--------------------glibc-2.17-------------------------
+Delete line : 2 : grep Error glibc-check-log from :
+
+make -k check 2>&1 | tee glibc-check-log
+grep Error glibc-check-log
+
+--------------------glibc-2.17-------------------------
+Delete line : 2 : localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 3 : localedef -i de_DE -f ISO-8859-1 de_DE from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 4 : localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 5 : localedef -i de_DE -f UTF-8 de_DE.UTF-8 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 6 : localedef -i en_GB -f UTF-8 en_GB.UTF-8 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 7 : localedef -i en_HK -f ISO-8859-1 en_HK from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 8 : localedef -i en_PH -f ISO-8859-1 en_PH from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 9 : localedef -i en_US -f ISO-8859-1 en_US from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 10 : localedef -i en_US -f UTF-8 en_US.UTF-8 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 11 : localedef -i es_MX -f ISO-8859-1 es_MX from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 12 : localedef -i fa_IR -f UTF-8 fa_IR from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 13 : localedef -i fr_FR -f ISO-8859-1 fr_FR from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 14 : localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 15 : localedef -i fr_FR -f UTF-8 fr_FR.UTF-8 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 16 : localedef -i it_IT -f ISO-8859-1 it_IT from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 17 : localedef -i it_IT -f UTF-8 it_IT.UTF-8 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 18 : localedef -i ja_JP -f EUC-JP ja_JP from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 19 : localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 20 : localedef -i ru_RU -f UTF-8 ru_RU.UTF-8 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 21 : localedef -i tr_TR -f UTF-8 tr_TR.UTF-8 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 22 : localedef -i zh_CN -f GB18030 zh_CN.GB18030 from :
+
+mkdir -pv /usr/lib/locale
+localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+localedef -i de_DE -f ISO-8859-1 de_DE
+localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE.UTF-8
+localedef -i en_GB -f UTF-8 en_GB.UTF-8
+localedef -i en_HK -f ISO-8859-1 en_HK
+localedef -i en_PH -f ISO-8859-1 en_PH
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i fa_IR -f UTF-8 fa_IR
+localedef -i fr_FR -f ISO-8859-1 fr_FR
+localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT.UTF-8
+localedef -i ja_JP -f EUC-JP ja_JP
+localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+localedef -i zh_CN -f GB18030 zh_CN.GB18030
+
+--------------------glibc-2.17-------------------------
+Delete line : 1 : tzselect from :
+
+tzselect
+
+--------------------adjusting--------------------------
+Delete line : 1 : echo 'main(){}' > dummy.c from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+
+--------------------adjusting--------------------------
+Delete line : 2 : cc dummy.c -v -Wl,--verbose &> dummy.log from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+
+--------------------adjusting--------------------------
+Delete line : 3 : readelf -l a.out | grep ': /lib' from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+
+--------------------adjusting--------------------------
+Delete line : 1 : grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log from :
+
+grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log
+
+--------------------adjusting--------------------------
+Delete line : 1 : grep -B1 '^ /usr/include' dummy.log from :
+
+grep -B1 '^ /usr/include' dummy.log
+
+--------------------adjusting--------------------------
+Delete line : 1 : grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' from :
+
+grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
+
+--------------------adjusting--------------------------
+Delete line : 1 : grep "/lib.*/libc.so.6 " dummy.log from :
+
+grep "/lib.*/libc.so.6 " dummy.log
+
+--------------------adjusting--------------------------
+Delete line : 1 : grep found dummy.log from :
+
+grep found dummy.log
+
+--------------------adjusting--------------------------
+Delete line : 1 : rm -v dummy.c a.out dummy.log from :
+
+rm -v dummy.c a.out dummy.log
+
+--------------------zlib-1.2.7-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------file-5.13-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------binutils-2.23.1-------------------------
+Delete line : 1 : expect -c "spawn ls" from :
+
+expect -c "spawn ls"
+
+--------------------binutils-2.23.1-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------gmp-5.1.1-------------------------
+Delete line : 1 : 	ABI=32 ./configure ... from :
+
+	ABI=32 ./configure ...
+
+
+--------------------gmp-5.1.1-------------------------
+Delete line : 1 : make check 2>&1 | tee gmp-check-log from :
+
+make check 2>&1 | tee gmp-check-log
+
+--------------------gmp-5.1.1-------------------------
+Delete line : 1 : awk '/tests passed/{total+=$2} ; END{print total}' gmp-check-log from :
+
+awk '/tests passed/{total+=$2} ; END{print total}' gmp-check-log
+
+--------------------mpfr-3.1.1-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------mpc-1.0.1-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : ulimit -s 32768 from :
+
+ulimit -s 32768
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : make -k check from :
+
+make -k check
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : ../gcc-4.7.2/contrib/test_summary from :
+
+../gcc-4.7.2/contrib/test_summary
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : echo 'main(){}' > dummy.c from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 2 : cc dummy.c -v -Wl,--verbose &> dummy.log from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 3 : readelf -l a.out | grep ': /lib' from :
+
+echo 'main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log from :
+
+grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : grep -B4 '^ /usr/include' dummy.log from :
+
+grep -B4 '^ /usr/include' dummy.log
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' from :
+
+grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : grep "/lib.*/libc.so.6 " dummy.log from :
+
+grep "/lib.*/libc.so.6 " dummy.log
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : grep found dummy.log from :
+
+grep found dummy.log
+
+--------------------gcc-4.7.2-------------------------
+Delete line : 1 : rm -v dummy.c a.out dummy.log from :
+
+rm -v dummy.c a.out dummy.log
+
+--------------------sed-4.2.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------pkg-config-0.28-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------e2fsprogs-1.42.7-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------coreutils-8.21-------------------------
+Delete line : 1 : make NON_ROOT_USERNAME=nobody check-root from :
+
+make NON_ROOT_USERNAME=nobody check-root
+
+--------------------coreutils-8.21-------------------------
+Delete line : 1 : echo "dummy:x:1000:nobody" >> /etc/group from :
+
+echo "dummy:x:1000:nobody" >> /etc/group
+
+--------------------coreutils-8.21-------------------------
+Delete line : 1 : chown -Rv nobody .  from :
+
+chown -Rv nobody . 
+
+--------------------coreutils-8.21-------------------------
+Delete line : 1 : su nobody -s /bin/bash \ from :
+
+su nobody -s /bin/bash \
+          -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"
+
+--------------------coreutils-8.21-------------------------
+Delete line : 2 :           -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check" from :
+
+su nobody -s /bin/bash \
+          -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"
+
+--------------------coreutils-8.21-------------------------
+Delete line : 1 : sed -i '/dummy/d' /etc/group from :
+
+sed -i '/dummy/d' /etc/group
+
+--------------------m4-1.4.16-------------------------
+Delete line : 2 : make check from :
+
+sed -i -e '41s/ENOENT/& || errno == EINVAL/' tests/test-readlink.h
+make check
+
+--------------------bison-2.7-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------grep-2.14-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------bash-4.2-------------------------
+Delete line : 1 : chown -Rv nobody . from :
+
+chown -Rv nobody .
+
+--------------------bash-4.2-------------------------
+Delete line : 1 : su nobody -s /bin/bash -c "PATH=$PATH make tests" from :
+
+su nobody -s /bin/bash -c "PATH=$PATH make tests"
+
+--------------------bash-4.2-------------------------
+Delete line : 1 : exec /bin/bash --login +h from :
+
+exec /bin/bash --login +h
+
+--------------------libtool-2.4.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------gdbm-1.10-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------inetutils-1.9.1-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------perl-5.16.2-------------------------
+Delete line : 1 : make -k test from :
+
+make -k test
+
+--------------------autoconf-2.69-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------automake-1.13.1-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------diffutils-3.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------gawk-4.0.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------findutils-4.4.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------flex-2.5.37-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------gettext-0.18.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------xz-5.0.4-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------gzip-1.5-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------kmod-12-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------libpipeline-1.2.2-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------make-3.82-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------man-db-2.6.3-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------patch-2.7.1-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------tar-1.26-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------texinfo-5.0-------------------------
+Delete line : 1 : make check from :
+
+make check
+
+--------------------vim-7.3-------------------------
+Delete line : 1 : make test from :
+
+make test
+
+--------------------vim-7.3-------------------------
+Delete line : 1 : vim -c ':options' from :
+
+vim -c ':options'
+
+--------------------general--------------------------
+Delete line : 1 : cat /etc/udev/rules.d/70-persistent-net.rules from :
+
+cat /etc/udev/rules.d/70-persistent-net.rules
+
+--------------------creating--------------------------
+Delete line : 1 : udevadm test /sys/block/hdd from :
+
+udevadm test /sys/block/hdd
+
+--------------------creating--------------------------
+Delete line : 2 :     /etc/udev/rules.d/83-cdrom-symlinks.rules from :
+
+sed -i -e 's/"write_cd_rules"/"write_cd_rules 	mode"/' \
+    /etc/udev/rules.d/83-cdrom-symlinks.rules
+
+
+--------------------creating--------------------------
+Delete line : 1 : udevadm info -a -p /sys/class/video4linux/video0 from :
+
+udevadm info -a -p /sys/class/video4linux/video0
+
+--------------------the--------------------------
+Delete line : 1 : locale -a from :
+
+locale -a
+
+--------------------the--------------------------
+Delete line : 1 : LC_ALL=	<locale name> locale charmap from :
+
+LC_ALL=	<locale name> locale charmap
+
+
+--------------------the--------------------------
+Delete line : 1 : LC_ALL=<locale name> locale language from :
+
+LC_ALL=<locale name> locale language
+LC_ALL=<locale name> locale charmap
+LC_ALL=<locale name> locale int_curr_symbol
+LC_ALL=<locale name> locale int_prefix
+
+--------------------the--------------------------
+Delete line : 2 : LC_ALL=<locale name> locale charmap from :
+
+LC_ALL=<locale name> locale language
+LC_ALL=<locale name> locale charmap
+LC_ALL=<locale name> locale int_curr_symbol
+LC_ALL=<locale name> locale int_prefix
+
+--------------------the--------------------------
+Delete line : 3 : LC_ALL=<locale name> locale int_curr_symbol from :
+
+LC_ALL=<locale name> locale language
+LC_ALL=<locale name> locale charmap
+LC_ALL=<locale name> locale int_curr_symbol
+LC_ALL=<locale name> locale int_prefix
+
+--------------------the--------------------------
+Delete line : 4 : LC_ALL=<locale name> locale int_prefix from :
+
+LC_ALL=<locale name> locale language
+LC_ALL=<locale name> locale charmap
+LC_ALL=<locale name> locale int_curr_symbol
+LC_ALL=<locale name> locale int_prefix
+
+--------------------creating--------------------------
+Delete line : 1 : hdparm -I /dev/sda | grep NCQ from :
+
+hdparm -I /dev/sda | grep NCQ
+
+--------------------using--------------------------
+Delete line : 1 : cd /tmp && from :
+
+cd /tmp &&
+grub-mkrescue --output=grub-img.iso &&
+xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso
+
+--------------------using--------------------------
+Delete line : 2 : grub-mkrescue --output=grub-img.iso && from :
+
+cd /tmp &&
+grub-mkrescue --output=grub-img.iso &&
+xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso
+
+--------------------using--------------------------
+Delete line : 3 : xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso from :
+
+cd /tmp &&
+grub-mkrescue --output=grub-img.iso &&
+xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso
+
+Origin    : mkdir -v $LFS/tools
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : groupadd lfs
+Replacing : groupadd lfs with : groupadd lfs || true
+-------------------------------------------------
+
+Origin    : useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+Replacing : useradd -s /bin/bash -g lfs -m -k /dev/null lfs with : useradd -s /bin/bash -g lfs -m -k /dev/null lfs || true
+-------------------------------------------------
+
+Origin    : passwd lfs
+Replacing : passwd lfs with : echo 'lfs:ping' | chpasswd
+-------------------------------------------------
+
+Origin    : chown -v lfs $LFS/tools
+Replacing : chown -v with : chown -Rv
+-------------------------------------------------
+
+Origin    : chown -v lfs $LFS/sources
+Replacing : chown -v with : chown -Rv
+-------------------------------------------------
+
+Origin    : cat > ~/.bash_profile << "EOF"
+Replacing : cat > ~/.bash_profile << "EOF" with : cat > /home/lfs/.bash_profile << "EOF"
+-------------------------------------------------
+
+Origin    : exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
+Replacing : exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash with : source /home/lfs/.bashrc
+-------------------------------------------------
+
+Origin    : cat > ~/.bashrc << "EOF"
+Replacing : cat > ~/.bashrc << "EOF" with : cat > /home/lfs/.bashrc << "EOF"
+-------------------------------------------------
+
+Origin    : source ~/.bash_profile
+Replacing : source ~/.bash_profile with : source /home/lfs/.bash_profile
+-------------------------------------------------
+
+Origin    : mkdir -v ../binutils-build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    :   x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v ../gcc-build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v ../glibc-build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v ../binutils-build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v ../gcc-build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v $LFS/{dev,proc,sys}
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v  /usr/{,local/}share/{misc,terminfo,zoneinfo}
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v /var/{log,mail,spool}
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v ../glibc-build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir /etc/ld.so.conf.d
+Replacing : mkdir / with : mkdir -pv /
+-------------------------------------------------
+
+Origin    : mkdir -v ../binutils-build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : ./configure --prefix=/usr --enable-cxx
+Replacing : ./configure --prefix=/usr --enable-cxx with : ABI=64 
+	./configure --prefix=/usr --enable-cxx
+-------------------------------------------------
+
+Origin    : mkdir -v /usr/share/doc/gmp-5.1.1
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v ../gcc-build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v       /usr/share/doc/ncurses-5.9
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v build
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : ./configure --sysconfdir=/etc
+Replacing : ./configure --sysconfdir=/etc with : ./configure --sysconfdir=/etc --with-libpam=no
+-------------------------------------------------
+
+Origin    : passwd root
+Replacing : passwd root with : echo 'root:ping' | chpasswd
+-------------------------------------------------
+
+Origin    : mkdir -v /usr/share/doc/gawk-4.0.2
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : mkdir -v /usr/share/doc/kbd-1.15.5
+Replacing : mkdir -v with : mkdir -pv
+-------------------------------------------------
+
+Origin    : build/udevadm hwdb --update
+Replacing : build/udevadm hwdb --update with : sed -i 's/if ignore_if; then continue; fi/#&/' udev-lfs-197-2/init-net-rules.sh
+build/udevadm hwdb --update
+-------------------------------------------------
+
+Origin    : bash udev-lfs-197-2/init-net-rules.sh
+Replacing : bash udev-lfs-197-2/init-net-rules.sh with : bash udev-lfs-197-2/init-net-rules.sh
+sed -i "s/\"00:0c:29:[^\".]*\"/\"00:0c:29:*:*:*\"/" /etc/udev/rules.d/70-persistent-net.rules
+-------------------------------------------------
+
+Origin    : IP=192.168.1.1
+Replacing : IP=192.168.1.1 with : IP=192.168.136.13
+-------------------------------------------------
+
+Origin    : GATEWAY=192.168.1.2
+Replacing : GATEWAY=192.168.1.2 with : GATEWAY=192.168.136.2
+-------------------------------------------------
+
+Origin    : BROADCAST=192.168.1.255
+Replacing : BROADCAST=192.168.1.255 with : BROADCAST=192.168.136.255
+-------------------------------------------------
+
+Origin    : domain <Your Domain Name>
+Replacing : domain <Your Domain Name> with : domain ibm.com
+-------------------------------------------------
+
+Origin    : KEYMAP="de-latin1"
+Replacing : KEYMAP="de-latin1" with : KEYMAP="us"
+-------------------------------------------------
+
+Origin    : KEYMAP_CORRECTIONS="euro2"
+Replacing : KEYMAP_CORRECTIONS="euro2" with : 
+-------------------------------------------------
+
+Origin    : KEYMAP="de-latin1"
+Replacing : KEYMAP="de-latin1" with : KEYMAP="us"
+-------------------------------------------------
+
+Origin    : KEYMAP_CORRECTIONS="euro2"
+Replacing : KEYMAP_CORRECTIONS="euro2" with : 
+-------------------------------------------------
+
+Origin    : LEGACY_CHARSET="iso-8859-15"
+Replacing : LEGACY_CHARSET="iso-8859-15" with : 
+-------------------------------------------------
+
+Origin    : FONT="LatArCyrHeb-16 -m 8859-15"
+Replacing : FONT="LatArCyrHeb-16 -m 8859-15" with : 
+-------------------------------------------------
+
+Origin    : export LANG=<ll>_<CC>.<charmap><@modifiers>
+Replacing : export LANG=<ll>_<CC>.<charmap><@modifiers> with : export LANG=en_US.utf8
+-------------------------------------------------
+
+Origin    : grub-install /dev/sda
+Replacing : grub-install /dev/sda with : grub-install /dev/mapper/loop0
+-------------------------------------------------
+
+Origin    : set root=(hd0,2)
+Replacing : set root=(hd0,2) with : set root=(hd0,1)
+-------------------------------------------------
+
+Origin    :         linux   /boot/vmlinuz-3.8.1-lfs-7.3 root=/dev/sda2 ro
+Replacing : root=/dev/sda2 ro with : root=/dev/vda1 ro
+-------------------------------------------------
+
+Origin    : DISTRIB_CODENAME="<your name here>"
+Replacing : DISTRIB_CODENAME="<your name here>" with : DISTRIB_CODENAME="MAO"
+-------------------------------------------------

@@ -89,19 +89,23 @@ export LC_ALL=C
 export PASSWORD="ping"
 export KEYMAP="us"
 export FS="ext3"
-export wget_list="http://www.linuxfromscratch.org/lfs/view/development/wget-list"
-export md5sums="http://www.linuxfromscratch.org/lfs/view/development/md5sums"
+export wget_list="http://www.linuxfromscratch.org/lfs/view/stable/wget-list"
+export md5sums="http://www.linuxfromscratch.org/lfs/view/stable/md5sums"
 export sources=$LFS/sources
 export CMDS=${CWD}/cmds.sh
 export FUNCTIONS=${CWD}/functions.sh
 export wgetlist=${sources}/"wget-list"
 export md5file=${sources}/"md5sums"
+export logdir=${sources}/logs
 #sources="$LFS/sources"
 #CMDS=${CWD}/cmds;  FUNCTIONS=${CWD}/functions.sh;} || {  CMDS=${LFSBUILD}/cmds;  FUNCTIONS=${LFSBUILD}/functions.sh;} 
 export SUCCESS=${sources}/"LFSSUCCESS"
 source ${FUNCTIONS} 
 source ${CMDS} 
 export tmp=${sources}/killpid
+mkdir -pv $sources
+mkdir -pv ${logdir}
+touch $SUCCESS
 [ -f "$LFS/etc/profile" ] && export PKG_CONFIG_PATH=/opt/lib/pkgconfig:/opt/share/pkgconfig:/usr/lib/pkgconfig
 [ -f "$LFS/etc/profile" ] && export LIBRARY_PATH="/lib64:/lib:/usr/lib:/opt/lib"
 [ -f "$LFS/etc/profile" ] && source "$LFS/etc/profile"
@@ -196,9 +200,9 @@ if ! is_success $FUNCNAME ; then
 	log "Download the checksum file... to ${sources}"
 	progress wget -nc $md5sums -P ${sources}
 	log "Download all sources packages... to ${sources}"
-	progress wget -nc -i ${sources}/wget-list -P ${sources} 
+	progress wget --no-check-certificate -nc -i ${sources}/wget-list -P ${sources} 
 
-	cd ${sources}
+	cd ${sources} 
 
 	SAVEIFS=$IFS
 	IFS=$(echo -en "\n\b")
@@ -485,7 +489,25 @@ do_cleanup_untar_stuff(){
 	into_folder "$newfolder"
 
 }
+cleanup_after_built(){
+	local package="$1"
+	local sources="$2"
+	local packstr="$3"
 
+	[ ! -z "$packstr" ] || error 1  NULLPACKSTR "Package header is null"
+	[ -d "$sources" ] || error 1  DIRNOTEXIST "Sources Directory not exists"
+	[ ! -z "$package" ] || error 1  NULLPACKNAME "Package name is null"
+
+	buildfolder=${sources%/}"/"${packstr}"-build"
+	prefolder=$(trim_pack ${package})
+	
+
+	 
+	[ -d "$buildfolder" ] && { log "Previous $buildfolder exists,removing"; rm -rf "$buildfolder" || error 1  DIRREMOVEFAILURE "Failed to remove '$buildfolder'" ; }
+	
+	[ -d "$prefolder" ] && { log "Previous $prefolder exists,removing"; rm -rf "$prefolder" || error 1  DIRREMOVEFAILURE "Failed to remove '$prefolder'" ; }
+
+}
 
 post_download(){
 
@@ -575,6 +597,7 @@ pack_install(){
 
 				[ ! -z "$package" ] && log "${package} building Complete!" || log "${successpack} running Complete!"
 
+				[ -f  "$package" ] && cleanup_after_built "$package" "$sources" "$packstr"
 		
 				[[ "$successpack" = "BLFS_Boot_Scripts_C2" ]] || success_build $successpack
 			else
@@ -686,7 +709,7 @@ print_progress $* & echo $! >>$tmp
 if id "lfs" >/dev/null 2>&1 ; then
 	chown -v lfs $tmp >&4 2>&1
 else
-	chown -v `whoami` $tmp >&4 2>&1
+	chown -v 0 $tmp >&4 2>&1
 fi
 
 disown
@@ -694,7 +717,12 @@ MYSELF=$!
 trap "echo ' Catch CTRL+c ,exiting...' >&3 ;cleanup 1 $LINENO;" INT
 echo ""
 
-$* >&4 
+if ! is_callable "$successpack" ;then 
+	$* >&4
+else
+	$* > "${logdir}"/"$*".log 2>&1 
+fi
+
 
 kill $MYSELF >/dev/null 2>&1 && sed -i "/$MYSELF/d" $tmp
 echo  ""
@@ -756,7 +784,7 @@ chown -v lfs.lfs "$SUCCESS"
 
 [ ! -f "$tmp" ] && { touch "$tmp"; chown -v lfs.lfs "$tmp"; }
 
-#chown -Rv lfs.lfs "$sources" >&4 
+chown -Rv lfs.lfs "$sources" >&4 
 
 #########do NOT use su - lfs#################
 su lfs /bin/bash -c  "ConstructingaTemporarySystem $ch ${sources}"
@@ -796,7 +824,7 @@ ConstructingaTemporarySystem(){
 local ch=$1
 local sources=$2
 export HOME=/home/lfs
-[[ ${DEBUG_} = "true" ]] && set -xve || set -e
+set -xve 
 env HOME=$HOME TERM=$TERM bash -c "intoTemporarySystem $ch ${sources}" 
 return 0
 
@@ -806,7 +834,7 @@ intoTemporarySystem(){
 local ch=$1
 local sources=$2
 
-[[ ${DEBUG_} = "true" ]] && set -xve || set -e
+set -xve 
 source ~/.bashrc
 blockid
 blockpwd
@@ -834,8 +862,10 @@ echo ${DEBUG_}
 export SUCCESS=${sources}/"LFSSUCCESS"
 export tmp=${sources}/killpid
 export wgetlist=${sources}/"wget-list"
-[[ $(whoami) = "root" ]] && export HOME=/root || export HOME="/home/"$(whoami) 
-[ -z "$BLFSCHAPTERS" ] && [ ! -f "/etc/profile.d/xorg.sh" ] &&  { cd ${sources};type Introduction_to_Xorg_7_7_C24; Introduction_to_Xorg_7_7_C24 || true ; source "/etc/profile.d/xorg.sh" ;} || true
+export logdir=${sources}/logs
+export HOME=/root
+#[[ $(whoami) = "root" ]] && export HOME=/root || export HOME="/home/"$(whoami) 
+#[ -z "$BLFSCHAPTERS" ] && [ ! -f "/etc/profile.d/xorg.sh" ] &&  { cd ${sources};type Introduction_to_Xorg_7_7_C24; Introduction_to_Xorg_7_7_C24 || true ; source "/etc/profile.d/xorg.sh" ;} || true
 
 }
 

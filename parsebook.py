@@ -19,7 +19,7 @@ except ImportError:
 reload(sys) 
 sys.setdefaultencoding('utf8')
 homepage="http://www.linuxfromscratch.org/lfs/view/stable"
-lfsloc="www.linuxfromscratch.org/lfs/view/development/index.html"
+lfsloc="www.linuxfromscratch.org/lfs/view/stable/index.html"
 blfsloc="www.linuxfromscratch.org/blfs/view/svn/index.html"
 
 CWD=os.path.dirname(os.path.realpath(__file__))
@@ -449,7 +449,7 @@ def parseperl(link):
 def parseindex(index,file):
 	match = re.search('/([a-z]*lfs)/',index)
 	try:
-		book = match.group(2).upper()
+		book = match.group(1).upper()
 	except AttributeError:
 		book = ""
 	soup = BeautifulSoup(open(index).read())

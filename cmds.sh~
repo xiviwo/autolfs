@@ -20,11 +20,10 @@ Mounting_the_New_Partition_C2(){
 
 export LFS=/mnt/lfs
 mkdir -pv $LFS
-mount -v -t ext4 /dev/<xxx> $LFS
+mount -v -t ext3 /dev/mapper/loop0p1 $LFS
 
 mkdir -pv $LFS
-mount -v -t ext4 /dev/<xxx> $LFS
-mount -v -t ext4 /dev/<yyy> $LFS/usr
+mount -v -t ext3 /dev/mapper/loop0p1 $LFS
 
 /sbin/swapon -v /dev/mapper/loop0p2
 
@@ -86,13 +85,11 @@ export C4_FinalPreparations="About_LFS_C4 Creating_the_LFS_tools_Directory_C4 Ad
 
 
 
-Binutils_2_23_2_Pass_1_C5(){
+Binutils_2_23_1_Pass_1_C5(){
 
-sed -i -e 's/@colophon/@@colophon/' \
-       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 mkdir -pv ../binutils-build
 cd ../binutils-build
-../binutils-2.23.2/configure   \
+../binutils-2.23.1/configure     \
     --prefix=/tools            \
     --with-sysroot=$LFS        \
     --with-lib-path=/tools/lib \
@@ -106,12 +103,12 @@ esac
 make install
 }
 
-GCC_4_8_1_Pass_1_C5(){
+GCC_4_7_2_Pass_1_C5(){
 
-tar -Jxf ../mpfr-3.1.2.tar.xz
-mv -v mpfr-3.1.2 mpfr
-tar -Jxf ../gmp-5.1.2.tar.xz
-mv -v gmp-5.1.2 gmp
+tar -Jxf ../mpfr-3.1.1.tar.xz
+mv -v mpfr-3.1.1 mpfr
+tar -Jxf ../gmp-5.1.1.tar.xz
+mv -v gmp-5.1.1 gmp
 tar -zxf ../mpc-1.0.1.tar.gz
 mv -v mpc-1.0.1 mpc
 for file in \
@@ -128,38 +125,35 @@ do
   touch $file.orig
 done
 sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
+sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 mkdir -pv ../gcc-build
 cd ../gcc-build
-../gcc-4.8.1/configure                               \
-    --target=$LFS_TGT                                \
-    --prefix=/tools                                  \
-    --with-sysroot=$LFS                              \
-    --with-newlib                                    \
-    --without-headers                                \
-    --with-local-prefix=/tools                       \
-    --with-native-system-header-dir=/tools/include   \
-    --disable-nls                                    \
-    --disable-shared                                 \
-    --disable-multilib                               \
-    --disable-decimal-float                          \
-    --disable-threads                                \
-    --disable-libatomic                              \
-    --disable-libgomp                                \
-    --disable-libitm                                 \
-    --disable-libmudflap                             \
-    --disable-libquadmath                            \
-    --disable-libsanitizer                           \
-    --disable-libssp                                 \
-    --disable-libstdc++-v3                           \
-    --enable-languages=c,c++                         \
-    --with-mpfr-include=$(pwd)/../gcc-4.8.1/mpfr/src \
+../gcc-4.7.2/configure         \
+    --target=$LFS_TGT          \
+    --prefix=/tools            \
+    --with-sysroot=$LFS        \
+    --with-newlib              \
+    --without-headers          \
+    --with-local-prefix=/tools \
+    --with-native-system-header-dir=/tools/include \
+    --disable-nls              \
+    --disable-shared           \
+    --disable-multilib         \
+    --disable-decimal-float    \
+    --disable-threads          \
+    --disable-libmudflap       \
+    --disable-libssp           \
+    --disable-libgomp          \
+    --disable-libquadmath      \
+    --enable-languages=c       \
+    --with-mpfr-include=$(pwd)/../gcc-4.7.2/mpfr/src \
     --with-mpfr-lib=$(pwd)/mpfr/src/.libs
 make
 make install
 ln -sv libgcc.a `$LFS_TGT-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh/'`
 }
 
-Linux_3_9_6_API_Headers_C5(){
+Linux_3_8_1_API_Headers_C5(){
 
 make mrproper
 make headers_check
@@ -177,52 +171,30 @@ fi
 mkdir -pv ../glibc-build
 cd ../glibc-build
 ../glibc-2.17/configure                             \
-      --prefix=/tools                               \
-      --host=$LFS_TGT                               \
+      --prefix=/tools                                 \
+      --host=$LFS_TGT                                 \
       --build=$(../glibc-2.17/scripts/config.guess) \
-      --disable-profile                             \
-      --enable-kernel=2.6.25                        \
-      --with-headers=/tools/include                 \
-      libc_cv_forced_unwind=yes                     \
-      libc_cv_ctors_header=yes                      \
+      --disable-profile                               \
+      --enable-kernel=2.6.25                          \
+      --with-headers=/tools/include                   \
+      libc_cv_forced_unwind=yes                       \
+      libc_cv_ctors_header=yes                        \
       libc_cv_c_cleanup=yes
 make
 make install
 }
 
-Libstdc_4_8_1_C5(){
-mkdir -pv Libstdc++
-cd Libstdc++
-mkdir -pv ../gcc-build
-cd ../gcc-build
-rm -rf *
-../gcc-4.8.1/libstdc++-v3/configure \
-    --host=$LFS_TGT                      \
-    --prefix=/tools                      \
-    --disable-multilib                   \
-    --disable-shared                     \
-    --disable-nls                        \
-    --disable-libstdcxx-threads          \
-    --disable-libstdcxx-pch              \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/4.8.1
-make
-make install
-}
+Binutils_2_23_1_Pass_2_C5(){
 
-Binutils_2_23_2_Pass_2_C5(){
-
-sed -i -e 's/@colophon/@@colophon/' \
-       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 mkdir -pv ../binutils-build
 cd ../binutils-build
-CC=$LFS_TGT-gcc                \
-AR=$LFS_TGT-ar                 \
-RANLIB=$LFS_TGT-ranlib         \
-../binutils-2.23.2/configure   \
-    --prefix=/tools            \
-    --disable-nls              \
-    --with-lib-path=/tools/lib \
-    --with-sysroot
+CC=$LFS_TGT-gcc            \
+AR=$LFS_TGT-ar             \
+RANLIB=$LFS_TGT-ranlib     \
+../binutils-2.23.1/configure \
+    --prefix=/tools        \
+    --disable-nls          \
+    --with-lib-path=/tools/lib
 make
 make install
 make -C ld clean
@@ -230,7 +202,7 @@ make -C ld LIB_PATH=/usr/lib:/lib
 cp -v ld/ld-new /tools/bin
 }
 
-GCC_4_8_1_Pass_2_C5(){
+GCC_4_7_2_Pass_2_C5(){
 
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
@@ -250,33 +222,32 @@ do
 #define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
   touch $file.orig
 done
-tar -Jxf ../mpfr-3.1.2.tar.xz
-mv -v mpfr-3.1.2 mpfr
-tar -Jxf ../gmp-5.1.2.tar.xz
-mv -v gmp-5.1.2 gmp
+tar -Jxf ../mpfr-3.1.1.tar.xz
+mv -v mpfr-3.1.1 mpfr
+tar -Jxf ../gmp-5.1.1.tar.xz
+mv -v gmp-5.1.1 gmp
 tar -zxf ../mpc-1.0.1.tar.gz
 mv -v mpc-1.0.1 mpc
+sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 mkdir -pv ../gcc-build
 cd ../gcc-build
-
-CC=$LFS_TGT-gcc                                      \
-CXX=$LFS_TGT-g++                                     \
-AR=$LFS_TGT-ar                                       \
-RANLIB=$LFS_TGT-ranlib                               \
-../gcc-4.8.1/configure                               \
-    --prefix=/tools                                  \
-    --with-local-prefix=/tools                       \
-    --with-native-system-header-dir=/tools/include   \
-    --enable-clocale=gnu                             \
-    --enable-shared                                  \
-    --enable-threads=posix                           \
-    --enable-__cxa_atexit                            \
-    --enable-languages=c,c++                         \
-    --disable-libstdcxx-pch                          \
-    --disable-multilib                               \
-    --disable-bootstrap                              \
-    --disable-libgomp                                \
-    --with-mpfr-include=$(pwd)/../gcc-4.8.1/mpfr/src \
+CC=$LFS_TGT-gcc \
+AR=$LFS_TGT-ar                  \
+RANLIB=$LFS_TGT-ranlib          \
+../gcc-4.7.2/configure          \
+    --prefix=/tools             \
+    --with-local-prefix=/tools  \
+    --with-native-system-header-dir=/tools/include \
+    --enable-clocale=gnu        \
+    --enable-shared             \
+    --enable-threads=posix      \
+    --enable-__cxa_atexit       \
+    --enable-languages=c,c++    \
+    --disable-libstdcxx-pch     \
+    --disable-multilib          \
+    --disable-bootstrap         \
+    --disable-libgomp           \
+    --with-mpfr-include=$(pwd)/../gcc-4.7.2/mpfr/src \
     --with-mpfr-lib=$(pwd)/mpfr/src/.libs
 make
 make install
@@ -285,7 +256,6 @@ ln -sv gcc /tools/bin/cc
 
 Tcl_8_6_0_C5(){
 
-sed -i s/500/5000/ generic/regc_nfa.c
 cd unix
 ./configure --prefix=/tools
 make
@@ -305,13 +275,13 @@ make
 make SCRIPTS="" install
 }
 
-DejaGNU_1_5_1_C5(){
+DejaGNU_1_5_C5(){
 
 ./configure --prefix=/tools
 make install
 }
 
-Check_0_9_10_C5(){
+Check_0_9_9_C5(){
 
 ./configure --prefix=/tools
 make
@@ -328,7 +298,7 @@ make install
 
 Bash_4_2_C5(){
 
-patch -Np1 -i ../bash-4.2-fixes-12.patch
+patch -Np1 -i ../bash-4.2-fixes-11.patch
 ./configure --prefix=/tools --without-bash-malloc
 make
 make install
@@ -348,14 +318,15 @@ make
 make install
 }
 
-Diffutils_3_3_C5(){
+Diffutils_3_2_C5(){
 
+sed -i -e '/gets is a/d' lib/stdio.in.h
 ./configure --prefix=/tools
 make
 make install
 }
 
-File_5_14_C5(){
+File_5_13_C5(){
 
 ./configure --prefix=/tools
 make
@@ -369,14 +340,14 @@ make
 make install
 }
 
-Gawk_4_1_0_C5(){
+Gawk_4_0_2_C5(){
 
 ./configure --prefix=/tools
 make
 make install
 }
 
-Gettext_0_18_2_1_C5(){
+Gettext_0_18_2_C5(){
 
 cd gettext-tools
 EMACS="no" ./configure --prefix=/tools --disable-shared
@@ -392,7 +363,7 @@ make
 make install
 }
 
-Gzip_1_6_C5(){
+Gzip_1_5_C5(){
 
 ./configure --prefix=/tools
 make
@@ -421,14 +392,14 @@ make
 make install
 }
 
-Perl_5_18_0_C5(){
+Perl_5_16_2_C5(){
 
-patch -Np1 -i ../perl-5.18.0-libc-1.patch
+patch -Np1 -i ../perl-5.16.2-libc-1.patch
 sh Configure -des -Dprefix=/tools
 make
 cp -v perl cpan/podlators/pod2man /tools/bin
-mkdir -pv /tools/lib/perl5/5.18.0
-cp -Rv lib/* /tools/lib/perl5/5.18.0
+mkdir -pv /tools/lib/perl5/5.16.2
+cp -Rv lib/* /tools/lib/perl5/5.16.2
 }
 
 Sed_4_2_2_C5(){
@@ -446,7 +417,7 @@ make
 make install
 }
 
-Texinfo_5_1_C5(){
+Texinfo_5_0_C5(){
 
 ./configure --prefix=/tools
 make
@@ -472,7 +443,7 @@ Changing_Ownership_C5(){
 chown -R root:root $LFS/tools
 }
 
-export C5_ConstructingaTemporarySystem="Introduction_C5 Toolchain_Technical_Notes_C5 General_Compilation_Instructions_C5 Binutils_2_23_2_Pass_1_C5 GCC_4_8_1_Pass_1_C5 Linux_3_9_6_API_Headers_C5 Glibc_2_17_C5 Libstdc_4_8_1_C5 Binutils_2_23_2_Pass_2_C5 GCC_4_8_1_Pass_2_C5 Tcl_8_6_0_C5 Expect_5_45_C5 DejaGNU_1_5_1_C5 Check_0_9_10_C5 Ncurses_5_9_C5 Bash_4_2_C5 Bzip2_1_0_6_C5 Coreutils_8_21_C5 Diffutils_3_3_C5 File_5_14_C5 Findutils_4_4_2_C5 Gawk_4_1_0_C5 Gettext_0_18_2_1_C5 Grep_2_14_C5 Gzip_1_6_C5 M4_1_4_16_C5 Make_3_82_C5 Patch_2_7_1_C5 Perl_5_18_0_C5 Sed_4_2_2_C5 Tar_1_26_C5 Texinfo_5_1_C5 Xz_5_0_4_C5 Stripping_C5 Changing_Ownership_C5 "
+export C5_ConstructingaTemporarySystem="Introduction_C5 Toolchain_Technical_Notes_C5 General_Compilation_Instructions_C5 Binutils_2_23_1_Pass_1_C5 GCC_4_7_2_Pass_1_C5 Linux_3_8_1_API_Headers_C5 Glibc_2_17_C5 Binutils_2_23_1_Pass_2_C5 GCC_4_7_2_Pass_2_C5 Tcl_8_6_0_C5 Expect_5_45_C5 DejaGNU_1_5_C5 Check_0_9_9_C5 Ncurses_5_9_C5 Bash_4_2_C5 Bzip2_1_0_6_C5 Coreutils_8_21_C5 Diffutils_3_2_C5 File_5_13_C5 Findutils_4_4_2_C5 Gawk_4_0_2_C5 Gettext_0_18_2_C5 Grep_2_14_C5 Gzip_1_5_C5 M4_1_4_16_C5 Make_3_82_C5 Patch_2_7_1_C5 Perl_5_16_2_C5 Sed_4_2_2_C5 Tar_1_26_C5 Texinfo_5_0_C5 Xz_5_0_4_C5 Stripping_C5 Changing_Ownership_C5 "
 
 
 Preparing_Virtual_Kernel_File_Systems_C6(){
@@ -526,7 +497,7 @@ ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
 ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
 sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
 ln -sv bash /bin/sh
-ln -sv /proc/self/mounts /etc/mtab
+touch /etc/mtab
 cat > /etc/passwd << "EOF"
 root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/dev/null:/bin/false
@@ -560,7 +531,7 @@ chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp
 }
 
-Linux_3_9_6_API_Headers_C6(){
+Linux_3_8_1_API_Headers_C6(){
 
 make mrproper
 make headers_check
@@ -570,7 +541,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
 cp -rv dest/include/* /usr/include
 }
 
-Man_pages_3_51_C6(){
+Man_pages_3_47_C6(){
 
 make install
 }
@@ -579,7 +550,7 @@ Glibc_2_17_C6(){
 
 mkdir -pv ../glibc-build
 cd ../glibc-build
-../glibc-2.17/configure    \
+../glibc-2.17/configure  \
     --prefix=/usr          \
     --disable-profile      \
     --enable-kernel=2.6.25 \
@@ -610,7 +581,7 @@ rpc: files
 # End /etc/nsswitch.conf
 EOF
 
-tar -xf ../tzdata2013c.tar.gz
+tar -xf ../tzdata2012j.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
@@ -651,59 +622,58 @@ mv -v /tools/bin/{ld,ld-old}
 mv -v /tools/$(gcc -dumpmachine)/bin/{ld,ld-old}
 mv -v /tools/bin/{ld-new,ld}
 ln -sv /tools/bin/ld /tools/$(gcc -dumpmachine)/bin/ld
-gcc -dumpspecs | sed -e 's@/tools@@g'                   \
+gcc -dumpspecs | sed -e 's@/tools@@g' \
     -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
-    -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' >      \
+    -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' > \
     `dirname $(gcc --print-libgcc-file-name)`/specs
 }
 
-Zlib_1_2_8_C6(){
+Zlib_1_2_7_C6(){
 
 ./configure --prefix=/usr
 make
 make install
 mv -v /usr/lib/libz.so.* /lib
-ln -sfv ../../lib/libz.so.1.2.8 /usr/lib/libz.so
+ln -sfv ../../lib/libz.so.1.2.7 /usr/lib/libz.so
 }
 
-File_5_14_C6(){
+File_5_13_C6(){
 
 ./configure --prefix=/usr
 make
 make install
 }
 
-Binutils_2_23_2_C6(){
+Binutils_2_23_1_C6(){
 
 rm -fv etc/standards.info
 sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in
-sed -i -e 's/@colophon/@@colophon/' \
-       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
+patch -Np1 -i ../binutils-2.23.1-testsuite_fix-1.patch
 mkdir -pv ../binutils-build
 cd ../binutils-build
-../binutils-2.23.2/configure --prefix=/usr --enable-shared
+../binutils-2.23.1/configure --prefix=/usr --enable-shared
 make tooldir=/usr
 make tooldir=/usr install
-cp -v ../binutils-2.23.2/include/libiberty.h /usr/include
+cp -v ../binutils-2.23.1/include/libiberty.h /usr/include
 }
 
-GMP_5_1_2_C6(){
+GMP_5_1_1_C6(){
 
 
 ABI=64 
 ./configure --prefix=/usr --enable-cxx
 make
 make install
-mkdir -pv /usr/share/doc/gmp-5.1.2
+mkdir -pv /usr/share/doc/gmp-5.1.1
 cp    -v doc/{isa_abi_headache,configuration} doc/*.html \
-         /usr/share/doc/gmp-5.1.2
+         /usr/share/doc/gmp-5.1.1
 }
 
-MPFR_3_1_2_C6(){
+MPFR_3_1_1_C6(){
 
 ./configure  --prefix=/usr        \
              --enable-thread-safe \
-             --docdir=/usr/share/doc/mpfr-3.1.2
+             --docdir=/usr/share/doc/mpfr-3.1.1
 make
 make install
 make html
@@ -718,26 +688,25 @@ make
 make install
 }
 
-GCC_4_8_1_C6(){
+GCC_4_7_2_C6(){
 
+sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in
+sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 case `uname -m` in
   i?86) sed -i 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in ;;
 esac
-sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in
-sed -i -e /autogen/d -e /check.sh/d fixincludes/Makefile.in 
-mv -v libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx{,.disable}
+sed -i -e /autogen/d -e /check.sh/d fixincludes/Makefile.in
 mkdir -pv ../gcc-build
 cd ../gcc-build
-../gcc-4.8.1/configure --prefix=/usr               \
-                       --libexecdir=/usr/lib       \
-                       --enable-shared             \
-                       --enable-threads=posix      \
-                       --enable-__cxa_atexit       \
-                       --enable-clocale=gnu        \
-                       --enable-languages=c,c++    \
-                       --disable-multilib          \
-                       --disable-bootstrap         \
-                       --disable-install-libiberty \
+../gcc-4.7.2/configure --prefix=/usr            \
+                       --libexecdir=/usr/lib    \
+                       --enable-shared          \
+                       --enable-threads=posix   \
+                       --enable-__cxa_atexit    \
+                       --enable-clocale=gnu     \
+                       --enable-languages=c,c++ \
+                       --disable-multilib       \
+                       --disable-bootstrap      \
                        --with-system-zlib
 make
 make install
@@ -820,25 +789,7 @@ make sources libs
 cp -av lib/lib*.so.5* /usr/lib
 }
 
-Shadow_4_1_5_1_C6(){
-
-sed -i 's/groups$(EXEEXT) //' src/Makefile.in
-find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
-sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
-       -e 's@/var/spool/mail@/var/mail@' etc/login.defs
-sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' \
-    etc/login.defs
-./configure --sysconfdir=/etc --with-libpam=no
-make
-make install
-mv -v /usr/bin/passwd /bin
-pwconv
-grpconv
-sed -i 's/yes/no/' /etc/default/useradd
-echo 'root:ping' | chpasswd
-}
-
-Util_linux_2_23_1_C6(){
+Util_linux_2_22_2_C6(){
 
 sed -i -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \
      $(grep -rl '/etc/adjtime' .)
@@ -858,21 +809,19 @@ mv -v /usr/bin/fuser   /bin
 mv -v /usr/bin/killall /bin
 }
 
-Procps_ng_3_3_8_C6(){
+Procps_ng_3_3_6_C6(){
 
 ./configure --prefix=/usr                           \
             --exec-prefix=                          \
             --libdir=/usr/lib                       \
-            --docdir=/usr/share/doc/procps-ng-3.3.8 \
+            --docdir=/usr/share/doc/procps-ng-3.3.6 \
             --disable-static                        \
             --disable-skill                         \
             --disable-kill
 make
-sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
-
 make install
 mv -v /usr/lib/libprocps.so.* /lib
-ln -sfv ../../lib/libprocps.so.1.1.2 /usr/lib/libprocps.so
+ln -sfv ../../lib/libprocps.so.1.1.0 /usr/lib/libprocps.so
 }
 
 E2fsprogs_1_42_7_C6(){
@@ -895,6 +844,24 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info
 makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
 install -v -m644 doc/com_err.info /usr/share/info
 install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
+}
+
+Shadow_4_1_5_1_C6(){
+
+sed -i 's/groups$(EXEEXT) //' src/Makefile.in
+find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
+sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
+       -e 's@/var/spool/mail@/var/mail@' etc/login.defs
+sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' \
+    etc/login.defs
+./configure --sysconfdir=/etc --with-libpam=no
+make
+make install
+mv -v /usr/bin/passwd /bin
+pwconv
+grpconv
+sed -i 's/yes/no/' /etc/default/useradd
+echo 'root:ping' | chpasswd
 }
 
 Coreutils_8_21_C6(){
@@ -930,7 +897,7 @@ sed -i -e '41s/ENOENT/& || errno == EINVAL/' tests/test-readlink.h
 make install
 }
 
-Bison_2_7_1_C6(){
+Bison_2_7_C6(){
 
 ./configure --prefix=/usr
 echo '#define YYENABLE_NLS 1' >> lib/config.h
@@ -964,21 +931,13 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
 
 Bash_4_2_C6(){
 
-patch -Np1 -i ../bash-4.2-fixes-12.patch
+patch -Np1 -i ../bash-4.2-fixes-11.patch
 ./configure --prefix=/usr                     \
             --bindir=/bin                     \
             --htmldir=/usr/share/doc/bash-4.2 \
             --without-bash-malloc             \
             --with-installed-readline
 make
-make install
-}
-
-Bc_1_06_95_C6(){
-
-./configure --prefix=/usr --with-readline
-make
-echo "quit" | ./bc/bc -l Test/checklib.b
 make install
 }
 
@@ -1012,7 +971,7 @@ make install
 mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin
 }
 
-Perl_5_18_0_C6(){
+Perl_5_16_2_C6(){
 
 echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
 sed -i -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|"           \
@@ -1036,27 +995,28 @@ make
 make install
 }
 
-Automake_1_13_4_C6(){
+Automake_1_13_1_C6(){
 
-./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.13.4
+./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.13.1
 make
 make install
 }
 
-Diffutils_3_3_C6(){
+Diffutils_3_2_C6(){
 
+sed -i -e '/gets is a/d' lib/stdio.in.h
 ./configure --prefix=/usr
 make
 make install
 }
 
-Gawk_4_1_0_C6(){
+Gawk_4_0_2_C6(){
 
 ./configure --prefix=/usr --libexecdir=/usr/lib
 make
 make install
-mkdir -pv /usr/share/doc/gawk-4.1.0
-cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.1.0
+mkdir -pv /usr/share/doc/gawk-4.0.2
+cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.0.2
 }
 
 Findutils_4_4_2_C6(){
@@ -1090,10 +1050,10 @@ chmod -v 755 /usr/bin/lex
 
 }
 
-Gettext_0_18_2_1_C6(){
+Gettext_0_18_2_C6(){
 
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/gettext-0.18.2.1
+            --docdir=/usr/share/doc/gettext-0.18.2
 make
 make install
 }
@@ -1128,14 +1088,14 @@ make
 make install
 }
 
-Less_458_C6(){
+Less_451_C6(){
 
 ./configure --prefix=/usr --sysconfdir=/etc
 make
 make install
 }
 
-Gzip_1_6_C6(){
+Gzip_1_5_C6(){
 
 ./configure --prefix=/usr --bindir=/bin
 make
@@ -1144,7 +1104,7 @@ mv -v /bin/{gzexe,uncompress,zcmp,zdiff,zegrep} /usr/bin
 mv -v /bin/{zfgrep,zforce,zgrep,zless,zmore,znew} /usr/bin
 }
 
-IPRoute2_3_9_0_C6(){
+IPRoute2_3_8_0_C6(){
 
 sed -i '/^TARGETS/s@arpd@@g' misc/Makefile
 sed -i /ARPD/d Makefile
@@ -1153,7 +1113,7 @@ sed -i 's/-Werror//' Makefile
 make DESTDIR=
 make DESTDIR=              \
      MANDIR=/usr/share/man \
-     DOCDIR=/usr/share/doc/iproute2-3.9.0 install
+     DOCDIR=/usr/share/doc/iproute2-3.8.0 install
 }
 
 Kbd_1_15_5_C6(){
@@ -1162,14 +1122,17 @@ patch -Np1 -i ../kbd-1.15.5-backspace-1.patch
 sed -i -e '326 s/if/while/' src/loadkeys.analyze.l
 sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure
 sed -i 's/resizecons.8 //' man/man8/Makefile.in
-./configure --prefix=/usr --disable-vlock
+./configure --prefix=/usr --datadir=/lib/kbd \
+  --disable-vlock
 make
 make install
-mkdir -pv       /usr/share/doc/kbd-1.15.5
-cp -R -v doc/* /usr/share/doc/kbd-1.15.5
+mv -v /usr/bin/{kbd_mode,loadkeys,openvt,setfont} /bin
+mkdir -pv /usr/share/doc/kbd-1.15.5
+cp -R -v doc/* \
+         /usr/share/doc/kbd-1.15.5
 }
 
-Kmod_13_C6(){
+Kmod_12_C6(){
 
 ./configure --prefix=/usr       \
             --bindir=/bin       \
@@ -1188,7 +1151,7 @@ done
 ln -sv kmod /bin/lsmod
 }
 
-Libpipeline_1_2_4_C6(){
+Libpipeline_1_2_2_C6(){
 
 PKG_CONFIG_PATH=/tools/lib/pkgconfig ./configure --prefix=/usr
 make
@@ -1265,7 +1228,7 @@ make install
 make -C doc install-html docdir=/usr/share/doc/tar-1.26
 }
 
-Texinfo_5_1_C6(){
+Texinfo_5_0_C6(){
 
 ./configure --prefix=/usr
 make
@@ -1278,14 +1241,15 @@ do install-info $f dir 2>/dev/null
 done
 }
 
-Udev_204_Extracted_from_systemd_204__C6(){
+Udev_197_Extracted_from_systemd_197__C6(){
 
-tar -xvf ../udev-lfs-204-1.tar.bz2
-make -f udev-lfs-204-1/Makefile.lfs
-make -f udev-lfs-204-1/Makefile.lfs install
-sed -i 's/if ignore_if; then continue; fi/#&/' udev-lfs-204-1/init-net-rules.sh
+tar -xvf ../udev-lfs-197-2.tar.bz2
+make -f udev-lfs-197-2/Makefile.lfs
+make -f udev-lfs-197-2/Makefile.lfs install
+sed -i 's/if ignore_if; then continue; fi/#&/' udev-lfs-197-2/init-net-rules.sh
 build/udevadm hwdb --update
-bash udev-lfs-204-1/init-net-rules.sh
+bash udev-lfs-197-2/init-net-rules.sh
+sed -i "s/\"00:0c:29:[^\".]*\"/\"00:0c:29:*:*:*\"/" /etc/udev/rules.d/70-persistent-net.rules
 }
 
 Vim_7_3_C6(){
@@ -1324,7 +1288,7 @@ chroot $LFS /tools/bin/env -i \
 }
 
 
-export C6_InstallingBasicSystemSoftware="Introduction_C6 Preparing_Virtual_Kernel_File_Systems_C6 Package_Management_C6 Entering_the_Chroot_Environment_C6 Creating_Directories_C6 Creating_Essential_Files_and_Symlinks_C6 Linux_3_9_6_API_Headers_C6 Man_pages_3_51_C6 Glibc_2_17_C6 Adjusting_the_Toolchain_C6 Zlib_1_2_8_C6 File_5_14_C6 Binutils_2_23_2_C6 GMP_5_1_2_C6 MPFR_3_1_2_C6 MPC_1_0_1_C6 GCC_4_8_1_C6 Sed_4_2_2_C6 Bzip2_1_0_6_C6 Pkg_config_0_28_C6 Ncurses_5_9_C6 Shadow_4_1_5_1_C6 Util_linux_2_23_1_C6 Psmisc_22_20_C6 Procps_ng_3_3_8_C6 E2fsprogs_1_42_7_C6 Coreutils_8_21_C6 Iana_Etc_2_30_C6 M4_1_4_16_C6 Bison_2_7_1_C6 Grep_2_14_C6 Readline_6_2_C6 Bash_4_2_C6 Bc_1_06_95_C6 Libtool_2_4_2_C6 GDBM_1_10_C6 Inetutils_1_9_1_C6 Perl_5_18_0_C6 Autoconf_2_69_C6 Automake_1_13_4_C6 Diffutils_3_3_C6 Gawk_4_1_0_C6 Findutils_4_4_2_C6 Flex_2_5_37_C6 Gettext_0_18_2_1_C6 Groff_1_22_2_C6 Xz_5_0_4_C6 GRUB_2_00_C6 Less_458_C6 Gzip_1_6_C6 IPRoute2_3_9_0_C6 Kbd_1_15_5_C6 Kmod_13_C6 Libpipeline_1_2_4_C6 Make_3_82_C6 Man_DB_2_6_3_C6 Patch_2_7_1_C6 Sysklogd_1_5_C6 Sysvinit_2_88dsf_C6 Tar_1_26_C6 Texinfo_5_1_C6 Udev_204_Extracted_from_systemd_204__C6 Vim_7_3_C6 About_Debugging_Symbols_C6 Stripping_Again_C6 Cleaning_Up_C6 "
+export C6_InstallingBasicSystemSoftware="Introduction_C6 Preparing_Virtual_Kernel_File_Systems_C6 Package_Management_C6 Entering_the_Chroot_Environment_C6 Creating_Directories_C6 Creating_Essential_Files_and_Symlinks_C6 Linux_3_8_1_API_Headers_C6 Man_pages_3_47_C6 Glibc_2_17_C6 Adjusting_the_Toolchain_C6 Zlib_1_2_7_C6 File_5_13_C6 Binutils_2_23_1_C6 GMP_5_1_1_C6 MPFR_3_1_1_C6 MPC_1_0_1_C6 GCC_4_7_2_C6 Sed_4_2_2_C6 Bzip2_1_0_6_C6 Pkg_config_0_28_C6 Ncurses_5_9_C6 Util_linux_2_22_2_C6 Psmisc_22_20_C6 Procps_ng_3_3_6_C6 E2fsprogs_1_42_7_C6 Shadow_4_1_5_1_C6 Coreutils_8_21_C6 Iana_Etc_2_30_C6 M4_1_4_16_C6 Bison_2_7_C6 Grep_2_14_C6 Readline_6_2_C6 Bash_4_2_C6 Libtool_2_4_2_C6 GDBM_1_10_C6 Inetutils_1_9_1_C6 Perl_5_16_2_C6 Autoconf_2_69_C6 Automake_1_13_1_C6 Diffutils_3_2_C6 Gawk_4_0_2_C6 Findutils_4_4_2_C6 Flex_2_5_37_C6 Gettext_0_18_2_C6 Groff_1_22_2_C6 Xz_5_0_4_C6 GRUB_2_00_C6 Less_451_C6 Gzip_1_5_C6 IPRoute2_3_8_0_C6 Kbd_1_15_5_C6 Kmod_12_C6 Libpipeline_1_2_2_C6 Make_3_82_C6 Man_DB_2_6_3_C6 Patch_2_7_1_C6 Sysklogd_1_5_C6 Sysvinit_2_88dsf_C6 Tar_1_26_C6 Texinfo_5_0_C6 Udev_197_Extracted_from_systemd_197__C6 Vim_7_3_C6 About_Debugging_Symbols_C6 Stripping_Again_C6 Cleaning_Up_C6 "
 
 
 General_Network_Configuration_C7(){
@@ -1390,7 +1354,7 @@ EOF
 
 }
 
-LFS_Bootscripts_20130515_C7(){
+LFS_Bootscripts_20130123_C7(){
 
 make install
 }
@@ -1566,7 +1530,7 @@ EOF
 
 }
 
-export C7_SettingUpSystemBootscripts="Introduction_C7 General_Network_Configuration_C7 Customizing_the_etc_hosts_File_C7 Device_and_Module_Handling_on_an_LFS_System_C7 Creating_Custom_Symlinks_to_Devices_C7 LFS_Bootscripts_20130515_C7 How_Do_These_Bootscripts_Work__C7 Configuring_the_system_hostname_C7 Configuring_the_setclock_Script_C7 Configuring_the_Linux_Console_C7 Configuring_the_sysklogd_Script_C7 The_rc_site_File_C7 The_Bash_Shell_Startup_Files_C7 Creating_the_etc_inputrc_File_C7 "
+export C7_SettingUpSystemBootscripts="Introduction_C7 General_Network_Configuration_C7 Customizing_the_etc_hosts_File_C7 Device_and_Module_Handling_on_an_LFS_System_C7 Creating_Custom_Symlinks_to_Devices_C7 LFS_Bootscripts_20130123_C7 How_Do_These_Bootscripts_Work__C7 Configuring_the_system_hostname_C7 Configuring_the_setclock_Script_C7 Configuring_the_Linux_Console_C7 Configuring_the_sysklogd_Script_C7 The_rc_site_File_C7 The_Bash_Shell_Startup_Files_C7 Creating_the_etc_inputrc_File_C7 "
 
 
 Creating_the_etc_fstab_File_C8(){
@@ -1590,18 +1554,18 @@ EOF
 
 }
 
-Linux_3_9_6_C8(){
+Linux_3_8_1_C8(){
 
 make mrproper
-make LC_ALL= menuconfig
+yes "" | make oldconfig
 
 make
 make modules_install
-cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.9.6-lfs-SVN-20130616
-cp -v System.map /boot/System.map-3.9.6
-cp -v .config /boot/config-3.9.6
-install -d /usr/share/doc/linux-3.9.6
-cp -r Documentation/* /usr/share/doc/linux-3.9.6
+cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.8.1-lfs-7.3
+cp -v System.map /boot/System.map-3.8.1
+cp -v .config /boot/config-3.8.1
+install -d /usr/share/doc/linux-3.8.1
+cp -r Documentation/* /usr/share/doc/linux-3.8.1
 install -v -m755 -d /etc/modprobe.d
 cat > /etc/modprobe.d/usb.conf << "EOF"
 # Begin /etc/modprobe.d/usb.conf
@@ -1625,22 +1589,22 @@ set timeout=5
 insmod ext2
 set root=(hd0,1)
 
-menuentry "GNU/Linux, Linux 3.9.6-lfs-SVN-20130616" {
-        linux   /boot/vmlinuz-3.9.6-lfs-SVN-20130616 root=/dev/vda1 ro
+menuentry "GNU/Linux, Linux 3.8.1-lfs-7.3" {
+        linux   /boot/vmlinuz-3.8.1-lfs-7.3 root=/dev/vda1 ro
 }
 EOF
 
 }
 
-export C8_MakingtheLFSSystemBootable="Introduction_C8 Creating_the_etc_fstab_File_C8 Linux_3_9_6_C8 Using_GRUB_to_Set_Up_the_Boot_Process_C8 "
+export C8_MakingtheLFSSystemBootable="Introduction_C8 Creating_the_etc_fstab_File_C8 Linux_3_8_1_C8 Using_GRUB_to_Set_Up_the_Boot_Process_C8 "
 
 
 The_End_C9(){
 
-echo SVN-20130616 > /etc/lfs-release
+echo 7.3 > /etc/lfs-release
 cat > /etc/lsb-release << "EOF"
 DISTRIB_ID="Linux From Scratch"
-DISTRIB_RELEASE="SVN-20130616"
+DISTRIB_RELEASE="7.3"
 DISTRIB_CODENAME="MAO"
 DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF
@@ -1650,4 +1614,4 @@ EOF
 export C9_TheEnd="The_End_C9 Get_Counted_C9 Rebooting_the_System_C9 What_Now__C9 "
 
 
-export LFSCHAPTERS="C0_Preface C1_Introduction C2_PreparingaNewPartition C3_PackagesandPatches C4_FinalPreparations C5_ConstructingaTemporarySystem C6_InstallingBasicSystemSoftware C7_SettingUpSystemBootscripts C8_MakingtheLFSSystemBootable C9_TheEnd "
+export AUTOLFSCHAPTERS="C0_Preface C1_Introduction C2_PreparingaNewPartition C3_PackagesandPatches C4_FinalPreparations C5_ConstructingaTemporarySystem C6_InstallingBasicSystemSoftware C7_SettingUpSystemBootscripts C8_MakingtheLFSSystemBootable C9_TheEnd "

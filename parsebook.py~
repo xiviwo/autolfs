@@ -1,8 +1,9 @@
 #!/bin/env  python
-# Version 1.03
+# Version 1.04
 # fix text.strip()
 # Fix documentation generation dependency
-#
+# ################
+# fix orderedist import 
 
 import urllib2,os,binascii,re,sys,platform
 try:
@@ -18,7 +19,7 @@ except ImportError:
 reload(sys) 
 sys.setdefaultencoding('utf8')
 homepage="http://www.linuxfromscratch.org/lfs/view/stable"
-lfsloc="www.linuxfromscratch.org/lfs/view/development/index.html"
+lfsloc="www.linuxfromscratch.org/lfs/view/stable/index.html"
 blfsloc="www.linuxfromscratch.org/blfs/view/svn/index.html"
 
 CWD=os.path.dirname(os.path.realpath(__file__))
