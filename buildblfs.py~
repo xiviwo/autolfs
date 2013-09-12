@@ -235,7 +235,7 @@ globalregx = [
 		(r"mkdir\s*-v",						"mkdir -pv"),
 		(r"mkdir\s*/",							"mkdir -pv /"),
 		(r"mkdir\s*",							"mkdir -pv "),
-		(r"export\s*LANG=\s*<ll>_\s*<CC>\.\s*<charmap>\s*<@modifiers>",		"export LANG=en_US.utf8")
+		(r"export\s*LANG=\s*<ll>_<CC>\.<charmap><@modifiers>",		"export LANG=en_US.utf8")
 
 ]
 
