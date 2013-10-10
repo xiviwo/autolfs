@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -61,7 +61,7 @@
           notify the user through the cursor that the application is loading.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -123,7 +123,7 @@
           running the following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -143,8 +143,8 @@ install -v -m644 -D doc/startup-notification.txt \
           Command Explanations
         </h2>
         <p>
-          <code class="option">--disable-static</code>: This switch prevents
-          the static libraries being installed.
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -159,13 +159,12 @@ install -v -m644 -D doc/startup-notification.txt \
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libstartup-notification-1.{so,a}</span>
+              <span class="segbody">libstartup-notification-1.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class=
-              "segbody">/usr/{include/startup-notification-1.0/libsn,
-              share/doc/startup-notification-0.12}</span>
+              <span class="segbody">/usr/include/startup-notification-1.0 and
+              /usr/share/doc/startup-notification-0.12</span>
             </div>
           </div>
         </div>
@@ -182,7 +181,7 @@ install -v -m644 -D doc/startup-notification.txt \
                     <a id="libstartup-notification-1" name=
                     "libstartup-notification-1"></a><span class=
                     "term"><code class=
-                    "filename">libstartup-notification-1.{so,a}</code></span>
+                    "filename">libstartup-notification-1.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -198,7 +197,7 @@ install -v -m644 -D doc/startup-notification.txt \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-15 16:26:39 +0000
+        Last updated on 2013-08-20 20:51:02 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -223,7 +222,7 @@ install -v -m644 -D doc/startup-notification.txt \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

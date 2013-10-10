@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;1.&nbsp;Introduction
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
@@ -60,157 +60,162 @@
         <ul>
           <li>
             <p>
-              Automake 1.13.1
+              Automake 1.14
             </p>
           </li>
           <li>
             <p>
-              Binutils 2.23.1
+              Binutils 2.23.2
             </p>
           </li>
           <li>
             <p>
-              Bison 2.7
+              Bison 3.0
             </p>
           </li>
           <li>
             <p>
-              Check 0.9.9
+              Check 0.9.10
             </p>
           </li>
           <li>
             <p>
-              Coreutils 8.21
+              DejaGNU 1.5.1
             </p>
           </li>
           <li>
             <p>
-              E2fsprogs 1.42.7
+              Diffutils 3.3
             </p>
           </li>
           <li>
             <p>
-              Gawk 4.0.2
+              E2fsprogs 1.42.8
             </p>
           </li>
           <li>
             <p>
-              GCC 4.7.2
+              File 5.14
             </p>
           </li>
           <li>
             <p>
-              Gettext 0.18.2
+              Gawk 4.1.0
             </p>
           </li>
           <li>
             <p>
-              Glibc 2.17
+              GCC 4.8.1
             </p>
           </li>
           <li>
             <p>
-              GMP 5.1.1
+              Gettext 0.18.3
             </p>
           </li>
           <li>
             <p>
-              Groff 1.22.2
+              Glibc 2.18
             </p>
           </li>
           <li>
             <p>
-              IPRoute2 3.8.0
+              GMP 5.1.2
             </p>
           </li>
           <li>
             <p>
-              Kbd 1.15.5
+              Gzip 1.6
             </p>
           </li>
           <li>
             <p>
-              Kmod 12
+              IPRoute2 3.10.0
             </p>
           </li>
           <li>
             <p>
-              Less 451
+              Kmod 14
             </p>
           </li>
           <li>
             <p>
-              Libpipeline 1.2.2
+              Less 458
             </p>
           </li>
           <li>
             <p>
-              Linux 3.8.1
+              LFS-Bootscripts 20130821
             </p>
           </li>
           <li>
             <p>
-              Man-DB 2.6.3
+              Libpipeline 1.2.4
             </p>
           </li>
           <li>
             <p>
-              Man-pages 3.47
+              Linux 3.10.10
             </p>
           </li>
           <li>
             <p>
-              MPC 1.0.1
+              Man-DB 2.6.5
             </p>
           </li>
           <li>
             <p>
-              Patch 2.7.1
+              Man-pages 3.53
             </p>
           </li>
           <li>
             <p>
-              Pkg-config 0.28
+              MPFR 3.1.2
             </p>
           </li>
           <li>
             <p>
-              Procps-ng 3.3.6
+              Perl 5.18.1
             </p>
           </li>
           <li>
             <p>
-              Psmisc 22.20
+              Procps-ng 3.3.8
             </p>
           </li>
           <li>
             <p>
-              Sed 4.2.2
+              Texinfo 5.1
             </p>
           </li>
           <li>
             <p>
-              TCL 8.6.0
+              Tzdata 2013d
             </p>
           </li>
           <li>
             <p>
-              Texinfo 5.0
+              Udev 206 (extracted from systemd-206)
             </p>
           </li>
           <li>
             <p>
-              Tzdata 2012j
+              Util-Linux 2.23.2
             </p>
           </li>
           <li>
             <p>
-              Udev 197 (extracted from systemd-197)
+              Vim 7.4
             </p>
           </li>
           <li>
             <p>
-              Util-Linux 2.22.2
+              XZ-Utils 5.0.5
+            </p>
+          </li>
+          <li>
+            <p>
+              Zlib 1.2.8
             </p>
           </li>
         </ul>
@@ -218,6 +223,43 @@
       <div class="itemizedlist">
         <p class="title">
           <b>Added:</b>
+        </p>
+        <ul>
+          <li>
+            <p>
+              automake-1.14-test-1.patch
+            </p>
+          </li>
+          <li>
+            <p>
+              bc 1.06.95
+            </p>
+          </li>
+          <li>
+            <p>
+              bash-4.2-fixes-12.patch
+            </p>
+          </li>
+          <li>
+            <p>
+              perl-5.18.1-libc-1.patch
+            </p>
+          </li>
+          <li>
+            <p>
+              tar-1.26-manpage-1.patch
+            </p>
+          </li>
+          <li>
+            <p>
+              texinfo-5.1-test-1.patch
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="itemizedlist">
+        <p class="title">
+          <b>Removed:</b>
         </p>
         <ul>
           <li>
@@ -232,94 +274,12 @@
           </li>
           <li>
             <p>
-              coreutils-8.21-i18n-1.patch
+              flex-2.5.37-bison-2.6.1-1.patch
             </p>
           </li>
           <li>
             <p>
-              kbd-1.15.5-backspace-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              make-3.82-upstream_fixes-3.patch
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div class="itemizedlist">
-        <p class="title">
-          <b>Removed:</b>
-        </p>
-        <ul>
-          <li>
-            <p>
-              bash-4.2-fixes-8.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              binutils-2.22-build_fix-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              coreutils-8.19-i18n-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              gcc-4.7.1-startfiles_fix-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              glibc-2.16.0-fix_test_installation-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              glibc-2.16.0-res_query_fix-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              kbd-1.15.3-backspace-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              kbd-1.15.3-upstream_fixes-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              kmod-9-testsuite-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              make-3.82-upstream_fixes-2.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              patch-2.6.1-test_fix-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              procps-3.2.8-fix_HZ_errors-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              procps-3.2.8-watch_unicode-1.patch
-            </p>
-          </li>
-          <li>
-            <p>
-              sed-4.2.1-testsuite_fixes-1.patch
+              perl-5.16.2-libc-1.patch
             </p>
           </li>
         </ul>
@@ -346,7 +306,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

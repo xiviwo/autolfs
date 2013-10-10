@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Cheese-3.8.3
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;31.&nbsp;GNOME Applications
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="brasero.html" title="Brasero-3.8.0">Prev</a>
+          <p>
+            Brasero-3.8.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="eog.html" title="EOG-3.8.2">Next</a>
+          <p>
+            EOG-3.8.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="applications.html" title=
+          "Chapter&nbsp;31.&nbsp;GNOME Applications">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="cheese" name="cheese"></a>Cheese-3.8.3
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Cheese
+        </h2>
+        <p>
+          <span class="application">Cheese</span> is used to take photos and
+          videos with fun graphical effects.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/cheese/3.8/cheese-3.8.3.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/cheese/3.8/cheese-3.8.3.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.8/cheese-3.8.3.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.8/cheese-3.8.3.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 62f2670fa2c44fb51613ebb8f4d2c07c
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 3.6 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 30 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.4 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Cheese Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../x/clutter-gst2.html" title=
+          "clutter-gst-2.0.6">clutter-gst-2.0.6</a>, <a class="xref" href=
+          "../x/clutter-gtk.html" title=
+          "clutter-gtk-1.4.4">clutter-gtk-1.4.4</a>, <a class="xref" href=
+          "gnome-desktop.html" title=
+          "gnome-desktop-3.8.4">gnome-desktop-3.8.4</a>, <a class="xref"
+          href="gnome-video-effects.html" title=
+          "gnome-video-effects-0.4.0">gnome-video-effects-0.4.0</a>,
+          <a class="xref" href="../multimedia/gst10-plugins-bad.html" title=
+          "gst-plugins-bad-1.0.10">gst-plugins-bad-1.0.10</a>, <a class=
+          "xref" href="../multimedia/gst10-plugins-good.html" title=
+          "gst-plugins-good-1.0.10">gst-plugins-good-1.0.10</a>, <a class=
+          "xref" href="../multimedia/libcanberra.html" title=
+          "libcanberra-0.30">libcanberra-0.30</a>, <a class="xref" href=
+          "../general/librsvg.html" title=
+          "librsvg-2.37.0">librsvg-2.37.0</a>, <a class="xref" href=
+          "../general/udev.html" title=
+          "Udev-Installed LFS Version">udev-Installed LFS Version</a> or
+          <a class="xref" href="../general/udev-extras.html" title=
+          "Udev Extras (from systemd)">udev-extras (from systemd)</a> (for
+          GUdev), and <a class="xref" href="yelp-xsl.html" title=
+          "yelp-xsl-3.8.1">yelp-xsl-3.8.1</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/gobject-introspection.html" title=
+          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a> and
+          <a class="xref" href="../general/vala.html" title=
+          "Vala-0.20.1">Vala-0.20.1</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/nautilus-sendto/">Nautilus
+          SendTo</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/cheese">http://wiki.linuxfromscratch.org/blfs/wiki/cheese</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Cheese
+        </h2>
+        <p>
+          Install <span class="application">Cheese</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue <span class="command"><strong>make
+          check</strong></span>. The tests must be run from a local xterm.
+          They cannot be run over a ssh connection.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <span class="application">GTK-Doc</span> is installed and you wish
+          to rebuild and install the API documentation.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Program:</strong>
+              <span class="segbody">cheese</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Library:</strong>
+              <span class="segbody">libcheese.so and libcheese-gtk.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/cheese, /usr/share/cheese,
+              /usr/share/gtk-doc/html/cheese, and
+              /usr/share/help/*/cheese</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cheese-prog" name="cheese-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cheese</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the webcam tool with graphical effects.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libcheese" name="libcheese"></a><span class=
+                    "term"><code class="filename">libcheese.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the <span class="application">Cheese</span> API
+                    functions.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libcheese-gtk" name=
+                    "libcheese-gtk"></a><span class="term"><code class=
+                    "filename">libcheese-gtk.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the <span class="application">Cheese</span>
+                    <span class="application">GTK+</span> widgets.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-03 12:08:19 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="brasero.html" title="Brasero-3.8.0">Prev</a>
+          <p>
+            Brasero-3.8.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="eog.html" title="EOG-3.8.2">Next</a>
+          <p>
+            EOG-3.8.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="applications.html" title=
+          "Chapter&nbsp;31.&nbsp;GNOME Applications">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -12,26 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="openssh.html" title="OpenSSH-6.2p1">Prev</a>
+          <a accesskey="p" href="openssh.html" title="OpenSSH-6.2p2">Prev</a>
           <p>
-            OpenSSH-6.2p1
+            OpenSSH-6.2p2
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="p11-kit.html" title=
-          "p11-kit-0.18.1">Next</a>
+          "p11-kit-0.20.1">Next</a>
           <p>
-            p11-kit-0.18.1
+            p11-kit-0.20.1
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           web browsers (for accessing HTTPS sites).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -114,6 +114,13 @@
                 http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.1e-fix_parallel_build-1.patch</a>
               </p>
             </li>
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.1e-fix_pod_syntax-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/openssl-1.0.1e-fix_pod_syntax-1.patch</a>
+              </p>
+            </li>
           </ul>
         </div>
         <h3>
@@ -126,7 +133,7 @@
           <a class="xref" href="../general/bc.html" title=
           "bc-1.06.95">bc-1.06.95</a> (required for full coverage by the test
           suite during the build) and <a class="xref" href="mitkrb.html"
-          title="MIT Kerberos V5-1.11.2">MIT Kerberos V5-1.11.2</a>
+          title="MIT Kerberos V5-1.11.3">MIT Kerberos V5-1.11.3</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -144,6 +151,7 @@
         <pre class="userinput">
 <kbd class=
 "command">patch -Np1 -i ../openssl-1.0.1e-fix_parallel_build-1.patch &amp;&amp;
+patch -Np1 -i ../openssl-1.0.1e-fix_pod_syntax-1.patch &amp;&amp;
 
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
@@ -166,8 +174,8 @@ make</kbd>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">
-make MANDIR=/usr/share/man MANSUFFIX=ssl install &amp;&amp;
+<kbd class=
+"command">make MANDIR=/usr/share/man MANSUFFIX=ssl install &amp;&amp;
 install -dv -m755 /usr/share/doc/openssl-1.0.1e  &amp;&amp;
 cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
 </pre>
@@ -223,9 +231,9 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
             Most users will want to install Certificate Authority
             Certificates for validation of downloaded certificates. For
             example, these certificates can be used by <a class="xref" href=
-            "../general/git.html" title="Git-1.8.2.2">git-1.8.2.2</a>,
-            <a class="xref" href="../basicnet/curl.html" title=
-            "cURL-7.30.0">cURL-7.30.0</a> or <a class="xref" href=
+            "../general/git.html" title="Git-1.8.4">git-1.8.4</a>, <a class=
+            "xref" href="../basicnet/curl.html" title=
+            "cURL-7.32.0">cURL-7.32.0</a> or <a class="xref" href=
             "../basicnet/wget.html" title="Wget-1.14">Wget-1.14</a> when
             accessing secure (https protocol) sites. To do this, follow the
             instructions from the <a class="xref" href="cacerts.html" title=
@@ -349,22 +357,22 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-05-05 18:17:32 +0000
+        Last updated on 2013-08-17 20:38:01 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="openssh.html" title="OpenSSH-6.2p1">Prev</a>
+          <a accesskey="p" href="openssh.html" title="OpenSSH-6.2p2">Prev</a>
           <p>
-            OpenSSH-6.2p1
+            OpenSSH-6.2p2
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="p11-kit.html" title=
-          "p11-kit-0.18.1">Next</a>
+          "p11-kit-0.20.1">Next</a>
           <p>
-            p11-kit-0.18.1
+            p11-kit-0.20.1
           </p>
         </li>
         <li class="up">
@@ -373,7 +381,7 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1e</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

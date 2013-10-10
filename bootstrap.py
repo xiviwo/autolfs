@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#1.02
+#1.06
 from lfs import Book,Chapter,Page,Package
 import platform,time,re,glob,os
 try:
@@ -12,14 +12,21 @@ link2 = "www.linuxfromscratch.org/blfs/view/svn/index.html"
 LFS="/mnt/lfs"
 SOURCES=LFS + '/sources'
 
-lfs = Book("LFS",link)
-blfs = Book("BLFS",link2)
+lfs = Book(link)
+blfs = Book(link2,lfs)
 
-wget = blfs.chapters[15].pages[10].packages[0]
-ssl = blfs.chapters[4].pages[21].packages[0]
+#wget = blfs.chapters[15].pages[10].packages[0]
+#ssl = blfs.chapters[4].pages[19].packages[0]
+wget = blfs.search("wget")
+ssl = blfs.search("openssl")
+adduser = lfs.search("Adding\s*the\s*LFS\s*User")
+
+changeownership = lfs.search("Changing\s*Ownership")
+
+virtualfs = lfs.search("Preparing\s*Virtual\s*Kernel\s*File\s*Systems")
 
 CWD		=os.path.dirname(os.path.realpath(__file__))
-wget_list= CWD + "/" + lfs.wget_list
+wget_list= CWD + "/" + lfs.wgetlist
 
 makedir = "bootstrap"
 builddir = LFS + "/" + makedir
@@ -85,9 +92,13 @@ download:
 
 chown_dir: FORCE
 	$(call echo_message, Building)
-	@chown  lfs.lfs $(BUILDDIR)
-	@chown -R  lfs.lfs $(LOGDIR)
-	@chown -R lfs.lfs $(SOURCES)
+	@if  id -u lfs >/dev/null 2>&1 ; then \\
+	chown  lfs.lfs $(BUILDDIR)  ; \\
+	chown -R  lfs.lfs $(LOGDIR) ; \\
+	chown -R lfs.lfs $(SOURCES) ; \\
+	else	\\
+	echo 'User: 'lfs' not exits' ; \\
+	fi;
 	
 mk_env : download
 	@$(call echo_message, Building)
@@ -130,11 +141,11 @@ mk_extra : mk_end
 	@$(CHROOT2) "cd $(MAKEDIR) && make ''' + wget.fullname + '''"
 	@touch $@
 
-''' + ssl.fullname + ": " + ssl.targetname + "\n\t@touch $@\n" + ssl.targetname + ": LFS= " + ssl.makeblock() + wget.fullname + ": " + wget.targetname + "\n\t@touch $@\n"  + wget.targetname + ": LFS= "  + wget.makeblock() + '''\
+'''  + ssl.fullname + " : LFS= " + ssl.makeblock() + wget.fullname + " : LFS= "  + wget.makeblock() + '''\
 
 mk_blfs : mk_end
 	@$(call echo_message, Building)
-	@python ''' + CWD + "/" + '''buildblfs.py $(REDIRECT)
+	@cd ''' + CWD + ''' && python bb.py $(REDIRECT)
 	@touch $@
 
 umount_all :
@@ -160,6 +171,7 @@ else
 	@ -rm -f $(LFS)/lib64
 	@ -rmdir $(LFS)/tools 
 	@ -rm -f /tools
+	@ -userdel lfs
 endif
 
 FORCE :
@@ -229,7 +241,7 @@ def main():
 		print ch.name
 		#print len(lfs.chapters)
 		if ch.no == 6 :
-			chapterstr += "\n\nvirtfs : 5341-changing-ownership 6021-preparing-virtual-kernel-file-systems"
+			chapterstr += "\n\nvirtfs : " + changeownership.targetname + " " +  virtualfs.targetname
 			chapterstr += "\n\n" + ch.name + " : SHELL=/tools/bin/bash "
 		if ch.no > 3 and ch.no < 6:
 			chapterstr += "\n" + ch.name + " : LFS=" + LFS
@@ -238,23 +250,29 @@ def main():
 		if ch.no > 3:
 			chapterstr += "\n" + ch.name + " : "
 		for page in ch.pages:
-			if page.packages:
-				for pack in page.packages:
-					scriptstr= ""
+			packs = page.packages
+			if packs:
+				for pack in packs:
+					#scriptstr= ""
 					#print "	",pack.shortname
 					if pack.commands and ch.no > 3 and not containsAny(pack.shortname, ['chroot','package-management','cleaning-up','strip','rebooting']):
 					
 						
 						allstr += pack.targetname
-					
-						if page.no not in "534" and page.no not in "602":
+						
+						if page.no not in changeownership.no and page.no not in virtualfs.no:
+						#changing-ownership and preparing-virtual-kernel-file-systems
 							chapterstr += pack.targetname
+						if page.no in adduser.no:
+							
+							chapterstr +='chown_dir '
+						#print pack.targetname,pack.name,
 						packstr += pack.makeblock(lastpkg)
 
 						lastpkg = pack.targetname
-						scriptstr += pack.script()
+						#scriptstr += pack.script()
 						replace_delete_log += pack.delete_log + pack.replace_log
-						writescript(pack.targetname,scriptstr)
+						pack.writescript(pack.targetname,scriptfolder)
 						#scriptfile= scriptfolder + "/" + pack.targetname.strip() + ".sh"
 			
 					print "      --------------------------------"
@@ -276,10 +294,20 @@ def writescript(name,scriptstr):
 
 def extra_pack():
 
-	writescript(wget.targetname,wget.script())
-	writescript(ssl.targetname,ssl.script())
-	
-base_init()
-main()
-rwreplace_delete_log()
-extra_pack()
+	writescript(wget.fullname,wget.script())
+	writescript(ssl.fullname,ssl.script())
+def alll():
+	base_init()
+	main()
+	rwreplace_delete_log()
+	extra_pack()
+
+alll()
+
+'''
+import cProfile
+cProfile.run('main()',"testout",4)
+import pstats
+p = pstats.Stats('testout')
+p.strip_dirs().sort_stats('cumulative').print_stats()
+'''

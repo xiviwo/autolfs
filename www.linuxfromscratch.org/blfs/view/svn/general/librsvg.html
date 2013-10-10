@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      librsvg-2.36.4
+      librsvg-2.37.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libpng.html" title="libpng-1.6.2">Prev</a>
+          <a accesskey="p" href="libpng.html" title="libpng-1.6.3">Prev</a>
           <p>
-            libpng-1.6.2
+            libpng-1.6.3
           </p>
         </li>
         <li class="next">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="librsvg" name="librsvg"></a>librsvg-2.36.4
+        <a id="librsvg" name="librsvg"></a>librsvg-2.37.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           Vector Graphic (SVG) images.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -68,20 +68,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/librsvg/2.37/librsvg-2.37.0.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/librsvg/2.37/librsvg-2.37.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.37/librsvg-2.37.0.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.37/librsvg-2.37.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 3c94524c8ccf668e30b236f409239f54
+                Download MD5 sum: 3de91824870bf6758f37ab54bae2ac40
               </p>
             </li>
             <li>
@@ -91,7 +91,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 13 MB
+                Estimated disk space required: 15 MB
               </p>
             </li>
             <li>
@@ -109,35 +109,36 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gdk-pixbuf.html" title=
-          "gdk-pixbuf-2.26.5">gdk-pixbuf-2.26.5</a>, <a class="xref" href=
+          "gdk-pixbuf-2.28.2">gdk-pixbuf-2.28.2</a>, <a class="xref" href=
           "libcroco.html" title="libcroco-0.6.8">libcroco-0.6.8</a> and
           <a class="xref" href="../x/pango.html" title=
-          "Pango-1.32.5">Pango-1.32.5</a>
+          "Pango-1.34.1">Pango-1.34.1</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.17">GTK+-2.24.17</a> and <a class="xref" href=
-          "../x/gtk3.html" title="GTK+-3.6.4">GTK+-3.6.4</a>
+          "GTK+-2.24.20">GTK+-2.24.20</a> (For the Theming Engine) and
+          <a class="xref" href="../x/gtk3.html" title=
+          "GTK+-3.8.4">GTK+-3.8.4</a> (For the <span class=
+          "command"><strong>rsvg-view-3</strong></span>)
         </p>
         <h4>
           Optional (Required if building GNOME)
         </h4>
         <p class="optional">
           <a class="xref" href="gobject-introspection.html" title=
-          "gobject-introspection-1.34.2">gobject-introspection-1.34.2</a> and
+          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a> and
           <a class="xref" href="vala.html" title=
-          "Vala-0.18.1">Vala-0.18.1</a>
+          "Vala-0.20.1">Vala-0.20.1</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../pst/docbook-utils.html" title=
-          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a> and <a class="xref"
-          href="gtk-doc.html" title="GTK-Doc-1.18">GTK-Doc-1.18</a>
+          <a class="xref" href="gtk-doc.html" title=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -153,12 +154,15 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
+<kbd class="command">./configure --prefix=/usr \
+            --enable-vala \
+            --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
+          To test the results, issue: <span class="command"><strong>make -k
+          check</strong></span>. Some tests are known to fail for unknown
+          reasons.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -172,6 +176,12 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
+          <code class="option">--enable-vala</code>: This switch enables
+          building of the Vala bindings. Remove if you don't have <a class=
+          "xref" href="vala.html" title="Vala-0.20.1">Vala-0.20.1</a>
+          installed.
+        </p>
+        <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
         </p>
@@ -182,7 +192,7 @@ make</kbd>
         </p>
         <p>
           <code class="option">--disable-gtk-theme</code>: Use this switch if
-          you have not installed <span class="application">GTK+</span> 2.
+          you have not installed <span class="application">GTK+ 2</span>.
         </p>
         <p>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
@@ -285,15 +295,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-12 00:31:48 +0000
+        Last updated on 2013-08-25 20:13:24 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libpng.html" title="libpng-1.6.2">Prev</a>
+          <a accesskey="p" href="libpng.html" title="libpng-1.6.3">Prev</a>
           <p>
-            libpng-1.6.2
+            libpng-1.6.3
           </p>
         </li>
         <li class="next">
@@ -308,7 +318,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

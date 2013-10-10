@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      MC-4.8.6
+      MC-4.8.10
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="lm_sensors.html" title=
-          "lm_sensors-3.3.3">Prev</a>
+          "lm_sensors-3.3.4">Prev</a>
           <p>
-            lm_sensors-3.3.3
+            lm_sensors-3.3.4
           </p>
         </li>
         <li class="next">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mc" name="mc"></a>MC-4.8.6
+        <a id="mc" name="mc"></a>MC-4.8.10
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,19 +61,9 @@
           and preserving the full power of the command prompt.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
-        <div class="admon note">
-          <img alt="[Note]" src="../images/note.png" />
-          <h3>
-            Note
-          </h3>
-          <p>
-            The download site uses a self-signed security certificate. You
-            will need to accept it as valid to get the source code.
-          </p>
-        </div>
         <h3>
           Package Information
         </h3>
@@ -82,13 +72,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://anduin.linuxfromscratch.org/sources/BLFS/svn/m/mc-4.8.6.tar.xz">
-                http://anduin.linuxfromscratch.org/sources/BLFS/svn/m/mc-4.8.6.tar.xz</a>
+                "http://anduin.linuxfromscratch.org/sources/BLFS/svn/m/mc-4.8.10.tar.xz">
+                http://anduin.linuxfromscratch.org/sources/BLFS/svn/m/mc-4.8.10.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 9e50fac70c472dfa108e07152f88bdae
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.10.tar.xz">
+                ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.10.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 3d9c3777bb5c6e656792c1ef30f483b4
               </p>
             </li>
             <li>
@@ -98,12 +95,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 70 MB
+                Estimated disk space required: 169 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.5 SBU
+                Estimated build time: 0.7 SBU
               </p>
             </li>
           </ul>
@@ -116,17 +113,17 @@
         </h4>
         <p class="required">
           <a class="xref" href="glib2.html" title=
-          "GLib-2.34.3">GLib-2.34.3</a> and <a class="xref" href="pcre.html"
-          title="PCRE-8.32">PCRE-8.32</a>
+          "GLib-2.36.4">GLib-2.36.4</a> and <a class="xref" href="pcre.html"
+          title="PCRE-8.33">PCRE-8.33</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a>, <a class="xref" href=
-          "gpm.html" title="GPM-1.20.7">GPM-1.20.7</a>, <a class="xref" href=
-          "../basicnet/samba3.html" title="Samba-3.6.12">Samba-3.6.12</a>,
+          "Doxygen-1.8.5">Doxygen-1.8.5</a>, <a class="xref" href="gpm.html"
+          title="GPM-1.20.7">GPM-1.20.7</a>, <a class="xref" href=
+          "../basicnet/samba.html" title="Samba-4.0.9">Samba-4.0.9</a>,
           <a class="xref" href="slang.html" title=
           "S-Lang-2.2.4">S-Lang-2.2.4</a>, <a class="xref" href="unzip.html"
           title="UnZip-6.0">UnZip-6.0</a>, <a class="xref" href=
@@ -341,16 +338,16 @@ cp -v doc/keybind-migration.txt /usr/share/mc</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-25 21:20:41 +0000
+        Last updated on 2013-09-05 17:23:42 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="lm_sensors.html" title=
-          "lm_sensors-3.3.3">Prev</a>
+          "lm_sensors-3.3.4">Prev</a>
           <p>
-            lm_sensors-3.3.3
+            lm_sensors-3.3.4
           </p>
         </li>
         <li class="next">
@@ -366,7 +363,7 @@ cp -v doc/keybind-migration.txt /usr/share/mc</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

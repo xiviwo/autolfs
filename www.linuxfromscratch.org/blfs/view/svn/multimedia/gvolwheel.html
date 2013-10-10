@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;39.&nbsp;Audio Utilities
+        Chapter&nbsp;38.&nbsp;Audio Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="amarok.html" title="Amarok-2.7.0">Prev</a>
+          <a accesskey="p" href="amarok.html" title="Amarok-2.8.0">Prev</a>
           <p>
-            Amarok-2.7.0
+            Amarok-2.8.0
           </p>
         </li>
         <li class="next">
@@ -36,11 +36,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="audioutils.html" title=
-          "Chapter&nbsp;39.&nbsp;Audio Utilities">Up</a>
+          "Chapter&nbsp;38.&nbsp;Audio Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -53,11 +53,11 @@
           Introduction to Gvolwheel
         </h2>
         <p>
-          The <span class="application">gvolwheel</span> package provides a
+          The <span class="application">Gvolwheel</span> package provides a
           lightweight volume control with a tray icon.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -68,8 +68,8 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://sourceforge.net/projects/gvolwheel/files/gvolwheel-1.0.tar.gz">
-                http://sourceforge.net/projects/gvolwheel/files/gvolwheel-1.0.tar.gz</a>
+                "http://downloads.sourceforge.net/gvolwheel/gvolwheel-1.0.tar.gz">
+                http://downloads.sourceforge.net/gvolwheel/gvolwheel-1.0.tar.gz</a>
               </p>
             </li>
             <li>
@@ -107,10 +107,10 @@
         </h4>
         <p class="required">
           <a class="xref" href="alsa-utils.html" title=
-          "alsa-utils-1.0.27">alsa-utils-1.0.27</a>, <a class="xref" href=
-          "../x/gtk3.html" title="GTK+-3.6.4">GTK+-3.6.4</a>, <a class="xref"
-          href="../general/intltool.html" title=
-          "Intltool-0.50.2">Intltool-0.50.2</a>, and <a class="xref" href=
+          "alsa-utils-1.0.27.2">alsa-utils-1.0.27.2</a>, <a class="xref"
+          href="../x/gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a>, <a class=
+          "xref" href="../general/intltool.html" title=
+          "Intltool-0.50.2">Intltool-0.50.2</a> and <a class="xref" href=
           "../general/perl-modules.html#perl-xml-parser" title=
           "XML::Parser-2.41">XML::Parser-2.41</a>
         </p>
@@ -136,7 +136,7 @@
           Installation of Gvolwheel
         </h2>
         <p>
-          Install <span class="application">gvolwheel</span> by running the
+          Install <span class="application">Gvolwheel</span> by running the
           following commands:
         </p>
         <pre class="userinput">
@@ -160,9 +160,9 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>sed -i
-          's%doc/gvolwheel%share/doc/gvolwheel-1.0%' ...</code></em>: this
-          puts the documentation into a versioned directory.
+          <span class="command"><strong>sed -i
+          's%doc/gvolwheel%share/doc/gvolwheel-1.0%' ...</strong></span>:
+          This ensures that the documentation into a versioned directory.
         </p>
         <p>
           <em class="parameter"><code>--enable-oss</code></em>: without this,
@@ -172,7 +172,7 @@ make</kbd>
       </div>
       <div class="configuring gvolwheel" lang="en" xml:lang="en">
         <h2 class="sect2">
-          Configuring gvolwheel
+          Configuring Gvolwheel
         </h2>
         <p>
           Before using this application, use <span class=
@@ -180,7 +180,7 @@ make</kbd>
           are not muted, and are set to suitable levels so that the master
           volume control will provide suitable levels. Once <span class=
           "command"><strong>gvolwheel</strong></span> is running you can, if
-          you wish. right-click on its icon in the tray to change it to
+          you wish, right-click on its icon in the tray to change it to
           control the PCM volume instead of the master volume. Depending on
           your theme settings, you may also wish to tick "Use Gnome Icons".
         </p>
@@ -198,16 +198,16 @@ make</kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed Programs:</strong>
+              <strong class="segtitle">Installed Program:</strong>
               <span class="segbody">gvolwheel</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">none</span>
+              <span class="segbody">None</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/share/doc/gvolwheel-1.0
+              <span class="segbody">/usr/share/doc/gvolwheel-1.0 and
               /usr/share/pixmaps/gvolwheel</span>
             </div>
           </div>
@@ -238,15 +238,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-15 16:26:39 +0000
+        Last updated on 2013-08-20 20:22:42 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="amarok.html" title="Amarok-2.7.0">Prev</a>
+          <a accesskey="p" href="amarok.html" title="Amarok-2.8.0">Prev</a>
           <p>
-            Amarok-2.7.0
+            Amarok-2.8.0
           </p>
         </li>
         <li class="next">
@@ -258,11 +258,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="audioutils.html" title=
-          "Chapter&nbsp;39.&nbsp;Audio Utilities">Up</a>
+          "Chapter&nbsp;38.&nbsp;Audio Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

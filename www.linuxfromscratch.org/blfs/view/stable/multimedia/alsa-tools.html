@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      alsa-tools-1.0.27
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="alsa-utils.html" title=
+          "alsa-utils-1.0.27.2">Prev</a>
+          <p>
+            alsa-utils-1.0.27.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="alsa-firmware.html" title=
+          "alsa-firmware-1.0.27">Next</a>
+          <p>
+            alsa-firmware-1.0.27
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="alsa-tools" name="alsa-tools"></a>alsa-tools-1.0.27
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to ALSA Tools
+        </h2>
+        <p>
+          The <span class="application">ALSA Tools</span> package contains
+          advanced tools for certain sound cards.
+        </p>
+        <p>
+          This package is known to build using an LFS 7.4 platform but has
+          not been tested.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://alsa.cybermirror.org/tools/alsa-tools-1.0.27.tar.bz2">
+                http://alsa.cybermirror.org/tools/alsa-tools-1.0.27.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.27.tar.bz2">
+                ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.27.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 1ea381d00a6069a98613aa7effa4cb51
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 1.6 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 25 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          ALSA Tools Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="alsa-lib.html" title=
+          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../x/gtk2.html" title=
+          "GTK+-2.24.20">GTK+-2.24.20</a> (to build <span class=
+          "command"><strong>echomixer</strong></span>, <span class=
+          "command"><strong>envy24control</strong></span> and <span class=
+          "command"><strong>rmedigicontrol</strong></span>), <a class="xref"
+          href="../x/gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a> (to build
+          <span class="command"><strong>hdajackretask</strong></span>) and
+          <a class="ulink" href="http://www.fltk.org/">FLTK</a> (to build
+          <span class="command"><strong>hdspconf</strong></span> and
+          <span class="command"><strong>hdspmixer</strong></span>)
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/alsa-tools">http://wiki.linuxfromscratch.org/blfs/wiki/alsa-tools</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of ALSA Tools
+        </h2>
+        <p>
+          The <span class="application">ALSA Tools</span> package is only
+          needed by those with advanced requirements for their sound card.
+          The tools are not all built together, instead you need to
+          <span class="command"><strong>cd</strong></span> into the directory
+          of each tool you wish to compile and run the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">as10k1, cspctl, dl10k1, echomixer,
+              envy24control, hdajackretask, hda-verb, hdspconf, hdsploader,
+              hdspmixer, hwmixvolume, init_audigy, init_audigy_eq10,
+              init_live, lo10k1, ld10k1, ld10k1d, mixartloader, pcxhrloader,
+              qlo10k1, rmedigicontrol, sbiload, sscape_ctl, us428control,
+              usx2yloader and vxloader</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Library:</strong>
+              <span class="segbody">liblo10k1.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/lo10k1, /usr/share/ld10k1
+              and /usr/share/sounds</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="as10k1" name="as10k1"></a><span class=
+                    "term"><span class=
+                    "command"><strong>as10k1</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an assembler for the emu10k1 DSP chip present in the
+                    Creative SB Live, PCI 512, and emu APS sound cards. It is
+                    used to make audio effects such as a flanger, chorus or
+                    reverb.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cspctl" name="cspctl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cspctl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an SB16/AWE32 Creative Signal Processor (ASP/CSP)
+                    control program.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="echomixer" name="echomixer"></a><span class=
+                    "term"><span class=
+                    "command"><strong>echomixer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Linux equivalent of the Echoaudio console
+                    application from Echoaudio. It is a tool to control all
+                    the features of any Echoaudio soundcard. This includes
+                    clock sources, input and output gains, mixers, etc.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="envy24control" name=
+                    "envy24control"></a><span class="term"><span class=
+                    "command"><strong>envy24control</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a control tool for Envy24 (ice1712) based sound cards.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="hdspconf" name="hdspconf"></a><span class=
+                    "term"><span class=
+                    "command"><strong>hdspconf</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a GUI to control the Hammerfall HDSP Alsa Settings. Up
+                    to four hdsp cards are supported.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="hdsploader" name="hdsploader"></a><span class=
+                    "term"><span class=
+                    "command"><strong>hdsploader</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to load the firmware required by the Hammerfall
+                    HDSP sound cards.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="hdspmixer" name="hdspmixer"></a><span class=
+                    "term"><span class=
+                    "command"><strong>hdspmixer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Linux equivalent of the Totalmix application from
+                    RME. It is a tool to control the advanced routing
+                    features of the RME Hammerfall DSP soundcard series.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ld10k1" name="ld10k1"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ld10k1</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the server of a EMU10K{1,2} patch loader for ALSA.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lo10k1" name="lo10k1"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lo10k1</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the client of a EMU10K{1,2} patch loader for ALSA.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="dl10k1" name="dl10k1"></a><span class=
+                    "term"><span class=
+                    "command"><strong>dl10k1</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    loads config dumps generated by <span class=
+                    "command"><strong>lo10k1</strong></span> and <span class=
+                    "command"><strong>ld10k1</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ld10k1d" name="ld10k1d"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ld10k1d</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an init script for the <span class=
+                    "command"><strong>ld10k1</strong></span> patch loader.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="qlo10k1" name="qlo10k1"></a><span class=
+                    "term"><span class=
+                    "command"><strong>qlo10k1</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a <span class="application">Qt</span> GUI for the
+                    <span class="command"><strong>ld10k1</strong></span>
+                    patch loader.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mixartloader" name="mixartloader"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mixartloader</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a helper program to load the firmware binaries onto
+                    the Digigram's miXart board sound drivers. The following
+                    modules require this program: snd-mixart. These drivers
+                    don't work properly at all until the certain firmwares
+                    are loaded, i.e. no PCM nor mixer devices will appear.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pcxhrloader" name="pcxhrloader"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pcxhrloader</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a helper program to load the firmware binaries onto
+                    Digigram's pcxhr compatible board sound drivers. The
+                    following modules require this program: snd-pcxhr. These
+                    drivers don't work properly at all until the certain
+                    firmwares are loaded, i.e. no PCM nor mixer devices will
+                    appear.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rmedigicontrol" name=
+                    "rmedigicontrol"></a><span class="term"><span class=
+                    "command"><strong>rmedigicontrol</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a control tool for RME Digi32 and RME Digi96 sound
+                    cards. It provides a graphical frontend for all the sound
+                    card controls and switches.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sbiload" name="sbiload"></a><span class=
+                    "term"><span class=
+                    "command"><strong>sbiload</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an OPL2/3 FM instrument loader for the ALSA sequencer.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sscape_ctl" name="sscape_ctl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>sscape_ctl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an ALSA SoundScape control utility.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="us428control" name="us428control"></a><span class=
+                    "term"><span class=
+                    "command"><strong>us428control</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a Tascam US-428 control program.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="usx2yloader" name="usx2yloader"></a><span class=
+                    "term"><span class=
+                    "command"><strong>usx2yloader</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a helper program to load the 2nd Phase firmware
+                    binaries onto the Tascam USX2Y USB sound cards. It has
+                    proven to work so far for the US122, US224 and US428. The
+                    snd-usb-usx2y module requires this program.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="vxloader" name="vxloader"></a><span class=
+                    "term"><span class=
+                    "command"><strong>vxloader</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a helper program to load the firmware binaries onto
+                    the Digigram's VX-board sound drivers. The following
+                    modules require this program: snd-vx222, snd-vxpocket,
+                    snd-vxp440. These drivers don't work properly at all
+                    until the certain firmwares are loaded, i.e. no PCM nor
+                    mixer devices will appear.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-01 15:01:22 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="alsa-utils.html" title=
+          "alsa-utils-1.0.27.2">Prev</a>
+          <p>
+            alsa-utils-1.0.27.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="alsa-firmware.html" title=
+          "alsa-firmware-1.0.27">Next</a>
+          <p>
+            alsa-firmware-1.0.27
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

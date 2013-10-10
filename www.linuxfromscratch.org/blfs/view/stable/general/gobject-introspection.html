@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      gobject-introspection-1.36.0
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;9.&nbsp;General Libraries
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gmime.html" title="GMime-2.6.17">Prev</a>
+          <p>
+            GMime-2.6.17
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gsl.html" title="Gsl-1.16">Next</a>
+          <p>
+            Gsl-1.16
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapter&nbsp;9.&nbsp;General Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="gobject-introspection" name=
+        "gobject-introspection"></a>gobject-introspection-1.36.0
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to GObject Introspection
+        </h2>
+        <p>
+          The <span class="application">GObject Introspection</span> is used
+          to describe the program APIs and collect them in a uniform, machine
+          readable format.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 747523a60d02effe39417e2157b3a1c4
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 1.2 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 52 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="glib2.html" title=
+          "GLib-2.36.4">GLib-2.36.4</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../x/cairo.html" title=
+          "Cairo-1.12.16">Cairo-1.12.16</a> (required for the tests),
+          <a class="xref" href="gtk-doc.html" title=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="ulink" href=
+          "http://www.makotemplates.org/">Mako</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gobject-introspection">http://wiki.linuxfromscratch.org/blfs/wiki/gobject-introspection</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of GObject Introspection
+        </h2>
+        <p>
+          Install <span class="application">GObject Introspection</span> by
+          running the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <span class="application">GTK-Doc</span> is installed and you wish
+          to rebuild and install the API documentation.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Program:</strong>
+              <span class="segbody">g-ir-annotation-tool, g-ir-compiler,
+              g-ir-doc-tool, g-ir-generate, and g-ir-scanner</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libgirepository-1.0.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/gobject-introspection-1.0,
+              /usr/lib/girepository-1.0, /usr/lib/gobject-introspection,
+              /usr/share/gir-1.0, and
+              /usr/share/gobject-introspection-1.0</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="g-ir-compiler" name=
+                    "g-ir-compiler"></a><span class="term"><span class=
+                    "command"><strong>g-ir-compiler</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    converts one or more GIR files into one or more typelib.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="g-ir-scanner" name="g-ir-scanner"></a><span class=
+                    "term"><span class=
+                    "command"><strong>g-ir-scanner</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a tool which generates GIR XML files by parsing
+                    headers and introspecting GObject based libraries.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="g-ir-generate" name=
+                    "g-ir-generate"></a><span class="term"><span class=
+                    "command"><strong>g-ir-generate</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a GIR generator using the repository API.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libgirepository-1.0" name=
+                    "libgirepository-1.0"></a><span class="term"><code class=
+                    "filename">libgirepository-1.0.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    provides an API to access to the typelib metadata.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-08-18 14:52:29 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gmime.html" title="GMime-2.6.17">Prev</a>
+          <p>
+            GMime-2.6.17
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gsl.html" title="Gsl-1.16">Next</a>
+          <p>
+            Gsl-1.16
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapter&nbsp;9.&nbsp;General Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

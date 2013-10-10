@@ -12,20 +12,20 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;11.&nbsp;General Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="SpiderMonkey.html" title=
-          "SpiderMonkey-1.0.0">Prev</a>
+          <a accesskey="p" href="sharutils.html" title=
+          "Sharutils-4.13.5">Prev</a>
           <p>
-            SpiderMonkey-1.0.0
+            Sharutils-4.13.5
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
           browsers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -131,7 +131,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -152,13 +152,22 @@ install -v -m644    htmldoc/*.{html,gif,css} \
         <p>
           If you wish to install the API documentation you must have
           <a class="xref" href="doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a> installed, then change
+          "Doxygen-1.8.5">Doxygen-1.8.5</a> installed, then change
           directories into the <code class="filename">htmldoc</code> of the
           source tree and issue the command <span class=
           "command"><strong>doxygen</strong></span>. Then as the <code class=
           "systemitem">root</code> user copy the <code class=
           "filename">api</code> directory to <code class=
           "filename">/usr/share/doc/tidy-cvs_20101110.</code>
+        </p>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -200,7 +209,7 @@ install -v -m644    htmldoc/*.{html,gif,css} \
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libtidy.{so,a}</span>
+              <span class="segbody">libtidy.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
@@ -248,13 +257,12 @@ install -v -m644    htmldoc/*.{html,gif,css} \
                 <td>
                   <p>
                     <a id="libtidy" name="libtidy"></a><span class=
-                    "term"><code class=
-                    "filename">libtidy.{so,a}</code></span>
+                    "term"><code class="filename">libtidy.so</code></span>
                   </p>
                 </td>
                 <td>
                   <p>
-                    libraries provide the <span class="application">HTML
+                    library provides the <span class="application">HTML
                     Tidy</span> API functions to <span class=
                     "command"><strong>tidy</strong></span> and can also be
                     called by other programs.
@@ -266,16 +274,16 @@ install -v -m644    htmldoc/*.{html,gif,css} \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-04 20:19:24 +0000
+        Last updated on 2013-08-18 04:37:04 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="SpiderMonkey.html" title=
-          "SpiderMonkey-1.0.0">Prev</a>
+          <a accesskey="p" href="sharutils.html" title=
+          "Sharutils-4.13.5">Prev</a>
           <p>
-            SpiderMonkey-1.0.0
+            Sharutils-4.13.5
           </p>
         </li>
         <li class="next">
@@ -291,7 +299,7 @@ install -v -m644    htmldoc/*.{html,gif,css} \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

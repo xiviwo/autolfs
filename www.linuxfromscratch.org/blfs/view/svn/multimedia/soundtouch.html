@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
@@ -35,11 +35,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -58,8 +58,8 @@
           other.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
-          platform.
+          This package is known to build using an LFS 7.4 platform but has
+          not been tested.
         </p>
         <h3>
           Package Information
@@ -108,7 +108,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./bootstrap &amp;&amp;
+<kbd class=
+"command">sed "s@AM_CONFIG_HEADER@AC_CONFIG_HEADERS@g" -i configure.ac &amp;&amp;
+./bootstrap &amp;&amp;
+
 ./configure --prefix=/usr &amp;&amp;
 make</kbd>
 </pre>
@@ -122,6 +125,17 @@ make</kbd>
 <kbd class=
 "command">make pkgdocdir=/usr/share/doc/soundtouch-1.7.1 install </kbd>
 </pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed
+          "s@AM_CONFIG_HEADER@AC_CONFIG_HEADERS@g" -i
+          configure.ac</strong></span>: This sed fixes some issues with
+          <span class="application">Automake</span> 1.13 and later.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -171,7 +185,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-01-05 20:01:59 +0000
+        Last updated on 2013-09-01 22:01:22 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -190,11 +204,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

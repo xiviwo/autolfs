@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="pcre.html" title="PCRE-8.32">Prev</a>
+          <a accesskey="p" href="pcre.html" title="PCRE-8.33">Prev</a>
           <p>
-            PCRE-8.32
+            PCRE-8.33
           </p>
         </li>
         <li class="next">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           some programs to parse command-line options.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -115,21 +115,19 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a> installed and wish to build
-          the API documentation, issue <span class=
+          "Doxygen-1.8.5">Doxygen-1.8.5</a> installed and wish to build the
+          API documentation, issue <span class=
           "command"><strong>doxygen</strong></span>.
         </p>
         <p>
-          To test the results, issue:
+          To test the results, issue:<strong class="userinput"><code>make
+          check</code></strong>.
         </p>
-        <pre class="userinput">
-<kbd class="command">make check</kbd>
-</pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
@@ -145,6 +143,15 @@ make</kbd>
 install -v -m644 doxygen/html/* /usr/share/doc/popt-1.16</kbd>
 </pre>
       </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+      </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
           Contents
@@ -157,7 +164,7 @@ install -v -m644 doxygen/html/* /usr/share/doc/popt-1.16</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libpopt.{so,a}</span>
+              <span class="segbody">libpopt.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -176,8 +183,7 @@ install -v -m644 doxygen/html/* /usr/share/doc/popt-1.16</kbd>
                 <td>
                   <p>
                     <a id="libpopt" name="libpopt"></a><span class=
-                    "term"><code class=
-                    "filename">libpopt.{so,a}</code></span>
+                    "term"><code class="filename">libpopt.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -191,15 +197,15 @@ install -v -m644 doxygen/html/* /usr/share/doc/popt-1.16</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-13 17:58:54 +0000
+        Last updated on 2013-08-23 10:32:24 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="pcre.html" title="PCRE-8.32">Prev</a>
+          <a accesskey="p" href="pcre.html" title="PCRE-8.33">Prev</a>
           <p>
-            PCRE-8.32
+            PCRE-8.33
           </p>
         </li>
         <li class="next">
@@ -214,7 +220,7 @@ install -v -m644 doxygen/html/* /usr/share/doc/popt-1.16</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

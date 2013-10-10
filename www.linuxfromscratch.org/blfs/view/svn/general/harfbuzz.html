@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Harfbuzz-0.9.16
+      Harfbuzz-0.9.20
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="giflib.html" title="giflib-4.1.6">Prev</a>
+          <a accesskey="p" href="giflib.html" title="giflib-5.0.5">Prev</a>
           <p>
-            giflib-4.1.6
+            giflib-5.0.5
           </p>
         </li>
         <li class="next">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="harfbuzz" name="harfbuzz"></a>Harfbuzz-0.9.16
+        <a id="harfbuzz" name="harfbuzz"></a>Harfbuzz-0.9.20
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -56,7 +56,7 @@
           OpenType text shaping engine.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -67,28 +67,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-0.9.16.tar.bz2">
-                http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-0.9.16.tar.bz2</a>
+                "http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-0.9.20.tar.bz2">
+                http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-0.9.20.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 90855e670c790c1fec4592908be3c0b8
+                Download MD5 sum: fe36a04a61a2562b8522d516fb36309d
               </p>
             </li>
             <li>
               <p>
-                Download size: 884 KB
+                Download size: 1.0 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 32 MB
+                Estimated disk space required: 26 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.3 SBU
+                Estimated build time: 0.2 SBU
               </p>
             </li>
           </ul>
@@ -101,16 +101,16 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="glib2.html" title=
-          "GLib-2.34.3">GLib-2.34.3</a>, <a class="xref" href="icu.html"
-          title="ICU-51.1">ICU-51.1</a> and <a class="xref" href=
-          "freetype2.html" title="FreeType-2.4.11">FreeType-2.4.11</a>
+          "GLib-2.36.4">GLib-2.36.4</a>, <a class="xref" href="icu.html"
+          title="ICU-51.2">ICU-51.2</a> and <a class="xref" href=
+          "freetype2.html" title="FreeType-2.5.0.1">FreeType-2.5.0.1</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../x/cairo.html" title=
-          "Cairo-1.12.14">Cairo-1.12.14</a> and <a class="ulink" href=
+          "Cairo-1.12.16">Cairo-1.12.16</a> and <a class="ulink" href=
           "http://projects.palaso.org/projects/graphitedev/files">Graphite2</a>
         </p>
         <div class="admon warning">
@@ -154,6 +154,15 @@ make</kbd>
 <kbd class="command">make install</kbd>
 </pre>
       </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">--with-graphite2</code>: This switch enables
+          <span class="application">Graphite2</span> support.
+        </p>
+      </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
           Contents
@@ -167,7 +176,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libharfbuzz.so</span>
+              <span class="segbody">libharfbuzz.so and
+              libharfbuzz-icu.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
@@ -201,15 +211,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-27 18:04:22 +0000
+        Last updated on 2013-09-01 11:47:17 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="giflib.html" title="giflib-4.1.6">Prev</a>
+          <a accesskey="p" href="giflib.html" title="giflib-5.0.5">Prev</a>
           <p>
-            giflib-4.1.6
+            giflib-5.0.5
           </p>
         </li>
         <li class="next">
@@ -224,7 +234,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

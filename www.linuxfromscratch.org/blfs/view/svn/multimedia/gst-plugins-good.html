@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
@@ -37,11 +37,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -70,7 +70,7 @@
           "gst-ffmpeg-0.10.13">gst-ffmpeg-0.10.13</a> packages.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <div class="admon note">
@@ -140,11 +140,11 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../x/cairo.html" title=
-          "Cairo-1.12.14">Cairo-1.12.14</a>, <a class="xref" href="flac.html"
-          title="FLAC-1.2.1">FLAC-1.2.1</a>, <a class="xref" href=
+          "Cairo-1.12.16">Cairo-1.12.16</a>, <a class="xref" href="flac.html"
+          title="FLAC-1.3.0">FLAC-1.3.0</a>, <a class="xref" href=
           "../general/libjpeg.html" title=
-          "libjpeg-turbo-1.2.1">libjpeg-turbo-1.2.1</a>, <a class="xref"
-          href="../general/libpng.html" title="libpng-1.6.2">libpng-1.6.2</a>
+          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
+          href="../general/libpng.html" title="libpng-1.6.3">libpng-1.6.3</a>
           and <a class="xref" href="../x/x7lib.html" title=
           "Xorg Libraries">Xorg Libraries</a>
         </p>
@@ -155,7 +155,7 @@
           <a class="xref" href="../gnome/GConf.html" title=
           "GConf-3.2.6">GConf-3.2.6</a> and <a class="xref" href=
           "../basicnet/libsoup.html" title=
-          "libsoup-2.40.3">libsoup-2.40.3</a>
+          "libsoup-2.42.2">libsoup-2.42.2</a>
         </p>
         <h4>
           Optional
@@ -163,7 +163,7 @@
         <p class="optional">
           <a class="xref" href="../general/aalib.html" title=
           "AAlib-1.4rc5">AAlib-1.4rc5</a>, <a class="xref" href=
-          "../x/gtk3.html" title="GTK+-3.6.4">GTK+-3.6.4</a> (required to
+          "../x/gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a> (required to
           build the examples), <a class="ulink" href=
           "http://www.jackaudio.org">JACK</a>, <a class="ulink" href=
           "http://sourceforge.net/projects/libavc1394/">libavc1394</a>
@@ -180,7 +180,7 @@
           <a class="ulink" href=
           "http://code.entropywave.com/projects/orc/">ORC</a>, <a class=
           "xref" href="pulseaudio.html" title=
-          "PulseAudio-3.0">PulseAudio-3.0</a>, <a class="xref" href=
+          "PulseAudio-4.0">PulseAudio-4.0</a>, <a class="xref" href=
           "speex.html" title="Speex-1.2rc1">Speex-1.2rc1</a>, <a class="xref"
           href="taglib.html" title="Taglib-1.8">taglib-1.8</a>, <a class=
           "ulink" href=
@@ -198,8 +198,8 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.18">GTK-Doc-1.18</a> and <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.4">Python-2.7.4</a>
+          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>
           (compiled against an XML parser such as <a class="xref" href=
           "../general/expat.html" title="Expat-2.1.0">expat-2.1.0</a>)
         </p>
@@ -218,7 +218,8 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">sed -i -e '/input:/d' sys/v4l2/gstv4l2bufferpool.c &amp;&amp;
+"command">sed -i -e "/input:/d" sys/v4l2/gstv4l2bufferpool.c &amp;&amp;
+sed -i -e "/case V4L2_CID_HCENTER/d" -e "/case V4L2_CID_VCENTER/d" sys/v4l2/v4l2_calls.c &amp;&amp;
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --with-gtk=3.0 &amp;&amp;
@@ -253,10 +254,9 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed -i -e '/input:/d'
-          sys/v4l2/gstv4l2bufferpool.c</strong></span>: This <span class=
-          "command"><strong>sed</strong></span> fixes building with recent
-          kernels.
+          <span class="command"><strong>sed -i -e "..."</strong></span>:
+          These <span class="command"><strong>sed</strong></span> commands
+          fix building with recent kernels.
         </p>
         <p>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
@@ -287,7 +287,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-28 00:12:39 +0000
+        Last updated on 2013-08-24 01:26:43 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -308,11 +308,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

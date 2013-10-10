@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;46.&nbsp;PostScript
+        Chapter&nbsp;45.&nbsp;PostScript
       </h3>
       <ul>
         <li class="prev">
@@ -36,11 +36,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="ps.html" title=
-          "Chapter&nbsp;46.&nbsp;PostScript">Up</a>
+          "Chapter&nbsp;45.&nbsp;PostScript">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           PostScript</span>&rdquo;.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <div class="admon caution">
@@ -153,7 +153,7 @@
         <p class="recommended">
           <a class="xref" href="psutils.html" title=
           "PSUtils-p17">PSUtils-p17</a>, and <a class="xref" href="cups.html"
-          title="Cups-1.6.2">Cups-1.6.2</a> (otherwise, <span class=
+          title="Cups-1.6.3">Cups-1.6.3</a> (otherwise, <span class=
           "application">a2ps</span> will use the <span class=
           "command"><strong>cat &gt;/dev/lp0</strong></span> command instead
           of <span class="command"><strong>lpr</strong></span> for sending
@@ -166,8 +166,8 @@
           <a class="xref" href="../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a>, <a class="xref" href="texlive.html" title=
-          "texlive-20120701">texlive-20120701</a>, <a class="xref" href=
-          "gs.html" title="ghostscript-9.06">ghostscript-9.06</a>, <a class=
+          "texlive-20130530">texlive-20130530</a>, <a class="xref" href=
+          "gs.html" title="ghostscript-9.10">ghostscript-9.10</a>, <a class=
           "ulink" href=
           "http://packages.debian.org/unstable/source/libpaper">libpaper</a>,
           <a class="ulink" href=
@@ -190,13 +190,15 @@
         </p>
         <pre class="userinput">
 <kbd class="command">autoconf &amp;&amp;
-sed -i "s/GPERF --version |/&amp; head -n 1 |/" configure &amp;&amp;
-sed -i "s|/usr/local/share|/usr/share|" configure &amp;&amp;
-./configure --prefix=/usr \
+sed -i -e "s/GPERF --version |/&amp; head -n 1 |/" \
+       -e "s|/usr/local/share|/usr/share|" configure &amp;&amp;
+
+./configure --prefix=/usr  \
     --sysconfdir=/etc/a2ps \
-    --enable-shared \
-    --with-medium=letter &amp;&amp;
-make</kbd>
+    --enable-shared        \
+    --with-medium=letter   &amp;&amp;
+make                       &amp;&amp;
+touch doc/*.info</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
@@ -276,6 +278,13 @@ mv fonts.map.new fonts.map</kbd>
           A4dj or letterdj are good settings for HP Deskjet and other
           printers that need wider paper-handling margins. See <code class=
           "filename">/etc/a2ps/a2ps.cfg</code> after installation.
+        </p>
+        <p>
+          <span class="command"><strong>touch doc/*.info</strong></span>:
+          This command avoids trying to regenerate the info files. This is an
+          older package and the current .texi files will produce errors
+          preventing <span class="command"><strong>make
+          install</strong></span> from working properly.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -486,7 +495,7 @@ mv fonts.map.new fonts.map</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-25 22:05:31 +0000
+        Last updated on 2013-09-02 18:10:49 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -506,11 +515,11 @@ mv fonts.map.new fonts.map</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="ps.html" title=
-          "Chapter&nbsp;46.&nbsp;PostScript">Up</a>
+          "Chapter&nbsp;45.&nbsp;PostScript">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

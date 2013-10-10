@@ -5,27 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      JSON-C-0.10
+      JSON-C-0.11
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="iso-codes.html" title=
-          "ISO Codes-3.40">Prev</a>
+          <a accesskey="p" href="JS.html" title="JS-17.0.0">Prev</a>
           <p>
-            ISO Codes-3.40
+            JS-17.0.0
           </p>
         </li>
         <li class="next">
@@ -41,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="json-c" name="json-c"></a>JSON-C-0.10
+        <a id="json-c" name="json-c"></a>JSON-C-0.11
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +59,7 @@
           formatted strings back into the C representation of JSON objects.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -71,23 +70,23 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "https://github.com/downloads/json-c/json-c/json-c-0.10.tar.gz">
-                https://github.com/downloads/json-c/json-c/json-c-0.10.tar.gz</a>
+                "https://s3.amazonaws.com/json-c_releases/releases/json-c-0.11.tar.gz">
+                https://s3.amazonaws.com/json-c_releases/releases/json-c-0.11.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: a4edc79410eb894f08d7d52ca9f88732
+                Download MD5 sum: aa02367d2f7a830bf1e3376f77881e98
               </p>
             </li>
             <li>
               <p>
-                Download size: 380 KB
+                Download size: 548 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 3.5 MB
+                Estimated disk space required: 5.0 MB
               </p>
             </li>
             <li>
@@ -106,17 +105,21 @@
         <h2 class="sect2">
           Installation of JSON-C
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This package does not support parallel build.
+          </p>
+        </div>
         <p>
           Install <span class="application">JSON-C</span> by running the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -e 's/json_object.c/json_object.c json_object_iterator.c/'    \
-    -e 's/json_object.h/json_object.h json_object_iterator.h/'    \
-    -e 's/json_object.lo/json_object.lo json_object_iterator.lo/' \
-    -i Makefile.in &amp;&amp;
-./configure --prefix=/usr --disable-static &amp;&amp;
+<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -135,12 +138,6 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed -e
-          's/json_object...</strong></span>: This <span class=
-          "command"><strong>sed</strong></span> make sure that all the
-          necessary headers are installed correctly.
-        </p>
-        <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
         </p>
@@ -156,12 +153,13 @@ make</kbd>
               <span class="segbody">None</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libjson.so</span>
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libjson-c.so and libjson.so</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">/usr/include/json</span>
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/json and
+              /usr/include/json-c</span>
             </div>
           </div>
         </div>
@@ -181,7 +179,21 @@ make</kbd>
                 </td>
                 <td>
                   <p>
-                    contains <span class="application">JSON-C</span> API
+                    contains the <span class="application">JSON-C</span> API
+                    functions.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libjson-c" name="libjson-c"></a><span class=
+                    "term"><code class="filename">libjson-c.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the <span class="application">JSON-C</span> API
                     functions.
                   </p>
                 </td>
@@ -191,16 +203,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-21 07:59:09 +0000
+        Last updated on 2013-08-21 01:40:33 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="iso-codes.html" title=
-          "ISO Codes-3.40">Prev</a>
+          <a accesskey="p" href="JS.html" title="JS-17.0.0">Prev</a>
           <p>
-            ISO Codes-3.40
+            JS-17.0.0
           </p>
         </li>
         <li class="next">
@@ -216,7 +227,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Part&nbsp;II.&nbsp;Post LFS Configuration and Extra Software
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../introduction/beyond.html" title=
+          "Going Beyond BLFS">Prev</a>
+          <p>
+            Going Beyond BLFS
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="config.html" title=
+          "After LFS Configuration Issues">Next</a>
+          <p>
+            After LFS Configuration Issues
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="part" lang="en" xml:lang="en">
+      <h1 class="part">
+        <a id="postlfs" name="postlfs"></a>Post LFS Configuration and Extra
+        Software
+      </h1>
+      <div class="toc">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li class="chapter">
+            <h4>
+              <a href="config.html">3. After LFS Configuration Issues</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="bootdisk.html">Creating a Custom Boot Device</a>
+              </li>
+              <li class="sect1">
+                <a href="skel.html">Configuring for Adding Users</a>
+              </li>
+              <li class="sect1">
+                <a href="users.html">About System Users and Groups</a>
+              </li>
+              <li class="sect1">
+                <a href="devices.html">About Devices</a>
+              </li>
+              <li class="sect1">
+                <a href="profile.html">The Bash Shell Startup Files</a>
+              </li>
+              <li class="sect1">
+                <a href="vimrc.html">The /etc/vimrc and ~/.vimrc Files</a>
+              </li>
+              <li class="sect1">
+                <a href="logon.html">Customizing your Logon with
+                /etc/issue</a>
+              </li>
+              <li class="sect1">
+                <a href="etcshells.html">The /etc/shells File</a>
+              </li>
+              <li class="sect1">
+                <a href="random.html">Random Number Generation</a>
+              </li>
+              <li class="sect1">
+                <a href="compressdoc.html">Compressing Man and Info Pages</a>
+              </li>
+              <li class="sect1">
+                <a href="lsb-release.html">lsb_release-1.4</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="security.html">4. Security</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="vulnerabilities.html">Vulnerabilities</a>
+              </li>
+              <li class="sect1">
+                <a href="acl.html">acl-2.2.52</a>
+              </li>
+              <li class="sect1">
+                <a href="attr.html">attr-2.4.47</a>
+              </li>
+              <li class="sect1">
+                <a href="cacerts.html">Certificate Authority Certificates</a>
+              </li>
+              <li class="sect1">
+                <a href="consolekit.html">ConsoleKit-0.4.6</a>
+              </li>
+              <li class="sect1">
+                <a href="cracklib.html">CrackLib-2.9.0</a>
+              </li>
+              <li class="sect1">
+                <a href="cyrus-sasl.html">Cyrus SASL-2.1.26</a>
+              </li>
+              <li class="sect1">
+                <a href="gnupg.html">GnuPG-1.4.14</a>
+              </li>
+              <li class="sect1">
+                <a href="gnupg2.html">GnuPG-2.0.21</a>
+              </li>
+              <li class="sect1">
+                <a href="gnutls.html">GnuTLS-3.2.4</a>
+              </li>
+              <li class="sect1">
+                <a href="gpgme.html">GPGME-1.4.3</a>
+              </li>
+              <li class="sect1">
+                <a href="iptables.html">Iptables-1.4.20</a>
+              </li>
+              <li class="sect1">
+                <a href="firewall.html">Setting Up a Network Firewall</a>
+              </li>
+              <li class="sect1">
+                <a href="libcap2.html">libcap2-2.22</a>
+              </li>
+              <li class="sect1">
+                <a href="linux-pam.html">Linux-PAM-1.1.7</a>
+              </li>
+              <li class="sect1">
+                <a href="mitkrb.html">MIT Kerberos V5-1.11.3</a>
+              </li>
+              <li class="sect1">
+                <a href="nettle.html">Nettle-2.7.1</a>
+              </li>
+              <li class="sect1">
+                <a href="nss.html">NSS-3.15.1</a>
+              </li>
+              <li class="sect1">
+                <a href="openssh.html">OpenSSH-6.3p1</a>
+              </li>
+              <li class="sect1">
+                <a href="openssl.html">OpenSSL-1.0.1e</a>
+              </li>
+              <li class="sect1">
+                <a href="p11-kit.html">p11-kit-0.20.1</a>
+              </li>
+              <li class="sect1">
+                <a href="polkit.html">Polkit-0.111</a>
+              </li>
+              <li class="sect1">
+                <a href="shadow.html">Shadow-4.1.5.1</a>
+              </li>
+              <li class="sect1">
+                <a href="stunnel.html">stunnel-4.56</a>
+              </li>
+              <li class="sect1">
+                <a href="sudo.html">Sudo-1.8.7</a>
+              </li>
+              <li class="sect1">
+                <a href="tripwire.html">Tripwire-2.4.2.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="filesystems.html">5. File Systems and Disk
+              Management</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="initramfs.html">About initramfs</a>
+              </li>
+              <li class="sect1">
+                <a href="fuse.html">Fuse-2.9.3</a>
+              </li>
+              <li class="sect1">
+                <a href="jfsutils.html">jfsutils-1.1.15</a>
+              </li>
+              <li class="sect1">
+                <a href="lvm2.html">LVM2-2.02.100</a>
+              </li>
+              <li class="sect1">
+                <a href="raid.html">About RAID</a>
+              </li>
+              <li class="sect1">
+                <a href="mdadm.html">mdadm-3.3</a>
+              </li>
+              <li class="sect1">
+                <a href="ntfs-3g.html">ntfs-3g-2013.1.13</a>
+              </li>
+              <li class="sect1">
+                <a href="gptfdisk.html">gptfdisk-0.8.7</a>
+              </li>
+              <li class="sect1">
+                <a href="parted.html">parted-3.1</a>
+              </li>
+              <li class="sect1">
+                <a href="reiserfs.html">reiserfsprogs-3.6.24</a>
+              </li>
+              <li class="sect1">
+                <a href="sshfs-fuse.html">sshfs-fuse-2.4</a>
+              </li>
+              <li class="sect1">
+                <a href="xfsprogs.html">xfsprogs-3.1.11</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="editors.html">6. Editors</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="bluefish.html">Bluefish-2.2.4</a>
+              </li>
+              <li class="sect1">
+                <a href="ed.html">Ed-1.9</a>
+              </li>
+              <li class="sect1">
+                <a href="emacs.html">Emacs-24.3</a>
+              </li>
+              <li class="sect1">
+                <a href="joe.html">JOE-3.7</a>
+              </li>
+              <li class="sect1">
+                <a href="nano.html">Nano-2.3.2</a>
+              </li>
+              <li class="sect1">
+                <a href="vim.html">Vim-7.4</a>
+              </li>
+              <li class="sect1">
+                <a href="others.html">Other Editors</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="shells.html">7. Shells</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="dash.html">Dash-0.5.7</a>
+              </li>
+              <li class="sect1">
+                <a href="tcsh.html">Tcsh-6.18.01</a>
+              </li>
+              <li class="sect1">
+                <a href="zsh.html">zsh-5.0.2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="chapter">
+            <h4>
+              <a href="virtualization.html">8. Virtualization</a>
+            </h4>
+            <ul>
+              <li class="sect1">
+                <a href="qemu.html">qemu-1.6.0</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../introduction/beyond.html" title=
+          "Going Beyond BLFS">Prev</a>
+          <p>
+            Going Beyond BLFS
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="config.html" title=
+          "After LFS Configuration Issues">Next</a>
+          <p>
+            After LFS Configuration Issues
+          </p>
+        </li>
+        <li class="up">.
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      lm_sensors-3.3.3
+      lm_sensors-3.3.4
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libarchive.html" title=
-          "libarchive-3.1.2">Prev</a>
+          <a accesskey="p" href="itools.html" title=
+          "LSB Tools for managing bootscripts">Prev</a>
           <p>
-            libarchive-3.1.2
+            LSB Tools for managing bootscripts
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="mc.html" title="MC-4.8.6">Next</a>
+          <a accesskey="n" href="mc.html" title="MC-4.8.10">Next</a>
           <p>
-            MC-4.8.6
+            MC-4.8.10
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="lm_sensors" name="lm_sensors"></a>lm_sensors-3.3.3
+        <a id="lm_sensors" name="lm_sensors"></a>lm_sensors-3.3.4
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           fans).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -71,35 +71,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://dl.lm-sensors.org/lm-sensors/releases/lm_sensors-3.3.3.tar.bz2">
-                http://dl.lm-sensors.org/lm-sensors/releases/lm_sensors-3.3.3.tar.bz2</a>
+                "http://dl.lm-sensors.org/lm-sensors/releases/lm_sensors-3.3.4.tar.bz2">
+                http://dl.lm-sensors.org/lm-sensors/releases/lm_sensors-3.3.4.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.netroedge.com/pub/lm-sensors/lm_sensors-3.3.3.tar.bz2">
-                ftp://ftp.netroedge.com/pub/lm-sensors/lm_sensors-3.3.3.tar.bz2</a>
+                "ftp://ftp.netroedge.com/pub/lm-sensors/lm_sensors-3.3.4.tar.bz2">
+                ftp://ftp.netroedge.com/pub/lm-sensors/lm_sensors-3.3.4.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 73c2fcccdab6049d289c5e0c596192a1
+                Download MD5 sum: 60cfb98ab7a8915c3ac684af5459de2e
               </p>
             </li>
             <li>
               <p>
-                Download size: 172 KB
+                Download size: 176 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 2.4 MB
+                Estimated disk space required: 2.7 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.1 SBU
+                Estimated build time: less than 0.1 SBU
               </p>
             </li>
           </ul>
@@ -112,7 +112,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="which.html" title=
-          "Which-2.20 and Alternatives">which-2.20</a>
+          "Which-2.20 and Alternatives">Which-2.20</a>
         </p>
         <h4>
           Optional
@@ -140,10 +140,8 @@
           module:
         </p>
         <pre class="screen">
-<code class="literal">General setup  ---&gt;
-  [*] Prompt for development and/or incomplete code/drivers
-
-[*] Enable loadable module support  ---&gt;
+<code class="literal">Top level 
+  [*] Enable loadable module support  ---&gt;
 
 Bus options (PCI etc.)  ---&gt;
   [*] PCI support
@@ -190,9 +188,10 @@ Device Drivers  ---&gt;
 <kbd class="command">make PREFIX=/usr        \
      BUILD_STATIC_LIB=0 \
      MANDIR=/usr/share/man install &amp;&amp;
-install -v -m755 -d /usr/share/doc/lm_sensors-3.3.3 &amp;&amp;
+
+install -v -m755 -d /usr/share/doc/lm_sensors-3.3.4 &amp;&amp;
 cp -rv              README INSTALL doc/* \
-                    /usr/share/doc/lm_sensors-3.3.3</kbd>
+                    /usr/share/doc/lm_sensors-3.3.4</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -267,7 +266,7 @@ cp -rv              README INSTALL doc/* \
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/sensors and
-              /usr/share/doc/lm_sensors-3.3.3</span>
+              /usr/share/doc/lm_sensors-3.3.4</span>
             </div>
           </div>
         </div>
@@ -412,22 +411,22 @@ cp -rv              README INSTALL doc/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-15 16:26:39 +0000
+        Last updated on 2013-08-26 17:26:25 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libarchive.html" title=
-          "libarchive-3.1.2">Prev</a>
+          <a accesskey="p" href="itools.html" title=
+          "LSB Tools for managing bootscripts">Prev</a>
           <p>
-            libarchive-3.1.2
+            LSB Tools for managing bootscripts
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="mc.html" title="MC-4.8.6">Next</a>
+          <a accesskey="n" href="mc.html" title="MC-4.8.10">Next</a>
           <p>
-            MC-4.8.6
+            MC-4.8.10
           </p>
         </li>
         <li class="up">
@@ -436,7 +435,7 @@ cp -rv              README INSTALL doc/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

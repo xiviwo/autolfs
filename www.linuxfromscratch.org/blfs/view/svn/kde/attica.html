@@ -5,26 +5,27 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Attica-0.4.1
+      Attica-0.4.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;28.&nbsp;The KDE Core
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="akonadi.html" title="Akonadi-1.9.2">Prev</a>
+          <a accesskey="p" href="akonadi.html" title=
+          "Akonadi-1.10.2">Prev</a>
           <p>
-            Akonadi-1.9.2
+            Akonadi-1.10.2
           </p>
         </li>
         <li class="next">
@@ -40,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="attica" name="attica"></a>Attica-0.4.1
+        <a id="attica" name="attica"></a>Attica-0.4.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +58,7 @@
           "Open Collaboration Service" providers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -68,20 +69,19 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://mirrors.isc.org/pub/kde/stable/attica/attica-0.4.1.tar.bz2">
-                http://mirrors.isc.org/pub/kde/stable/attica/attica-0.4.1.tar.bz2</a>
+                "http://download.kde.org/stable/attica/attica-0.4.2.tar.bz2">http://download.kde.org/stable/attica/attica-0.4.2.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.kde.org/pub/kde/stable/attica/attica-0.4.1.tar.bz2">
-                ftp://ftp.kde.org/pub/kde/stable/attica/attica-0.4.1.tar.bz2</a>
+                "ftp://ftp.kde.org/pub/kde/stable/attica/attica-0.4.2.tar.bz2">
+                ftp://ftp.kde.org/pub/kde/stable/attica/attica-0.4.2.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: b90983ec5d79e5ddcbc9146fa23cab72
+                Download MD5 sum: d62c5c9489a68432e8d990dde7680c24
               </p>
             </li>
             <li>
@@ -108,9 +108,9 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../x/qt.html" title="Qt-4.8.4">Qt-4.8.4</a>
+          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
           and <a class="xref" href="../general/cmake.html" title=
-          "CMake-2.8.10.2">CMake-2.8.10.2</a>
+          "CMake-2.8.11.2">CMake-2.8.11.2</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -122,13 +122,16 @@
           Installation of Attica
         </h2>
         <p>
-          Install <span class="application">attica</span> by running the
+          Install <span class="application">Attica</span> by running the
           following commands:
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir build &amp;&amp;
-cd build &amp;&amp;
-cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX .. &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
+      -DCMAKE_BUILD_TYPE=Release         \
+      .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -141,6 +144,15 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">-DCMAKE_BUILD_TYPE=Release</code>: This switch
+          is used to apply a higher level of compiler optimizations.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -164,15 +176,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-10 12:50:47 +0000
+        Last updated on 2013-08-26 17:26:25 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="akonadi.html" title="Akonadi-1.9.2">Prev</a>
+          <a accesskey="p" href="akonadi.html" title=
+          "Akonadi-1.10.2">Prev</a>
           <p>
-            Akonadi-1.9.2
+            Akonadi-1.10.2
           </p>
         </li>
         <li class="next">
@@ -188,7 +201,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

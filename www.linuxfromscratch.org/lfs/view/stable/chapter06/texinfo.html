@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.60.&nbsp;Texinfo-5.0
+      6.61.&nbsp;Texinfo-5.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -29,9 +29,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="udev.html" title=
-          "Udev-197 (Extracted from systemd-197)">Next</a>
+          "Udev-206 (Extracted from systemd-206)">Next</a>
           <p>
-            Udev-197 (Extracted from systemd-197)
+            Udev-206 (Extracted from systemd-206)
           </p>
         </li>
         <li class="up">
@@ -40,14 +40,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-texinfo" name="ch-system-texinfo"></a>6.60.
-        Texinfo-5.0
+        <a id="ch-system-texinfo" name="ch-system-texinfo"></a>6.61.
+        Texinfo-5.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -69,8 +69,14 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.60.1. Installation of Texinfo
+          6.61.1. Installation of Texinfo
         </h2>
+        <p>
+          Fix an incompatibility between the test suite and Perl-5.18.1:
+        </p>
+        <pre class="userinput">
+<kbd class="command">patch -Np1 -i ../texinfo-5.1-test-1.patch</kbd>
+</pre>
         <p>
           Prepare Texinfo for compilation:
         </p>
@@ -83,6 +89,15 @@
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            One test in the test suite fails due to out of date perl code.
+          </p>
+        </div>
         <p>
           To test the results, issue:
         </p>
@@ -139,7 +154,7 @@ done</kbd>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-texinfo" name="contents-texinfo"></a>6.60.2.
+          <a id="contents-texinfo" name="contents-texinfo"></a>6.61.2.
           Contents of Texinfo
         </h2>
         <div class="segmentedlist">
@@ -331,9 +346,9 @@ done</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="udev.html" title=
-          "Udev-197 (Extracted from systemd-197)">Next</a>
+          "Udev-206 (Extracted from systemd-206)">Next</a>
           <p>
-            Udev-197 (Extracted from systemd-197)
+            Udev-206 (Extracted from systemd-206)
           </p>
         </li>
         <li class="up">
@@ -342,7 +357,7 @@ done</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

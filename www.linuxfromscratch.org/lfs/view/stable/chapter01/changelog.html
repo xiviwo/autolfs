@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;1.&nbsp;Introduction
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
@@ -50,8 +50,8 @@
         Changelog
       </h1>
       <p>
-        This is version 7.3 of the Linux From Scratch book, dated March 1,
-        2013. If this book is more than six months old, a newer and better
+        This is version 7.4 of the Linux From Scratch book, dated September
+        8, 2013. If this book is more than six months old, a newer and better
         version is probably already available. To find out, please check one
         of the mirrors via <a class="ulink" href=
         "http://www.linuxfromscratch.org/mirrors.html">http://www.linuxfromscratch.org/mirrors.html</a>.
@@ -67,1255 +67,1222 @@
         <ul>
           <li>
             <p>
+              2013-09-08
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - LFS-7.4 released.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-09-07
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Increase version of Gawk required on the host
+                    to 4.0.1. Gawk-3.1.8 from Ubuntu-12.04 hangs during the
+                    build of Glibc. Thanks to Walter P. Little for the
+                    report.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-31
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Add a patch and instructions about how to
+                    generate and install a man page for tar. Thanks to Igor
+                    for the patch.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-30
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Add a sed for glibc to revert an upstream
+                    change that causes problems for some architectures.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to Linux-3.10.10. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3393">#3393</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-22
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update the minimum kernel requirement to
+                    2.6.34 in host system requirements.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-21
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Linux-3.10.9. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3391">#3391</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Add a patch to fix a test failure in Texinfo.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Add a patch to fix an intermittent test
+                    failure in Automake.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-15
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bryan] - Add explanation for new devpts mount options
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update several pages to fix regression test
+                    failures.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Add options when mounting /dev/pts when
+                    creating virtual file systems in Section 6.2.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.10.7. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3388">#3388</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-13
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to glibc-2.18.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to perl-5.18.1.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-12
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.10.6. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3387">#3387</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-11
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to vim-7.4.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-02
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.10.5.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to lfs-bootscripts-20130805. Fixes an
+                    issue with ipv4-static-route.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-08-02
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to util-linux-2.23.2. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3386">#3386</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to man-pages-3.53. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3385">#3385</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-07-29
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.10.4. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3383">#3383</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to bison-3.0. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3382">#3382</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-07-27
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to systemd-206/udev-lfs-206-1. Fixes
+                    <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3384">#3384</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-07-20
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Add comments about the kernel <span class=
+                    "command"><strong>make defconfig</strong></span> option
+                    when configuring the kernel. Fixes <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3379">#3379</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to iproute2-3.10.1.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.10.1. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3380">#3380</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-07-11
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to kmod-14. Fixes <a class="ulink"
+                    href="http://wiki.linuxfromscratch.org/lfs/ticket/3373">#3373</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to systemd-205. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3375">#3375</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to man-pages-3.52. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3376">#3376</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to tzdata-2013d. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3377">#3377</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to gettext-0.18.3. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3378">#3378</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-07-06
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Change the --enable-kernel parameter in glibc
+                    to 2.6.34 which is the minimum needed by the current udev
+                    packages.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-06-30
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to man-db-2.6.5. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3370">#3370</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.10. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3371">#3371</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to xz-5.0.5. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3372">#3372</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-06-24
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to e2fsprogs-1.42.8. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3368">#3368</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to man-db-2.6.4. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3369">#3369</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to automake-1.14. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3366">#3366</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.9.7. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3367">#3367</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-06-16
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to automake-1.13.4. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3364">#3364</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.9.6. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3363">#3363</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-06-10
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to gzip-1.6. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3362">#3362</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-06-09
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to libpipeline-1.2.4. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3360">#3360</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.9.5. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3361">#3361</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-06-05
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to automake-1.13.3. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3358">#3358</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update file program contents.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-06-03
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to Util-linux-2.23.1. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3355">#3355</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to gcc-4.8.1. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3356">#3356</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-27
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to procps-3.3.8. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3354">#3354</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to perl-5.18.0. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3344">#3344</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to automake-1.13.2. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3347">#3347</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to gmp-5.1.2. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3352">#3352</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to linux-3.9.4. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3348">#3348</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Add a reference to a book on configuring the
+                    kernel.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update check program dependencies. Thanks to
+                    Gilles Espinasse for the patch. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3353">#3353</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-19
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Expand discussion of file system types and
+                    make ext4 the example LFS partition type. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3346">#3346</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-15
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Remove unnecessary options in bootscripts due
+                    to mtab change.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-14
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Change /etc/mtab to be a symbolic link to
+                    /proc/self/mounts.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-12
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Linux-3.9.2. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3345">#3345</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-11
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Minor update to boot script mountfs to ensure
+                    clean shutdown.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to gawk-4.1.0. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3343">#3343</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-10
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to linux-3.9.1. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3342">#3342</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to systemd/udev-lfs-204. Fixes
+                    <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3341">#3341</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to gettext-0.18.2.1. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3298">#3298</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-04
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to IPRoute2-3.9.0. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3339">#3339</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-05-01
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [ken] - Upgrade to linux-3.9.0. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3336">#3336</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [ken] - Upgrade to zlib-1.2.8. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3337">#3337</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-29
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Add bc to Chapter 6 to support Linux-3.9.
+                    Fixes <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3338">#3338</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-28
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Linux-3.8.10. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3335">#3335</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-26
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to less-458. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3333">#3334</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to util-linux-2.23. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3311">#3311</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-24
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Libpipeline-1.2.3. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3333">#3333</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Tzdata-2013c. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3332">#3332</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Man-Pages-3.51. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3331">#3331</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Check-0.9.10. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3330">#3330</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-23
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Use default locations for kbd files because
+                    custom locations are no longer needed by the boot
+                    scripts.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-19
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to udev-202 (systemd-202). Fixes
+                    <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3329">#3329</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-17
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update to Linux-3.8.8. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3322">#3322</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to Kmod-13. Fixes <a class="ulink"
+                    href="http://wiki.linuxfromscratch.org/lfs/ticket/3324">#3324</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to Bison-2.7.1. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3327">#3327</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-16
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Update list of installed libraries in GMP.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Update to udev-201 (systemd-201).
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-03
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Fix a failure in the procps-ng test suite.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-04-01
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to Linux-3.8.5. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3320">#3320</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Upgrade to Systemd-200. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3317">#3317</a>
+                    and <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3321">#3321</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Expand tcl space for regular expressions
+                    needed for some tests.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - Disable a g++ libmudflap test that always
+                    fails.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-03-29
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Remove notes about enabling LTO support; both
+                    GCC and Binutils enable it by default now.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Add texinfo related seds to Binutils pass1
+                    and pass2 as hosts may have a new enough version of
+                    Texinfo to cause issues.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Use --disable-install-libiberty to prevent
+                    GCC from installing libiberty.a (thanks to Armin K. for
+                    the pointer). Retain the existing sed, though, as the
+                    flag doesn't work correctly yet.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Remove the now unnecessary instructions that
+                    prevented GCC's info files from being built; GCC-4.8.0
+                    contains upstream fixes.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-03-28
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Binutils-2.23.2. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3318">#3318</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Systemd-199. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3317">#3317</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Procps-NG-3.3.7. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3316">#3316</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Diffutils-3.3. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3315">#3315</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to File-5.14. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3313">#3313</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to GCC-4.8.0. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3312">#3312</a>.
+                    Thanks to Pierre Labastie for the patch on which this was
+                    based.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Linux-3.8.4. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3310">#3310</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-03-20
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Udev-lfs-198-3 to fix issues with
+                    libdrm installation in BLFS. Thanks to Nico P for the
+                    report, and to Armin for the fix.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-03-16
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Udev-lfs-198-2 to fix issues with
+                    keymap installation in BLFS.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Man-Pages-3.50. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3308">#3308</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Linux-3.8.3. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3307">#3307</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to MPFR-3.1.2. Fixes <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3306">#3306</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Dejagnu-1.5.1. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3305">#3305</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Texinfo-5.1. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3304">#3304</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-03-13
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Fix a build issue with Check-0.9.9 on some
+                    hosts by adding the "sysroot" feature to Binutils. Thanks
+                    to Billy O'Connor, Yaacov-Yoseph Weiss and Pierre
+                    Labastie for the reports, and to Pierre again for the
+                    fix.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Perl-5.16.3. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3303">#3303</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Bash-4.2.45. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3301">#3301</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Systemd-198. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3300">#3300</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Man-Pages-3.48. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3299">#3299</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Linux-3.8.2. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3297">#3297</a>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - Upgrade to Tzdata-2013b. Fixes <a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3296">#3296</a>.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-03-03
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - Remove extraneous ampersands in Kbd
+                    instructions. Thanks to Jason Daly for the report.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
               2013-03-01
             </p>
             <div class="itemizedlist">
               <ul>
                 <li>
                   <p>
-                    [bdubbs] - Upgrade to Linux-3.8.1. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3295">#3295</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-02-27
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Fix a potential test error in procps-ng.
-                    Thanks to Pierre Labastie for the patch. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3293">#3293</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-02-26
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to File-5.13. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3292">#3292</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-02-26
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [ken] - Remove the obsolete resizecons program from kbd,
-                    again.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-02-24
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to IPRoute2-3.8.0. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3291">#3291</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.8. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3290">#3290</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-02-19
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Update file name for adjusting CD-ROM rules
-                    mode in section 7.5.1.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-02-18
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to Coreutils-8.21. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3286">#3286</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to Texinfo-5.0. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3289">#3284</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to Linux-3.7.9. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3287">#3281</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-02-13
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Man-pages-3.47. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3284">#3284</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to GMP-5.1.1. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3283">#3283</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Use latest Coreutils-i18n patch from Fedora.
-                    Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3282">#3282</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.7.7. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3281">#3281</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Groff-1.22.2. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3280">#3280</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-30
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Change ncurses instructions to create and
-                    install .pc files.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-29
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Man-Pages-3.46. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3278">#3278</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.7.5. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3277">#3277</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-27
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Update to pkg-config-0.28. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3276">#3276</a>
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-25
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Revise procps-ng install instructions to place
-                    files in the proper locations.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-24
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Remove bashisms from init-functions file in
-                    the boot scripts.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-24
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to e2fsprogs-1.42.7. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3274">#3274</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-22
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to Linux-3.7.4. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3273">#3273</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-21
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to Procps-ng-3.3.6. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3095">#3095</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-20
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.7.3. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3272">#3272</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-11
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Revised explanation for /etc/modprobe.conf.
-                    Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3270">#3270</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Update udev-lfs init-net-rules.sh script for
-                    "en*" devices introduced in systemd-197.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-09
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Reformat 'Rebooting the System'
-                    recommendations.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Update udev-lfs scripts. Update to
-                    systemd-197.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2013-01-02
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Bash-4.2.42. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3268">#3268</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Groff-1.22.1. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3266">#3266</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Automake-1.13.1. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3265">#3265</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Coreutils-8.20. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3215">#3215</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-12-31
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Add patch to fix binutils test suite. All
-                    binutils tests now pass, so remove the "-k" flag from
-                    test invocation. Thanks to Pierre Labastie for the patch.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-12-30
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Kbd-1.15.5. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3239">#3239</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - All E2fsprogs tests pass now, so remove the
-                    "-k" flag from its invocation.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-12-28
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Put traceroute in /bin for consistency. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3264">#3264</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Fix the location for mounting /dev/shm inside
-                    chroot. Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3258">#3258</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Move the build of Procps to before E2fsprogs
-                    as the latter requires <span class=
-                    "command"><strong>ps</strong></span> to be available
-                    during its testsuite run.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Gettext-0.18.2. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3263">#3263</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Gawk-4.0.2. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3262">#3262</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Glibc-2.17. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3261">#3261</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Sed-4.2.2. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3260">#3260</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to GMP-5.1.0. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3259">#3259</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Tcl-8.6.0. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3257">#3257</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Man-Pages-3.45. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3256">#3256</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-12-18
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to Automake-1.12.6. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3253">#3253</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to Linux-3.7.1. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3254">#3254</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-12-16
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Util-Linux-2.22.2. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3250">#3250</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Remove a few entries from the acronym list as
-                    they are no longer referenced in the book. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3249">#3249</a>.
-                    Thanks to Chris Staub for the patch.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Bison-2.7. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3247">#3247</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-12-12
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to IPRoute2-3.7.0. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3246">#3246</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Update Check's list of installed programs.
-                    Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3245">#3245</a>.
-                    Thanks to Chris Staub for the patch.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - All of Flex's tests pass, so remove the "-k"
-                    option to its testsuite invocation. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3244">#3244</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to E2fsprogs-1.42.6. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3243">#3243</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Remove redundant --enable-addons parameter to
-                    Glibc's configure script. Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3241">#3241</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Update IRC server information. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3240">#3240</a>.
-                    Thanks to Chris Staub for the patch.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Kmod-12. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3238">#3238</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.7. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3237">#3237</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-12-03
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Fix build issues in makefile for
-                    systemd-196/udev-lfs-196.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-28
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Update makefile and instructions for
-                    systemd-196/udev-lfs-196.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-27
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.6.8. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3234">#3234</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-26
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Re-emphasize host system requirements in
-                    Chapter 5 General Compilation Instructions.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-22
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to systemd-196/udev-lfs-196. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3233">#3233</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-18
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.6.7. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3232">#3232</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Automake-1.12.5. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3231">#3231</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-14
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Tzdata-2012j. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3227">#3227</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Binutils-2.23.1. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3226">#3226</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-13
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Tcl-8.5.13. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3224">#3224</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Kmod-11. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3223">#3223</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Man-Pages-3.44. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3222">#3222</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Bison-2.6.5. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3221">#3221</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Tzdata-2012i. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3220">#3220</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.6.6. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3218">#3219</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-03
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Perl-5.16.2. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3218">#3218</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Bash-4.2.39. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3217">#3217</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-02
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Change Freshmeat.net references to Freecode.
-                    Thanks to Chris Staub for the report and patch. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3216">#3216</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Check-0.9.9. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3214">#3214</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Bison-2.6.4. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3212">#3212</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.6.5. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3211">#3211</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Tzdata-2012h. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3209">#3209</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Man-Pages-3.43. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3208">#3208</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Clean up a couple of instructions for Flex,
-                    made possible by the upgrade to Flex-2.5.37. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3206">3206</a>
-                    and <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3210">3210</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-11-01
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to systemd/lfs-udev-195. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3197">#3197</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-10-15
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Add notes to the gcc and binutils sections in
-                    Chapter 6 about "link time optimization" and the extra
-                    files built by gcc. Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3200">#3200</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Upgrade to tzdata-2012f. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3205">#3205</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Update installed program description for
-                    several packages. Thanks to Chris Staub for the patch.
-                    Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3203">#3203</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-10-14
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Remove utmpdump from sysvinit because it is
-                    now installed by util-linux. Thanks to Chris Staub for
-                    the patch. Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3202">#3202</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Change procps to not install the kill program
-                    that is now installed by util-linux. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3201">#3201</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Update to util-linux-2.22.1. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3199">#3199</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Update to linux-3.6.2. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3198">#3198</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Add boot/shutdown script customization
-                    instructions.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-10-02
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to IPRoute2-3.6.0. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3196">#3196</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.6. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3195">#3195</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Psmisc-22.20. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3194">#3194</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Patch-2.7.1. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3193">#3193</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Add a patch to allow Kmod's testsuite to pass
-                    on 32-bit systems. Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3191">#3191</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to GCC-4.7.2. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3190">#3190</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Use latest upstream fixes patch for Make,
-                    which enables WebKitGtk to build with parallel builds.
-                    Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3188">#3188</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Man-DB-2.6.3. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3187">#3187</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Libpipeline-1.2.2. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3186">#3186</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Automake-1.12.4. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3185">#3185</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Fix Flex instructions; the directory creation
-                    for its documentation is performed by the Makefile since
-                    r9999.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-09-27
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Update to systemd/udev-lfs-193. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3192">#3192</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-09-27
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Update to systemd/udev-lfs-192. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3189">#3189</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-09-16
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Patch-2.7. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3182">#3182</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to MPC-1.0.1. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3181">#3181</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Kmod-10. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3180">#3180</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Fix link to Linux User's Guide. Fixes
-                    <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3179">#3179</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Less-451. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3178">#3178</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Bash-4.2.37. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3177">#3177</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Pkg-Config-0.27.1. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3174">#3174</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [matthew] - Upgrade to Linux-3.5.4. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3173">#3173</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-09-05
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Add udevadm trigger --action=change line to
-                    udev script to support initramfs better.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-09-04
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Update grub packages and naming conventions
-                    example.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Update to util-linux-2.22. Fixes <a class=
-                    "ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3145">#3145</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-09-02
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - Add a patch to Chapter 6 glibc to fix the
-                    test-installation.pl script instead of just preventing it
-                    from running. Fixes <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3175">#3175</a>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    [bdubbs] - Update to systemd-189. Fixes <a class="ulink"
-                    href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3167">#3167</a>.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <p>
-              2012-09-01
-            </p>
-            <div class="itemizedlist">
-              <ul>
-                <li>
-                  <p>
-                    [bdubbs] - LFS-7.2 released.
+                    [bdubbs] - LFS-7.3 released.
                   </p>
                 </li>
               </ul>
@@ -1345,7 +1312,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

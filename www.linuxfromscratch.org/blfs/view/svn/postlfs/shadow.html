@@ -12,25 +12,25 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="polkit.html" title="Polkit-0.110">Prev</a>
+          <a accesskey="p" href="polkit.html" title="Polkit-0.111">Prev</a>
           <p>
-            Polkit-0.110
+            Polkit-0.111
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="stunnel.html" title="stunnel-4.54">Next</a>
+          <a accesskey="n" href="stunnel.html" title="stunnel-4.56">Next</a>
           <p>
-            stunnel-4.54
+            stunnel-4.56
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -66,7 +66,7 @@
           "command"><strong>su</strong></span> to utilize PAM.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -111,8 +111,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="linux-pam.html" title=
-          "Linux-PAM-1.1.6">Linux-PAM-1.1.6</a> or <a class="xref" href=
-          "cracklib.html" title="CrackLib-2.8.22">CrackLib-2.8.22</a>
+          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a> or <a class="xref" href=
+          "cracklib.html" title="CrackLib-2.9.0">CrackLib-2.9.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -297,7 +297,7 @@ mv -v /usr/bin/passwd /bin</kbd>
             will work effectively with <span class=
             "application">Linux-PAM</span>. Review the information and links
             on the <a class="xref" href="linux-pam.html" title=
-            "Linux-PAM-1.1.6">Linux-PAM-1.1.6</a> page for further
+            "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a> page for further
             configuration information. For information specific to
             integrating <span class="application">Shadow</span>, <span class=
             "application">Linux-PAM</span> and <span class=
@@ -365,7 +365,7 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2717139" name="id2717139"></a>Configuring the
+                    <a id="id2839258" name="id2839258"></a>Configuring the
                     /etc/pam.d/ Files
                   </h5>
                 </div>
@@ -396,7 +396,7 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2716192" name="id2716192"></a>'system-account'
+                    <a id="id2880463" name="id2880463"></a>'system-account'
                   </h5>
                 </div>
               </div>
@@ -416,7 +416,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2702319" name="id2702319"></a>'system-auth'
+                    <a id="id2903645" name="id2903645"></a>'system-auth'
                   </h5>
                 </div>
               </div>
@@ -436,7 +436,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2580165" name="id2580165"></a>'system-passwd'
+                    <a id="id2834844" name="id2834844"></a>'system-passwd'
                     (with cracklib)
                   </h5>
                 </div>
@@ -479,7 +479,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2817106" name="id2817106"></a>'system-passwd'
+                    <a id="id2814987" name="id2814987"></a>'system-passwd'
                     (without cracklib)
                   </h5>
                 </div>
@@ -502,7 +502,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2754696" name="id2754696"></a>'system-session'
+                    <a id="id2792685" name="id2792685"></a>'system-session'
                   </h5>
                 </div>
               </div>
@@ -522,7 +522,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2707386" name="id2707386"></a>'login'
+                    <a id="id2774692" name="id2774692"></a>'login'
                   </h5>
                 </div>
               </div>
@@ -582,7 +582,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2612883" name="id2612883"></a>'passwd'
+                    <a id="id2805149" name="id2805149"></a>'passwd'
                   </h5>
                 </div>
               </div>
@@ -602,7 +602,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2666568" name="id2666568"></a>'su'
+                    <a id="id2850427" name="id2850427"></a>'su'
                   </h5>
                 </div>
               </div>
@@ -633,7 +633,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2653055" name="id2653055"></a>'chage'
+                    <a id="id2801282" name="id2801282"></a>'chage'
                   </h5>
                 </div>
               </div>
@@ -662,7 +662,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2758944" name="id2758944"></a>'chfn',
+                    <a id="id2736623" name="id2736623"></a>'chfn',
                     'chgpasswd', 'chgpasswd', 'chsh', 'groupadd', 'groupdel',
                     'groupmems', 'groupmod', 'newusers', 'useradd', 'userdel'
                     and 'usermod'
@@ -713,7 +713,7 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2751290" name="id2751290"></a>Other
+                    <a id="id2696435" name="id2696435"></a>Other
                   </h5>
                 </div>
               </div>
@@ -809,21 +809,21 @@ EOF</kbd>
         </p>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-08-23 10:32:24 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="polkit.html" title="Polkit-0.110">Prev</a>
+          <a accesskey="p" href="polkit.html" title="Polkit-0.111">Prev</a>
           <p>
-            Polkit-0.110
+            Polkit-0.111
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="stunnel.html" title="stunnel-4.54">Next</a>
+          <a accesskey="n" href="stunnel.html" title="stunnel-4.56">Next</a>
           <p>
-            stunnel-4.54
+            stunnel-4.56
           </p>
         </li>
         <li class="up">
@@ -832,7 +832,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

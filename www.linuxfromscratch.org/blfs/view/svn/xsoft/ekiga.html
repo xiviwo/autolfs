@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;37.&nbsp;Other X-based Programs
+        Chapter&nbsp;36.&nbsp;Other X-based Programs
       </h3>
       <ul>
         <li class="prev">
@@ -28,18 +28,18 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gimp.html" title="Gimp-2.8.4">Next</a>
+          <a accesskey="n" href="gimp.html" title="Gimp-2.8.6">Next</a>
           <p>
-            Gimp-2.8.4
+            Gimp-2.8.6
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="other.html" title=
-          "Chapter&nbsp;37.&nbsp;Other X-based Programs">Up</a>
+          "Chapter&nbsp;36.&nbsp;Other X-based Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -61,7 +61,7 @@
           support both H.323 and SIP, as well as audio and video.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -113,12 +113,10 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/boost.html" title=
-          "Boost-1.53.0">Boost-1.53.0</a>, <a class="xref" href=
-          "../general/dbus-bindings.html#dbus-glib" title=
-          "D-Bus GLib Bindings">D-Bus GLib Bindings-0.100.2</a>, <a class=
-          "xref" href="../gnome/gnome-icon-theme.html" title=
-          "gnome-icon-theme-3.6.2">gnome-icon-theme-3.6.2</a>, <a class=
-          "xref" href="../x/gtk2.html" title="GTK+-2.24.17">GTK+-2.24.17</a>
+          "Boost-1.54.0">Boost-1.54.0</a>, <a class="xref" href=
+          "../gnome/gnome-icon-theme.html" title=
+          "gnome-icon-theme-3.8.3">gnome-icon-theme-3.8.3</a>, <a class=
+          "xref" href="../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>
           and <a class="xref" href="../multimedia/opal.html" title=
           "Opal-3.10.10">Opal-3.10.10</a>
         </p>
@@ -126,22 +124,23 @@
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="../gnome/GConf.html" title=
-          "GConf-3.2.6">GConf-3.2.6</a> and <a class="xref" href=
-          "../x/libnotify.html" title="libnotify-0.7.5">libnotify-0.7.5</a>
+          <a class="xref" href="../general/dbus-glib.html" title=
+          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
+          "../gnome/GConf.html" title="GConf-3.2.6">GConf-3.2.6</a> and
+          <a class="xref" href="../x/libnotify.html" title=
+          "libnotify-0.7.6">libnotify-0.7.6</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../basicnet/avahi.html" title=
-          "Avahi-0.6.31">Avahi-0.6.31</a>, <a class="xref" href=
-          "../gnome/evolution-data-server.html" title=
-          "evolution-data-server-3.6.4">evolution-data-server-3.6.4</a>,
-          <a class="xref" href="../gnome/gnome-doc-utils.html" title=
-          "gnome-doc-utils-0.20.10">gnome-doc-utils-0.20.10</a> and <a class=
-          "xref" href="../server/openldap.html" title=
-          "OpenLDAP-2.4.35">OpenLDAP-2.4.35</a>
+          "Avahi-0.6.31">Avahi-0.6.31</a>, <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/">Evolution
+          Data Server</a>, <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/gnome-doc-utils/">GNOME Doc
+          Utils</a> and <a class="xref" href="../server/openldap.html" title=
+          "OpenLDAP-2.4.36">OpenLDAP-2.4.36</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -203,6 +202,11 @@ make</kbd>
           Scrollkeeper database.
         </p>
         <p>
+          <code class="option">--disable-dbus</code>: This switch disables
+          <span class="application">D-Bus</span> support. Use if you have not
+          installed <span class="application">D-Bus</span>.
+        </p>
+        <p>
           <code class="option">--enable-avahi</code>: This switch enables use
           of the <span class="application">Avahi</span> with <span class=
           "application">Ekiga</span>. Use if you have installed <span class=
@@ -218,7 +222,7 @@ make</kbd>
             additional switches passed to <span class=
             "command"><strong>configure</strong></span>. Examine <span class=
             "command"><strong>./configure --help</strong></span> output to
-            see all avaliable switches.
+            see all available switches.
           </p>
         </div>
       </div>
@@ -273,7 +277,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-03 15:30:53 +0000
+        Last updated on 2013-09-07 15:40:02 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -285,18 +289,18 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gimp.html" title="Gimp-2.8.4">Next</a>
+          <a accesskey="n" href="gimp.html" title="Gimp-2.8.6">Next</a>
           <p>
-            Gimp-2.8.4
+            Gimp-2.8.6
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="other.html" title=
-          "Chapter&nbsp;37.&nbsp;Other X-based Programs">Up</a>
+          "Chapter&nbsp;36.&nbsp;Other X-based Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

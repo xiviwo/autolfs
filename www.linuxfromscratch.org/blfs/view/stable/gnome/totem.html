@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Totem-3.8.2
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;31.&nbsp;GNOME Applications
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="seahorse.html" title=
+          "Seahorse-3.9.91">Prev</a>
+          <p>
+            Seahorse-3.9.91
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../xfce/xfce.html" title="Xfce">Next</a>
+          <p>
+            Xfce
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="applications.html" title=
+          "Chapter&nbsp;31.&nbsp;GNOME Applications">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="totem" name="totem"></a>Totem-3.8.2
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Totem
+        </h2>
+        <p>
+          <span class="application">Totem</span> package contains the
+          official movie player of the <span class="application">GNOME</span>
+          Desktop based on <span class="application">GStreamer</span>. It
+          features a playlist, a full-screen mode, seek and volume controls,
+          as well as keyboard navigation. This is useful for playing any
+          <span class="application">GStreamer</span> supported file, DVD, VCD
+          or digital CD.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/totem/3.8/totem-3.8.2.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/totem/3.8/totem-3.8.2.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/totem/3.8/totem-3.8.2.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/totem/3.8/totem-3.8.2.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: a7b332a6d3bb475e425fcb3bc45affee
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 3.1 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 80 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.8 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Totem Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../x/clutter-gst2.html" title=
+          "clutter-gst-2.0.6">clutter-gst-2.0.6</a>, <a class="xref" href=
+          "../x/clutter-gtk.html" title=
+          "clutter-gtk-1.4.4">clutter-gtk-1.4.4</a>, <a class="xref" href=
+          "gnome-icon-theme.html" title=
+          "gnome-icon-theme-3.8.3">gnome-icon-theme-3.8.3</a>, <a class=
+          "xref" href="../multimedia/gst10-plugins-bad.html" title=
+          "gst-plugins-bad-1.0.10">gst-plugins-bad-1.0.10</a>, <a class=
+          "xref" href="../multimedia/gst10-plugins-good.html" title=
+          "gst-plugins-good-1.0.10">gst-plugins-good-1.0.10</a>, <a class=
+          "xref" href="libpeas.html" title="libpeas-1.8.1">libpeas-1.8.1</a>,
+          <a class="xref" href="totem-pl-parser.html" title=
+          "totem-pl-parser-3.4.5">totem-pl-parser-3.4.5</a> and <a class=
+          "xref" href="yelp-xsl.html" title=
+          "yelp-xsl-3.8.1">yelp-xsl-3.8.1</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/dbus-glib.html" title=
+          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
+          "../multimedia/grilo.html" title="Grilo-0.2.6">Grilo-0.2.6</a>,
+          <a class="xref" href="nautilus.html" title=
+          "Nautilus-3.8.2">Nautilus-3.8.2</a>, <a class="xref" href=
+          "../general/python-modules.html#pygobject3" title=
+          "PyGObject-3.8.3">PyGObject-3.8.3</a> and <a class="xref" href=
+          "../general/vala.html" title="Vala-0.20.1">Vala-0.20.1</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "http://live.gnome.org/Grilo/">grilo-plugins</a>, <a class="xref"
+          href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a>, <a class="xref" href=
+          "../general/libzeitgeist.html" title=
+          "libzeitgeist-0.3.18">libzeitgeist-0.3.18</a>, <a class="ulink"
+          href="http://www.lirc.org">LIRC</a>, <a class="ulink" href=
+          "http://pypi.python.org/pypi/pylint">pylint</a> and <a class="xref"
+          href="../x/xulrunner.html" title=
+          "Xulrunner-23.0.1">Xulrunner-23.0.1</a>
+        </p>
+        <h4>
+          Recommended (Runtime)
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../multimedia/gst10-libav.html" title=
+          "gst-libav-1.0.10">gst-libav-1.0.10</a>, <a class="xref" href=
+          "../multimedia/gst10-plugins-ugly.html" title=
+          "gst-plugins-ugly-1.0.10">gst-plugins-ugly-1.0.10</a> and <a class=
+          "xref" href="../multimedia/libdvdcss.html" title=
+          "libdvdcss-1.2.13">libdvdcss-1.2.13</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/totem">http://wiki.linuxfromscratch.org/blfs/wiki/totem</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Totem
+        </h2>
+        <p>
+          Install <span class="application">Totem</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr \
+            --libexecdir=/usr/lib/totem \
+            --disable-static &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a testsuite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <span class="application">GTK-Doc</span> is installed and you wish
+          to rebuild and install the API documentation.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">totem, totem-audio-preview and
+              totem-video-thumbnailer</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Library:</strong>
+              <span class="segbody">libtotem.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/totem, /usr/lib/totem,
+              /usr/share/gtk-doc/html/totem, /usr/share/help/*/totem and
+              /usr/share/totem</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="totem-prog" name="totem-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>totem</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a <span class="application">GNOME</span> Desktop movie
+                    player based on <span class=
+                    "application">GStreamer</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="totem-video-thumbnailer" name=
+                    "totem-video-thumbnailer"></a><span class=
+                    "term"><span class=
+                    "command"><strong>totem-video-thumbnailer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a video thumbnailer for the <span class=
+                    "application">GNOME</span> Desktop used internally by
+                    <span class="application">GNOME</span> applications such
+                    as <span class="application">Nautilus</span> to generate
+                    PNG thumbnails of video files. While it is possible to
+                    invoke it manually, it is usually done automatically by
+                    <span class="application">Nautilus</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libtotem" name="libtotem"></a><span class=
+                    "term"><code class="filename">libtotem.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the <span class="application">Totem</span> API
+                    functions.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-10 13:27:47 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="seahorse.html" title=
+          "Seahorse-3.9.91">Prev</a>
+          <p>
+            Seahorse-3.9.91
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../xfce/xfce.html" title="Xfce">Next</a>
+          <p>
+            Xfce
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="applications.html" title=
+          "Chapter&nbsp;31.&nbsp;GNOME Applications">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

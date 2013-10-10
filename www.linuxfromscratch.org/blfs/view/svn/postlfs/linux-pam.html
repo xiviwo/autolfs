@@ -5,34 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Linux-PAM-1.1.6
+      Linux-PAM-1.1.7
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libpwquality.html" title=
-          "libpwquality-1.2.1">Prev</a>
+          <a accesskey="p" href="libcap2.html" title="libcap2-2.22">Prev</a>
           <p>
-            libpwquality-1.2.1
+            libcap2-2.22
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="mitkrb.html" title=
-          "MIT Kerberos V5-1.11.2">Next</a>
+          "MIT Kerberos V5-1.11.3">Next</a>
           <p>
-            MIT Kerberos V5-1.11.2
+            MIT Kerberos V5-1.11.3
           </p>
         </li>
         <li class="up">
@@ -41,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="linux-pam" name="linux-pam"></a>Linux-PAM-1.1.6
+        <a id="linux-pam" name="linux-pam"></a>Linux-PAM-1.1.7
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,8 +58,8 @@
           administrator to choose how applications authenticate users.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
-          platform.
+          This package is known to build using an LFS 7.4 platform but has
+          not been tested.
         </p>
         <h3>
           Package Information
@@ -70,12 +69,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://linux-pam.org/library/Linux-PAM-1.1.6.tar.bz2">http://linux-pam.org/library/Linux-PAM-1.1.6.tar.bz2</a>
+                "http://linux-pam.org/library/Linux-PAM-1.1.7.tar.bz2">http://linux-pam.org/library/Linux-PAM-1.1.7.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 7b73e58b7ce79ffa321d408de06db2c4
+                Download MD5 sum: 9f90888cd22212a6b5af2920f4eaaf1b
               </p>
             </li>
             <li>
@@ -85,7 +84,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 28 MB
+                Estimated disk space required: 36 MB
               </p>
             </li>
             <li>
@@ -106,18 +105,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://linux-pam.org/documentation/Linux-PAM-1.1.6-docs.tar.bz2">
-                http://linux-pam.org/documentation/Linux-PAM-1.1.6-docs.tar.bz2</a>
+                "http://linux-pam.org/documentation/Linux-PAM-1.1.7-docs.tar.bz2">
+                http://linux-pam.org/documentation/Linux-PAM-1.1.7-docs.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 43d19ccf40c1feb074e29922626f4971
+                Download MD5 sum: 808054213e884e69e3f7045d80700da1
               </p>
             </li>
             <li>
               <p>
-                Download size 144 KB
+                Download size 152 KB
               </p>
             </li>
           </ul>
@@ -130,8 +129,8 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../server/db.html" title=
-          "Berkeley DB-5.3.21">Berkeley DB-5.3.21</a>, <a class="xref" href=
-          "cracklib.html" title="CrackLib-2.8.22">CrackLib-2.8.22</a>,
+          "Berkeley DB-6.0.20">Berkeley DB-6.0.20</a>, <a class="xref" href=
+          "cracklib.html" title="CrackLib-2.9.0">CrackLib-2.9.0</a>,
           <a class="xref" href="../basicnet/libtirpc.html" title=
           "libtirpc-0.2.3">libtirpc-0.2.3</a> and <a class="ulink" href=
           "http://www.prelude-ids.org/">Prelude</a>
@@ -143,7 +142,7 @@
           <a class="xref" href="../pst/DocBook.html" title=
           "docbook-xml-4.5">docbook-xml-4.5</a>, <a class="xref" href=
           "../pst/docbook-xsl.html" title=
-          "docbook-xsl-1.77.1">docbook-xsl-1.77.1</a>, <a class="xref" href=
+          "docbook-xsl-1.78.1">docbook-xsl-1.78.1</a>, <a class="xref" href=
           "../pst/fop.html" title="fop-1.1">fop-1.1</a>, <a class="xref"
           href="../general/libxslt.html" title=
           "libxslt-1.1.28">libxslt-1.1.28</a> and <a class="xref" href=
@@ -164,7 +163,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">tar -xf ../Linux-PAM-1.1.6-docs.tar.bz2 --strip-components=1</kbd>
+"command">tar -xf ../Linux-PAM-1.1.7-docs.tar.bz2 --strip-components=1</kbd>
 </pre>
         <p>
           Install <span class="application">Linux PAM</span> by running the
@@ -173,7 +172,7 @@
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/Linux-PAM-1.1.6 \
+            --docdir=/usr/share/doc/Linux-PAM-1.1.7 \
             --disable-nis &amp;&amp;
 make</kbd>
 </pre>
@@ -310,7 +309,7 @@ password        required        pam_unix.so     nullok
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/security, /lib/security,
-              /usr/include/security and /usr/share/doc/Linux-PAM-1.1.6</span>
+              /usr/include/security and /usr/share/doc/Linux-PAM-1.1.7</span>
             </div>
           </div>
         </div>
@@ -430,23 +429,22 @@ password        required        pam_unix.so     nullok
         </div>
       </div>
       <p class="updated">
-        Last updated on 2012-09-23 20:08:11 +0000
+        Last updated on 2013-09-13 03:08:10 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libpwquality.html" title=
-          "libpwquality-1.2.1">Prev</a>
+          <a accesskey="p" href="libcap2.html" title="libcap2-2.22">Prev</a>
           <p>
-            libpwquality-1.2.1
+            libcap2-2.22
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="mitkrb.html" title=
-          "MIT Kerberos V5-1.11.2">Next</a>
+          "MIT Kerberos V5-1.11.3">Next</a>
           <p>
-            MIT Kerberos V5-1.11.2
+            MIT Kerberos V5-1.11.3
           </p>
         </li>
         <li class="up">
@@ -455,7 +453,7 @@ password        required        pam_unix.so     nullok
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

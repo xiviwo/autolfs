@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
@@ -37,11 +37,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           data.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -104,12 +104,12 @@
         </h4>
         <p class="optional">
           <a class="xref" href="alsa-lib.html" title=
-          "alsa-lib-1.0.27">alsa-lib-1.0.27</a>, <a class="xref" href=
-          "flac.html" title="FLAC-1.2.1">FLAC-1.2.1</a>, <a class="xref"
-          href="libogg.html" title="libogg-1.3.0">libogg-1.3.0</a>, <a class=
+          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
+          "flac.html" title="FLAC-1.3.0">FLAC-1.3.0</a>, <a class="xref"
+          href="libogg.html" title="libogg-1.3.1">libogg-1.3.1</a>, <a class=
           "xref" href="libvorbis.html" title=
           "libvorbis-1.3.3">libvorbis-1.3.3</a> and <a class="xref" href=
-          "../server/sqlite.html" title="SQLite-3.7.16.2">SQLite-3.7.16.2</a>
+          "../server/sqlite.html" title="SQLite-3.8.0.2">SQLite-3.8.0.2</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -125,7 +125,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -139,6 +139,15 @@ make</kbd>
 <kbd class=
 "command">make htmldocdir=/usr/share/doc/libsndfile-1.0.25 install</kbd>
 </pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -303,7 +312,7 @@ make</kbd>
                   <p>
                     <a id="libsndfile-lib" name=
                     "libsndfile-lib"></a><span class="term"><code class=
-                    "filename">libsndfile.{so,a}</code></span>
+                    "filename">libsndfile.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -318,7 +327,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-28 00:12:39 +0000
+        Last updated on 2013-08-21 01:40:33 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -339,11 +348,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

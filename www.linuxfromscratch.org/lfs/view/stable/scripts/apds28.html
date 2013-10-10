@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130123
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
       </h3>
       <ul>
         <li class="prev">
@@ -37,12 +37,12 @@
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130123">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
@@ -97,6 +97,12 @@ case "${TYPE}" in
    ;;
 esac
 
+if [ -n "${GATEWAY}" ]; then
+   MSG="The GATEWAY variable cannot be set in ${IFCONFIG} for static routes.\n"
+   log_failure_msg "$MSG Use STATIC_GATEWAY only, cannot continue"
+   exit 1
+fi
+
 if [ -n "${need_ip}" ]; then
    if [ -z "${IP}" ]; then
       log_failure_msg "IP variable missing from ${IFCONFIG}, cannot continue."
@@ -113,11 +119,11 @@ if [ -n "${need_ip}" ]; then
 fi
 
 if [ -n "${need_gateway}" ]; then
-   if [ -z "${GATEWAY}" ]; then
-      log_failure_msg "GATEWAY variable missing from ${IFCONFIG}, cannot continue."
+   if [ -z "${STATIC_GATEWAY}" ]; then
+      log_failure_msg "STATIC_GATEWAY variable missing from ${IFCONFIG}, cannot continue."
       exit 1
    fi
-   args="${args} via ${GATEWAY}"
+   args="${args} via ${STATIC_GATEWAY}"
 fi
 
 if [ -n "${SOURCE}" ]; then
@@ -164,12 +170,12 @@ esac
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130123">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

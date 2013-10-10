@@ -12,19 +12,20 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;23.&nbsp;Other Server Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="soprano.html" title="Soprano-2.9.1">Prev</a>
+          <a accesskey="p" href="virtuoso.html" title=
+          "Virtuoso-6.1.7">Prev</a>
           <p>
-            Soprano-2.9.1
+            Virtuoso-6.1.7
           </p>
         </li>
         <li class="next">
@@ -40,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -57,17 +58,15 @@
           services daemon, a secure replacement for <span class=
           "command"><strong>inetd</strong></span>.
         </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
         <h3>
           Package Information
         </h3>
         <div class="itemizedlist">
           <ul class="compact">
-            <li>
-              <p>
-                Download (HTTP): <a class="ulink" href=
-                "http://www.xinetd.org/xinetd-2.3.15.tar.gz">http://www.xinetd.org/xinetd-2.3.15.tar.gz</a>
-              </p>
-            </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
@@ -132,6 +131,7 @@
 <kbd class=
 "command">sed -i -e "/^LIBS/s/-lpset/&amp; -ltirpc/" xinetd/Makefile.in       &amp;&amp;
 sed -i -e "/register unsigned count/s/register//" xinetd/itox.c &amp;&amp;
+
 ./configure --prefix=/usr --with-loadavg                        &amp;&amp;
 make</kbd>
 </pre>
@@ -378,7 +378,7 @@ EOF</kbd>
             <code class="filename">/etc/rc.d/init.d/xinetd</code> init script
             included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130505</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-xinetd</kbd>
@@ -479,15 +479,16 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-09-06 17:46:32 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="soprano.html" title="Soprano-2.9.1">Prev</a>
+          <a accesskey="p" href="virtuoso.html" title=
+          "Virtuoso-6.1.7">Prev</a>
           <p>
-            Soprano-2.9.1
+            Virtuoso-6.1.7
           </p>
         </li>
         <li class="next">
@@ -503,7 +504,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

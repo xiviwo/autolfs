@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Fuse-2.9.3
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;5.&nbsp;File Systems and Disk Management
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="initramfs.html" title=
+          "About initramfs">Prev</a>
+          <p>
+            About initramfs
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="jfsutils.html" title=
+          "jfsutils-1.1.15">Next</a>
+          <p>
+            jfsutils-1.1.15
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="filesystems.html" title=
+          "Chapter&nbsp;5.&nbsp;File Systems and Disk Management">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="fuse" name="fuse"></a>Fuse-2.9.3
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Fuse
+        </h2>
+        <p>
+          <span class="application">FUSE</span> (Filesystem in Userspace) is
+          a simple interface for userspace programs to export a virtual
+          filesystem to the Linux kernel. <span class=
+          "application">Fuse</span> also aims to provide a secure method for
+          non privileged users to create and mount their own filesystem
+          implementations.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://downloads.sourceforge.net/fuse/fuse-2.9.3.tar.gz">http://downloads.sourceforge.net/fuse/fuse-2.9.3.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 33cae22ca50311446400daf8a6255c6a
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 564 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 9.5 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/fuse">http://wiki.linuxfromscratch.org/blfs/wiki/fuse</a>
+        </p>
+      </div>
+      <div class="kernel" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="fuse-kernel" name="fuse-kernel"></a>Kernel Configuration
+        </h2>
+        <p>
+          Enable the following options in the kernel configuration and
+          recompile the kernel if necessary:
+        </p>
+        <pre class="screen">
+<code class="literal">File systems  ---&gt;
+  [*] FUSE (Filesystem in Userspace) support</code>
+</pre>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Fuse
+        </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            After the <span class="command"><strong>configure</strong></span>
+            script has finished you will see a warning shown below. You can
+            safely disregard this warning.
+          </p>
+          <pre class="screen">
+<code class="computeroutput">configure: WARNING:
+******************************************************************
+* Please install util-linux version 2.18 or later which supports *
+* --fake and --no-canonicalize options in mount and umount       *
+******************************************************************</code>
+</pre>
+        </div>
+        <p>
+          Install <span class="application">Fuse</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">./configure --prefix=/usr --disable-static INIT_D_PATH=/tmp/init.d &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          If you have <a class="xref" href="../general/doxygen.html" title=
+          "Doxygen-1.8.5">Doxygen-1.8.5</a> installed and wish to build the
+          API documentation, issue <span class="command"><strong>doxygen
+          doc/Doxyfile</strong></span>.
+        </p>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+
+mv -v   /usr/lib/libfuse.so.* /lib &amp;&amp;
+ln -sfv ../../lib/libfuse.so.2.9.3 /usr/lib/libfuse.so &amp;&amp;
+rm -rf  /tmp/init.d &amp;&amp;
+
+install -v -m755 -d /usr/share/doc/fuse-2.9.3 &amp;&amp;
+install -v -m644    doc/{how-fuse-works,kernel.txt} \
+                    /usr/share/doc/fuse-2.9.3</kbd>
+</pre>
+        <p>
+          If you built the API documentation, install it as the <code class=
+          "systemitem">root</code> user by issuing the following commands:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">install -v -m755 -d /usr/share/doc/fuse-2.9.3/api &amp;&amp;
+install -v -m644    doc/html/* \
+                    /usr/share/doc/fuse-2.9.3/api</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <em class="parameter"><code>INIT_D_PATH=/tmp/init.d</code></em>:
+          This parameter installs the bootscript into <code class=
+          "filename">/tmp/init.d</code> as a bootscript is not required.
+        </p>
+        <p>
+          <span class="command"><strong>mv -v /usr/lib/libfuse.so.*
+          /lib</strong></span>: This moves the <span class=
+          "application">FUSE</span> library to the root filesystem so that it
+          is available early in the boot process in case <code class=
+          "filename">/usr</code> is mounted on a separate partition and
+          <a class="xref" href="ntfs-3g.html" title=
+          "ntfs-3g-2013.1.13">ntfs-3g-2013.1.13</a> is built with a
+          system-installed version of <span class="application">FUSE</span>.
+        </p>
+        <p>
+          <span class="command"><strong>rm -rf /tmp/init.d</strong></span>:
+          This removes the unneeded bootscript.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring fuse
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="fuse-config" name="fuse-config"></a>Config Files
+          </h3>
+          <p>
+            Some options regarding mount policy can be set in the file
+            <code class="filename">/etc/fuse.conf</code>. To install the file
+            run the following command as the <code class=
+            "systemitem">root</code> user:
+          </p>
+          <pre class="root">
+<kbd class="command">cat &gt; /etc/fuse.conf &lt;&lt; "EOF"
+# Set the maximum number of FUSE mounts allowed to non-root users.
+# The default is 1000.
+#
+#mount_max = 1000
+
+# Allow non-root users to specify the 'allow_other' or 'allow_root'
+# mount options.
+#
+#user_allow_other
+EOF</kbd>
+</pre>
+          <p>
+            Additional information about the meaning of the configuration
+            options are found in the man page.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">fusermount, mount.fuse, and
+              ulockmgr_server</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libfuse.so and libulockmgr.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directory:</strong>
+              <span class="segbody">/usr/include/fuse</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fusermount" name="fusermount"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fusermount</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a set users ID root program to mount and unmount Fuse
+                    filesystems.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mount.fuse" name="mount.fuse"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mount.fuse</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the command <span class=
+                    "command"><strong>mount</strong></span> would call to
+                    mount a Fuse filesystem.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ulockmgr_server" name=
+                    "ulockmgr_server"></a><span class="term"><span class=
+                    "command"><strong>ulockmgr_server</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Userspace Lock Manager Server for Fuse
+                    filesystems.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libfuse" name="libfuse"></a><span class=
+                    "term"><code class="filename">libfuse.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the <span class="application">FUSE</span> API
+                    functions.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libulockmgr" name="libulockmgr"></a><span class=
+                    "term"><code class=
+                    "filename">libulockmgr.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the Userspace Lock Manager API functions.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-08-22 04:10:10 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="initramfs.html" title=
+          "About initramfs">Prev</a>
+          <p>
+            About initramfs
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="jfsutils.html" title=
+          "jfsutils-1.1.15">Next</a>
+          <p>
+            jfsutils-1.1.15
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="filesystems.html" title=
+          "Chapter&nbsp;5.&nbsp;File Systems and Disk Management">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

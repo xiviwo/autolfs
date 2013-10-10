@@ -5,33 +5,34 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.8.&nbsp;Binutils-2.23.1 - Pass 2
+      5.9.&nbsp;Binutils-2.23.2 - Pass 2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glibc.html" title="Glibc-2.17">Prev</a>
+          <a accesskey="p" href="gcc-libstdc++.html" title=
+          "Libstdc++-4.8.1">Prev</a>
           <p>
-            Glibc-2.17
+            Libstdc++-4.8.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gcc-pass2.html" title=
-          "GCC-4.7.2 - Pass 2">Next</a>
+          "GCC-4.8.1 - Pass 2">Next</a>
           <p>
-            GCC-4.7.2 - Pass 2
+            GCC-4.8.1 - Pass 2
           </p>
         </li>
         <li class="up">
@@ -40,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-tools-binutils-pass2" name=
-        "ch-tools-binutils-pass2"></a>5.8. Binutils-2.23.1 - Pass 2
+        "ch-tools-binutils-pass2"></a>5.9. Binutils-2.23.2 - Pass 2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -62,15 +63,23 @@
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">407 MB</span>
+              <span class="segbody">417 MB</span>
             </div>
           </div>
         </div>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          5.8.1. Installation of Binutils
+          5.9.1. Installation of Binutils
         </h2>
+        <p>
+          Fix a couple of syntax errors that prevent the documentation from
+          building with Texinfo-5.1:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i -e 's/@colophon/@@colophon/' \
+       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo</kbd>
+</pre>
         <p>
           Create a separate build directory again:
         </p>
@@ -82,13 +91,14 @@ cd ../binutils-build</kbd>
           Prepare Binutils for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">CC=$LFS_TGT-gcc            \
-AR=$LFS_TGT-ar             \
-RANLIB=$LFS_TGT-ranlib     \
-../binutils-2.23.1/configure \
-    --prefix=/tools        \
-    --disable-nls          \
-    --with-lib-path=/tools/lib</kbd>
+<kbd class="command">CC=$LFS_TGT-gcc                \
+AR=$LFS_TGT-ar                 \
+RANLIB=$LFS_TGT-ranlib         \
+../binutils-2.23.2/configure   \
+    --prefix=/tools            \
+    --disable-nls              \
+    --with-lib-path=/tools/lib \
+    --with-sysroot</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
@@ -118,6 +128,18 @@ RANLIB=$LFS_TGT-ranlib     \
                 <code class="filename">/tools/lib</code> being passed to the
                 linker. This prevents the linker from searching through
                 library directories on the host.
+              </p>
+            </dd>
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--with-sysroot</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                The sysroot feature enables the linker to find shared objects
+                which are required by other shared objects explicitly
+                included on the linker's command line. Without this, some
+                packages may not build successfully on some hosts.
               </p>
             </dd>
           </dl>
@@ -188,16 +210,17 @@ cp -v ld/ld-new /tools/bin</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glibc.html" title="Glibc-2.17">Prev</a>
+          <a accesskey="p" href="gcc-libstdc++.html" title=
+          "Libstdc++-4.8.1">Prev</a>
           <p>
-            Glibc-2.17
+            Libstdc++-4.8.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gcc-pass2.html" title=
-          "GCC-4.7.2 - Pass 2">Next</a>
+          "GCC-4.8.1 - Pass 2">Next</a>
           <p>
-            GCC-4.7.2 - Pass 2
+            GCC-4.8.1 - Pass 2
           </p>
         </li>
         <li class="up">
@@ -206,7 +229,7 @@ cp -v ld/ld-new /tools/bin</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

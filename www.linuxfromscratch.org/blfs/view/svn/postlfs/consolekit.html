@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="cracklib.html" title=
-          "CrackLib-2.8.22">Next</a>
+          "CrackLib-2.9.0">Next</a>
           <p>
-            CrackLib-2.8.22
+            CrackLib-2.9.0
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -61,7 +61,7 @@
           associated with them.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -105,19 +105,18 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="acl.html" title="acl-2.2.51">acl-2.2.51</a>,
-          <a class="xref" href="../general/dbus-bindings.html#dbus-glib"
-          title="D-Bus GLib Bindings">D-Bus GLib Bindings-0.100.2</a> and
-          <a class="xref" href="../x/x7lib.html" title="Xorg Libraries">Xorg
-          Libraries</a>
+          <a class="xref" href="acl.html" title="acl-2.2.52">acl-2.2.52</a>,
+          <a class="xref" href="../general/dbus-glib.html" title=
+          "dbus-glib-0.100.2">dbus-glib-0.100.2</a> and <a class="xref" href=
+          "../x/x7lib.html" title="Xorg Libraries">Xorg Libraries</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="linux-pam.html" title=
-          "Linux-PAM-1.1.6">Linux-PAM-1.1.6</a> and <a class="xref" href=
-          "polkit.html" title="Polkit-0.110">Polkit-0.110</a>
+          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a> and <a class="xref" href=
+          "polkit.html" title="Polkit-0.111">Polkit-0.111</a>
         </p>
         <div class="admon warning">
           <img alt="[Warning]" src="../images/warning.png" />
@@ -152,12 +151,13 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr \
-            --sysconfdir=/etc \
+<kbd class="command">
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
             --localstatedir=/var \
-            --libexecdir=/usr/lib/ConsoleKit \
-            --enable-udev-acl \
-            --enable-pam-module &amp;&amp;
+            --enable-udev-acl    \
+            --enable-pam-module  \
+            --libexecdir=/usr/lib/ConsoleKit &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -286,7 +286,7 @@ chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-08-22 22:40:33 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -300,9 +300,9 @@ chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="cracklib.html" title=
-          "CrackLib-2.8.22">Next</a>
+          "CrackLib-2.9.0">Next</a>
           <p>
-            CrackLib-2.8.22
+            CrackLib-2.9.0
           </p>
         </li>
         <li class="up">
@@ -311,7 +311,7 @@ chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Notes on Building Software
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Important Information
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="important.html" title=
+          "Important Information">Prev</a>
+          <p>
+            Important Information
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="position.html" title=
+          "The /usr Versus /usr/local Debate">Next</a>
+          <p>
+            The /usr Versus /usr/local Debate
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="important.html" title=
+          "Chapter&nbsp;2.&nbsp;Important Information">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="unpacking" name="unpacking"></a>Notes on Building Software
+      </h1>
+      <p>
+        Those people who have built an LFS system may be aware of the general
+        principles of downloading and unpacking software. Some of that
+        information is repeated here for those new to building their own
+        software.
+      </p>
+      <p>
+        Each set of installation instructions contains a URL from which you
+        can download the package. The patches; however, are stored on the LFS
+        servers and are available via HTTP. These are referenced as needed in
+        the installation instructions.
+      </p>
+      <p>
+        While you can keep the source files anywhere you like, we assume that
+        you have unpacked the package and changed into the directory created
+        by the unpacking process (the 'build' directory). We also assume you
+        have uncompressed any required patches and they are in the directory
+        immediately above the 'build' directory.
+      </p>
+      <p>
+        We can not emphasize strongly enough that you should start from a
+        <span class="emphasis"><em>clean source tree</em></span> each time.
+        This means that if you have had an error during configuration or
+        compilation, it's usually best to delete the source tree and
+        re-unpack it <span class="emphasis"><em>before</em></span> trying
+        again. This obviously doesn't apply if you're an advanced user used
+        to hacking <code class="filename">Makefile</code>s and C code, but if
+        in doubt, start from a clean tree.
+      </p>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Building Software as an Unprivileged (non-root) User
+        </h2>
+        <p>
+          The golden rule of Unix System Administration is to use your
+          superpowers only when necessary. Hence, BLFS recommends that you
+          build software as an unprivileged user and only become the
+          <code class="systemitem">root</code> user when installing the
+          software. This philosophy is followed in all the packages in this
+          book. Unless otherwise specified, all instructions should be
+          executed as an unprivileged user. The book will advise you on
+          instructions that need <code class="systemitem">root</code>
+          privileges.
+        </p>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Unpacking the Software
+        </h2>
+        <p>
+          If a file is in <code class="filename">.tar</code> format and
+          compressed, it is unpacked by running one of the following
+          commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">tar -xvf filename.tar.gz
+tar -xvf filename.tgz
+tar -xvf filename.tar.Z
+tar -xvf filename.tar.bz2</kbd>
+</pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            You may omit using the <code class="option">v</code> parameter in
+            the commands shown above and below if you wish to suppress the
+            verbose listing of all the files in the archive as they are
+            extracted. This can help speed up the extraction as well as make
+            any errors produced during the extraction more obvious to you.
+          </p>
+        </div>
+        <p>
+          You can also use a slightly different method:
+        </p>
+        <pre class="userinput">
+<kbd class="command">bzcat filename.tar.bz2 | tar -xv</kbd>
+</pre>
+        <p>
+          Finally, you sometimes need to be able to unpack patches which are
+          generally not in <code class="filename">.tar</code> format. The
+          best way to do this is to copy the patch file to the parent of the
+          'build' directory and then run one of the following commands
+          depending on whether the file is a <code class=
+          "filename">.gz</code> or <code class="filename">.bz2</code> file:
+        </p>
+        <pre class="userinput">
+<kbd class="command">gunzip -v patchname.gz
+bunzip2 -v patchname.bz2</kbd>
+</pre>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Verifying File Integrity Using 'md5sum'
+        </h2>
+        <p>
+          Generally, to verify that the downloaded file is genuine and
+          complete, many package maintainers also distribute md5sums of the
+          files. To verify the md5sum of the downloaded files, download both
+          the file and the corresponding md5sum file to the same directory
+          (preferably from different on-line locations), and (assuming
+          <code class="filename">file.md5sum</code> is the md5sum file
+          downloaded) run the following command:
+        </p>
+        <pre class="userinput">
+<kbd class="command">md5sum -c file.md5sum</kbd>
+</pre>
+        <p>
+          If there are any errors, they will be reported. Note that the BLFS
+          book includes md5sums for all the source files also. To use the
+          BLFS supplied md5sums, you can create a <code class=
+          "filename">file.md5sum</code> (place the md5sum data and the exact
+          name of the downloaded file on the same line of a file, separated
+          by white space) and run the command shown above. Alternately,
+          simply run the command shown below and compare the output to the
+          md5sum data shown in the BLFS book.
+        </p>
+        <pre class="userinput">
+<kbd class="command">md5sum <em class=
+"replaceable"><code>&lt;name_of_downloaded_file&gt;</code></em></kbd>
+</pre>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Creating Log Files During Installation
+        </h2>
+        <p>
+          For larger packages, it is convenient to create log files instead
+          of staring at the screen hoping to catch a particular error or
+          warning. Log files are also useful for debugging and keeping
+          records. The following command allows you to create an installation
+          log. Replace <em class=
+          "replaceable"><code>&lt;command&gt;</code></em> with the command
+          you intend to execute.
+        </p>
+        <pre class="userinput">
+<kbd class="command">( <em class=
+"replaceable"><code>&lt;command&gt;</code></em> 2&gt;&amp;1 | tee compile.log &amp;&amp; exit $PIPESTATUS )</kbd>
+</pre>
+        <p>
+          <code class="option">2&gt;&amp;1</code> redirects error messages to
+          the same location as standard output. The <span class=
+          "command"><strong>tee</strong></span> command allows viewing of the
+          output while logging the results to a file. The parentheses around
+          the command run the entire command in a subshell and finally the
+          <span class="command"><strong>exit $PIPESTATUS</strong></span>
+          command ensures the result of the <em class=
+          "replaceable"><code>&lt;command&gt;</code></em> is returned as the
+          result and not the result of the <span class=
+          "command"><strong>tee</strong></span> command.
+        </p>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="automating-builds" name="automating-builds"></a>Automated
+          Building Procedures
+        </h2>
+        <p>
+          There are times when automating the building of a package can come
+          in handy. Everyone has their own reasons for wanting to automate
+          building, and everyone goes about it in their own way. Creating
+          <code class="filename">Makefile</code>s, <span class=
+          "application">Bash</span> scripts, <span class=
+          "application">Perl</span> scripts or simply a list of commands used
+          to cut and paste are just some of the methods you can use to
+          automate building BLFS packages. Detailing how and providing
+          examples of the many ways you can automate the building of packages
+          is beyond the scope of this section. This section will expose you
+          to using file redirection and the <span class=
+          "command"><strong>yes</strong></span> command to help provide ideas
+          on how to automate your builds.
+        </p>
+        <h3>
+          File Redirection to Automate Input
+        </h3>
+        <p>
+          You will find times throughout your BLFS journey when you will come
+          across a package that has a command prompting you for information.
+          This information might be configuration details, a directory path,
+          or a response to a license agreement. This can present a challenge
+          to automate the building of that package. Occasionally, you will be
+          prompted for different information in a series of questions. One
+          method to automate this type of scenario requires putting the
+          desired responses in a file and using redirection so that the
+          program uses the data in the file as the answers to the questions.
+        </p>
+        <p>
+          Building the <span class="application">CUPS</span> package is a
+          good example of how redirecting a file as input to prompts can help
+          you automate the build. If you run the test suite, you are asked to
+          respond to a series of questions regarding the type of test to run
+          and if you have any auxiliary programs the test can use. You can
+          create a file with your responses, one response per line, and use a
+          command similar to the one shown below to automate running the test
+          suite:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check &lt; ../cups-1.1.23-testsuite_parms</kbd>
+</pre>
+        <p>
+          This effectively makes the test suite use the responses in the file
+          as the input to the questions. Occasionally you may end up doing a
+          bit of trial and error determining the exact format of your input
+          file for some things, but once figured out and documented you can
+          use this to automate building the package.
+        </p>
+        <h3>
+          Using <span class="command"><strong>yes</strong></span> to Automate
+          Input
+        </h3>
+        <p>
+          Sometimes you will only need to provide one response, or provide
+          the same response to many prompts. For these instances, the
+          <span class="command"><strong>yes</strong></span> command works
+          really well. The <span class="command"><strong>yes</strong></span>
+          command can be used to provide a response (the same one) to one or
+          more instances of questions. It can be used to simulate pressing
+          just the <span class="keycap"><strong>Enter</strong></span> key,
+          entering the <span class="keycap"><strong>Y</strong></span> key or
+          entering a string of text. Perhaps the easiest way to show its use
+          is in an example.
+        </p>
+        <p>
+          First, create a short <span class="application">Bash</span> script
+          by entering the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; blfs-yes-test1 &lt;&lt; "EOF"
+<code class="literal">#!/bin/bash
+
+echo -n -e "\n\nPlease type something (or nothing) and press Enter ---&gt; "
+
+read A_STRING
+
+if test "$A_STRING" = ""; then A_STRING="Just the Enter key was pressed"
+else A_STRING="You entered '$A_STRING'"
+fi
+
+echo -e "\n\n$A_STRING\n\n"</code>
+EOF
+chmod 755 blfs-yes-test1</kbd>
+</pre>
+        <p>
+          Now run the script by issuing <span class=
+          "command"><strong>./blfs-yes-test1</strong></span> from the command
+          line. It will wait for a response, which can be anything (or
+          nothing) followed by the <span class=
+          "keycap"><strong>Enter</strong></span> key. After entering
+          something, the result will be echoed to the screen. Now use the
+          <span class="command"><strong>yes</strong></span> command to
+          automate the entering of a response:
+        </p>
+        <pre class="userinput">
+<kbd class="command">yes | ./blfs-yes-test1</kbd>
+</pre>
+        <p>
+          Notice that piping <span class=
+          "command"><strong>yes</strong></span> by itself to the script
+          results in <span class="keycap"><strong>y</strong></span> being
+          passed to the script. Now try it with a string of text:
+        </p>
+        <pre class="userinput">
+<kbd class="command">yes 'This is some text' | ./blfs-yes-test1</kbd>
+</pre>
+        <p>
+          The exact string was used as the response to the script. Finally,
+          try it using an empty (null) string:
+        </p>
+        <pre class="userinput">
+<kbd class="command">yes '' | ./blfs-yes-test1</kbd>
+</pre>
+        <p>
+          Notice this results in passing just the press of the <span class=
+          "keycap"><strong>Enter</strong></span> key to the script. This is
+          useful for times when the default answer to the prompt is
+          sufficient. This syntax is used in the <a class="xref" href=
+          "../basicnet/net-tools.html#net-tools-automate-example">Net-tools</a>
+          instructions to accept all the defaults to the many prompts during
+          the configuration step. You may now remove the test script, if
+          desired.
+        </p>
+        <h3>
+          File Redirection to Automate Output
+        </h3>
+        <p>
+          In order to automate the building of some packages, especially
+          those that require you to read a license agreement one page at a
+          time, requires using a method that avoids having to press a key to
+          display each page. Redirecting the output to a file can be used in
+          these instances to assist with the automation. The previous section
+          on this page touched on creating log files of the build output. The
+          redirection method shown there used the <span class=
+          "command"><strong>tee</strong></span> command to redirect output to
+          a file while also displaying the output to the screen. Here, the
+          output will only be sent to a file.
+        </p>
+        <p>
+          Again, the easiest way to demonstrate the technique is to show an
+          example. First, issue the command:
+        </p>
+        <pre class="userinput">
+<kbd class="command">ls -l /usr/bin | more</kbd>
+</pre>
+        <p>
+          Of course, you'll be required to view the output one page at a time
+          because the <span class="command"><strong>more</strong></span>
+          filter was used. Now try the same command, but this time redirect
+          the output to a file. The special file <code class=
+          "filename">/dev/null</code> can be used instead of the filename
+          shown, but you will have no log file to examine:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">ls -l /usr/bin | more &gt; redirect_test.log 2&gt;&amp;1</kbd>
+</pre>
+        <p>
+          Notice that this time the command immediately returned to the shell
+          prompt without having to page through the output. You may now
+          remove the log file.
+        </p>
+        <p>
+          The last example will use the <span class=
+          "command"><strong>yes</strong></span> command in combination with
+          output redirection to bypass having to page through the output and
+          then provide a <span class="keycap"><strong>y</strong></span> to a
+          prompt. This technique could be used in instances when otherwise
+          you would have to page through the output of a file (such as a
+          license agreement) and then answer the question of
+          &ldquo;<span class="quote">do you accept the above?</span>&rdquo;.
+          For this example, another short <span class=
+          "application">Bash</span> script is required:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; blfs-yes-test2 &lt;&lt; "EOF"
+<code class="literal">#!/bin/bash
+
+ls -l /usr/bin | more
+
+echo -n -e "\n\nDid you enjoy reading this? (y,n) "
+
+read A_STRING
+
+if test "$A_STRING" = "y"; then A_STRING="You entered the 'y' key"
+else A_STRING="You did NOT enter the 'y' key"
+fi
+
+echo -e "\n\n$A_STRING\n\n"</code>
+EOF
+chmod 755 blfs-yes-test2</kbd>
+</pre>
+        <p>
+          This script can be used to simulate a program that requires you to
+          read a license agreement, then respond appropriately to accept the
+          agreement before the program will install anything. First, run the
+          script without any automation techniques by issuing <span class=
+          "command"><strong>./blfs-yes-test2</strong></span>.
+        </p>
+        <p>
+          Now issue the following command which uses two automation
+          techniques, making it suitable for use in an automated build
+          script:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">yes | ./blfs-yes-test2 &gt; blfs-yes-test2.log 2&gt;&amp;1</kbd>
+</pre>
+        <p>
+          If desired, issue <span class="command"><strong>tail
+          blfs-yes-test2.log</strong></span> to see the end of the paged
+          output, and confirmation that <span class=
+          "keycap"><strong>y</strong></span> was passed through to the
+          script. Once satisfied that it works as it should, you may remove
+          the script and log file.
+        </p>
+        <p>
+          Finally, keep in mind that there are many ways to automate and/or
+          script the build commands. There is not a single
+          &ldquo;<span class="quote">correct</span>&rdquo; way to do it. Your
+          imagination is the only limit.
+        </p>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Dependencies
+        </h2>
+        <p>
+          For each package described, BLFS lists the known dependencies.
+          These are listed under several headings, whose meaning is as
+          follows:
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <span class="emphasis"><em>Required</em></span> means that
+                the target package cannot be correctly built without the
+                dependency having first been installed.
+              </p>
+            </li>
+            <li>
+              <p>
+                <span class="emphasis"><em>Recommended</em></span> means that
+                BLFS strongly suggests this package is installed first for a
+                clean and trouble-free build, that won't have issues either
+                during the build process, or at run-time.
+              </p>
+            </li>
+            <li>
+              <p>
+                <span class="emphasis"><em>Optional</em></span> means that
+                this package might be installed for added functionality.
+                Often BLFS will describe the dependency to explain the added
+                functionality that will result.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="package_updates" name="package_updates"></a>Using the Most
+          Current Package Sources
+        </h2>
+        <p>
+          On occasion you may run into a situation in the book when a package
+          will not build or work properly. Though the Editors attempt to
+          ensure that every package in the book builds and works properly,
+          sometimes a package has been overlooked or was not tested with this
+          particular version of BLFS.
+        </p>
+        <p>
+          If you discover that a package will not build or work properly, you
+          should see if there is a more current version of the package.
+          Typically this means you go to the maintainer's web site and
+          download the most current tarball and attempt to build the package.
+          If you cannot determine the maintainer's web site by looking at the
+          download URLs, use Google and query the package's name. For
+          example, in the Google search bar type: 'package_name download'
+          (omit the quotes) or something similar. Sometimes typing:
+          'package_name home page' will result in you finding the
+          maintainer's web site.
+        </p>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="stripping" name="stripping"></a>Stripping One More Time
+        </h2>
+        <p>
+          In LFS, stripping of debugging symbols was discussed a couple of
+          times. When building BLFS packages, there are generally no special
+          instructions that discuss stripping again. It is probably not a
+          good idea to strip an executable or a library while it is in use,
+          so exiting any windowing environment is a good idea. Then you can
+          do:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">find /{,usr/}{bin,lib,sbin} -type f -exec strip --strip-unneeded {} \;</kbd>
+</pre>
+        <p>
+          If you install programs in other directories such as /opt or
+          /usr/local, you may want to strip the files there too.
+        </p>
+        <p>
+          For more information on stripping, see <a class="ulink" href=
+          "http://www.technovelty.org/linux/stripping-shared-libraries.html">http://www.technovelty.org/linux/stripping-shared-libraries.html</a>.
+        </p>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="libtool" name="libtool"></a>Libtool files
+        </h2>
+        <p>
+          One of the side effects of packages that use Autotools, including
+          libtool, is that they create many files with an .la extention.
+          These files are not needed in an LFS environment. If there are
+          conflicts with pkgconfig entries, they can actually prevent
+          successful builds. You may want to consider removing these files
+          periodically:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">find /lib /usr/lib -not -path "*Image*" -a -name \*.la -delete</kbd>
+</pre>
+        <p>
+          The above command removes all .la files with the exception of those
+          that have "Image" (ImageMagick) as a part of the path. The .la
+          files are used by the ImageMagick modules subdirectory are used by
+          the program. There may be other exceptions by packages not in BLFS.
+        </p>
+      </div>
+      <p class="updated">
+        Last updated on 2013-08-02 20:44:50 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="important.html" title=
+          "Important Information">Prev</a>
+          <p>
+            Important Information
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="position.html" title=
+          "The /usr Versus /usr/local Debate">Next</a>
+          <p>
+            The /usr Versus /usr/local Debate
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="important.html" title=
+          "Chapter&nbsp;2.&nbsp;Important Information">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="atk.html" title="ATK-2.6.0">Next</a>
+          <a accesskey="n" href="atk.html" title="ATK-2.8.0">Next</a>
           <p>
-            ATK-2.6.0
+            ATK-2.8.0
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           the project.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -103,7 +103,7 @@
         <p class="required">
           <a class="xref" href="../general/pkgconfig.html" title=
           "pkg-config-0.28">pkg-config-0.28</a>, <a class="xref" href=
-          "../multimedia/sdl.html" title="SDL-1.2.15">SDL-1.2.15</a> and
+          "../multimedia/sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>, and
           <a class="xref" href="x7lib.html" title="Xorg Libraries">Xorg
           Libraries</a>
         </p>
@@ -121,9 +121,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i 's:  -L@x_libraries@::' src/platform/X11/Makefile.am &amp;&amp;
-sed -i '/^AM_C_PROTOTYPES/d' configure.in &amp;&amp;
+<kbd class="command">
+sed -i 's:  -L@x_libraries@::' src/platform/X11/Makefile.am &amp;&amp;
+sed -i '/^AM_C_PROTOTYPES/d'   configure.in                 &amp;&amp;
+
 bash autogen.sh --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
@@ -169,13 +170,17 @@ make</kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libagg.so, libaggfontfreetype.so,
-              libaggplatformsdl.so and libaggplatformX11.so.</span>
+              libaggplatformsdl.so, and libaggplatformX11.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">/usr/include/agg2.</span>
+              <span class="segbody">/usr/include/agg2</span>
             </div>
           </div>
         </div>
@@ -246,7 +251,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-28 00:12:39 +0000
+        Last updated on 2013-09-06 19:06:41 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -258,9 +263,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="atk.html" title="ATK-2.6.0">Next</a>
+          <a accesskey="n" href="atk.html" title="ATK-2.8.0">Next</a>
           <p>
-            ATK-2.6.0
+            ATK-2.8.0
           </p>
         </li>
         <li class="up">
@@ -269,7 +274,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

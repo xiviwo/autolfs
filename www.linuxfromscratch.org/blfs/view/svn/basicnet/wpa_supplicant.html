@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;15.&nbsp;Networking Programs
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -64,7 +64,7 @@
           access point.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -109,7 +109,7 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="libnl.html" title=
-          "libnl-3.2.21">libnl-3.2.21</a> and <a class="xref" href=
+          "libnl-3.2.22">libnl-3.2.22</a> and <a class="xref" href=
           "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
         </p>
         <h4>
@@ -117,10 +117,10 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/dbus.html" title=
-          "D-Bus-1.6.10">D-Bus-1.6.10</a>, <a class="xref" href=
+          "D-Bus-1.6.14">D-Bus-1.6.14</a>, <a class="xref" href=
           "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
-          and <a class="xref" href="../x/qt.html" title=
-          "Qt-4.8.4">Qt-4.8.4</a>
+          and <a class="xref" href="../x/qt4.html" title=
+          "Qt-4.8.5">Qt-4.8.5</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -201,9 +201,9 @@ EOF</kbd>
         <p>
           If you wish to use <span class="application">WPA Supplicant</span>
           with <a class="xref" href="networkmanager.html" title=
-          "NetworkManager-0.9.8.0">NetworkManager-0.9.8.0</a>, make sure that
+          "NetworkManager-0.9.8.2">NetworkManager-0.9.8.2</a>, make sure that
           you have installed <a class="xref" href="../general/dbus.html"
-          title="D-Bus-1.6.10">D-Bus-1.6.10</a> and <a class="xref" href=
+          title="D-Bus-1.6.14">D-Bus-1.6.14</a> and <a class="xref" href=
           "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>,
           then add the following options to the <span class="application">WPA
           Supplicant</span> build configuration file by running the following
@@ -225,8 +225,8 @@ EOF</kbd>
 make BINDIR=/sbin LIBDIR=/lib</kbd>
 </pre>
         <p>
-          If you have installed <a class="xref" href="../x/qt.html" title=
-          "Qt-4.8.4">Qt-4.8.4</a> and wish to build the <span class=
+          If you have installed <a class="xref" href="../x/qt4.html" title=
+          "Qt-4.8.5">Qt-4.8.5</a> and wish to build the <span class=
           "application">WPA Supplicant</span> GUI program, run the following
           commands:
         </p>
@@ -299,7 +299,7 @@ install -v -m644 wpa_gui-qt4/icons/wpa_gui.svg /usr/share/pixmaps/</kbd>
             "filename">/usr/share/applications/mimeinfo.cache</code>. To
             perform the update you must have <a class="xref" href=
             "../general/desktop-file-utils.html" title=
-            "desktop-file-utils-0.21">desktop-file-utils-0.21</a> installed
+            "desktop-file-utils-0.22">desktop-file-utils-0.22</a> installed
             and issue the following command as the <code class=
             "systemitem">root</code> user:
           </p>
@@ -380,7 +380,7 @@ network={
             install the <code class="filename">/lib/services/wpa</code>
             script included in <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130505</a> package:
+            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package:
           </p>
           <pre class="root">
 <kbd class="command">make install-service-wpa</kbd>
@@ -420,7 +420,7 @@ EOF</kbd>
 </pre>
           <p>
             If you prefer <a class="xref" href="dhcpcd.html" title=
-            "dhcpcd-5.6.7">dhcpcd-5.6.7</a> instead of <a class="xref" href=
+            "dhcpcd-6.0.5">dhcpcd-6.0.5</a> instead of <a class="xref" href=
             "dhcp.html" title="DHCP-4.2.5-P1">DHCP-4.2.5-P1</a> client, then
             create the <code class=
             "filename">/etc/sysconfig/ifconfig-<em class=
@@ -587,7 +587,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-26 16:39:48 +0000
+        Last updated on 2013-09-02 15:55:05 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -612,7 +612,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

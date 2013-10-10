@@ -5,32 +5,34 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gtksourceview-3.6.2
+      gtksourceview-3.8.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;30.&nbsp;GNOME Core Packages
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libpeas.html" title="libpeas-1.6.2">Prev</a>
+          <a accesskey="p" href="gnome-video-effects.html" title=
+          "gnome-video-effects-0.4.0">Prev</a>
           <p>
-            libpeas-1.6.2
+            gnome-video-effects-0.4.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gtkhtml.html" title="GtkHTML-4.6.4">Next</a>
+          <a accesskey="n" href="libgtop.html" title=
+          "libgtop-2.28.5">Next</a>
           <p>
-            GtkHTML-4.6.4
+            libgtop-2.28.5
           </p>
         </li>
         <li class="up">
@@ -39,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gtksourceview" name="gtksourceview"></a>gtksourceview-3.6.2
+        <a id="gtksourceview" name="gtksourceview"></a>gtksourceview-3.8.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +60,7 @@
           highlighting.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -69,30 +71,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.6/gtksourceview-3.6.2.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.6/gtksourceview-3.6.2.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.8/gtksourceview-3.8.2.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.8/gtksourceview-3.8.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.6/gtksourceview-3.6.2.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.6/gtksourceview-3.6.2.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.8/gtksourceview-3.8.2.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.8/gtksourceview-3.8.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 45c74c5c22ea63f8b5e2f469a9a3c8fd
+                Download MD5 sum: fa8a252f811b6042cfc2eb47e580609f
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.2 MB
+                Download size: 1.3 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 36 MB
+                Estimated disk space required: 40 MB
               </p>
             </li>
             <li>
@@ -110,23 +112,22 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.6.4">GTK+-3.6.4</a> and <a class="xref" href=
-          "../general/intltool.html" title=
-          "Intltool-0.50.2">Intltool-0.50.2</a>
+          "GTK+-3.8.4">GTK+-3.8.4</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.34.2">gobject-introspection-1.34.2</a>
+          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
+          <a class="ulink" href="http://glade.gnome.org/">Glade</a> and
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.18">GTK-Doc-1.18</a>
+          "GTK-Doc-1.19">GTK-Doc-1.19</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -183,8 +184,8 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/gtksourceview-3.0,
-              /usr/share/gtksourceview-3.0 and
-              /usr/share/gtk-doc/html/gtksourceview-3.0</span>
+              /usr/share/gtk-doc/html/gtksourceview-3.0, and
+              /usr/share/gtksourceview-3.0</span>
             </div>
           </div>
         </div>
@@ -214,21 +215,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-09-03 19:08:19 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libpeas.html" title="libpeas-1.6.2">Prev</a>
+          <a accesskey="p" href="gnome-video-effects.html" title=
+          "gnome-video-effects-0.4.0">Prev</a>
           <p>
-            libpeas-1.6.2
+            gnome-video-effects-0.4.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gtkhtml.html" title="GtkHTML-4.6.4">Next</a>
+          <a accesskey="n" href="libgtop.html" title=
+          "libgtop-2.28.5">Next</a>
           <p>
-            GtkHTML-4.6.4
+            libgtop-2.28.5
           </p>
         </li>
         <li class="up">
@@ -237,7 +240,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

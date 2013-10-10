@@ -12,25 +12,25 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;15.&nbsp;Networking Programs
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="rpcbind.html" title="rpcbind-0.2.0">Prev</a>
+          <a accesskey="p" href="rpcbind.html" title="rpcbind-0.2.1">Prev</a>
           <p>
-            rpcbind-0.2.0
+            rpcbind-0.2.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="samba3.html" title="Samba-3.6.12">Next</a>
+          <a accesskey="n" href="samba.html" title="Samba-4.0.9">Next</a>
           <p>
-            Samba-3.6.12
+            Samba-4.0.9
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           is useful for synchronizing large file archives over a network.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -104,14 +104,19 @@
           rsync Dependencies
         </h3>
         <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/popt.html" title=
+          "Popt-1.16">popt-1.16</a>
+        </p>
+        <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../general/popt.html" title=
-          "Popt-1.16">popt-1.16</a>, <a class="xref" href=
-          "../postlfs/attr.html" title="attr-2.4.46">attr-2.4.46</a>,
-          <a class="xref" href="../postlfs/acl.html" title=
-          "acl-2.2.51">acl-2.2.51</a>
+          <a class="xref" href="../postlfs/attr.html" title=
+          "attr-2.4.47">attr-2.4.47</a> and <a class="xref" href=
+          "../postlfs/acl.html" title="acl-2.2.52">acl-2.2.52</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -146,8 +151,8 @@ make</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a> installed and wish to build
-          HTML API documentation, issue <span class=
+          "Doxygen-1.8.5">Doxygen-1.8.5</a> installed and wish to build HTML
+          API documentation, issue <span class=
           "command"><strong>doxygen</strong></span>.
         </p>
         <p>
@@ -205,7 +210,7 @@ install -v -m644 doc/rsync.* /usr/share/doc/rsync-3.0.9</kbd>
           <p>
             For client access to remote files, you may need to install the
             <a class="xref" href="../postlfs/openssh.html" title=
-            "OpenSSH-6.2p1">OpenSSH-6.2p1</a> package to connect to the
+            "OpenSSH-6.2p2">OpenSSH-6.2p2</a> package to connect to the
             remote server.
           </p>
           <p>
@@ -254,7 +259,7 @@ EOF</kbd>
             Install the <code class="filename">/etc/rc.d/init.d/rsyncd</code>
             init script included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130505</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-rsyncd</kbd>
@@ -316,21 +321,21 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-15 16:26:39 +0000
+        Last updated on 2013-08-27 13:13:39 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="rpcbind.html" title="rpcbind-0.2.0">Prev</a>
+          <a accesskey="p" href="rpcbind.html" title="rpcbind-0.2.1">Prev</a>
           <p>
-            rpcbind-0.2.0
+            rpcbind-0.2.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="samba3.html" title="Samba-3.6.12">Next</a>
+          <a accesskey="n" href="samba.html" title="Samba-4.0.9">Next</a>
           <p>
-            Samba-3.6.12
+            Samba-4.0.9
           </p>
         </li>
         <li class="up">
@@ -339,7 +344,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

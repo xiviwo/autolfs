@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      fop-1.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;45.&nbsp;PostScript
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="epdfview.html" title=
+          "ePDFView-0.1.8">Prev</a>
+          <p>
+            ePDFView-0.1.8
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="paps.html" title="paps-0.6.8">Next</a>
+          <p>
+            paps-0.6.8
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="ps.html" title=
+          "Chapter&nbsp;45.&nbsp;PostScript">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="fop" name="fop"></a>fop-1.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to fop
+        </h2>
+        <p>
+          The <span class="application">FOP</span> (Formatting Objects
+          Processor) package contains a print formatter driven by XSL
+          formatting objects (XSL-FO). It is a <span class=
+          "application">Java</span> application that reads a formatting
+          object tree and renders the resulting pages to a specified output.
+          Output formats currently supported include PDF, PCL, PostScript,
+          SVG, XML (area tree representation), print, AWT, MIF and ASCII
+          text. The primary output target is PDF.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://archive.apache.org/dist/xmlgraphics/fop/source/fop-1.1-src.tar.gz">
+                http://archive.apache.org/dist/xmlgraphics/fop/source/fop-1.1-src.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 7b63af514b28c06fe710a794cbf4d68e
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 23 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 206 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <p class="title">
+            <b>Required packages</b>
+          </p>
+          <ul class="compact">
+            <li>
+              <p>
+                Java Advanced Imaging (JAI) API components (architecture
+                dependent):<br />
+                <a class="ulink" href=
+                "http://download.java.net/media/jai/builds/release/1_1_3/jai-1_1_3-lib-linux-i586.tar.gz">
+                http://download.java.net/media/jai/builds/release/1_1_3/jai-1_1_3-lib-linux-i586.tar.gz</a><br />
+
+                a2cbc155ef3899bcde9c74a8035764b3<br />
+                3.4 MB<br />
+              </p>
+              <div class="literallayout">
+                <p>
+                  or
+                </p>
+              </div>
+              <p>
+                <br />
+                <a class="ulink" href=
+                "http://download.java.net/media/jai/builds/release/1_1_3/jai-1_1_3-lib-linux-amd64.tar.gz">
+                http://download.java.net/media/jai/builds/release/1_1_3/jai-1_1_3-lib-linux-amd64.tar.gz</a><br />
+
+                4a906db35612f668aeef2c0606d7075b<br />
+                3.4 MB<br />
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          fop Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../x/xorg7.html" title=
+          "Introduction to Xorg-7.7">Xorg-7.7</a> and <a class="xref" href=
+          "../general/apache-ant.html" title=
+          "apache-ant-1.9.2">apache-ant-1.9.2</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/junit.html" title=
+          "JUnit-4.11">JUnit-4.11</a> (to run tests), <a class="ulink" href=
+          "http://java.sun.com/products/jimi/">JIMI SDK</a>, <a class="ulink"
+          href="http://xmlunit.sourceforge.net/">XMLUnit</a>, <a class=
+          "ulink" href="https://jai-imageio.dev.java.net/">JAI Image I/O
+          Tools</a>, <a class="ulink" href=
+          "http://jeuclid.sourceforge.net/">JEuclid</a>, <a class="ulink"
+          href="http://pmd.sourceforge.net">PMD</a> (requires <a class=
+          "ulink" href="http://jaxen.codehaus.org/">Jaxen</a>), and <a class=
+          "ulink" href="http://forrest.apache.org/">Forrest</a> (Forrest used
+          only to build the documentation)
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/fop">http://wiki.linuxfromscratch.org/blfs/wiki/fop</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of fop
+        </h2>
+        <div class="admon important">
+          <img alt="[Important]" src="../images/important.png" />
+          <h3>
+            Important
+          </h3>
+          <p>
+            You must run this installation from an X-window using a GL-aware
+            <span class="application">Xorg</span> server or some of the
+            <span class="application">JUnit</span> tests will hang.
+          </p>
+        </div>
+        <p>
+          Ensure <code class="envar">$JAVA_HOME</code> is set correctly
+          before beginning the build. To build the <span class=
+          "application">JIMI SDK</span> and/or <span class=
+          "application">XMLUnit</span> extension classes, ensure the
+          corresponding <code class="filename">.jar</code> files can be found
+          via the <code class="envar">CLASSPATH</code> environment variable.
+        </p>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Installing Java Advanced Imaging (JAI) API components
+          </h3>
+          <p>
+            Next install the JAI API components. As the <code class=
+            "systemitem">root</code> user:
+          </p>
+          <pre class="userinput">
+<kbd class="command">case `uname -m` in
+  i?86)
+    tar -xf ../jai-1_1_3-lib-linux-i586.tar.gz
+    cp -v jai-1_1_3/lib/{jai*,mlibwrapper_jai.jar} $JAVA_HOME/jre/lib/ext/
+    cp -v jai-1_1_3/lib/libmlib_jai.so             $JAVA_HOME/jre/lib/i386/
+    ;;
+
+  x86_64)
+    tar -xf ../jai-1_1_3-lib-linux-amd64.tar.gz
+    cp -v jai-1_1_3/lib/{jai*,mlibwrapper_jai.jar} $JAVA_HOME/jre/lib/ext/
+    cp -v jai-1_1_3/lib/libmlib_jai.so             $JAVA_HOME/jre/lib/amd64/
+    ;;
+esac</kbd>
+</pre>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Installing fop Components
+          </h3>
+          <p>
+            Compile <span class="application">fop</span> by running the
+            following commands:
+          </p>
+          <pre class="userinput">
+<kbd class="command">ant compile &amp;&amp;
+ant jar-main &amp;&amp;
+ant javadocs &amp;&amp;
+mv build/javadocs .</kbd>
+</pre>
+          <p>
+            If <span class="application">Forrest</span> is installed, build
+            the full set of documentation:
+          </p>
+          <pre class="userinput">
+<kbd class="command">ant docs</kbd>
+</pre>
+          <p>
+            To test the application run <span class="command"><strong>ant
+            junit-all</strong></span>. The hyphenation tests will fail. To
+            see a list of other test targets, use <span class=
+            "command"><strong>ant -p</strong></span>.
+          </p>
+          <p>
+            Now, as the <code class="systemitem">root</code> user:
+          </p>
+          <pre class="root">
+<kbd class=
+"command">install -v -d -m755                                     /opt/fop-1.1 &amp;&amp;
+cp -v  KEYS LICENSE NOTICE README                       /opt/fop-1.1 &amp;&amp;
+cp -va build conf examples fop* javadocs lib status.xml /opt/fop-1.1 &amp;&amp;
+
+ln -v -sf fop-1.1 /opt/fop</kbd>
+</pre>
+        </div>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>ant <code class=
+          "option">target</code></strong></span>: This reads the file
+          <code class="filename">build.xml</code> and builds the target
+          files.
+        </p>
+        <p>
+          <span class="command"><strong>ln -v -sf fop-1.1
+          /opt/fop</strong></span>: This is optional and creates a
+          convenience symlink so that <code class="envar">$FOP_HOME</code>
+          doesn't have to be changed each time there's a package version
+          change.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring fop
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="fop-config" name="fop-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">~/.foprc</code>
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Configuration Information
+          </h3>
+          <p>
+            Using <span class="application">fop</span> to process some large
+            FO's (including the FO derived from the BLFS XML sources), can
+            lead to memory errors. Unless you add a parameter to the
+            <span class="command"><strong>java</strong></span> command used
+            in the <span class="command"><strong>fop</strong></span> script
+            you may receive messages similar to the one shown below:
+          </p>
+          <p>
+            <code class="computeroutput">Exception in thread "main"
+            java.lang.OutOfMemoryError: Java heap space</code>
+          </p>
+          <p>
+            To avoid errors like this, you need to pass an extra parameter to
+            the <span class="command"><strong>java</strong></span> command
+            used in the <span class="command"><strong>fop</strong></span>
+            script. This can be accomplished by creating a <code class=
+            "filename">~/.foprc</code> (which is sourced by the <span class=
+            "command"><strong>fop</strong></span> script) and adding the
+            parameter to the <code class="envar">FOP_OPTS</code> environment
+            variable.
+          </p>
+          <p>
+            The <span class="command"><strong>fop</strong></span> script
+            looks for a <code class="envar">FOP_HOME</code> environment
+            variable to locate the <span class="application">fop</span> class
+            libraries. You can create this variable using the <code class=
+            "filename">~/.foprc</code> file as well. Create a <code class=
+            "filename">~/.foprc</code> file using the following commands:
+          </p>
+          <pre class="userinput">
+<kbd class="command">cat &gt; ~/.foprc &lt;&lt; "EOF"
+<code class="literal">FOP_OPTS="-Xmx<em class=
+"replaceable"><code>&lt;RAM_Installed&gt;</code></em>m"
+FOP_HOME="/opt/fop"</code>
+EOF</kbd>
+</pre>
+          <p>
+            Replace <em class=
+            "replaceable"><code>&lt;RAM_Installed&gt;</code></em> with a
+            number representing the amount of RAM installed in your computer
+            (in megabytes). An example would be <strong class=
+            "userinput"><code>FOP_OPTS="-Xmx768m"</code></strong>. For more
+            information about memory issues running <span class=
+            "application">fop</span>, see <a class="ulink" href=
+            "http://xml.apache.org/fop/running.html#memory">http://xml.apache.org/fop/running.html#memory</a>.
+          </p>
+          <p>
+            To include the <span class="command"><strong>fop</strong></span>
+            script in your path, update your personal or system-wide profile
+            with the following:
+          </p>
+          <pre class="screen">
+<code class="literal">PATH=$PATH:/opt/fop</code>
+</pre>
+          <div class="admon note">
+            <img alt="[Note]" src="../images/note.png" />
+            <h3>
+              Note
+            </h3>
+            <p>
+              Running <span class="command"><strong>fop</strong></span> can
+              be somewhat verbose. The default logging level can be changed
+              from INFO to any of FINEST, FINER, FINE, CONFIG, INFO, WARNING,
+              SEVERE, ALL, or OFF. To do this, edit <code class=
+              "filename">$JAVA_HOME/jre/lib/logging.properties</code> and
+              change the entries for <code class="option">.leval</code> and
+              <code class=
+              "option">java.util.logging.ConsoleHandler.level</code> to the
+              desired value.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">fop</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">fop.jar and numerous support library
+              classes located in <code class=
+              "filename">/opt/fop/{build,lib}</code>; JAI components include
+              libmlib_jai.so, jai_codec.jar, jai_core.jar, and
+              mlibwrapper_jai.jar</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directory:</strong>
+              <span class="segbody">/opt/fop-1.1</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fop-prog" name="fop-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fop</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a wrapper script to the <span class=
+                    "command"><strong>java</strong></span> command which sets
+                    up the <span class="application">fop</span> environment
+                    and passes the required parameters.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fop.jar" name="fop.jar"></a><span class=
+                    "term"><code class="filename">fop.jar</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains all the <span class="application">fop</span>
+                    <span class="application">Java</span> classes.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-02 11:10:49 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="epdfview.html" title=
+          "ePDFView-0.1.8">Prev</a>
+          <p>
+            ePDFView-0.1.8
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="paps.html" title="paps-0.6.8">Next</a>
+          <p>
+            paps-0.6.8
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="ps.html" title=
+          "Chapter&nbsp;45.&nbsp;PostScript">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

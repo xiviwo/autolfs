@@ -12,27 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libgcrypt.html" title=
-          "libgcrypt-1.5.2">Prev</a>
+          <a accesskey="p" href="libgee.html" title="libgee-0.6.8">Prev</a>
           <p>
-            libgcrypt-1.5.2
+            libgee-0.6.8
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="libgpg-error.html" title=
-          "libgpg-error-1.11">Next</a>
+          "libgpg-error-1.12">Next</a>
           <p>
-            libgpg-error-1.11
+            libgpg-error-1.12
           </p>
         </li>
         <li class="up">
@@ -41,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +58,7 @@
           for loading Glade interface files in a program at runtime.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -112,15 +111,15 @@
         <p class="required">
           <a class="xref" href="libxml2.html" title=
           "libxml2-2.9.1">libxml2-2.9.1</a> and <a class="xref" href=
-          "../x/gtk2.html" title="GTK+-2.24.17">GTK+-2.24.17</a>
+          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="python2.html" title=
-          "Python-2.7.4">Python-2.7.4</a> and <a class="xref" href=
-          "gtk-doc.html" title="GTK-Doc-1.18">GTK-Doc-1.18</a>
+          "Python-2.7.5">Python-2.7.5</a> and <a class="xref" href=
+          "gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -138,7 +137,7 @@
         <pre class="userinput">
 <kbd class=
 "command">sed -i '/DG_DISABLE_DEPRECATED/d' glade/Makefile.in &amp;&amp;
-./configure --prefix=/usr &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -158,11 +157,6 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--enable-gtk-doc</code>: Use this parameter if
-          <span class="application">GTK-Doc</span> is installed and you wish
-          to rebuild and install the API documentation.
-        </p>
-        <p>
           <span class="command"><strong>sed -i
           '/DG_DISABLE_DEPRECATED/d'</strong></span>: Some of the
           <span class="application">glib</span> functions that <span class=
@@ -170,8 +164,13 @@ make</kbd>
           glib-2.30. This sed removes the G_DISABLE_DEPRECATED CFLAG.
         </p>
         <p>
-          <code class="option">--disable-static</code>: prevent static
-          libraries being built and installed.
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <span class="application">GTK-Doc</span> is installed and you wish
+          to rebuild and install the API documentation.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -187,7 +186,7 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libglade-2.0.{so,a}</span>
+              <span class="segbody">libglade-2.0.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -224,7 +223,7 @@ make</kbd>
                   <p>
                     <a id="libglade-lib" name="libglade-lib"></a><span class=
                     "term"><code class=
-                    "filename">libglade-2.0.{so,a}</code></span>
+                    "filename">libglade-2.0.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -239,23 +238,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-15 16:26:39 +0000
+        Last updated on 2013-08-20 20:51:02 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libgcrypt.html" title=
-          "libgcrypt-1.5.2">Prev</a>
+          <a accesskey="p" href="libgee.html" title="libgee-0.6.8">Prev</a>
           <p>
-            libgcrypt-1.5.2
+            libgee-0.6.8
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="libgpg-error.html" title=
-          "libgpg-error-1.11">Next</a>
+          "libgpg-error-1.12">Next</a>
           <p>
-            libgpg-error-1.11
+            libgpg-error-1.12
           </p>
         </li>
         <li class="up">
@@ -264,7 +262,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

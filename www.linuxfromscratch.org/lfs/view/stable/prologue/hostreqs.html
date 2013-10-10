@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Preface
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
@@ -72,7 +72,7 @@
           <li>
             <p>
               <span class="strong"><strong>Binutils-2.17</strong></span>
-              (Versions greater than 2.23.1 are not recommended as they have
+              (Versions greater than 2.23.2 are not recommended as they have
               not been tested)
             </p>
           </li>
@@ -105,21 +105,22 @@
           </li>
           <li>
             <p>
-              <span class="strong"><strong>Gawk-3.1.5</strong></span>
+              <span class="strong"><strong>Gawk-4.0.1</strong></span>
               (/usr/bin/awk should be a link to gawk)
             </p>
           </li>
           <li>
             <p>
-              <span class="strong"><strong>Gcc-4.1.2</strong></span>
-              (Versions greater than 4.7.2 are not recommended as they have
-              not been tested)
+              <span class="strong"><strong>GCC-4.1.2</strong></span>
+              including the C++ compiler, <span class=
+              "command"><strong>g++</strong></span> (Versions greater than
+              4.8.1 are not recommended as they have not been tested)
             </p>
           </li>
           <li>
             <p>
               <span class="strong"><strong>Glibc-2.5.1</strong></span>
-              (Versions greater than 2.17 are not recommended as they have
+              (Versions greater than 2.18 are not recommended as they have
               not been tested)
             </p>
           </li>
@@ -136,8 +137,7 @@
           <li>
             <p>
               <span class="strong"><strong>Linux
-              Kernel-2.6.25</strong></span> (having been compiled with
-              GCC-4.1.2 or greater)
+              Kernel-2.6.32</strong></span>
             </p>
             <p>
               The reason for the kernel version requirement is that we
@@ -146,16 +146,15 @@
               of the developers. It is also required by udev.
             </p>
             <p>
-              If the host kernel is either earlier than 2.6.25, or it was not
-              compiled using a GCC-4.1.2 (or later) compiler, you will need
-              to replace the kernel with one adhering to the specifications.
-              There are two ways you can go about this. First, see if your
-              Linux vendor provides a 2.6.25 or later kernel package. If so,
-              you may wish to install it. If your vendor doesn't offer an
-              acceptable kernel package, or you would prefer not to install
-              it, you can compile a kernel yourself. Instructions for
-              compiling the kernel and configuring the boot loader (assuming
-              the host uses GRUB) are located in <a class="xref" href=
+              If the host kernel is earlier than 2.6.32 you will need to
+              replace the kernel with a more up to date version. There are
+              two ways you can go about this. First, see if your Linux vendor
+              provides a 2.6.32 or later kernel package. If so, you may wish
+              to install it. If your vendor doesn't offer an acceptable
+              kernel package, or you would prefer not to install it, you can
+              compile a kernel yourself. Instructions for compiling the
+              kernel and configuring the boot loader (assuming the host uses
+              GRUB) are located in <a class="xref" href=
               "../chapter08/chapter08.html" title=
               "Chapter&nbsp;8.&nbsp;Making the LFS System Bootable">Chapter
               8</a>.
@@ -240,6 +239,7 @@ if [ -e /usr/bin/awk ];
   else echo "awk not found"; fi
 
 gcc --version | head -n1
+g++ --version | head -n1
 ldd --version | head -n1 | cut -d" " -f2-  # glibc version
 grep --version | head -n1
 gzip --version | head -n1
@@ -253,10 +253,10 @@ tar --version | head -n1
 echo "Texinfo: `makeinfo --version | head -n1`"
 xz --version | head -n1
 
-echo 'main(){}' &gt; dummy.c &amp;&amp; gcc -o dummy dummy.c
+echo 'main(){}' &gt; dummy.c &amp;&amp; g++ -o dummy dummy.c
 if [ -x dummy ]
-  then echo "gcc compilation OK";
-  else echo "gcc compilation failed"; fi
+  then echo "g++ compilation OK";
+  else echo "g++ compilation failed"; fi
 rm -f dummy.c dummy</code>
 EOF
 
@@ -283,7 +283,7 @@ bash version-check.sh</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

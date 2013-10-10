@@ -5,27 +5,27 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Firefox-20.0.1
+      Firefox-23.0.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;36.&nbsp;Graphical Web Browsers
+        Chapter&nbsp;35.&nbsp;Graphical Web Browsers
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="seamonkey.html" title=
-          "SeaMonkey-2.13.2">Prev</a>
+          "SeaMonkey-2.20">Prev</a>
           <p>
-            SeaMonkey-2.13.2
+            SeaMonkey-2.20
           </p>
         </li>
         <li class="next">
@@ -37,17 +37,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="graphweb.html" title=
-          "Chapter&nbsp;36.&nbsp;Graphical Web Browsers">Up</a>
+          "Chapter&nbsp;35.&nbsp;Graphical Web Browsers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="firefox" name="firefox"></a>Firefox-20.0.1
+        <a id="firefox" name="firefox"></a>Firefox-23.0.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           based on the <span class="application">Mozilla</span> codebase.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -69,36 +69,57 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://releases.mozilla.org/pub/mozilla.org/firefox/releases/20.0.1/source/firefox-20.0.1.source.tar.bz2">
-                http://releases.mozilla.org/pub/mozilla.org/firefox/releases/20.0.1/source/firefox-20.0.1.source.tar.bz2</a>
+                "http://releases.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/source/firefox-23.0.1.source.tar.bz2">
+                http://releases.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/source/firefox-23.0.1.source.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/20.0.1/source/firefox-20.0.1.source.tar.bz2">
-                ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/20.0.1/source/firefox-20.0.1.source.tar.bz2</a>
+                "ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/source/firefox-23.0.1.source.tar.bz2">
+                ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/source/firefox-23.0.1.source.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: b822ff4b2348410587dec563235d9320
+                Download MD5 sum: 0fa25582fb5e0fba37c9f1add8370af2
               </p>
             </li>
             <li>
               <p>
-                Download size: 95 MB
+                Download size: 111 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 3.8 GB (44 MB installed) (or
-                700 MB and 4.0 MB if using Xulrunner)
+                Estimated disk space required: 4.9 GB (48 MB installed) (or
+                794 MB and 4.6 MB if using Xulrunner)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 29 SBU (0.4 SBU if using Xulrunner)
+                Estimated build time: 58 SBU (0.31 SBU if using Xulrunner)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Recommended patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/firefox-23.0.1-search_box_fix-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/firefox-23.0.1-search_box_fix-1.patch</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Optional patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/firefox-23.0.1-system_cairo-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/firefox-23.0.1-system_cairo-1.patch</a>
               </p>
             </li>
           </ul>
@@ -111,8 +132,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../multimedia/alsa-lib.html" title=
-          "alsa-lib-1.0.27">alsa-lib-1.0.27</a>, <a class="xref" href=
-          "../x/gtk2.html" title="GTK+-2.24.17">GTK+-2.24.17</a>, <a class=
+          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
+          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>, <a class=
           "xref" href="../general/zip.html" title="Zip-3.0">Zip-3.0</a>, and
           <a class="xref" href="../general/unzip.html" title=
           "UnZip-6.0">UnZip-6.0</a>
@@ -123,12 +144,12 @@
         <p class="recommended">
           <a class="xref" href="../basicnet/libevent.html" title=
           "libevent-2.0.21">libevent-2.0.21</a>, <a class="xref" href=
-          "../multimedia/libvpx.html" title="libvpx-v1.1.0">libvpx-1.1.0</a>,
+          "../multimedia/libvpx.html" title="libvpx-v1.2.0">libvpx-1.2.0</a>,
           <a class="xref" href="../general/nspr.html" title=
-          "NSPR-4.9.6">NSPR-4.9.6</a>, <a class="xref" href=
-          "../postlfs/nss.html" title="NSS-3.14.3">NSS-3.14.3</a>, <a class=
+          "NSPR-4.10">NSPR-4.10</a>, <a class="xref" href=
+          "../postlfs/nss.html" title="NSS-3.15.1">NSS-3.15.1</a>, <a class=
           "xref" href="../server/sqlite.html" title=
-          "SQLite-3.7.16.2">SQLite-3.7.16.2</a> and <a class="xref" href=
+          "SQLite-3.8.0.2">SQLite-3.8.0.2</a> and <a class="xref" href=
           "../general/yasm.html" title="yasm-1.2.0">yasm-1.2.0</a>
         </p>
         <div class="admon note">
@@ -146,25 +167,23 @@
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../general/dbus-bindings.html#dbus-glib"
-          title="D-Bus GLib Bindings">D-Bus GLib Bindings-0.100.2</a>,
-          <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a>, <a class="xref" href=
-          "../gnome/gnome-vfs.html" title=
-          "gnome-vfs-2.24.4">gnome-vfs-2.24.4</a> and <a class="xref" href=
-          "../gnome/libgnomeui.html" title=
-          "libgnomeui-2.24.5">libgnomeui-2.24.5</a> (for integration with the
-          old version of <span class="application">GNOME</span>), <a class=
+          <a class="xref" href="../basicnet/curl.html" title=
+          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
+          "../general/dbus-glib.html" title=
+          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
+          "../general/doxygen.html" title="Doxygen-1.8.5">Doxygen-1.8.5</a>,
+          <a class="xref" href="../multimedia/gst-plugins-base.html" title=
+          "gst-plugins-base-0.10.36">gst-plugins-base-0.10.36</a>, <a class=
           "ulink" href="http://hunspell.sourceforge.net/">Hunspell</a>,
           <a class="xref" href="../x/libnotify.html" title=
-          "libnotify-0.7.5">libnotify-0.7.5</a>, <a class="xref" href=
+          "libnotify-0.7.6">libnotify-0.7.6</a>, <a class="xref" href=
           "../x/startup-notification.html" title=
           "startup-notification-0.12">startup-notification-0.12</a>,
           <a class="xref" href="../basicnet/wget.html" title=
           "Wget-1.14">Wget-1.14</a>, <a class="xref" href=
           "../basicnet/wireless_tools.html" title=
           "Wireless Tools-29">Wireless Tools-29</a> and <a class="xref" href=
-          "../x/xulrunner.html" title="Xulrunner-20.0.1">Xulrunner-20.0.1</a>
+          "../x/xulrunner.html" title="Xulrunner-23.0.1">Xulrunner-23.0.1</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -181,10 +200,10 @@
           suite of libraries is built and installed. In the other, most of
           the system is built using the procedures found in <a class="xref"
           href="../x/xulrunner.html" title=
-          "Xulrunner-20.0.1">Xulrunner-20.0.1</a>. This is advantageous if
+          "Xulrunner-23.0.1">Xulrunner-23.0.1</a>. This is advantageous if
           you are planning to build other related packages such as <a class=
           "xref" href="icedtea-web.html" title=
-          "IcedTea-Web-1.3">IcedTea-Web-1.3</a>. With either build method,
+          "IcedTea-Web-1.4">IcedTea-Web-1.4</a>. With either build method,
           you need to run the main build procedure below with the appropriate
           options in the <code class="filename">mozconfig</code> file. Then
           use the appropriate install instructions depending on the chosen
@@ -199,19 +218,14 @@
           abbreviated description of each one), issue <span class=
           "command"><strong>./configure --help</strong></span>. You may also
           wish to review the entire file and uncomment any other desired
-          options. The commented line for <code class=
-          "literal">--with-libxul-sdk</code> has an escaped dollar sign - if
-          you have chosed to paste the entries into a <code class=
-          "filename">mozconfig</code> file in your editor, you do not need
-          the escape, it is only necessary when invoking a subshell in a HERE
-          document. Create the file by issuing the following command:
+          options. Create the file by issuing the following command:
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; mozconfig &lt;&lt; "EOF"
-# If you have a multicore machine you can speed up the build by running
-# several jobs at once by uncommenting the following line and setting the
-# value to number of CPU cores:
-#mk_add_options MOZ_MAKE_FLAGS="-j4"
+# If you have a multicore machine, firefox will now use all the cores by
+# default. Exceptionally, you can reduce the number of cores, e.g. to 1,
+# by uncommenting the next line and setting a valid number of CPU cores.
+#mk_add_options MOZ_MAKE_FLAGS="-j1"
 
 # If you have installed DBus-Glib comment out this line:
 ac_add_options --disable-dbus
@@ -223,15 +237,23 @@ ac_add_options --disable-necko-wifi
 ac_add_options --disable-libnotify
 
 # Uncomment these lines if you have installed optional dependencies:
+# GStreamer is necessary for H.264 video playback in HTML5 Video Player
+#ac_add_options --enable-gstreamer
 #ac_add_options --enable-system-hunspell
 #ac_add_options --enable-startup-notification
+
+# Uncomment this line if you compiled Cairo with --enable-tee switch and want
+# to use it instead of the bundled one:
+#ac_add_options --enable-system-cairo
 
 # If you have not installed Yasm then uncomment this line:
 #ac_add_options --disable-webm
 
-# If you have installed xulrunner uncomment following two lines:
+# If you have installed xulrunner uncomment the next two ac_add_options lines
+# and check that the sdk will be set by running pkg-config in a subshell
+# and has not become hardcoded or empty when you created this file
 #ac_add_options --with-system-libxul
-#ac_add_options --with-libxul-sdk=\$(pkg-config --variable=sdkdir libxul)
+#ac_add_options --with-libxul-sdk=$(pkg-config --variable=sdkdir libxul)
 
 # Comment out following options if you have not installed
 # recommended dependencies:
@@ -274,11 +296,27 @@ mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF</kbd>
 </pre>
         <p>
+          If you are building against an already installed <span class=
+          "application">Xulrunner</span> apply the patch:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../firefox-23.0.1-search_box_fix-1.patch</kbd>
+</pre>
+        <p>
+          If you are building against a system-installed <span class=
+          "application">Cairo</span> apply the patch:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../firefox-23.0.1-system_cairo-1.patch</kbd>
+</pre>
+        <p>
           Compile <span class="application">Firefox</span> by issuing the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">sed -i 's# ""##' browser/base/Makefile.in &amp;&amp;
+<kbd class="command">sed -i 's@ ""@@' browser/base/Makefile.in &amp;&amp;
 make -f client.mk</kbd>
 </pre>
         <p>
@@ -299,18 +337,17 @@ make -f client.mk</kbd>
           "application">Xulrunner</span>, install the package:
         </p>
         <pre class="root">
-<kbd class="command">rm -rf /usr/lib/firefox-20.0.1 &amp;&amp;
-mkdir  /usr/lib/firefox-20.0.1 &amp;&amp;
+<kbd class="command">rm -rf /usr/lib/firefox-23.0.1 &amp;&amp;
+mkdir  /usr/lib/firefox-23.0.1 &amp;&amp;
 
-tar -xvf firefox-build-dir/dist/firefox-20.0.1.en-US.linux-$(uname -m).tar.bz2 \
-    -C /usr/lib/firefox-20.0.1 --strip-components=1 &amp;&amp;
-chown -R -v root:root /usr/lib/firefox-20.0.1 &amp;&amp;
-chmod -v 755 /usr/lib/firefox-20.0.1/libxpcom.so &amp;&amp;
+tar -xvf firefox-build-dir/dist/firefox-23.0.1.en-US.linux-$(uname -m).tar.bz2 \
+    -C /usr/lib/firefox-23.0.1 --strip-components=1 &amp;&amp;
+chown -R -v root:root /usr/lib/firefox-23.0.1 &amp;&amp;
 
-ln -sfv ../lib/firefox-20.0.1/firefox /usr/bin &amp;&amp;
+ln -sfv ../lib/firefox-23.0.1/firefox /usr/bin &amp;&amp;
 
 mkdir -pv /usr/lib/mozilla/plugins &amp;&amp;
-ln -sfv ../mozilla/plugins /usr/lib/firefox-20.0.1</kbd>
+ln -sfv ../mozilla/plugins /usr/lib/firefox-23.0.1</kbd>
 </pre>
         <p>
           If you <span class="emphasis"><em>have</em></span> linked against
@@ -319,11 +356,11 @@ ln -sfv ../mozilla/plugins /usr/lib/firefox-20.0.1</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make -C firefox-build-dir install &amp;&amp;
-ln -sfv ../lib/firefox-20.0.1/firefox /usr/bin &amp;&amp;
-ln -sfv ../xulrunner-20.0.1 /usr/lib/firefox-20.0.1/xulrunner &amp;&amp;
+ln -sfv ../lib/firefox-23.0.1/firefox /usr/bin &amp;&amp;
+ln -sfv ../xulrunner-23.0.1 /usr/lib/firefox-23.0.1/xulrunner &amp;&amp;
 
 mkdir -pv /usr/lib/mozilla/plugins &amp;&amp;
-ln -sfv ../mozilla/plugins /usr/lib/firefox-20.0.1</kbd>
+ln -sfv ../mozilla/plugins /usr/lib/firefox-23.0.1</kbd>
 </pre>
         <h3>
           <a id="npapi-firefox" name="npapi-firefox"></a> NPAPI Headers
@@ -358,7 +395,7 @@ cp -v dom/plugins/base/*.h /usr/include/npapi</kbd>
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed -i 's# ""##'
+          <span class="command"><strong>sed -i 's@ ""@@'
           browser/base/Makefile.in</strong></span>: This sed removes an
           unprintable control character from the title bar.
         </p>
@@ -405,7 +442,7 @@ cp -v dom/plugins/base/*.h /usr/include/npapi</kbd>
         </p>
         <p>
           <span class="command"><strong>ln -sv ...
-          /usr/lib/firefox-20.0.1</strong></span>: This command creates a
+          /usr/lib/firefox-23.0.1</strong></span>: This command creates a
           symbolic link to <code class=
           "filename">/usr/lib/mozilla/plugins</code>. It's not really needed,
           as <span class="application">Firefox</span> checks <code class=
@@ -442,7 +479,7 @@ cp -v dom/plugins/base/*.h /usr/include/npapi</kbd>
 mkdir -pv /usr/share/pixmaps &amp;&amp;
 
 cat &gt; /usr/share/applications/firefox.desktop &lt;&lt; "EOF" &amp;&amp;
-[Desktop Entry]
+<code class="literal">[Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
 Comment=Browse the World Wide Web
@@ -453,10 +490,10 @@ Type=Application
 Icon=firefox
 Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
-StartupNotify=true
+StartupNotify=true</code>
 EOF
 
-ln -sfv /usr/lib/firefox-20.0.1/icons/mozicon128.png \
+ln -sfv /usr/lib/firefox-23.0.1/browser/icons/mozicon128.png \
         /usr/share/pixmaps/firefox.png</kbd>
 </pre>
       </div>
@@ -474,12 +511,12 @@ ln -sfv /usr/lib/firefox-20.0.1/icons/mozicon128.png \
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">Numerous libraries, browser components,
               plugins, extensions, and helper modules installed in
-              <code class="filename">/usr/lib/firefox-20.0.1</code></span>
+              <code class="filename">/usr/lib/firefox-23.0.1</code></span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/npapi and
-              /usr/lib/firefox-20.0.1</span>
+              /usr/lib/firefox-23.0.1</span>
             </div>
           </div>
         </div>
@@ -510,16 +547,16 @@ ln -sfv /usr/lib/firefox-20.0.1/icons/mozicon128.png \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-14 12:48:41 +0000
+        Last updated on 2013-09-06 07:48:50 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="seamonkey.html" title=
-          "SeaMonkey-2.13.2">Prev</a>
+          "SeaMonkey-2.20">Prev</a>
           <p>
-            SeaMonkey-2.13.2
+            SeaMonkey-2.20
           </p>
         </li>
         <li class="next">
@@ -531,11 +568,11 @@ ln -sfv /usr/lib/firefox-20.0.1/icons/mozicon128.png \
         </li>
         <li class="up">
           <a accesskey="u" href="graphweb.html" title=
-          "Chapter&nbsp;36.&nbsp;Graphical Web Browsers">Up</a>
+          "Chapter&nbsp;35.&nbsp;Graphical Web Browsers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

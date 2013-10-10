@@ -1,0 +1,625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Wireshark-1.10.2
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;16.&nbsp;Networking Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="wicd.html" title="Wicd-1.7.2.4">Prev</a>
+          <p>
+            Wicd-1.7.2.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="netlibs.html" title=
+          "Networking Libraries">Next</a>
+          <p>
+            Networking Libraries
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netutils.html" title=
+          "Chapter&nbsp;16.&nbsp;Networking Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="wireshark" name="wireshark"></a>Wireshark-1.10.2
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Wireshark
+        </h2>
+        <p>
+          The <span class="application">Wireshark</span> package contains a
+          network protocol analyzer, also known as a &ldquo;<span class=
+          "quote">sniffer</span>&rdquo;. This is useful for analyzing data
+          captured &ldquo;<span class="quote">off the wire</span>&rdquo; from
+          a live network connection, or data read from a capture file.
+          <span class="application">Wireshark</span> provides both a
+          graphical and a TTY-mode front-end for examining captured network
+          packets from over 500 protocols, as well as the capability to read
+          capture files from many other popular network analyzers.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://www.wireshark.org/download/src/all-versions/wireshark-1.10.2.tar.bz2">
+                http://www.wireshark.org/download/src/all-versions/wireshark-1.10.2.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: cd7fedd0a67df5ad4905fd356efdc1e8
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 25 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 1.1 GB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 5.4 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Additional Documentation: <a class="ulink" href=
+                "http://www.wireshark.org/download/docs/">http://www.wireshark.org/download/docs/</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+          From this page you can download many different docs in a variety of
+          formats.
+        </p>
+        <h3>
+          Wireshark dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/glib2.html" title=
+          "GLib-2.36.4">GLib-2.36.4</a> (to build the TTY-mode front-end
+          only)
+        </p>
+        <p>
+          Note that if you don't have <span class="application">Gtk+</span>
+          installed, you will need to pass <code class=
+          "option">--disable-wireshark</code> to the <span class=
+          "command"><strong>configure</strong></span> command.
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="libpcap.html" title=
+          "libpcap-1.4.0">libpcap-1.4.0</a> (required to capture data)
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/pkgconfig.html" title=
+          "pkg-config-0.28">pkg-config-0.28</a>, <a class="xref" href=
+          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a> or <a class=
+          "xref" href="../x/gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a> (to
+          build the GUI front-end), <a class="xref" href=
+          "../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
+          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.3">MIT
+          Kerberos V5-1.11.3</a>, <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>,
+          <a class="xref" href="../general/pcre.html" title=
+          "PCRE-8.33">PCRE-8.33</a>, <a class="xref" href=
+          "../postlfs/gnutls.html" title="GnuTLS-3.2.4">GnuTLS-3.2.4</a>,
+          <a class="ulink" href=
+          "http://www.portaudio.com/download.html">PortAudio</a>, <a class=
+          "ulink" href="http://www.maxmind.com/app/c">GeoIP</a>, <a class=
+          "ulink" href="http://www.gnu.org/software/adns/adns.html">adns</a>,
+          and <a class="xref" href="../general/lua.html" title=
+          "Lua-5.1.5">Lua-5.1.5</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/wireshark">http://wiki.linuxfromscratch.org/blfs/wiki/wireshark</a>
+        </p>
+      </div>
+      <div class="kernel" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="wireshark-kernel" name="wireshark-kernel"></a>Kernel
+          Configuration
+        </h2>
+        <p>
+          The kernel must have the Packet protocol enabled for <span class=
+          "application">Wireshark</span> to capture live packets from the
+          network.
+        </p>
+        <pre class="screen">
+<code class="literal">Networking support: Y
+  Networking options:
+    Packet: sockets monitoring interface: M or Y</code>
+</pre>
+        <p>
+          If built as a module, the name is <code class=
+          "filename">af_packet.ko</code>.
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Wireshark
+        </h2>
+        <p>
+          Optionally, fix the description of the program in the title. The
+          first change overwrites the default "SVN Unknown" in the title and
+          the secong overwrites a utility script that resets the version to
+          "unknown".
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; svnversion.h &lt;&lt; "EOF"
+#define SVNVERSION "BLFS"
+#define SVNPATH "source"
+EOF
+
+cat &gt; make-version.pl &lt;&lt; "EOF"
+#!/usr/bin/perl
+EOF</kbd>
+</pre>
+        <p>
+          <span class="application">Wireshark</span> is a very large and
+          complex application. These instructions provide additional security
+          measures to ensure that only trusted users are allowed to view
+          network traffic. First, set up a system group for wireshark. As the
+          <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">groupadd -g 62 wireshark</kbd>
+</pre>
+        <p>
+          Continue to install <span class="application">Wireshark</span> by
+          running the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+
+install -v -m755 -d /usr/share/doc/wireshark-1.10.2 &amp;&amp;
+install -v -m755 -d /usr/share/pixmaps/wireshark &amp;&amp;
+
+install -v -m644    README{,.linux} doc/README.* doc/*.{pod,txt} \
+                    /usr/share/doc/wireshark-1.10.2 &amp;&amp;
+
+pushd /usr/share/doc/wireshark-1.10.2 &amp;&amp;
+   for FILENAME in ../../wireshark/*.html; do
+      ln -s -v $FILENAME .
+   done &amp;&amp;
+popd &amp;&amp;
+
+install -v -m644 -D wireshark.desktop \
+                    /usr/share/applications/wireshark.desktop &amp;&amp;
+
+install -v -m644 -D image/wsicon48.png \
+                    /usr/share/pixmaps/wireshark.png &amp;&amp;
+
+install -v -m644    image/*.{png,ico,xpm,bmp} \
+                    /usr/share/pixmaps/wireshark</kbd>
+</pre>
+        <p>
+          If you downloaded any of the documentation files from the page
+          listed in the 'Additional Downloads', install them by issuing the
+          following commands as the <code class="systemitem">root</code>
+          user:
+        </p>
+        <pre class="root">
+<kbd class="command">install -v -m644 <em class=
+"replaceable"><code>&lt;Downloaded_Files&gt;</code></em> /usr/share/doc/wireshark-1.10.2</kbd>
+</pre>
+        <p>
+          Now, set ownership and permissions of sensitive applications to
+          only allow authorized users. As the <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">chown -v root:wireshark /usr/bin/{tshark,dumpcap} &amp;&amp;
+chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
+</pre>
+        <p>
+          Finally, add any users to the wireshark group with <strong class=
+          "userinput"><code>usermod -a -G wireshark
+          &lt;username&gt;</code></strong>.
+        </p>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--enable-threads</code></em>: This
+          parameter enables the use of threads in <span class=
+          "command"><strong>wireshark</strong></span>.
+        </p>
+        <p>
+          <code class="option">--with-ssl</code>: This parameter is required
+          if you are linking Kerberos libraries into the build so that the
+          <span class="application">OpenSSL</span> <code class=
+          "filename">libcrypto</code> library is found.
+        </p>
+        <p>
+          <code class="option">--with-python</code>: This parameter is
+          required if you want Python bindings built.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring Wireshark
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="wireshark-config" name="wireshark-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">/etc/wireshark.conf</code> and
+            <code class="filename">~/.wireshark/*</code>
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Configuration Information
+          </h3>
+          <p>
+            Though the default configuration parameters are very sane,
+            reference the configuration section of the <a class="ulink" href=
+            "http://www.wireshark.org/docs/wsug_html/">Wireshark User's
+            Guide</a> for configuration information. Most of <span class=
+            "application">Wireshark</span>'s configuration can be
+            accomplished using the menu options of the <span class=
+            "command"><strong>wireshark</strong></span> graphical interface.
+          </p>
+          <div class="admon note">
+            <img alt="[Note]" src="../images/note.png" />
+            <h3>
+              Note
+            </h3>
+            <p>
+              If you want to look at packets, make sure you don't filter them
+              out with <a class="xref" href="../postlfs/iptables.html" title=
+              "Iptables-1.4.20">Iptables-1.4.20</a>. If you want to exclude
+              certain classes of packets, it is more efficient to do it with
+              <span class="application">iptables</span> than it is with
+              <span class="application">Wireshark</span>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">capinfos, dftest, dumpcap, editcap,
+              idl2wrs, mergecap, randpkt, rawshark, text2pcap, tshark, and
+              wireshark</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libwireshark.so, libwiretap.so,
+              libwsutil.so, and numerous plugin modules</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/lib/wireshark,
+              /usr/share/doc/wireshark-1.10.2, /usr/share/pixmaps/wireshark,
+              and /usr/share/wireshark</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="capinfos" name="capinfos"></a><span class=
+                    "term"><span class=
+                    "command"><strong>capinfos</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    reads a saved capture file and returns any or all of
+                    several statistics about that file. It is able to detect
+                    and read any capture supported by the <span class=
+                    "application">Wireshark</span> package.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="dftest" name="dftest"></a><span class=
+                    "term"><span class=
+                    "command"><strong>dftest</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a display-filter-compiler test program.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="dumpcap" name="dumpcap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>dumpcap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a network traffic dump tool. It lets you capture
+                    packet data from a live network and write the packets to
+                    a file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="editcap" name="editcap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>editcap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    edits and/or translates the format of capture files. It
+                    knows how to read <span class=
+                    "application">libpcap</span> capture files, including
+                    those of <span class=
+                    "command"><strong>tcpdump</strong></span>, <span class=
+                    "application">Wireshark</span> and other tools that write
+                    captures in that format.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="idl2wrs" name="idl2wrs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>idl2wrs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    takes a user specified CORBA IDL file and generates
+                    &ldquo;<span class="quote">C</span>&rdquo; source code
+                    that can be used to create an <span class=
+                    "application">Wireshark</span> plugin.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mergecap" name="mergecap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mergecap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    combines multiple saved capture files into a single
+                    output file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="randpkt" name="randpkt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>randpkt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    creates random-packet capture files.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rawshark" name="rawshark"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rawshark</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    dump and analyze raw libpcap data.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="text2pcap" name="text2pcap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>text2pcap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    reads in an ASCII hex dump and writes the data described
+                    into a <span class="application">libpcap</span>-style
+                    capture file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tshark" name="tshark"></a><span class=
+                    "term"><span class=
+                    "command"><strong>tshark</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a TTY-mode network protocol analyzer. It lets you
+                    capture packet data from a live network or read packets
+                    from a previously saved capture file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wireshark-prog" name=
+                    "wireshark-prog"></a><span class="term"><span class=
+                    "command"><strong>wireshark</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a GUI network protocol analyzer. It lets you
+                    interactively browse packet data from a live network or
+                    from a previously saved capture file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libwireshark" name="libwireshark"></a><span class=
+                    "term"><code class=
+                    "filename">libwireshark.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains functions used by the <span class=
+                    "application">Wireshark</span> programs to perform
+                    filtering and packet capturing.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libwiretap" name="libwiretap"></a><span class=
+                    "term"><code class="filename">libwiretap.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a library being developed as a future replacement for
+                    <code class="filename">libpcap</code>, the current
+                    standard Unix library for packet capturing. For more
+                    information, see the <code class="filename">README</code>
+                    file in the source <code class="filename">wiretap</code>
+                    directory.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-11 12:10:25 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="wicd.html" title="Wicd-1.7.2.4">Prev</a>
+          <p>
+            Wicd-1.7.2.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="netlibs.html" title=
+          "Networking Libraries">Next</a>
+          <p>
+            Networking Libraries
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="netutils.html" title=
+          "Chapter&nbsp;16.&nbsp;Networking Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

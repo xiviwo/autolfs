@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Conventions Used in this Book
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;1.&nbsp;Welcome to BLFS
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="which.html" title=
+          "Which Sections of the Book Do I Want?">Prev</a>
+          <p>
+            Which Sections of the Book Do I Want?
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="version.html" title="Book Version">Next</a>
+          <p>
+            Book Version
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="welcome.html" title=
+          "Chapter&nbsp;1.&nbsp;Welcome to BLFS">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="conventions" name="conventions"></a>Conventions Used in this
+        Book
+      </h1>
+      <p>
+        To make things easy to follow, there are a number of conventions used
+        throughout the book. Following are some examples:
+      </p>
+      <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr</kbd>
+</pre>
+      <div class="blockquote">
+        <blockquote class="blockquote">
+          <p>
+            This form of text is designed to be typed exactly as seen unless
+            otherwise noted in the surrounding text. It is also used to
+            identify references to specific commands.
+          </p>
+        </blockquote>
+      </div>
+      <pre class="screen">
+<code class="computeroutput">install-info: unknown option
+`--dir-file=/mnt/lfs/usr/info/dir'</code>
+</pre>
+      <div class="blockquote">
+        <blockquote class="blockquote">
+          <p>
+            This form of text (fixed width text) is showing screen output,
+            probably a result from issuing a command. It is also used to show
+            filenames such as <code class=
+            "filename">/boot/grub/grub.conf</code>
+          </p>
+        </blockquote>
+      </div>
+      <p>
+        <span class="emphasis"><em>Emphasis</em></span>
+      </p>
+      <div class="blockquote">
+        <blockquote class="blockquote">
+          <p>
+            This form of text is used for several purposes in the book but
+            mainly to emphasize important points or to give examples as to
+            what to type.
+          </p>
+        </blockquote>
+      </div>
+      <p>
+        <a class="ulink" href=
+        "http://www.linuxfromscratch.org/">http://www.linuxfromscratch.org/</a>
+      </p>
+      <div class="blockquote">
+        <blockquote class="blockquote">
+          <p>
+            This form of text is used for hypertext links external to the
+            book such as HowTos, download locations, websites, etc.
+          </p>
+        </blockquote>
+      </div>
+      <p>
+        <a class="xref" href="../xsoft/seamonkey.html" title=
+        "SeaMonkey-2.20">SeaMonkey-2.20</a>
+      </p>
+      <div class="blockquote">
+        <blockquote class="blockquote">
+          <p>
+            This form of text is used for links internal to the book such as
+            another section describing a different package.
+          </p>
+        </blockquote>
+      </div>
+      <pre class="userinput">
+<kbd class="command">cat &gt; $LFS/etc/group &lt;&lt; "EOF"
+<code class="literal">root:x:0:
+bin:x:1:
+......</code>
+EOF</kbd>
+</pre>
+      <div class="blockquote">
+        <blockquote class="blockquote">
+          <p>
+            This type of section is used mainly when creating configuration
+            files. The first command (in bold) tells the system to create the
+            file <code class="filename">$LFS/etc/group</code> from whatever
+            is typed on the following lines until the sequence EOF is
+            encountered. Therefore, this whole section is generally typed as
+            seen.
+          </p>
+        </blockquote>
+      </div>
+      <p>
+        <em class="replaceable"><code>&lt;REPLACED TEXT&gt;</code></em>
+      </p>
+      <div class="blockquote">
+        <blockquote class="blockquote">
+          <p>
+            This form of text is used to encapsulate text that should be
+            modified and is not to be typed as seen, or copy and pasted. Note
+            that the square brackets are not part of the text, but should be
+            substituted for as well.
+          </p>
+        </blockquote>
+      </div>
+      <p>
+        <code class="systemitem">root</code>
+      </p>
+      <div class="blockquote">
+        <blockquote class="blockquote">
+          <p>
+            This form of text is used to show a specific system user or group
+            reference in the instructions.
+          </p>
+        </blockquote>
+      </div>
+      <p class="updated">
+        Last updated on 2007-04-04 12:42:53 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="which.html" title=
+          "Which Sections of the Book Do I Want?">Prev</a>
+          <p>
+            Which Sections of the Book Do I Want?
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="version.html" title="Book Version">Next</a>
+          <p>
+            Book Version
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="welcome.html" title=
+          "Chapter&nbsp;1.&nbsp;Welcome to BLFS">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

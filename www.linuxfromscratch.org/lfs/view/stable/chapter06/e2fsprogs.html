@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.25.&nbsp;E2fsprogs-1.42.7
+      6.26.&nbsp;E2fsprogs-1.42.8
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -23,15 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="procps-ng.html" title=
-          "Procps-ng-3.3.6">Prev</a>
+          "Procps-ng-3.3.8">Prev</a>
           <p>
-            Procps-ng-3.3.6
+            Procps-ng-3.3.8
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="shadow.html" title="Shadow-4.1.5.1">Next</a>
+          <a accesskey="n" href="coreutils.html" title=
+          "Coreutils-8.21">Next</a>
           <p>
-            Shadow-4.1.5.1
+            Coreutils-8.21
           </p>
         </li>
         <li class="up">
@@ -40,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-e2fsprogs" name="ch-system-e2fsprogs"></a>6.25.
-        E2fsprogs-1.42.7
+        <a id="ch-system-e2fsprogs" name="ch-system-e2fsprogs"></a>6.26.
+        E2fsprogs-1.42.8
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -71,8 +72,15 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.25.1. Installation of E2fsprogs
+          6.26.1. Installation of E2fsprogs
         </h2>
+        <p>
+          First, fix a regression test:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i -e 's/mke2fs/$MKE2FS/' -e 's/debugfs/$DEBUGFS/' tests/f_extent_oobounds/script</kbd>
+</pre>
         <p>
           The E2fsprogs documentation recommends that the package be built in
           a subdirectory of the source tree:
@@ -163,7 +171,9 @@ cd build</kbd>
           <a class="xref" href="../chapter02/mounting.html" title=
           "2.4.&nbsp;Mounting the New Partition">Section&nbsp;2.4,
           &ldquo;Mounting the New Partition&rdquo;</a> for details on
-          creating and enabling swap space.
+          creating and enabling swap space. Additionally, three tests try to
+          allocate a two terabyte partition and will fail unless you have at
+          least that much unused disk space available.
         </p>
         <p>
           Install the binaries, documentation, and shared libraries:
@@ -209,7 +219,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-e2fsprogs" name="contents-e2fsprogs"></a>6.25.2.
+          <a id="contents-e2fsprogs" name="contents-e2fsprogs"></a>6.26.2.
           Contents of E2fsprogs
         </h2>
         <div class="segmentedlist">
@@ -217,10 +227,9 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
             <div class="seg">
               <strong class="segtitle">Installed programs:</strong>
               <span class="segbody">badblocks, chattr, compile_et, debugfs,
-              dumpe2fs, e2freefrag, e2fsck, e2image, e2initrd_helper,
-              e2label, e2undo, e4defrag, filefrag, fsck.ext2, fsck.ext3,
-              fsck.ext4, fsck.ext4dev, logsave, lsattr, mk_cmds, mke2fs,
-              mkfs.ext2, mkfs.ext3, mkfs.ext4, mkfs.ext4dev, mklost+found,
+              dumpe2fs, e2fsck, e2image, e2label, e2undo, fsck.ext2,
+              fsck.ext3, fsck.ext4, fsck.ext4dev, logsave, lsattr, mk_cmds,
+              mke2fs, mkfs.ext2, mkfs.ext3, mkfs.ext4, mkfs.ext4dev,
               resize2fs, and tune2fs</span>
             </div>
             <div class="seg">
@@ -327,20 +336,6 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="e2freefrag" name="e2freefrag"></a><span class=
-                    "term"><span class=
-                    "command"><strong>e2freefrag</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Reports free space fragmentation information
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="e2fsck" name="e2fsck"></a><span class=
                     "term"><span class=
                     "command"><strong>e2fsck</strong></span></span>
@@ -366,21 +361,6 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
                   <p>
                     Is used to save critical <code class=
                     "systemitem">ext2</code> file system data to a file
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="e2initrd_helper" name=
-                    "e2initrd_helper"></a><span class="term"><span class=
-                    "command"><strong>e2initrd_helper</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Prints the FS type of a given filesystem, given either a
-                    device name or label
                   </p>
                 </td>
               </tr>
@@ -413,35 +393,6 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
                     Replays the undo log undo_log for an ext2/ext3/ext4
                     filesystem found on a device. This can be used to undo a
                     failed operation by an e2fsprogs program.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="e4defrag" name="e4defrag"></a><span class=
-                    "term"><span class=
-                    "command"><strong>e4defrag</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Online defragmenter for ext4 filesystems
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="filefrag" name="filefrag"></a><span class=
-                    "term"><span class=
-                    "command"><strong>filefrag</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Reports on how badly fragmented a particular file might
-                    be
                   </p>
                 </td>
               </tr>
@@ -637,24 +588,6 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="mklost-found" name="mklost-found"></a><span class=
-                    "term"><span class=
-                    "command"><strong>mklost+found</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Used to create a <code class="filename">lost+found</code>
-                    directory on an <code class="systemitem">ext2</code> file
-                    system; it pre-allocates disk blocks to this directory to
-                    lighten the task of <span class=
-                    "command"><strong>e2fsck</strong></span>
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="resize2fs" name="resize2fs"></a><span class=
                     "term"><span class=
                     "command"><strong>resize2fs</strong></span></span>
@@ -763,15 +696,16 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="procps-ng.html" title=
-          "Procps-ng-3.3.6">Prev</a>
+          "Procps-ng-3.3.8">Prev</a>
           <p>
-            Procps-ng-3.3.6
+            Procps-ng-3.3.8
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="shadow.html" title="Shadow-4.1.5.1">Next</a>
+          <a accesskey="n" href="coreutils.html" title=
+          "Coreutils-8.21">Next</a>
           <p>
-            Shadow-4.1.5.1
+            Coreutils-8.21
           </p>
         </li>
         <li class="up">
@@ -780,7 +714,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

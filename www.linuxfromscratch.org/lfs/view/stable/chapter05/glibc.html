@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.7.&nbsp;Glibc-2.17
+      5.7.&nbsp;Glibc-2.18
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="linux-headers.html" title=
-          "Linux-3.8.1 API Headers">Prev</a>
+          "Linux-3.10.10 API Headers">Prev</a>
           <p>
-            Linux-3.8.1 API Headers
+            Linux-3.10.10 API Headers
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="binutils-pass2.html" title=
-          "Binutils-2.23.1 - Pass 2">Next</a>
+          <a accesskey="n" href="gcc-libstdc++.html" title=
+          "Libstdc++-4.8.1">Next</a>
           <p>
-            Binutils-2.23.1 - Pass 2
+            Libstdc++-4.8.1
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-tools-glibc" name="ch-tools-glibc"></a>5.7. Glibc-2.17
+        <a id="ch-tools-glibc" name="ch-tools-glibc"></a>5.7. Glibc-2.18
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -60,11 +60,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">5.4 SBU</span>
+              <span class="segbody">4.7 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">554 MB</span>
+              <span class="segbody">567 MB</span>
             </div>
           </div>
         </div>
@@ -85,6 +85,13 @@
 fi</kbd>
 </pre>
         <p>
+          An upstream change needs to be reverted:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i -e 's/static __m128i/inline &amp;/' sysdeps/x86_64/multiarch/strstr.c</kbd>
+</pre>
+        <p>
           The Glibc documentation recommends building Glibc outside of the
           source directory in a dedicated build directory:
         </p>
@@ -96,15 +103,15 @@ cd ../glibc-build</kbd>
           Next, prepare Glibc for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">../glibc-2.17/configure                             \
-      --prefix=/tools                                 \
-      --host=$LFS_TGT                                 \
-      --build=$(../glibc-2.17/scripts/config.guess) \
-      --disable-profile                               \
-      --enable-kernel=2.6.25                          \
-      --with-headers=/tools/include                   \
-      libc_cv_forced_unwind=yes                       \
-      libc_cv_ctors_header=yes                        \
+<kbd class="command">../glibc-2.18/configure                             \
+      --prefix=/tools                               \
+      --host=$LFS_TGT                               \
+      --build=$(../glibc-2.18/scripts/config.guess) \
+      --disable-profile                             \
+      --enable-kernel=2.6.32                        \
+      --with-headers=/tools/include                 \
+      libc_cv_forced_unwind=yes                     \
+      libc_cv_ctors_header=yes                      \
       libc_cv_c_cleanup=yes</kbd>
 </pre>
         <div class="variablelist">
@@ -114,7 +121,7 @@ cd ../glibc-build</kbd>
           <dl>
             <dt>
               <span class="term"><em class="parameter"><code>--host=$LFS_TGT,
-              --build=$(../glibc-2.17/scripts/config.guess)</code></em></span>
+              --build=$(../glibc-2.18/scripts/config.guess)</code></em></span>
             </dt>
             <dd>
               <p>
@@ -136,12 +143,12 @@ cd ../glibc-build</kbd>
             </dd>
             <dt>
               <span class="term"><em class=
-              "parameter"><code>--enable-kernel=2.6.25</code></em></span>
+              "parameter"><code>--enable-kernel=2.6.32</code></em></span>
             </dt>
             <dd>
               <p>
                 This tells Glibc to compile the library with support for
-                2.6.25 and later Linux kernels. Workarounds for older kernels
+                2.6.32 and later Linux kernels. Workarounds for older kernels
                 are not enabled.
               </p>
             </dd>
@@ -165,8 +172,8 @@ cd ../glibc-build</kbd>
               <p>
                 The linker installed during <a class="xref" href=
                 "binutils-pass1.html" title=
-                "5.4.&nbsp;Binutils-2.23.1 - Pass 1">Section&nbsp;5.4,
-                &ldquo;Binutils-2.23.1 - Pass 1&rdquo;</a> was cross-compiled
+                "5.4.&nbsp;Binutils-2.23.2 - Pass 1">Section&nbsp;5.4,
+                &ldquo;Binutils-2.23.2 - Pass 1&rdquo;</a> was cross-compiled
                 and as such cannot be used until Glibc has been installed.
                 This means that the configure test for force-unwind support
                 will fail, as it relies on a working linker. The
@@ -248,8 +255,8 @@ cd ../glibc-build</kbd>
             appropriate locales will be installed in the next chapter. To
             install the Glibc locales anyway, use instructions from <a class=
             "xref" href="../chapter06/glibc.html" title=
-            "6.9.&nbsp;Glibc-2.17">Section&nbsp;6.9,
-            &ldquo;Glibc-2.17.&rdquo;</a>
+            "6.9.&nbsp;Glibc-2.18">Section&nbsp;6.9,
+            &ldquo;Glibc-2.18.&rdquo;</a>
           </p>
         </div>
         <p>
@@ -306,10 +313,11 @@ readelf -l a.out | grep ': /tools'</kbd>
             Note
           </h3>
           <p>
-            Building Binutils in the next section will serve as an additional
-            check that the toolchain has been built properly. If Binutils
-            fails to build, it is an indication that something has gone wrong
-            with the previous Binutils, GCC, or Glibc installations.
+            Building Binutils in the section after next will serve as an
+            additional check that the toolchain has been built properly. If
+            Binutils fails to build, it is an indication that something has
+            gone wrong with the previous Binutils, GCC, or Glibc
+            installations.
           </p>
         </div>
       </div>
@@ -326,16 +334,16 @@ readelf -l a.out | grep ': /tools'</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="linux-headers.html" title=
-          "Linux-3.8.1 API Headers">Prev</a>
+          "Linux-3.10.10 API Headers">Prev</a>
           <p>
-            Linux-3.8.1 API Headers
+            Linux-3.10.10 API Headers
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="binutils-pass2.html" title=
-          "Binutils-2.23.1 - Pass 2">Next</a>
+          <a accesskey="n" href="gcc-libstdc++.html" title=
+          "Libstdc++-4.8.1">Next</a>
           <p>
-            Binutils-2.23.1 - Pass 2
+            Libstdc++-4.8.1
           </p>
         </li>
         <li class="up">
@@ -344,7 +352,7 @@ readelf -l a.out | grep ': /tools'</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

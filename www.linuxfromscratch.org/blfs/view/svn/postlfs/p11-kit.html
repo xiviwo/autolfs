@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      p11-kit-0.18.1
+      p11-kit-0.20.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="polkit.html" title="Polkit-0.110">Next</a>
+          <a accesskey="n" href="polkit.html" title="Polkit-0.111">Next</a>
           <p>
-            Polkit-0.110
+            Polkit-0.111
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="p11-kit" name="p11-kit"></a>p11-kit-0.18.1
+        <a id="p11-kit" name="p11-kit"></a>p11-kit-0.20.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           Standard) modules.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -69,28 +69,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://p11-glue.freedesktop.org/releases/p11-kit-0.18.1.tar.gz">
-                http://p11-glue.freedesktop.org/releases/p11-kit-0.18.1.tar.gz</a>
+                "http://p11-glue.freedesktop.org/releases/p11-kit-0.20.1.tar.gz">
+                http://p11-glue.freedesktop.org/releases/p11-kit-0.20.1.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: e4ef21592dbd126b62e1a6d4ad65ce5c
+                Download MD5 sum: 88c651137f76a167336639371eafd8cc
               </p>
             </li>
             <li>
               <p>
-                Download size: 940 KB
+                Download size: 1.1 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 33 MB
+                Estimated disk space required: 74 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: 0.4 SBU
               </p>
             </li>
           </ul>
@@ -104,15 +104,17 @@
         <p class="recommended">
           <a class="xref" href="cacerts.html" title=
           "Certificate Authority Certificates">Certificate Authority
-          Certificates</a> and <a class="xref" href=
-          "../general/libtasn1.html" title="libtasn1-3.3">libtasn1-3.3</a>
+          Certificates</a>, <a class="xref" href="../general/libtasn1.html"
+          title="libtasn1-3.3">libtasn1-3.3</a>, and <a class="xref" href=
+          "../general/libffi.html" title="libffi-3.0.13">libffi-3.0.13</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
+          <a class="xref" href="nss.html" title="NSS-3.15.1">NSS-3.15.1</a>,
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.18">GTK-Doc-1.18</a> and <a class="xref" href=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="xref" href=
           "../general/libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
         </p>
         <p class="usernotes">
@@ -148,9 +150,14 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
+          <code class="option">--with-hash-impl=freebl</code>: Use this
+          switch if you want to use Freebl library from <span class=
+          "application">NSS</span> for SHA1 and MD5 hashing.
+        </p>
+        <p>
           <code class="option">--enable-doc</code>: Use this switch if you
           have installed <a class="xref" href="../general/gtk-doc.html"
-          title="GTK-Doc-1.18">GTK-Doc-1.18</a> and <a class="xref" href=
+          title="GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="xref" href=
           "../general/libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
           and wish to rebuild the documentation and generate manual pages.
         </p>
@@ -163,7 +170,7 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Program:</strong>
-              <span class="segbody">p11-kit</span>
+              <span class="segbody">p11-kit and trust</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -173,7 +180,7 @@ make</kbd>
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/pkcs11, /usr/include/p11-kit-1,
               /usr/lib/p11-kit, /usr/lib/pkcs11,
-              /usr/share/gtk-doc/html/p11-kit and /usr/share/p11-kit</span>
+              /usr/share/gtk-doc/html/p11-kit, and /usr/share/p11-kit</span>
             </div>
           </div>
         </div>
@@ -232,7 +239,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-17 14:22:59 +0000
+        Last updated on 2013-09-09 22:17:21 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -245,9 +252,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="polkit.html" title="Polkit-0.110">Next</a>
+          <a accesskey="n" href="polkit.html" title="Polkit-0.111">Next</a>
           <p>
-            Polkit-0.110
+            Polkit-0.111
           </p>
         </li>
         <li class="up">
@@ -256,7 +263,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

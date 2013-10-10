@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      mercurial-2.5.2
+      Mercurial-2.7.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="llvm.html" title="LLVM-3.2">Prev</a>
+          <a accesskey="p" href="lua.html" title="Lua-5.1.5">Prev</a>
           <p>
-            LLVM-3.2
+            Lua-5.1.5
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="NASM.html" title="NASM-2.10.07">Next</a>
+          <a accesskey="n" href="NASM.html" title="NASM-2.10.09">Next</a>
           <p>
-            NASM-2.10.07
+            NASM-2.10.09
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mercurial" name="mercurial"></a>mercurial-2.5.2
+        <a id="mercurial" name="mercurial"></a>Mercurial-2.7.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -54,15 +54,14 @@
         <p>
           <span class="application">Mercurial</span> is a distributed source
           control management tool similar to <span class=
-          "application">CVS</span>, <span class=
-          "application">Subversion</span> and <span class=
-          "application">Git</span>. <span class=
+          "application">Git</span> and <span class=
+          "application">Bazaar</span>. <span class=
           "application">Mercurial</span> is written in <span class=
-          "application">Python</span> and is used by projects such as
-          Mozilla, Vim and Audacious.
+          "application">Python</span> and is used by projects such as Mozilla
+          and Vim.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -73,28 +72,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://mercurial.selenic.com/release/mercurial-2.5.2.tar.gz">
-                http://mercurial.selenic.com/release/mercurial-2.5.2.tar.gz</a>
+                "http://mercurial.selenic.com/release/mercurial-2.7.1.tar.gz">
+                http://mercurial.selenic.com/release/mercurial-2.7.1.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 6b467f41a262e2537cf927ed42d0fdda
+                Download MD5 sum: 3313de3667902ae4dc82f29f5280294d
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.7 MB
+                Download size: 3.6 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 40 MB
+                Estimated disk space required: 43 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.1 SBU (additional 8.5 SBU for tests)
+                Estimated build time: 0.1 SBU (additional 12 SBU for tests)
               </p>
             </li>
           </ul>
@@ -107,7 +106,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="python2.html" title=
-          "Python-2.7.4">Python-2.7.4</a>
+          "Python-2.7.5">Python-2.7.5</a>
         </p>
         <h4>
           Optional
@@ -116,13 +115,13 @@
           <a class="ulink" href=
           "http://docutils.sourceforge.net/">Docutils</a> (required to build
           the documentation), <a class="xref" href="git.html" title=
-          "Git-1.8.2.2">git-1.8.2.2</a>, <a class="xref" href=
-          "../postlfs/gnupg2.html#gpg2"><span class=
-          "command"><strong>gpg2</strong></span></a> (with Python bindings),
-          <a class="xref" href="subversion.html" title=
-          "Subversion-1.7.8">Subversion-1.7.8</a> (with Python bindings),
+          "Git-1.8.4">git-1.8.4</a>, <a class="xref" href=
+          "../postlfs/gnupg2.html" title="GnuPG-2.0.21">GnuPG-2.0.21</a>
+          (<span class="command"><strong>gpg2</strong></span> with Python
+          bindings), <a class="xref" href="subversion.html" title=
+          "Subversion-1.8.3">Subversion-1.8.3</a> (with Python bindings),
           <a class="xref" href="bazaar.html" title=
-          "bzr-2.5.0">bazaar-2.5.0</a>, <a class="xref" href="cvs.html"
+          "Bazaar-2.5.1">Bazaar-2.5.1</a>, <a class="xref" href="cvs.html"
           title="CVS-1.11.23">CVS-1.11.23</a>, <a class="ulink" href=
           "http://pypi.python.org/pypi/pyflakes">pyflakes</a>, <a class=
           "ulink" href="http://pygments.org/">pygments</a>, and <a class=
@@ -170,6 +169,34 @@
 <kbd class="command">make PREFIX=/usr install-doc</kbd>
 </pre>
       </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring Mercurial
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="mercurial-config" name="mercurial-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">/etc/mercurial/hgrc</code>
+          </p>
+          <p>
+            If you have installed the <a class="xref" href=
+            "../postlfs/cacerts.html" title=
+            "Certificate Authority Certificates">Certificate Authority
+            Certificates</a> and you want <span class=
+            "application">Mercurial</span> to use them, as the <code class=
+            "systemitem">root</code> user:
+          </p>
+          <pre class="root">
+<kbd class="command">install -v -d -m755 /etc/mercurial &amp;&amp;
+cat &gt; /etc/mercurial/hgrc &lt;&lt; "EOF"
+<code class="literal">[web]
+cacerts = /etc/ssl/ca-bundle.crt</code>
+EOF</kbd>
+</pre>
+        </div>
+      </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
           Contents
@@ -186,8 +213,9 @@
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/lib/python2.7/site-packages/hgext
-              and /usr/lib/python2.7/site-packages/mercurial</span>
+              <span class="segbody">/etc/mercurial,
+              /usr/lib/python2.7/site-packages/hgext and
+              /usr/lib/python2.7/site-packages/mercurial</span>
             </div>
           </div>
         </div>
@@ -216,21 +244,21 @@
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-31 11:22:49 +0000
+        Last updated on 2013-09-05 07:33:33 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="llvm.html" title="LLVM-3.2">Prev</a>
+          <a accesskey="p" href="lua.html" title="Lua-5.1.5">Prev</a>
           <p>
-            LLVM-3.2
+            Lua-5.1.5
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="NASM.html" title="NASM-2.10.07">Next</a>
+          <a accesskey="n" href="NASM.html" title="NASM-2.10.09">Next</a>
           <p>
-            NASM-2.10.07
+            NASM-2.10.09
           </p>
         </li>
         <li class="up">
@@ -239,7 +267,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

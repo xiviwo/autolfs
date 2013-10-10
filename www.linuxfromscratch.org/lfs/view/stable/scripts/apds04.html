@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130123
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
       </h3>
       <ul>
         <li class="prev">
@@ -37,12 +37,12 @@
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130123">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
@@ -87,7 +87,7 @@ case "${1}" in
    start)
       # Make sure /run/var is available before logging any messages
       if ! mountpoint /run &gt;/dev/null; then
-         mount -n /run || failed=1
+         mount /run || failed=1
       fi
 
       mkdir -p /run/var /run/lock /run/shm
@@ -97,17 +97,17 @@ case "${1}" in
 
       if ! mountpoint /proc &gt;/dev/null; then
          log_info_msg2 " ${INFO}/proc"
-         mount -n -o nosuid,noexec,nodev /proc || failed=1
+         mount -o nosuid,noexec,nodev /proc || failed=1
       fi
 
       if ! mountpoint /sys &gt;/dev/null; then
          log_info_msg2 " ${INFO}/sys" 
-         mount -n -o nosuid,noexec,nodev /sys || failed=1
+         mount -o nosuid,noexec,nodev /sys || failed=1
       fi
 
       if ! mountpoint /dev &gt;/dev/null; then
          log_info_msg2 " ${INFO}/dev" 
-         mount -n -o mode=0755,nosuid /dev  || failed=1
+         mount -o mode=0755,nosuid /dev  || failed=1
       fi
 
       # Copy devices that Udev &gt;= 155 doesn't handle to /dev
@@ -147,12 +147,12 @@ esac
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130123">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

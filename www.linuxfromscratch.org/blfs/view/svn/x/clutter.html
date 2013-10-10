@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Clutter-1.12.2
+      Clutter-1.14.4
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="cogl.html" title="Cogl-1.12.2">Prev</a>
+          <a accesskey="p" href="cogl.html" title="Cogl-1.14.0">Prev</a>
           <p>
-            Cogl-1.12.2
+            Cogl-1.14.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="clutter-gst2.html" title=
-          "clutter-gst-2.0.2">Next</a>
+          "clutter-gst-2.0.6">Next</a>
           <p>
-            clutter-gst-2.0.2
+            clutter-gst-2.0.6
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="clutter" name="clutter"></a>Clutter-1.12.2
+        <a id="clutter" name="clutter"></a>Clutter-1.14.4
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           and animated graphical user interfaces.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <div class="admon note">
@@ -85,36 +85,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/clutter/1.12/clutter-1.12.2.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/clutter/1.12/clutter-1.12.2.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/clutter/1.14/clutter-1.14.4.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/clutter/1.14/clutter-1.14.4.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/clutter/1.12/clutter-1.12.2.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/clutter/1.12/clutter-1.12.2.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/clutter/1.14/clutter-1.14.4.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/clutter/1.14/clutter-1.14.4.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: dce7b3bf85b39ca822d068470e5f5abb
+                Download MD5 sum: c072e4c27e69368f2b877ea4f6da2cdf
               </p>
             </li>
             <li>
               <p>
-                Download size: 4.8 MB
+                Download size: 4.9 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 95 MB
+                Estimated disk space required: 110 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.0 SBU (aditional 0.8 SBU for the
-                testsuite)
+                Estimated build time: 1.4 SBU
               </p>
             </li>
           </ul>
@@ -126,9 +125,9 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="atk.html" title="ATK-2.6.0">ATK-2.6.0</a>,
+          <a class="xref" href="atk.html" title="ATK-2.8.0">ATK-2.8.0</a>,
           <a class="xref" href="cogl.html" title=
-          "Cogl-1.12.2">Cogl-1.12.2</a> and <a class="xref" href=
+          "Cogl-1.14.0">Cogl-1.14.0</a>, and <a class="xref" href=
           "../general/json-glib.html" title=
           "JSON-GLib-0.16.0">JSON-GLib-0.16.0</a>
         </p>
@@ -137,27 +136,23 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.34.2">gobject-introspection-1.34.2</a>
+          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a> and
+          <a class="xref" href="gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.18">GTK-Doc-1.18</a>
-        </p>
-        <h4>
-          Optional (to build the application developers manual)
-        </h4>
-        <p class="optional">
-          <a class="xref" href="../pst/docbook-utils.html" title=
-          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, <a class="xref"
-          href="../pst/xmlto.html" title="xmlto-0.0.25">xmlto-0.0.25</a> and
-          either <a class="xref" href="../basicnet/links.html" title=
-          "Links-2.7">Links-2.7</a>, <a class="xref" href=
-          "../basicnet/lynx.html" title=
-          "Lynx-2.8.8dev.15">Lynx-2.8.8dev.15</a> or <a class="xref" href=
-          "../basicnet/w3m.html" title="W3m-0.5.3">w3m-0.5.3</a>
+          "GTK-Doc-1.19">GTK-Doc-1.19</a>, <a class="ulink" href=
+          "http://xkbcommon.org/">libxkbcommon</a>, <a class="ulink" href=
+          "http://tslib.berlios.de/">Tslib</a>, <a class="xref" href=
+          "../general/udev.html" title=
+          "Udev-Installed LFS Version">udev-Installed LFS Version</a> or
+          <a class="xref" href="../general/udev-extras.html" title=
+          "Udev Extras (from systemd)">udev-extras (from systemd)</a> (for
+          GUdev), and <a class="ulink" href=
+          "http://wayland.freedesktop.org/">Wayland</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -173,7 +168,8 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
+<kbd class=
+"command">./configure --prefix=/usr --sysconfdir=/etc --enable-egl-backend &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -193,13 +189,8 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--enable-manual</code>: Use this parameter if
-          <span class="application">DocBook-utils</span>, <span class=
-          "application">xmlto</span>, <span class=
-          "application">JadeTeX</span>, and either <span class=
-          "application">Links</span>, <span class="application">Lynx</span>,
-          or <span class="application">W3m</span> are installed and you wish
-          to build the application developers manual.
+          <em class="parameter"><code>--enable-egl-backend</code></em>: This
+          switch enables the experimental EGL windowing backend.
         </p>
         <p>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
@@ -214,14 +205,17 @@ make</kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
               <span class="segbody">libclutter-1.0.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/clutter-1.0,
-              /usr/share/gtk-doc/html/cally and
-              /usr/share/gtk-doc/html/clutter</span>
+              <span class="segbody">/usr/include/clutter-1.0 and
+              /usr/share/gtk-doc/html/{cally,clutter}</span>
             </div>
           </div>
         </div>
@@ -252,22 +246,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-09-03 19:08:19 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="cogl.html" title="Cogl-1.12.2">Prev</a>
+          <a accesskey="p" href="cogl.html" title="Cogl-1.14.0">Prev</a>
           <p>
-            Cogl-1.12.2
+            Cogl-1.14.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="clutter-gst2.html" title=
-          "clutter-gst-2.0.2">Next</a>
+          "clutter-gst-2.0.6">Next</a>
           <p>
-            clutter-gst-2.0.2
+            clutter-gst-2.0.6
           </p>
         </li>
         <li class="up">
@@ -276,7 +270,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

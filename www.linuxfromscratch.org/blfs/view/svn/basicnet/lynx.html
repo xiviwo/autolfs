@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Lynx-2.8.8dev.15
+      Lynx-2.8.8dev.16
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;18.&nbsp;Text Web Browsers
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="lynx" name="lynx"></a>Lynx-2.8.8dev.15
+        <a id="lynx" name="lynx"></a>Lynx-2.8.8dev.16
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -55,7 +55,7 @@
           <span class="application">Lynx</span> is a text based web browser.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -66,18 +66,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://lynx.isc.org/current/lynx2.8.8dev.15.tar.bz2">http://lynx.isc.org/current/lynx2.8.8dev.15.tar.bz2</a>
+                "http://lynx.isc.org/current/lynx2.8.8dev.16.tar.bz2">http://lynx.isc.org/current/lynx2.8.8dev.16.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://lynx.isc.org/current/lynx2.8.8dev.15.tar.bz2">ftp://lynx.isc.org/current/lynx2.8.8dev.15.tar.bz2</a>
+                "ftp://lynx.isc.org/current/lynx2.8.8dev.16.tar.bz2">ftp://lynx.isc.org/current/lynx2.8.8dev.16.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 3dbf5699cc987598139634350a514592
+                Download MD5 sum: 84b396aa285d1768095450e1db7d3555
               </p>
             </li>
             <li>
@@ -87,12 +87,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 26 MB
+                Estimated disk space required: 24 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.4 SBU
+                Estimated build time: 0.5 SBU
               </p>
             </li>
           </ul>
@@ -106,7 +106,7 @@
         <p class="optional">
           <a class="xref" href="../postlfs/openssl.html" title=
           "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a> or <a class="xref" href=
-          "../postlfs/gnutls.html" title="GnuTLS-3.1.10">GnuTLS-3.1.10</a>
+          "../postlfs/gnutls.html" title="GnuTLS-3.2.4">GnuTLS-3.2.4</a>
           (experimental), <a class="xref" href="../general/zip.html" title=
           "Zip-3.0">Zip-3.0</a>, <a class="xref" href="../general/unzip.html"
           title="UnZip-6.0">UnZip-6.0</a>, an <a class="xref" href=
@@ -133,7 +133,7 @@
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr          \
             --sysconfdir=/etc/lynx \
-            --datadir=/usr/share/doc/lynx-2.8.8dev.15 \
+            --datadir=/usr/share/doc/lynx-2.8.8dev.16 \
             --with-zlib            \
             --with-bzlib           \
             --with-screen=ncursesw \
@@ -148,7 +148,7 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install-full &amp;&amp;
-chgrp -v -R root /usr/share/doc/lynx-2.8.8dev.15/lynx_doc</kbd>
+chgrp -v -R root /usr/share/doc/lynx-2.8.8dev.16/lynx_doc</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -163,10 +163,10 @@ chgrp -v -R root /usr/share/doc/lynx-2.8.8dev.15/lynx_doc</kbd>
         </p>
         <p>
           <em class=
-          "parameter"><code>--datadir=/usr/share/doc/lynx-2.8.8dev.15</code></em>:
+          "parameter"><code>--datadir=/usr/share/doc/lynx-2.8.8dev.16</code></em>:
           This parameter is used so that the documentation files are
           installed into <code class=
-          "filename">/usr/share/doc/lynx-2.8.8dev.15</code> instead of
+          "filename">/usr/share/doc/lynx-2.8.8dev.16</code> instead of
           <code class="filename">/usr/share/lynx_{doc,help}</code>.
         </p>
         <p>
@@ -236,7 +236,7 @@ chgrp -v -R root /usr/share/doc/lynx-2.8.8dev.15/lynx_doc</kbd>
         </p>
         <p>
           <span class="command"><strong>chgrp -v -R root
-          /usr/share/doc/lynx-2.8.8dev.15/lynx_doc</strong></span>: This
+          /usr/share/doc/lynx-2.8.8dev.16/lynx_doc</strong></span>: This
           command corrects the improper group ownership of installed
           documentation files.
         </p>
@@ -302,7 +302,7 @@ chgrp -v -R root /usr/share/doc/lynx-2.8.8dev.15/lynx_doc</kbd>
             "quote">vi</span>&rdquo; (but not &ldquo;<span class=
             "quote">vim</span>&rdquo;: in order to position the cursor in
             <a class="xref" href="../postlfs/vim.html" title=
-            "Vim-7.3">Vim-7.3</a>, set this option to &ldquo;<span class=
+            "Vim-7.4">Vim-7.4</a>, set this option to &ldquo;<span class=
             "quote">vi</span>&rdquo;).
           </p>
           <p>
@@ -336,7 +336,7 @@ chgrp -v -R root /usr/share/doc/lynx-2.8.8dev.15/lynx_doc</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/lynx and
-              /usr/share/doc/lynx-2.8.8dev.15</span>
+              /usr/share/doc/lynx-2.8.8dev.16</span>
             </div>
           </div>
         </div>
@@ -367,7 +367,7 @@ chgrp -v -R root /usr/share/doc/lynx-2.8.8dev.15/lynx_doc</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-10 17:55:01 +0000
+        Last updated on 2013-08-20 22:41:29 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -390,7 +390,7 @@ chgrp -v -R root /usr/share/doc/lynx-2.8.8dev.15/lynx_doc</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libxcb.html" title="libxcb-1.9">Prev</a>
+          <a accesskey="p" href="libxcb.html" title="libxcb-1.9.1">Prev</a>
           <p>
-            libxcb-1.9
+            libxcb-1.9.1
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           routines that are used within all X Window applications.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -79,7 +79,7 @@
             </li>
             <li>
               <p>
-                Download size: 12.1 MB
+                Download size: 13 MB
               </p>
             </li>
             <li>
@@ -102,11 +102,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/fontconfig.html" title=
-          "Fontconfig-2.10.2">Fontconfig-2.10.2</a>, <a class="xref" href=
-          "x7proto.html" title="Xorg Protocol Headers">Xorg Protocol
-          Headers</a>, <a class="xref" href="libXdmcp.html" title=
-          "libXdmcp-1.1.1">libXdmcp-1.1.1</a>, and <a class="xref" href=
-          "libxcb.html" title="libxcb-1.9">libxcb-1.9</a>
+          "Fontconfig-2.10.93">Fontconfig-2.10.93</a> and <a class="xref"
+          href="libxcb.html" title="libxcb-1.9.1">libxcb-1.9.1</a>
         </p>
         <h4>
           Optional
@@ -118,7 +115,7 @@
           <a class="xref" href="../basicnet/links.html" title=
           "Links-2.7">Links-2.7</a>, <a class="xref" href=
           "../basicnet/lynx.html" title=
-          "Lynx-2.8.8dev.15">Lynx-2.8.8dev.15</a>, and <a class="xref" href=
+          "Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a>, and <a class="xref" href=
           "../basicnet/w3m.html" title="W3m-0.5.3">w3m-0.5.3</a> (to generate
           additional PDF or text documentation for the libXfont package).
         </p>
@@ -137,37 +134,37 @@
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; lib-7.7.md5 &lt;&lt; "EOF"
-84c66908cf003ad8c272b0eecbdbaee3  xtrans-1.2.7.tar.bz2
-78b4b3bab4acbdf0abcfca30a8c70cc6  libX11-1.5.0.tar.bz2
-71251a22bc47068d60a95f50ed2ec3cf  libXext-1.3.1.tar.bz2
-645f83160cf7b562734e2038045106d1  libFS-1.0.4.tar.bz2
+<code class="literal">84c66908cf003ad8c272b0eecbdbaee3  xtrans-1.2.7.tar.bz2
+c35d6ad95b06635a524579e88622fdb5  libX11-1.6.2.tar.bz2
+4376101e51bb2c6c44d9ab14344e85ad  libXext-1.3.2.tar.bz2
+e3c77ca27942ebc5eb2ca99f29363515  libFS-1.0.5.tar.bz2
 471b5ca9f5562ac0d6eac7a0bf650738  libICE-1.0.8.tar.bz2
-766de9d1e1ecf8bf74cebe2111d8e2bd  libSM-1.2.1.tar.bz2
+499a7773c65aba513609fe651853c5f3  libSM-1.2.2.tar.bz2
 7a773b16165e39e938650bcc9027c1d5  libXScrnSaver-1.2.2.tar.bz2
-a6f137ae100e74ebe3b71eb4a38c40b3  libXt-1.1.3.tar.bz2
-a4efff8de85bd45dd3da124285d10c00  libXmu-1.1.1.tar.bz2
-7ae7eff7a14d411e84a67bd166bcec1a  libXpm-3.5.10.tar.bz2
-f39942f2cab379fc9b4c3731bf191b84  libXaw-1.0.11.tar.bz2
-678071bd7f9f7467e2fc712d81022318  libXfixes-5.0.tar.bz2
+03149823ae57bb02d0cec90d5b97d56c  libXt-1.1.4.tar.bz2
+41d92ab627dfa06568076043f3e089e4  libXmu-1.1.2.tar.bz2
+769ee12a43611cdebd38094eaf83f3f0  libXpm-3.5.11.tar.bz2
+7446f5fba888672aad068b29c0928ba3  libXaw-1.0.12.tar.bz2
+b985b85f8b9386c85ddcfe1073906b4d  libXfixes-5.0.1.tar.bz2
 f7a218dcbf6f0848599c6c36fc65c51a  libXcomposite-0.4.4.tar.bz2
-ee62f4c7f0f16ced4da63308963ccad2  libXrender-0.9.7.tar.bz2
-52efa81b7f26c8eda13510a2fba98eea  libXcursor-1.1.13.tar.bz2
+2bd9a15fcf64d216e63b8d129e4f1f1c  libXrender-0.9.8.tar.bz2
+1e7c17afbbce83e2215917047c57d1b3  libXcursor-1.1.14.tar.bz2
 0cf292de2a9fa2e9a939aefde68fd34f  libXdamage-1.1.4.tar.bz2
-a2a861f142c3b4367f14fc14239fc1f7  libfontenc-1.1.1.tar.bz2
-6851da5dae0a6cf5f7c9b9e2b05dd3b4  libXfont-1.4.5.tar.bz2
+ad2919764933e075bb0361ad5caa3d19  libfontenc-1.1.2.tar.bz2
+351a9b7348d165029bda52c9fdcb5c7a  libXfont-1.4.6.tar.bz2
 78d64dece560c9e8699199f3faa521c0  libXft-2.3.1.tar.bz2
-24d71afed1b86c60d4eb361628d7f47b  libXi-1.7.1.tar.bz2
-cb45d6672c93a608f003b6404f1dd462  libXinerama-1.1.2.tar.bz2
-0c843636124cc1494e3d87df16957672  libXrandr-1.4.0.tar.bz2
-80d0c6d8522fa7a645e4f522e9a9cd20  libXres-1.0.6.tar.bz2
-e8abc5c00c666f551cf26aa53819d592  libXtst-1.2.1.tar.bz2
-5e1ac203ccd3ce3e89755ed1fbe75b0b  libXv-1.0.7.tar.bz2
-3340c99ff556ea2457b4be47f5cb96fa  libXvMC-1.0.7.tar.bz2
-b7f38465c46e7145782d37dbb9da8c09  libXxf86dga-1.1.3.tar.bz2
-ffd93bcedd8b2b5aeabf184e7b91f326  libXxf86vm-1.1.2.tar.bz2
-782ced3a9e754dfeb53a8a006a75eb1a  libdmx-1.1.2.tar.bz2
-399a419ac6a54f0fc07c69c9bdf452dc  libpciaccess-0.13.1.tar.bz2
-19e6533ae64abba0773816a23f2b9507  libxkbfile-1.0.8.tar.bz2
+f4df3532b1af1dcc905d804f55b30b4a  libXi-1.7.2.tar.bz2
+9336dc46ae3bf5f81c247f7131461efd  libXinerama-1.1.3.tar.bz2
+210ed9499a3d9c96e3a221629b7d39b0  libXrandr-1.4.2.tar.bz2
+45ef29206a6b58254c81bea28ec6c95f  libXres-1.0.7.tar.bz2
+25c6b366ac3dc7a12c5d79816ce96a59  libXtst-1.2.2.tar.bz2
+e0af49d7d758b990e6fef629722d4aca  libXv-1.0.10.tar.bz2
+2e4014e9d55c430e307999a6b3dd256d  libXvMC-1.0.8.tar.bz2
+d7dd9b9df336b7dd4028b6b56542ff2c  libXxf86dga-1.1.4.tar.bz2
+e46f6ee4f4567349a3189044fe1bb712  libXxf86vm-1.1.3.tar.bz2
+ba983eba5a9f05d152a0725b8e863151  libdmx-1.1.3.tar.bz2
+b7c0d3afce14eedca57312a3141ec13a  libpciaccess-0.13.2.tar.bz2
+19e6533ae64abba0773816a23f2b9507  libxkbfile-1.0.8.tar.bz2</code>
 EOF</kbd>
 </pre>
         <p>
@@ -207,8 +204,8 @@ md5sum -c ../lib-7.7.md5</kbd>
                 <p>
                   Use the <span class="command"><strong>sudo</strong></span>
                   command from the <a class="xref" href=
-                  "../postlfs/sudo.html" title=
-                  "Sudo-1.8.6p3">Sudo-1.8.6p3</a> package.
+                  "../postlfs/sudo.html" title="Sudo-1.8.7">Sudo-1.8.7</a>
+                  package.
                 </p>
               </li>
               <li>
@@ -245,7 +242,7 @@ export -f as_root</kbd>
 <kbd class="command">bash -e</kbd>
 </pre>
         <p>
-          Install all of the applications by running the following commands:
+          Install all of the packages by running the following commands:
         </p>
         <pre class="userinput">
 <kbd class=
@@ -269,7 +266,7 @@ do
   make
   as_root make install
   popd
-  rm -r $packagedir
+  rm -rf $packagedir
   as_root /sbin/ldconfig
 done</kbd>
 </pre>
@@ -849,15 +846,15 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-07 10:08:27 +0000
+        Last updated on 2013-09-10 10:49:02 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libxcb.html" title="libxcb-1.9">Prev</a>
+          <a accesskey="p" href="libxcb.html" title="libxcb-1.9.1">Prev</a>
           <p>
-            libxcb-1.9
+            libxcb-1.9.1
           </p>
         </li>
         <li class="next">
@@ -873,7 +870,7 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

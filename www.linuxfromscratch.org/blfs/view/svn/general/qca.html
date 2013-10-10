@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           using plugins known as Providers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -103,9 +103,9 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../x/qt.html" title="Qt-4.8.4">Qt-4.8.4</a>
+          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
           and <a class="xref" href="which.html" title=
-          "Which-2.20 and Alternatives">which-2.20</a>
+          "Which-2.20 and Alternatives">Which-2.20</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -124,7 +124,8 @@
 <kbd class=
 "command">sed -i '217s@set@this-&gt;set@' src/botantools/botan/botan/secmem.h &amp;&amp;
 ./configure --prefix=$QTDIR \
-            --certstore-path=/etc/ssl/ca-bundle.crt &amp;&amp;
+            --certstore-path=/etc/ssl/ca-bundle.crt \
+            --no-separate-debug-info &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -145,14 +146,19 @@ make</kbd>
         <p>
           <span class="command"><strong>sed -i '217s@set@...</strong></span>:
           This sed fixes compiling with <span class="application">GCC</span>
-          4.7.x. It is safe to omit when compiling with older <span class=
-          "application">GCC</span> versions.
+          4.7 and newer. It is safe to omit when compiling with older
+          <span class="application">GCC</span> versions.
         </p>
         <p>
-          <em class=
-          "parameter"><code>--certstore-path=/etc/ssl/ca-bundle.crt</code></em>:
-          Causes the build to use the system-installed CA Certificates
-          instead of a bundled copy.
+          <code class=
+          "option">--certstore-path=/etc/ssl/ca-bundle.crt</code>: Causes the
+          build to use the system-installed CA Certificates instead of a
+          bundled copy.
+        </p>
+        <p>
+          <code class="option">--no-separate-debug-info</code>: Prevents
+          installation of a separate library and program file with debug
+          information.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -163,23 +169,59 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">qcatool2 and qcatool2.debug</span>
+              <span class="segbody">qcatool2</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libqca.so and
-              libqca.so.2.0.3.debug</span>
+              <span class="segbody">libqca.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">$QTDIR/include/QtCrypto and
-              $QTDIR/share/qca</span>
+              <span class="segbody">$QTDIR/include/QtCrypto</span>
             </div>
           </div>
         </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="qcatool2" name="qcatool2"></a><span class=
+                    "term"><span class=
+                    "command"><strong>qcatool2</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command line tool for performing various
+                    cryptographic operations with Qca.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libqca" name="libqca"></a><span class=
+                    "term"><code class="filename">libqca.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Qt Cryptography Architecture (Qca) library.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-18 03:35:44 +0000
+        Last updated on 2013-08-24 18:18:35 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -202,7 +244,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

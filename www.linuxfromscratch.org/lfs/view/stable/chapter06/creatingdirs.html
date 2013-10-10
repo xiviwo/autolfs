@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
@@ -68,7 +68,7 @@ for dir in /usr /usr/local; do
   ln -sv share/{man,doc,info} $dir
 done
 case $(uname -m) in
- x86_64) ln -sv lib /lib64 &amp;&amp; ln -sv lib /usr/lib64 ;;
+ x86_64) ln -sv lib /lib64 &amp;&amp; ln -sv lib /usr/lib64 &amp;&amp; ln -sv lib /usr/local/lib64 ;;
 esac
 mkdir -v /var/{log,mail,spool}
 ln -sv /run /var/run
@@ -142,7 +142,7 @@ mkdir -pv /var/{opt,cache,lib/{misc,locate},local}</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

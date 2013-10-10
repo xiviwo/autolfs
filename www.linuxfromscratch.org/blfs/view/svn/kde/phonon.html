@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;28.&nbsp;The KDE Core
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           GStreamer or VLC backend.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -71,8 +71,8 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://mirrors.isc.org/pub/kde/stable/phonon/4.6.0/src/phonon-4.6.0.tar.xz">
-                http://mirrors.isc.org/pub/kde/stable/phonon/4.6.0/src/phonon-4.6.0.tar.xz</a>
+                "http://download.kde.org/stable/phonon/4.6.0/src/phonon-4.6.0.tar.xz">
+                http://download.kde.org/stable/phonon/4.6.0/src/phonon-4.6.0.tar.xz</a>
               </p>
             </li>
             <li>
@@ -113,14 +113,14 @@
         <p class="required">
           <a class="xref" href="automoc4.html" title=
           "Automoc4-0.9.88">automoc4-0.9.88</a> and <a class="xref" href=
-          "../general/glib2.html" title="GLib-2.34.3">GLib-2.34.3</a>
+          "../general/glib2.html" title="GLib-2.36.4">GLib-2.36.4</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../multimedia/pulseaudio.html" title=
-          "PulseAudio-3.0">PulseAudio-3.0</a> and <a class="ulink" href=
+          "PulseAudio-4.0">PulseAudio-4.0</a> and <a class="ulink" href=
           "http://projects.kde.org/projects/kdesupport/libqzeitgeist/">QZeitgeist</a>
         </p>
         <p class="usernotes">
@@ -133,8 +133,8 @@
           Installation of Phonon
         </h2>
         <p>
-          Make sure that <a class="xref" href="../x/qt.html" title=
-          "Qt-4.8.4">Qt-4.8.4</a> is compiled without the bundled
+          Make sure that <a class="xref" href="../x/qt4.html" title=
+          "Qt-4.8.5">Qt-4.8.5</a> is compiled without the bundled
           <span class="application">Phonon</span> library. This package
           provides a better implementation.
         </p>
@@ -144,7 +144,8 @@
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir build &amp;&amp;
-cd build &amp;&amp;
+cd    build &amp;&amp;
+
 cmake -DCMAKE_INSTALL_PREFIX=$QTDIR \
       -DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=TRUE \
       -DDBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces \
@@ -198,7 +199,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-10 12:50:47 +0000
+        Last updated on 2013-08-26 17:26:25 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -223,7 +224,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

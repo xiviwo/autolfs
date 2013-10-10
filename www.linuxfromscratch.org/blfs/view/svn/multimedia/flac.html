@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      FLAC-1.2.1
+      FLAC-1.3.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
@@ -29,25 +29,24 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gstreamer.html" title=
-          "GStreamer-0.10.36">Next</a>
+          <a accesskey="n" href="grilo.html" title="Grilo-0.2.6">Next</a>
           <p>
-            GStreamer-0.10.36
+            Grilo-0.2.6
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="flac" name="flac"></a>FLAC-1.2.1
+        <a id="flac" name="flac"></a>FLAC-1.3.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +58,7 @@
           any information.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -70,28 +69,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/flac/flac-1.2.1.tar.gz">http://downloads.sourceforge.net/flac/flac-1.2.1.tar.gz</a>
+                "http://downloads.xiph.org/releases/flac/flac-1.3.0.tar.xz">http://downloads.xiph.org/releases/flac/flac-1.3.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 153c8b15a54da428d1f0fadc756c22c7
+                Download (FTP): <a class="ulink" href=
+                "ftp://downloads.xiph.org/pub/xiph/releases/flac/flac-1.3.0.tar.xz">
+                ftp://downloads.xiph.org/pub/xiph/releases/flac/flac-1.3.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.9 MB
+                Download MD5 sum: 13b5c214cee8373464d3d65dee362cdd
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 205 MB (includes running the
-                test suite)
+                Download size: 1.1 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.6 SBU (additional 8 SBU to run the
+                Estimated disk space required: 22 MB (additional 77 MB to run
+                the test suite)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.3 SBU (additional 0.9 SBU to run the
                 test suite)
               </p>
             </li>
@@ -105,12 +111,12 @@
         </h4>
         <p class="optional">
           <a class="xref" href="libogg.html" title=
-          "libogg-1.3.0">libogg-1.3.0</a>, <a class="xref" href=
-          "../general/NASM.html" title="NASM-2.10.07">NASM-2.10.07</a>,
+          "libogg-1.3.1">libogg-1.3.1</a>, <a class="xref" href=
+          "../general/NASM.html" title="NASM-2.10.09">NASM-2.10.09</a>,
           <a class="xref" href="../pst/docbook-utils.html" title=
           "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, <a class="xref"
           href="../general/doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a> and <a class="ulink" href=
+          "Doxygen-1.8.5">Doxygen-1.8.5</a> and <a class="ulink" href=
           "http://valgrind.org/">Valgrind</a>
         </p>
         <p class="usernotes">
@@ -127,12 +133,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i 's/#include &lt;stdio.h&gt;/&amp;\n#include &lt;string.h&gt;/' \
-    examples/cpp/encode/file/main.cpp &amp;&amp;
-
-./configure --prefix=/usr \
-            --mandir=/usr/share/man \
+<kbd class="command">./configure --prefix=/usr \
             --disable-thorough-tests &amp;&amp;
 make</kbd>
 </pre>
@@ -170,10 +171,6 @@ make</kbd>
           "command"><strong>cat /proc/cpuinfo</strong></span> and see if
           <code class="computeroutput">sse</code> is listed in the flags.
         </p>
-        <p>
-          <code class="option">--disable-static</code>: This switch prevents
-          the static libraries from being built.
-        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -187,13 +184,12 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libFLAC.{so,a}, libFLAC++.{so,a} and
-              libxmms-flac.{so,a}</span>
+              <span class="segbody">libFLAC.so and libFLAC++.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/FLAC, /usr/include/FLAC++
-              and /usr/share/doc/flac-1.2.1</span>
+              and /usr/share/doc/flac-1.3.0</span>
             </div>
           </div>
         </div>
@@ -239,7 +235,7 @@ make</kbd>
                   <p>
                     <a id="libflac" name="libflac"></a><span class=
                     "term"><code class=
-                    "filename">libFLAC{,++}.{so,a}</code></span>
+                    "filename">libFLAC{,++}.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -249,26 +245,12 @@ make</kbd>
                   </p>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="libxmms-flac" name="libxmms-flac"></a><span class=
-                    "term"><code class=
-                    "filename">libxmms-flac.{so,a}</code></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is a plugin for <span class="application">XMMS</span>.
-                  </p>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2012-08-25 17:13:31 +0000
+        Last updated on 2013-08-21 01:40:33 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -281,19 +263,18 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gstreamer.html" title=
-          "GStreamer-0.10.36">Next</a>
+          <a accesskey="n" href="grilo.html" title="Grilo-0.2.6">Next</a>
           <p>
-            GStreamer-0.10.36
+            Grilo-0.2.6
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

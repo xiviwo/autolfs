@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      SLIB-3b3
+      SLIB-3b4
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="sbc.html" title="SBC-1.0">Prev</a>
+          <a accesskey="p" href="sbc.html" title="SBC-1.1">Prev</a>
           <p>
-            SBC-1.0
+            SBC-1.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="talloc.html" title="Talloc-2.0.8">Next</a>
+          <a accesskey="n" href="talloc.html" title="Talloc-2.1.0">Next</a>
           <p>
-            Talloc-2.0.8
+            Talloc-2.1.0
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="slib" name="slib"></a>SLIB-3b3
+        <a id="slib" name="slib"></a>SLIB-3b4
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -66,7 +66,7 @@
           Stk, T3.1, umb-scheme, and VSCM.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -77,28 +77,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://groups.csail.mit.edu/mac/ftpdir/scm/slib-3b3.tar.gz">http://groups.csail.mit.edu/mac/ftpdir/scm/slib-3b3.tar.gz</a>
+                "http://groups.csail.mit.edu/mac/ftpdir/scm/slib-3b4.tar.gz">http://groups.csail.mit.edu/mac/ftpdir/scm/slib-3b4.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 11626eef380de4f56d3082514559beb6
+                Download MD5 sum: dcada65c4df4209c8f71211095bcef8e
               </p>
             </li>
             <li>
               <p>
-                Download size: 948 KB
+                Download size: 956 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 31 MB (includes building and
+                Estimated disk space required: 10 MB (includes building and
                 installing docs)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: less than 0.1 SBU
+                Estimated build time: 0.5 SBU
               </p>
             </li>
           </ul>
@@ -131,10 +131,11 @@
 "command">sed -i 's|usr/lib|usr/share|' RScheme.init                      &amp;&amp;
 ./configure --prefix=/usr --libdir=/usr/share                   &amp;&amp;
 
-sed -i 's# scm$# guile#;s#ginstall-info#install-info#' Makefile &amp;&amp;
+sed -i -e 's# scm$# guile#;s#ginstall-info#install-info#' \
+       -e 's/no-split -o/no-split --force -o/' Makefile         &amp;&amp;
 
-makeinfo -o slib.txt --plaintext slib.texi                      &amp;&amp;
-makeinfo -o slib.html --html --no-split slib.texi</kbd>
+makeinfo -o slib.txt --plaintext --force slib.texi              &amp;&amp;
+makeinfo -o slib.html --html --no-split --force slib.texi</kbd>
 </pre>
         <p>
           This package does not come with a functional test suite.
@@ -145,10 +146,11 @@ makeinfo -o slib.html --html --no-split slib.texi</kbd>
         <pre class="root">
 <kbd class=
 "command">make install                                            &amp;&amp;
-ln -v -s ../slib /usr/share/guile                       &amp;&amp;
+ln -v -sf ../slib /usr/share/guile                      &amp;&amp;
+mkdir -pv /usr/share/guile/site/2.0                     &amp;&amp;
 guile -c "(use-modules (ice-9 slib)) (require 'printf)" &amp;&amp;
-install -v -m755 -d /usr/share/doc/slib-3b3             &amp;&amp;
-install -v -m644 ANNOUNCE FAQ README slib.{txt,html} /usr/share/doc/slib-3b3</kbd>
+install -v -m755 -d /usr/share/doc/slib-3b4             &amp;&amp;
+install -v -m644 ANNOUNCE FAQ README slib.{txt,html} /usr/share/doc/slib-3b4</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -168,7 +170,14 @@ install -v -m644 ANNOUNCE FAQ README slib.{txt,html} /usr/share/doc/slib-3b3</kb
           "filename">/usr/lib/slib</code>.
         </p>
         <p>
-          <span class="command"><strong>ln -v -s ../slib
+          <span class="command"><strong>makeinfo ... --force
+          ...</strong></span> : This command creates needed documentation,
+          but needs the <code class="option">--force</code> option to
+          overcome warnings that are flagged as errors in recent versions of
+          <span class="command"><strong>makeinfo</strong></span>.
+        </p>
+        <p>
+          <span class="command"><strong>ln -v -sf ../slib
           /usr/share/guile</strong></span>: This command puts a symbolic link
           to the <span class="application">slib</span> files in <span class=
           "application">Guile</span>'s default &ldquo;<span class=
@@ -197,8 +206,8 @@ install -v -m644 ANNOUNCE FAQ README slib.{txt,html} /usr/share/doc/slib-3b3</kb
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">/usr/share/slib and
-              /usr/share/doc/slib-3b3</span>
+              <span class="segbody">/usr/share/slib,
+              /usr/share/guile/site/2.0, and /usr/share/doc/slib-3b4</span>
             </div>
           </div>
         </div>
@@ -233,21 +242,21 @@ install -v -m644 ANNOUNCE FAQ README slib.{txt,html} /usr/share/doc/slib-3b3</kb
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-09-05 16:23:52 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="sbc.html" title="SBC-1.0">Prev</a>
+          <a accesskey="p" href="sbc.html" title="SBC-1.1">Prev</a>
           <p>
-            SBC-1.0
+            SBC-1.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="talloc.html" title="Talloc-2.0.8">Next</a>
+          <a accesskey="n" href="talloc.html" title="Talloc-2.1.0">Next</a>
           <p>
-            Talloc-2.0.8
+            Talloc-2.1.0
           </p>
         </li>
         <li class="up">
@@ -256,7 +265,7 @@ install -v -m644 ANNOUNCE FAQ README slib.{txt,html} /usr/share/doc/slib-3b3</kb
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

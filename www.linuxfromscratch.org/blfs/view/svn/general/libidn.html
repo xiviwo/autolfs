@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Libidn-1.25
+      libidn-1.28
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -28,9 +28,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libksba.html" title="Libksba-1.3.0">Next</a>
+          <a accesskey="n" href="libiodbc.html" title=
+          "libiodbc-3.52.8">Next</a>
           <p>
-            Libksba-1.3.0
+            libiodbc-3.52.8
           </p>
         </li>
         <li class="up">
@@ -39,20 +40,20 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="libidn" name="libidn"></a>Libidn-1.25
+        <a id="libidn" name="libidn"></a>libidn-1.28
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
-          Introduction to Libidn
+          Introduction to libidn
         </h2>
         <p>
-          <span class="application">Libidn</span> is a package designed for
+          <span class="application">libidn</span> is a package designed for
           internationalized string handling based on the <a class="ulink"
           href="http://www.ietf.org/rfc/rfc3454.txt">Stringprep</a>,
           <a class="ulink" href=
@@ -68,7 +69,7 @@
           to and from the ASCII Compatible Encoding (ACE) form.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -79,28 +80,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnu.org/gnu/libidn/libidn-1.25.tar.gz">http://ftp.gnu.org/gnu/libidn/libidn-1.25.tar.gz</a>
+                "http://ftp.gnu.org/gnu/libidn/libidn-1.28.tar.gz">http://ftp.gnu.org/gnu/libidn/libidn-1.28.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnu.org/gnu/libidn/libidn-1.25.tar.gz">ftp://ftp.gnu.org/gnu/libidn/libidn-1.25.tar.gz</a>
+                "ftp://ftp.gnu.org/gnu/libidn/libidn-1.28.tar.gz">ftp://ftp.gnu.org/gnu/libidn/libidn-1.28.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 45ffabce4b8ca87fe98fe4542668d33d
+                Download MD5 sum: 43a6f14b16559e10a492acc65c4b0acc
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.2 MB
+                Download size: 3.3 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 24 MB
+                Estimated disk space required: 33 MB
               </p>
             </li>
             <li>
@@ -111,7 +112,7 @@
           </ul>
         </div>
         <h3>
-          Libidn Dependencies
+          libidn Dependencies
         </h3>
         <h4>
           Optional
@@ -119,9 +120,10 @@
         <p class="optional">
           <a class="xref" href="pth.html" title="Pth-2.0.7">Pth-2.0.7</a>,
           <a class="xref" href="../postlfs/emacs.html" title=
-          "Emacs-24.2">Emacs-24.2</a>, <a class="xref" href="gtk-doc.html"
-          title="GTK-Doc-1.18">GTK-Doc-1.18</a>, <a class="xref" href=
-          "openjdk.html" title="OpenJDK-1.7.0.9">OpenJDK-1.7.0.9</a>,
+          "Emacs-24.3">Emacs-24.3</a>, <a class="xref" href="gtk-doc.html"
+          title="GTK-Doc-1.19">GTK-Doc-1.19</a>, <a class="xref" href=
+          "openjdk.html" title=
+          "OpenJDK-1.7.0.40/IcedTea-2.4.1">OpenJDK-1.7.0.40/IcedTea-2.4.1</a>,
           <a class="ulink" href="http://www.gnu.org/software/dotgnu/">DotGNU
           Portable.NET</a> or <a class="ulink" href=
           "http://www.mono-project.com/Main_Page">Mono</a>, and <a class=
@@ -134,10 +136,10 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          Installation of Libidn
+          Installation of libidn
         </h2>
         <p>
-          Install <span class="application">Libidn</span> by running the
+          Install <span class="application">libidn</span> by running the
           following commands:
         </p>
         <pre class="userinput">
@@ -156,8 +158,8 @@ make</kbd>
 
 find doc -name "Makefile*" -delete            &amp;&amp;
 rm -rf -v doc/{gdoc,idn.1,stamp-vti,man,texi} &amp;&amp;
-mkdir -v       /usr/share/doc/libidn-1.25     &amp;&amp;
-cp -r -v doc/* /usr/share/doc/libidn-1.25</kbd>
+mkdir -v       /usr/share/doc/libidn-1.28     &amp;&amp;
+cp -r -v doc/* /usr/share/doc/libidn-1.28</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -190,7 +192,7 @@ cp -r -v doc/* /usr/share/doc/libidn-1.25</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/share/doc/libidn-1.25 and
+              <span class="segbody">/usr/share/doc/libidn-1.28 and
               /usr/share/gtk-doc/html/libidn</span>
             </div>
           </div>
@@ -242,7 +244,7 @@ cp -r -v doc/* /usr/share/doc/libidn-1.25</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-13 17:58:54 +0000
+        Last updated on 2013-09-05 16:23:52 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -254,9 +256,10 @@ cp -r -v doc/* /usr/share/doc/libidn-1.25</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libksba.html" title="Libksba-1.3.0">Next</a>
+          <a accesskey="n" href="libiodbc.html" title=
+          "libiodbc-3.52.8">Next</a>
           <p>
-            Libksba-1.3.0
+            libiodbc-3.52.8
           </p>
         </li>
         <li class="up">
@@ -265,7 +268,7 @@ cp -r -v doc/* /usr/share/doc/libidn-1.25</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

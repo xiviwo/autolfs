@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      qtchooser-31
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2013-09-12">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+      </h4>
+      <h3>
+        Chapter&nbsp;11.&nbsp;General Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="pinentry.html" title=
+          "PIN-Entry-0.8.3">Prev</a>
+          <p>
+            PIN-Entry-0.8.3
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="rarian.html" title="Rarian-0.8.1">Next</a>
+          <p>
+            Rarian-0.8.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genutils.html" title=
+          "Chapter&nbsp;11.&nbsp;General Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="qtchooser" name="qtchooser"></a>qtchooser-31
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to qtchooser
+        </h2>
+        <p>
+          The <span class="application">qtchooser</span> package contains a
+          wrapper used to select between <span class="application">Qt</span>
+          binary versions. It is only needed if both Qt4 and Qt5 are
+          installed for access via the /usr/bin directory.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://macieira.org/qtchooser/qtchooser-31-g980c64c.tar.gz">http://macieira.org/qtchooser/qtchooser-31-g980c64c.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 36497558a0266dcbe4cccb6477bfc158
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 32 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 700 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: less than 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          qtchooser Dependencies
+        </h3>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
+          (for the testsuite)
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/qtchooser">http://wiki.linuxfromscratch.org/blfs/wiki/qtchooser</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of qtchooser
+        </h2>
+        <div class="admon warning">
+          <img alt="[Warning]" src="../images/warning.png" />
+          <h3>
+            Warning
+          </h3>
+          <p>
+            If both <span class="application">Qt4</span> and <span class=
+            "application">Qt5</span> are installed on the system, then
+            <span class="application">Qt4</span> should be set as default
+            unless stated otherwise.
+          </p>
+        </div>
+        <p>
+          Install <span class="application">qtchooser</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+install -m644 doc/qtchooser.1 /usr/share/man/man1</kbd>
+</pre>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring qtchooser
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="qtchooser-config" name="qtchooser-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">/etc/xdg/qtchooser/default.conf</code>
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Configuration Information
+          </h3>
+          <p>
+            The <code class="filename">/etc/xdg/qtchooser/default.conf</code>
+            configuration file contains paths to the <span class=
+            "application">Qt</span> binaries and libraries which will be used
+            when the wrapper is run. It is ussually a symlink to a package
+            specific file, such as <code class="filename">4.conf</code> or
+            <code class="filename">5.conf</code>. In first case, when
+            invoking the wrappers, <span class="application">Qt4</span>
+            equivalents will be invoked. In second case, <span class=
+            "application">Qt5</span> equivalents will be invoked.
+          </p>
+          <p>
+            Create the configuration files by running the following commands
+            as the <code class="systemitem">root</code> user:
+          </p>
+          <pre class="root">
+<kbd class="command">install -dm755 /etc/xdg/qtchooser &amp;&amp;
+cat &gt; /etc/xdg/qtchooser/4.conf &lt;&lt; "EOF"
+<code class="literal">/usr/lib/qt4/bin
+/usr/lib</code>
+EOF
+cat &gt; /etc/xdg/qtchooser/5.conf &lt;&lt; "EOF"
+<code class="literal">/usr/lib/qt5/bin
+/usr/lib</code>
+EOF</kbd>
+</pre>
+          <p>
+            To set <span class="application">Qt4</span> as the default, run
+            the following command as the <code class="systemitem">root</code>
+            user:
+          </p>
+          <pre class="root">
+<kbd class="command">ln -sfv 4.conf /etc/xdg/qtchooser/default.conf</kbd>
+</pre>
+          <p>
+            To set <span class="application">Qt5</span> as the default, run
+            the following command as the <code class="systemitem">root</code>
+            user:
+          </p>
+          <pre class="root">
+<kbd class="command">ln -sfv 5.conf /etc/xdg/qtchooser/default.conf</kbd>
+</pre>
+          <p>
+            You can also select default <span class="application">Qt</span>
+            using an environment variable.
+          </p>
+          <p>
+            To set <span class="application">Qt4</span> as the default, run
+            the following command:
+          </p>
+          <pre class="userinput">
+<kbd class="command">export QT_SELECT=4</kbd>
+</pre>
+          <p>
+            To set <span class="application">Qt5</span> as the default, run
+            the following command:
+          </p>
+          <pre class="userinput">
+<kbd class="command">export QT_SELECT=5</kbd>
+</pre>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">assistant, designer, lconvert, linguist,
+              lrelease, lupdate, moc, pixeltool, qcollectiongenerator, qdbus,
+              qdbuscpp2xml, qdbusviewer, qdbusxml2cpp, qdoc, qdoc3, qglinfo,
+              qhelpconverter, qhelpgenerator, qmake, qml1plugindump,
+              qmlbundle, qmlmin, qmlplugindump, qmlprofiler, qmlscene,
+              qmltestrunner, qmlviewer, qtchooser, qtconfig, rcc, uic, uic3,
+              xmlpatterns and xmlpatternsvalidator</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">None</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="qtchooser-prog" name=
+                    "qtchooser-prog"></a><span class="term"><span class=
+                    "command"><strong>qtchooser</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a wrapper used to select between <span class=
+                    "application">Qt</span> binary versions.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-08 04:56:57 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="pinentry.html" title=
+          "PIN-Entry-0.8.3">Prev</a>
+          <p>
+            PIN-Entry-0.8.3
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="rarian.html" title="Rarian-0.8.1">Next</a>
+          <p>
+            Rarian-0.8.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genutils.html" title=
+          "Chapter&nbsp;11.&nbsp;General Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

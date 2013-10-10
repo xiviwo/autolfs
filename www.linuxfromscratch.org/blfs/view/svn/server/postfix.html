@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Postfix-2.10.0
+      Postfix-2.10.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;21.&nbsp;Mail Server Software
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="postfix" name="postfix"></a>Postfix-2.10.0
+        <a id="postfix" name="postfix"></a>Postfix-2.10.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           mail delivery agent to your local Internet Service Provider.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -70,13 +70,13 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-2.10.0.tar.gz">
-                ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-2.10.0.tar.gz</a>
+                "ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-2.10.2.tar.gz">
+                ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-2.10.2.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: b2a563b2d5c53462952886e6fc4e4b7b
+                Download MD5 sum: 109e753aecafe487207b425dd46e6ee9
               </p>
             </li>
             <li>
@@ -86,12 +86,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 70 MB
+                Estimated disk space required: 154 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.5 SBU
+                Estimated build time: 0.4 SBU
               </p>
             </li>
           </ul>
@@ -103,15 +103,15 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="db.html" title="Berkeley DB-5.3.21">Berkeley
-          DB-5.3.21</a>
+          <a class="xref" href="db.html" title="Berkeley DB-6.0.20">Berkeley
+          DB-6.0.20</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../postlfs/cyrus-sasl.html" title=
-          "Cyrus SASL-2.1.25">Cyrus SASL-2.1.25</a> and <a class="xref" href=
+          "Cyrus SASL-2.1.26">Cyrus SASL-2.1.26</a> and <a class="xref" href=
           "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
         </p>
         <h4>
@@ -119,12 +119,12 @@
         </h4>
         <p class="optional">
           <a class="xref" href="mysql.html" title=
-          "MySQL-5.6.11">MySQL-5.6.11</a>, <a class="xref" href=
-          "openldap.html" title="OpenLDAP-2.4.35">OpenLDAP-2.4.35</a>,
+          "MySQL-5.6.13">MySQL-5.6.13</a>, <a class="xref" href=
+          "openldap.html" title="OpenLDAP-2.4.36">OpenLDAP-2.4.36</a>,
           <a class="xref" href="../general/pcre.html" title=
-          "PCRE-8.32">PCRE-8.32</a>, <a class="xref" href="postgresql.html"
-          title="PostgreSQL-9.2.4">PostgreSQL-9.2.4</a>, <a class="xref"
-          href="sqlite.html" title="SQLite-3.7.16.2">SQLite-3.7.16.2</a> and
+          "PCRE-8.33">PCRE-8.33</a>, <a class="xref" href="postgresql.html"
+          title="PostgreSQL-9.3.0">PostgreSQL-9.3.0</a>, <a class="xref"
+          href="sqlite.html" title="SQLite-3.8.0.2">SQLite-3.8.0.2</a>, and
           <a class="ulink" href="http://cr.yp.to/cdb.html">CDB</a> or
           <a class="ulink" href=
           "http://www.corpit.ru/mjt/tinycdb.html">TinyCDB</a>
@@ -168,6 +168,15 @@ chown -v postfix:postfix /var/mail</kbd>
             Configuring the Build
           </h3>
           <p>
+            Run the following command to enable <span class=
+            "application">Postfix</span> to compile against the current
+            version of <span class="application">BerkeleyDB</span>:
+          </p>
+          <pre class="userinput">
+<kbd class=
+"command">sed -i "s/DB_VERSION_MAJOR == 5/DB_VERSION_MAJOR &gt;= 5/" src/util/dict_db.c</kbd>
+</pre>
+          <p>
             The README files are formatted to be read with a pager like
             <span class="application">Less</span> or <span class=
             "application">More</span>. If you want to read them in a text
@@ -196,7 +205,7 @@ chown -v postfix:postfix /var/mail</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2563709" name="id2563709"></a>Cyrus-SASL
+                    <a id="id2851679" name="id2851679"></a>Cyrus-SASL
                   </h5>
                 </div>
               </div>
@@ -217,7 +226,7 @@ AUXLIBS='-lsasl2'</code>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2760217" name="id2760217"></a>OpenLDAP
+                    <a id="id2798909" name="id2798909"></a>OpenLDAP
                   </h5>
                 </div>
               </div>
@@ -237,7 +246,7 @@ AUXLIBS='-lldap -llber'</code>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2750591" name="id2750591"></a>Sqlite
+                    <a id="id3027533" name="id3027533"></a>Sqlite
                   </h5>
                 </div>
               </div>
@@ -257,7 +266,7 @@ AUXLIBS='-lsqlite3 -lpthread'</code>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2712214" name="id2712214"></a>MySQL
+                    <a id="id3045270" name="id3045270"></a>MySQL
                   </h5>
                 </div>
               </div>
@@ -276,7 +285,7 @@ AUXLIBS='-lmysqlclient -lz -lm'</code>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2754211" name="id2754211"></a>PostgreSQL
+                    <a id="id2820827" name="id2820827"></a>PostgreSQL
                   </h5>
                 </div>
               </div>
@@ -296,7 +305,7 @@ AUXLIBS='-lpq -lz -lm'</code>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2635578" name="id2635578"></a>CDB/TinyCDB
+                    <a id="id2783940" name="id2783940"></a>CDB/TinyCDB
                   </h5>
                 </div>
               </div>
@@ -317,7 +326,7 @@ AUXLIBS='<em class=
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2771884" name="id2771884"></a>StartTLS
+                    <a id="id2842484" name="id2842484"></a>StartTLS
                     Authentication
                   </h5>
                 </div>
@@ -362,8 +371,8 @@ make</kbd>
 <kbd class="command">sh postfix-install -non-interactive \
    daemon_directory=/usr/lib/postfix \
    manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-2.10.0/html \
-   readme_directory=/usr/share/doc/postfix-2.10.0/readme</kbd>
+   html_directory=/usr/share/doc/postfix-2.10.2/html \
+   readme_directory=/usr/share/doc/postfix-2.10.2/readme</kbd>
 </pre>
         </div>
       </div>
@@ -492,7 +501,7 @@ EOF</kbd>
             <code class="filename">/etc/rc.d/init.d/postfix</code> init
             script included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130505</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-postfix</kbd>
@@ -509,7 +518,7 @@ EOF</kbd>
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">mailq, newaliases, postaliases, postcat,
               postconf, postdrop, postfix, postkick, postlock, postlog,
-              postmap, postmulti, postqueue, postsuper and sendmail</span>
+              postmap, postmulti, postqueue, postsuper, and sendmail</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -518,7 +527,7 @@ EOF</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/postfix, /usr/lib/postfix,
-              /usr/share/doc/postfix-2.10.0, /var/lib/postfix and
+              /usr/share/doc/postfix-2.10.2, /var/lib/postfix, and
               /var/spool/postfix</span>
             </div>
           </div>
@@ -762,7 +771,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-13 17:58:54 +0000
+        Last updated on 2013-09-09 21:35:19 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -785,7 +794,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

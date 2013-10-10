@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           Command Language, a robust general-purpose scripting language.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -148,7 +148,8 @@
         </p>
         <pre class="userinput">
 <kbd class="command">cd unix &amp;&amp;
-./configure --prefix=/usr \
+./configure --prefix=/usr           \
+            --without-tzdata        \
             --mandir=/usr/share/man \
             $([ $(uname -m) = x86_64 ] &amp;&amp; echo --enable-64bit) &amp;&amp;
 make &amp;&amp;
@@ -184,6 +185,11 @@ cp -v -r  ../html/* /usr/share/doc/tcl-8.6.0</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <code class="option">--without-tzdata</code>: This switch prevents
+          installation of the shipped timezone data which are older than the
+          ones provided in LFS.
+        </p>
         <p>
           <em class="parameter"><code>$([ $(uname -m) = x86_64 ] &amp;&amp;
           echo --enable-64bit)</code></em>: This switch is used to enable 64
@@ -295,7 +301,7 @@ cp -v -r  ../html/* /usr/share/doc/tcl-8.6.0</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-13 17:58:54 +0000
+        Last updated on 2013-08-20 20:51:02 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -319,7 +325,7 @@ cp -v -r  ../html/* /usr/share/doc/tcl-8.6.0</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

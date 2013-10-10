@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;15.&nbsp;Networking Programs
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="samba3.html" title="Samba-3.6.12">Prev</a>
+          <a accesskey="p" href="samba.html" title="Samba-4.0.9">Prev</a>
           <p>
-            Samba-3.6.12
+            Samba-4.0.9
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           Web.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -101,6 +101,20 @@
           </ul>
         </div>
         <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/wget-1.14-texi2pod-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/wget-1.14-texi2pod-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
           Wget Dependencies
         </h3>
         <h4>
@@ -109,17 +123,17 @@
         <p class="recommended">
           <a class="xref" href="../postlfs/openssl.html" title=
           "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a> or <a class="xref" href=
-          "../postlfs/gnutls.html" title="GnuTLS-3.1.10">GnuTLS-3.1.10</a>
+          "../postlfs/gnutls.html" title="GnuTLS-3.2.4">GnuTLS-3.2.4</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/libidn.html" title=
-          "Libidn-1.25">Libidn-1.25</a>, <a class="xref" href=
-          "../general/pcre.html" title="PCRE-8.32">PCRE-8.32</a>, <a class=
+          "libidn-1.28">libidn-1.28</a>, <a class="xref" href=
+          "../general/pcre.html" title="PCRE-8.33">PCRE-8.33</a>, <a class=
           "xref" href="../general/perl-modules.html#perl-lwp" title=
-          "libwww-perl-6.04 (a.k.a. LWP)">libwww-perl-6.04</a> (required for
+          "libwww-perl-6.05 (a.k.a. LWP)">libwww-perl-6.05</a> (required for
           the majority of the test suite), and <a class="ulink" href=
           "http://www.inet.no/dante/">Dante</a>
         </p>
@@ -137,7 +151,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr      \
+<kbd class="command">patch -Np1 -i ../wget-1.14-texi2pod-1.patch &amp;&amp;
+
+./configure --prefix=/usr      \
             --sysconfdir=/etc  \
             --with-ssl=openssl &amp;&amp;
 make</kbd>
@@ -168,7 +184,7 @@ make</kbd>
           "../postlfs/openssl.html" title=
           "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>. It can be omitted if <a class=
           "xref" href="../postlfs/gnutls.html" title=
-          "GnuTLS-3.1.10">GnuTLS-3.1.10</a> is found or the HTTPS protocol is
+          "GnuTLS-3.2.4">GnuTLS-3.2.4</a> is found or the HTTPS protocol is
           not needed.
         </p>
       </div>
@@ -246,15 +262,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-03 23:23:09 +0000
+        Last updated on 2013-08-17 20:38:01 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="samba3.html" title="Samba-3.6.12">Prev</a>
+          <a accesskey="p" href="samba.html" title="Samba-4.0.9">Prev</a>
           <p>
-            Samba-3.6.12
+            Samba-4.0.9
           </p>
         </li>
         <li class="next">
@@ -270,7 +286,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

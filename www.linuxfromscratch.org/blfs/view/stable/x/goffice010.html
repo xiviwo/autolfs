@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      GOffice-0.10.7
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;25.&nbsp;X Libraries
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.28.2">Prev</a>
+          <p>
+            gdk-pixbuf-2.28.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gtk2.html" title="GTK+-2.24.20">Next</a>
+          <p>
+            GTK+-2.24.20
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapter&nbsp;25.&nbsp;X Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="goffice010" name="goffice010"></a>GOffice-0.10.7
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to GOffice
+        </h2>
+        <p>
+          The <span class="application">GOffice</span> package contains a
+          library of <span class="application">GLib</span>/<span class=
+          "application">GTK</span> document centric objects and utilities.
+          This is useful for performing common operations for document
+          centric applications that are conceptually simple, but complex to
+          implement fully. Some of the operations provided by the
+          <span class="application">GOffice</span> library include support
+          for plugins, load/save routines for application documents and
+          undo/redo functions.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.7.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.7.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.7.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.7.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 0538fd4edee0a55cbe385c391fcd8e27
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 2.2 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 83 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.8 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          GOffice Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a>,
+          <a class="xref" href="../general/libgsf.html" title=
+          "libgsf-1.14.28">libgsf-1.14.28</a>, <a class="xref" href=
+          "../general/librsvg.html" title=
+          "librsvg-2.37.0">librsvg-2.37.0</a>, and <a class="xref" href=
+          "../general/which.html" title=
+          "Which-2.20 and Alternatives">Which-2.20</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/lasem/">Lasem</a>,
+          <a class="ulink" href=
+          "http://www.freedesktop.org/wiki/Software/libspectre">libspectre</a>,
+          <a class="xref" href="../pst/gs.html" title=
+          "ghostscript-9.10">ghostscript-9.10</a>, <a class="xref" href=
+          "../general/gobject-introspection.html" title=
+          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>,
+          and <a class="xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/goffice010">http://wiki.linuxfromscratch.org/blfs/wiki/goffice010</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of GOffice
+        </h2>
+        <p>
+          Install <span class="application">GOffice</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          If you wish to run the tests, issue: <span class=
+          "command"><strong>make check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <span class="application">GTK-Doc</span> is installed and you wish
+          to rebuild and install the API documentation.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libgoffice-0.10.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/libgoffice-0.10,
+              /usr/lib/goffice, and
+              /usr/share/gtk-doc/html/goffice-0.10</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libgoffice010" name=
+                    "libgoffice010"></a><span class="term"><code class=
+                    "filename">libgoffice-0.10.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains API functions to provide support for document
+                    centric objects and utilities.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-09 10:19:45 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.28.2">Prev</a>
+          <p>
+            gdk-pixbuf-2.28.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gtk2.html" title="GTK+-2.24.20">Next</a>
+          <p>
+            GTK+-2.24.20
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapter&nbsp;25.&nbsp;X Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

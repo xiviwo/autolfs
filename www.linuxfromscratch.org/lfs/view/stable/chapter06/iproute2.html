@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.50.&nbsp;IPRoute2-3.8.0
+      6.51.&nbsp;IPRoute2-3.10.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gzip.html" title="Gzip-1.5">Prev</a>
+          <a accesskey="p" href="gzip.html" title="Gzip-1.6">Prev</a>
           <p>
-            Gzip-1.5
+            Gzip-1.6
           </p>
         </li>
         <li class="next">
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-iproute2" name="ch-system-iproute2"></a>6.50.
-        IPRoute2-3.8.0
+        <a id="ch-system-iproute2" name="ch-system-iproute2"></a>6.51.
+        IPRoute2-3.10.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -68,7 +68,7 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.50.1. Installation of IPRoute2
+          6.51.1. Installation of IPRoute2
         </h2>
         <p>
           The <span class="command"><strong>arpd</strong></span> binary
@@ -86,12 +86,6 @@
 <kbd class="command">sed -i '/^TARGETS/s@arpd@@g' misc/Makefile
 sed -i /ARPD/d Makefile
 sed -i 's/arpd.8//' man/man8/Makefile</kbd>
-</pre>
-        <p>
-          Remove a compiler flag that causes the compilation to fail:
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i 's/-Werror//' Makefile</kbd>
 </pre>
         <p>
           Compile the package:
@@ -134,12 +128,12 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
         <pre class="userinput">
 <kbd class="command">make DESTDIR=              \
      MANDIR=/usr/share/man \
-     DOCDIR=/usr/share/doc/iproute2-3.8.0 install</kbd>
+     DOCDIR=/usr/share/doc/iproute2-3.10.0 install</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-iproute2" name="contents-iproute2"></a>6.50.2.
+          <a id="contents-iproute2" name="contents-iproute2"></a>6.51.2.
           Contents of IPRoute2
         </h2>
         <div class="segmentedlist">
@@ -153,7 +147,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
               <span class="segbody">/etc/iproute2, /lib/tc,
-              /usr/share/doc/iproute2-3.8.0, /usr/lib/tc</span>
+              /usr/share/doc/iproute2-3.10.0, /usr/lib/tc</span>
             </div>
           </div>
         </div>
@@ -476,9 +470,9 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gzip.html" title="Gzip-1.5">Prev</a>
+          <a accesskey="p" href="gzip.html" title="Gzip-1.6">Prev</a>
           <p>
-            Gzip-1.5
+            Gzip-1.6
           </p>
         </li>
         <li class="next">
@@ -493,7 +487,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

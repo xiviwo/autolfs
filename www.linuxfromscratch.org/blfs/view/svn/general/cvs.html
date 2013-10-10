@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="cmake.html" title="CMake-2.8.10.2">Prev</a>
+          <a accesskey="p" href="cmake.html" title="CMake-2.8.11.2">Prev</a>
           <p>
-            CMake-2.8.10.2
+            CMake-2.8.11.2
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
           "Running a CVS Server">Running a CVS Server</a>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -130,12 +130,12 @@
         <p class="optional">
           <a class="xref" href="../postlfs/tcsh.html" title=
           "Tcsh-6.18.01">Tcsh-6.18.01</a>, <a class="xref" href=
-          "../postlfs/openssh.html" title="OpenSSH-6.2p1">OpenSSH-6.2p1</a>,
+          "../postlfs/openssh.html" title="OpenSSH-6.2p2">OpenSSH-6.2p2</a>,
           <a class="ulink" href="http://www.pdc.kth.se/kth-krb/">krb4</a>,
           <a class="xref" href="../postlfs/mitkrb.html" title=
-          "MIT Kerberos V5-1.11.2">MIT Kerberos V5-1.11.2</a> (for the GSSAPI
+          "MIT Kerberos V5-1.11.3">MIT Kerberos V5-1.11.3</a> (for the GSSAPI
           libraries), <a class="xref" href="../pst/gs.html" title=
-          "ghostscript-9.06">ghostscript-9.06</a>, and an <a class="xref"
+          "ghostscript-9.10">ghostscript-9.10</a>, and an <a class="xref"
           href="../server/mail.html" title=
           "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a> (that provides
           a <span class="command"><strong>sendmail</strong></span> command)
@@ -160,13 +160,13 @@
             <li>
               <p>
                 <a class="xref" href="../postlfs/vim.html" title=
-                "Vim-7.3">Vim-7.3</a>
+                "Vim-7.4">Vim-7.4</a>
               </p>
             </li>
             <li>
               <p>
                 <a class="xref" href="../postlfs/emacs.html" title=
-                "Emacs-24.2">Emacs-24.2</a>
+                "Emacs-24.3">Emacs-24.3</a>
               </p>
             </li>
             <li>
@@ -178,7 +178,7 @@
             <li>
               <p>
                 <a class="xref" href="../basicnet/re-alpine.html" title=
-                "Re-alpine-2.02">Re-alpine-2.02</a> (for Pico)
+                "Re-alpine-2.03">Re-alpine-2.03</a> (for Pico)
               </p>
             </li>
           </ul>
@@ -205,11 +205,13 @@
 <kbd class="command">patch -Np1 -i ../cvs-1.11.23-zlib-1.patch</kbd>
 </pre>
         <p>
-          Now fix a conflict with newer libraries:
+          Now fix some conflicts with newer libraries and programs:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i -e 's/getline /get_line /' lib/getline.{c,h}</kbd>
+<kbd class="command">
+sed -i -e 's/getline /get_line /' lib/getline.{c,h} &amp;&amp;
+sed -i -e 's/^@sp$/&amp; 1/'          doc/cvs.texinfo 
+</kbd>
 </pre>
         <p>
           Install <span class="application">CVS</span> by running the
@@ -221,7 +223,7 @@ make</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="../pst/texlive.html" title=
-          "texlive-20120701">texlive-20120701</a> installed and wish to
+          "texlive-20130530">texlive-20130530</a> installed and wish to
           create HTML or text docs from the documentation source files, issue
           the following command:
         </p>
@@ -387,15 +389,15 @@ install -v -m644 doc/cvsclient.html/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-13 17:58:54 +0000
+        Last updated on 2013-09-05 16:23:52 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="cmake.html" title="CMake-2.8.10.2">Prev</a>
+          <a accesskey="p" href="cmake.html" title="CMake-2.8.11.2">Prev</a>
           <p>
-            CMake-2.8.10.2
+            CMake-2.8.11.2
           </p>
         </li>
         <li class="next">
@@ -411,7 +413,7 @@ install -v -m644 doc/cvsclient.html/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

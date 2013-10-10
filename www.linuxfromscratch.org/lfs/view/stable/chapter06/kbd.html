@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.51.&nbsp;Kbd-1.15.5
+      6.52.&nbsp;Kbd-1.15.5
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -23,15 +23,15 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="iproute2.html" title=
-          "IPRoute2-3.8.0">Prev</a>
+          "IPRoute2-3.10.0">Prev</a>
           <p>
-            IPRoute2-3.8.0
+            IPRoute2-3.10.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="kmod.html" title="Kmod-12">Next</a>
+          <a accesskey="n" href="kmod.html" title="Kmod-14">Next</a>
           <p>
-            Kmod-12
+            Kmod-14
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-kbd" name="ch-system-kbd"></a>6.51. Kbd-1.15.5
+        <a id="ch-system-kbd" name="ch-system-kbd"></a>6.52. Kbd-1.15.5
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -68,7 +68,7 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.51.1. Installation of Kbd
+          6.52.1. Installation of Kbd
         </h2>
         <p>
           The behaviour of the Backspace and Delete keys is not consistent
@@ -103,25 +103,13 @@ sed -i 's/resizecons.8 //' man/man8/Makefile.in</kbd>
           Prepare Kbd for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --datadir=/lib/kbd \
-  --disable-vlock</kbd>
+<kbd class="command">./configure --prefix=/usr --disable-vlock</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
             <b>The meaning of the configure options:</b>
           </p>
           <dl>
-            <dt>
-              <span class="term"><em class=
-              "parameter"><code>--datadir=/lib/kbd</code></em></span>
-            </dt>
-            <dd>
-              <p>
-                This option puts keyboard layout data in a directory that
-                will always be on the root partition instead of the default
-                <code class="filename">/usr/share/kbd</code>.
-              </p>
-            </dd>
             <dt>
               <span class="term"><em class=
               "parameter"><code>--disable-vlock</code></em></span>
@@ -164,31 +152,16 @@ sed -i 's/resizecons.8 //' man/man8/Makefile.in</kbd>
           </p>
         </div>
         <p>
-          Some of the scripts in the LFS-Bootscripts package depend on
-          <span class="command"><strong>kbd_mode</strong></span>,
-          <span class="command"><strong>loadkeys</strong></span>,
-          <span class="command"><strong>openvt</strong></span>, and
-          <span class="command"><strong>setfont</strong></span>. As
-          <code class="filename">/usr</code> may not be available during the
-          early stages of booting, those binaries need to be on the root
-          partition:
-        </p>
-        <pre class="userinput">
-<kbd class=
-"command">mv -v /usr/bin/{kbd_mode,loadkeys,openvt,setfont} /bin</kbd>
-</pre>
-        <p>
           If desired, install the documentation:
         </p>
         <pre class="userinput">
-<kbd class="command">mkdir -v /usr/share/doc/kbd-1.15.5
-cp -R -v doc/* \
-         /usr/share/doc/kbd-1.15.5</kbd>
+<kbd class="command">mkdir -v       /usr/share/doc/kbd-1.15.5
+cp -R -v doc/* /usr/share/doc/kbd-1.15.5</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-kbd" name="contents-kbd"></a>6.51.2. Contents of
+          <a id="contents-kbd" name="contents-kbd"></a>6.52.2. Contents of
           Kbd
         </h2>
         <div class="segmentedlist">
@@ -204,8 +177,10 @@ cp -R -v doc/* \
               unicode_stop</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/lib/kbd</span>
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">/usr/share/consolefonts,
+              /usr/share/consoletrans, /usr/share/keymaps,
+              /usr/share/unimaps</span>
             </div>
           </div>
         </div>
@@ -573,15 +548,15 @@ cp -R -v doc/* \
       <ul>
         <li class="prev">
           <a accesskey="p" href="iproute2.html" title=
-          "IPRoute2-3.8.0">Prev</a>
+          "IPRoute2-3.10.0">Prev</a>
           <p>
-            IPRoute2-3.8.0
+            IPRoute2-3.10.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="kmod.html" title="Kmod-12">Next</a>
+          <a accesskey="n" href="kmod.html" title="Kmod-14">Next</a>
           <p>
-            Kmod-12
+            Kmod-14
           </p>
         </li>
         <li class="up">
@@ -590,7 +565,7 @@ cp -R -v doc/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

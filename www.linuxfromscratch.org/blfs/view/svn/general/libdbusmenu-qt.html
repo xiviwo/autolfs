@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.44">Next</a>
+          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.46">Next</a>
           <p>
-            libdrm-2.4.44
+            libdrm-2.4.46
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           on DBus.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -102,7 +102,7 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../x/qt.html" title="Qt-4.8.4">Qt-4.8.4</a>
+          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
         </p>
         <h4>
           Optional
@@ -111,7 +111,7 @@
           <a class="xref" href="qjson.html" title=
           "QJson-0.8.1">QJson-0.8.1</a> (for building the test suite) and
           <a class="xref" href="doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a> (for building the API
+          "Doxygen-1.8.5">Doxygen-1.8.5</a> (for building the API
           documentation)
         </p>
         <p class="usernotes">
@@ -131,6 +131,7 @@
 <kbd class="command">mkdir build &amp;&amp;
 cd build &amp;&amp;
 cmake -DCMAKE_INSTALL_PREFIX=$QTDIR \
+      -DCMAKE_BUILD_TYPE=Release \
       -DWITH_DOC=OFF .. &amp;&amp;
 make</kbd>
 </pre>
@@ -150,6 +151,11 @@ make</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <code class="option">-DCMAKE_BUILD_TYPE=Release</code>: This switch
+          is used to build without debugging symbols and apply a higher level
+          of compiler optimizations.
+        </p>
         <p>
           <code class="option">-DWITH_DOC=OFF</code>: This option is set to
           avoid building the API documentation. Omit it if you have
@@ -179,7 +185,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-23 17:04:04 +0000
+        Last updated on 2013-08-24 18:18:35 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -192,9 +198,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.44">Next</a>
+          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.46">Next</a>
           <p>
-            libdrm-2.4.44
+            libdrm-2.4.46
           </p>
         </li>
         <li class="up">
@@ -203,7 +209,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

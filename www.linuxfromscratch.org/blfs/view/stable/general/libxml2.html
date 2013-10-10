@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      libxml2-2.9.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;9.&nbsp;General Libraries
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libusb-compat.html" title=
+          "libusb-compat-0.1.5">Prev</a>
+          <p>
+            libusb-compat-0.1.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libxslt.html" title=
+          "libxslt-1.1.28">Next</a>
+          <p>
+            libxslt-1.1.28
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapter&nbsp;9.&nbsp;General Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="libxml2" name="libxml2"></a>libxml2-2.9.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to libxml2
+        </h2>
+        <p>
+          The <span class="application">libxml2</span> package contains
+          libraries and utilities used for parsing XML files.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://xmlsoft.org/sources/libxml2-2.9.1.tar.gz">http://xmlsoft.org/sources/libxml2-2.9.1.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://xmlsoft.org/libxml2/libxml2-2.9.1.tar.gz">ftp://xmlsoft.org/libxml2/libxml2-2.9.1.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 9c0cfef285d5c4a5c80d00904ddab380
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 5.0 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 100 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.6 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Optional Testsuite: <a class="ulink" href=
+                "http://www.w3.org/XML/Test/xmlts20080827.tar.gz">http://www.w3.org/XML/Test/xmlts20080827.tar.gz</a>
+                - This enables <span class="command"><strong>make
+                check</strong></span> to do complete testing.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          libxml2 Dependencies
+        </h3>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="python2.html" title=
+          "Python-2.7.5">Python-2.7.5</a> (to build and install a
+          <span class="application">Python</span> library module,
+          additionally it is required to run the full suite of tests)
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Some packages which utilize <span class=
+            "application">libxml2</span> (such as <span class=
+            "application">GNOME Doc Utils</span>) need the <span class=
+            "application">Python</span> module installed to function properly
+            and some packages (such as MesaLib) will not build properly if
+            the <span class="application">Python</span> module is not
+            available.
+          </p>
+        </div>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libxml2">http://wiki.linuxfromscratch.org/blfs/wiki/libxml2</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of libxml2
+        </h2>
+        <p>
+          If you downloaded the testsuite, issue the following command:
+        </p>
+        <pre class="userinput">
+<kbd class="command">tar xf ../xmlts20080827.tar.gz</kbd>
+</pre>
+        <p>
+          Install <span class="application">libxml2</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">./configure --prefix=/usr --disable-static --with-history &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <code class="option">--with-history</code>: This switch enables
+          <span class="application">Readline</span> support when running
+          <span class="command"><strong>xmlcatalog</strong></span> or
+          <span class="command"><strong>xmllint</strong></span> in shell
+          mode.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">xml2-config, xmlcatalog and
+              xmllint</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libxml2.so and optionally, the
+              libxml2mod.so <span class="application">Python</span>
+              module</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/libxml2,
+              /usr/share/doc/libxml2-2.9.1,
+              /usr/share/doc/libxml2-python-2.9.1 and
+              /usr/share/gtk-doc/html/libxml2</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xml2-config" name="xml2-config"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xml2-config</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    determines the compile and linker flags that should be
+                    used to compile and link programs that use <code class=
+                    "filename">libxml2</code>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xmlcatalog" name="xmlcatalog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xmlcatalog</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to monitor and manipulate XML and SGML catalogs.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xmllint" name="xmllint"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xmllint</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    parses XML files and outputs reports (based upon options)
+                    to detect errors in XML coding.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libxml2-lib" name="libxml2-lib"></a><span class=
+                    "term"><code class="filename">libxml2.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    provides functions for programs to parse files that use
+                    the XML format.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-08-17 21:37:04 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libusb-compat.html" title=
+          "libusb-compat-0.1.5">Prev</a>
+          <p>
+            libusb-compat-0.1.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libxslt.html" title=
+          "libxslt-1.1.28">Next</a>
+          <p>
+            libxslt-1.1.28
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapter&nbsp;9.&nbsp;General Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

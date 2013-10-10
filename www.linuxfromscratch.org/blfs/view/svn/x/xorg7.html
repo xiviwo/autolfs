@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="util-macros.html" title=
-          "util-macros-1.17">Next</a>
+          "util-macros-1.17.1">Next</a>
           <p>
-            util-macros-1.17
+            util-macros-1.17.1
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -117,8 +117,8 @@
         Additionally, because of the large number of repetitive commands, you
         are encouraged to partially automate the build. Instructions have
         been given that utilize the <a class="xref" href=
-        "../postlfs/sudo.html" title="Sudo-1.8.6p3">Sudo-1.8.6p3</a> package.
-        It is recommended that you use the <em class=
+        "../postlfs/sudo.html" title="Sudo-1.8.7">Sudo-1.8.7</a> package. It
+        is recommended that you use the <em class=
         "parameter"><code>:NOPASSWD</code></em> configuration option for the
         user that will be building the xorg packages.
       </p>
@@ -192,16 +192,27 @@ chmod 644 /etc/profile.d/xorg.sh</kbd>
           "envar">PATH</code> environment variable, and <code class=
           "filename">$XORG_PREFIX/lib/pkgconfig</code> and <code class=
           "filename">$XORG_PREFIX/share/pkgconfig</code> to your <code class=
-          "envar">PKG_CONFIG_PATH</code> variable. Issue the following
-          commands as the <code class="systemitem">root</code> user:
+          "envar">PKG_CONFIG_PATH</code> variable. It is also helpful to
+          specify additional search paths for <span class=
+          "command"><strong>gcc</strong></span> and an include directory for
+          the <span class="command"><strong>aclocal</strong></span> program.
+          Issue the following commands as the <code class=
+          "systemitem">root</code> user:
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt;&gt; /etc/profile.d/xorg.sh &lt;&lt; "EOF"
 
-pathappend $XORG_PREFIX/bin PATH
-pathappend $XORG_PREFIX/lib/pkgconfig PKG_CONFIG_PATH
+pathappend $XORG_PREFIX/bin             PATH
+pathappend $XORG_PREFIX/lib/pkgconfig   PKG_CONFIG_PATH
 pathappend $XORG_PREFIX/share/pkgconfig PKG_CONFIG_PATH
-export PATH PKG_CONFIG_PATH
+
+pathappend $XORG_PREFIX/lib             LIBRARY_PATH
+pathappend $XORG_PREFIX/include         C_INCLUDE_PATH
+pathappend $XORG_PREFIX/include         CPLUS_INCLUDE_PATH
+
+ACLOCAL='aclocal -I $XORG_PREFIX/share/aclocal'
+
+export PATH PKG_CONFIG_PATH ACLOCAL LIBRARY_PATH C_INCLUDE_PATH CPLUS_INCLUDE_PATH
 EOF</kbd>
 </pre>
         <p>
@@ -211,7 +222,7 @@ EOF</kbd>
           following command:
         </p>
         <pre class="userinput">
-<kbd class="command">echo "${XORG_PREFIX}/lib" &gt;&gt; /etc/ld.so.conf</kbd>
+<kbd class="command">echo "$XORG_PREFIX/lib" &gt;&gt; /etc/ld.so.conf</kbd>
 </pre>
         <p>
           You should also modify <code class=
@@ -221,8 +232,16 @@ EOF</kbd>
           following command as the <code class="systemitem">root</code> user:
         </p>
         <pre class="userinput">
-<kbd class="command">sed 's@/usr/X11R6@<em class=
-"replaceable"><code>&lt;PREFIX&gt;</code></em>@g' -i /etc/man_db.conf</kbd>
+<kbd class="command">sed "s@/usr/X11R6@<em class=
+"replaceable"><code>$XORG_PREFIX</code></em>@g" -i /etc/man_db.conf</kbd>
+</pre>
+        <p>
+          Some applications look for shared files in <code class=
+          "filename">/usr/share/X11</code>. Create a symbolic link to the
+          proper location as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="userinput">
+<kbd class="command">ln -s $XORG_PREFIX/share/X11 /usr/share/X11</kbd>
 </pre>
         <p>
           Finally, if building on x86_64, you will need to create the
@@ -238,7 +257,7 @@ ln -s lib $XORG_PREFIX/lib64</kbd>
 </pre>
       </div>
       <p class="updated">
-        Last updated on 2013-05-05 18:02:40 +0000
+        Last updated on 2013-09-09 17:09:36 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -252,9 +271,9 @@ ln -s lib $XORG_PREFIX/lib64</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="util-macros.html" title=
-          "util-macros-1.17">Next</a>
+          "util-macros-1.17.1">Next</a>
           <p>
-            util-macros-1.17
+            util-macros-1.17.1
           </p>
         </li>
         <li class="up">
@@ -263,7 +282,7 @@ ln -s lib $XORG_PREFIX/lib64</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

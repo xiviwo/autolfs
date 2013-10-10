@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      MySQL-5.6.11
+      MySQL-5.6.13
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;22.&nbsp;Databases
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="db.html" title="Berkeley DB-5.3.21">Prev</a>
+          <a accesskey="p" href="db.html" title="Berkeley DB-6.0.20">Prev</a>
           <p>
-            Berkeley DB-5.3.21
+            Berkeley DB-6.0.20
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="postgresql.html" title=
-          "PostgreSQL-9.2.4">Next</a>
+          "PostgreSQL-9.3.0">Next</a>
           <p>
-            PostgreSQL-9.2.4
+            PostgreSQL-9.3.0
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mysql" name="mysql"></a>MySQL-5.6.11
+        <a id="mysql" name="mysql"></a>MySQL-5.6.13
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           libraries.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -70,28 +70,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.11.tar.gz">
-                http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.11.tar.gz</a>
+                "http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.13.tar.gz">
+                http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.13.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 9241be729964ab4594de11baa30aec48
+                Download MD5 sum: 4bfeb22f2f876825db70d9820d164343
               </p>
             </li>
             <li>
               <p>
-                Download size: 34 MB
+                Download size: 35 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 1.0 GB
+                Estimated disk space required: 970 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 4.5 SBU
+                Estimated build time: 6.5 SBU
               </p>
             </li>
           </ul>
@@ -105,8 +105,8 @@
               <p>
                 Optional patch (recommended if building for Amarok):
                 <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/mysql-5.6.11-embedded_library_shared-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/mysql-5.6.11-embedded_library_shared-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/svn/mysql-5.6.13-embedded_library_shared-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/mysql-5.6.13-embedded_library_shared-1.patch</a>
               </p>
             </li>
             <li>
@@ -125,7 +125,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/cmake.html" title=
-          "CMake-2.8.10.2">CMake-2.8.10.2</a>
+          "CMake-2.8.11.2">CMake-2.8.11.2</a>
         </p>
         <h4>
           Recommended
@@ -191,7 +191,7 @@ useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql</kbd>
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../mysql-5.6.11-embedded_library_shared-1.patch</kbd>
+"command">patch -Np1 -i ../mysql-5.6.13-embedded_library_shared-1.patch</kbd>
 </pre>
         <p>
           Install <span class="application">MySQL</span> by running the
@@ -203,8 +203,12 @@ useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql</kbd>
 sed -i "s/ADD_SUBDIRECTORY(libmysql)/&amp;\\nADD_SUBDIRECTORY(sql\/share)/" CMakeLists.txt &amp;&amp;
 sed -i "s@data/test@\${INSTALL_MYSQLSHAREDIR}@g" sql/CMakeLists.txt &amp;&amp;
 sed -i "s@data/mysql@\${INSTALL_MYSQLTESTDIR}@g" sql/CMakeLists.txt &amp;&amp;
+
+sed -i "s/srv_buf_size/srv_sort_buf_size/" storage/innobase/row/row0log.cc &amp;&amp;
+
 mkdir build &amp;&amp;
 cd build &amp;&amp;
+
 cmake -DCMAKE_BUILD_TYPE=Release                    \
       -DCMAKE_INSTALL_PREFIX=/usr                   \
       -DINSTALL_DOCDIR=share/doc/mysql              \
@@ -339,7 +343,7 @@ port            = 3306
 socket          = /run/mysqld/mysqld.sock
 datadir         = /srv/mysql
 skip-external-locking
-key_buffer = 16M
+key_buffer_size = 16M
 max_allowed_packet = 1M
 sort_buffer_size = 512K
 net_buffer_length = 16K
@@ -445,7 +449,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
             Install the <code class="filename">/etc/rc.d/init.d/mysql</code>
             init script included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130505</a> package as the
+            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package as the
             <code class="systemitem">root</code> user to start the
             <span class="application">MySQL</span> server during system
             boot-up.
@@ -508,22 +512,22 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
         </p>
       </div>
       <p class="updated">
-        Last updated on 2013-04-29 16:18:11 +0000
+        Last updated on 2013-08-25 21:54:24 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="db.html" title="Berkeley DB-5.3.21">Prev</a>
+          <a accesskey="p" href="db.html" title="Berkeley DB-6.0.20">Prev</a>
           <p>
-            Berkeley DB-5.3.21
+            Berkeley DB-6.0.20
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="postgresql.html" title=
-          "PostgreSQL-9.2.4">Next</a>
+          "PostgreSQL-9.3.0">Next</a>
           <p>
-            PostgreSQL-9.2.4
+            PostgreSQL-9.3.0
           </p>
         </li>
         <li class="up">
@@ -532,7 +536,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

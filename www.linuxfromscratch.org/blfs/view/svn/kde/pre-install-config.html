@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;27.&nbsp;Introduction
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -125,26 +125,6 @@ EOF</kbd>
 ln -svf /usr/share/dbus-1 $KDE_PREFIX/share &amp;&amp;
 ln -svf /usr/share/polkit-1 $KDE_PREFIX/share</kbd>
 </pre>
-        <p>
-          D-Bus also needs to find the configuration files for the
-          system-wide bus, which, if you follow the books instructions, are
-          installed in <code class=
-          "filename">/etc/kde/dbus-1/system.d</code>. Fix this by issuing the
-          following (as <code class="systemitem">root</code>):
-        </p>
-        <pre class="root">
-<kbd class="command">mkdir -pv /etc/dbus-1 &amp;&amp;
-cat &gt; /etc/dbus-1/system-local.conf &lt;&lt; EOF
-<code class="literal">&lt;!DOCTYPE busconfig PUBLIC
- "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
- "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd"&gt;
-&lt;busconfig&gt;
-
-  &lt;includedir&gt;/etc/kde/dbus-1/system.d&lt;/includedir&gt;
-
-&lt;/busconfig&gt;</code>
-EOF</kbd>
-</pre>
         <div class="admon tip">
           <img alt="[Tip]" src="../images/tip.png" />
           <h3>
@@ -154,13 +134,13 @@ EOF</kbd>
             Sometimes, the installation paths are coded into installed files.
             This is the reason why <code class="filename">/opt/kde</code> is
             used as installation prefix instead of <code class=
-            "filename">/opt/kde-4.10.3</code>. After installing <span class=
+            "filename">/opt/kde-4.11.1</code>. After installing <span class=
             "application">KDE</span>, you may rename the directory and create
             a symlink:
           </p>
           <pre class="root">
-<kbd class="command">mv /opt/kde{,-4.10.3} &amp;&amp;
-ln -svf kde-4.10.3 /opt/kde</kbd>
+<kbd class="command">mv /opt/kde{,-4.11.1} &amp;&amp;
+ln -svf kde-4.11.1 /opt/kde</kbd>
 </pre>
           <p>
             Later on, you may want to install other versions of <span class=
@@ -174,7 +154,7 @@ ln -svf kde-4.10.3 /opt/kde</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-08-17 13:59:00 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -198,7 +178,7 @@ ln -svf kde-4.10.3 /opt/kde</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

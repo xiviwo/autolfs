@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      BLFS Boot Scripts
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Important Information
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="patches.html" title=
+          "Optional Patches">Prev</a>
+          <p>
+            Optional Patches
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libraries.html" title=
+          "Libraries: Static or shared?">Next</a>
+          <p>
+            Libraries: Static or shared?
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="important.html" title=
+          "Chapter&nbsp;2.&nbsp;Important Information">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="bootscripts" name="bootscripts"></a>BLFS Boot Scripts
+      </h1>
+      <p>
+        The BLFS Bootscripts package contains the init scripts that are used
+        throughout the book. It is assumed that you will be using the BLFS
+        Bootscripts package in conjunction with a compatible LFS-Bootscripts
+        package. Refer to <a class="ulink" href=
+        "http://www.linuxfromscratch.org/lfs/view/7.4/chapter07/bootscripts.html">../../../../lfs/view/7.4/chapter07/bootscripts.html</a>
+        for more information on the LFS-Bootscripts package.
+      </p>
+      <div class="itemizedlist">
+        <p class="title">
+          <b>Package Information</b>
+        </p>
+        <ul class="compact">
+          <li>
+            <p>
+              Download: <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-bootscripts-20130908.tar.bz2">
+              http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-bootscripts-20130908.tar.bz2</a>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <p>
+        The BLFS Bootscripts package will be used throughout the BLFS book
+        for startup scripts. Unlike LFS, each init script has a separate
+        install target in the BLFS Bootscripts package. It is recommended you
+        keep the package source directory around until completion of your
+        BLFS system. When a script is requested from BLFS Bootscripts, simply
+        change to the directory and as the <code class=
+        "systemitem">root</code> user, execute the given <span class=
+        "command"><strong>make install-<em class=
+        "replaceable"><code>&lt;init-script&gt;</code></em></strong></span>
+        command. This command installs the init script to its proper location
+        (along with any auxiliary configuration scripts) and also creates the
+        appropriate symlinks to start and stop the service at the appropriate
+        run-level.
+      </p>
+      <div class="admon note">
+        <img alt="[Note]" src="../images/note.png" />
+        <h3>
+          Note
+        </h3>
+        <p>
+          It is advisable to peruse each bootscript before installation to
+          ascertain that it satisfies your need. Also verify that the start
+          and stop symlinks it creates match your preferences.
+        </p>
+      </div>
+      <p class="updated">
+        Last updated on 2007-04-04 12:42:53 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="patches.html" title=
+          "Optional Patches">Prev</a>
+          <p>
+            Optional Patches
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libraries.html" title=
+          "Libraries: Static or shared?">Next</a>
+          <p>
+            Libraries: Static or shared?
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="important.html" title=
+          "Chapter&nbsp;2.&nbsp;Important Information">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

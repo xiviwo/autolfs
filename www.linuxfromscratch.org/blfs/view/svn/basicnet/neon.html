@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      neon-0.29.6
+      neon-0.30.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;17.&nbsp;Networking Libraries
@@ -29,10 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="textweb.html" title=
-          "Text Web Browsers">Next</a>
+          <a accesskey="n" href="serf.html" title="Serf-1.3.1">Next</a>
           <p>
-            Text Web Browsers
+            Serf-1.3.1
           </p>
         </li>
         <li class="up">
@@ -41,24 +40,24 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="neon" name="neon"></a>neon-0.29.6
+        <a id="neon" name="neon"></a>neon-0.30.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
           Introduction to neon
         </h2>
         <p>
-          The <span class="application">neon</span> package is an HTTP and
-          WebDAV client library, with a C interface.
+          <span class="application">neon</span> is an HTTP and WebDAV client
+          library, with a C interface.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -69,22 +68,22 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.webdav.org/neon/neon-0.29.6.tar.gz">http://www.webdav.org/neon/neon-0.29.6.tar.gz</a>
+                "http://www.webdav.org/neon/neon-0.30.0.tar.gz">http://www.webdav.org/neon/neon-0.30.0.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 591e0c82e6979e7e615211b386b8f6bc
+                Download MD5 sum: fb60b3a124eeec441937a812c456fd94
               </p>
             </li>
             <li>
               <p>
-                Download size: 862 KB
+                Download size: 892 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 26 MB
+                Estimated disk space required: 28 MB
               </p>
             </li>
             <li>
@@ -106,18 +105,21 @@
           "../general/expat.html" title="Expat-2.1.0">expat-2.1.0</a>
         </p>
         <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a> or <a class="xref" href=
+          "../postlfs/gnutls.html" title="GnuTLS-3.2.4">GnuTLS-3.2.4</a>
+        </p>
+        <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a> or <a class="xref" href=
-          "../postlfs/gnutls.html" title="GnuTLS-3.1.10">GnuTLS-3.1.10</a>,
           <a class="ulink" href=
-          "http://code.google.com/p/libproxy/">Libproxy</a> (requires
-          <a class="xref" href="../general/pkgconfig.html" title=
-          "pkg-config-0.28">pkg-config-0.28</a> to find it), <a class="xref"
-          href="../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.2">MIT
-          Kerberos V5-1.11.2</a> and <a class="ulink" href=
+          "http://code.google.com/p/libproxy/">libproxy</a>, <a class="xref"
+          href="../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.3">MIT
+          Kerberos V5-1.11.3</a> and <a class="ulink" href=
           "http://www.manyfish.co.uk/pakchois/">pakchois</a>
         </p>
         <p class="usernotes">
@@ -135,12 +137,12 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">./configure --prefix=/usr --enable-shared --disable-static &amp;&amp;
+"command">./configure --prefix=/usr --enable-shared --with-ssl --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
+          To test the results, issue: <span class="command"><strong>make -k
+          check</strong></span>. Some tests are known to fail.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -154,34 +156,22 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>--enable-shared</code></em>: This
-          parameter is needed to build the shared libraries, otherwise only
-          static libraries are built and installed.
+          <code class="option">--with-ssl</code>: This switch enables SSL
+          support using <span class="application">OpenSSL</span> or
+          <span class="application">GnuTLS</span> respectively. Remove it if
+          you don't have any of these installed. To force <span class=
+          "application">GnuTLS</span> usage when both are present, simply
+          pass <em class="parameter"><code>--with-ssl=gnutls</code></em> to
+          the <span class="command"><strong>configure</strong></span> script.
         </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
-          parameter prevents the static libraries being installed.
+          switch prevents installation of static versions of the libraries.
         </p>
         <p>
-          <code class="option">--with-ssl=openssl</code>: This option enables
-          SSL support using <span class="application">openssl</span>.
-        </p>
-        <p>
-          <code class="option">--with-ssl=gnutls</code>: This option enables
-          SSL support using <span class="application">gnutls</span>.
-        </p>
-        <p>
-          <code class="option">--with-libxml2</code>: This option forces the
-          use of <span class="application">libxml2</span>.
-        </p>
-        <p>
-          <code class="option">--with-expat</code>: This option forces the
-          use of <span class="application">expat</span>.
-        </p>
-        <p>
-          If you wish to use the other optional dependencies, consult the
-          output of <span class="command"><strong>./configure
-          --help</strong></span>.
+          <code class="option">--with-libxml2</code>: This switch forces the
+          use of <span class="application">libxml2</span> instead of
+          <span class="application">Expat</span>.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -200,8 +190,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class=
-              "segbody">/usr/{include/neon,share/doc/neon-0.29.6/html}</span>
+              <span class="segbody">/usr/include/neon and
+              /usr/share/doc/neon-0.30.0</span>
             </div>
           </div>
         </div>
@@ -212,22 +202,6 @@ make</kbd>
           <table border="0">
             <col align="left" valign="top" />
             <tbody>
-              <tr>
-                <td>
-                  <p>
-                    <a id="neon-config" name="neon-config"></a><span class=
-                    "term"><span class=
-                    "command"><strong>neon-config</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is a script which provides information about an installed
-                    copy of the <span class="application">neon</span>
-                    library.
-                  </p>
-                </td>
-              </tr>
               <tr>
                 <td>
                   <p>
@@ -247,7 +221,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-04 18:52:20 +0000
+        Last updated on 2013-08-18 04:37:04 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -260,10 +234,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="textweb.html" title=
-          "Text Web Browsers">Next</a>
+          <a accesskey="n" href="serf.html" title="Serf-1.3.1">Next</a>
           <p>
-            Text Web Browsers
+            Serf-1.3.1
           </p>
         </li>
         <li class="up">
@@ -272,7 +245,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

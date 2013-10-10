@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      elfutils-0.156
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;13.&nbsp;Programming
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="doxygen.html" title="Doxygen-1.8.5">Prev</a>
+          <p>
+            Doxygen-1.8.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="expect.html" title="Expect-5.45">Next</a>
+          <p>
+            Expect-5.45
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="elfutils" name="elfutils"></a>elfutils-0.156
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to elfutils
+        </h2>
+        <p>
+          The <span class="application">elfutils</span> package contains set
+          of utilities and libraries for handling ELF (Executable and
+          Linkable Format) files.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "https://fedorahosted.org/releases/e/l/elfutils/0.156/elfutils-0.156.tar.bz2">
+                https://fedorahosted.org/releases/e/l/elfutils/0.156/elfutils-0.156.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: f3b5cbb63b0757f571c6cc109df4c55b
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 2.6 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 85 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.6 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/elfutils">http://wiki.linuxfromscratch.org/blfs/wiki/elfutils</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of elfutils
+        </h2>
+        <p>
+          Install <span class="application">elfutils</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">./configure --prefix=/usr --program-prefix="eu-" &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--program-prefix="eu-"</code></em>:
+          This switch renames installed programs to avoid conflict with
+          <span class="application">Binutils</span> programs installed in
+          LFS.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">eu-addr2line, eu-ar, eu-elfcmp,
+              eu-elflint, eu-findtextrel, eu-ld, eu-make-debug-archive,
+              eu-nm, eu-objdump, eu-ranlib, eu-readelf, eu-size, eu-strings,
+              eu-strip and eu-unstrip</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libasm.{a,so}, libdw.{a,so}, libebl.a and
+              libelf.{a,so}</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/elfutils and
+              /usr/lib/elfutils</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-08-24 18:49:48 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="doxygen.html" title="Doxygen-1.8.5">Prev</a>
+          <p>
+            Doxygen-1.8.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="expect.html" title="Expect-5.45">Next</a>
+          <p>
+            Expect-5.45
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

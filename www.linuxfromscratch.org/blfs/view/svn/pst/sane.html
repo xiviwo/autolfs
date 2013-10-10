@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;43.&nbsp;Scanning
+        Chapter&nbsp;42.&nbsp;Scanning
       </h3>
       <ul>
         <li class="prev">
@@ -35,11 +35,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="scanning.html" title=
-          "Chapter&nbsp;43.&nbsp;Scanning">Up</a>
+          "Chapter&nbsp;42.&nbsp;Scanning">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -67,7 +67,7 @@
           backends.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -112,15 +112,15 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://alioth.debian.org/download.php/1140/sane-frontends-1.0.14.tar.gz">
-                http://alioth.debian.org/download.php/1140/sane-frontends-1.0.14.tar.gz</a>
+                "http://alioth.debian.org/frs/download.php/file/1140/sane-frontends-1.0.14.tar.gz">
+                http://alioth.debian.org/frs/download.php/file/1140/sane-frontends-1.0.14.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp2.sane-project.org/pub/sane/sane-frontends-1.0.14/sane-frontends-1.0.14.tar.gz">
-                ftp://ftp2.sane-project.org/pub/sane/sane-frontends-1.0.14/sane-frontends-1.0.14.tar.gz</a>
+                "ftp://ftp2.sane-project.org/pub/sane/sane-frontends-1.0.14.tar.gz">
+                ftp://ftp2.sane-project.org/pub/sane/sane-frontends-1.0.14.tar.gz</a>
               </p>
             </li>
             <li>
@@ -154,9 +154,9 @@
         <p class="optional">
           <a class="xref" href="../basicnet/avahi.html" title=
           "Avahi-0.6.31">Avahi-0.6.31</a>, <a class="xref" href="cups.html"
-          title="Cups-1.6.2">Cups-1.6.2</a>, <a class="xref" href=
+          title="Cups-1.6.3">Cups-1.6.3</a>, <a class="xref" href=
           "../general/libjpeg.html" title=
-          "libjpeg-turbo-1.2.1">libjpeg-turbo-1.2.1</a>, <a class="xref"
+          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
           href="../general/libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>, <a class="xref" href=
           "../general/libusb.html" title="libusb-1.0.9">libusb-1.0.9</a>,
@@ -167,7 +167,7 @@
           "ulink" href=
           "http://linuxtv.org/downloads/v4l-utils/">Video4Linux</a>, and
           <a class="xref" href="texlive.html" title=
-          "texlive-20120701">texlive-20120701</a>
+          "texlive-20130530">texlive-20130530</a>
         </p>
         <h4>
           Optional (Front Ends)
@@ -176,8 +176,8 @@
           <a class="xref" href="../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a>, <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.17">GTK+-2.24.17</a>, and <a class="xref" href=
-          "../xsoft/gimp.html" title="Gimp-2.8.4">Gimp-2.8.4</a>
+          "GTK+-2.24.20">GTK+-2.24.20</a>, and <a class="xref" href=
+          "../xsoft/gimp.html" title="Gimp-2.8.6">Gimp-2.8.6</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -250,8 +250,11 @@
             </p>
           </div>
           <p>
-            Install <span class="application">SANE</span>-backends by running
-            the following commands:
+            For a USB scanner, if you are linking to <a class="xref" href=
+            "../general/libusb.html" title="libusb-1.0.9">libusb-1.0.9</a>,
+            include the configure switch --enable-libusb_1_0. Install
+            <span class="application">SANE</span>-backends by running the
+            following commands:
           </p>
           <pre class="userinput">
 <kbd class=
@@ -277,6 +280,11 @@ install -m 644 -v tools/udev/libsane.rules           \
                   /etc/udev/rules.d/65-scanner.rules &amp;&amp;
 chgrp -v scanner  /var/lock/sane</kbd>
 </pre>
+          <p>
+            With the scanner on, run <span class="command"><strong>scanimage
+            -L</strong></span> and the name and location of the device will
+            appear, if the installation was successful.
+          </p>
         </div>
         <div class="sect3" lang="en" xml:lang="en">
           <h3 class="sect3">
@@ -326,6 +334,19 @@ install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
 <kbd class=
 "command">ln -v -s ../../../../bin/xscanimage /usr/lib/gimp/2.0/plug-ins</kbd>
 </pre>
+          <div class="admon note">
+            <img alt="[Note]" src="../images/note.png" />
+            <h3>
+              Note
+            </h3>
+            <p>
+              If the plugin <span class=
+              "command"><strong>xscanimage</strong></span> is disabled in
+              <span class="application">GIMP</span>'s menu, in order to
+              enable it, "create" a blank image using the menu or Ctrl-N.
+              After that, it is enabled.
+            </p>
+          </div>
         </div>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -371,7 +392,7 @@ install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id3138690" name="id3138690"></a>Backend
+                    <a id="id2984294" name="id2984294"></a>Backend
                     Configuration
                   </h5>
                 </div>
@@ -390,13 +411,70 @@ install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
               Add any desired users to the <code class=
               "systemitem">scanner</code> group.
             </p>
+            <p>
+              If you want to access a network scanner, include two lines in
+              <code class="filename">net.conf</code>, as <code class=
+              "systemitem">root</code> user (make sure to replace
+              &lt;server_ip&gt; by the actual value, below):
+            </p>
+            <pre class="root">
+<kbd class=
+"command">cat &gt;&gt; /etc/sane.d/net.conf &lt;&lt; "EOF" &amp;&amp;
+connect_timeout = 60
+&lt;server_ip&gt;
+EOF</kbd>
+</pre>
+            <p>
+              On the server side, include the client ip in the access list of
+              <code class="filename">/etc/sane.d/saned.conf</code>, restart
+              the <span class="command"><strong>saned</strong></span> daemon,
+              and make sure the firewall, if any, is open to the client.
+            </p>
           </div>
           <div class="sect4" lang="en" xml:lang="en">
             <div class="titlepage">
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id3027087" name="id3027087"></a>General
+                    <a id="id3265774" name="id3265774"></a>Frontend
+                    Configuration
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <p>
+              If you use a desktop environment like <span class=
+              "application">Gnome</span> or <span class=
+              "application">KDE</span> you may wish to create a <code class=
+              "filename">xscanimage.desktop</code> file so that <span class=
+              "application">xscanimage</span> appears in the panel's menus.
+              As the <code class="systemitem">root</code> user:
+            </p>
+            <pre class="root">
+<kbd class=
+"command">mkdir -pv /usr/share/{applications,pixmaps}               &amp;&amp;
+
+cat &gt; /usr/share/applications/xscanimage.desktop &lt;&lt; "EOF" &amp;&amp;
+[Desktop Entry]
+Encoding=UTF-8
+Name=XScanImage - Scanning
+Comment=Acquire images from a scanner
+Exec=xscanimage
+Icon=xscanimage
+Terminal=false
+Type=Application
+Categories=Application;Graphics
+EOF
+
+ln -svf ../sane/xscanimage-icon-48x48-2.png /usr/share/pixmaps/xscanimage.png</kbd>
+</pre>
+          </div>
+          <div class="sect4" lang="en" xml:lang="en">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h5 class="title">
+                    <a id="id3115162" name="id3115162"></a>General
                     Information
                   </h5>
                 </div>
@@ -421,7 +499,7 @@ install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2842227" name="id2842227"></a>Configuration and
+                    <a id="id2696825" name="id2696825"></a>Configuration and
                     setup of the 'saned' daemon
                   </h5>
                 </div>
@@ -667,7 +745,7 @@ install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-07 21:05:35 +0000
+        Last updated on 2013-09-05 23:02:58 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -686,11 +764,11 @@ install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
         </li>
         <li class="up">
           <a accesskey="u" href="scanning.html" title=
-          "Chapter&nbsp;43.&nbsp;Scanning">Up</a>
+          "Chapter&nbsp;42.&nbsp;Scanning">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

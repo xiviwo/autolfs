@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.13.&nbsp;Binutils-2.23.1
+      6.13.&nbsp;Binutils-2.23.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="file.html" title="File-5.13">Prev</a>
+          <a accesskey="p" href="file.html" title="File-5.14">Prev</a>
           <p>
-            File-5.13
+            File-5.14
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gmp.html" title="GMP-5.1.1">Next</a>
+          <a accesskey="n" href="gmp.html" title="GMP-5.1.2">Next</a>
           <p>
-            GMP-5.1.1
+            GMP-5.1.2
           </p>
         </li>
         <li class="up">
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-system-binutils" name="ch-system-binutils"></a>6.13.
-        Binutils-2.23.1
+        Binutils-2.23.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -57,11 +57,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">1.9 SBU</span>
+              <span class="segbody">2.0 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">343 MB</span>
+              <span class="segbody">365 MB</span>
             </div>
           </div>
         </div>
@@ -103,11 +103,12 @@ Ask your system administrator to create more.</code>
 sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in</kbd>
 </pre>
         <p>
-          Fix some test suite scripts so all tests pass:
+          Fix a couple of syntax errors that prevent the documentation from
+          building with Texinfo-5.1:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../binutils-2.23.1-testsuite_fix-1.patch</kbd>
+<kbd class="command">sed -i -e 's/@colophon/@@colophon/' \
+       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo</kbd>
 </pre>
         <p>
           The Binutils documentation recommends building Binutils outside of
@@ -122,26 +123,8 @@ cd ../binutils-build</kbd>
         </p>
         <pre class="userinput">
 <kbd class=
-"command">../binutils-2.23.1/configure --prefix=/usr --enable-shared</kbd>
+"command">../binutils-2.23.2/configure --prefix=/usr --enable-shared</kbd>
 </pre>
-        <div class="admon note">
-          <img alt="[Note]" src="../images/note.png" />
-          <h3>
-            Note
-          </h3>
-          <p>
-            There is an optional argument to <span class=
-            "command"><strong>configure</strong></span>, <code class=
-            "option">--enable-lto</code>, that can be used to allow the
-            <span class="command"><strong>ar</strong></span>, <span class=
-            "command"><strong>nm</strong></span>, and <span class=
-            "command"><strong>ranlib</strong></span> commands to accept a
-            <code class="option">--plugin</code> parameter. This is used to
-            allow <span class="command"><strong>gcc</strong></span> to do
-            "link time optimization" if specified. No packages in LFS or BLFS
-            currently use this capability.
-          </p>
-        </div>
         <p>
           Compile the package:
         </p>
@@ -202,7 +185,7 @@ cd ../binutils-build</kbd>
         </p>
         <pre class="userinput">
 <kbd class=
-"command">cp -v ../binutils-2.23.1/include/libiberty.h /usr/include</kbd>
+"command">cp -v ../binutils-2.23.2/include/libiberty.h /usr/include</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -533,15 +516,15 @@ cd ../binutils-build</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="file.html" title="File-5.13">Prev</a>
+          <a accesskey="p" href="file.html" title="File-5.14">Prev</a>
           <p>
-            File-5.13
+            File-5.14
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gmp.html" title="GMP-5.1.1">Next</a>
+          <a accesskey="n" href="gmp.html" title="GMP-5.1.2">Next</a>
           <p>
-            GMP-5.1.1
+            GMP-5.1.2
           </p>
         </li>
         <li class="up">
@@ -550,7 +533,7 @@ cd ../binutils-build</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

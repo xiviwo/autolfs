@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      BIND-9.9.2-P2
+      BIND-9.9.3-P2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;20.&nbsp;Major Servers
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="apache.html" title="Apache-2.4.4">Prev</a>
+          <a accesskey="p" href="apache.html" title="Apache-2.4.6">Prev</a>
           <p>
-            Apache-2.4.4
+            Apache-2.4.6
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="proftpd.html" title=
-          "ProFTPD-1.3.4b">Next</a>
+          "ProFTPD-1.3.4d">Next</a>
           <p>
-            ProFTPD-1.3.4b
+            ProFTPD-1.3.4d
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="bind" name="bind"></a>BIND-9.9.2-P2
+        <a id="bind" name="bind"></a>BIND-9.9.3-P2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -56,11 +56,11 @@
           The <span class="application">BIND</span> package provides a DNS
           server and client utilities. If you are only interested in the
           utilities, refer to the <a class="xref" href=
-          "../basicnet/bind-utils.html" title="BIND Utilities-9.9.2-P2">BIND
-          Utilities-9.9.2-P2</a>.
+          "../basicnet/bind-utils.html" title="BIND Utilities-9.9.3-P2">BIND
+          Utilities-9.9.3-P2</a>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -71,28 +71,28 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.isc.org/isc/bind9/9.9.2-P2/bind-9.9.2-P2.tar.gz">ftp://ftp.isc.org/isc/bind9/9.9.2-P2/bind-9.9.2-P2.tar.gz</a>
+                "ftp://ftp.isc.org/isc/bind9/9.9.3-P2/bind-9.9.3-P2.tar.gz">ftp://ftp.isc.org/isc/bind9/9.9.3-P2/bind-9.9.3-P2.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 2be7763c99b7e7b42ac3a18a267ce1aa
+                Download MD5 sum: 943f6de6bfdfd821aa444242c02c1322
               </p>
             </li>
             <li>
               <p>
-                Download size: 7.0 MB
+                Download size: 7.1 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 178 (additional 162 MB to run
-                the test suite)
+                Estimated disk space required: 125 MB (additional 34 MB to
+                run the test suite)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.7 SBU (additional 15 minutes,
+                Estimated build time: 1.1 SBU (additional 15 minutes,
                 processor independent, to run the complete test suite)
               </p>
             </li>
@@ -107,8 +107,8 @@
               <p>
                 Optional patch (if net-tools is not installed): <a class=
                 "ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/bind-9.9.2-P2-use_iproute2-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/bind-9.9.2-P2-use_iproute2-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/svn/bind-9.9.3-P2-use_iproute2-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/bind-9.9.3-P2-use_iproute2-1.patch</a>
               </p>
             </li>
           </ul>
@@ -120,7 +120,12 @@
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../postlfs/openssl.html" title=
+          <a class="xref" href="../postlfs/libcap2.html" title=
+          "libcap2-2.22">libcap2-2.22</a>, <a class="xref" href=
+          "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>,
+          <a class="xref" href="../postlfs/mitkrb.html" title=
+          "MIT Kerberos V5-1.11.3">MIT Kerberos V5-1.11.3</a>, and <a class=
+          "xref" href="../postlfs/openssl.html" title=
           "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
         </p>
         <h4>
@@ -128,7 +133,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/perl-modules.html#perl-net-dns"
-          title="Net::DNS-0.70">Net::DNS-0.70</a> and <a class="xref" href=
+          title="Net::DNS-0.72">Net::DNS-0.72</a> and <a class="xref" href=
           "../basicnet/net-tools.html" title=
           "Net-tools-CVS_20101030">Net-tools-CVS_20101030</a> (you may omit
           net-tools by using the optional patch to utilize iproute2, but the
@@ -139,9 +144,9 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a>, <a class="xref" href=
+          "Doxygen-1.8.5">Doxygen-1.8.5</a>, <a class="xref" href=
           "../pst/texlive.html" title=
-          "texlive-20120701">texlive-20120701</a>, and <a class="xref" href=
+          "texlive-20130530">texlive-20130530</a>, and <a class="xref" href=
           "../general/libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
         </p>
         <p class="usernotes">
@@ -159,7 +164,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../bind-9.9.2-P2-use_iproute2-1.patch</kbd>
+"command">patch -Np1 -i ../bind-9.9.3-P2-use_iproute2-1.patch</kbd>
 </pre>
         <p>
           Install <span class="application">BIND</span> by running the
@@ -171,7 +176,8 @@
             --localstatedir=/var    \
             --mandir=/usr/share/man \
             --enable-threads        \
-            --with-libtool          &amp;&amp;
+            --with-libtool          \
+            --disable-static        &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -196,7 +202,7 @@ make</kbd>
 <kbd class="command">bin/tests/system/ifconfig.sh down</kbd>
 </pre>
         <p>
-          Issue the following command to check that all 179 tests ran
+          Issue the following command to check that all 185 tests ran
           successfully:
         </p>
         <pre class="userinput">
@@ -210,12 +216,12 @@ make</kbd>
 <kbd class="command">make install &amp;&amp;
 chmod -v 0755 /usr/lib/lib{bind9,isc{,cc,cfg},lwres,dns}.so.*.?.? &amp;&amp;
 
-install -v -m755 -d /usr/share/doc/bind-9.9.2-P2/{arm,misc} &amp;&amp;
+install -v -m755 -d /usr/share/doc/bind-9.9.3-P2/{arm,misc} &amp;&amp;
 install -v -m644    doc/arm/*.html \
-                    /usr/share/doc/bind-9.9.2-P2/arm &amp;&amp;
+                    /usr/share/doc/bind-9.9.3-P2/arm &amp;&amp;
 install -v -m644 \
     doc/misc/{dnssec,ipv6,migrat*,options,rfc-compliance,roadmap,sdb} \
-    /usr/share/doc/bind-9.9.2-P2/misc</kbd>
+    /usr/share/doc/bind-9.9.3-P2/misc</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -236,6 +242,10 @@ install -v -m644 \
           <em class="parameter"><code>--with-libtool</code></em>: This
           parameter forces the building of dynamic libraries and links the
           installed binaries to these libraries.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
         </p>
         <p>
           <span class="command"><strong>chmod 755
@@ -428,7 +438,7 @@ EOF</kbd>
 A.ROOT-SERVERS.NET.     6D  IN      A       198.41.0.4
 B.ROOT-SERVERS.NET.     6D  IN      A       192.228.79.201
 C.ROOT-SERVERS.NET.     6D  IN      A       192.33.4.12
-D.ROOT-SERVERS.NET.     6D  IN      A       128.8.10.90
+D.ROOT-SERVERS.NET.     6D  IN      A       199.7.91.13
 E.ROOT-SERVERS.NET.     6D  IN      A       192.203.230.10
 F.ROOT-SERVERS.NET.     6D  IN      A       192.5.5.241
 G.ROOT-SERVERS.NET.     6D  IN      A       192.112.36.4
@@ -491,7 +501,7 @@ EOF</kbd>
             To start the DNS server at boot, install the <code class=
             "filename">/etc/rc.d/init.d/bind</code> init script included in
             the <a class="xref" href="../introduction/bootscripts.html"
-            title="BLFS Boot Scripts">blfs-bootscripts-20130505</a> package.
+            title="BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-bind</kbd>
@@ -543,23 +553,25 @@ dig www.linuxfromscratch.org</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">dig, dnssec-keygen, dnssec-signzone,
-              host, isc-config.sh, lwresd, named, named-checkconf,
-              named-checkzone, nslookup, nsupdate, rndc, and
-              rndc-confgen</span>
+              <span class="segbody">arpaname, ddns-confgen, dig,
+              dnssec-checkds, dnssec-coverage, dnssec-dsfromkey,
+              dnssec-keyfromlabel, dnssec-keygen, dnssec-revoke,
+              dnssec-settime, dnssec-signzone, dnssec-verify, genrandom,
+              host, isc-config.sh, isc-hmac-fixup, lwresd, named,
+              named-checkconf, named-checkzone, named-journalprint,
+              nsec3hash, nslookup, nsupdate, rndc, and rndc-confgen</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libbind9.{so,a}, libdns.{so,a},
-              libisc.{so,a}, libisccc.{so,a}, libisccfg.{so,a}, and
-              liblwres.{so,a}</span>
+              <span class="segbody">libbind9.so, libdns.so, libisccc.so,
+              libisccfg.so, libisc.so, and liblwres.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/srv/named, /usr/include/bind9,
               /usr/include/dns, /usr/include/dst, /usr/include/isc,
               /usr/include/isccc, /usr/include/isccfg, /usr/include/lwres,
-              and /usr/share/doc/bind-9.9.2-P2</span>
+              and /usr/share/doc/bind-9.9.3-P2</span>
             </div>
           </div>
         </div>
@@ -744,22 +756,22 @@ dig www.linuxfromscratch.org</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-31 10:41:33 +0000
+        Last updated on 2013-09-04 21:37:09 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="apache.html" title="Apache-2.4.4">Prev</a>
+          <a accesskey="p" href="apache.html" title="Apache-2.4.6">Prev</a>
           <p>
-            Apache-2.4.4
+            Apache-2.4.6
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="proftpd.html" title=
-          "ProFTPD-1.3.4b">Next</a>
+          "ProFTPD-1.3.4d">Next</a>
           <p>
-            ProFTPD-1.3.4b
+            ProFTPD-1.3.4d
           </p>
         </li>
         <li class="up">
@@ -768,7 +780,7 @@ dig www.linuxfromscratch.org</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

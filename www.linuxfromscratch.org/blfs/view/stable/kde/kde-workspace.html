@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Kde-workspace-4.11.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;28.&nbsp;The KDE Core
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kde-base-artwork.html" title=
+          "Kde-base-artwork-4.11.1">Prev</a>
+          <p>
+            Kde-base-artwork-4.11.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="config.html" title="Starting KDE">Next</a>
+          <p>
+            Starting KDE
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapter&nbsp;28.&nbsp;The KDE Core">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="kde-workspace" name="kde-workspace"></a>Kde-workspace-4.11.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Kde-workspace
+        </h2>
+        <p>
+          The Kde-workspace package contains components that are central to
+          providing the <span class="application">KDE</span> desktop
+          environment. Of particular importance are KWin, the <span class=
+          "application">KDE</span> window manager, and Plasma, which provides
+          the workspace interface.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://download.kde.org/stable/4.11.1/src/kde-workspace-4.11.1.tar.xz">
+                http://download.kde.org/stable/4.11.1/src/kde-workspace-4.11.1.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.kde.org/pub/kde/stable/4.11.1/src/kde-workspace-4.11.1.tar.xz">
+                ftp://ftp.kde.org/pub/kde/stable/4.11.1/src/kde-workspace-4.11.1.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 4cf6d42500385272e1b84fca508fa2e4
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 13.2 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 333 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 20 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Kde-workspace Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="kactivities.html" title=
+          "Kactivities-4.11.1">kactivities-4.11.1</a>, <a class="xref" href=
+          "qimageblitz.html" title="QImageblitz-0.0.6">qimageblitz-0.0.6</a>,
+          <a class="xref" href="../x/xcb-util-image.html" title=
+          "xcb-util-image-0.3.9">xcb-util-image-0.3.9</a>, <a class="xref"
+          href="../x/xcb-util-renderutil.html" title=
+          "xcb-util-renderutil-0.3.8">xcb-util-renderutil-0.3.8</a>,
+          <a class="xref" href="../x/xcb-util-keysyms.html" title=
+          "xcb-util-keysyms-0.3.9">xcb-util-keysyms-0.3.9</a> and <a class=
+          "xref" href="../x/xcb-util-wm.html" title=
+          "xcb-util-wm-0.3.9">xcb-util-wm-0.3.9</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="kdepimlibs.html" title=
+          "Kdepimlibs-4.11.1">kdepimlibs-4.11.1</a>, <a class="xref" href=
+          "nepomuk-core.html" title=
+          "Nepomuk-core-4.11.1">nepomuk-core-4.11.1</a>, <a class="xref"
+          href="../general/boost.html" title="Boost-1.54.0">Boost-1.54.0</a>,
+          <a class="xref" href="../general/freetype2.html" title=
+          "FreeType-2.5.0.1">FreeType-2.5.0.1</a>, <a class="xref" href=
+          "../general/pciutils.html" title=
+          "pciutils-3.2.0">pciutils-3.2.0</a>, and <a class="xref" href=
+          "../postlfs/consolekit.html" title=
+          "ConsoleKit-0.4.6">ConsoleKit-0.4.6</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../postlfs/linux-pam.html" title=
+          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>, <a class="xref" href=
+          "../general/libusb.html" title="libusb-1.0.9">libusb-1.0.9</a>,
+          <a class="xref" href="../basicnet/networkmanager.html" title=
+          "NetworkManager-0.9.8.2">NetworkManager-0.9.8.2</a>, <a class=
+          "xref" href="../general/lm_sensors.html" title=
+          "lm_sensors-3.3.4">lm_sensors-3.3.4</a>, <a class="xref" href=
+          "../general/qjson.html" title="QJson-0.8.1">QJson-0.8.1</a>,
+          <a class="ulink" href=
+          "http://download.kde.org/stable/4.11.1/src/">PyKDE4</a>, <a class=
+          "ulink" href=
+          "http://code.google.com/p/google-gadgets-for-linux/">GoogleGadgets</a>,
+          <a class="ulink" href=
+          "ftp://ftp.kde.org/pub/kde/stable/prison/1.0/src/">Prison</a>,
+          <a class="ulink" href=
+          "https://ieee1394.wiki.kernel.org/index.html">libraw1394</a>,
+          <a class="ulink" href="http://www.catb.org/gpsd/">gpsd</a>,
+          <a class="ulink" href="http://www.xmms.org/">XMMS</a> and <a class=
+          "ulink" href="http://qalculate.sourceforge.net/">libqalculate</a>
+          (wants <a class="ulink" href="http://www.ginac.de/CLN/">CLN</a>)
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Kde-workspace has a run-time dependency called <span class=
+            "application">Application menu for Qt</span> that allows the
+            application menubar to be inserted as a single button in the
+            titlebar. It can be found at <a class="ulink" href=
+            "https://launchpad.net/appmenu-qt">appmenu-qt</a>.
+          </p>
+        </div>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/kde-workspace">http://wiki.linuxfromscratch.org/blfs/wiki/kde-workspace</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Kde-workspace
+        </h2>
+        <p>
+          It is recommended to have a dedicated user and group to take
+          control of the <span class="command"><strong>kdm</strong></span>
+          daemon after it is started. Issue the following commands as the
+          <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">groupadd -g 37 kdm &amp;&amp;
+useradd -c "KDM Daemon Owner" -d /var/lib/kdm -g kdm \
+        -u 37 -s /bin/false kdm &amp;&amp;
+install -o kdm -g kdm -dm755 /var/lib/kdm</kbd>
+</pre>
+        <p>
+          Install <span class="application">Kde-workspace</span> by running
+          the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mkdir build &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX           \
+      -DSYSCONF_INSTALL_DIR=/etc                   \
+      -DCMAKE_BUILD_TYPE=Release                   \
+      -DINSTALL_PYTHON_FILES_IN_PYTHON_PREFIX=TRUE \
+      .. &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install                  &amp;&amp;
+mkdir -p /usr/share/xsessions &amp;&amp;
+ln -sf $KDE_PREFIX/share/apps/kdm/sessions/kde-plasma.desktop \
+       /usr/share/xsessions/kde-plasma.desktop</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class=
+          "option">-DINSTALL_PYTHON_FILES_IN_PYTHON_PREFIX=TRUE</code>: This
+          option is set to install the KDE Python objects in the correct
+          place.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring KDE Workspace
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Linux PAM Configuration
+          </h3>
+          <p>
+            If you built <span class="application">KDE Workspace</span> with
+            <span class="application">Linux PAM</span> support, create
+            necessary configuration files by running the following commands
+            as the <code class="systemitem">root</code> user:
+          </p>
+          <pre class="root">
+<kbd class="command">cat &gt;&gt; /etc/pam.d/kde &lt;&lt; "EOF" &amp;&amp;
+# Begin /etc/pam.d/kde
+
+auth     requisite      pam_nologin.so
+auth     required       pam_env.so
+
+auth     required       pam_succeed_if.so uid &gt;= 1000 quiet
+auth     include        system-auth
+
+account  include        system-account
+password include        system-password
+session  include        system-session
+
+# End /etc/pam.d/kde
+EOF
+cat &gt; /etc/pam.d/kde-np &lt;&lt; "EOF" &amp;&amp;
+# Begin /etc/pam.d/kde-np
+
+auth     requisite      pam_nologin.so
+auth     required       pam_env.so
+
+auth     required       pam_succeed_if.so uid &gt;= 1000 quiet
+auth     required       pam_permit.so
+
+account  include        system-account
+password include        system-password
+session  include        system-session
+
+# End /etc/pam.d/kde-np
+EOF
+cat &gt; /etc/pam.d/kscreensaver &lt;&lt; "EOF"
+# Begin /etc/pam.d/kscreensaver
+
+auth    include system-auth
+account include system-account
+
+# End /etc/pam.d/kscreensaver
+EOF</kbd>
+</pre>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">genkdmconf, kaccess, kapplymousetheme,
+              kblankscrn.kss, kcheckrunning, kcminit, kcminit_startup, kdm,
+              kdmctl, kdostartupconfig4, kfontinst, kfontview, kinfocenter,
+              klipper, kmenuedit, krandom.kss, krandrstartup, krandrtray,
+              krdb, krunner, ksmserver, ksplashqml, ksplashsimple, ksplashx,
+              ksplashx_scale, kstartupconfig4, ksysguard, ksysguardd,
+              ksystraycmd, kwin, kwin_gles, kwrited, oxygen-demo,
+              oxygen-settings, oxygen-shadow-demo, plasma-desktop,
+              plasma-netbook, plasma-overlay, plasma-windowed,
+              solid-action-desktop-gen, solid-network, startkde and
+              systemsettings</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">several in $KDE_PREFIX/lib</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">several in $KDE_PREFIX/include,
+              $KDE_PREFIX/lib and $KDE_PREFIX/share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-10 09:12:30 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kde-base-artwork.html" title=
+          "Kde-base-artwork-4.11.1">Prev</a>
+          <p>
+            Kde-base-artwork-4.11.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="config.html" title="Starting KDE">Next</a>
+          <p>
+            Starting KDE
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="core.html" title=
+          "Chapter&nbsp;28.&nbsp;The KDE Core">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

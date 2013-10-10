@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Firefox-23.0.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;35.&nbsp;Graphical Web Browsers
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="seamonkey.html" title=
+          "SeaMonkey-2.20">Prev</a>
+          <p>
+            SeaMonkey-2.20
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="other.html" title=
+          "Other X-based Programs">Next</a>
+          <p>
+            Other X-based Programs
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphweb.html" title=
+          "Chapter&nbsp;35.&nbsp;Graphical Web Browsers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="firefox" name="firefox"></a>Firefox-23.0.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Firefox
+        </h2>
+        <p>
+          <span class="application">Firefox</span> is a stand-alone browser
+          based on the <span class="application">Mozilla</span> codebase.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://releases.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/source/firefox-23.0.1.source.tar.bz2">
+                http://releases.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/source/firefox-23.0.1.source.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/source/firefox-23.0.1.source.tar.bz2">
+                ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/source/firefox-23.0.1.source.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 0fa25582fb5e0fba37c9f1add8370af2
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 111 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 4.9 GB (48 MB installed) (or
+                794 MB and 4.6 MB if using Xulrunner)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 58 SBU (0.31 SBU if using Xulrunner)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Recommended patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/firefox-23.0.1-search_box_fix-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/firefox-23.0.1-search_box_fix-1.patch</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Optional patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/firefox-23.0.1-system_cairo-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/firefox-23.0.1-system_cairo-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Firefox Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../multimedia/alsa-lib.html" title=
+          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
+          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>, <a class=
+          "xref" href="../general/zip.html" title="Zip-3.0">Zip-3.0</a>, and
+          <a class="xref" href="../general/unzip.html" title=
+          "UnZip-6.0">UnZip-6.0</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../basicnet/libevent.html" title=
+          "libevent-2.0.21">libevent-2.0.21</a>, <a class="xref" href=
+          "../multimedia/libvpx.html" title="libvpx-v1.2.0">libvpx-1.2.0</a>,
+          <a class="xref" href="../general/nspr.html" title=
+          "NSPR-4.10">NSPR-4.10</a>, <a class="xref" href=
+          "../postlfs/nss.html" title="NSS-3.15.1">NSS-3.15.1</a>, <a class=
+          "xref" href="../server/sqlite.html" title=
+          "SQLite-3.8.0.2">SQLite-3.8.0.2</a> and <a class="xref" href=
+          "../general/yasm.html" title="yasm-1.2.0">yasm-1.2.0</a>
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If you don't install recommended dependencies, then internal
+            copies of those packages will be used. They might be tested to
+            work, but they can be out of date or contain security holes.
+          </p>
+        </div>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../basicnet/curl.html" title=
+          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
+          "../general/dbus-glib.html" title=
+          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
+          "../general/doxygen.html" title="Doxygen-1.8.5">Doxygen-1.8.5</a>,
+          <a class="xref" href="../multimedia/gst-plugins-base.html" title=
+          "gst-plugins-base-0.10.36">gst-plugins-base-0.10.36</a>, <a class=
+          "ulink" href="http://hunspell.sourceforge.net/">Hunspell</a>,
+          <a class="xref" href="../x/libnotify.html" title=
+          "libnotify-0.7.6">libnotify-0.7.6</a>, <a class="xref" href=
+          "../x/startup-notification.html" title=
+          "startup-notification-0.12">startup-notification-0.12</a>,
+          <a class="xref" href="../basicnet/wget.html" title=
+          "Wget-1.14">Wget-1.14</a>, <a class="xref" href=
+          "../basicnet/wireless_tools.html" title=
+          "Wireless Tools-29">Wireless Tools-29</a> and <a class="xref" href=
+          "../x/xulrunner.html" title="Xulrunner-23.0.1">Xulrunner-23.0.1</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/firefox">http://wiki.linuxfromscratch.org/blfs/wiki/firefox</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Firefox
+        </h2>
+        <p>
+          There are two major methods for building <span class=
+          "application">Firefox</span>. In the standard case, the entire
+          suite of libraries is built and installed. In the other, most of
+          the system is built using the procedures found in <a class="xref"
+          href="../x/xulrunner.html" title=
+          "Xulrunner-23.0.1">Xulrunner-23.0.1</a>. This is advantageous if
+          you are planning to build other related packages such as <a class=
+          "xref" href="icedtea-web.html" title=
+          "IcedTea-Web-1.4">IcedTea-Web-1.4</a>. With either build method,
+          you need to run the main build procedure below with the appropriate
+          options in the <code class="filename">mozconfig</code> file. Then
+          use the appropriate install instructions depending on the chosen
+          build method.
+        </p>
+        <p>
+          The configuration of <span class="application">Firefox</span> is
+          accomplished by creating a <code class="filename">mozconfig</code>
+          file containing the desired configuration options. A default
+          <code class="filename">mozconfig</code> is created below. To see
+          the entire list of available configuration options (and an
+          abbreviated description of each one), issue <span class=
+          "command"><strong>./configure --help</strong></span>. You may also
+          wish to review the entire file and uncomment any other desired
+          options. Create the file by issuing the following command:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; mozconfig &lt;&lt; "EOF"
+# If you have a multicore machine, firefox will now use all the cores by
+# default. Exceptionally, you can reduce the number of cores, e.g. to 1,
+# by uncommenting the next line and setting a valid number of CPU cores.
+#mk_add_options MOZ_MAKE_FLAGS="-j1"
+
+# If you have installed DBus-Glib comment out this line:
+ac_add_options --disable-dbus
+
+# If you have installed wireless-tools comment out this line:
+ac_add_options --disable-necko-wifi
+
+# If you have installed libnotify comment out this line:
+ac_add_options --disable-libnotify
+
+# Uncomment these lines if you have installed optional dependencies:
+# GStreamer is necessary for H.264 video playback in HTML5 Video Player
+#ac_add_options --enable-gstreamer
+#ac_add_options --enable-system-hunspell
+#ac_add_options --enable-startup-notification
+
+# Uncomment this line if you compiled Cairo with --enable-tee switch and want
+# to use it instead of the bundled one:
+#ac_add_options --enable-system-cairo
+
+# If you have not installed Yasm then uncomment this line:
+#ac_add_options --disable-webm
+
+# If you have installed xulrunner uncomment the next two ac_add_options lines
+# and check that the sdk will be set by running pkg-config in a subshell
+# and has not become hardcoded or empty when you created this file
+#ac_add_options --with-system-libxul
+#ac_add_options --with-libxul-sdk=$(pkg-config --variable=sdkdir libxul)
+
+# Comment out following options if you have not installed
+# recommended dependencies:
+ac_add_options --enable-system-sqlite
+ac_add_options --with-system-libevent
+ac_add_options --with-system-libvpx
+ac_add_options --with-system-nspr
+ac_add_options --with-system-nss
+
+# It is recommended not to touch anything below this line
+ac_add_options --prefix=/usr
+ac_add_options --enable-application=browser
+
+ac_add_options --disable-crashreporter
+ac_add_options --disable-installer
+ac_add_options --disable-updater
+ac_add_options --disable-debug
+ac_add_options --disable-tests
+
+ac_add_options --enable-optimize
+ac_add_options --enable-strip
+ac_add_options --enable-install-strip
+
+ac_add_options --enable-gio
+ac_add_options --enable-official-branding
+ac_add_options --enable-safe-browsing
+ac_add_options --enable-url-classifier
+
+ac_add_options --enable-system-ffi
+ac_add_options --enable-system-pixman
+
+ac_add_options --with-pthreads
+
+ac_add_options --with-system-bz2
+ac_add_options --with-system-jpeg
+ac_add_options --with-system-png
+ac_add_options --with-system-zlib
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
+EOF</kbd>
+</pre>
+        <p>
+          If you are building against an already installed <span class=
+          "application">Xulrunner</span> apply the patch:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../firefox-23.0.1-search_box_fix-1.patch</kbd>
+</pre>
+        <p>
+          If you are building against a system-installed <span class=
+          "application">Cairo</span> apply the patch:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../firefox-23.0.1-system_cairo-1.patch</kbd>
+</pre>
+        <p>
+          Compile <span class="application">Firefox</span> by issuing the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i 's@ ""@@' browser/base/Makefile.in &amp;&amp;
+make -f client.mk</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          If you have <span class="emphasis"><em>not</em></span> linked
+          <span class="application">Firefox</span> against an installed
+          <span class="application">Xulrunner</span>:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make -C firefox-build-dir/browser/installer</kbd>
+</pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user, if you have
+          <span class="emphasis"><em>not</em></span> linked <span class=
+          "application">Firefox</span> against an installed <span class=
+          "application">Xulrunner</span>, install the package:
+        </p>
+        <pre class="root">
+<kbd class="command">rm -rf /usr/lib/firefox-23.0.1 &amp;&amp;
+mkdir  /usr/lib/firefox-23.0.1 &amp;&amp;
+
+tar -xvf firefox-build-dir/dist/firefox-23.0.1.en-US.linux-$(uname -m).tar.bz2 \
+    -C /usr/lib/firefox-23.0.1 --strip-components=1 &amp;&amp;
+chown -R -v root:root /usr/lib/firefox-23.0.1 &amp;&amp;
+
+ln -sfv ../lib/firefox-23.0.1/firefox /usr/bin &amp;&amp;
+
+mkdir -pv /usr/lib/mozilla/plugins &amp;&amp;
+ln -sfv ../mozilla/plugins /usr/lib/firefox-23.0.1</kbd>
+</pre>
+        <p>
+          If you <span class="emphasis"><em>have</em></span> linked against
+          an already installed <span class="application">Xulrunner</span>, as
+          the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make -C firefox-build-dir install &amp;&amp;
+ln -sfv ../lib/firefox-23.0.1/firefox /usr/bin &amp;&amp;
+ln -sfv ../xulrunner-23.0.1 /usr/lib/firefox-23.0.1/xulrunner &amp;&amp;
+
+mkdir -pv /usr/lib/mozilla/plugins &amp;&amp;
+ln -sfv ../mozilla/plugins /usr/lib/firefox-23.0.1</kbd>
+</pre>
+        <h3>
+          <a id="npapi-firefox" name="npapi-firefox"></a> NPAPI Headers
+        </h3>
+        <p>
+          The above instructions just install the parts you need to run
+          <span class="application">Firefox</span>. If you want to compile
+          <a class="xref" href="gnash.html" title=
+          "gnash-0.8.10">gnash-0.8.10</a>, the open source version of Flash,
+          copy some headers that Gnash needs into /usr/include, as the
+          <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">rm -rf /usr/include/npapi &amp;&amp;
+mkdir -v /usr/include/npapi &amp;&amp;
+cp -v dom/plugins/base/*.h /usr/include/npapi</kbd>
+</pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            You don't need to install the headers if you have built
+            <span class="application">Firefox</span> against <span class=
+            "application">Xulrunner</span>.
+          </p>
+        </div>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i 's@ ""@@'
+          browser/base/Makefile.in</strong></span>: This sed removes an
+          unprintable control character from the title bar.
+        </p>
+        <p>
+          <span class="command"><strong>make -f client.mk
+          ...</strong></span>: Mozilla products are packaged to allow the use
+          of a configuration file which can be used to pass the configuration
+          settings to the <span class=
+          "command"><strong>configure</strong></span> command. <span class=
+          "command"><strong>make</strong></span> uses the <code class=
+          "filename">client.mk</code> file to get initial configuration and
+          setup parameters.
+        </p>
+        <p>
+          <span class="command"><strong>make -C
+          firefox-build-dir/browser/installer</strong></span>: this creates a
+          <span class="application">Firefox</span> tarball similar to the
+          ones you can download from Mozilla.
+        </p>
+        <p>
+          <span class="command"><strong>tar -xfv firefox-build-dir/dist
+          ...</strong></span>: This untars <span class=
+          "application">Firefox</span> in /usr/lib. The <code class=
+          "option">--strip-components=1</code> option removes the leading
+          'firefox' directory from the filenames, allowing us to untar it
+          into a versioned directory.
+        </p>
+        <p>
+          <span class="command"><strong>make -C firefox-build-dir
+          install</strong></span>: This runs <span class=
+          "command"><strong>make install</strong></span> in
+          firefox-build-dir.
+        </p>
+        <p>
+          <span class="command"><strong>ln -sfv ...
+          /usr/bin/firefox</strong></span>: This puts a symbolic link to the
+          <span class="command"><strong>firefox</strong></span> executable in
+          your <code class="envar">PATH</code> variable.
+        </p>
+        <p>
+          <span class="command"><strong>mkdir -p
+          /usr/lib/mozilla/plugins</strong></span>: This checks that
+          <code class="filename">/usr/lib/mozilla/plugins</code> exists.
+        </p>
+        <p>
+          <span class="command"><strong>ln -sv ...
+          /usr/lib/firefox-23.0.1</strong></span>: This command creates a
+          symbolic link to <code class=
+          "filename">/usr/lib/mozilla/plugins</code>. It's not really needed,
+          as <span class="application">Firefox</span> checks <code class=
+          "filename">/usr/lib/mozilla/plugins</code> by default, but the
+          symbolic link is made to keep all the plugins installed in one
+          folder.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring Firefox
+        </h2>
+        <p>
+          If you deleted the <code class="option">--disable-webm</code>
+          option from your <code class="filename">mozconfig</code>, your
+          <span class="application">Firefox</span> can play most YouTube
+          videos without the need for the flash plugin. To enable this, go to
+          <a class="ulink" href=
+          "http://www.youtube.com/html5">http://www.youtube.com/html5</a> and
+          click on 'Join the HTML5 Trial' (needs cookies enabled).
+        </p>
+        <p>
+          If you use a desktop environment like <span class=
+          "application">Gnome</span> or <span class="application">KDE</span>
+          you may like to create a <code class=
+          "filename">firefox.desktop</code> file so that <span class=
+          "application">Firefox</span> appears in the panel's menus. If you
+          didn't enable startup-notification in your mozconfig change the
+          StartupNotify line to false. As the <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">mkdir -pv /usr/share/applications &amp;&amp;
+mkdir -pv /usr/share/pixmaps &amp;&amp;
+
+cat &gt; /usr/share/applications/firefox.desktop &lt;&lt; "EOF" &amp;&amp;
+<code class="literal">[Desktop Entry]
+Encoding=UTF-8
+Name=Firefox Web Browser
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+Exec=firefox %u
+Terminal=false
+Type=Application
+Icon=firefox
+Categories=GNOME;GTK;Network;WebBrowser;
+MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true</code>
+EOF
+
+ln -sfv /usr/lib/firefox-23.0.1/browser/icons/mozicon128.png \
+        /usr/share/pixmaps/firefox.png</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">firefox</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">Numerous libraries, browser components,
+              plugins, extensions, and helper modules installed in
+              <code class="filename">/usr/lib/firefox-23.0.1</code></span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/npapi and
+              /usr/lib/firefox-23.0.1</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="firefox-prog" name="firefox-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>firefox</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a <span class="application">GTK+ 2</span> internet
+                    browser that uses the Mozilla Gecko rendering engine.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-06 00:48:50 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="seamonkey.html" title=
+          "SeaMonkey-2.20">Prev</a>
+          <p>
+            SeaMonkey-2.20
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="other.html" title=
+          "Other X-based Programs">Next</a>
+          <p>
+            Other X-based Programs
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphweb.html" title=
+          "Chapter&nbsp;35.&nbsp;Graphical Web Browsers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

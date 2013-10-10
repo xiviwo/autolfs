@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GTK+-3.6.4
+      GTK+-3.8.4
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gtk2.html" title="GTK+-2.24.17">Prev</a>
+          <a accesskey="p" href="gtk2.html" title="GTK+-2.24.20">Prev</a>
           <p>
-            GTK+-2.24.17
+            GTK+-2.24.20
           </p>
         </li>
         <li class="next">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gtk3" name="gtk3"></a>GTK+-3.6.4
+        <a id="gtk3" name="gtk3"></a>GTK+-3.8.4
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           applications.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -69,20 +69,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gtk+/3.6/gtk+-3.6.4.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gtk+/3.6/gtk+-3.6.4.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gtk+/3.8/gtk+-3.8.4.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gtk+/3.8/gtk+-3.8.4.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.6/gtk+-3.6.4.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.6/gtk+-3.6.4.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.8/gtk+-3.8.4.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.8/gtk+-3.8.4.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 123d3dc6fc659539a308017934235b3e
+                Download MD5 sum: 2b232d76c01ceb626948bcbe70b05269
               </p>
             </li>
             <li>
@@ -92,12 +92,13 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 390 MB
+                Estimated disk space required: 320 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 2.8 SBU
+                Estimated build time: 2.6 SBU (Additional 0.5 SBU for the
+                test suite)
               </p>
             </li>
           </ul>
@@ -110,29 +111,31 @@
         </h4>
         <p class="required">
           <a class="xref" href="at-spi2-atk.html" title=
-          "at-spi2-atk-2.6.2">at-spi2-atk-2.6.2</a>, <a class="xref" href=
-          "gdk-pixbuf.html" title="gdk-pixbuf-2.26.5">gdk-pixbuf-2.26.5</a>
+          "at-spi2-atk-2.8.1">at-spi2-atk-2.8.1</a>, <a class="xref" href=
+          "gdk-pixbuf.html" title="gdk-pixbuf-2.28.2">gdk-pixbuf-2.28.2</a>,
           and <a class="xref" href="pango.html" title=
-          "Pango-1.32.5">Pango-1.32.5</a>
+          "Pango-1.34.1">Pango-1.34.1</a>
         </p>
         <h4>
           Optional (Required if building GNOME)
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.34.2">gobject-introspection-1.34.2</a>
+          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/colord.html" title=
-          "Colord-0.1.34">Colord-0.1.34</a>, <a class="xref" href=
-          "../pst/cups.html" title="Cups-1.6.2">Cups-1.6.2</a>, <a class=
+          "Colord-1.0.3">Colord-1.0.3</a>, <a class="xref" href=
+          "../pst/cups.html" title="Cups-1.6.3">Cups-1.6.3</a>, <a class=
           "xref" href="../pst/docbook-utils.html" title=
-          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a> and <a class="xref"
+          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, <a class="xref"
           href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.18">GTK-Doc-1.18</a>
+          "GTK-Doc-1.19">GTK-Doc-1.19</a>, <a class="ulink" href=
+          "http://xkbcommon.org/">libxkbcommon</a>, and <a class="ulink"
+          href="http://wayland.freedesktop.org/">Wayland</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -153,7 +156,7 @@
             <span class=
             "command"><strong>gtk-update-icon-cache</strong></span> from
             <a class="xref" href="gtk2.html" title=
-            "GTK+-2.24.17">GTK+-2.24.17</a> if it is installed. There is
+            "GTK+-2.24.20">GTK+-2.24.20</a> if it is installed. There is
             nothing wrong about that assuming that both programs provide same
             functionality. If you wish to keep one from <span class=
             "application">GTK+ 2</span> you can add <code class=
@@ -170,11 +173,10 @@
 make</kbd>
 </pre>
         <p>
-          To test the results:
+          Three tests are known to fail. To test the results:
         </p>
         <pre class="userinput">
-<kbd class="command">rm tests/a11y/pickers.ui &amp;&amp;
-make check</kbd>
+<kbd class="command">make -k check</kbd>
 </pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -255,10 +257,10 @@ make check</kbd>
             application's toolbar. If you have installed a <span class=
             "application">GTK+ 3</span> theme (eg <a class="xref" href=
             "../gnome/gnome-themes-standard.html" title=
-            "gnome-themes-standard-3.6.5">gnome-themes-standard-3.6.5</a> or
+            "gnome-themes-standard-3.8.4">gnome-themes-standard-3.8.4</a> or
             an icon theme (such as <a class="xref" href=
             "../gnome/gnome-icon-theme.html" title=
-            "gnome-icon-theme-3.6.2">gnome-icon-theme-3.6.2</a>) you can set
+            "gnome-icon-theme-3.8.3">gnome-icon-theme-3.8.3</a>) you can set
             your prefences in <code class=
             "filename">~/.config/gtk-3.0/settings.ini</code>. Eg:
           </p>
@@ -298,22 +300,20 @@ EOF</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">gtk3-demo, gtk3-demo-application,
-              gtk-launch, gtk-query-immodules-3.0 and
-              gtk-update-icon-cache</span>
+              <span class="segbody">gtk-launch, gtk-query-immodules-3.0,
+              gtk-update-icon-cache, gtk3-demo, gtk3-demo-application, and
+              gtk3-widget-factory</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libgailutil.so, libgdk-3.so and
+              <span class="segbody">libgailutil.so, libgdk-3.so, and
               libgtk-3.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/gtk-3.0, /usr/include/gail-3.0,
-              /usr/include/gtk-3.0, /usr/lib/gtk-3.0, /usr/share/gtk-3.0,
-              /usr/share/gtk-doc/html/gail-libgail-util3,
-              /usr/share/gtk-doc/html/gdk3 and
-              /usr/share/gtk-doc/html/gtk3</span>
+              /usr/include/gtk-3.0, /usr/lib/gtk-3.0, /usr/share/gtk-3.0, and
+              /usr/share/gtk-doc/html/{gail-libgail-util3,gdk3,gtk3}</span>
             </div>
           </div>
         </div>
@@ -324,22 +324,6 @@ EOF</kbd>
           <table border="0">
             <col align="left" valign="top" />
             <tbody>
-              <tr>
-                <td>
-                  <p>
-                    <a id="gtk3-demo" name="gtk3-demo"></a><span class=
-                    "term"><span class=
-                    "command"><strong>gtk3-demo</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is a simple program that demonstrates some of the things
-                    that can be done with <span class="application">GTK+
-                    3</span>
-                  </p>
-                </td>
-              </tr>
               <tr>
                 <td>
                   <p>
@@ -394,6 +378,53 @@ EOF</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="gtk3-demo" name="gtk3-demo"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gtk3-demo</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a simple program that demonstrates some of the things
+                    that can be done with <span class="application">GTK+
+                    3</span>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gtk3-demo-application" name=
+                    "gtk3-demo-application"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gtk3-demo-application</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a simple <span class="application">GTK+ 3</span>
+                    application.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gtk3-widget-factory" name=
+                    "gtk3-widget-factory"></a><span class="term"><span class=
+                    "command"><strong>gtk3-widget-factory</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a program to view <span class="application">GTK+
+                    3</span> themes and widgets.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="libgailutil-3" name=
                     "libgailutil-3"></a><span class="term"><code class=
                     "filename">libgailutil-3.so</code></span>
@@ -441,15 +472,15 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-15 16:26:39 +0000
+        Last updated on 2013-09-02 01:27:34 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gtk2.html" title="GTK+-2.24.17">Prev</a>
+          <a accesskey="p" href="gtk2.html" title="GTK+-2.24.20">Prev</a>
           <p>
-            GTK+-2.24.17
+            GTK+-2.24.20
           </p>
         </li>
         <li class="next">
@@ -465,7 +496,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

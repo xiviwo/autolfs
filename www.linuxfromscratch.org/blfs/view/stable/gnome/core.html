@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Chapter&nbsp;30.&nbsp;GNOME Core Packages
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Part&nbsp;VIII.&nbsp;GNOME
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gnome.html" title="GNOME">Prev</a>
+          <p>
+            GNOME
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="accountsservice.html" title=
+          "AccountsService-0.6.34">Next</a>
+          <p>
+            AccountsService-0.6.34
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="gnome.html" title=
+          "Part&nbsp;VIII.&nbsp;GNOME">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="en" xml:lang="en">
+      <h1 class="chapter">
+        <a id="gnome-core" name="gnome-core"></a>GNOME Core Packages
+      </h1>
+      <p>
+        This section contains required packages for the <span class=
+        "application">GNOME</span> applications to build and function
+        properly. We don't provide any desktop related packages due to
+        dependency on Systemd which BLFS doesn't support.
+      </p>
+      <div class="toc">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li class="sect1">
+            <span class="dummy">Platform</span>
+          </li>
+          <li class="sect1">
+            <a href="accountsservice.html">AccountsService-0.6.34</a>
+          </li>
+          <li class="sect1">
+            <a href="polkit-gnome.html">polkit-gnome-0.105</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "gsettings-desktop-schemas.html">gsettings-desktop-schemas-3.8.2</a>
+          </li>
+          <li class="sect1">
+            <a href="yelp-xsl.html">yelp-xsl-3.8.1</a>
+          </li>
+          <li class="sect1">
+            <a href="GConf.html">GConf-3.2.6</a>
+          </li>
+          <li class="sect1">
+            <a href="libgnome-keyring.html">libgnome-keyring-3.8.0</a>
+          </li>
+          <li class="sect1">
+            <a href="libsecret.html">libsecret-0.16</a>
+          </li>
+          <li class="sect1">
+            <a href="gcr.html">Gcr-3.9.91</a>
+          </li>
+          <li class="sect1">
+            <a href="gnome-keyring.html">gnome-keyring-3.8.2</a>
+          </li>
+          <li class="sect1">
+            <a href="gvfs.html">Gvfs-1.16.3</a>
+          </li>
+          <li class="sect1">
+            <a href="gjs.html">Gjs-1.36.1</a>
+          </li>
+          <li class="sect1">
+            <a href="gnome-desktop.html">gnome-desktop-3.8.4</a>
+          </li>
+          <li class="sect1">
+            <a href="gnome-video-effects.html">gnome-video-effects-0.4.0</a>
+          </li>
+          <li class="sect1">
+            <a href="gtksourceview.html">gtksourceview-3.8.2</a>
+          </li>
+          <li class="sect1">
+            <a href="libgtop.html">libgtop-2.28.5</a>
+          </li>
+          <li class="sect1">
+            <a href="libpeas.html">libpeas-1.8.1</a>
+          </li>
+          <li class="sect1">
+            <a href="libwnck.html">libwnck-3.4.7</a>
+          </li>
+          <li class="sect1">
+            <a href="notification-daemon.html">notification-daemon-0.7.6</a>
+          </li>
+          <li class="sect1">
+            <a href="totem-pl-parser.html">totem-pl-parser-3.4.5</a>
+          </li>
+          <li class="sect1">
+            <a href="vte.html">VTE-0.34.7</a>
+          </li>
+          <li class="sect1">
+            <span class="dummy">Required Runtime Dependencies</span>
+          </li>
+          <li class="sect1">
+            <a href="dconf.html">DConf-0.16.1</a>
+          </li>
+          <li class="sect1">
+            <a href="gnome-icon-theme.html">gnome-icon-theme-3.8.3</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "gnome-icon-theme-extras.html">gnome-icon-theme-extras-3.6.2</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "gnome-icon-theme-symbolic.html">gnome-icon-theme-symbolic-3.8.3</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "gnome-themes-standard.html">gnome-themes-standard-3.8.4</a>
+          </li>
+          <li class="sect1">
+            <a href="yelp.html">Yelp-3.8.1</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gnome.html" title="GNOME">Prev</a>
+          <p>
+            GNOME
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="accountsservice.html" title=
+          "AccountsService-0.6.34">Next</a>
+          <p>
+            AccountsService-0.6.34
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="gnome.html" title=
+          "Part&nbsp;VIII.&nbsp;GNOME">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

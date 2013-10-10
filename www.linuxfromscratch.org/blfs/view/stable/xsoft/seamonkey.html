@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      SeaMonkey-2.20
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;35.&nbsp;Graphical Web Browsers
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="graphweb.html" title=
+          "Graphical Web Browsers">Prev</a>
+          <p>
+            Graphical Web Browsers
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="firefox.html" title=
+          "Firefox-23.0.1">Next</a>
+          <p>
+            Firefox-23.0.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphweb.html" title=
+          "Chapter&nbsp;35.&nbsp;Graphical Web Browsers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="seamonkey" name="seamonkey"></a>SeaMonkey-2.20
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to SeaMonkey
+        </h2>
+        <p>
+          <span class="application">SeaMonkey</span> is a browser suite, the
+          Open Source sibling of <span class="application">Netscape</span>.
+          It includes the browser, composer, mail and news clients, and an
+          IRC client. It is the follow-on to the Mozilla browser suite.
+        </p>
+        <p>
+          The Mozilla project also hosts two subprojects that aim to satisfy
+          the needs of users who don't need the complete browser suite or
+          prefer to have separate applications for browsing and e-mail. These
+          subprojects are <a class="xref" href="firefox.html" title=
+          "Firefox-23.0.1">Firefox-23.0.1</a> and <a class="xref" href=
+          "thunderbird.html" title=
+          "Thunderbird-17.0.8">Thunderbird-17.0.8</a>. Both are based on the
+          <span class="application">Mozilla</span> source code.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/2.20/source/seamonkey-2.20.source.tar.bz2">
+                http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/2.20/source/seamonkey-2.20.source.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/2.20/source/seamonkey-2.20.source.tar.bz2">
+                ftp://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/2.20/source/seamonkey-2.20.source.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 04b961790658233b7dafb5222b251bf5
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 134 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 1.6 GB (51 MB installed)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 64 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Download
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Optional patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/seamonkey-2.20-system_cairo-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/seamonkey-2.20-system_cairo-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          SeaMonkey Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../multimedia/alsa-lib.html" title=
+          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
+          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>, <a class=
+          "xref" href="../general/zip.html" title="Zip-3.0">Zip-3.0</a>, and
+          <a class="xref" href="../general/unzip.html" title=
+          "UnZip-6.0">UnZip-6.0</a>.
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/yasm.html" title=
+          "yasm-1.2.0">yasm-1.2.0</a> or <a class="xref" href=
+          "../multimedia/libvpx.html" title="libvpx-v1.2.0">libvpx-1.2.0</a>
+          (to allow <span class="application">SeaMonkey</span> to play webm
+          videos).
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/dbus-glib.html" title=
+          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
+          "../x/startup-notification.html" title=
+          "startup-notification-0.12">startup-notification-0.12</a>,
+          <a class="xref" href="../server/sqlite.html" title=
+          "SQLite-3.8.0.2">SQLite-3.8.0.2</a>, <a class="ulink" href=
+          "http://hunspell.sourceforge.net/">Hunspell</a>, <a class="xref"
+          href="../basicnet/libevent.html" title=
+          "libevent-2.0.21">libevent-2.0.21</a>, <a class="xref" href=
+          "../general/doxygen.html" title="Doxygen-1.8.5">Doxygen-1.8.5</a>,
+          <a class="xref" href="../x/libnotify.html" title=
+          "libnotify-0.7.6">libnotify-0.7.6</a>, <a class="xref" href=
+          "../general/nspr.html" title="NSPR-4.10">NSPR-4.10</a>, <a class=
+          "xref" href="../postlfs/nss.html" title=
+          "NSS-3.15.1">NSS-3.15.1</a>, <a class="xref" href=
+          "../basicnet/wireless_tools.html" title=
+          "Wireless Tools-29">Wireless Tools-29</a>, <a class="ulink" href=
+          "http://www.valgrind.org/">Valgrind</a> (only for testing the
+          jemalloc code), and <a class="xref" href="../basicnet/wget.html"
+          title="Wget-1.14">Wget-1.14</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/seamonkey">http://wiki.linuxfromscratch.org/blfs/wiki/seamonkey</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of SeaMonkey
+        </h2>
+        <p>
+          The configuration of <span class="application">SeaMonkey</span> is
+          accomplished by creating a <code class="filename">mozconfig</code>
+          file containing the desired configuration options. A default
+          <code class="filename">mozconfig</code> file is created below. To
+          see the entire list of available configuration options (and an
+          abbreviated description of each one), issue <span class=
+          "command"><strong>./configure --help</strong></span>. You may also
+          wish to review the entire file and uncomment any other desired
+          options. Create the file by issuing the following command:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; mozconfig &lt;&lt; EOF
+# If you have a multicore machine you can speed up the build by running
+# several jobs at once, but if you have a single core, delete this line:
+mk_add_options MOZ_MAKE_FLAGS="-j$(getconf _NPROCESSORS_ONLN)"
+
+# If you have installed Yasm delete this option:
+ac_add_options --disable-webm
+
+# If you have installed DBus-Glib delete this option:
+ac_add_options --disable-dbus
+
+# If you have installed wireless-tools delete this option:
+ac_add_options --disable-necko-wifi
+
+# If you have installed libnotify delete this option:
+ac_add_options --disable-libnotify
+
+# Uncomment this line if you compiled Cairo with --enable-tee switch and want
+# to use it instead of the bundled one:
+#ac_add_options --enable-system-cairo
+
+# Uncomment these if you have installed them:
+# ac_add_options --enable-startup-notification
+# ac_add_options --enable-system-hunspell
+# ac_add_options --enable-system-sqlite
+# ac_add_options --with-system-libevent
+# ac_add_options --with-system-libvpx
+# ac_add_options --with-system-nspr
+# ac_add_options --with-system-nss
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/moz-build-dir
+ac_add_options --disable-crashreporter
+ac_add_options --disable-debug
+ac_add_options --disable-debug-symbols
+ac_add_options --disable-installer
+ac_add_options --disable-static
+ac_add_options --disable-tests
+ac_add_options --disable-updater
+ac_add_options --enable-application=suite
+ac_add_options --enable-shared
+ac_add_options --enable-system-ffi
+ac_add_options --prefix=/usr
+ac_add_options --with-pthreads
+ac_add_options --with-system-jpeg
+ac_add_options --with-system-png
+ac_add_options --with-system-zlib
+EOF</kbd>
+</pre>
+        <p>
+          If you are building against a system-installed <span class=
+          "application">Cairo</span> apply the patch:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../seamonkey-2.20-system_cairo-1.patch</kbd>
+</pre>
+        <p>
+          Compile <span class="application">SeaMonkey</span> by running the
+          following command:
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If you did not install Xorg in /usr, be sure to specify the
+            location with:
+          </p>
+          <pre class="userinput">
+<kbd class="command">export CPLUS_INCLUDE_PATH=$XORG_PREFIX/include
+export C_INCLUDE_PATH=$XORG_PREFIX/include</kbd>
+</pre>
+        </div>
+        <pre class="userinput">
+<kbd class="command">make -f client.mk &amp;&amp;
+make -C moz-build-dir/suite/installer</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite. However, if
+          <span class="application">X</span> is running it can be launched
+          from the build directory before installing with the command line:
+          <strong class=
+          "userinput"><code>moz-build-dir/mozilla/dist/seamonkey/seamonkey</code></strong>
+        </p>
+        <p>
+          Install <span class="application">SeaMonkey</span> by issuing the
+          following commands as the <code class="systemitem">root</code>
+          user:
+        </p>
+        <pre class="root">
+<kbd class="command">rm -rf    /usr/lib/seamonkey-2.20 &amp;&amp;
+mkdir -pv /usr/lib/seamonkey-2.20 &amp;&amp;
+
+tar -xf moz-build-dir/mozilla/dist/seamonkey-2.20.en-US.linux-$(uname -m).tar.bz2 \
+  -C /usr/lib/seamonkey-2.20 --strip-components=1  &amp;&amp;
+
+ln -sfv ../lib/seamonkey-2.20/seamonkey /usr/bin   &amp;&amp;
+
+mkdir -pv /usr/lib/mozilla/plugins                   &amp;&amp;
+ln -sfv ../mozilla/plugins /usr/lib/seamonkey-2.20 &amp;&amp;
+
+cp -v moz-build-dir/mozilla/dist/man/man1/seamonkey.1 /usr/share/man/man1</kbd>
+</pre>
+        <h3>
+          <a id="npapi-seamonkey" name="npapi-seamonkey"></a> NPAPI Headers
+        </h3>
+        <p>
+          The above instructions just install the parts you need to run
+          <span class="application">SeaMonkey</span>. If you want to compile
+          <a class="xref" href="gnash.html" title=
+          "gnash-0.8.10">gnash-0.8.10</a>, the open source version of Flash,
+          copy some headers that Gnash needs into /usr/include, as the
+          <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">rm -rf   /usr/include/npapi &amp;&amp;
+mkdir -v /usr/include/npapi &amp;&amp;
+cp -v mozilla/dom/plugins/base/*.h /usr/include/npapi</kbd>
+</pre>
+        <h3>
+          <a id="devel-seamonkey" name="devel-seamonkey"></a> All the
+          Development Libraries and Headers
+        </h3>
+        <p>
+          If you want to install the full <span class=
+          "application">SeaMonkey</span> development environment, as the
+          <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make -C moz-build-dir install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>make -f client.mk</strong></span>:
+          Mozilla products are packaged to allow the use of a configuration
+          file which can be used to pass the configuration settings to the
+          <span class="command"><strong>configure</strong></span> command.
+          <span class="command"><strong>make</strong></span> uses the
+          <code class="filename">client.mk</code> file to get initial
+          configuration and setup parameters.
+        </p>
+        <p>
+          <span class="command"><strong>make -C
+          moz-build-dir/suite/installer</strong></span>: this creates a
+          tarball of the finished <span class="application">SeaMonkey</span>.
+        </p>
+        <p>
+          <span class="command"><strong>tar xf
+          moz-build-dir/mozilla/dist/seamonkey-2.20.en-US.linux-$(uname
+          -m).tar.bz2 -C /usr/lib/seamonkey-2.20
+          --strip-components=1</strong></span>: this untars <span class=
+          "application">SeaMonkey</span> into /usr/lib/seamonkey-2.20.
+        </p>
+        <p>
+          <span class="command"><strong>ln -s ../mozilla/plugins
+          /usr/lib/seamonkey-2.20</strong></span>: this creates a symlink to
+          <code class="filename">/usr/lib/mozilla/plugins</code> for the sake
+          of compatibility, to keep all your plugins in the place mozilla
+          plugins are normally found.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring SeaMonkey
+        </h2>
+        <p>
+          If you deleted the <code class="option">--disable-webm</code>
+          option from your <code class="filename">mozconfig</code>, your
+          <span class="application">SeaMonkey</span> can play most youtube
+          videos without the need for the flash plugin. To enable this, go to
+          <a class="ulink" href=
+          "http://www.youtube.com/html5">http://www.youtube.com/html5</a> and
+          click on 'Join the HTML5 Trial' (needs cookies enabled).
+        </p>
+        <p>
+          For installing various <span class="application">SeaMonkey</span>
+          plugins, refer to <a class="ulink" href=
+          "http://plugindoc.mozdev.org/linux.html">Mozdev's PluginDoc
+          Project</a>.
+        </p>
+        <p>
+          Along with using the &ldquo;<span class=
+          "quote">Preferences</span>&rdquo; menu to configure <span class=
+          "application">SeaMonkey</span>'s options and preferences to suit
+          individual tastes, finer grain control of many options is only
+          available using a tool not available from the general menu system.
+          To access this tool, you'll need to open a browser window and enter
+          <code class="systemitem">about:config</code> in the address bar.
+          This will display a list of the configuration preferences and
+          information related to each one. You can use the
+          &ldquo;<span class="quote">Filter:</span>&rdquo; bar to enter
+          search criteria and narrow down the listed items. Changing a
+          preference can be done using two methods. One, if the preference
+          has a boolean value (True/False), simply double-click on the
+          preference to toggle the value and two, for other preferences
+          simply right-click on the desired line, choose &ldquo;<span class=
+          "quote">Modify</span>&rdquo; from the menu and change the value.
+          Creating new preference items is accomplished in the same way,
+          except choose &ldquo;<span class="quote">New</span>&rdquo; from the
+          menu and provide the desired data into the fields when prompted.
+        </p>
+        <div class="admon tip">
+          <img alt="[Tip]" src="../images/tip.png" />
+          <h3>
+            Tip
+          </h3>
+          <p>
+            There is a multitude of configuration parameters you can tweak to
+            customize <span class="application">SeaMonkey</span>. A very
+            extensive list of these parameters can be found at <a class=
+            "ulink" href=
+            "http://preferential.mozdev.org/preferences.html">http://preferential.mozdev.org/preferences.html</a>.
+          </p>
+        </div>
+        <p>
+          If you use a desktop environment like <span class=
+          "application">Gnome</span> or <span class="application">KDE</span>
+          you may wish to create a <code class=
+          "filename">seamonkey.desktop</code> file so that <span class=
+          "application">SeaMonkey</span> appears in the panel's menus. If you
+          didn't enable <span class="application">Startup-Notification</span>
+          in your mozconfig change the StartupNotify line to false. As the
+          <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">mkdir -pv /usr/share/{applications,pixmaps}              &amp;&amp;
+
+cat &gt; /usr/share/applications/seamonkey.desktop &lt;&lt; "EOF" &amp;&amp;
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=SeaMonkey
+Comment=The Mozilla Suite
+Icon=seamonkey
+Exec=seamonkey
+Categories=Network;GTK;Application;Email;Browser;WebBrowser;News;
+StartupNotify=true
+Terminal=false
+EOF
+
+ln -sfv /usr/lib/seamonkey-2.20/chrome/icons/default/seamonkey.png \
+        /usr/share/pixmaps</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">seamonkey</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">Numerous libraries, browser, and
+              email/newsgroup components, plugins, extensions, and helper
+              modules installed in <code class=
+              "filename">/usr/lib/seamonkey-2.20</code></span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/npapi and
+              /usr/lib/seamonkey-2.20.</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="seamonkey-prog" name=
+                    "seamonkey-prog"></a><span class="term"><span class=
+                    "command"><strong>seamonkey</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Mozilla browser/email/newsgroup/chat client suite.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-10 09:49:53 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="graphweb.html" title=
+          "Graphical Web Browsers">Prev</a>
+          <p>
+            Graphical Web Browsers
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="firefox.html" title=
+          "Firefox-23.0.1">Next</a>
+          <p>
+            Firefox-23.0.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphweb.html" title=
+          "Chapter&nbsp;35.&nbsp;Graphical Web Browsers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

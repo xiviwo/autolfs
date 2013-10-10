@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      cURL-7.30.0
+      cURL-7.32.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;17.&nbsp;Networking Libraries
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="curl" name="curl"></a>cURL-7.30.0
+        <a id="curl" name="curl"></a>cURL-7.32.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,7 +62,7 @@
           to support functions like streaming media.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -73,12 +73,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://curl.haxx.se/download/curl-7.30.0.tar.bz2">http://curl.haxx.se/download/curl-7.30.0.tar.bz2</a>
+                "http://curl.haxx.se/download/curl-7.32.0.tar.bz2">http://curl.haxx.se/download/curl-7.32.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 0db5ec03a5001b42a2edc03bf63b5ceb
+                Download MD5 sum: 30d04b0a8c43c6770039d1bf033dfe79
               </p>
             </li>
             <li>
@@ -88,13 +88,13 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 35 MB (additional 4 MB for
+                Estimated disk space required: 29 MB (additional 7 MB for
                 tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.5 SBU (additional 3.5 SBU for tests)
+                Estimated build time: 0.5 SBU (additional 2.9 SBU for tests)
               </p>
             </li>
           </ul>
@@ -110,7 +110,7 @@
           "Certificate Authority Certificates">Certificate Authority
           Certificates</a> and <a class="xref" href="../postlfs/openssl.html"
           title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a> or <a class="xref" href=
-          "../postlfs/gnutls.html" title="GnuTLS-3.1.10">GnuTLS-3.1.10</a>
+          "../postlfs/gnutls.html" title="GnuTLS-3.2.4">GnuTLS-3.2.4</a>
         </p>
         <h4>
           Optional
@@ -120,13 +120,13 @@
           "http://daniel.haxx.se/projects/c-ares/">c-ares</a>, <a class=
           "ulink" href="http://www.pdc.kth.se/kth-krb/">krb4</a>, <a class=
           "xref" href="../general/libidn.html" title=
-          "Libidn-1.25">Libidn-1.25</a>, <a class="ulink" href=
+          "libidn-1.28">libidn-1.28</a>, <a class="ulink" href=
           "https://launchpad.net/libmetalink/">libmetalink</a>, <a class=
           "ulink" href="http://www.libssh2.org">libssh2</a>, <a class="xref"
-          href="../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.2">MIT
-          Kerberos V5-1.11.2</a>, <a class="xref" href=
+          href="../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.3">MIT
+          Kerberos V5-1.11.3</a>, <a class="xref" href=
           "../server/openldap.html" title=
-          "OpenLDAP-2.4.35">OpenLDAP-2.4.35</a> and <a class="ulink" href=
+          "OpenLDAP-2.4.36">OpenLDAP-2.4.36</a> and <a class="ulink" href=
           "http://www.vintela.com/resources/topics/spnego/">SPNEGO</a>
         </p>
         <h4>
@@ -134,7 +134,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/stunnel.html" title=
-          "stunnel-4.54">stunnel-4.54</a> (for the HTTPS and FTPS tests)
+          "stunnel-4.56">stunnel-4.56</a> (for the HTTPS and FTPS tests)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -150,9 +150,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i '/--static-libs)/{N;s#echo .*#echo #;}' curl-config.in &amp;&amp;
-./configure --prefix=/usr              \
+<kbd class="command">./configure --prefix=/usr              \
             --disable-static           \
             --enable-threaded-resolver \
             --with-ca-path=/etc/ssl/certs &amp;&amp;
@@ -160,7 +158,7 @@ make</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
+          test</strong></span>.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -168,22 +166,14 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 find docs \( -name "Makefile*" -o -name "*.1" -o -name "*.3" \) -exec rm {} \; &amp;&amp;
-install -v -d -m755 /usr/share/doc/curl-7.30.0 &amp;&amp;
-cp -v -R docs/*     /usr/share/doc/curl-7.30.0</kbd>
+install -v -d -m755 /usr/share/doc/curl-7.32.0 &amp;&amp;
+cp -v -R docs/*     /usr/share/doc/curl-7.32.0</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
         <h2 class="sect2">
           Command Explanations
         </h2>
-        <p>
-          <span class="command"><strong>sed -i '/--static-libs)/{N;s#echo
-          .*#echo #;}' curl-config.in</strong></span>: Since the static
-          libraries have not been installed, this <span class=
-          "command"><strong>sed</strong></span> removes the static libs line
-          from <span class="command"><strong>curl-config</strong></span> as
-          it might otherwise confuse other applications.
-        </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
@@ -200,7 +190,7 @@ cp -v -R docs/*     /usr/share/doc/curl-7.30.0</kbd>
           certificates. If you've not installed <a class="xref" href=
           "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
           or <a class="xref" href="../postlfs/gnutls.html" title=
-          "GnuTLS-3.1.10">GnuTLS-3.1.10</a> and the <a class="xref" href=
+          "GnuTLS-3.2.4">GnuTLS-3.2.4</a> and the <a class="xref" href=
           "../postlfs/cacerts.html" title=
           "Certificate Authority Certificates">Certificate Authority
           Certificates</a> you can remove this option.
@@ -240,7 +230,7 @@ cp -v -R docs/*     /usr/share/doc/curl-7.30.0</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/curl and
-              /usr/share/doc/curl-7.30.0</span>
+              /usr/share/doc/curl-7.32.0</span>
             </div>
           </div>
         </div>
@@ -301,7 +291,7 @@ cp -v -R docs/*     /usr/share/doc/curl-7.30.0</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-14 12:48:41 +0000
+        Last updated on 2013-08-20 20:22:42 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -326,7 +316,7 @@ cp -v -R docs/*     /usr/share/doc/curl-7.30.0</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

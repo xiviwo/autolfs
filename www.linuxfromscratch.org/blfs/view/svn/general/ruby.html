@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Ruby-1.9.3-p392
+      Ruby-2.0.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="slang.html" title="S-Lang-2.2.4">Next</a>
+          <a accesskey="n" href="scons.html" title="SCons-2.3.0">Next</a>
           <p>
-            S-Lang-2.2.4
+            SCons-2.3.0
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ruby" name="ruby"></a>Ruby-1.9.3-p392
+        <a id="ruby" name="ruby"></a>Ruby-2.0.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           is useful for object-oriented scripting.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -69,28 +69,28 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2">
-                ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2</a>
+                "ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.bz2">
+                ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: a810d64e2255179d2f334eb61fb8519c
+                Download MD5 sum: 60913f3eec0c4071f44df42600be2604
               </p>
             </li>
             <li>
               <p>
-                Download size: 9.6 MB
+                Download size: 10.3 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 940 MB
+                Estimated disk space required: 583 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 4.0 SBU
+                Estimated build time: 3.9 SBU (including all tests)
               </p>
             </li>
           </ul>
@@ -103,13 +103,14 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../server/db.html" title=
-          "Berkeley DB-5.3.21">Berkeley DB-5.3.21</a>, <a class="xref" href=
-          "doxygen.html" title="Doxygen-1.8.3.1">Doxygen-1.8.3.1</a>,
-          <a class="xref" href="graphviz.html" title=
-          "Graphviz-2.30.1">Graphviz-2.30.1</a>, <a class="ulink" href=
+          "Berkeley DB-6.0.20">Berkeley DB-6.0.20</a>, <a class="xref" href=
+          "doxygen.html" title="Doxygen-1.8.5">Doxygen-1.8.5</a>, <a class=
+          "xref" href="graphviz.html" title=
+          "Graphviz-2.34.0">Graphviz-2.34.0</a>, <a class="ulink" href=
           "http://pyyaml.org/wiki/LibYAML">libyaml</a>, <a class="xref" href=
-          "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
-          and <a class="xref" href="tk.html" title="Tk-8.6.0">Tk-8.6.0</a>
+          "../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, and <a class="xref" href=
+          "tk.html" title="Tk-8.6.0">Tk-8.6.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -125,7 +126,8 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --enable-shared &amp;&amp;
+<kbd class=
+"command">./configure --prefix=/usr --docdir=/usr/share/doc/ruby-2.0.0 --enable-shared &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -157,19 +159,19 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">erb, gem, irb, rake, rdoc, ri, ruby and
+              <span class="segbody">erb, gem, irb, rake, rdoc, ri, ruby, and
               testrb</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libruby.so, libruby-static.a and numerous
-              modules located in the <code class=
+              <span class="segbody">libruby.so, libruby-static.a, and
+              numerous modules located in the <code class=
               "filename">/usr/lib/ruby</code> hierarchy.</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/ruby-1.9.1, /usr/lib/ruby,
-              /usr/share/doc/ruby and /usr/share/ri</span>
+              <span class="segbody">/usr/include/ruby-2.0.0, /usr/lib/ruby,
+              /usr/share/doc/ruby-2.0.0 and /usr/share/ri</span>
             </div>
           </div>
         </div>
@@ -233,7 +235,7 @@ make</kbd>
                 <td>
                   <p>
                     displays documentation from a database on <span class=
-                    "application">Ruby</span> classes, modules and methods.
+                    "application">Ruby</span> classes, modules, and methods.
                   </p>
                 </td>
               </tr>
@@ -256,7 +258,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-01 19:29:01 +0000
+        Last updated on 2013-08-25 11:52:57 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -269,9 +271,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="slang.html" title="S-Lang-2.2.4">Next</a>
+          <a accesskey="n" href="scons.html" title="SCons-2.3.0">Next</a>
           <p>
-            S-Lang-2.2.4
+            SCons-2.3.0
           </p>
         </li>
         <li class="up">
@@ -280,7 +282,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      bzr-2.5.0
+      Bazaar-2.5.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="bazaar" name="bazaar"></a>bzr-2.5.0
+        <a id="bazaar" name="bazaar"></a>Bazaar-2.5.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           others.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -68,18 +68,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "https://launchpad.net/bzr/2.5/2.5.0/+download/bzr-2.5.0.tar.gz">
-                https://launchpad.net/bzr/2.5/2.5.0/+download/bzr-2.5.0.tar.gz</a>
+                "https://launchpad.net/bzr/2.5/2.5.1/+download/bzr-2.5.1.tar.gz">
+                https://launchpad.net/bzr/2.5/2.5.1/+download/bzr-2.5.1.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 44eb47b77995098a28f017e2daa606b6
+                Download MD5 sum: ac5079858364a046071000d5cdccb67b
               </p>
             </li>
             <li>
               <p>
-                Download size: 9.5 MB
+                Download size: 10 MB
               </p>
             </li>
             <li>
@@ -95,20 +95,6 @@
           </ul>
         </div>
         <h3>
-          Required Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                <a class="ulink" href=
-                "http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/">Pyrex-0.9.9
-                (http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/)</a>
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
           Bazaar Dependencies
         </h3>
         <h4>
@@ -116,18 +102,22 @@
         </h4>
         <p class="required">
           <a class="xref" href="python2.html" title=
-          "Python-2.7.4">Python-2.7.4</a>
+          "Python-2.7.5">Python-2.7.5</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../postlfs/openssh.html" title=
-          "OpenSSH-6.2p1">OpenSSH-6.2p1</a>, <a class="ulink" href=
-          "http://www.python.org/pypi/pycrypto/">pyCrypto</a>, <a class=
-          "ulink" href="http://www.python.org/pypi/paramiko/">paramike</a>,
-          and <a class="ulink" href=
-          "http://wiki.bazaar.canonical.com/BzrTools">bzrtools</a>
+          <a class="xref" href="../postlfs/cacerts.html" title=
+          "Certificate Authority Certificates">Certificate Authority
+          Certificates</a>, <a class="ulink" href=
+          "http://www.python.org/pypi/paramiko/">paramiko</a> with <a class=
+          "xref" href="../postlfs/openssh.html" title=
+          "OpenSSH-6.2p2">OpenSSH-6.2p2</a> or <a class="ulink" href=
+          "http://www.python.org/pypi/pycrypto/">PyCrypto</a> (to access
+          branches over SSH), and <a class="ulink" href=
+          "http://wiki.bazaar.canonical.com/BzrTools">BzrTools</a> (for rsync
+          support and other extra functionality)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -139,27 +129,19 @@
           Installation of Bazaar
         </h2>
         <p>
-          Install <span class="application">Bazaar</span> by first installing
-          a required package.
+          Install <span class="application">Bazaar</span> by running the
+          following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xf ../Pyrex-0.9.9.tar.gz</kbd>
+<kbd class="command">python setup.py build</kbd>
 </pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
-        <pre class="userinput">
-<kbd class="command">pushd Pyrex-0.9.9                        &amp;&amp;
-python setup.py install                  &amp;&amp;
-install -v -m755 -d /usr/share/doc/Pyrex &amp;&amp;
-cp      -v -R Doc/* /usr/share/doc/Pyrex &amp;&amp;
-popd </kbd>
-</pre>
-        <p>
-          Continue with installing the main package as the <code class=
-          "systemitem">root</code> user:
-        </p>
-        <pre class="userinput">
+        <pre class="root">
 <kbd class="command">python setup.py install</kbd>
 </pre>
       </div>
@@ -170,17 +152,17 @@ popd </kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">bzr, pyrexc</span>
+              <strong class="segtitle">Installed Program:</strong>
+              <span class="segbody">bzr</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">None</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/share/doc/Pyrex,
-              /usr/lib/python2.7/site-packages/bzrlib</span>
+              <strong class="segtitle">Installed Directory:</strong>
+              <span class=
+              "segbody">/usr/lib/python2.7/site-packages/bzrlib</span>
             </div>
           </div>
         </div>
@@ -206,27 +188,12 @@ popd </kbd>
                   </p>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="pyrexc" name="pyrexc"></a><span class=
-                    "term"><span class=
-                    "command"><strong>pyrexc</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is a Python-like compiler that is used to create C
-                    modules for Python.
-                  </p>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-09-05 16:23:52 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -249,7 +216,7 @@ popd </kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

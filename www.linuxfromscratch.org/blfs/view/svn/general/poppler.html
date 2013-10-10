@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Poppler-0.22.3
+      Poppler-0.24.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="pixman.html" title="Pixman-0.28.2">Prev</a>
+          <a accesskey="p" href="pixman.html" title="Pixman-0.30.2">Prev</a>
           <p>
-            Pixman-0.28.2
+            Pixman-0.30.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="qpdf.html" title="Qpdf-4.0.1">Next</a>
+          <a accesskey="n" href="qpdf.html" title="Qpdf-5.0.0">Next</a>
           <p>
-            Qpdf-4.0.1
+            Qpdf-5.0.0
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="poppler" name="poppler"></a>Poppler-0.22.3
+        <a id="poppler" name="poppler"></a>Poppler-0.24.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           a shared library.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -69,28 +69,27 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://poppler.freedesktop.org/poppler-0.22.3.tar.gz">http://poppler.freedesktop.org/poppler-0.22.3.tar.gz</a>
+                "http://poppler.freedesktop.org/poppler-0.24.1.tar.xz">http://poppler.freedesktop.org/poppler-0.24.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: be915388eaad6865cee5a156c8119ec1
+                Download MD5 sum: b11cc0408b4ad3809fa455d7b3d5ade9
               </p>
             </li>
             <li>
               <p>
-                Download size: 2.2 MB
+                Download size: 1.4 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 135 MB (excluding the encoding
-                data) and 145 MB (including the encoding data)
+                Estimated disk space required: 124 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.0 SBU
+                Estimated build time: 1.1 SBU
               </p>
             </li>
           </ul>
@@ -137,35 +136,36 @@
         </h4>
         <p class="required">
           <a class="xref" href="fontconfig.html" title=
-          "Fontconfig-2.10.2">Fontconfig-2.10.2</a>
+          "Fontconfig-2.10.93">Fontconfig-2.10.93</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../x/cairo.html" title=
-          "Cairo-1.12.14">Cairo-1.12.14</a>, <a class="xref" href=
-          "libjpeg.html" title="libjpeg-turbo-1.2.1">libjpeg-turbo-1.2.1</a>
+          "Cairo-1.12.16">Cairo-1.12.16</a>, <a class="xref" href=
+          "libjpeg.html" title="libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>,
           and <a class="xref" href="libpng.html" title=
-          "libpng-1.6.2">libpng-1.6.2</a>
+          "libpng-1.6.3">libpng-1.6.3</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.30.0">cURL-7.30.0</a>, <a class="xref" href=
-          "../x/gtk2.html" title="GTK+-2.24.17">GTK+-2.24.17</a>, <a class=
+          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
+          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>, <a class=
           "xref" href="lcms.html" title="Little CMS-1.19">Little CMS-1.19</a>
-          or <a class="xref" href="lcms2.html" title="Little CMS-2.4">Little
-          CMS-2.4</a>, <a class="xref" href="libtiff.html" title=
+          or <a class="xref" href="lcms2.html" title="Little CMS-2.5">Little
+          CMS-2.5</a>, <a class="xref" href="libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>, <a class="xref" href=
           "libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>, <a class=
           "xref" href="openjpeg.html" title=
-          "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a> and <a class="xref" href=
-          "../x/qt.html" title="Qt-4.8.4">Qt-4.8.4</a> (the <code class=
+          "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a>, <a class="xref" href=
+          "../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a> (the <code class=
           "filename">libpoppler-qt4.so</code> library is needed for PDF
-          support in <span class="application">Okular</span>).
+          support in <span class="application">Okular</span>), and <a class=
+          "xref" href="../x/qt5.html" title="Qt-5.1.1">Qt-5.1.1</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -195,8 +195,8 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-install -v -m755 -d      /usr/share/doc/poppler-0.22.3 &amp;&amp;
-install -v -m644 README* /usr/share/doc/poppler-0.22.3</kbd>
+install -v -m755 -d      /usr/share/doc/poppler-0.24.1 &amp;&amp;
+install -v -m644 README* /usr/share/doc/poppler-0.24.1</kbd>
 </pre>
         <p>
           If you downloaded the additional encoding data package, install it
@@ -228,6 +228,10 @@ cd poppler-data-0.4.6</kbd>
           <span class="application">LibreOffice</span> and <span class=
           "application">Inkscape</span>).
         </p>
+        <p>
+          <code class="option">--enable-libcurl</code>: Use libcurl for HTTP
+          support.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -239,17 +243,18 @@ cd poppler-data-0.4.6</kbd>
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">pdfdetach, pdffonts, pdfimages, pdfinfo,
               pdfseparate, pdftocairo, pdftohtml, pdftoppm, pdftops,
-              pdftotext, pdfunite and poppler-glib-demo</span>
+              pdftotext, pdfunite, and poppler-glib-demo</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libpoppler.so, libpoppler-cpp.so,
-              libpoppler-glib.so and libpoppler-qt4.so</span>
+              libpoppler-glib.so, libpoppler-qt4.so, and
+              libpoppler-qt5.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/poppler,
-              /usr/share/doc/poppler-0.22.3, /usr/share/gtk-doc/html/poppler
+              /usr/share/doc/poppler-0.24.1, /usr/share/gtk-doc/html/poppler,
               and /usr/share/poppler</span>
             </div>
           </div>
@@ -489,7 +494,22 @@ cd poppler-data-0.4.6</kbd>
                 <td>
                   <p>
                     is a wrapper library used to interface the PDF rendering
-                    functions with <span class="application">Qt</span>-4.
+                    functions with <span class="application">Qt</span>4.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libpoppler-qt5" name=
+                    "libpoppler-qt5"></a><span class="term"><code class=
+                    "filename">libpoppler-qt5.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a wrapper library used to interface the PDF rendering
+                    functions with <span class="application">Qt</span>5.
                   </p>
                 </td>
               </tr>
@@ -498,21 +518,21 @@ cd poppler-data-0.4.6</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-14 12:48:41 +0000
+        Last updated on 2013-09-01 02:43:41 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="pixman.html" title="Pixman-0.28.2">Prev</a>
+          <a accesskey="p" href="pixman.html" title="Pixman-0.30.2">Prev</a>
           <p>
-            Pixman-0.28.2
+            Pixman-0.30.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="qpdf.html" title="Qpdf-4.0.1">Next</a>
+          <a accesskey="n" href="qpdf.html" title="Qpdf-5.0.0">Next</a>
           <p>
-            Qpdf-4.0.1
+            Qpdf-5.0.0
           </p>
         </li>
         <li class="up">
@@ -521,7 +541,7 @@ cd poppler-data-0.4.6</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

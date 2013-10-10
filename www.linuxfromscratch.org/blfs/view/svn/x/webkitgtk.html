@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
@@ -29,10 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="xulrunner.html" title=
-          "Xulrunner-20.0.1">Next</a>
+          <a accesskey="n" href="webkitgtk2.html" title=
+          "WebKitGTK+-2.0.4">Next</a>
           <p>
-            Xulrunner-20.0.1
+            WebKitGTK+-2.0.4
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -54,13 +54,13 @@
           Introduction to WebKitGTK+
         </h2>
         <p>
-          The <span class="application">WebKitGTK+</span> package is the port
-          of the portable web rendering engine <span class=
-          "application">WebKit</span> to the <span class=
-          "application">GTK+</span> platform.
+          The <span class="application">WebKitGTK+</span> is the port of the
+          portable web rendering engine <span class=
+          "application">WebKit</span> to the <span class="application">GTK+
+          2</span> platform.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -86,8 +86,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 800 MB (650 MB for GTK+2
-                version)
+                Estimated disk space required: 650 MB
               </p>
             </li>
             <li>
@@ -120,43 +119,39 @@
         <p class="required">
           <a class="xref" href="../general/gperf.html" title=
           "Gperf-3.0.4">Gperf-3.0.4</a>, <a class="xref" href=
-          "../multimedia/gst10-plugins-base.html" title=
-          "gst-plugins-base-1.0.7">gst-plugins-base-1.0.7</a> or <a class=
-          "xref" href="../multimedia/gst-plugins-base.html" title=
+          "../multimedia/gst-plugins-base.html" title=
           "gst-plugins-base-0.10.36">gst-plugins-base-0.10.36</a>, <a class=
-          "xref" href="gtk3.html" title="GTK+-3.6.4">GTK+-3.6.4</a> or
-          <a class="xref" href="gtk2.html" title=
-          "GTK+-2.24.17">GTK+-2.24.17</a>, <a class="xref" href=
-          "../general/icu.html" title="ICU-51.1">ICU-51.1</a>, <a class=
-          "xref" href="../general/libxslt.html" title=
-          "libxslt-1.1.28">libxslt-1.1.28</a>, <a class="xref" href=
+          "xref" href="gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>,
+          <a class="xref" href="../general/icu.html" title=
+          "ICU-51.2">ICU-51.2</a>, <a class="xref" href=
           "../basicnet/libsoup.html" title=
-          "libsoup-2.40.3">libsoup-2.40.3</a>, <a class="xref" href=
-          "mesalib.html" title="MesaLib-9.1.2">MesaLib-9.1.2</a>, <a class=
+          "libsoup-2.42.2">libsoup-2.42.2</a>, <a class="xref" href=
+          "mesalib.html" title="MesaLib-9.2.0">MesaLib-9.2.0</a>, <a class=
           "xref" href="../general/ruby.html" title=
-          "Ruby-1.9.3-p392">Ruby-1.9.3-p392</a>, <a class="xref" href=
-          "../server/sqlite.html" title="SQLite-3.7.16.2">SQLite-3.7.16.2</a>
+          "Ruby-2.0.0">Ruby-2.0.0</a>, <a class="xref" href=
+          "../server/sqlite.html" title="SQLite-3.8.0.2">SQLite-3.8.0.2</a>
           and <a class="xref" href="../general/which.html" title=
-          "Which-2.20 and Alternatives">which-2.20</a>
+          "Which-2.20 and Alternatives">Which-2.20</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="../basicnet/geoclue.html" title=
-          "GeoClue-0.12.0">GeoClue-0.12.0</a> and <a class="xref" href=
-          "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.34.2">gobject-introspection-1.34.2</a>
+          <a class="xref" href="../general/enchant.html" title=
+          "enchant-1.6.0">enchant-1.6.0</a> and <a class="xref" href=
+          "../basicnet/geoclue.html" title=
+          "GeoClue-0.12.0">GeoClue-0.12.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.30.0">cURL-7.30.0</a>, <a class="xref" href=
-          "../general/enchant.html" title="enchant-1.6.0">enchant-1.6.0</a>,
+          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
+          "../general/gobject-introspection.html" title=
+          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>,
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.18">GTK-Doc-1.18</a> and <a class="ulink" href=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="ulink" href=
           "http://xsltml.sourceforge.net/">MathML</a>
         </p>
         <p class="usernotes">
@@ -185,7 +180,7 @@
         </div>
         <p>
           If you have not installed <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.18">GTK-Doc-1.18</a>,
+          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>,
           fix a bug that will cause <span class="command"><strong>make
           install</strong></span> to fail:
         </p>
@@ -198,12 +193,14 @@
           following commands:
         </p>
         <pre class="userinput">
+<kbd class="command">sed -i '/parse-param/ a%lex-param {YYLEX_PARAM}' \
+             Source/ThirdParty/ANGLE/src/compiler/glslang.y</kbd> &amp;&amp;
 <kbd class=
 "command">patch -Np1 -i ../webkitgtk-1.10.2-fix_librt_linking-1.patch &amp;&amp;
 ./configure --prefix=/usr \
-            --libexecdir=/usr/lib/WebKitGTK \
-            --with-gstreamer=1.0 \
-            --enable-introspection &amp;&amp;
+            --libexecdir=/usr/lib/webkitgtk2 \
+            --with-gtk=2.0 \
+            --disable-webkit2 &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -221,20 +218,17 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--enable-introspection</code>: This switch
-          enables support for <span class="application">Gobject
-          Introspection</span> and is required for a <span class=
-          "application">GNOME</span> Desktop. Remove if you don't have
-          <span class="application">Gobject Introspection</span> installed or
-          you don't want to install <span class="application">GNOME</span>.
+          <span class="command"><strong>sed ...
+          Source/ThirdParty/ANGLE/src/compiler/glslang.y</strong></span>:
+          This command corrects a problem caused by the most recent version
+          of Bison.
         </p>
         <p>
-          <em class="parameter"><code>--with-gstreamer=1.0</code></em>: This
-          switch forces use of <span class="application">GStreamer</span> 1.0
-          series which <span class="application">GNOME</span> 3.6 uses.
-          Remove if you don't want to install <span class=
-          "application">GStreamer</span> 1.0 or you don't want to install
-          <span class="application">GNOME</span>.
+          <em class="parameter"><code>--with-gtk=2.0
+          --disable-webkit2</code></em>: These parameters force <span class=
+          "application">WebKitGTK+</span> to compile against <span class=
+          "application">GTK+ 2</span>, even if <span class="application">GTK+
+          3</span> is also installed.
         </p>
         <p>
           <code class="option">--disable-geolocation</code>: Use this option
@@ -242,18 +236,6 @@ make</kbd>
           "../basicnet/geoclue.html" title=
           "GeoClue-0.12.0">GeoClue-0.12.0</a> or <span class=
           "command"><strong>configure</strong></span> will fail.
-        </p>
-        <p>
-          <em class="parameter"><code>--with-gtk=2.0
-          --disable-webkit2</code></em>: These parameters force <span class=
-          "application">WebKitGTK+</span> to compile against <span class=
-          "application">GTK+ 2</span>, even if <span class="application">GTK+
-          3</span> is also installed. With <span class="application">GTK+
-          2</span>, everything <span class="application">WebKitGTK+</span>
-          installs is suffixed with 1.0. When it is compiled against
-          <span class="application">GTK+ 3</span> everything it installs is
-          suffixed with 3.0. Both versions can be installed alongside one
-          another with no namespace conflicts.
         </p>
         <p>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
@@ -269,19 +251,17 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Program:</strong>
-              <span class="segbody">jsc-1 or jsc-3</span>
+              <span class="segbody">jsc-1</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Library:</strong>
+              <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libjavascriptcoregtk-1.0.so and
-              libwebkit-1.0.so or libjavascriptcoregtk-3.0.so,
-              libwebkit2gtk-3.0.so and libwebkit-3.0.so</span>
+              libwebkit-1.0.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/webkit-1.0 and
-              /usr/share/webkit-1.0 or /usr/include/webkit-3.0,
-              /usr/lib/WebKit and /usr/share/webkit-3.0</span>
+              <span class="segbody">/usr/include/webkit-1.0,
+              /usr/share/webkit-1.0 and /usr/lib/webkitgtk2</span>
             </div>
           </div>
         </div>
@@ -295,10 +275,9 @@ make</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="jsc" name="jsc"></a><span class=
-                    "term"><span class="command"><strong>jsc-1</strong></span>
-                    or <span class=
-                    "command"><strong>jsc-3</strong></span></span>
+                    <a id="jsc-1" name="jsc-1"></a><span class=
+                    "term"><span class=
+                    "command"><strong>jsc-1</strong></span></span>
                   </p>
                 </td>
                 <td>
@@ -342,60 +321,12 @@ make</kbd>
                   </p>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="libjavascriptcoregtk-3" name=
-                    "libjavascriptcoregtk-3"></a><span class=
-                    "term"><code class=
-                    "filename">libjavascriptcoregtk-3.0.so</code></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    contains core JavaScript API functions used by
-                    <span class="command"><strong>jsc-3</strong></span> and
-                    <code class="filename">libwebkitgtk-3.0.so</code>.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="libwebkitgtk-3" name=
-                    "libwebkitgtk-3"></a><span class="term"><code class=
-                    "filename">libwebkitgtk-3.0.so</code></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    contains the <span class="application">WebKitGTK+</span>
-                    API functions for <span class="application">GTK+
-                    3</span>.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="libwebkit2gtk-3" name=
-                    "libwebkit2gtk-3"></a><span class="term"><code class=
-                    "filename">libwebkit2gtk-3.0.so</code></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    contains the <span class="application">WebKit2</span> API
-                    functions.
-                  </p>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-03 20:21:38 +0000
+        Last updated on 2013-09-05 13:19:00 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -408,10 +339,10 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="xulrunner.html" title=
-          "Xulrunner-20.0.1">Next</a>
+          <a accesskey="n" href="webkitgtk2.html" title=
+          "WebKitGTK+-2.0.4">Next</a>
           <p>
-            Xulrunner-20.0.1
+            WebKitGTK+-2.0.4
           </p>
         </li>
         <li class="up">
@@ -420,7 +351,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

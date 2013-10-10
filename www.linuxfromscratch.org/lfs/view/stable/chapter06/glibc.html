@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.9.&nbsp;Glibc-2.17
+      6.9.&nbsp;Glibc-2.18
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="man-pages.html" title=
-          "Man-pages-3.47">Prev</a>
+          "Man-pages-3.53">Prev</a>
           <p>
-            Man-pages-3.47
+            Man-pages-3.53
           </p>
         </li>
         <li class="next">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-glibc" name="ch-system-glibc"></a>6.9. Glibc-2.17
+        <a id="ch-system-glibc" name="ch-system-glibc"></a>6.9. Glibc-2.18
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -60,11 +60,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">17.6 SBU</span>
+              <span class="segbody">17.1 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">852 MB</span>
+              <span class="segbody">922 MB</span>
             </div>
           </div>
         </div>
@@ -101,6 +101,13 @@
           of achieving a clean build.
         </p>
         <p>
+          An upstream change needs to be reverted:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i -e 's/static __m128i/inline &amp;/' sysdeps/x86_64/multiarch/strstr.c</kbd>
+</pre>
+        <p>
           The Glibc documentation recommends building Glibc outside of the
           source directory in a dedicated build directory:
         </p>
@@ -112,10 +119,10 @@ cd ../glibc-build</kbd>
           Prepare Glibc for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">../glibc-2.17/configure  \
+<kbd class="command">../glibc-2.18/configure    \
     --prefix=/usr          \
     --disable-profile      \
-    --enable-kernel=2.6.25 \
+    --enable-kernel=2.6.32 \
     --libexecdir=/usr/lib/glibc</kbd>
 </pre>
         <div class="variablelist">
@@ -129,8 +136,7 @@ cd ../glibc-build</kbd>
             </dt>
             <dd>
               <p>
-                This changes the location of the <span class=
-                "command"><strong>pt_chown</strong></span> program from its
+                This changes the location of some auxillary files from the
                 default of <code class="filename">/usr/libexec</code> to
                 <code class="filename">/usr/lib/glibc</code>.
               </p>
@@ -200,6 +206,12 @@ grep Error glibc-check-log</kbd>
             </li>
             <li>
               <p>
+                posix/tst-getaddrinfo4 will always fail due to not having a
+                network connection when the test is run.
+              </p>
+            </li>
+            <li>
+              <p>
                 Other tests known to fail on some architectures are
                 posix/bug-regex32, misc/tst-writev, elf/check-textrel,
                 nptl/tst-getpid2, and stdio-common/bug22.
@@ -227,9 +239,9 @@ grep Error glibc-check-log</kbd>
           packages:
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v ../glibc-2.17/sunrpc/rpc/*.h /usr/include/rpc
-cp -v ../glibc-2.17/sunrpc/rpcsvc/*.h /usr/include/rpcsvc
-cp -v ../glibc-2.17/nis/rpcsvc/*.h /usr/include/rpcsvc</kbd>
+<kbd class="command">cp -v ../glibc-2.18/sunrpc/rpc/*.h /usr/include/rpc
+cp -v ../glibc-2.18/sunrpc/rpcsvc/*.h /usr/include/rpcsvc
+cp -v ../glibc-2.18/nis/rpcsvc/*.h /usr/include/rpcsvc</kbd>
 </pre>
         <p>
           The locales that can make the system respond in a different
@@ -280,7 +292,7 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
         </p>
         <p>
           Alternatively, install all locales listed in the <code class=
-          "filename">glibc-2.17/localedata/SUPPORTED</code> file (it includes
+          "filename">glibc-2.18/localedata/SUPPORTED</code> file (it includes
           every locale listed above and many more) at once with the following
           time-consuming command:
         </p>
@@ -291,7 +303,7 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
           Then use the <span class=
           "command"><strong>localedef</strong></span> command to create and
           install locales not listed in the <code class=
-          "filename">glibc-2.17/localedata/SUPPORTED</code> file in the
+          "filename">glibc-2.18/localedata/SUPPORTED</code> file in the
           unlikely case you need them.
         </p>
       </div>
@@ -332,7 +344,7 @@ EOF</kbd>
           Install timezone data:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xf ../tzdata2012j.tar.gz
+<kbd class="command">tar -xf ../tzdata2013d.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
@@ -493,7 +505,7 @@ EOF</kbd>
 include /etc/ld.so.conf.d/*.conf
 </code>
 EOF
-mkdir /etc/ld.so.conf.d</kbd>
+mkdir -pv /etc/ld.so.conf.d</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -507,8 +519,8 @@ mkdir /etc/ld.so.conf.d</kbd>
               <strong class="segtitle">Installed programs:</strong>
               <span class="segbody">catchsegv, gencat, getconf, getent,
               iconv, iconvconfig, ldconfig, ldd, lddlibc4, locale, localedef,
-              makedb, mtrace, nscd, pcprofiledump, pldd, pt_chown, rpcgen,
-              sln, sotruss, sprof, tzselect, xtrace, zdump, and zic</span>
+              makedb, mtrace, nscd, pcprofiledump, pldd, rpcgen, sln,
+              sotruss, sprof, tzselect, xtrace, zdump, and zic</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed libraries:</strong>
@@ -779,23 +791,6 @@ mkdir /etc/ld.so.conf.d</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="pt_chown" name="pt_chown"></a><span class=
-                    "term"><span class=
-                    "command"><strong>pt_chown</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    A helper program for <span class=
-                    "command"><strong>grantpt</strong></span> to set the
-                    owner, group and access permissions of a slave pseudo
-                    terminal
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="rpcgen" name="rpcgen"></a><span class=
                     "term"><span class=
                     "command"><strong>rpcgen</strong></span></span>
@@ -934,7 +929,7 @@ mkdir /etc/ld.so.conf.d</kbd>
                     Used internally by Glibc as a gross hack to get broken
                     programs (e.g., some Motif applications) running. See
                     comments in <code class=
-                    "filename">glibc-2.17/locale/broken_cur_max.c</code> for
+                    "filename">glibc-2.18/locale/broken_cur_max.c</code> for
                     more information
                   </p>
                 </td>
@@ -1241,9 +1236,9 @@ mkdir /etc/ld.so.conf.d</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="man-pages.html" title=
-          "Man-pages-3.47">Prev</a>
+          "Man-pages-3.53">Prev</a>
           <p>
-            Man-pages-3.47
+            Man-pages-3.53
           </p>
         </li>
         <li class="next">
@@ -1259,7 +1254,7 @@ mkdir /etc/ld.so.conf.d</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

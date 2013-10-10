@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Chapter&nbsp;25.&nbsp;X Libraries
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Part&nbsp;VI.&nbsp;X + Window Managers
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xorg-config.html" title=
+          "Xorg-7.7 Testing and Configuration">Prev</a>
+          <p>
+            Xorg-7.7 Testing and Configuration
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="agg.html" title="agg-2.5">Next</a>
+          <p>
+            agg-2.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="x.html" title=
+          "Part&nbsp;VI.&nbsp;X + Window Managers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="chapter" lang="en" xml:lang="en">
+      <h1 class="chapter">
+        <a id="x-lib" name="x-lib"></a>X Libraries
+      </h1>
+      <p>
+        This chapter does not contain libraries that are required to run
+        <span class="application">X</span>. It does contain libraries that
+        enhance <span class="application">X</span>. In some cases the
+        enhancement is as simple as font support. In others it is as complex
+        as libraries that sit between <span class="application">X</span> and
+        applications that run on <span class="application">X</span> whose
+        purpose is to standardize the look and feel and inter-process
+        communications for different applications. They also assist
+        programmers by supplying common elements.
+      </p>
+      <div class="toc">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="agg.html">agg-2.5</a>
+          </li>
+          <li class="sect1">
+            <a href="atk.html">ATK-2.8.0</a>
+          </li>
+          <li class="sect1">
+            <a href="atkmm.html">Atkmm-2.22.7</a>
+          </li>
+          <li class="sect1">
+            <a href="at-spi2-core.html">at-spi2-core-2.8.0</a>
+          </li>
+          <li class="sect1">
+            <a href="at-spi2-atk.html">at-spi2-atk-2.8.1</a>
+          </li>
+          <li class="sect1">
+            <a href="cairo.html">Cairo-1.12.16</a>
+          </li>
+          <li class="sect1">
+            <a href="cairomm.html">Cairomm-1.10.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cogl.html">Cogl-1.14.0</a>
+          </li>
+          <li class="sect1">
+            <a href="clutter.html">Clutter-1.14.4</a>
+          </li>
+          <li class="sect1">
+            <a href="clutter-gst2.html">clutter-gst-2.0.6</a>
+          </li>
+          <li class="sect1">
+            <a href="clutter-gtk.html">clutter-gtk-1.4.4</a>
+          </li>
+          <li class="sect1">
+            <a href="freeglut.html">Freeglut-2.8.1</a>
+          </li>
+          <li class="sect1">
+            <a href="gdk-pixbuf.html">gdk-pixbuf-2.28.2</a>
+          </li>
+          <li class="sect1">
+            <a href="goffice010.html">GOffice-0.10.7</a>
+          </li>
+          <li class="sect1">
+            <a href="gtk2.html">GTK+-2.24.20</a>
+          </li>
+          <li class="sect1">
+            <a href="gtk3.html">GTK+-3.8.4</a>
+          </li>
+          <li class="sect1">
+            <a href="gtk-engines.html">GTK Engines-2.20.2</a>
+          </li>
+          <li class="sect1">
+            <a href="gtkmm2.html">Gtkmm-2.24.4</a>
+          </li>
+          <li class="sect1">
+            <a href="gtkmm3.html">Gtkmm-3.8.1</a>
+          </li>
+          <li class="sect1">
+            <a href="hicolor-icon-theme.html">hicolor-icon-theme-0.12</a>
+          </li>
+          <li class="sect1">
+            <a href="libnotify.html">libnotify-0.7.6</a>
+          </li>
+          <li class="sect1">
+            <a href="libxklavier.html">libxklavier-5.3</a>
+          </li>
+          <li class="sect1">
+            <a href="pango.html">Pango-1.34.1</a>
+          </li>
+          <li class="sect1">
+            <a href="pangomm.html">Pangomm-2.34.0</a>
+          </li>
+          <li class="sect1">
+            <a href="qt4.html">Qt-4.8.5</a>
+          </li>
+          <li class="sect1">
+            <a href="qt5.html">Qt-5.1.1</a>
+          </li>
+          <li class="sect1">
+            <a href="shared-mime-info.html">shared-mime-info-1.1</a>
+          </li>
+          <li class="sect1">
+            <a href="startup-notification.html">startup-notification-0.12</a>
+          </li>
+          <li class="sect1">
+            <a href="webkitgtk.html">WebKitGTK+-1.10.2</a>
+          </li>
+          <li class="sect1">
+            <a href="webkitgtk2.html">WebKitGTK+-2.0.4</a>
+          </li>
+          <li class="sect1">
+            <a href="xulrunner.html">Xulrunner-23.0.1</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="xorg-config.html" title=
+          "Xorg-7.7 Testing and Configuration">Prev</a>
+          <p>
+            Xorg-7.7 Testing and Configuration
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="agg.html" title="agg-2.5">Next</a>
+          <p>
+            agg-2.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="x.html" title=
+          "Part&nbsp;VI.&nbsp;X + Window Managers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -12,25 +12,25 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glibc.html" title="Glibc-2.17">Prev</a>
+          <a accesskey="p" href="glibc.html" title="Glibc-2.18">Prev</a>
           <p>
-            Glibc-2.17
+            Glibc-2.18
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="zlib.html" title="Zlib-1.2.7">Next</a>
+          <a accesskey="n" href="zlib.html" title="Zlib-1.2.8">Next</a>
           <p>
-            Zlib-1.2.7
+            Zlib-1.2.8
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
@@ -75,9 +75,10 @@ ln -sv /tools/bin/ld /tools/$(gcc -dumpmachine)/bin/ld</kbd>
         accomplishes this:
       </p>
       <pre class="userinput">
-<kbd class="command">gcc -dumpspecs | sed -e 's@/tools@@g' \
+<kbd class=
+"command">gcc -dumpspecs | sed -e 's@/tools@@g'                   \
     -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
-    -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' &gt; \
+    -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' &gt;      \
     `dirname $(gcc --print-libgcc-file-name)`/specs</kbd>
 </pre>
       <p>
@@ -144,12 +145,10 @@ readelf -l a.out | grep ': /lib'</kbd>
 </pre>
       <p>
         If everything is working correctly, there should be no errors, and
-        the output of the last command (allowing for platform-specific target
-        triplets) will be:
+        the output of the last command will be:
       </p>
       <pre class="screen">
-<code class="computeroutput">SEARCH_DIR("/tools/i686-pc-linux-gnu/lib")
-SEARCH_DIR("/usr/lib")
+<code class="computeroutput">SEARCH_DIR("/usr/lib")
 SEARCH_DIR("/lib");</code>
 </pre>
       <p>
@@ -199,15 +198,15 @@ SEARCH_DIR("/lib");</code>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glibc.html" title="Glibc-2.17">Prev</a>
+          <a accesskey="p" href="glibc.html" title="Glibc-2.18">Prev</a>
           <p>
-            Glibc-2.17
+            Glibc-2.18
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="zlib.html" title="Zlib-1.2.7">Next</a>
+          <a accesskey="n" href="zlib.html" title="Zlib-1.2.8">Next</a>
           <p>
-            Zlib-1.2.7
+            Zlib-1.2.8
           </p>
         </li>
         <li class="up">
@@ -216,7 +215,7 @@ SEARCH_DIR("/lib");</code>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

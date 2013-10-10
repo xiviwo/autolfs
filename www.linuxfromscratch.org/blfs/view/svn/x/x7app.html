@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="xcursor-themes.html" title=
-          "xcursor-themes-1.0.3">Next</a>
+          "xcursor-themes-1.0.4">Next</a>
           <p>
-            xcursor-themes-1.0.3
+            xcursor-themes-1.0.4
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           implementations.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -81,17 +81,17 @@
             </li>
             <li>
               <p>
-                Download size: 4.8 MB
+                Download size: 4.9 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 39.2 MB
+                Estimated disk space required: 51 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.5 SBU
+                Estimated build time: 1.9 SBU
               </p>
             </li>
           </ul>
@@ -104,20 +104,18 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/libpng.html" title=
-          "libpng-1.6.2">libpng-1.6.2</a>, <a class="xref" href=
-          "mesalib.html" title="MesaLib-9.1.2">MesaLib-9.1.2</a> (required
-          for OpenGL support), <a class="xref" href="xbitmaps.html" title=
-          "xbitmaps-1.1.1">xbitmaps-1.1.1</a>, <a class="xref" href=
-          "xcb-util.html" title="xcb-util-0.3.9">xcb-util-0.3.9</a>, and
-          <a class="xref" href="x7lib.html" title="Xorg Libraries">Xorg
-          Libraries</a>
+          "libpng-1.6.3">libpng-1.6.3</a>, <a class="xref" href=
+          "mesalib.html" title="MesaLib-9.2.0">MesaLib-9.2.0</a>, <a class=
+          "xref" href="xbitmaps.html" title=
+          "xbitmaps-1.1.1">xbitmaps-1.1.1</a>, and <a class="xref" href=
+          "xcb-util.html" title="xcb-util-0.3.9">xcb-util-0.3.9</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.6">Linux-PAM-1.1.6</a>
+          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -134,43 +132,45 @@
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; app-7.7.md5 &lt;&lt; "EOF"
-96a648a332160a7482885800f7a506fa  bdftopcf-1.0.4.tar.bz2
-08e3f6b523da8b0af179f22f339508b2  iceauth-1.0.5.tar.bz2
+<code class=
+"literal">96a648a332160a7482885800f7a506fa  bdftopcf-1.0.4.tar.bz2
+2527344acc60741a709f4858564c5ae6  iceauth-1.0.6.tar.bz2
 c4a3664e08e5a47c120ff9263ee2f20c  luit-1.1.1.tar.bz2
 18c429148c96c2079edda922a2b67632  mkfontdir-1.0.7.tar.bz2
-414fcb053418fb1418e3a39f4a37e0f7  mkfontscale-1.1.0.tar.bz2
+03de3f15db678e277f5ef9c013aca1ad  mkfontscale-1.1.1.tar.bz2
 f548e389ff68424947b87785df6a321b  sessreg-1.0.8.tar.bz2
 1001771344608e120e943a396317c33a  setxkbmap-1.3.0.tar.bz2
 edce41bd7562dcdfb813e05dbeede8ac  smproxy-1.0.5.tar.bz2
 5c3c7431a38775caaea6051312a49bc9  x11perf-1.5.4.tar.bz2
 cbcbd8f2156a53b609800bec4c6b6c0e  xauth-1.0.7.tar.bz2
-c9891d6a3f3129d56cede72daa0ba26c  xbacklight-1.1.2.tar.bz2
+04189c90850c36592b9f2b358f8581e4  xbacklight-1.2.0.tar.bz2
 5812be48cbbec1068e7b718eec801766  xcmsdb-1.0.4.tar.bz2
 09f56978a62854534deacc8aa8ff3031  xcursorgen-1.0.5.tar.bz2
-1ef08f4c8d0e669c2edd49e4a1bf650d  xdpyinfo-1.3.0.tar.bz2
+cacc0733f16e4f2a97a5c430fcc4420e  xdpyinfo-1.3.1.tar.bz2
 3d3cad4d754e10e325438193433d59fd  xdriinfo-1.0.4.tar.bz2
 5b0a0b6f589441d546da21739fa75634  xev-1.2.1.tar.bz2
 c06067f572bc4a5298f324f27340da95  xgamma-1.0.5.tar.bz2
-a0fcd2cb6ddd9f378944cc6f4f83cd7c  xhost-1.0.5.tar.bz2
+f1669af1fe0554e876f03319c678e79d  xhost-1.0.6.tar.bz2
 d2459d35b4e0b41ded26a1d1159b7ac6  xinput-1.6.0.tar.bz2
 a0fc1ac3fc4fe479ade09674347c5aa0  xkbcomp-1.2.4.tar.bz2
 37ed71525c63a9acd42e7cde211dcc5b  xkbevd-1.1.3.tar.bz2
 502b14843f610af977dffc6cbf2102d5  xkbutils-1.0.4.tar.bz2
-e7f0d57b6ba49c384e9cf8c9ff3243c1  xkill-1.0.3.tar.bz2
+0ae6bc2a8d3af68e9c76b1a6ca5f7a78  xkill-1.0.4.tar.bz2
 9d0e16d116d1c89e6b668c1b2672eb57  xlsatoms-1.1.1.tar.bz2
-760099f0af112401735801e3b9aa8595  xlsclients-1.1.2.tar.bz2
-d9b65f6881afe0d6d9863b30e1081bde  xmodmap-1.0.7.tar.bz2
+9fbf6b174a5138a61738a42e707ad8f5  xlsclients-1.1.3.tar.bz2
+2dd5ae46fa18abc9331bc26250a25005  xmessage-1.0.4.tar.bz2
+5511da3361eea4eaa21427652c559e1c  xmodmap-1.0.8.tar.bz2
 6101f04731ffd40803df80eca274ec4b  xpr-1.0.4.tar.bz2
-d5529dc8d811efabd136ca2d8e857deb  xprop-1.2.1.tar.bz2
-4d68317238bb14a33c0e419233d57d87  xrandr-1.4.0.tar.bz2
-ed2e48cf33584455d74615ad4bbe4246  xrdb-1.0.9.tar.bz2
-2f63f88ad0dcecd33c8cf000f38e9250  xrefresh-1.0.4.tar.bz2
-d44e0057d6722b25d5a314e82e0b7e7c  xset-1.2.2.tar.bz2
+fae3d2fda07684027a643ca783d595cc  xprop-1.2.2.tar.bz2
+52c3de0297bf45be6a189dc2e0515638  xrandr-1.4.1.tar.bz2
+b54c7e3e53b4f332d41ed435433fbda0  xrdb-1.1.0.tar.bz2
+a896382bc53ef3e149eaf9b13bc81d42  xrefresh-1.0.5.tar.bz2
+dcd227388b57487d543cab2fd7a602d7  xset-1.2.3.tar.bz2
 7211b31ec70631829ebae9460999aa0b  xsetroot-1.1.1.tar.bz2
 1fbd65e81323a8c0a4b5e24db0058405  xvinfo-1.1.2.tar.bz2
-2113126f9ac9c02bb8547c112c5d037e  xwd-1.0.5.tar.bz2
-9e8b58c8aa6172e87ab4f9cf3612fedd  xwininfo-1.1.2.tar.bz2
-3025b152b4f13fdffd0c46d0be587be6  xwud-1.0.4.tar.bz2
+6b5d48464c5f366e91efd08b62b12d94  xwd-1.0.6.tar.bz2
+b777bafb674555e48fd8437618270931  xwininfo-1.1.3.tar.bz2
+3025b152b4f13fdffd0c46d0be587be6  xwud-1.0.4.tar.bz2</code>
 EOF</kbd>
 </pre>
         <p>
@@ -210,8 +210,8 @@ md5sum -c ../app-7.7.md5</kbd>
                 <p>
                   Use the <span class="command"><strong>sudo</strong></span>
                   command from the <a class="xref" href=
-                  "../postlfs/sudo.html" title=
-                  "Sudo-1.8.6p3">Sudo-1.8.6p3</a> package.
+                  "../postlfs/sudo.html" title="Sudo-1.8.7">Sudo-1.8.7</a>
+                  package.
                 </p>
               </li>
               <li>
@@ -248,7 +248,7 @@ export -f as_root</kbd>
 <kbd class="command">bash -e</kbd>
 </pre>
         <p>
-          Install all of the applications by running the following commands:
+          Install all of the packages by running the following commands:
         </p>
         <pre class="userinput">
 <kbd class=
@@ -258,20 +258,21 @@ do
   tar -xf $package
   pushd $packagedir
   case $packagedir in
-    xmodmap-[0-9]* )
-      sed -e 's@#include &lt;X11/Xos.h&gt;@#ifdef HAVE_CONFIG_H\n# include "config.h"\n#endif\n\n&amp;@' \
-          -i {exec,pf,xmodmap}.c
-    ;;
     luit-[0-9]* )
-      sed -e 's@#ifdef HAVE_CONFIG_H@#ifdef _XOPEN_SOURCE\n#undef _XOPEN_SOURCE\n#define _XOPEN_SOURCE 600\n#endif\n\n&amp;@' \
-          -i sys.c
+      line1="#ifdef _XOPEN_SOURCE"
+      line2="#  undef _XOPEN_SOURCE"
+      line3="#  define _XOPEN_SOURCE 600"
+      line4="#endif"
+ 
+      sed -i -e "s@#ifdef HAVE_CONFIG_H@$line1\n$line2\n$line3\n$line4\n\n&amp;@" sys.c
+      unset line1 line2 line3 line4
     ;;
   esac
   ./configure $XORG_CONFIG
   make
   as_root make install
   popd
-  rm -r $packagedir
+  rm -rf $packagedir
 done</kbd>
 </pre>
         <p>
@@ -289,13 +290,13 @@ done</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">bdftopcf, iceauth, luit,
-              mkfontdir,mkfontscale, sessreg, setxkbmap, smproxy, x11perf,
-              x11perfcomp, xauth, xcmsdb, xcursorgen, xdpr, xdpyinfo,
-              xdriinfo, xev, xgamma, xhost, xkbbell, xkbcomp, xkbevd,
-              xkbvleds, xkbwatch, xkill, xlsatoms, xlsclients, xmodmap, xpr,
-              xprop, xrandr, xrdb, xrefresh, xset, xsetroot, xvinfo, xwd,
-              xwininfo, and xwud</span>
+              <span class="segbody">bdftopcf, iceauth, luit, mkfontdir,
+              mkfontscale, sessreg, setxkbmap, smproxy, x11perf, x11perfcomp,
+              xauth, xbacklight, xcmsdb, xcursorgen, xdpr, xdpyinfo,
+              xdriinfo, xev, xgamma, xhost, xinput, xkbbell, xkbcomp, xkbevd,
+              xkbvleds, xkbwatch, xkeystone, xkill, xlsatoms, xlsclients,
+              xmessage, xmodmap, xpr, xprop, xrandr, xrdb, xrefresh, xset,
+              xsetroot, xvinfo, xwd, xwininfo, and xwud</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -314,20 +315,6 @@ done</kbd>
           <table border="0">
             <col align="left" valign="top" />
             <tbody>
-              <tr>
-                <td>
-                  <p>
-                    <a id="appres-x7" name="appres-x7"></a><span class=
-                    "term"><span class=
-                    "command"><strong>appres</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    lists the X application resource database.
-                  </p>
-                </td>
-              </tr>
               <tr>
                 <td>
                   <p>
@@ -487,6 +474,20 @@ done</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="xbacklight-x7" name=
+                    "xbacklight-x7"></a><span class="term"><span class=
+                    "command"><strong>xbacklight</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    adjusts backlight brightness using RandR extension.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="xcmsdb-x7" name="xcmsdb-x7"></a><span class=
                     "term"><span class=
                     "command"><strong>xcmsdb</strong></span></span>
@@ -600,6 +601,20 @@ done</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="xinput-x7" name="xinput-x7"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xinput</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an utility to configure and test X input devices.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="xkbbell-x7" name="xkbbell-x7"></a><span class=
                     "term"><span class=
                     "command"><strong>xkbbell</strong></span></span>
@@ -706,6 +721,20 @@ done</kbd>
                 <td>
                   <p>
                     lists client applications running on a display.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xmessage-x7" name="xmessage-x7"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xmessage</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    displays a message or query in a window.
                   </p>
                 </td>
               </tr>
@@ -883,7 +912,7 @@ done</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-05-05 18:02:40 +0000
+        Last updated on 2013-09-10 10:49:02 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -897,9 +926,9 @@ done</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="xcursor-themes.html" title=
-          "xcursor-themes-1.0.3">Next</a>
+          "xcursor-themes-1.0.4">Next</a>
           <p>
-            xcursor-themes-1.0.3
+            xcursor-themes-1.0.4
           </p>
         </li>
         <li class="up">
@@ -908,7 +937,7 @@ done</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

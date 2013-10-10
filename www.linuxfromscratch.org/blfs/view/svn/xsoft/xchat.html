@@ -12,20 +12,20 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;37.&nbsp;Other X-based Programs
+        Chapter&nbsp;36.&nbsp;Other X-based Programs
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="transmission.html" title=
-          "Transmission-2.77">Prev</a>
+          "Transmission-2.82">Prev</a>
           <p>
-            Transmission-2.77
+            Transmission-2.82
           </p>
         </li>
         <li class="next">
@@ -37,11 +37,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="other.html" title=
-          "Chapter&nbsp;37.&nbsp;Other X-based Programs">Up</a>
+          "Chapter&nbsp;36.&nbsp;Other X-based Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           File transfers are also possible.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -125,14 +125,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.34.3">GLib-2.34.3</a>
+          "GLib-2.36.4">GLib-2.36.4</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.17">GTK+-2.24.17</a>
+          "GTK+-2.24.20">GTK+-2.24.20</a>
         </p>
         <h4>
           Optional
@@ -140,14 +140,13 @@
         <p class="optional">
           <a class="xref" href="../general/enchant.html" title=
           "enchant-1.6.0">enchant-1.6.0</a> (runtime), <a class="xref" href=
-          "../general/dbus-bindings.html#dbus-glib" title=
-          "D-Bus GLib Bindings">D-Bus GLib Bindings-0.100.2</a>, <a class=
-          "xref" href="../gnome/GConf.html" title=
-          "GConf-3.2.6">GConf-3.2.6</a>, <a class="xref" href=
-          "../postlfs/openssl.html" title=
+          "../general/dbus-glib.html" title=
+          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
+          "../gnome/GConf.html" title="GConf-3.2.6">GConf-3.2.6</a>,
+          <a class="xref" href="../postlfs/openssl.html" title=
           "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.4">Python-2.7.4</a> and
-          <a class="xref" href="../general/tcl.html" title=
+          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>,
+          and <a class="xref" href="../general/tcl.html" title=
           "Tcl-8.6.0">Tcl-8.6.0</a>
         </p>
         <p class="usernotes">
@@ -166,7 +165,9 @@
         <pre class="userinput">
 <kbd class=
 "command">patch -Np1 -i ../xchat-2.8.8-glib-2.31-1.patch &amp;&amp;
-LIBS+="-lgmodule-2.0" ./configure --prefix=/usr \
+
+LIBS+="-lgmodule-2.0"         \
+./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --enable-shm &amp;&amp;
 make</kbd>
@@ -251,16 +252,16 @@ install -v -m644    README faq.html \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-09-06 19:06:41 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="transmission.html" title=
-          "Transmission-2.77">Prev</a>
+          "Transmission-2.82">Prev</a>
           <p>
-            Transmission-2.77
+            Transmission-2.82
           </p>
         </li>
         <li class="next">
@@ -272,11 +273,11 @@ install -v -m644    README faq.html \
         </li>
         <li class="up">
           <a accesskey="u" href="other.html" title=
-          "Chapter&nbsp;37.&nbsp;Other X-based Programs">Up</a>
+          "Chapter&nbsp;36.&nbsp;Other X-based Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

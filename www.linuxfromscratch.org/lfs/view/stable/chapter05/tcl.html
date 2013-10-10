@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.10.&nbsp;Tcl-8.6.0
+      5.11.&nbsp;Tcl-8.6.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gcc-pass2.html" title=
-          "GCC-4.7.2 - Pass 2">Prev</a>
+          "GCC-4.8.1 - Pass 2">Prev</a>
           <p>
-            GCC-4.7.2 - Pass 2
+            GCC-4.8.1 - Pass 2
           </p>
         </li>
         <li class="next">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-tools-tcl" name="ch-tools-tcl"></a>5.10. Tcl-8.6.0
+        <a id="ch-tools-tcl" name="ch-tools-tcl"></a>5.11. Tcl-8.6.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -67,7 +67,7 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          5.10.1. Installation of Tcl
+          5.11.1. Installation of Tcl
         </h2>
         <p>
           This package and the next three (Expect, DejaGNU, and Check) are
@@ -81,6 +81,13 @@
           "Chapter&nbsp;6.&nbsp;Installing Basic System Software">Chapter
           6</a>.
         </p>
+        <p>
+          First increase the amount of space needed by some regular
+          expressions in regression tests.
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i s/500/5000/ generic/regc_nfa.c</kbd>
+</pre>
         <p>
           Prepare Tcl for compilation:
         </p>
@@ -145,7 +152,7 @@
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-tcl" name="contents-tcl"></a>5.10.2. Contents of
+          <a id="contents-tcl" name="contents-tcl"></a>5.11.2. Contents of
           Tcl
         </h2>
         <div class="segmentedlist">
@@ -232,9 +239,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gcc-pass2.html" title=
-          "GCC-4.7.2 - Pass 2">Prev</a>
+          "GCC-4.8.1 - Pass 2">Prev</a>
           <p>
-            GCC-4.7.2 - Pass 2
+            GCC-4.8.1 - Pass 2
           </p>
         </li>
         <li class="next">
@@ -249,7 +256,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

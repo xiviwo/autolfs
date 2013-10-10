@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.22.&nbsp;Util-linux-2.22.2
+      6.23.&nbsp;Util-linux-2.23.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="ncurses.html" title="Ncurses-5.9">Prev</a>
+          <a accesskey="p" href="shadow.html" title="Shadow-4.1.5.1">Prev</a>
           <p>
-            Ncurses-5.9
+            Shadow-4.1.5.1
           </p>
         </li>
         <li class="next">
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-util-linux" name="ch-system-util-linux"></a>6.22.
-        Util-linux-2.22.2
+        <a id="ch-system-util-linux" name="ch-system-util-linux"></a>6.23.
+        Util-linux-2.23.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -58,18 +58,18 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">0.7 SBU</span>
+              <span class="segbody">0.6 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">83 MB</span>
+              <span class="segbody">89 MB</span>
             </div>
           </div>
         </div>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.22.1. FHS compliance notes
+          6.23.1. FHS compliance notes
         </h2>
         <p>
           The FHS recommends using the <code class=
@@ -88,7 +88,7 @@ mkdir -pv /var/lib/hwclock</kbd>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.22.2. Installation of Util-linux
+          6.23.2. Installation of Util-linux
         </h2>
         <pre class="userinput">
 <kbd class=
@@ -108,10 +108,10 @@ mkdir -pv /var/lib/hwclock</kbd>
                 These switches disable building su, sulogin, and login. They
                 duplicate the same programs provided by <a class="xref" href=
                 "shadow.html" title=
-                "6.26.&nbsp;Shadow-4.1.5.1">Section&nbsp;6.26,
+                "6.22.&nbsp;Shadow-4.1.5.1">Section&nbsp;6.22,
                 &ldquo;Shadow-4.1.5.1&rdquo;</a> and <a class="xref" href=
                 "sysvinit.html" title=
-                "6.58.&nbsp;Sysvinit-2.88dsf">Section&nbsp;6.58,
+                "6.59.&nbsp;Sysvinit-2.88dsf">Section&nbsp;6.59,
                 &ldquo;Sysvinit-2.88dsf&rdquo;</a>. They also require
                 <a class="ulink" href=
                 "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/linux-pam.html">
@@ -127,8 +127,30 @@ mkdir -pv /var/lib/hwclock</kbd>
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          If desired, run the test suite as a non-root user:
         </p>
+        <div class="admon warning">
+          <img alt="[Warning]" src="../images/warning.png" />
+          <h3>
+            Warning
+          </h3>
+          <p>
+            Running the test suite as the root user can be harmful to your
+            system. To run it, the kernel CONFIG_SCSI_DEBUG option for the
+            kernel must be available in the currently running system. The
+            CONFIG_SCSI_DEBUG option must be built as a module. Building it
+            into the kernel will prevent booting. For complete coverage,
+            other BLFS packages must be installed. If desired, this test can
+            be run after rebooting into the completed LFS system and running:
+          </p>
+          <pre class="userinput">
+<kbd class="command">bash tests/run.sh --srcdir=$PWD --builddir=$PWD</kbd>
+</pre>
+        </div>
+        <pre class="userinput">
+<kbd class="command">chown -Rv nobody .
+su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
+</pre>
         <p>
           Install the package:
         </p>
@@ -138,7 +160,7 @@ mkdir -pv /var/lib/hwclock</kbd>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-utillinux" name="contents-utillinux"></a>6.22.3.
+          <a id="contents-utillinux" name="contents-utillinux"></a>6.23.3.
           Contents of Util-linux
         </h2>
         <div class="segmentedlist">
@@ -157,8 +179,8 @@ mkdir -pv /var/lib/hwclock</kbd>
               readprofile, rename, renice, resizepart, rev, rtcwake, script,
               scriptreplay, setarch, setsid, setterm, sfdisk, swaplabel,
               swapoff (link to swapon), swapon, switch_root, tailf, taskset,
-              tunelp, ul, umount, unshare, utmpdump, uuidd, uuidgen, wall,
-              wdctl, whereis, wipefs, and x86_64</span>
+              ul, umount, unshare, utmpdump, uuidd, uuidgen, wall, wdctl,
+              whereis, wipefs, and x86_64</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed libraries:</strong>
@@ -1333,20 +1355,6 @@ mkdir -pv /var/lib/hwclock</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="tunelp" name="tunelp"></a><span class=
-                    "term"><span class=
-                    "command"><strong>tunelp</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Tunes the parameters of the line printer
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="ul" name="ul"></a><span class="term"><span class=
                     "command"><strong>ul</strong></span></span>
                   </p>
@@ -1556,9 +1564,9 @@ mkdir -pv /var/lib/hwclock</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="ncurses.html" title="Ncurses-5.9">Prev</a>
+          <a accesskey="p" href="shadow.html" title="Shadow-4.1.5.1">Prev</a>
           <p>
-            Ncurses-5.9
+            Shadow-4.1.5.1
           </p>
         </li>
         <li class="next">
@@ -1573,7 +1581,7 @@ mkdir -pv /var/lib/hwclock</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

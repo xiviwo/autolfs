@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
@@ -219,8 +219,8 @@
             this file other than comments are considered subsystem names to
             trigger at retry time. To find the subsystem of a device, use
             <span class="command"><strong>udevadm info --attribute-walk
-            &lt;device&gt;</strong></span> where &lt;device&gt; is a an
-            absolure path in /dev or /sys such as /dev/sr0 or /sys/class/rtc.
+            &lt;device&gt;</strong></span> where &lt;device&gt; is an
+            absolute path in /dev or /sys such as /dev/sr0 or /sys/class/rtc.
           </p>
         </div>
         <div class="sect3" lang="en" xml:lang="en">
@@ -293,9 +293,9 @@
             Udev will only load a module if it has a bus-specific alias and
             the bus driver properly exports the necessary aliases to
             <code class="systemitem">sysfs</code>. In other cases, one should
-            arrange module loading by other means. With Linux-3.8.1, Udev is
-            known to load properly-written drivers for INPUT, IDE, PCI, USB,
-            SCSI, SERIO, and FireWire devices.
+            arrange module loading by other means. With Linux-3.10.10, Udev
+            is known to load properly-written drivers for INPUT, IDE, PCI,
+            USB, SCSI, SERIO, and FireWire devices.
           </p>
           <p>
             To determine if the device driver you require has the necessary
@@ -316,8 +316,8 @@
             If there is no <code class="filename">modalias</code> file in the
             relevant directory under <code class="filename">/sys/bus</code>,
             this means that the kernel developers have not yet added modalias
-            support to this bus type. With Linux-3.8.1, this is the case with
-            ISA busses. Expect this issue to be fixed in later kernel
+            support to this bus type. With Linux-3.10.10, this is the case
+            with ISA busses. Expect this issue to be fixed in later kernel
             versions.
           </p>
           <p>
@@ -514,7 +514,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

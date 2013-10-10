@@ -5,34 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      JUnit-4.10
+      JUnit-4.11
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="openjdk.html" title=
-          "OpenJDK-1.7.0.9">Prev</a>
+          <a accesskey="p" href="java.html" title="About Java">Prev</a>
           <p>
-            OpenJDK-1.7.0.9
+            About Java
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="librep.html" title=
-          "Librep-0.92.2.1">Next</a>
+          <a accesskey="n" href="apache-ant.html" title=
+          "apache-ant-1.9.2">Next</a>
           <p>
-            Librep-0.92.2.1
+            apache-ant-1.9.2
           </p>
         </li>
         <li class="up">
@@ -41,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="junit" name="junit"></a>JUnit-4.10
+        <a id="junit" name="junit"></a>JUnit-4.11
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,7 +61,7 @@
           runners for running tests.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -73,12 +72,13 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/junit/junit4.10.zip">http://downloads.sourceforge.net/junit/junit4.10.zip</a>
+                "https://launchpad.net/debian/+archive/primary/+files/junit4_4.11.orig.tar.gz">
+                https://launchpad.net/debian/+archive/primary/+files/junit4_4.11.orig.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 0666bd1b9a7296ff2b6ee478c82a516b
+                Download MD5 sum: b4d163832583dcec8bedb5427c795cc4
               </p>
             </li>
             <li>
@@ -88,12 +88,32 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 15 MB
+                Estimated disk space required: 34 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: less than 0.1 SBU
+                Estimated build time: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required file: <a class="ulink" href=
+                "http://anduin.linuxfromscratch.org/sources/other/junit-4.11.jar">
+                http://anduin.linuxfromscratch.org/sources/other/junit-4.11.jar</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Required file: <a class="ulink" href=
+                "http://hamcrest.googlecode.com/files/hamcrest-1.3.tgz">http://hamcrest.googlecode.com/files/hamcrest-1.3.tgz</a>
               </p>
             </li>
           </ul>
@@ -105,7 +125,9 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="unzip.html" title="UnZip-6.0">UnZip-6.0</a>
+          <a class="xref" href="apache-ant.html" title=
+          "apache-ant-1.9.2">apache-ant-1.9.2</a> and <a class="xref" href=
+          "unzip.html" title="UnZip-6.0">UnZip-6.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -117,38 +139,55 @@
           Installation of JUnit
         </h2>
         <p>
-          Install <span class="application">JUnit</span> by running the
-          following commands as the <code class="systemitem">root</code>
-          user:
+          To do a full build of JUnit from source, <a class="xref" href=
+          "apache-ant.html" title="apache-ant-1.9.2">apache-ant-1.9.2</a> is
+          required. However JUnit is useful in building Apache Ant. Copy the
+          JUnit-4.11 jar file to get started. Then come back to build from
+          source, if desired.
+        </p>
+        <p>
+          Install the <span class="application">JUnit</span> jar file by
+          running the following commands as the <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">install -v -m755 -d /usr/share/java &amp;&amp;
+cp -v junit-4.11.jar /usr/share/java</kbd>
+</pre>
+        <p>
+          At this point, make sure Apache-Ant is installed and then continue
+          with the source build and installation. From the directory created
+          when extracting the JUnit sources, place the required hamcrest jar
+          files where needed and build the package:
         </p>
         <pre class="root">
 <kbd class=
-"command">install -v -m755 -d /usr/share/{,doc/}junit-4.10 &amp;&amp;
-chown -R root:root .                             &amp;&amp;
-cp -v -R junit* org  /usr/share/junit-4.10       &amp;&amp;
-cp -v -R *.html *doc /usr/share/doc/junit-4.10</kbd>
+"command">tar -xf ../hamcrest-1.3.tgz                              &amp;&amp;
+cp -v hamcrest-1.3/hamcrest-core-1.3{,-sources}.jar lib/ &amp;&amp;
+ant dist</kbd>
 </pre>
         <p>
-          Add the <code class="filename">junit-4.10.jar</code> and
-          <code class="filename">/usr/share/junit-4.10</code> directory to
-          your system <code class="envar">CLASSPATH</code> environment
-          variable:
+          Testing is automatically done as a part of the build step.
         </p>
-        <pre class="userinput">
-<kbd class="command">export CLASSPATH=$CLASSPATH:\
-   /usr/share/junit-4.10/junit-4.10.jar:/usr/share/junit-4.10</kbd>
+        <p>
+          Install the files in the final location as the <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">install -v -m755 -d /usr/share/{doc,java}/junit-4.11 &amp;&amp;
+chown -R root:root .                                 &amp;&amp;
+
+cp -v -R junit*/javadoc/*             /usr/share/doc/junit-4.11  &amp;&amp;
+cp -v junit*/junit*.jar               /usr/share/java/junit-4.11 &amp;&amp;
+cp -v hamcrest-1.3/hamcrest-core*.jar /usr/share/java/junit-4.11</kbd>
 </pre>
         <p>
-          To run the <span class="application">JUnit</span> regression
-          self-tests, you'll need to have <a class="xref" href="openjdk.html"
-          title="OpenJDK-1.7.0.9">OpenJDK-1.7.0.9</a>, or <a class="ulink"
-          href="http://jikes.sourceforge.net/">Jikes</a> installed and the
-          <code class="envar">CLASSPATH</code> environment variable updated.
-          Then, as an unprivileged user, issue:
+          Finally, update the <code class="envar">CLASSPATH</code> variable:
         </p>
         <pre class="userinput">
 <kbd class=
-"command">java org.junit.runner.JUnitCore org.junit.tests.AllTests</kbd>
+"command">export CLASSPATH=$CLASSPATH:/usr/share/java/junit-4.11</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -162,13 +201,13 @@ cp -v -R *.html *doc /usr/share/doc/junit-4.10</kbd>
               <span class="segbody">None</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">junit-4.10.jar</span>
+              <strong class="segtitle">Installed Libraies:</strong>
+              <span class="segbody">hamcrest-core and junit jar files</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/share/junit-4.10,
-              /usr/share/doc/junit-4.10</span>
+              <span class="segbody">/usr/share/doc/junit-4.11 and
+              /usr/share/java/junit-4.11</span>
             </div>
           </div>
         </div>
@@ -183,8 +222,8 @@ cp -v -R *.html *doc /usr/share/doc/junit-4.10</kbd>
                 <td>
                   <p>
                     <a id="junit.jar" name="junit.jar"></a><span class=
-                    "term"><code class=
-                    "filename">junit-4.10.jar</code></span>
+                    "term"><code class="filename">junit jar
+                    files</code></span>
                   </p>
                 </td>
                 <td>
@@ -199,23 +238,22 @@ cp -v -R *.html *doc /usr/share/doc/junit-4.10</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2012-10-29 21:22:54 +0000
+        Last updated on 2013-09-10 16:12:30 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="openjdk.html" title=
-          "OpenJDK-1.7.0.9">Prev</a>
+          <a accesskey="p" href="java.html" title="About Java">Prev</a>
           <p>
-            OpenJDK-1.7.0.9
+            About Java
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="librep.html" title=
-          "Librep-0.92.2.1">Next</a>
+          <a accesskey="n" href="apache-ant.html" title=
+          "apache-ant-1.9.2">Next</a>
           <p>
-            Librep-0.92.2.1
+            apache-ant-1.9.2
           </p>
         </li>
         <li class="up">
@@ -224,7 +262,7 @@ cp -v -R *.html *doc /usr/share/doc/junit-4.10</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

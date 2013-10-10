@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -29,10 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="liboauth.html" title=
-          "liboauth-1.0.1">Next</a>
+          <a accesskey="n" href="linux-pam.html" title=
+          "Linux-PAM-1.1.7">Next</a>
           <p>
-            liboauth-1.0.1
+            Linux-PAM-1.1.7
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           powerful root privilege into a set of distinct privileges.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -112,7 +112,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="attr.html" title=
-          "attr-2.4.46">attr-2.4.46</a>
+          "attr-2.4.47">attr-2.4.47</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="linux-pam.html" title=
+          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -133,6 +140,13 @@
         <p>
           This package does not come with a test suite.
         </p>
+        <p>
+          If you want to disable installing the static library, use this sed:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i '/install.*STALIBNAME/ s/^/#/' libcap/Makefile</kbd>
+</pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
@@ -190,7 +204,7 @@
                 </td>
                 <td>
                   <p>
-                    is a shell wrapper to exploredand constraine capability
+                    is a shell wrapper to explore and constrain capability
                     support.
                   </p>
                 </td>
@@ -241,8 +255,7 @@
                 <td>
                   <p>
                     <a id="libcap2-lib" name="libcap2-lib"></a><span class=
-                    "term"><code class=
-                    "filename">libcap2.{so,a}</code></span>
+                    "term"><code class="filename">libcap.{so,a}</code></span>
                   </p>
                 </td>
                 <td>
@@ -257,7 +270,7 @@
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-13 17:58:54 +0000
+        Last updated on 2013-08-20 22:41:29 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -270,10 +283,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="liboauth.html" title=
-          "liboauth-1.0.1">Next</a>
+          <a accesskey="n" href="linux-pam.html" title=
+          "Linux-PAM-1.1.7">Next</a>
           <p>
-            liboauth-1.0.1
+            Linux-PAM-1.1.7
           </p>
         </li>
         <li class="up">
@@ -282,7 +295,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

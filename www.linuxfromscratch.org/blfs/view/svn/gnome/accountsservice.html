@@ -5,27 +5,27 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      AccountsService-0.6.31
+      AccountsService-0.6.34
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;30.&nbsp;GNOME Core Packages
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnome-shared-mime-info.html" title=
-          "shared-mime-info-1.1">Prev</a>
+          <a accesskey="p" href="core.html" title=
+          "GNOME Core Packages">Prev</a>
           <p>
-            shared-mime-info-1.1
+            GNOME Core Packages
           </p>
         </li>
         <li class="next">
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="accountsservice" name=
-        "accountsservice"></a>AccountsService-0.6.31
+        "accountsservice"></a>AccountsService-0.6.34
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,7 +62,7 @@
           useradd(8) and userdel(8) commands.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -73,13 +73,13 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.freedesktop.org/software/accountsservice/accountsservice-0.6.31.tar.xz">
-                http://www.freedesktop.org/software/accountsservice/accountsservice-0.6.31.tar.xz</a>
+                "http://www.freedesktop.org/software/accountsservice/accountsservice-0.6.34.tar.xz">
+                http://www.freedesktop.org/software/accountsservice/accountsservice-0.6.34.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: d594f1da95c6a83c0463695ca31815b2
+                Download MD5 sum: dbf4323b688a314b4bf76890ad6d5279
               </p>
             </li>
             <li>
@@ -108,23 +108,23 @@
         <p class="required">
           <a class="xref" href="../general/libxslt.html" title=
           "libxslt-1.1.28">libxslt-1.1.28</a> and <a class="xref" href=
-          "../postlfs/polkit.html" title="Polkit-0.110">Polkit-0.110</a>
+          "../postlfs/polkit.html" title="Polkit-0.111">Polkit-0.111</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.34.2">gobject-introspection-1.34.2</a> and
+          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a> and
           <a class="xref" href="../general/vala.html" title=
-          "Vala-0.18.1">Vala-0.18.1</a>
+          "Vala-0.20.1">Vala-0.20.1</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.18">GTK-Doc-1.18</a> and <a class="xref" href=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="xref" href=
           "../pst/xmlto.html" title="xmlto-0.0.25">xmlto-0.0.25</a>
         </p>
         <p class="usernotes">
@@ -141,11 +141,13 @@
           the following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var \
-            --libexecdir=/usr/lib/accountsservice \
-            --disable-static &amp;&amp;
+<kbd class="command">
+./configure --prefix=/usr            \
+            --sysconfdir=/etc        \
+            --localstatedir=/var     \
+            --enable-admin-group=adm \
+            --disable-static         \
+            --libexecdir=/usr/lib/accountsservice &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -162,6 +164,10 @@ make</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <em class="parameter"><code>--enable-admin-group=adm</code></em>:
+          This switch sets group for administrator accounts.
+        </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
@@ -190,7 +196,7 @@ make</kbd>
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/accountsservice-1.0,
               /usr/lib/accountsservice,
-              /usr/share/gtk-doc/html/libaccountsservice and
+              /usr/share/gtk-doc/html/libaccountsservice, and
               /var/lib/AccountsService</span>
             </div>
           </div>
@@ -237,16 +243,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-27 18:04:22 +0000
+        Last updated on 2013-09-03 19:08:19 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnome-shared-mime-info.html" title=
-          "shared-mime-info-1.1">Prev</a>
+          <a accesskey="p" href="core.html" title=
+          "GNOME Core Packages">Prev</a>
           <p>
-            shared-mime-info-1.1
+            GNOME Core Packages
           </p>
         </li>
         <li class="next">
@@ -262,7 +268,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

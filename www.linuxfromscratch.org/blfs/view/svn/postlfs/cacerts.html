@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="attr.html" title="attr-2.4.46">Prev</a>
+          <a accesskey="p" href="attr.html" title="attr-2.4.47">Prev</a>
           <p>
-            attr-2.4.46
+            attr-2.4.47
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
         "application">openssl</span>.
       </p>
       <p>
-        This package is known to build and work properly using an LFS-7.3
+        This package is known to build and work properly using an LFS-7.4
         platform.
       </p>
       <div class="package" lang="en" xml:lang="en">
@@ -107,9 +107,9 @@
           "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
         </p>
         <h4>
-          Optional
+          Recommended
         </h4>
-        <p class="optional">
+        <p class="recommended">
           <a class="xref" href="../basicnet/wget.html" title=
           "Wget-1.14">Wget-1.14</a>
         </p>
@@ -129,7 +129,7 @@
         </p>
         <pre class="root">
 <kbd class="command">cat &gt; /bin/make-cert.pl &lt;&lt; "EOF"
-#!/usr/bin/perl -w
+<code class="literal">#!/usr/bin/perl -w
 
 # Used to generate PEM encoded files from Mozilla certdata.txt.
 # Run as ./mkcrt.pl &gt; certificate.crt
@@ -177,7 +177,7 @@ while ( &lt;IN&gt; )
             printf( OUT "%c", oct($b) ) unless $b eq '';
         }
     }
-}
+}</code>
 EOF
 
 chmod +x /bin/make-cert.pl</kbd>
@@ -191,7 +191,7 @@ chmod +x /bin/make-cert.pl</kbd>
         </p>
         <pre class="root">
 <kbd class="command">cat &gt; /bin/make-ca.sh &lt;&lt; "EOF"
-#!/bin/bash
+<code class="literal">#!/bin/bash
 # Begin make-ca.sh
 # Script to populate OpenSSL's CApath from a bundle of PEM formatted CAs
 #
@@ -285,7 +285,7 @@ fi
 
 # Finally, generate the bundle and clean up.
 cat certs/*.pem &gt;  ${BUNDLE}
-rm -r "${TEMPDIR}"
+rm -r "${TEMPDIR}"</code>
 EOF
 
 chmod +x /bin/make-ca.sh</kbd>
@@ -297,7 +297,7 @@ chmod +x /bin/make-ca.sh</kbd>
         </p>
         <pre class="root">
 <kbd class="command">cat &gt; /bin/remove-expired-certs.sh &lt;&lt; "EOF"
-#!/bin/bash
+<code class="literal">#!/bin/bash
 # Begin /bin/remove-expired-certs.sh
 #
 # Version 20120211
@@ -349,7 +349,7 @@ for cert in $certs; do
      echo "${cert} expired on ${certdate}! Removing..."
      rm -f "${cert}"
   fi
-done
+done</code>
 EOF
 
 chmod +x /bin/remove-expired-certs.sh</kbd>
@@ -378,11 +378,12 @@ remove-expired-certs.sh certs</kbd>
         </p>
         <pre class="root">
 <kbd class=
-"command">SSLDIR=/etc/ssl                                     &amp;&amp;
-install -d ${SSLDIR}/certs                          &amp;&amp;
-cp -v certs/*.pem ${SSLDIR}/certs                   &amp;&amp;
-c_rehash                                            &amp;&amp;
-install BLFS-ca-bundle*.crt ${SSLDIR}/ca-bundle.crt &amp;&amp;
+"command">SSLDIR=/etc/ssl                                             &amp;&amp;
+install -d ${SSLDIR}/certs                                  &amp;&amp;
+cp -v certs/*.pem ${SSLDIR}/certs                           &amp;&amp;
+c_rehash                                                    &amp;&amp;
+install BLFS-ca-bundle*.crt ${SSLDIR}/ca-bundle.crt         &amp;&amp;
+ln -sv ../ca-bundle.crt ${SSLDIR}/certs/ca-certificates.crt &amp;&amp;
 unset SSLDIR</kbd>
 </pre>
         <p>
@@ -391,6 +392,14 @@ unset SSLDIR</kbd>
         <pre class="userinput">
 <kbd class="command">rm -r certs BLFS-ca-bundle*</kbd>
 </pre>
+        <p>
+          After installing or updating certificates, if OpenJDK is installed,
+          update the certificates for Java using the procedures at <a class=
+          "xref" href="../general/openjdk.html#ojdk-certs" title=
+          "Install or update the JRE Certificate Authority Certificates (cacerts) file">
+          the section called &ldquo;Install or update the JRE Certificate
+          Authority Certificates (cacerts) file&rdquo;</a>.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -474,15 +483,15 @@ unset SSLDIR</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-04 23:08:42 +0000
+        Last updated on 2013-09-11 17:21:08 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="attr.html" title="attr-2.4.46">Prev</a>
+          <a accesskey="p" href="attr.html" title="attr-2.4.47">Prev</a>
           <p>
-            attr-2.4.46
+            attr-2.4.47
           </p>
         </li>
         <li class="next">
@@ -498,7 +507,7 @@ unset SSLDIR</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

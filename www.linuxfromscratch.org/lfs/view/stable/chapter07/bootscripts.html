@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      7.6.&nbsp;LFS-Bootscripts-20130123
+      7.6.&nbsp;LFS-Bootscripts-20130821
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-scripts-bootscripts" name="ch-scripts-bootscripts"></a>7.6.
-        LFS-Bootscripts-20130123
+        LFS-Bootscripts-20130821
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -63,7 +63,7 @@
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">256 KB</span>
+              <span class="segbody">260 KB</span>
             </div>
           </div>
         </div>
@@ -89,8 +89,8 @@
             <div class="seg">
               <strong class="segtitle">Installed scripts:</strong>
               <span class="segbody">checkfs, cleanfs, console, functions,
-              halt, ifdown, ifup, localnet, modules, mountfs, mountkernfs,
-              network, rc, reboot, sendsignals, setclock, static, swap,
+              halt, ifdown, ifup, localnet, modules, mountfs, mountvirtfs,
+              network, rc, reboot, sendsignals, setclock, ipv4-static, swap,
               sysctl, sysklogd, template, udev, and udev_retry</span>
             </div>
             <div class="seg">
@@ -266,10 +266,10 @@
               <tr>
                 <td>
                   <p>
-                    <a id="mountkernfs-bootscripts" name=
-                    "mountkernfs-bootscripts"></a><span class=
+                    <a id="mountvirtfs-bootscripts" name=
+                    "mountvirtfs-bootscripts"></a><span class=
                     "term"><span class=
-                    "command"><strong>mountkernfs</strong></span></span>
+                    "command"><strong>mountvirtfs</strong></span></span>
                   </p>
                 </td>
                 <td>
@@ -359,9 +359,10 @@
               <tr>
                 <td>
                   <p>
-                    <a id="static-bootscripts" name=
-                    "static-bootscripts"></a><span class="term"><span class=
-                    "command"><strong>static</strong></span></span>
+                    <a id="ipv4-static-bootscripts" name=
+                    "ipv4-static-bootscripts"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ipv4-static</strong></span></span>
                   </p>
                 </td>
                 <td>
@@ -488,7 +489,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

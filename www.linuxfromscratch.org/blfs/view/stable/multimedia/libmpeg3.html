@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      libMPEG3-1.8
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libmpeg2.html" title=
+          "libmpeg2-0.5.1">Prev</a>
+          <p>
+            libmpeg2-0.5.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libmusicbrainz.html" title=
+          "libmusicbrainz-2.1.5">Next</a>
+          <p>
+            libmusicbrainz-2.1.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="libmpeg3" name="libmpeg3"></a>libMPEG3-1.8
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to libMPEG3
+        </h2>
+        <p>
+          <span class="application">libMPEG3</span> supports advanced editing
+          and manipulation of MPEG streams.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://downloads.sourceforge.net/heroines/libmpeg3-1.8-src.tar.bz2">
+                http://downloads.sourceforge.net/heroines/libmpeg3-1.8-src.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: a9d0d34e8941a4437eb8e7dfe559eca1
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 2.4 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 13 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/libmpeg3-1.8-makefile_fixes-2.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/libmpeg3-1.8-makefile_fixes-2.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          libMPEG3 Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="liba52.html" title=
+          "Liba52-0.7.4">liba52-0.7.4</a> and <a class="xref" href=
+          "../general/NASM.html" title="NASM-2.10.09">NASM-2.10.09</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libmpeg3">http://wiki.linuxfromscratch.org/blfs/wiki/libmpeg3</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of libMPEG3
+        </h2>
+        <p>
+          Install <span class="application">libMPEG3</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../libmpeg3-1.8-makefile_fixes-2.patch &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">mpeg3cat, mpeg3dump, mpeg3peek and
+              mpeg3toc</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libmpeg3.{so,a}</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/audio and
+              /usr/include/video</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mpeg3cat" name="mpeg3cat"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mpeg3cat</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    concatenates elementary streams or demultiplexes a
+                    program stream (separates components of the stream).
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mpeg3dump" name="mpeg3dump"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mpeg3dump</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    dumps information or extracts audio to a 24 bit PCM file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mpeg3peek" name="mpeg3peek"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mpeg3peek</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    prints the byte offset of a given frame. It only works
+                    for video and requires a table of contents.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mpeg3toc" name="mpeg3toc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mpeg3toc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    creates a table of contents for a DVD or MPEG stream.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libmpeg3-lib" name="libmpeg3-lib"></a><span class=
+                    "term"><code class=
+                    "filename">libmpeg3.{so,a}</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    decodes several MPEG standards into uncompressed data
+                    suitable for editing and playback.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-05 10:04:34 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libmpeg2.html" title=
+          "libmpeg2-0.5.1">Prev</a>
+          <p>
+            libmpeg2-0.5.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libmusicbrainz.html" title=
+          "libmusicbrainz-2.1.5">Next</a>
+          <p>
+            libmusicbrainz-2.1.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

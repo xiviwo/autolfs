@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Imlib2-1.4.5
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ijs.html" title="IJS-0.35">Prev</a>
+          <p>
+            IJS-0.35
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="jasper.html" title="JasPer-1.900.1">Next</a>
+          <p>
+            JasPer-1.900.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphlib.html" title=
+          "Chapter&nbsp;10.&nbsp;Graphics and Font Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="imlib2" name="imlib2"></a>Imlib2-1.4.5
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Imlib2
+        </h2>
+        <p>
+          <span class="application">Imlib2</span> is a graphics library for
+          fast file loading, saving, rendering and manipulation.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://downloads.sourceforge.net/enlightenment/imlib2-1.4.5.tar.bz2">
+                http://downloads.sourceforge.net/enlightenment/imlib2-1.4.5.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 859e5fede51ec819f4314eee11da3ea5
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 880 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 14 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.3 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Imlib2 Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="freetype2.html" title=
+          "FreeType-2.5.0.1">FreeType-2.5.0.1</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../x/installing.html" title=
+          "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
+          System</a>, <a class="xref" href="libpng.html" title=
+          "libpng-1.6.4">libpng-1.6.4</a>, and <a class="xref" href=
+          "libjpeg.html" title="libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="libtiff.html" title=
+          "LibTIFF-4.0.3">LibTIFF-4.0.3</a>, <a class="xref" href=
+          "giflib.html" title="giflib-5.0.5">giflib-5.0.5</a>, and <a class=
+          "ulink" href="http://sourceforge.net/projects/mad">libid3tag</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/imlib2">http://wiki.linuxfromscratch.org/blfs/wiki/imlib2</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Imlib2
+        </h2>
+        <p>
+          Install <span class="application">Imlib2</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i "/DGifOpen/s:fd:&amp;, NULL:" src/modules/loaders/loader_gif.c &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+install -v -m755 -d /usr/share/doc/imlib2-1.4.5 &amp;&amp;
+install -v -m644    doc/{*.gif,index.html} \
+                    /usr/share/doc/imlib2-1.4.5</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i "/DGifOpen/s:fd:&amp;, NULL:"
+          ...</strong></span>: This sed fixes building with recent versions
+          of <span class="application">Giflib</span>.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <em class="parameter"><code>--without-x</code></em>: Add this
+          parameter if you do not have an X Window System installed.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">imlib2_bumpmap, imlib2_colorspace,
+              imlib2-config, imlib2_conv, imlib2_grab, imlib2_poly,
+              imlib2_show, imlib2_test, and imlib2_view</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libImlib2.so and various filters and
+              image loader modules.</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/lib/imlib2,
+              /usr/share/doc/imlib2-1.4.5, and /usr/share/imlib2</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libImlib2" name="libImlib2"></a><span class=
+                    "term"><code class="filename">libImlib2.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    provides the functions for programs to deal with various
+                    image data formats.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-08-27 03:42:56 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="ijs.html" title="IJS-0.35">Prev</a>
+          <p>
+            IJS-0.35
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="jasper.html" title="JasPer-1.900.1">Next</a>
+          <p>
+            JasPer-1.900.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="graphlib.html" title=
+          "Chapter&nbsp;10.&nbsp;Graphics and Font Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -56,7 +56,7 @@
           fast file loading, saving, rendering and manipulation.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -101,10 +101,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="freetype2.html" title=
-          "FreeType-2.4.11">FreeType-2.4.11</a>, <a class="xref" href=
-          "libpng.html" title="libpng-1.6.2">libpng-1.6.2</a>, and <a class=
-          "xref" href="libjpeg.html" title=
-          "libjpeg-turbo-1.2.1">libjpeg-turbo-1.2.1</a>
+          "FreeType-2.5.0.1">FreeType-2.5.0.1</a>
         </p>
         <h4>
           Recommended
@@ -112,7 +109,9 @@
         <p class="recommended">
           <a class="xref" href="../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
-          System</a>
+          System</a>, <a class="xref" href="libpng.html" title=
+          "libpng-1.6.3">libpng-1.6.3</a>, and <a class="xref" href=
+          "libjpeg.html" title="libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>
         </p>
         <h4>
           Optional
@@ -120,7 +119,7 @@
         <p class="optional">
           <a class="xref" href="libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>, <a class="xref" href=
-          "giflib.html" title="giflib-4.1.6">giflib-4.1.6</a>, and <a class=
+          "giflib.html" title="giflib-5.0.5">giflib-5.0.5</a>, and <a class=
           "ulink" href="http://sourceforge.net/projects/mad">libid3tag</a>
         </p>
         <p class="usernotes">
@@ -137,7 +136,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class=
+"command">sed -i "/DGifOpen/s:fd:&amp;, NULL:" src/modules/loaders/loader_gif.c &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -158,6 +159,15 @@ install -v -m644    doc/{*.gif,index.html} \
           Command Explanations
         </h2>
         <p>
+          <span class="command"><strong>sed -i "/DGifOpen/s:fd:&amp;, NULL:"
+          ...</strong></span>: This sed fixes building with recent versions
+          of <span class="application">Giflib</span>.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
           <em class="parameter"><code>--without-x</code></em>: Add this
           parameter if you do not have an X Window System installed.
         </p>
@@ -176,7 +186,7 @@ install -v -m644    doc/{*.gif,index.html} \
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libImlib2.{so,a} and various filters and
+              <span class="segbody">libImlib2.so and various filters and
               image loader modules.</span>
             </div>
             <div class="seg">
@@ -197,8 +207,7 @@ install -v -m644    doc/{*.gif,index.html} \
                 <td>
                   <p>
                     <a id="libImlib2" name="libImlib2"></a><span class=
-                    "term"><code class=
-                    "filename">libImlib2.{so,a}</code></span>
+                    "term"><code class="filename">libImlib2.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -213,7 +222,7 @@ install -v -m644    doc/{*.gif,index.html} \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2012-08-25 19:08:07 +0000
+        Last updated on 2013-08-27 10:42:56 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -236,7 +245,7 @@ install -v -m644    doc/{*.gif,index.html} \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

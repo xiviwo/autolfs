@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.61.&nbsp;Udev-197 (Extracted from systemd-197)
+      6.62.&nbsp;Udev-206 (Extracted from systemd-206)
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="texinfo.html" title="Texinfo-5.0">Prev</a>
+          <a accesskey="p" href="texinfo.html" title="Texinfo-5.1">Prev</a>
           <p>
-            Texinfo-5.0
+            Texinfo-5.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="vim.html" title="Vim-7.3">Next</a>
+          <a accesskey="n" href="vim.html" title="Vim-7.4">Next</a>
           <p>
-            Vim-7.3
+            Vim-7.4
           </p>
         </li>
         <li class="up">
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-udev" name="ch-system-udev"></a>6.61. Udev-197
-        (Extracted from systemd-197)
+        <a id="ch-system-udev" name="ch-system-udev"></a>6.62. Udev-206
+        (Extracted from systemd-206)
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -63,14 +63,14 @@
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">23 MB</span>
+              <span class="segbody">29 MB</span>
             </div>
           </div>
         </div>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.61.1. Installation of Udev
+          6.62.1. Installation of Udev
         </h2>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -80,7 +80,7 @@
           <p>
             This package is a little different from other packages. The
             initial package that is extracted is <code class=
-            "filename">systemd-197.tar.xz</code> even though the application
+            "filename">systemd-206.tar.xz</code> even though the application
             we are installing is udev. After changing to the systemd
             directory, follow the instructions below.
           </p>
@@ -90,19 +90,19 @@
           Udev. Unpack it into the systemd source directory:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xvf ../udev-lfs-197-2.tar.bz2</kbd>
+<kbd class="command">tar -xvf ../udev-lfs-206-1.tar.bz2</kbd>
 </pre>
         <p>
           Compile the package:
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-197-2/Makefile.lfs</kbd>
+<kbd class="command">make -f udev-lfs-206-1/Makefile.lfs</kbd>
 </pre>
         <p>
           Install the package:
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-197-2/Makefile.lfs install</kbd>
+<kbd class="command">make -f udev-lfs-206-1/Makefile.lfs install</kbd>
 </pre>
         <div class="admon caution">
           <img alt="[Caution]" src="../images/caution.png" />
@@ -136,12 +136,12 @@
           following script to work.
         </p>
         <pre class="userinput">
-<kbd class="command">bash udev-lfs-197-2/init-net-rules.sh</kbd>
+<kbd class="command">bash udev-lfs-206-1/init-net-rules.sh</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-udev" name="contents-udev"></a>6.61.2. Contents of
+          <a id="contents-udev" name="contents-udev"></a>6.62.2. Contents of
           Udev
         </h2>
         <div class="segmentedlist">
@@ -299,15 +299,15 @@
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="texinfo.html" title="Texinfo-5.0">Prev</a>
+          <a accesskey="p" href="texinfo.html" title="Texinfo-5.1">Prev</a>
           <p>
-            Texinfo-5.0
+            Texinfo-5.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="vim.html" title="Vim-7.3">Next</a>
+          <a accesskey="n" href="vim.html" title="Vim-7.4">Next</a>
           <p>
-            Vim-7.3
+            Vim-7.4
           </p>
         </li>
         <li class="up">
@@ -316,7 +316,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

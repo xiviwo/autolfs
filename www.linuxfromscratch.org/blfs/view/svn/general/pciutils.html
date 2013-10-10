@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
@@ -28,9 +28,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="raptor.html" title="Raptor-2.0.9">Next</a>
+          <a accesskey="n" href="pm-utils.html" title=
+          "pm-utils-1.4.1">Next</a>
           <p>
-            Raptor-2.0.9
+            pm-utils-1.4.1
           </p>
         </li>
         <li class="up">
@@ -39,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +58,7 @@
           and setting their configuration registers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -96,7 +97,7 @@
             </li>
             <li>
               <p>
-                Estimated build time: 0.1 SBU
+                Estimated build time: less than 0.1 SBU
               </p>
             </li>
           </ul>
@@ -115,10 +116,12 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">make PREFIX=/usr \
+<kbd class="command">make PREFIX=/usr              \
      SHAREDIR=/usr/share/misc \
-     MANDIR=/usr/share/man \
-     SHARED=yes ZLIB=no all</kbd>
+     MANDIR=/usr/share/man    \
+     SHARED=yes               \
+     ZLIB=no                  \
+     all</kbd>
 </pre>
         <p>
           This package does not come with a test suite.
@@ -127,11 +130,14 @@
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make PREFIX=/usr \
+<kbd class="command">
+make PREFIX=/usr              \
      SHAREDIR=/usr/share/misc \
-     MANDIR=/usr/share/man \
-     SHARED=yes ZLIB=no \
-     install install-lib &amp;&amp;
+     MANDIR=/usr/share/man    \
+     SHARED=yes               \
+     ZLIB=no                  \
+     install install-lib      &amp;&amp;
+
 chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
 </pre>
       </div>
@@ -159,11 +165,11 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
           <span class="command"><strong>update-pciids</strong></span> as the
           <code class="systemitem">root</code> user. This program requires
           the <a class="xref" href="which.html" title=
-          "Which-2.20 and Alternatives">which-2.20</a> script or program to
+          "Which-2.20 and Alternatives">Which-2.20</a> script or program to
           find <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.30.0">cURL-7.30.0</a>, <a class="xref" href=
+          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
           "../basicnet/lynx.html" title=
-          "Lynx-2.8.8dev.15">Lynx-2.8.8dev.15</a> or <a class="xref" href=
+          "Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a> or <a class="xref" href=
           "../basicnet/wget.html" title="Wget-1.14">Wget-1.14</a> which are
           used to download the most current file, and then replace the
           existing file in <code class="filename">/usr/share/misc</code>.
@@ -244,9 +250,9 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
                   <p>
                     fetches the current version of the PCI ID list. Requires
                     <a class="xref" href="../basicnet/curl.html" title=
-                    "cURL-7.30.0">cURL-7.30.0</a>, <a class="xref" href=
+                    "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
                     "../basicnet/lynx.html" title=
-                    "Lynx-2.8.8dev.15">Lynx-2.8.8dev.15</a> or <a class=
+                    "Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a> or <a class=
                     "xref" href="../basicnet/wget.html" title=
                     "Wget-1.14">Wget-1.14</a>.
                   </p>
@@ -271,7 +277,7 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-27 18:04:22 +0000
+        Last updated on 2013-08-18 21:52:29 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -283,9 +289,10 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="raptor.html" title="Raptor-2.0.9">Next</a>
+          <a accesskey="n" href="pm-utils.html" title=
+          "pm-utils-1.4.1">Next</a>
           <p>
-            Raptor-2.0.9
+            pm-utils-1.4.1
           </p>
         </li>
         <li class="up">
@@ -294,7 +301,7 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

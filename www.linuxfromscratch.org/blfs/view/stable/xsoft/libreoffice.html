@@ -1,0 +1,764 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      LibreOffice-4.1.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;34.&nbsp;Office Programs
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gnumeric.html" title=
+          "Gnumeric-1.12.7">Prev</a>
+          <p>
+            Gnumeric-1.12.7
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="graphweb.html" title=
+          "Graphical Web Browsers">Next</a>
+          <p>
+            Graphical Web Browsers
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="office.html" title=
+          "Chapter&nbsp;34.&nbsp;Office Programs">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="libreoffice" name="libreoffice"></a>LibreOffice-4.1.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to LibreOffice
+        </h2>
+        <p>
+          <span class="application">LibreOffice</span> is a full-featured
+          office suite. It is largely compatible with <span class=
+          "application">Microsoft Office</span> and is descended from
+          <span class="application">OpenOffice.org</span>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Core Download: <a class="ulink" href=
+                "http://download.documentfoundation.org/libreoffice/src/4.1.1/libreoffice-4.1.1.2.tar.xz">
+                http://download.documentfoundation.org/libreoffice/src/4.1.1/libreoffice-4.1.1.2.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Core Download MD5 sum: 4eb8fd2b0d1177d19b2f797faabc4ea2
+              </p>
+            </li>
+            <li>
+              <p>
+                Core Download size: 117 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 7.8 GB (509 MB installed)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 173 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Dictionaries: <a class="ulink" href=
+                "http://download.documentfoundation.org/libreoffice/src/4.1.1/libreoffice-dictionaries-4.1.1.2.tar.xz">
+                http://download.documentfoundation.org/libreoffice/src/4.1.1/libreoffice-dictionaries-4.1.1.2.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Dictionaries MD5 sum: 482c3ba55f6062eaf49eb493200643c9
+              </p>
+            </li>
+            <li>
+              <p>
+                Dictionaries size: 35 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Help Files: <a class="ulink" href=
+                "http://download.documentfoundation.org/libreoffice/src/4.1.1/libreoffice-help-4.1.1.2.tar.xz">
+                http://download.documentfoundation.org/libreoffice/src/4.1.1/libreoffice-help-4.1.1.2.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Help Files MD5 sum: f6b418a1ed94ef9d5ee30e9f5d7f305a
+              </p>
+            </li>
+            <li>
+              <p>
+                Help Files size: 1.8 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Translations: <a class="ulink" href=
+                "http://download.documentfoundation.org/libreoffice/src/4.1.1/libreoffice-translations-4.1.1.2.tar.xz">
+                http://download.documentfoundation.org/libreoffice/src/4.1.1/libreoffice-translations-4.1.1.2.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Translations MD5 sum: e8c69bdb55586531cc192904467f5e24
+              </p>
+            </li>
+            <li>
+              <p>
+                Translations size: 124 MB
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-4.1.1.2-system_neon-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-4.1.1.2-system_neon-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          LibreOffice Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/gperf.html" title=
+          "Gperf-3.0.4">Gperf-3.0.4</a>, <a class="xref" href=
+          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>,
+          <span class="application">Perl Modules</span> <a class="xref" href=
+          "../general/perl-modules.html#perl-archive-zip" title=
+          "Archive::Zip-1.30">Archive::Zip-1.30</a> and <a class="xref" href=
+          "../general/perl-modules.html#perl-xml-parser" title=
+          "XML::Parser-2.41">XML::Parser-2.41</a>, <a class="xref" href=
+          "../general/unzip.html" title="UnZip-6.0">UnZip-6.0</a>, <a class=
+          "xref" href="../basicnet/wget.html" title=
+          "Wget-1.14">Wget-1.14</a>, <a class="xref" href=
+          "../general/which.html" title=
+          "Which-2.20 and Alternatives">Which-2.20</a> and <a class="xref"
+          href="../general/zip.html" title="Zip-3.0">Zip-3.0</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Most of these packages are recommended because if they're not
+            installed, the build process will compile and install its own
+            (often older) version.
+          </p>
+        </div>
+        <p class="recommended">
+          <a class="xref" href="../general/boost.html" title=
+          "Boost-1.54.0">Boost-1.54.0</a>, <a class="xref" href=
+          "../pst/cups.html" title="Cups-1.6.3">Cups-1.6.3</a>, <a class=
+          "xref" href="../basicnet/curl.html" title=
+          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
+          "../general/dbus.html" title="D-Bus-1.6.14">D-Bus-1.6.14</a>,
+          <a class="xref" href="../general/expat.html" title=
+          "Expat-2.1.0">expat-2.1.0</a>, <a class="xref" href=
+          "../multimedia/gst-plugins-base.html" title=
+          "gst-plugins-base-0.10.36">gst-plugins-base-0.10.36</a> or
+          <a class="xref" href="../multimedia/gst10-plugins-base.html" title=
+          "gst-plugins-base-1.0.10">gst-plugins-base-1.0.10</a>, <a class=
+          "xref" href="../general/icu.html" title="ICU-51.2">ICU-51.2</a>,
+          <a class="xref" href="../general/lcms2.html" title=
+          "Little CMS-2.5">Little CMS-2.5</a>, <a class="xref" href=
+          "../general/librsvg.html" title=
+          "librsvg-2.37.0">librsvg-2.37.0</a>, <a class="xref" href=
+          "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
+          and <a class="xref" href="../general/libxslt.html" title=
+          "libxslt-1.1.28">libxslt-1.1.28</a>, <a class="xref" href=
+          "../x/mesalib.html" title="MesaLib-9.2.0">MesaLib-9.2.0</a>,
+          <a class="xref" href="../basicnet/neon.html" title=
+          "neon-0.30.0">neon-0.30.0</a>, <a class="xref" href=
+          "../postlfs/nss.html" title="NSS-3.15.1">NSS-3.15.1</a>, <a class=
+          "xref" href="../server/openldap.html" title=
+          "OpenLDAP-2.4.36">OpenLDAP-2.4.36</a> (client only), <a class=
+          "xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
+          "../general/poppler.html" title=
+          "Poppler-0.24.1">Poppler-0.24.1</a>, <a class="xref" href=
+          "../general/python3.html" title="Python-3.3.2">Python-3.3.2</a>
+          (used to build the translations), <a class="xref" href=
+          "../general/redland.html" title="Redland-1.0.16">Redland-1.0.16</a>
+          and <a class="xref" href="../general/unixodbc.html" title=
+          "unixODBC-2.3.1">unixODBC-2.3.1</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/bluez.html" title=
+          "BlueZ-4.101">BlueZ-4.101</a>, <a class="ulink" href=
+          "http://sourceforge.net/projects/cppunit/">Cppunit</a>, <a class=
+          "ulink" href=
+          "http://sourceforge.net/projects/silgraphite/">Graphite2</a>,
+          <a class="xref" href="../x/gtk3.html" title=
+          "GTK+-3.8.4">GTK+-3.8.4</a>, <a class="ulink" href=
+          "http://hunspell.sourceforge.net/">Hunspell</a>, <a class="ulink"
+          href=
+          "http://sourceforge.net/projects/hunspell/files/Hyphen/">Hyphen</a>,
+          <a class="xref" href="../kde/kdelibs.html" title=
+          "Kdelibs-4.11.1">kdelibs-4.11.1</a>, <a class="ulink" href=
+          "http://libwpd.sourceforge.net/">libwpd</a>, <a class="ulink" href=
+          "http://libwpg.sourceforge.net/">libwpg</a>, <a class="ulink" href=
+          "http://libwps.sourceforge.net/">libwps</a>, <a class="ulink" href=
+          "http://www.freedesktop.org/wiki/Software/libcdr/">libcdr</a>,
+          <a class="ulink" href=
+          "http://www.freedesktop.org/wiki/Software/libmspub/">libmspub</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/libmwaw/">libmwaw</a>, <a class=
+          "ulink" href=
+          "http://www.freedesktop.org/wiki/Software/libvisio/">libvisio</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/libcmis/">libcmis</a>, <a class=
+          "ulink" href="http://clucene.sourceforge.net/">CLucene</a>,
+          <a class="ulink" href=
+          "http://www.freedesktop.org/wiki/Software/libexttextcat/">libexttextcat</a>,
+          <a class="ulink" href=
+          "http://tagoh.bitbucket.org/liblangtag/">liblangtag</a>, <a class=
+          "ulink" href=
+          "http://sourceforge.net/projects/libwpd/files/libodfgen/">libodfgen</a>,
+          <a class="ulink" href=
+          "http://hci.iwr.uni-heidelberg.de/vigra/">VIGRA</a>, <a class=
+          "ulink" href=
+          "http://code.google.com/p/multidimalgorithm/">mdds</a>, <a class=
+          "xref" href="../server/mysql.html" title=
+          "MySQL-5.6.13">MySQL-5.6.13</a>, <a class="ulink" href=
+          "http://sourceforge.net/projects/hunspell/files/MyThes/">MyThes</a>,
+          <a class="xref" href="../server/postgresql.html" title=
+          "PostgreSQL-9.3.0">PostgreSQL-9.3.0</a>, <a class="xref" href=
+          "../pst/sane.html" title="SANE-1.0.23">SANE-1.0.23</a> and
+          <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/zenity/">Zenity</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libreoffice">http://wiki.linuxfromscratch.org/blfs/wiki/libreoffice</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of LibreOffice
+        </h2>
+        <div class="admon warning">
+          <img alt="[Warning]" src="../images/warning.png" />
+          <h3>
+            Warning
+          </h3>
+          <p>
+            Untaring the libreoffice-4.1.1.2 tarball as <code class=
+            "systemitem">root</code> has the curious effect of changing the
+            ownership of the <span class="emphasis"><em>parent</em></span>
+            directory to a user with numerical id 11012 and with the
+            permissions set to allow read, write and execute for that user
+            only! If you untared as <code class="systemitem">root</code> in
+            your home folder you could end up unable to log in again. If you
+            untared it in <code class="filename">/usr</code> you would find
+            your user account unable to access any file in <code class=
+            "filename">/usr</code>.
+          </p>
+          <p>
+            You can avoid this unpleasantness by <span class=
+            "emphasis"><em>not</em></span> untaring it as <code class=
+            "systemitem">root</code>. If you must untar it as <code class=
+            "systemitem">root</code> pass the option <code class=
+            "option">--no-overwrite-dir</code> to tar. This is the default
+            when you untar as a user but has to be passed as an option when
+            untaring as <code class="systemitem">root</code>:
+          </p>
+        </div>
+        <pre class="root">
+<kbd class=
+"command">tar -xf libreoffice-4.1.1.2.tar.xz --no-overwrite-dir &amp;&amp;
+cd libreoffice-4.1.1.2</kbd>
+</pre>
+        <p>
+          Unpack the dictionaries file and create symlinks to tarballs from
+          the source directory so they won't get downloaded again (it is not
+          necessary to unpack the help nor the translations tarballs):
+        </p>
+        <pre class="userinput">
+<kbd class="command">install -dm755 src &amp;&amp;
+
+tar -xf ../libreoffice-dictionaries-4.1.1.2.tar.xz --no-overwrite-dir --strip-components=1 &amp;&amp;
+
+ln -sv ../../libreoffice-dictionaries-4.1.1.2.tar.xz src/ &amp;&amp;
+ln -sv ../../libreoffice-help-4.1.1.2.tar.xz src/</kbd>
+</pre>
+        <p>
+          If you have downloaded the translations tarball, create a symlink:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">ln -sv ../../libreoffice-translations-4.1.1.2.tar.xz src/</kbd>
+</pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            During the build process, some packages will be downloaded
+            (including the ones listed as recommended and optional
+            dependencies) if they are not present on the system. Doing so,
+            build time may be different for everyone.
+          </p>
+        </div>
+        <p>
+          In the rest of the page, locales "en-US" and "pt-BR" are examples;
+          the user will change them to suit his needs - you might want to
+          read the "Command Explanations", further below, before proceeding.
+          Due to the large size of the package, the user may prefer to
+          install in <code class="filename">/opt</code>, instead of
+          <code class="filename">/usr</code>. In order to do that, replace
+          <code class="filename">/usr</code> by <code class=
+          "filename">/opt/libreoffice-4.1.1.2</code> in the rest of the page,
+          except in the commands fixing the menu icons. Prepare <span class=
+          "application">LibreOffice</span> for compilation by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -e "/gzip -f/d"   \
+    -e "s|.1.gz|.1|g" \
+    -i bin/distro-install-desktop-integration &amp;&amp;
+sed -e "/distro-install-file-lists/d" -i Makefile.in &amp;&amp;
+
+chmod -v +x bin/unpack-sources &amp;&amp;
+sed -e "s/target\.mk/langlist\.mk/"                \
+    -e "s/tar -xf/tar -x --strip-components=1 -f/" \
+    -e "/tar -x/s/lo_src_dir/start_dir/"           \
+    -i bin/unpack-sources &amp;&amp;
+
+patch -Np1 -i ../libreoffice-4.1.1.2-system_neon-1.patch    &amp;&amp;
+./autogen.sh --prefix=/usr              \
+             --sysconfdir=/etc          \
+             --with-vendor="BLFS"       \
+             --with-lang="en-US pt-BR"  \
+             --with-help                \
+             --with-alloc=system        \
+             --without-java             \
+             --disable-gconf            \
+             --disable-odk              \
+             --disable-postgresql-sdbc  \
+             --enable-python=system     \
+             --with-system-boost        \
+             --with-system-cairo        \
+             --with-system-curl         \
+             --with-system-expat        \
+             --with-system-harfbuzz     \
+             --with-system-icu          \
+             --with-system-jpeg         \
+             --with-system-lcms2        \
+             --with-system-libpng       \
+             --with-system-libxml       \
+             --with-system-mesa-headers \
+             --with-system-neon         \
+             --with-system-nss          \
+             --with-system-odbc         \
+             --with-system-openldap     \
+             --with-system-openssl      \
+             --with-system-poppler      \
+             --with-system-redland      \
+             --with-system-zlib         \
+             --with-parallelism=$(getconf _NPROCESSORS_ONLN)</kbd>
+</pre>
+        <p>
+          The instructions below will only build the package without running
+          any unit tests. If you prefer to run the unit tests, replace
+          <span class="command"><strong>make build</strong></span> with
+          <span class="command"><strong>make</strong></span>
+        </p>
+        <p>
+          Build the package:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make build</kbd>
+</pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make distro-pack-install</kbd>
+</pre>
+        <p>
+          If the dictionaries have been built, again as <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">chown -cR 0:0 dictionaries/                                                  &amp;&amp;
+mkdir -pv /usr/lib/libreoffice/share/extensions/dict-en                      &amp;&amp;
+cp -vR dictionaries/en/*    /usr/lib/libreoffice/share/extensions/dict-en    &amp;&amp;
+mkdir -pv /usr/lib/libreoffice/share/extensions/dict-pt-BR                   &amp;&amp;
+cp -vR dictionaries/pt_BR/* /usr/lib/libreoffice/share/extensions/dict-pt-BR</kbd>
+</pre>
+        <p>
+          In the following, do not replace <code class="filename">/usr</code>
+          by <code class="filename">/opt/libreoffice-4.1.1.2</code>. If
+          installed in <code class="filename">/opt</code> and there are no
+          icons in the new items of the desktop menu, optionally run the
+          following commands, as <code class="systemitem">root</code> user
+          (it may be necessary to logout the session, before the icons
+          appear):
+        </p>
+        <pre class="root">
+<kbd class="command">mkdir -pv /usr/share/pixmaps &amp;&amp;
+for i in writer base calc draw impress math startcenter writer
+do
+  ln -svf /opt/libreoffice-4.1.1.2/share/icons/hicolor/32x32/apps/libreoffice-$i.png \
+          /usr/share/pixmaps/
+done
+unset i</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -e ...</strong></span>: First sed
+          prevents compression of the manual pages, the second one prevents a
+          script that causes install to fail from running and the third one
+          fixes the unpack script.
+        </p>
+        <p>
+          <span class="command"><strong>chmod -v +x ...</strong></span>: Fix
+          the unpack script's permissions.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-vendor=BLFS</code></em>: This
+          switch sets BLFS as the vendor which is mentioned when you click
+          "About" on the toolbar.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-lang="en-US pt-BR"</code></em>:
+          This switch sets what languages to support. To list several
+          languages, separate them with a space. For all languages, use
+          <em class="parameter"><code>--with-lang=ALL</code></em>.
+        </p>
+        <p>
+          For a list of the available languages, you can uncompress the
+          translations tarball, <span class="command"><strong>tar -xf
+          ../libreoffice-translations-4.1.1.2.tar.xz --no-overwrite-dir -C
+          /tmp</strong></span>, and run <span class="command"><strong>ls
+          /tmp/libreoffice-4.1.1.2/translations/source</strong></span>.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-help</code></em>: Without this
+          switch, the help files are not built.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-alloc=system</code></em>: This
+          switch tells <span class="application">LibreOffice</span> to use
+          system allocator instead of the internal one.
+        </p>
+        <p>
+          <code class="option">--without-java</code>: This switch disables
+          <span class="application">Java</span> support in <span class=
+          "application">LibreOffice</span>.
+        </p>
+        <p>
+          <code class="option">--disable-gconf</code>: This switch disables
+          compiling <span class="application">LibreOffice</span> with the
+          deprecated <span class="application">GNOME</span> configuration
+          system support.
+        </p>
+        <p>
+          <code class="option">--disable-odk</code>: This switch disables
+          installing the office development kit. Remove if you want to
+          develop a <span class="application">LibreOffice</span> based
+          application.
+        </p>
+        <p>
+          <code class="option">--disable-postgresql-sdbc</code>: This switch
+          disables compiling <span class="application">LibreOffice</span>
+          with the ability to connect to a <span class=
+          "application">PostgreSQL</span> database. Remove it if you would
+          like <span class="application">LibreOffice</span> to be able to
+          connect to a <span class="application">PostgreSQL</span> database.
+          If you have installed <span class="application">PostgreSQL</span>
+          on your system and would like <span class=
+          "application">LibreOffice</span> to use that rather than compile
+          its own copy, use the <code class=
+          "option">--with-system-postgresql</code> switch.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-python=system</code></em>:
+          This switch tells <span class="application">LibreOffice</span> to
+          use installed <span class="application">Python 3</span> to build
+          the translations instead of the bundled one. If you don't need to
+          build any translations, you can use <code class=
+          "option">--disable-python</code> instead.
+        </p>
+        <p>
+          <code class="option">--with-system-*</code>: These switches prevent
+          <span class="application">LibreOffice</span> from trying to compile
+          its own versions of these dependencies. If you've not installed
+          some of the dependencies, remove the corresponding switches.
+        </p>
+        <p>
+          <code class="option">--with-parallelism=$(getconf
+          _NPROCESSORS_ONLN)</code>: This switch tells <span class=
+          "application">LibreOffice</span> to use all your CPUs to compile in
+          parallel and speed up the build.
+        </p>
+        <p>
+          <code class="option">--disable-cups</code>: Use this switch if you
+          don't need printing support.
+        </p>
+        <p>
+          <code class="option">--disable-gstreamer-0.10</code>: Use this
+          switch if you've not installed <a class="xref" href=
+          "../multimedia/gst-plugins-base.html" title=
+          "gst-plugins-base-0.10.36">gst-plugins-base-0.10.36</a>.
+        </p>
+        <p>
+          <code class="option">--disable-dbus</code>: Use this switch if
+          you've not installed <a class="xref" href="../general/dbus.html"
+          title="D-Bus-1.6.14">D-Bus-1.6.14</a>. It also disables Bluetooth
+          support and font install via PackageKit.
+        </p>
+        <p>
+          <code class="option">--enable-gstreamer</code>: Use this switch if
+          you want to use <a class="xref" href=
+          "../multimedia/gst10-plugins-base.html" title=
+          "gst-plugins-base-1.0.10">gst-plugins-base-1.0.10</a> instead of
+          <a class="xref" href="../multimedia/gst-plugins-base.html" title=
+          "gst-plugins-base-0.10.36">gst-plugins-base-0.10.36</a> for the
+          avmedia module.
+        </p>
+        <p>
+          <code class="option">--enable-gtk3</code>: Use this switch if you
+          want to build the <span class="application">GTK+ 3</span>
+          integration module.
+        </p>
+        <p>
+          <code class="option">--enable-kde4</code>: Use this switch if you
+          want to build the <span class="application">KDE</span> integration
+          module.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">libreoffice, lobase, localc, lodraw,
+              loffice, lofromtemplate, loimpress, lomath, loweb, lowriter,
+              soffice and unopkg</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directory:</strong>
+              <span class="segbody">/usr/lib/libreoffice</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lobase" name="lobase"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lobase</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a database manager.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="localc" name="localc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>localc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a spreadsheet program.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lodraw" name="lodraw"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lodraw</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a vector graphics editor and diagramming tool.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="loimpress" name="loimpress"></a><span class=
+                    "term"><span class=
+                    "command"><strong>loimpress</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    can edit and display PowerPoint presentations.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lomath" name="lomath"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lomath</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a mathematical formula editor.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lowriter" name="lowriter"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lowriter</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a word processor.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="unopkg" name="unopkg"></a><span class=
+                    "term"><span class=
+                    "command"><strong>unopkg</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a tool to manage <span class=
+                    "application">LibreOffice</span> extensions from the
+                    command line.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-10 07:37:56 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gnumeric.html" title=
+          "Gnumeric-1.12.7">Prev</a>
+          <p>
+            Gnumeric-1.12.7
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="graphweb.html" title=
+          "Graphical Web Browsers">Next</a>
+          <p>
+            Graphical Web Browsers
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="office.html" title=
+          "Chapter&nbsp;34.&nbsp;Office Programs">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

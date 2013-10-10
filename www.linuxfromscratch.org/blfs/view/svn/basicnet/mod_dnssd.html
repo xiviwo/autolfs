@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;16.&nbsp;Networking Utilities
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="bind-utils.html" title=
-          "BIND Utilities-9.9.2-P2">Prev</a>
+          "BIND Utilities-9.9.3-P2">Prev</a>
           <p>
-            BIND Utilities-9.9.2-P2
+            BIND Utilities-9.9.3-P2
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="networkmanager.html" title=
-          "NetworkManager-0.9.8.0">Next</a>
+          "NetworkManager-0.9.8.2">Next</a>
           <p>
-            NetworkManager-0.9.8.0
+            NetworkManager-0.9.8.2
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
           available to clients compatible with the protocol.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -107,7 +107,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../server/apache.html" title=
-          "Apache-2.4.4">Apache-2.4.4</a> and <a class="xref" href=
+          "Apache-2.4.6">Apache-2.4.6</a> and <a class="xref" href=
           "avahi.html" title="Avahi-0.6.31">Avahi-0.6.31</a>
         </p>
         <h4>
@@ -115,7 +115,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="lynx.html" title=
-          "Lynx-2.8.8dev.15">Lynx-2.8.8dev.15</a>
+          "Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -131,7 +131,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr \
+<kbd class=
+"command">sed -i 's/unixd_setup_child/ap_&amp;/' src/mod_dnssd.c &amp;&amp;
+./configure --prefix=/usr \
             --disable-lynx &amp;&amp;
 make</kbd>
 </pre>
@@ -142,7 +144,8 @@ make</kbd>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make install</kbd>
+<kbd class="command">make install
+sed -i 's| usr| /usr|' /etc/httpd/httpd.conf</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -150,10 +153,21 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
+          <span class="command"><strong>sed ...
+          src/mod_dnssd.c</strong></span>: Fix an external function call that
+          has been updated since this package was released.
+        </p>
+        <p>
           <code class="option">--disable-lynx</code>: This parameter turns
           off <span class="application">Lynx</span> usage for documentation
           generation. Remove it if you have <span class=
           "application">Lynx</span> installed.
+        </p>
+        <p>
+          <span class="command"><strong>sed ...
+          /etc/httpd/httpd.conf</strong></span>: Fix a directory path that
+          the intallation procedure incorrectly puts in the httpd
+          configuration file.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -203,23 +217,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-01-25 16:32:25 +0000
+        Last updated on 2013-09-07 00:59:05 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="bind-utils.html" title=
-          "BIND Utilities-9.9.2-P2">Prev</a>
+          "BIND Utilities-9.9.3-P2">Prev</a>
           <p>
-            BIND Utilities-9.9.2-P2
+            BIND Utilities-9.9.3-P2
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="networkmanager.html" title=
-          "NetworkManager-0.9.8.0">Next</a>
+          "NetworkManager-0.9.8.2">Next</a>
           <p>
-            NetworkManager-0.9.8.0
+            NetworkManager-0.9.8.2
           </p>
         </li>
         <li class="up">
@@ -228,7 +242,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      OpenOBEX-1.6
+      OpenOBEX-1.7.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="nspr.html" title="NSPR-4.9.6">Prev</a>
+          <a accesskey="p" href="nspr.html" title="NSPR-4.10">Prev</a>
           <p>
-            NSPR-4.9.6
+            NSPR-4.10
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="pcre.html" title="PCRE-8.32">Next</a>
+          <a accesskey="n" href="pcre.html" title="PCRE-8.33">Next</a>
           <p>
-            PCRE-8.32
+            PCRE-8.33
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="openobex" name="openobex"></a>OpenOBEX-1.6
+        <a id="openobex" name="openobex"></a>OpenOBEX-1.7.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           file transfers between devices.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -68,28 +68,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/openobex/openobex-1.6-Source.tar.gz">
-                http://downloads.sourceforge.net/openobex/openobex-1.6-Source.tar.gz</a>
+                "http://downloads.sourceforge.net/openobex/openobex-1.7.1-Source.tar.gz">
+                http://downloads.sourceforge.net/openobex/openobex-1.7.1-Source.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 485734c0e5a6c4a7bd697a0989b67a56
+                Download MD5 sum: 3181bfed9cb7db591605391068cb0085
               </p>
             </li>
             <li>
               <p>
-                Download size: 696 KB
+                Download size: 136 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 5.0 MB
+                Estimated disk space required: 3.6 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.1 SBU
+                Estimated build time: less than 0.1 SBU
               </p>
             </li>
           </ul>
@@ -101,16 +101,27 @@
           Required
         </h4>
         <p class="required">
+          <a class="xref" href="cmake.html" title=
+          "CMake-2.8.11.2">CMake-2.8.11.2</a> and <a class="xref" href=
+          "libusb.html" title="libusb-1.0.9">libusb-1.0.9</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
           <a class="xref" href="bluez.html" title=
-          "BlueZ-4.101">BlueZ-4.101</a> and <a class="xref" href=
-          "libusb-compat.html" title=
-          "libusb-compat-0.1.4">libusb-compat-0.1.4</a>
+          "BlueZ-4.101">BlueZ-4.101</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../pst/xmlto.html" title=
+          <a class="xref" href="doxygen.html" title=
+          "Doxygen-1.8.5">Doxygen-1.8.5</a>, <a class="xref" href=
+          "libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>, <a class=
+          "xref" href="openjdk.html" title=
+          "OpenJDK-1.7.0.40/IcedTea-2.4.1">OpenJDK-1.7.0.40/IcedTea-2.4.1</a>,
+          and <a class="xref" href="../pst/xmlto.html" title=
           "xmlto-0.0.25">xmlto-0.0.25</a>
         </p>
         <p class="usernotes">
@@ -127,7 +138,13 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
+<kbd class="command">mkdir build &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_INSTALL_LIBDIR=lib  \
+      -DCMAKE_BUILD_TYPE=Release  \
+      .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -145,8 +162,9 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>--disable-static</code></em>: This
-          switch prevents installation of static versions of the libraries.
+          <em class="parameter"><code>-DCMAKE_BUILD_TYPE=Release</code></em>:
+          This switch is used to apply higher level of the compiler
+          optimizations.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -196,21 +214,21 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-01-24 01:50:00 +0000
+        Last updated on 2013-09-05 16:23:52 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="nspr.html" title="NSPR-4.9.6">Prev</a>
+          <a accesskey="p" href="nspr.html" title="NSPR-4.10">Prev</a>
           <p>
-            NSPR-4.9.6
+            NSPR-4.10
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="pcre.html" title="PCRE-8.32">Next</a>
+          <a accesskey="n" href="pcre.html" title="PCRE-8.33">Next</a>
           <p>
-            PCRE-8.32
+            PCRE-8.33
           </p>
         </li>
         <li class="up">
@@ -219,7 +237,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

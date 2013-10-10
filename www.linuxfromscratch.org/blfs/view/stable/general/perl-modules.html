@@ -1,0 +1,741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      Perl Modules
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.4">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+      </h4>
+      <h3>
+        Chapter&nbsp;13.&nbsp;Programming
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="NASM.html" title="NASM-2.10.09">Prev</a>
+          <p>
+            NASM-2.10.09
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="php.html" title="PHP-5.5.3">Next</a>
+          <p>
+            PHP-5.5.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="perl-modules" name="perl-modules"></a>Perl Modules
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Perl Modules
+        </h2>
+        <p>
+          The <span class="application">Perl</span> module packages add
+          useful objects to the <span class="application">Perl</span>
+          language. Modules utilized by packages throughout BLFS are listed
+          here, along with their dependencies. Installation of the modules
+          shown on this page should be accomplished by installing the
+          dependencies in the order listed. The Perl Module standard build
+          and installation instructions are shown at the bottom of this page.
+        </p>
+        <h3>
+          <a id="perl-archive-zip" name="perl-archive-zip"></a>
+          Archive::Zip-1.30
+        </h3>
+        <p>
+          The Archive::Zip module allows a <span class=
+          "application">Perl</span> program to create, manipulate, read, and
+          write Zip archive files. This module uses the standard <a class=
+          "xref" href="perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://www.cpan.org/authors/id/A/AD/ADAMK/Archive-Zip-1.30.tar.gz">
+                Archive::Zip-1.30</a> (MD5 sum:
+                40153666e7538b410e001aa8a810e702)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <a id="perl-glib" name="perl-glib"></a> Glib-1.280
+        </h3>
+        <p>
+          This module is a <span class="application">Perl</span> wrapper
+          around <span class="application">GLib</span> that attempts to
+          provide a perlish interface while remaining as true as possible to
+          the underlying C API, so that any reference materials you can find
+          on using GLib may still apply to using the libraries from Perl.
+          This module and the dependency modules use the standard <a class=
+          "xref" href="perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://www.cpan.org/authors/id/T/TS/TSCH/Glib-1.280.tar.gz">Glib-1.280</a>
+                (MD5 sum: 1d81a8aec5f7f1182a96cfaaf119d866)
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~xaoc/ExtUtils-PkgConfig/">ExtUtils::PkgConfig</a>
+                    </p>
+                    <div class="itemizedlist">
+                      <ul>
+                        <li>
+                          <p>
+                            <a class="ulink" href=
+                            "http://search.cpan.org/~flora/ExtUtils-Depends/">
+                            ExtUtils::Depends</a>
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <a id="perl-html-parser" name="perl-html-parser"></a>
+          HTML::Parser-3.71
+        </h3>
+        <p>
+          The HTML::Parser distribution is a collection of modules that parse
+          and extract information from HTML documents. This module and the
+          dependency modules use the standard <a class="xref" href=
+          "perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://www.cpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.71.tar.gz">
+                HTML::Parser-3.71</a> (MD5 sum:
+                9128a45893097dfa3bf03301b19c5efe)
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~petdance/HTML-Tagset/">HTML::Tagset</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="xref" href="perl-modules.html#perl-lwp"
+                      title="libwww-perl-6.05 (a.k.a. LWP)">libwww-perl-6.05</a>
+                      (circular; howevever, it can be installed after
+                      HTML::Parser as it is only a run-time requirement for
+                      the included HTML::HeadParser module)
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <a id="perl-lwp" name="perl-lwp"></a> libwww-perl-6.05 (a.k.a. LWP)
+        </h3>
+        <p>
+          The libwww-perl (LWP) collection is a set of <span class=
+          "application">Perl</span> modules which provide a simple and
+          consistent application programming interface to the World-Wide Web.
+          The main focus of the library is to provide classes and functions
+          that allow you to write WWW clients. The library also contains
+          modules that are of more general use and even classes that help you
+          implement simple HTTP servers. The LWP collection and all its
+          dependency modules use the standard <a class="xref" href=
+          "perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>. The dependencies should be installed in the order
+          listed below. Ensure you install the dependency chain for each
+          module before installing the modules.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://cpan.org/authors/id/G/GA/GAAS/libwww-perl-6.05.tar.gz">
+                libwww-perl-6.05</a> (MD5 sum:
+                637d5f1eb61336ca2caa6e026b382f87)
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/Encode-Locale/">Encode::Locale</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/HTML-Form/">HTML::Form</a>
+                    </p>
+                    <div class="itemizedlist">
+                      <ul>
+                        <li>
+                          <p>
+                            <a class="xref" href="perl-modules.html#perl-uri"
+                            title="URI-1.60">URI-1.60</a>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <a class="xref" href=
+                            "perl-modules.html#perl-html-parser" title=
+                            "HTML::Parser-3.71">HTML::Parser-3.71</a>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <a class="ulink" href=
+                            "http://search.cpan.org/~gaas/HTTP-Message/">HTTP::Message</a>
+                          </p>
+                          <div class="itemizedlist">
+                            <ul>
+                              <li>
+                                <p>
+                                  <a class="ulink" href=
+                                  "http://search.cpan.org/~gaas/HTTP-Date/">HTTP::Date</a>
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <a class="ulink" href=
+                                  "http://search.cpan.org/~cjm/IO-HTML/">IO::HTML</a>
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <a class="ulink" href=
+                                  "http://search.cpan.org/~gaas/LWP-MediaTypes/">
+                                  LWP::MediaTypes</a>
+                                </p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/HTTP-Cookies/">HTTP::Cookies</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/HTTP-Negotiate/">HTTP::Negotiate</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/Net-HTTP/">Net::HTTP</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/WWW-RobotRules/">WWW::RobotRules</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/HTTP-Daemon/">HTTP::Daemon</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/File-Listing/">File::Listing</a>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p>
+          If you want the LWP installation to support the HTTPS protocol,
+          install the following modules:
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="xref" href="../postlfs/openssl.html" title=
+                "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://search.cpan.org/~gaas/LWP-Protocol-https/">LWP::Protocol::https</a>
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~behroozi/IO-Socket-SSL/">IO::Socket::SSL</a>
+                    </p>
+                    <div class="itemizedlist">
+                      <ul>
+                        <li>
+                          <p>
+                            <a class="ulink" href=
+                            "http://search.cpan.org/dist/Net-SSLeay/">Net::SSLeay</a>
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~abh/Mozilla-CA/">Mozilla::CA</a>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <a id="perl-net-dns" name="perl-net-dns"></a> Net::DNS-0.72
+        </h3>
+        <p>
+          Net::DNS is a DNS resolver implemented in <span class=
+          "application">Perl</span>. It can be used to perform nearly any
+          type of DNS query from a <span class="application">Perl</span>
+          script. The Net::DNS module and all its dependencies are installed
+          using the standard <a class="xref" href=
+          "perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-0.72.tar.gz">
+                Net::DNS-0.72</a> (MD5 sum: 393e48ec6f28abe5ed30204276e02775)
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gaas/Digest-HMAC/">Digest::HMAC</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~gbarr/IO/lib/IO/Socket/INET.pm">
+                      IO::Socket::INET</a> (required for IPv6 support)
+                    </p>
+                    <div class="itemizedlist">
+                      <ul>
+                        <li>
+                          <p>
+                            <a class="ulink" href=
+                            "http://search.cpan.org/~umemoto/Socket6/">Socket6</a>
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <a id="perl-sgmlspm" name="perl-sgmlspm"></a> SGMLSpm-1.1
+        </h3>
+        <p>
+          The SGMLSpm module is a <span class="application">Perl</span>
+          library used for parsing the output from James Clark's SGMLS and
+          NSGMLS parsers. This modules uses the standard <a class="xref"
+          href="perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <p>
+          Before beginning the build, issue the following command to prevent
+          an error:
+        </p>
+        <pre class="userinput">
+<kbd class="command">chmod -v 644 MYMETA.yml</kbd>
+</pre>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://search.cpan.org/CPAN/authors/id/R/RA/RAAB/SGMLSpm-1.1.tar.gz">
+                SGMLSpm-1.1</a> (MD5 sum: 746c74ae969992cedb1a2879b4168090)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <a id="perl-uri" name="perl-uri"></a> URI-1.60
+        </h3>
+        <p>
+          This module implements the URI class. Objects of this class
+          represent "Uniform Resource Identifier references" as specified in
+          RFC 2396 (and updated by RFC 2732). A Uniform Resource Identifier
+          is a compact string of characters that identifies an abstract or
+          physical resource. A Uniform Resource Identifier can be further
+          classified as either a Uniform Resource Locator (URL) or a Uniform
+          Resource Name (URN). The distinction between URL and URN does not
+          matter to the URI class interface. A "URI-reference" is a URI that
+          may have additional information attached in the form of a fragment
+          identifier. This module uses the standard <a class="xref" href=
+          "perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://www.cpan.org/authors/id/G/GA/GAAS/URI-1.60.tar.gz">URI-1.60</a>
+                (MD5 sum: 70f739be8ce28b8baba7c5920ffee4dc)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <a id="perl-xml-parser" name="perl-xml-parser"></a>
+          XML::Parser-2.41
+        </h3>
+        <p>
+          The XML::Parser module is a <span class="application">Perl</span>
+          extension interface to James Clark's XML parser, <span class=
+          "application">expat</span>. The module uses the standard <a class=
+          "xref" href="perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/XML-Parser-2.41.tar.gz">
+                XML::Parser-2.41</a> (MD5 sum:
+                c320d2ffa459e6cdc6f9f59c1185855e)
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li>
+                    <p>
+                      <a class="xref" href="expat.html" title=
+                      "Expat-2.1.0">expat-2.1.0</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="xref" href="perl-modules.html#perl-lwp"
+                      title="libwww-perl-6.05 (a.k.a. LWP)">libwww-perl-6.05</a>
+                      (optionally used in the test suite)
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <a id="perl-xml-simple" name="perl-xml-simple"></a>
+          XML::Simple-2.20
+        </h3>
+        <p>
+          The XML::Simple module is a <span class="application">Perl</span>
+          extension that provides an easy API to read and write XML
+          (especially config files). This module and all dependency modules
+          use the standard <a class="xref" href=
+          "perl-modules.html#perl-standard-install" title=
+          "Standard Installation of Perl Modules">build and installation
+          instructions</a>.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.4
+          platform.
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                <a class="ulink" href=
+                "http://cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.20.tar.gz">
+                XML::Simple-2.20</a> (MD5 sum:
+                4d10964e123b76eca36678464daa63cd)
+              </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~grantm/XML-SAX/">XML::SAX</a>
+                      (Note: this package does not support parallel build)
+                    </p>
+                    <div class="itemizedlist">
+                      <ul>
+                        <li>
+                          <p>
+                            <a class="ulink" href=
+                            "http://search.cpan.org/~perigrin/XML-NamespaceSupport/">
+                            XML::NamespaceSupport</a>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <a class="ulink" href=
+                            "http://search.cpan.org/~grantm/XML-SAX-Base/">XML::SAX::Base</a>
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~bjoern/XML-SAX-Expat/">XML::SAX::Expat</a>
+                      (Note: this package does not support parallel build)
+                    </p>
+                    <div class="itemizedlist">
+                      <ul>
+                        <li>
+                          <p>
+                            <a class="xref" href=
+                            "perl-modules.html#perl-xml-parser" title=
+                            "XML::Parser-2.41">XML::Parser-2.41</a>
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <p>
+                      <a id="perl-xml-libxml" name="perl-xml-libxml"></a>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~shlomif/XML-LibXML/">XML::LibXML</a>
+                      (recommended for faster parsing)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a class="ulink" href=
+                      "http://search.cpan.org/~chorny/Tie-IxHash/">Tie::IxHash</a>
+                      (optionally used in the test suite)
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="perl-standard-install" name=
+          "perl-standard-install"></a>Standard Installation of Perl Modules
+        </h2>
+        <p>
+          Install <span class="application">Perl</span> modules by running
+          the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">perl Makefile.PL &amp;&amp;
+make &amp;&amp;
+make test</kbd>
+</pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            When reinstalling a <span class="application">Perl</span> module,
+            sometimes older versions of the module being reinstalled are in
+            other directories specified in <em class=
+            "parameter"><code>@INC</code></em>. To delete all other versions
+            of the module being reinstalled (not simply older ones) set the
+            <code class="varname">UNINST</code> variable:
+          </p>
+          <pre class="userinput">
+<kbd class="command">make install UNINST=1</kbd>
+</pre>
+        </div>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          (Alternate) Auto Installation of Perl Modules.
+        </h2>
+        <p>
+          There is an alternate way of installing the modules using the
+          <span class="command"><strong>cpan</strong></span> shell
+          <span class="command"><strong>install</strong></span> command. The
+          command automatically downloads the source from the CPAN archive,
+          extracts it, runs the compilation, testing and installation
+          commands mentioned above, and removes the build source tree. You
+          may still need to install dependent library packages before running
+          the automated installation method.
+        </p>
+        <p>
+          The first time you run <span class=
+          "command"><strong>cpan</strong></span>, you'll be prompted to enter
+          some information regarding download locations and methods. This
+          information is retained in files located in <code class=
+          "filename">~/.cpan</code>. Start the <span class=
+          "command"><strong>cpan</strong></span> shell by issuing
+          '<span class="command"><strong>cpan</strong></span>' as the
+          <code class="systemitem">root</code> user. Any module may now be
+          installed from the <span class="underlined"><code class=
+          "prompt">cpan&gt;&nbsp;</code></span> prompt with the command:
+        </p>
+        <pre class="root">
+<kbd class="command">install <em class=
+"replaceable"><code>&lt;Module::Name&gt;</code></em></kbd>
+</pre>
+        <p>
+          For additional commands and help, issue '<span class=
+          "command"><strong>help</strong></span>' from the <span class=
+          "underlined"><code class="prompt">cpan&gt;&nbsp;</code></span>
+          prompt.
+        </p>
+        <p>
+          Alternatively, for scripted or non-interactive installations, use
+          the following syntax as the <code class="systemitem">root</code>
+          user to install one or more modules:
+        </p>
+        <pre class="root">
+<kbd class="command">cpan -i <em class=
+"replaceable"><code>&lt;Module1::Name&gt; &lt;Module2::Name&gt;</code></em></kbd>
+</pre>
+        <p>
+          Review the <code class="filename">cpan.1</code> man page for
+          additional parameters you can pass to <span class=
+          "command"><strong>cpan</strong></span> on the command line.
+        </p>
+      </div>
+      <p class="updated">
+        Last updated on 2013-09-07 19:03:18 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="NASM.html" title="NASM-2.10.09">Prev</a>
+          <p>
+            NASM-2.10.09
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="php.html" title="PHP-5.5.3">Next</a>
+          <p>
+            PHP-5.5.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

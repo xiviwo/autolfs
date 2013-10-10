@@ -12,20 +12,20 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="pulseaudio.html" title=
-          "PulseAudio-3.0">Prev</a>
+          "PulseAudio-4.0">Prev</a>
           <p>
-            PulseAudio-3.0
+            PulseAudio-4.0
           </p>
         </li>
         <li class="next">
@@ -37,11 +37,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           write multimedia software, such as games and emulators.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -105,9 +105,9 @@
           <a class="xref" href="alsa.html" title=
           "ALSA-1.0.27">ALSA-1.0.27</a>, <a class="xref" href="esound.html"
           title="EsounD-0.2.41">EsounD-0.2.41</a>, <a class="xref" href=
-          "pulseaudio.html" title="PulseAudio-3.0">PulseAudio-3.0</a>
+          "pulseaudio.html" title="PulseAudio-4.0">PulseAudio-4.0</a>
           <a class="xref" href="../general/NASM.html" title=
-          "NASM-2.10.07">NASM-2.10.07</a>, <a class="xref" href=
+          "NASM-2.10.09">NASM-2.10.09</a>, <a class="xref" href=
           "../general/libusb.html" title="libusb-1.0.9">libusb-1.0.9</a>,
           <a class="xref" href="../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
@@ -138,7 +138,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class=
+"command">sed -i '/_XData32/s:register long:register _Xconst long:' src/video/x11/SDL_x11sym.h &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -181,8 +183,12 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>--disable-static</code></em>: prevent
-          static libraries being built and installed.
+          <span class="command"><strong>sed -i ...</strong></span>: This
+          command fixes compilation with libX11-1.6.0
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -218,7 +224,7 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libSDL.{so,a} and libSDLmain.a</span>
+              <span class="segbody">libSDL.so and libSDLmain.a</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -254,7 +260,7 @@ make</kbd>
                 <td>
                   <p>
                     <a id="libsdl" name="libsdl"></a><span class=
-                    "term"><code class="filename">libSDL.{so,a}</code></span>
+                    "term"><code class="filename">libSDL.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -270,16 +276,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-28 00:12:39 +0000
+        Last updated on 2013-08-21 01:40:33 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="pulseaudio.html" title=
-          "PulseAudio-3.0">Prev</a>
+          "PulseAudio-4.0">Prev</a>
           <p>
-            PulseAudio-3.0
+            PulseAudio-4.0
           </p>
         </li>
         <li class="next">
@@ -291,11 +297,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="lcms2.html" title="Little CMS-2.4">Next</a>
+          <a accesskey="n" href="lcms2.html" title="Little CMS-2.5">Next</a>
           <p>
-            Little CMS-2.4
+            Little CMS-2.5
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -56,7 +56,7 @@
           other programs to provide color management facilities.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -67,8 +67,7 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://sourceforge.net/projects/lcms/files/lcms/1.19/lcms-1.19.tar.gz">
-                http://sourceforge.net/projects/lcms/files/lcms/1.19/lcms-1.19.tar.gz</a>
+                "http://downloads.sourceforge.net/lcms/lcms-1.19.tar.gz">http://downloads.sourceforge.net/lcms/lcms-1.19.tar.gz</a>
               </p>
             </li>
             <li>
@@ -102,9 +101,9 @@
         <p class="optional">
           <a class="xref" href="libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>, <a class="xref" href=
-          "libjpeg.html" title="libjpeg-turbo-1.2.1">libjpeg-turbo-1.2.1</a>,
+          "libjpeg.html" title="libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>,
           and <a class="xref" href="python2.html" title=
-          "Python-2.7.4">Python-2.7.4</a> (with <a class="ulink" href=
+          "Python-2.7.5">Python-2.7.5</a> (with <a class="ulink" href=
           "http://www.swig.org/">SWIG</a> also)
         </p>
         <p class="usernotes">
@@ -121,7 +120,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -143,13 +142,13 @@ install -v -m644    README.1ST doc/* \
           Command Explanations
         </h2>
         <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
           <code class="option">--with-python</code>: Use this parameter if
           <span class="application">Python</span> and <span class=
           "application">SWIG</span> are installed.
-        </p>
-        <p>
-          <em class="parameter"><code>--disable-static</code></em>: This
-          switch prevents installation of static versions of the libraries.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -165,8 +164,8 @@ install -v -m644    README.1ST doc/* \
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">liblcms.{so,a} and the optional
-              _lcms.{so,a} Python module</span>
+              <span class="segbody">liblcms.so and the optional _lcms.so
+              Python module</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
@@ -285,8 +284,7 @@ install -v -m644    README.1ST doc/* \
                 <td>
                   <p>
                     <a id="liblcms" name="liblcms"></a><span class=
-                    "term"><code class=
-                    "filename">liblcms.{so,a}</code></span>
+                    "term"><code class="filename">liblcms.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -302,7 +300,7 @@ install -v -m644    README.1ST doc/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-28 00:12:39 +0000
+        Last updated on 2013-08-23 20:56:44 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -314,9 +312,9 @@ install -v -m644    README.1ST doc/* \
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="lcms2.html" title="Little CMS-2.4">Next</a>
+          <a accesskey="n" href="lcms2.html" title="Little CMS-2.5">Next</a>
           <p>
-            Little CMS-2.4
+            Little CMS-2.5
           </p>
         </li>
         <li class="up">
@@ -325,7 +323,7 @@ install -v -m644    README.1ST doc/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

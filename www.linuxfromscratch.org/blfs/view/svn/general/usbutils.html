@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      usbutils-006
+      usbutils-007
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="upower.html" title="UPower-0.9.20">Prev</a>
+          <a accesskey="p" href="upower.html" title="UPower-0.9.21">Prev</a>
           <p>
-            UPower-0.9.20
+            UPower-0.9.21
           </p>
         </li>
         <li class="next">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="usbutils" name="usbutils"></a>usbutils-006
+        <a id="usbutils" name="usbutils"></a>usbutils-007
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           and the devices connected to them.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -69,35 +69,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-006.tar.xz">
-                http://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-006.tar.xz</a>
+                "http://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-007.tar.xz">
+                http://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-007.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-006.tar.xz">
-                ftp://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-006.tar.xz</a>
+                "ftp://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-007.tar.xz">
+                ftp://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-007.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: c9aa14ee3d6c991fda183f42cf72a8a8
+                Download MD5 sum: c9df5107ae9d26b10a1736a261250139
               </p>
             </li>
             <li>
               <p>
-                Download size: 400 KB
+                Download size: 416 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 6.0 MB
+                Estimated disk space required: 4.8 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.1 SBU
+                Estimated build time: less than 0.1 SBU
               </p>
             </li>
           </ul>
@@ -127,9 +127,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr \
-            --datadir=/usr/share/misc \
-            --disable-zlib &amp;&amp;
+<kbd class="command">
+./configure --prefix=/usr  \
+            --disable-zlib \
+            --datadir=/usr/share/misc &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -164,9 +165,9 @@ mv -v /usr/sbin/update-usbids.sh /usr/sbin/update-usbids</kbd>
           <span class="command"><strong>update-usbids</strong></span> as the
           <code class="systemitem">root</code> user. This program requires
           the <a class="xref" href="which.html" title=
-          "Which-2.20 and Alternatives">which-2.20</a> script or program to
+          "Which-2.20 and Alternatives">Which-2.20</a> script or program to
           find <a class="xref" href="../basicnet/lynx.html" title=
-          "Lynx-2.8.8dev.15">Lynx-2.8.8dev.15</a> or <a class="xref" href=
+          "Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a> or <a class="xref" href=
           "../basicnet/wget.html" title="Wget-1.14">Wget-1.14</a> which are
           used to download the most current file, and replace the existing
           file in <code class="filename">/usr/share/misc</code>.
@@ -187,7 +188,7 @@ mv -v /usr/sbin/update-usbids.sh /usr/sbin/update-usbids</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">lsusb, update-usbids, usb-devices and
+              <span class="segbody">lsusb, update-usbids, usb-devices, and
               usbhid-dump</span>
             </div>
             <div class="seg">
@@ -234,7 +235,7 @@ mv -v /usr/sbin/update-usbids.sh /usr/sbin/update-usbids</kbd>
                   <p>
                     downloads the current version of the USB ID list.
                     Requires <a class="xref" href="../basicnet/lynx.html"
-                    title="Lynx-2.8.8dev.15">Lynx-2.8.8dev.15</a> or
+                    title="Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a> or
                     <a class="xref" href="../basicnet/wget.html" title=
                     "Wget-1.14">Wget-1.14</a>.
                   </p>
@@ -276,15 +277,15 @@ mv -v /usr/sbin/update-usbids.sh /usr/sbin/update-usbids</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-27 18:04:22 +0000
+        Last updated on 2013-08-18 21:52:29 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="upower.html" title="UPower-0.9.20">Prev</a>
+          <a accesskey="p" href="upower.html" title="UPower-0.9.21">Prev</a>
           <p>
-            UPower-0.9.20
+            UPower-0.9.21
           </p>
         </li>
         <li class="next">
@@ -300,7 +301,7 @@ mv -v /usr/sbin/update-usbids.sh /usr/sbin/update-usbids</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

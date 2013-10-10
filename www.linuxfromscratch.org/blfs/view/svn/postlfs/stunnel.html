@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      stunnel-4.54
+      stunnel-4.56
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sudo.html" title="Sudo-1.8.6p3">Next</a>
+          <a accesskey="n" href="sudo.html" title="Sudo-1.8.7">Next</a>
           <p>
-            Sudo-1.8.6p3
+            Sudo-1.8.7
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="stunnel" name="stunnel"></a>stunnel-4.54
+        <a id="stunnel" name="stunnel"></a>stunnel-4.56
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -63,7 +63,7 @@
           without changes to the server package source code.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.2
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -74,33 +74,33 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://mirrors.zerg.biz/stunnel/stunnel-4.54.tar.gz">http://mirrors.zerg.biz/stunnel/stunnel-4.54.tar.gz</a>
+                "http://mirrors.zerg.biz/stunnel/stunnel-4.56.tar.gz">http://mirrors.zerg.biz/stunnel/stunnel-4.56.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.stunnel.org/stunnel/stunnel-4.54.tar.gz">ftp://ftp.stunnel.org/stunnel/stunnel-4.54.tar.gz</a>
+                "ftp://ftp.stunnel.org/stunnel/stunnel-4.56.tar.gz">ftp://ftp.stunnel.org/stunnel/stunnel-4.56.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: c2b1db99e3ed547214568959a8ed18ac
+                Download MD5 sum: ac4c4a30bd7a55b6687cbd62d864054c
               </p>
             </li>
             <li>
               <p>
-                Download size: 528 KB
+                Download size: 532 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 5.0 MB
+                Estimated disk space required: 6.0 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.1 SBU
+                Estimated build time: 0.2 SBU
               </p>
             </li>
           </ul>
@@ -184,7 +184,7 @@ make</kbd>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make docdir=/usr/share/doc/stunnel-4.54 install</kbd>
+<kbd class="command">make docdir=/usr/share/doc/stunnel-4.56 install</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -302,7 +302,7 @@ connect = <em class=
             stunnel</strong></span>. To see a BLFS example of an actual setup
             of an <span class="command"><strong>stunnel</strong></span>
             encrypted service, read the <a class="xref" href=
-            "../basicnet/samba3.html#samba3-swat-config" title=
+            "../basicnet/samba.html#samba-swat-config" title=
             "Configuring SWAT">the section called &ldquo;Configuring
             SWAT&rdquo;</a> in the <span class="application">Samba</span>
             instructions.
@@ -318,7 +318,7 @@ connect = <em class=
             is rebooted, install the <code class=
             "filename">/etc/rc.d/init.d/stunnel</code> bootscript from the
             <a class="xref" href="../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130505</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-stunnel</kbd>
@@ -342,7 +342,7 @@ connect = <em class=
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/stunnel, /usr/lib/stunnel,
-              /usr/share/doc/stunnel-4.54 and /var/lib/stunnel</span>
+              /usr/share/doc/stunnel-4.56, and /var/lib/stunnel</span>
             </div>
           </div>
         </div>
@@ -407,7 +407,7 @@ connect = <em class=
         </div>
       </div>
       <p class="updated">
-        Last updated on 2012-11-01 22:40:42 +0000
+        Last updated on 2013-08-22 22:40:33 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -419,9 +419,9 @@ connect = <em class=
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sudo.html" title="Sudo-1.8.6p3">Next</a>
+          <a accesskey="n" href="sudo.html" title="Sudo-1.8.7">Next</a>
           <p>
-            Sudo-1.8.6p3
+            Sudo-1.8.7
           </p>
         </li>
         <li class="up">
@@ -430,7 +430,7 @@ connect = <em class=
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

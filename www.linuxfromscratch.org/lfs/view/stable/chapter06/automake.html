@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.39.&nbsp;Automake-1.13.1
+      6.41.&nbsp;Automake-1.14
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-7.3">
+  <body class="lfs" id="lfs-7.4">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.3
+        Linux From Scratch - Version 7.4
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="diffutils.html" title=
-          "Diffutils-3.2">Next</a>
+          "Diffutils-3.3">Next</a>
           <p>
-            Diffutils-3.2
+            Diffutils-3.3
           </p>
         </li>
         <li class="up">
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-automake" name="ch-system-automake"></a>6.39.
-        Automake-1.13.1
+        <a id="ch-system-automake" name="ch-system-automake"></a>6.41.
+        Automake-1.14
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -71,14 +71,20 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.39.1. Installation of Automake
+          6.41.1. Installation of Automake
         </h2>
+        <p>
+          Fix an intermittent test failure:
+        </p>
+        <pre class="userinput">
+<kbd class="command">patch -Np1 -i ../automake-1.14-test-1.patch</kbd>
+</pre>
         <p>
           Prepare Automake for compilation:
         </p>
         <pre class="userinput">
 <kbd class=
-"command">./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.13.1</kbd>
+"command">./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.14</kbd>
 </pre>
         <p>
           Compile the package:
@@ -92,8 +98,7 @@
             Note
           </h3>
           <p>
-            The tests take a very long time: over 30 SBUs. Running the tests
-            is not recommended.
+            The tests take a very long time: over 30 SBUs.
           </p>
         </div>
         <p>
@@ -111,22 +116,22 @@
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-automake" name="contents-automake"></a>6.39.2.
+          <a id="contents-automake" name="contents-automake"></a>6.41.2.
           Contents of Automake
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">acinstall, aclocal, aclocal-1.13,
-              automake, automake-1.13, compile, config.guess, config.sub,
-              depcomp, elisp-comp, install-sh, mdate-sh, missing,
-              mkinstalldirs, py-compile, symlink-tree, and ylwrap</span>
+              <span class="segbody">acinstall, aclocal, aclocal-1.14,
+              automake, automake-1.14, compile, config.guess, config.sub,
+              depcomp, install-sh, mdate-sh, missing, mkinstalldirs,
+              py-compile, and ylwrap</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/usr/share/aclocal-1.13,
-              /usr/share/automake-1.13, /usr/share/doc/automake-1.13.1</span>
+              <span class="segbody">/usr/share/aclocal-1.14,
+              /usr/share/automake-1.14, /usr/share/doc/automake-1.14</span>
             </div>
           </div>
         </div>
@@ -172,7 +177,7 @@
                   <p>
                     <a id="aclocalversion" name=
                     "aclocalversion"></a><span class="term"><span class=
-                    "command"><strong>aclocal-1.13</strong></span></span>
+                    "command"><strong>aclocal-1.14</strong></span></span>
                   </p>
                 </td>
                 <td>
@@ -210,7 +215,7 @@
                   <p>
                     <a id="automake-version" name=
                     "automake-version"></a><span class="term"><span class=
-                    "command"><strong>automake-1.13</strong></span></span>
+                    "command"><strong>automake-1.14</strong></span></span>
                   </p>
                 </td>
                 <td>
@@ -276,20 +281,6 @@
                     A script for compiling a program so that dependency
                     information is generated in addition to the desired
                     output
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="elisp-comp" name="elisp-comp"></a><span class=
-                    "term"><span class=
-                    "command"><strong>elisp-comp</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Byte-compiles Emacs Lisp code
                   </p>
                 </td>
               </tr>
@@ -368,20 +359,6 @@
               <tr>
                 <td>
                   <p>
-                    <a id="symlink-tree" name="symlink-tree"></a><span class=
-                    "term"><span class=
-                    "command"><strong>symlink-tree</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    A script to create a symlink tree of a directory tree
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="ylwrap" name="ylwrap"></a><span class=
                     "term"><span class=
                     "command"><strong>ylwrap</strong></span></span>
@@ -411,9 +388,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="diffutils.html" title=
-          "Diffutils-3.2">Next</a>
+          "Diffutils-3.3">Next</a>
           <p>
-            Diffutils-3.2
+            Diffutils-3.3
           </p>
         </li>
         <li class="up">
@@ -422,7 +399,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.3">Home</a>
+          "Linux From Scratch - Version 7.4">Home</a>
         </li>
       </ul>
     </div>

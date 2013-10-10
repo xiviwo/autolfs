@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GCC-4.7.2
+      GCC-4.8.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gcc" name="gcc"></a>GCC-4.7.2
+        <a id="gcc" name="gcc"></a>GCC-4.8.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,14 +59,14 @@
           (C and C++ are installed in LFS) before you install them.
           Additionally, there are instructions in the BLFS book to install
           <a class="xref" href="openjdk.html" title=
-          "OpenJDK-1.7.0.9">OpenJDK-1.7.0.9</a>, which can be used instead of
-          the Java provided by the <span class="application">GCC</span>
-          package. Many consider the Iced Tea version to be a more robust
-          Java environment than the one provided by <span class=
-          "application">GCC</span>.
+          "OpenJDK-1.7.0.40/IcedTea-2.4.1">OpenJDK-1.7.0.40/IcedTea-2.4.1</a>,
+          which can be used instead of the Java provided by the <span class=
+          "application">GCC</span> package. Many consider the Iced Tea
+          version to be a more robust Java environment than the one provided
+          by <span class="application">GCC</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <div class="admon caution">
@@ -76,7 +76,7 @@
           </h3>
           <p>
             If you are upgrading <span class="application">GCC</span> from
-            any other version prior to 4.7.2, then you must be careful
+            any other version prior to 4.8.1, then you must be careful
             compiling 3rd party kernel modules. You should ensure that the
             kernel and all its native modules are also compiled using the
             same version of <span class="application">GCC</span> that you use
@@ -98,34 +98,34 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnu.org/gnu/gcc/gcc-4.7.2/gcc-4.7.2.tar.bz2">http://ftp.gnu.org/gnu/gcc/gcc-4.7.2/gcc-4.7.2.tar.bz2</a>
+                "http://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.bz2">http://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnu.org/gnu/gcc/gcc-4.7.2/gcc-4.7.2.tar.bz2">ftp://ftp.gnu.org/gnu/gcc/gcc-4.7.2/gcc-4.7.2.tar.bz2</a>
+                "ftp://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.bz2">ftp://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: cc308a0891e778cfda7a151ab8a6e762
+                Download MD5 sum: 3b2386c114cd74185aa3754b58a79304
               </p>
             </li>
             <li>
               <p>
-                Download size: 80 MB
+                Download size: 83 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: ~6.1 GB (build, test and
+                Estimated disk space required: ~6.2 GB (build, test and
                 install all compilers)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 150 SBU (build, test and install all
+                Estimated build time: 98 SBU (build, test and install all
                 compilers)
               </p>
             </li>
@@ -148,7 +148,7 @@
           <a class="xref" href="zip.html" title="Zip-3.0">Zip-3.0</a>,
           <a class="xref" href="unzip.html" title="UnZip-6.0">UnZip-6.0</a>,
           and <a class="xref" href="which.html" title=
-          "Which-2.20 and Alternatives">which-2.20</a>
+          "Which-2.20 and Alternatives">Which-2.20</a>
         </p>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -160,12 +160,12 @@
             "application">GNAT</span> temporarily to satisfy the circular
             dependency when you recompile <span class=
             "application">GCC</span> to include Ada. At the AdaCore download
-            page, choose your platform and 2011, then select the file to
+            page, choose your platform and 2013, then select the file to
             download. You probably want the x86-linux or x86_64-linux file.
           </p>
         </div>
         <h3>
-          GNAT GPL 2011 Package Information
+          GNAT GPL 2013 Package Information
         </h3>
         <div class="itemizedlist">
           <ul class="compact">
@@ -188,40 +188,37 @@
         </h2>
         <p>
           Before unpacking and changing into the GCC source directory, first
-          unpack the <span class="application">GNAT</span> tarball and change
-          into the newly created directory and install <span class=
-          "application">GNAT</span> by running the following command:
+          unpack the <span class="application">GNAT</span> tarball. You may
+          have to drill down several levels and unpack a second tarball. For
+          example, AdaCore-Download-2013-07-22_0530.tar expands to
+          <code class=
+          "filename">x86_64-linux/2013/gnatgpl/gnat-gpl-2013-x86_64-pc-linux-gnu-bin.tar.gz</code>.
+          Expand this second tarball and change into the newly created
+          directory. Install <span class="application">GNAT</span> by running
+          the following command:
         </p>
         <pre class="userinput">
-<kbd class="command">make ins-all prefix=<em class=
-"replaceable"><code>&lt;Your build directory&gt;</code></em>/gnat</kbd>
+<kbd class="command">make ins-all prefix=/opt/gnat</kbd>
 </pre>
         <p>
           The <span class="application">GNAT</span> compiler can be invoked
           by executing the <span class="command"><strong>gcc</strong></span>
-          binary installed in <code class="filename"><em class=
-          "replaceable"><code>&lt;Your build
-          directory&gt;</code></em>/gnat/bin</code>.
+          binary installed in <code class="filename">/opt/gnat/bin</code>.
         </p>
         <p>
           You may now remove the <span class="application">GNAT</span> source
-          directory:
+          directory if desired.
         </p>
-        <pre class="userinput">
-<kbd class="command">cd .. &amp;&amp;
-rm -rf gnat-2011-*</kbd>
-</pre>
         <p>
           Prepare to compile <span class="application">GCC</span> by placing
           the <span class="application">GNAT</span> version of <span class=
           "command"><strong>gcc</strong></span> at the beginning of the
           <code class="envar">PATH</code> variable by using the following
-          commands:
+          commands as the <code class="systemitem">root</code> user:
         </p>
         <pre class="userinput">
 <kbd class="command">PATH_HOLD=$PATH &amp;&amp;
-export PATH=<em class=
-"replaceable"><code>&lt;Your build directory&gt;</code></em>/gnat/bin:$PATH_HOLD</kbd>
+export PATH=/opt/gnat/bin:$PATH_HOLD</kbd>
 </pre>
         <p>
           Doing so has the drawback that the <span class=
@@ -237,10 +234,8 @@ export PATH=<em class=
           order to use the LFS tools, issue:
         </p>
         <pre class="userinput">
-<kbd class="command">find <em class=
-"replaceable"><code>&lt;Your build directory&gt;</code></em>/gnat -name ld -exec mv -v \{\} \{\}.old \;
-find <em class=
-"replaceable"><code>&lt;Your build directory&gt;</code></em>/gnat -name as -exec mv -v \{\} \{\}.old \;</kbd>
+<kbd class="command">find /opt/gnat -name ld -exec mv -v {} {}.old \;
+find /opt/gnat -name as -exec mv -v {} {}.old \;</kbd>
 </pre>
       </div>
       <div class="installation" lang="en" xml:lang="en">
@@ -283,15 +278,15 @@ find <em class=
           The instructions below let the build machinery perform a
           &ldquo;<span class="quote">bootstrap</span>&rdquo; intentionally.
           This is necessary if you install the <span class=
-          "application">ADA</span> compiler anyway. Even if you don't, a
+          "application">Ada</span> compiler anyway. Even if you don't, a
           bootstrap is recommended for robustness.
         </p>
         <pre class="userinput">
 <kbd class=
-"command">sed -i 's/\(install.*:\) install-.*recursive/\1/' libffi/Makefile.in &amp;&amp;
-sed -i 's/\(install-data-am:\).*/\1/' libffi/include/Makefile.in &amp;&amp;
-sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in &amp;&amp;
-sed -i 's@\./fixinc\.sh@-c true@'        gcc/Makefile.in       &amp;&amp;
+"command">sed -i 's/\(install.*:\) install-.*recursive/\1/' libffi/Makefile.in         &amp;&amp;
+sed -i 's/\(install-data-am:\).*/\1/'             libffi/include/Makefile.in &amp;&amp;
+sed -i 's/install_to_$(INSTALL_DEST) //'          libiberty/Makefile.in      &amp;&amp;
+sed -i 's@\./fixinc\.sh@-c true@'                 gcc/Makefile.in            &amp;&amp;
 
 case `uname -m` in
       i?86) sed -i 's/^T_CFLAGS =$/&amp; -fomit-frame-pointer/' gcc/Makefile.in ;;
@@ -300,23 +295,35 @@ esac &amp;&amp;
 mkdir ../gcc-build &amp;&amp;
 cd    ../gcc-build &amp;&amp;
 
-../gcc-4.7.2/configure         \
-    --prefix=/usr              \
-    --libdir=/usr/lib          \
-    --libexecdir=/usr/lib      \
-    --with-system-zlib         \
-    --enable-shared            \
-    --enable-threads=posix     \
-    --enable-__cxa_atexit      \
-    --disable-multilib         \
-    --enable-clocale=gnu       \
-    --enable-lto               \
+../gcc-4.8.1/configure          \
+    --prefix=/usr               \
+    --libdir=/usr/lib           \
+    --libexecdir=/usr/lib       \
+    --enable-shared             \
+    --enable-threads=posix      \
+    --enable-__cxa_atexit       \
+    --disable-multilib          \
+    --disable-bootstrap         \
+    --disable-install-libiberty \
+    --with-system-zlib          \
+    --enable-clocale=gnu        \
+    --enable-lto                \
     --enable-languages=c,c++,fortran,ada,go,java,objc,obj-c++ &amp;&amp;
+make
+</kbd>
+</pre>
+        <p>
+          If you have installed additional packages such as valgrind and gdb,
+          the gcc part of the testsuite will run more tests than in LFS. Some
+          of those will report FAIL and others XPASS (pass when expected to
+          FAIL). To run the checks:
+        </p>
+        <pre class="userinput">
+<kbd class="command">
+ulimit -s 32768 &amp;&amp;
+make -k check   &amp;&amp;
 
-make &amp;&amp;
-make -k check  &amp;&amp;
-
-../gcc-4.7.2/contrib/test_summary</kbd>
+../gcc-4.8.1/contrib/test_summary</kbd>
 </pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -325,20 +332,18 @@ make -k check  &amp;&amp;
 <kbd class="command">make install &amp;&amp;
 
 ln -v -sf ../usr/bin/cpp /lib &amp;&amp;
-ln -v -sf gcc /usr/bin/cc &amp;&amp;
+ln -v -sf gcc /usr/bin/cc     &amp;&amp;
 
 chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/4.7.2/include{,-fixed} \
-    /usr/lib/gcc/*linux-gnu/4.7.2/ada{lib,include}</kbd>
+    /usr/lib/gcc/*linux-gnu/4.8.1/include{,-fixed} \
+    /usr/lib/gcc/*linux-gnu/4.8.1/ada{lib,include}</kbd>
 </pre>
         <p>
-          You should now become the unprivileged user and remove the
-          <span class="application">GNAT</span> installation and perform
-          other cleanups:
+          You should now remove the <span class="application">GNAT</span>
+          installation and perform other cleanups:
         </p>
         <pre class="userinput">
-<kbd class="command">rm -rf <em class=
-"replaceable"><code>&lt;Your build directory&gt;</code></em>/gnat &amp;&amp;
+<kbd class="command">rm -rf /opt/gnat &amp;&amp;
 export PATH=$PATH_HOLD &amp;&amp;
 unset PATH_HOLD</kbd>
 </pre>
@@ -391,13 +396,17 @@ unset PATH_HOLD</kbd>
           this command to remove undesired languages.
         </p>
         <p>
+          <span class="command"><strong>ulimit -s 32768</strong></span>: This
+          command prevents several tests from running out of stack space.
+        </p>
+        <p>
           <span class="command"><strong>make -k check</strong></span>: This
           command runs the test suite without stopping if any errors are
           encountered.
         </p>
         <p>
           <span class=
-          "command"><strong>../gcc-4.7.2/contrib/test_summary</strong></span>:
+          "command"><strong>../gcc-4.8.1/contrib/test_summary</strong></span>:
           This command will produce a summary of the test suite results. You
           can append <span class="command"><strong>| grep -A7
           Summ</strong></span> to the command to produce an even more
@@ -453,9 +462,9 @@ unset PATH_HOLD</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class=
-              "segbody">/usr/include/c++/4.7.2/{gcj,gnu,java,javax,org,sun},
-              /usr/lib/gcc/&lt;arch-model&gt;-linux-gnu/4.7.2/ada{include,lib},
-              /usr/lib/gcj-4.7.2-13, /usr/lib/go, /usr/lib/security, and
+              "segbody">/usr/include/c++/4.8.1/{gcj,gnu,java,javax,org,sun},
+              /usr/lib/gcc/&lt;arch-model&gt;-linux-gnu/4.8.1/ada{include,lib},
+              /usr/lib/gcj-4.8.1-13, /usr/lib/go, /usr/lib/security, and
               /usr/share/java</span>
             </div>
           </div>
@@ -996,7 +1005,7 @@ unset PATH_HOLD</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-14 01:26:59 +0000
+        Last updated on 2013-09-06 03:07:58 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -1019,7 +1028,7 @@ unset PATH_HOLD</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

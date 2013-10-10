@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      qemu-1.4.0
+      qemu-1.6.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
         Chapter&nbsp;8.&nbsp;Virtualization
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="qemu" name="qemu"></a>qemu-1.4.0
+        <a id="qemu" name="qemu"></a>qemu-1.6.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           extensions (Intel VT or AMD-V).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -70,41 +70,27 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://wiki.qemu.org/download/qemu-1.4.0.tar.bz2">http://wiki.qemu.org/download/qemu-1.4.0.tar.bz2</a>
+                "http://wiki.qemu.org/download/qemu-1.6.0.tar.bz2">http://wiki.qemu.org/download/qemu-1.6.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 78f13b774814b6b7ebcaf4f9b9204318
+                Download MD5 sum: f3f39308472d629aca57a255a0c91ba9
               </p>
             </li>
             <li>
               <p>
-                Download size: 10 MB
+                Download size: 11.5 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 188 MB
+                Estimated disk space required: 192 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.5 SBU
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Required Patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/qemu-1.4.0-fixes-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/qemu-1.4.0-fixes-1.patch</a>
+                Estimated build time: 1.7 SBU
               </p>
             </li>
           </ul>
@@ -117,8 +103,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.34.3">GLib-2.34.3</a>, <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.4">Python-2.7.4</a>,
+          "GLib-2.36.4">GLib-2.36.4</a>, <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>,
           <a class="xref" href="../multimedia/sdl.html" title=
           "SDL-1.2.15">SDL-1.2.15</a>, and <a class="xref" href=
           "../x/installing.html" title=
@@ -131,15 +117,15 @@
         <p class="optional">
           <a class="xref" href="../multimedia/alsa.html" title=
           "ALSA-1.0.27">ALSA-1.0.27</a>, <a class="xref" href="attr.html"
-          title="attr-2.4.46">attr-2.4.46</a>, <a class="xref" href=
+          title="attr-2.4.47">attr-2.4.47</a>, <a class="xref" href=
           "../general/check.html" title="Check-0.9.10">Check-0.9.10</a>,
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.30.0">cURL-7.30.0</a>, <a class="xref" href=
+          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
           "../multimedia/esound.html" title=
           "EsounD-0.2.41">EsounD-0.2.41</a>, <a class="xref" href=
-          "../x/mesalib.html" title="MesaLib-9.1.2">MesaLib-9.1.2</a>, and
+          "../x/mesalib.html" title="MesaLib-9.2.0">MesaLib-9.2.0</a>, and
           <a class="xref" href="cyrus-sasl.html" title=
-          "Cyrus SASL-2.1.25">Cyrus SASL-2.1.25</a>. Note that this optional
+          "Cyrus SASL-2.1.26">Cyrus SASL-2.1.26</a>. Note that this optional
           dependencies list is not comprehensive. See the output of
           <span class="command"><strong>./configure --help</strong></span>
           for a more complete list.
@@ -209,8 +195,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../qemu-1.4.0-fixes-1.patch
-./configure --prefix=/usr                \
+<kbd class="command">./configure --prefix=/usr                \
             --sysconfdir=/etc            \
             --target-list=x86_64-softmmu &amp;&amp;
 make</kbd>
@@ -354,7 +339,7 @@ EOF</kbd>
                 usually visible as tap0, to the host bridge.
               </p>
               <pre class="userinput">
-<kbd class="command">cat &gt;&gt; /etc/qemu-ifup &lt;&lt; EOF
+<kbd class="command">cat &gt; /etc/qemu-ifup &lt;&lt; EOF
 #!/bin/bash
 
 switch=br0
@@ -375,7 +360,7 @@ EOF
 chmod +x /etc/qemu-ifup</kbd>
 </pre>
               <pre class="userinput">
-<kbd class="command">cat &gt;&gt; /etc/qemu-ifdown &lt;&lt; EOF
+<kbd class="command">cat &gt; /etc/qemu-ifdown &lt;&lt; EOF
 #!/bin/bash
 
 switch=br0
@@ -534,7 +519,7 @@ chmod +x /etc/qemu-ifdown</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-03-18 19:44:11 +0000
+        Last updated on 2013-09-05 17:04:34 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -559,7 +544,7 @@ chmod +x /etc/qemu-ifdown</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>

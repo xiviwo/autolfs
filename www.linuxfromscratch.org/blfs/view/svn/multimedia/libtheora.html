@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-05-08">
+  <body class="blfs" id="blfs-2013-09-12">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-05-08
+        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
       </h4>
       <h3>
-        Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
@@ -37,11 +37,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           Theora is a free and open video compression format.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.3
+          This package is known to build and work properly using an LFS-7.4
           platform.
         </p>
         <h3>
@@ -68,18 +68,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2">
-                http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2</a>
+                "http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz">
+                http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 292ab65cedd5021d6b7ddd117e07cd8e
+                Download MD5 sum: 9eeabf1ad65b7f41533854a59f7a716d
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.85 MB
+                Download size: 1.4 MB
               </p>
             </li>
             <li>
@@ -103,7 +103,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="libogg.html" title=
-          "libogg-1.3.0">libogg-1.3.0</a>
+          "libogg-1.3.1">libogg-1.3.1</a>
         </p>
         <h4>
           Recommended
@@ -118,11 +118,11 @@
         <p class="optional">
           <a class="xref" href="sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>
           and <a class="xref" href="../general/libpng.html" title=
-          "libpng-1.6.2">libpng-1.6.2</a> (both to build the example
+          "libpng-1.6.3">libpng-1.6.3</a> (both to build the example
           players), <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.3.1">Doxygen-1.8.3.1</a>, <a class="xref" href=
+          "Doxygen-1.8.5">Doxygen-1.8.5</a>, <a class="xref" href=
           "../pst/texlive.html" title=
-          "texlive-20120701">texlive-20120701</a>, <a class="ulink" href=
+          "texlive-20130530">texlive-20130530</a>, <a class="ulink" href=
           "http://bibtexml.sourceforge.net">BibTex</a>, and <a class="ulink"
           href="http://www.xfig.org/">Transfig</a> (all four to build the API
           documentation), <a class="ulink" href=
@@ -144,7 +144,7 @@
         <pre class="userinput">
 <kbd class=
 "command">sed -i 's/png_\(sizeof\)/\1/g' examples/png2theora.c &amp;&amp;
-./configure --prefix=/usr &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -158,13 +158,15 @@ make</kbd>
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          If you built the examples and wish to install them (so that you can
-          hack on <code class="literal">theora</code>):
+          If you wish to install the examples (so that you can hack on
+          <code class="literal">theora</code>), install them as the
+          <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
 <kbd class="command">cd examples/.libs &amp;&amp;
 for E in *; do
-install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
+  install -v -m755 $E /usr/bin/theora_${E}
+done</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -178,8 +180,8 @@ install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
           "application">libpng</span> 1.6.
         </p>
         <p>
-          <code class="option">--disable-static</code>: This switch prevents
-          building static libraries.
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -195,8 +197,8 @@ install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libtheora.{so,a}, libtheoraenc.{so,a},
-              and libtheoradec.{so,a}</span>
+              <span class="segbody">libtheora.so, libtheoraenc.so, and
+              libtheoradec.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -217,7 +219,7 @@ install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
                   <p>
                     <a id="libtheora-lib" name=
                     "libtheora-lib"></a><span class="term"><code class=
-                    "filename">libtheora*.{so,a}</code></span>
+                    "filename">libtheora*.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -232,7 +234,7 @@ install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-04-05 22:01:58 +0000
+        Last updated on 2013-08-23 20:56:44 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -253,11 +255,11 @@ install -v -m755 $E /usr/bin/theora_${E}; done</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;38.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-05-08">Home</a>
+          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
         </li>
       </ul>
     </div>
