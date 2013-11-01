@@ -1,7 +1,6 @@
 #!/bin/env python
 #1.07
 #1.07 replace "make oldconfig" with "make localmodconfig"
-
 import urllib2,os,binascii,re,sys,platform,glob,time
 try:
 	from collections import OrderedDict
