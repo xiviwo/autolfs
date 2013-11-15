@@ -15,8 +15,6 @@ SOURCES=LFS + '/sources'
 lfs = Book(link)
 blfs = Book(link2,lfs)
 
-#wget = blfs.chapters[15].pages[10].packages[0]
-#ssl = blfs.chapters[4].pages[19].packages[0]
 wget = blfs.search("wget")
 ssl = blfs.search("openssl")
 adduser = lfs.search("Adding\s*the\s*LFS\s*User")
@@ -239,7 +237,7 @@ def main():
 	global replace_delete_log
 	for ch in lfs.chapters:
 		print ch.name
-		#print len(lfs.chapters)
+		
 		if ch.no == 6 :
 			chapterstr += "\n\nvirtfs : " + changeownership.targetname + " " +  virtualfs.targetname
 			chapterstr += "\n\n" + ch.name + " : SHELL=/tools/bin/bash "
@@ -253,27 +251,26 @@ def main():
 			packs = page.packages
 			if packs:
 				for pack in packs:
-					#scriptstr= ""
-					#print "	",pack.shortname
+					
 					if pack.commands and ch.no > 3 and not containsAny(pack.shortname, ['chroot','package-management','cleaning-up','strip','rebooting']):
 					
 						
 						allstr += pack.targetname
 						
 						if page.no not in changeownership.no and page.no not in virtualfs.no:
-						#changing-ownership and preparing-virtual-kernel-file-systems
+						#ignore changing-ownership and preparing-virtual-kernel-file-systems
 							chapterstr += pack.targetname
 						if page.no in adduser.no:
 							
 							chapterstr +='chown_dir '
-						#print pack.targetname,pack.name,
+						
 						packstr += pack.makeblock(lastpkg)
 
 						lastpkg = pack.targetname
-						#scriptstr += pack.script()
+						
 						replace_delete_log += pack.delete_log + pack.replace_log
 						pack.writescript(pack.targetname,scriptfolder)
-						#scriptfile= scriptfolder + "/" + pack.targetname.strip() + ".sh"
+						
 			
 					print "      --------------------------------"
 		chapterstr += "\n"

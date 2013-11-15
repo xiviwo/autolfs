@@ -160,21 +160,21 @@ def main():
 	allstr = "all : "
 	chapterstr = ""
 	chaptertgt = ""
-	#chaptertgt2 = ""
+	
 	makestr = ""
 	for ch in blfs.chapters:
-	#ch = blfs.chapters[13]
+	
 		chapterstr += ch.name + " = "
 		allstr += "$(" + ch.name + ") "
-		#chaptertgt += "mk-" + ch.name + " : " + "$(" + ch.name + ") "
+		
 		chaptertgt += ch.mkblock()
-		#chaptertgt2 += 
+		
 		for page in ch.pages:
-			#packs = ch.pages[19].packages
+			
 			packs = page.packages
 			if packs:
 				for pack in packs:
-					#print pack.name,":",pack.commands
+					
 					if not containsAny(pack.shortname,['about-devices','notes-on-building-software','conventions-used-in-this-book','locale-related-issues']):
 						chapterstr += pack.fullname + " "
 
@@ -184,11 +184,11 @@ def main():
 						else:
 							makestr += pack.makeblock()
 						
-						#print pack.delete_log,pack.replace_log
+						
 						replace_delete_log += pack.delete_log + pack.replace_log
 		
 		chapterstr += "\n\n"
-		#chaptertgt += "\n\n"
+		
 	allstr += " \n\n"
 	mkfile= makefolder + "/Makefile"
 	mainfile = open(mkfile,'wb')

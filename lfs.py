@@ -1,5 +1,6 @@
 #!/bin/env python
-#1.07
+#1.08
+#1.08 add generate-specs function
 #1.07 replace "make oldconfig" with "make localmodconfig"
 
 import urllib2,os,binascii,re,sys,platform,glob,time
@@ -12,6 +13,8 @@ try:
 except ImportError:
 	from bs4 import BeautifulSoup,SoupStrainer
 from collections import deque
+from os import error, listdir
+from os.path import join, isdir, islink
 
 scriptheader1='''\
 #/bin/bash
@@ -64,6 +67,7 @@ passwd = "ping"
 hostdev1="vdb1"
 hostdev2="vdb2"
 LFSHOME = "/home/lfs"
+CWD=os.path.dirname(os.path.realpath(__file__))
 
 arch=platform.machine()
 if arch == 'i686':
@@ -239,6 +243,7 @@ blfsignorelist = [
 
 perlcmd= BeautifulSoup('<kbd class="command">perl Makefile.PL && make && make install</kbd>')
 
+
 def containsAny(str, set):
     """Check whether 'str' contains ANY of the chars in 'set'"""
     return 1 in [c in str for c in set]
@@ -297,6 +302,105 @@ def grep(pattern,files):
 			if re.search(pattern,line,re.IGNORECASE):
 				
 				return line
+def foldername(str):
+	if os.path.isdir(str):
+		return str
+	else:
+		 return os.path.dirname(str)
+
+def findfolder(line):
+	folders = []
+	foldermat = re.findall('[ ](/[^ {},]*)',line)
+	if foldermat:
+		for fr in foldermat:
+			
+			folders.append(foldername(fr.strip()))
+	
+	return folders
+
+def walk2(path,top="/",deeplevel=0): 
+
+	try:
+		names = listdir(top)
+	except error, err:
+		if onerror is not None:
+		    	onerror(err)
+		return
+
+	for name in names:
+		pathtrace = join(top, name)
+		if pathtrace in path and isdir(pathtrace):
+			top = pathtrace
+			deeplevel = walk2(path,top,deeplevel+1)
+	return deeplevel
+
+def parsebuild(build,buildfolder):
+	for i,line in enumerate(build):
+		if re.search('patch -Np1 -i',line):
+		
+			build[i] = line.replace("patch -Np1 -i ../","patch -Np1 -i ~/rpmbuild/SOURCES/")
+		if containsAny(line,['f ../']):#tar -xvf ../
+			
+			build[i] = line.replace("f ../","f ~/rpmbuild/SOURCES/")
+
+		buildmat = re.search('^cd ((\.\./\w*-)*build$)',line)
+		if buildmat:
+			buildfolder.append(line)
+
+
+def parseinstall(install,makefolders,postrun):
+	tmp = install
+	install = []
+	
+	for i,line in enumerate(tmp):
+	 	
+		if containsAny(line,['/tools/lib/','/tools/bin/','*gdb.py']):
+			print install
+			continue
+		else:
+			makefolders.extend(findfolder(line))
+			if re.search("=/",line) and not containsAny(line,['vmlinuz','configure','sed -i','Configure']):
+				tmp[i] = line.replace("=/","=${RPM_BUILD_ROOT}/")
+			if re.search(" /",line) and not containsAny(line,['#','vimrc','ehci_hcd','pri=1','/dev/','/sys ','devpts','tmpfs','exec','/etc/ld.so.conf.d/*.conf','-e \"s|'])  :#'/proc','sed -i',
+				if "ln -sv " not in line:
+					tmp[i] = line.replace(" /"," ${RPM_BUILD_ROOT}/")
+				else:
+					
+					if findfolder(line[8:]):
+						#print line[8:]
+						#print findfolder(line[8:])
+						#print walk2(findfolder(line[8:])[0]),"level========================"
+						pass
+					tmp[i] = line[:8].replace(' /',' ../') + line[8:].replace(' /'," ${RPM_BUILD_ROOT}/")
+			if containsAll(line,['make','install']):
+				if "make modules_install" in line:
+					tmp[i] = line.strip("\n") + " INSTALL_MOD_PATH=$RPM_BUILD_ROOT \n"
+				if "make BINDIR=${RPM_BUILD_ROOT}/sbin install" in line: 
+				
+					tmp[i] = line.strip("\n") + " install prefix=$RPM_BUILD_ROOT \n"
+				if "make -C src install" in line:
+				
+					tmp[i] = line.strip("\n") + " ROOT=$RPM_BUILD_ROOT \n"
+				else:
+					tmp[i] = line.strip("\n") + " DESTDIR=$RPM_BUILD_ROOT \n"
+			if containsAny(line,['f ../']):#tar -xvf ../
+				
+				tmp[i] = line.replace("f ../","f ~/rpmbuild/SOURCES/")
+			if containsAny(line,['DESTDIR=']):
+				tmp[i] = line.replace("DESTDIR=","DESTDIR=$RPM_BUILD_ROOT")
+			if containsAny(line, ['pwconv','grpconv',"echo 'root:ping' | chpasswd",'grub-install ','build/udevadm hwdb --update']) :
+				postrun.append(line)
+				continue
+			if containsAny(line, ['bash udev-lfs-206-1/init-net-rules.sh']):
+				install.append("mkdir -pv $RPM_BUILD_ROOT/etc/udev/rules.d/\n")
+				install.append("cp -v /etc/udev/rules.d/70-persistent-net.rules $RPM_BUILD_ROOT/etc/udev/rules.d/\n")
+				install.append('sed -i \'s/\"00:0c:29:[^\\".]*\"/\"00:0c:29:*:*:*\"/\' $RPM_BUILD_ROOT/etc/udev/rules.d/70-persistent-net.rules\n')
+				continue
+			
+			install.append(tmp[i])
+	return install
+			
+
 class Package:
 	def __init__(self,no,name,cmds,downs,depends,page,chapter,book):
 		self.name = name
@@ -313,6 +417,9 @@ class Package:
 		self._shortname =""
 		self._fullname = ""
 		self.targetname = self.no + "-" + self.shortname + " "
+		self._summary = ""
+		self._soup = None
+		
 
 	def makeblock(self,extra_depend=""):
 		makestr = ""
@@ -334,7 +441,107 @@ class Package:
 
 		makestr += "\n\n" + packtgt + " : " + extra_depend + " " + self.dependency  + "\n" + packmakeblock
 		return makestr.encode("utf-8")
+	#@profile
+	def specs(self):
+		if not containsAny(self.shortname,['preparing-virtual','adjusting','cleaning-up','entering','package-management','rebooting','stripping']):
+
+			build = []
+			install = []
+			buildfolder=[]
+			installfolders = []
+			postrun = []
+			on = 0
+			if self.commands:
+				for cmd in self.commands:
+					if type(cmd) is not str:
+						line = self.findchild(cmd)
+					else:
+						line = cmd.text.encode('utf-8').strip()
+			
+					if containsAll(line, ['install','make']) and not containsAny(line,['makeinfo']) :
+			
+						install.extend(self.lineadd(line))
+						on = 1
+					elif not on:
+						build.extend(self.lineadd(line))
+					elif containsAll(line, ['make distclean']):
+						break
+					else:
+						install.extend(self.lineadd(line))
+				if not on:
+					install =  build 
+					build = []
+				
+				parsebuild(build,buildfolder)
+				
+				install = parseinstall(install,installfolders,postrun)
+
+			
+				specstxt =""
+				specstxt += 'Summary:    ' + str(self.fullname) + '\n'
+				specstxt += 'Name:       ' + str(self.shortname if self.no != "6071" else "linux-API-header") + '\n'
+				specstxt += 'Version:    ' + str(self.version if self.version else "1.0")+ "\n"
+				specstxt += 'Release:    1%{?dist}'+ "\n"
+				specstxt += 'License:    GPLv3+'+ "\n"
+				specstxt += 'Group:      Development/Tools'+ "\n"
+				specstxt += '\n'.join('Source' + str(i) + ':      ' + line for i,line in enumerate(self.downloads)) + "\n"
+				specstxt += 'URL:        ' + str(self.downloads[0].rsplit('/',1)[0]  if self.downloads else "http://" + self.page.link ) + "\n"
+
+				specstxt += '%description'+ "\n"
+				specstxt += self.fullname + "\n"
+
+				specstxt += '%prep'+ "\n"
+				if self.shortname == "vim" :
+					specstxt += "%setup -q -n vim" + self.version.replace(".","")
+				#elif self.shortname == "sysvinit":
+				#	specstxt += "%setup -q -n sysvinit-%{version}dsf"
+				elif self.shortname =="udev":
+					specstxt += "%setup -q -n systemd-%{version}"
+				elif self.no == "6071":
+					specstxt += "%setup -q -n linux-%{version}"
+				elif self.downloads:
+					specstxt += "%setup -q"
+				else:
+					specstxt += ""
+
+				specstxt += '\n%build'+ "\n"
+				specstxt += ''.join(str(line).strip("\n") + " %{?_smp_mflags} \n"  if re.search('make[\n ]',line) else str(line) for line in build)  + "\n"
+
+				specstxt += '%install'+ "\n"
+				specstxt += 'rm -rf ${RPM_BUILD_ROOT}'+ "\n"
+				specstxt += str(buildfolder[0] if buildfolder else "" ) + "\n"
+				specstxt += '\n'.join("mkdir -pv $RPM_BUILD_ROOT" + f for f in set(installfolders)) + "\n"
+				specstxt += ''.join(line for line in install)  + "\n"
+
+				specstxt += '[ -d $RPM_BUILD_ROOT%{_infodir} ] && rm -f $RPM_BUILD_ROOT%{_infodir}/dir'+ "\n"
+
+				specstxt += '%clean'+ "\n"
+				specstxt += 'rm -rf ${RPM_BUILD_ROOT}'+ "\n"
+
+				specstxt += '%post'+ "\n"
+				specstxt += '\n'.join(line for line in postrun) + "\n"
+				specstxt += '/sbin/install-info %{_infodir}/*.info %{_infodir}/dir || :'+ "\n"
+
+				specstxt += '%preun'+ "\n"
+
+				specstxt += '%files'+ "\n"
+				specstxt += '%defattr(-,root,root,-)'+ "\n"
+				specstxt += '%doc'+ "\n"
+				specstxt += '/*'+ "\n"
+				specstxt += '%changelog'
+
+			return specstxt
+		else:
+			return None
 	
+	def writespecs(self):
+		txt = self.specs()
+		if txt :
+			output=os.path.expanduser("~/rpmbuild/SPECS/") +  str(self.shortname if self.no != "6071" else "linux-API-header") + ".spec"
+			file = open(output, 'wb')
+			file.write(txt)
+			file.close
+
 	def writescript(self,filename,scriptfolder):
 		if not os.path.exists(scriptfolder):
 			os.makedirs(scriptfolder)
@@ -356,7 +563,7 @@ class Package:
 			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 1'\n" + scriptheader2
 		else:
 			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 4'\n" + scriptheader2
-		#print '--------',self.version			
+					
 		if self.downloads:
 			for link in self.downloads:
 				
@@ -376,7 +583,7 @@ class Package:
 						if p.findAll('a',{"title" : "BLFS Boot Scripts"}):
 							go = 0
 							break
-					#print "go===========",go
+					
 					if go and line.parent.findPreviousSibling():
 						prev = line.parent.findPreviousSibling().text.encode('utf-8').strip()
 						if containsAny(prev, ['doxygen','Doxygen','texlive','TeX Live','Sphinx']) and not containsAny(prev,['Install Doxygen']):
@@ -403,7 +610,7 @@ class Package:
 		return scriptstr
 
 
-
+	
 	def findchild(self,tag):
 		cmdline=""
 		if tag.string!=None:
@@ -447,7 +654,7 @@ class Package:
 						lst.append(self.massreplaceline(line) + "\n")
 		
 		return lst
-	
+	#@profile
 	def massreplaceline(self,string):
  		if "blfs" in self.book.link :
 			globalreplace = blfsreplace
@@ -504,6 +711,21 @@ class Package:
 			#shortname = namematch.group(1)
 			self._shortname = shortname(self.name)
 		return self._shortname
+	@property
+	def packsoup(self):
+		if not self._soup:
+			self._soup =  self.page.pagesoup
+		return self._soup
+
+	@property
+	def summary(self):
+		if not self._summary:
+			summary = self.packsoup.findAll("div",attrs={'class':'package'})
+			if summary:
+				self._summary = NormName(summary[0].p.text)
+			else:
+				self._summary = ""
+		return self._summary
 
 
 class Page:
@@ -837,7 +1059,8 @@ class Book:
 		self._perl_modules_link = ""
 		
 		self._udev_version = ""
-		
+		self.rpmbuildtree()
+
 		if baseonbook and isinstance(baseonbook,Book):
 			self.LFS = baseonbook
 		else:
@@ -848,7 +1071,12 @@ class Book:
                        blfsregx.append([r"udev-lfs(-([0-9]+))+",self.udev_version])
 
 		#self.populate()
-		
+	def rpmbuildtree(self):
+		paths = ['~/rpmbuild/BUILD','~/rpmbuild/BUILDROOT','~/rpmbuild/RPMS','~/rpmbuild/SOURCES','~/rpmbuild/SPECS','~/rpmbuild/SRPMS' ]
+		for path in paths:
+			dirname = os.path.expanduser(path)
+			if not os.path.exists(dirname):
+				os.makedirs(dirname)
 	@property
 	def name(self):
 		if not self._name :
@@ -969,35 +1197,54 @@ def blfstest():
 	link = "www.linuxfromscratch.org/blfs/view/svn/index.html"
 	blfs = Book(link, Book("www.linuxfromscratch.org/lfs/view/stable/index.html"))
 	
-	print blfs.udev_version
+	#print blfs.udev_version
 	#print "-----------",grep('/XML-SAX-Expat-([0-9.]+)[^/]*\.tar\.((bz2)|(xz)|(gz))$' ,lfs.perl_packs)
 	#pack = lfs.search("Perl\s*Modules")
 	#page = lfs.chapters[13].pages[19]
 	#lfs.search("Changing\s*Ownership")
-	pack = blfs.search("systemd")
+	#pack = blfs.search("totem")
 	#print '---------------------',page
 	#page.populate()
 	#print lfs.perl_modules_link
 	#for pack in page.packages:
+	for ch in blfs.chapters:
+		print ch.name,ch.no
+		for page in ch.pages:
+			pack = page.packages
+			if pack:
+				for package in pack:
+					#print package.specs()
+					package.writespecs()
+'''
 	if pack:
 		print pack.name
 		print pack.shortname
 	 	print pack.version
 		print pack.downloads
-		#print pack.script()
+		print pack.writespecs()
 		
 	#print "downn=",pack.downloads
-'''	#print "depend=",pack.dependency
+	#print "depend=",pack.dependency
 	print "------------------------"
 
 		page = lfs.search('wget')
 	if page:
 		print page.name,page.dependency
 '''
+
 def lfstest():
 	link = "www.linuxfromscratch.org/lfs/view/stable/index.html"
 	lfs = Book(link)
-	
+	for ch in lfs.chapters:
+		print ch.name,ch.no
+		if ch.no > 5 :
+			for page in ch.pages:
+				pack = page.packages
+				if pack:
+					for package in pack:
+						#print package.specs()
+						package.writespecs()
+'''	
 	#pack = lfs.search("Perl\s*Modules")
 	#pack = lfs.search("systemd")
 	pack = ''
@@ -1011,7 +1258,7 @@ def lfstest():
 		#	match = re.search('/(udev-lfs(-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',cmd.text,re.IGNORECASE)
 		#	if match:
 		#		print match.group(1)
-'''
+
 	for i in lfs.wget_file_list:
 		print i
 	page = lfs.chapters[5].pages[6]
@@ -1057,5 +1304,5 @@ p = pstats.Stats('testout')
 p.strip_dirs().sort_stats('cumulative').print_stats()
 '''
 
-#blfstest()
+blfstest()
 #lfstest()

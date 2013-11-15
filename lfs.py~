@@ -1,6 +1,7 @@
 #!/bin/env python
 #1.07
 #1.07 replace "make oldconfig" with "make localmodconfig"
+
 import urllib2,os,binascii,re,sys,platform,glob,time
 try:
 	from collections import OrderedDict
@@ -238,6 +239,22 @@ blfsignorelist = [
 
 perlcmd= BeautifulSoup('<kbd class="command">perl Makefile.PL && make && make install</kbd>')
 
+specsheader = '''
+Summary:    
+Name:       
+Version:    
+Release:    
+License:    GPLv3+ and GFDL
+Group:      Development/Tools
+Source:     
+Source1:    
+Source2:    
+
+Patch0:     autoconf-erlang_fix.diff
+URL:        http://www.gnu.org/software/autoconf/
+'''
+
+
 def containsAny(str, set):
     """Check whether 'str' contains ANY of the chars in 'set'"""
     return 1 in [c in str for c in set]
@@ -312,6 +329,9 @@ class Package:
 		self._shortname =""
 		self._fullname = ""
 		self.targetname = self.no + "-" + self.shortname + " "
+		self._summary = ""
+		self._soup = None
+		
 
 	def makeblock(self,extra_depend=""):
 		makestr = ""
@@ -333,7 +353,82 @@ class Package:
 
 		makestr += "\n\n" + packtgt + " : " + extra_depend + " " + self.dependency  + "\n" + packmakeblock
 		return makestr.encode("utf-8")
+	def specs(self):
+		if self.chapter.no > 5 :
+			build = []
+			install = []
+			on = 0
+			if self.commands:
+				for cmd in self.commands:
+					if type(cmd) is not str:
+						line = self.findchild(cmd)
+					else:
+						line = cmd.text.encode('utf-8').strip()
+			
+					if containsAll(line, ['install','make']) and not containsAny(line,['makeinfo']) :
+			
+						install.extend(self.lineadd(line))
+						on = 1
+					elif not on:
+						build.extend(self.lineadd(line))
+					else :
+			
+						install.extend(self.lineadd(line))
+				if not on:
+					install =  build 
+					build = []
+			
+				specstxt ='''Summary:    ''' + str(self.summary if self.summary else self.fullname) + '''
+Name:       ''' + self.shortname + '''
+Version:    ''' + str(self.version if self.version else "1.0") + '''
+Release:    1%{?dist}
+License:    GPLv3+ and GFDL
+Group:      Development/Tools
+''' + ' '.join('Source' + str(i) + '     ' + line for i,line in enumerate(self.downloads)) + '''
+URL:        ''' + str(self.downloads[0].rsplit('/',1)[0]  if self.downloads else " ") + '''
+
+%description
+''' + self.summary + '''
+
+%prep
+%setup -q
+
+
+%build
+''' + ''.join("%{?_smp_mflags} " + str(line)  if containsAny(line,['make']) else  str(line) for line in build) + ''' 
+
+%install
+rm -rf ${RPM_BUILD_ROOT}
+''' + ''.join("DESTDIR=$RPM_BUILD_ROOT " + str(line) if containsAll(line, ['install','make']) else str(line) for line in install) + ''' 
+
+[ -d $RPM_BUILD_ROOT%{_infodir} ] && rm -f $RPM_BUILD_ROOT%{_infodir}/dir
+
+%clean
+rm -rf ${RPM_BUILD_ROOT}
+
+%post
+
+/sbin/install-info %{_infodir}/*.info %{_infodir}/dir || :
+
+%preun
+
+
+%files
+%defattr(-,root,root,-)
+
+%changelog
+'''
+			return specstxt
+		else:
+			return None
 	
+	def writespecs(self):
+		if self.specs() :
+			output=os.path.expanduser("~/rpmbuild/SPECS/") +  self.shortname + ".spec"
+			file = open(output, 'wb')
+			file.write(self.specs())
+			file.close
+
 	def writescript(self,filename,scriptfolder):
 		if not os.path.exists(scriptfolder):
 			os.makedirs(scriptfolder)
@@ -355,7 +450,7 @@ class Package:
 			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 1'\n" + scriptheader2
 		else:
 			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 4'\n" + scriptheader2
-		#print '--------',self.version			
+					
 		if self.downloads:
 			for link in self.downloads:
 				
@@ -375,7 +470,7 @@ class Package:
 						if p.findAll('a',{"title" : "BLFS Boot Scripts"}):
 							go = 0
 							break
-					#print "go===========",go
+					
 					if go and line.parent.findPreviousSibling():
 						prev = line.parent.findPreviousSibling().text.encode('utf-8').strip()
 						if containsAny(prev, ['doxygen','Doxygen','texlive','TeX Live','Sphinx']) and not containsAny(prev,['Install Doxygen']):
@@ -503,6 +598,21 @@ class Package:
 			#shortname = namematch.group(1)
 			self._shortname = shortname(self.name)
 		return self._shortname
+	@property
+	def packsoup(self):
+		if not self._soup:
+			self._soup =  self.page.pagesoup
+		return self._soup
+
+	@property
+	def summary(self):
+		if not self._summary:
+			summary = self.packsoup.findAll("div",attrs={'class':'package'})
+			if summary:
+				self._summary = NormName(summary[0].p.text)
+			else:
+				self._summary = ""
+		return self._summary
 
 
 class Page:
@@ -836,7 +946,8 @@ class Book:
 		self._perl_modules_link = ""
 		
 		self._udev_version = ""
-		
+		self.rpmbuildtree()
+
 		if baseonbook and isinstance(baseonbook,Book):
 			self.LFS = baseonbook
 		else:
@@ -847,7 +958,12 @@ class Book:
                        blfsregx.append([r"udev-lfs(-([0-9]+))+",self.udev_version])
 
 		#self.populate()
-		
+	def rpmbuildtree(self):
+		paths = ['~/rpmbuild/BUILD','~/rpmbuild/BUILDROOT','~/rpmbuild/RPMS','~/rpmbuild/SOURCES','~/rpmbuild/SPECS','~/rpmbuild/SRPMS' ]
+		for path in paths:
+			dirname = os.path.expanduser(path)
+			if not os.path.exists(dirname):
+				os.makedirs(dirname)
 	@property
 	def name(self):
 		if not self._name :
@@ -996,7 +1112,15 @@ def blfstest():
 def lfstest():
 	link = "www.linuxfromscratch.org/lfs/view/stable/index.html"
 	lfs = Book(link)
-	
+	for ch in lfs.chapters:
+		print ch.name,ch.no
+		 
+		for page in ch.pages:
+			if page.packages:
+				for package in page.packages:
+					#print package.specs()
+					package.writespecs()
+'''	
 	#pack = lfs.search("Perl\s*Modules")
 	#pack = lfs.search("systemd")
 	pack = ''
@@ -1010,7 +1134,7 @@ def lfstest():
 		#	match = re.search('/(udev-lfs(-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',cmd.text,re.IGNORECASE)
 		#	if match:
 		#		print match.group(1)
-'''
+
 	for i in lfs.wget_file_list:
 		print i
 	page = lfs.chapters[5].pages[6]
@@ -1057,4 +1181,4 @@ p.strip_dirs().sort_stats('cumulative').print_stats()
 '''
 
 #blfstest()
-#lfstest()
+lfstest()
