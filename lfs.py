@@ -1,5 +1,6 @@
 #!/bin/env python
-#1.08
+#1.09
+#1.09 migrate beautifulsoup to lxml
 #1.08 add generate-specs function
 #1.07 replace "make oldconfig" with "make localmodconfig"
 
