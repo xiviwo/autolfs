@@ -1,5 +1,6 @@
-#!/bin/env python
-#1.08
+#!/usr/bin/env python
+#1.10 mass regex applied
+#1.09 migrate beautifulsoup to lxml
 #1.08 add generate-specs function
 #1.07 replace "make oldconfig" with "make localmodconfig"
 
@@ -8,13 +9,13 @@ try:
 	from collections import OrderedDict
 except ImportError:
 	from ordereddict import OrderedDict
-try:
-	from BeautifulSoup import BeautifulSoup,SoupStrainer
-except ImportError:
-	from bs4 import BeautifulSoup,SoupStrainer
 from collections import deque
 from os import error, listdir
 from os.path import join, isdir, islink
+#import lxml.html.soupparser as soupparser  
+from lxml import etree
+
+functionfile = "functions.sh"
 
 scriptheader1='''\
 #/bin/bash
@@ -22,9 +23,10 @@ set +h
 set -e
 
 SOURCES=$LFS/sources
-'''
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source ${DIR}/''' + functionfile + "\n"
 
-scriptheader2='''\
+functionstr='''\
 env
 preparepack()
 {
@@ -81,167 +83,191 @@ else:
 perl_pack_lists= "perl_pack_lists"
 
 counter = 0
+
 lfsreplace = [
-		('&lt;',						'<'),
-		('&gt;',						'>'),
-		
-		('&amp;',						'&'),
-		('&lt;&lt;',						'<<'),
-		("IP=192.168.1.1",					"IP="+IP),
-		("GATEWAY=192.168.1.2",					"GATEWAY=" + GATEWAY),
-		("BROADCAST=192.168.1.255",				"BROADCAST=" + BROADCAST),
-		('KEYMAP="de-latin1"',					'KEYMAP="us"'),
-		('KEYMAP_CORRECTIONS="euro2"',				''),
-		('LEGACY_CHARSET="iso-8859-15"',			''),
-		('FONT="LatArCyrHeb-16 -m 8859-15"',			''),
-		("chown -v",						"chown -Rv"),
-		('DISTRIB_CODENAME="<your name here>"',			'DISTRIB_CODENAME="MAO"'),
-		("passwd lfs",						"echo 'lfs:ping' | chpasswd"),
-		("passwd root",					"echo 'root:ping' | chpasswd"),
-		("make test",						""),
-		("exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash",		"source /home/lfs/.bashrc"),
-		("set root=(hd0,2)",					"set root=(hd0,1)"),
-		("root=/dev/sda2 ro",					"root=/dev/" + guestdev1 + " ro"),
-		("./configure --prefix=/usr --enable-cxx",		"ABI=" + str(ABI) +" \n\t./configure --prefix=/usr --enable-cxx"),
-		("--with-libpam=no",					""),
-		("./configure --sysconfdir=/etc",			"./configure --sysconfdir=/etc --with-libpam=no"),
-		("grub-install /dev/sda",				"grub-install /dev/" + guestdev ),
-		('groupadd lfs',					'groupadd lfs || true'),
-		('useradd -s /bin/bash -g lfs -m -k /dev/null lfs',	'useradd -s /bin/bash -g lfs -m -k /dev/null lfs || true'),
-		('cat > ~/.bash_profile << "EOF"',			'cat > ' + LFSHOME + '/.bash_profile << "EOF"'),
-		('cat > ~/.bashrc << "EOF"',				'cat > ' + LFSHOME + '/.bashrc << "EOF"'),
-		('source ~/.bash_profile',				'source ' + LFSHOME + '/.bash_profile'),
-							
+('&lt;',						'<'),
+('&gt;',						'>'),
+
+('&amp;',						'&'),
+('&lt;&lt;',						'<<'),
+("IP=192.168.1.1",					"IP="+IP),
+("GATEWAY=192.168.1.2",					"GATEWAY=" + GATEWAY),
+("BROADCAST=192.168.1.255",				"BROADCAST=" + BROADCAST),
+('KEYMAP="de-latin1"',					'KEYMAP="us"'),
+('KEYMAP_CORRECTIONS="euro2"',				''),
+('LEGACY_CHARSET="iso-8859-15"',			''),
+('FONT="LatArCyrHeb-16 -m 8859-15"',			''),
+("chown -v",						"chown -Rv"),
+('DISTRIB_CODENAME="<your name here>"',			'DISTRIB_CODENAME="MAO"'),
+("passwd lfs",						"echo 'lfs:ping' | chpasswd"),
+("passwd root",						"echo 'root:ping' | chpasswd"),
+("make test",						""),
+("exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash",		"source /home/lfs/.bashrc"),
+("set root=(hd0,2)",					"set root=(hd0,1)"),
+("root=/dev/sda2 ro",					"root=/dev/" + guestdev1 + " ro"),
+("./configure --prefix=/usr --enable-cxx",		"ABI=" + str(ABI) +" \n\t./configure --prefix=/usr --enable-cxx"),
+("--with-libpam=no",					""),
+("./configure --sysconfdir=/etc",			"./configure --sysconfdir=/etc --with-libpam=no --with-attr=no --with-selinux=no --with-audit=no --with-acl=no"),
+("grub-install /dev/sda",				"grub-install /dev/" + guestdev ),
+('groupadd lfs',					'	groupadd lfs || true'),
+('useradd -s /bin/bash -g lfs -m -k /dev/null lfs',	'useradd -s /bin/bash -g lfs -m -k /dev/null lfs || true'),
+('cat > ~/.bash_profile << "EOF"',			'cat > ' + LFSHOME + '/.bash_profile << "EOF"'),
+('cat > ~/.bashrc << "EOF"',				'cat > ' + LFSHOME + '/.bashrc << "EOF"'),
+('source ~/.bash_profile',				'source ' + LFSHOME + '/.bash_profile'),
+('--enable-no-install-program=kill,uptime',		' --enable-no-install-program=kill,uptime   --disable-acl --without-selinux --disable-xattr'),
+('--libexecdir=/usr/lib/glibc',				'--libexecdir=/usr/lib/glibc   --with-selinux=no --with-audit=no'),
+
 ]
 
 blfsreplace = [
-		('&lt;',						'<'),
-		('&gt;',						'>'),
-		
-		('&amp;',						'&'),
-		('&lt;&lt;',						'<<'),
-		("<newuser>",						newuser + " || true"),
-		("<username>",						newuser),
-		("<password>",						passwd),
-		("ln -s ",						"ln -svf "),
-		("<new-password>",					passwd)					
+('&lt;',						'<'),
+('&gt;',						'>'),
+
+('&amp;',						'&'),
+('&lt;&lt;',						'<<'),
+("<newuser>",						newuser + " || true"),
+("<username>",						newuser),
+("<password>",						passwd),
+("ln -s ",						"ln -svf "),
+("<new-password>",					passwd)					
 ]
 
 lfsregx = [
-		(r"domain\s*<Your\s*Domain\s*Name>",				"domain " + domain),
-		(r"nameserver\s*<IP\s*address\s*of\s*your\s*primary\s*nameserver>",	"nameserver " + nameserver1),
-		(r"nameserver\s*<IP\s*address\s*of\s*your\s*secondary\s*nameserver>",	"nameserver " + nameserver2),
-		(r"127\.0\.0\.1\s*<HOSTNAME\.example\.org>\s*<HOSTNAME>\s*localhost","127.0.0.1 localhost\n" + IP + "	alfs"),
-		(r'echo\s*"HOSTNAME=\s*<lfs>"\s*>\s*/etc/sysconfig/network',	'echo "HOSTNAME=' + hostname + '" > /etc/sysconfig/network'),
-		(r"/dev/\s*<xxx>\s*/\s*<fff>",					'/dev/' + guestdev1 + '     /            ' + guestfs + '    '),
-		(r"/dev/\s*<yyy>\s*swap\s*swap",					'/dev/' + guestdev2 + '    swap         swap'),
-		(r"export\s*LANG=\s*<ll>_<CC>\.<charmap><@modifiers>",		"export LANG=en_US.utf8"),
-		(r"mkdir\s*-v",						"mkdir -pv"),
-		(r"mkdir\s*/",							"mkdir -pv /"),
-		(r"mount\s*-v\s*-t\s*ext3\s*/dev/\s*<xxx>\s*\$LFS",		'mount -v -t ext3 /dev/' + hostdev1 + ' $LFS'),
-		(r"/sbin/swapon\s*\-v\s*/dev/\s*<zzz>",			"/sbin/swapon -v /dev/" + hostdev2),
-		(r"make\s*LANG=\s*<host_LANG_value>\s*LC_ALL=\s*menuconfig",	'yes "" | make localmodconfig'),
-		(r"zoneinfo/\s*<xxx>",						"zoneinfo/Asia/Shanghai"),
-		(r"PAGE=\s*<paper_size>",					"PAGE=A4")
+
+(r"domain.*Domain.*",					"domain " + domain),
+(r"nameserver.*primary.*",				"nameserver " + nameserver1),
+(r"nameserver.*secondary.*",				"nameserver " + nameserver2),
+(r"127\.0\.0\.1.*HOSTNAME.*",				"127.0.0.1 localhost\n" + IP + "	alfs"),
+(r'echo\s*"HOSTNAME.*',					'echo "HOSTNAME=' + hostname + '" > /etc/sysconfig/network'),
+(r"/dev/\s*<xxx>\s*/\s*<fff>",				'/dev/' + guestdev1 + '     /            ' + guestfs + '    '),
+(r"/dev/\s*<yyy>\s*swap\s*swap",			'/dev/' + guestdev2 + '    swap         swap'),
+(r"export\s*LANG=.*",					"export LANG=en_US.utf8"),
+(r"mkdir\s*-v",					"mkdir -pv"),
+(r"mkdir\s*/",						"mkdir -pv /"),
+(r"mount.*\$LFS",					'mount -v -t ext3 /dev/' + hostdev1 + ' $LFS'),
+(r"/sbin/swapon\s*\-v\s*/dev/\s*<zzz>",		"/sbin/swapon -v /dev/" + hostdev2),
+(r"make\s*LANG=.*menuconfig",				'make localmodconfig'),
+(r"zoneinfo/\s*<xxx>",					"zoneinfo/Asia/Shanghai"),
+(r"PAGE=\s*<paper_size>",				"PAGE=A4")
 
 ]
 
+
 blfsregx = [
-		(r"mkdir\s*-v",						"mkdir -pv"),
-		(r"mkdir\s*/",							"mkdir -pv /"),
-		(r"mkdir\s*",							"mkdir -pv "),
-		(r"export\s*LANG=\s*<ll>\s*_\s*<CC>\s*\.\s*<charmap>\s*<@modifiers>",		"export LANG=en_US.utf8"),
-		(r'"\s*<PREFIX>\s*"',						'"/opt"'),
-		(r"\s*</path/to/unzipped/files>\s*",				'')
-		#(r"udev-lfs(-([0-9.]+))+",					Book._udev_version)
+
+(r"mkdir\s*-v",						"mkdir -pv"),
+(r"mkdir\s*/",							"mkdir -pv /"),
+(r"mkdir\s*",							"mkdir -pv "),
+(r"export\s*LANG=.*",						"export LANG=en_US.utf8"),
+(r'"\s*<PREFIX>\s*"',						'"/opt"'),
+(r"\s*</path/to/unzipped/files>\s*",				''),
+(r'&&$',							''),
+#(r"udev-lfs(-([0-9.]+))+",					Book._udev_version)
 		
 ]
 
 
 
-lfsignorelist = ['dummy',
-	'libfoo',
-	'make check',
-	'localedef',
-	'tzselect',
-	'spawn ls',
-	'ulimit',
-	':options',
-	'logout',
-	'\nexit',
-	'shutdown -r',
-	'grub-img.iso',
-	'hdparm -I /dev/sda | grep NCQ',
-	'video4linux/',
-	'make -k check',
-	'make -k test',
-	'make test',
-	'udevadm test',
-	'test_summary',
-	'83-cdrom-symlinks.rules',
-	'cat /etc/udev/rules.d/70-persistent-net.rules',
-	'locale -a',
-	'locale name',
-	'glibc-check-log',
-	'su - lfs',
-	'grep FATAL check.log',
-	'readelf',
-	'ABI=32 ./configure ...',
-	'make NON_ROOT_USERNAME=nobody check-root',
-	'su nobody -s /bin/bash ',
-         '-c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"',
-	'gmp-check-log',
-	'mkdir -v $LFS/usr',
-	'mount -v -t ext3 /dev/<yyy> $LFS/usr',
-	'make RUN_EXPENSIVE_TESTS=yes check',
-	'cd /tmp &&',
-	'exec /tools/bin/bash --login +h',
-	'sed -i \'s/if ignore_if; then continue; fi/#&/\' udev-lfs-197-2/init-net-rules.sh',
-	' /etc/udev/rules.d/70-persistent-net.rules',
-	'chown -Rv nobody .',
-	'exec /bin/bash --login +h',
-	'/tools/bin/bash --login',
-	'unset pathremove pathprepend pathappend',
-	'mkdir -pv /etc/pam.d/',
-	'patch -Np1 -i ../Python-2.7.3-bsddb_fix-1.patch &&',
-	'tar xvf krb5-1.11.2.tar.gz',
-	'cd krb5-1.11.2',
-	"ABI=" + str(ABI),
-	'install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \\',
-	'    /etc/sgml/sgml-docbook.cat',
-	'sshfs THINGY:~ ~/MOUNTPATH',
-	'fusermount -u ~/MOUNTPATH',
-	'tripwire --init',
-	"egrep '^flags.*(vmx|svm)' /proc/cpuinfo",
-	'export LIBRARY_PATH=/opt/xorg/lib',
-	"export MAKEFLAGS='-j 2'",
-	"make -j2",
-	'bash tests/run.sh',
-	'pushd testsuite',
-	"sed -i -e 's|exec which sleep|exec echo /tools/bin/sleep|' \\",
-	'.exp',
-	'popd',
-	"write_cd_rules"
-	]
+lfsignorelist = [
+'dummy',
+'libfoo',
+'make check',
+'localedef',
+'tzselect',
+'spawn ls',
+'ulimit',
+':options',
+'logout',
+'\nexit',
+'shutdown -r',
+'grub-img.iso',
+'hdparm -I /dev/sda | grep NCQ',
+'video4linux/',
+'make -k check',
+'make -k test',
+'make test',
+'udevadm test',
+'test_summary',
+'83-cdrom-symlinks.rules',
+'cat /etc/udev/rules.d/70-persistent-net.rules',
+'locale -a',
+'locale name',
+'glibc-check-log',
+'su - lfs',
+'grep FATAL check.log',
+'readelf',
+'ABI=32 ./configure ...',
+'make NON_ROOT_USERNAME=nobody check-root',
+'su nobody -s /bin/bash ',
+ '-c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"',
+'gmp-check-log',
+'mkdir -v $LFS/usr',
+'mount -v -t ext3 /dev/<yyy> $LFS/usr',
+'make RUN_EXPENSIVE_TESTS=yes check',
+'cd /tmp &&',
+'exec /tools/bin/bash --login +h',
+'sed -i \'s/if ignore_if; then continue; fi/#&/\' udev-lfs-197-2/init-net-rules.sh',
+' /etc/udev/rules.d/70-persistent-net.rules',
+'chown -Rv nobody .',
+'exec /bin/bash --login +h',
+'/tools/bin/bash --login',
+'unset pathremove pathprepend pathappend',
+'mkdir -pv /etc/pam.d/',
+'patch -Np1 -i ../Python-2.7.3-bsddb_fix-1.patch &&',
+'tar xvf krb5-1.11.2.tar.gz',
+'cd krb5-1.11.2',
+"ABI=" + str(ABI),
+'install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \\',
+'    /etc/sgml/sgml-docbook.cat',
+'sshfs THINGY:~ ~/MOUNTPATH',
+'fusermount -u ~/MOUNTPATH',
+'tripwire --init',
+"egrep '^flags.*(vmx|svm)' /proc/cpuinfo",
+'export LIBRARY_PATH=/opt/xorg/lib',
+"export MAKEFLAGS='-j 2'",
+"make -j2",
+'bash tests/run.sh',
+'pushd testsuite',
+"sed -i -e 's|exec which sleep|exec echo /tools/bin/sleep|' \\",
+'.exp',
+'popd',
+"write_cd_rules"
+
+]
 
 blfsignorelist = [
-	'make -k check',
-	'make -k test',
-	'make test',
-	'bash -e',
-	'<report-name.twr>',
-	'convmv',
-	'</path/to/unzipped/files>',
-	'lp -o number-up=2 <filename>',
-	'gpg --verify ',
-	'gpg gpg --keyserver pgp.mit.edu --recv-keys 0xF376813D',
-	'glxinfo'
-	]
+'make -k check',
+'make -k test',
+'make test',
+'bash -e',
+'<report-name.twr>',
+'convmv',
+'</path/to/unzipped/files>',
+'lp -o number-up=2 <filename>',
+'gpg --verify ',
+'gpg gpg --keyserver pgp.mit.edu --recv-keys 0xF376813D',
+'glxinfo',
+'mkinitramfs [KERNEL VERSION]'
+]
+
+SpecsSkipList = [
+'preparing-virtual',
+'adjusting',
+'cleaning-up',
+'entering',
+'package-management',
+'rebooting',
+'stripping',
+'conventions-used-in-this-book',
+'notes-on-building-software',
+'about-devices',
+'about-raid'
+
+]
 
 
+perlcmd= ['perl Makefile.PL && make && make install\n']
 
-
-perlcmd= BeautifulSoup('<kbd class="command">perl Makefile.PL && make && make install</kbd>')
 
 
 def containsAny(str, set):
@@ -254,20 +280,23 @@ def containsAll(str, set):
 
 
 def NormName(name):
-	namestrip= re.compile("\\b&nbsp;\\b|[ \~\:\+\.\-\_\?'\$\(\)\/\n\t\r]+",re.MULTILINE)
+	namestrip= re.compile("[\x90-\xff]|\\b&nbsp;\\b|[\s\~\:\+\-\_\?'\$\(\)\/\n\t\r]+",re.MULTILINE)
 	return namestrip.sub("-",name).lower().strip("-")
 
 def shortname(name):
 
 	pkgname =  NormName(name)
-	namematch = re.search("([a-zA-Z]+[a-zA-Z0-9]*(-[^.\d][0-9]*[a-zA-Z]+[0-9]*)*)",pkgname)
-	#"^([a-zA-Z0-9]+(-[0-9]*[a-zA-Z]+[0-9]*)*)"		
+	namematch = re.search("([a-zA-Z]+[a-zA-Z0-9]*(?:-[^-.\d]*[0-9]*[a-zA-Z]+[0-9]*)*)(?![.\d]+)",pkgname)
+	#"^([a-zA-Z0-9]+(-[0-9]*[a-zA-Z]+[0-9]*)*)"	
+	#"([a-zA-Z]+[a-zA-Z0-9]*(-[^.\d][0-9]*[a-zA-Z]+[0-9]*)*)"
+	#print version(name)
 	shortname = namematch.group(1)
 	return shortname
 
 def version(name):
-	versionmatch = re.search("-([a-zA-Z0-9]*[0-9.]+[a-zA-Z0-9]*)",name.strip(),re.MULTILINE)
-
+	versionmatch = re.search("-([\w]*[0-9.]*[\w]*$)",name.strip(),re.MULTILINE)
+	#blfs-bootscripts-20130908.tar.bz2
+	#-([a-zA-Z0-9]*[0-9.]+[a-zA-Z0-9]*)
 	try:
 		version = versionmatch.group(1)
 	except AttributeError:
@@ -334,72 +363,341 @@ def walk2(path,top="/",deeplevel=0):
 			deeplevel = walk2(path,top,deeplevel+1)
 	return deeplevel
 
-def parsebuild(build,buildfolder):
-	for i,line in enumerate(build):
-		if re.search('patch -Np1 -i',line):
-		
-			build[i] = line.replace("patch -Np1 -i ../","patch -Np1 -i ~/rpmbuild/SOURCES/")
-		if containsAny(line,['f ../']):#tar -xvf ../
-			
-			build[i] = line.replace("f ../","f ~/rpmbuild/SOURCES/")
+def run_once(f):
+	def wrapper(*args, **kwargs):
+		if not wrapper.has_run:
+			wrapper.has_run = True
+			return f(*args, **kwargs)
+	wrapper.has_run = False
+	return wrapper
 
-		buildmat = re.search('^cd ((\.\./\w*-)*build$)',line)
-		if buildmat:
-			buildfolder.append(line)
+
+
+
+def matchgroupuser(lines,line,pre):
+
+	if re.search('groupadd|usermod|useradd',line):
+			line = line.strip().strip("&&")
+			
+			if re.search('useradd',line) and line.endswith('\\'):
+				
+				pre.append(line)
+				pre.append(next(lines))
+				return 1
+				 
+			else:
+				pre.append(line + "\n")
+				return 1
+	else:
+		
+		return 0
+
+def matchBlock(start,end,lines,line,lst,cont=True,repl=True):
+	if re.search(start,line,re.MULTILINE):
+		if repl : line =  InstallRegx(InstallSpaceFolder,SpaceFolder).sub(line)
+	 	lst.append(line)
+		try:
+		    while True:
+			nline = lines.next()
+			
+			lst.append(nline)
+			if  re.search(end,nline,re.MULTILINE):
+				
+				return cont
+		except StopIteration:
+			return cont
+	else:
+		return False	
+	
+class MultiRegex(object):
+    flags = re.MULTILINE
+    
+
+    def __init__(self,exregx,make_func):
+        '''
+        compile a disjunction of regexes, in order
+        '''
+	self.regexes = ()
+	try:
+	
+		if type(exregx[0]) is str:
+			regx = "(?P<" + make_func.__name__ + str(0) + '>(' + '|'.join(l for l in exregx) + '))'
+		else:
+			regx = '|'.join("(?P<" + make_func.__name__ + str(i) + '>' + l + ")" for i,l in enumerate(zip(*exregx)[0]))
+	
+	except IndexError:
+		raise Exception('Regex {0} list is Null'.format(exregx))
+
+	ex = "|" + regx if self.regexes  else regx
+	#print 'ex=======',"|".join(self.regexes) +  ex
+        self._regex = re.compile("|".join(self.regexes) +  ex , self.flags)
+
+	#print self._regex.pattern
+
+	if type(exregx[0]) is str:
+	        name = make_func.__name__ + str(0)
+
+	        if callable(make_func):
+		    #_method = make_func(name)
+		  
+		    setattr(self, name, make_func)
+	else:
+		
+		for i,v in enumerate(exregx):
+		    
+		    name = make_func.__name__ + str(i)
+		    print 'create function: ',name,i,v
+		    if callable(make_func):
+			    _method = make_func(i,exregx)
+			  
+			    setattr(self, name, _method)
+		 
+
+    def search(self,s,*args):
+	c = 0
+	for mo in self._regex.finditer(s):
+		print 'search===',mo.groupdict()
+		for k,v in mo.groupdict().iteritems():
+
+		    if v:
+		        func = getattr(self, k)
+			
+		
+		        if callable(func):
+		            func(self,mo,*args)
+			    break
+			else:
+				
+		            func
+			    break
+		c += 1
+	return c > 0 
+
+    def sub(self,s,*args):
+        return self._regex.sub(self._sub, s)
+
+    def _sub(self, mo,*args):
+        '''
+        determine which partial regex matched, and
+        dispatch on self accordingly.
+        '''
+	print 'sub===',mo.groupdict()
+        for k,v in mo.groupdict().iteritems():
+	    
+            if v:
+                sub = getattr(self, k)
+                if callable(sub):
+                    return sub(self,mo,*args)
+                return sub
+        raise AttributeError,'nothing captured, matching sub-regex could not be identified'
+
+
+
+
+BuildSubRegex = (
+(r'patch -Np1 -i ../',		'patch -Np1 -i %_sourcedir/'),
+(r'f ../',			"f  %_sourcedir/"),
+
+)
+
+BuildCDRegex =(
+r'cd .*',
+)
+
+BuildPreRegex =(
+r'^\s*install.*',
+r'^\s*chown.*',
+r'^\s*chgrp.*',
+)
+
+BuildMakeRegex=(
+(r'(.*make[\n ].*)',		' %{?_smp_mflags} \n'),
+
+
+
+)
+
+def append_line(i,regx):
+    def _method(self,*args):
+	for arg in args:
+        	print 'append===',regx[i][1],' after = ', arg.string
+	return args[0].string.strip("\n") + regx[i][1]
+    return _method
+
+def replace_line(i,regx):
+    def _method(self,*args):
+	for arg in args:
+        	print 'replace===',arg.string,' with==',regx[i][1]
+	return regx[i][1]
+    return _method
+
+def move_line(self,mo,*args):
+	print 'move line : ',mo.string," to ", args[0]
+	if type(args[0]) is list:
+		args[0].append(mo.string)
+
+
+class BuildRegx(MultiRegex):
+	pass
+
+
+
+def parsebuild(build,buildfolder,pre):
+	tmp = build
+	build = []
+
+	lines = iter(tmp)
+	for i,line in enumerate(lines):
+		
+	 	
+		if matchgroupuser(lines,line,pre): continue	
+		if matchBlock('cat (>|>>)\s*/.*(EOF|"EOF")','^EOF',lines,line,build,True,False) : continue
+		
+		if BuildRegx(BuildPreRegex,move_line).search(line,pre) : continue
+		BuildRegx(BuildCDRegex,move_line).search(line,buildfolder)
+		
+		line = BuildRegx(BuildSubRegex,replace_line).sub(line)
+		line = BuildRegx(BuildMakeRegex,append_line).sub(line)
+
+		build.append(line)
+	
+	return build
+
+InstallSubRegex = (
+(r'=/',			"=${RPM_BUILD_ROOT}/"),
+(r'DESTDIR=',		"DESTDIR=$RPM_BUILD_ROOT"),
+(r'f ../',		"f  %_sourcedir/"),
+)
+
+
+PostrunRegex = [
+'^\s*pwconv.*',
+'^\s*grpconv.*',
+"^\s*echo 'root:ping'.*",
+'^\s*grub-install .*',
+'^\s*build/udevadm hwdb --update.*',
+'^\s*chgrp.*',
+'^\s*chmod.*',
+'^\s*chown.*',
+'^\s*gtk-update-icon-cache.*',
+'^\s*update-desktop-database.*',
+'^\s*usermod.*',
+'^\s*useradd.*',
+'^\s*groupadd.*',
+'^\s*ssh-keygen.*',
+'^\s*unset public_key.*',
+#'^\s*rndc-confgen.*',
+'^\s*mknod.*',
+'^\s*/etc/rc.d/init.d/.*',
+'^exim -v -bi',
+'^/usr/sbin/.*',
+'.*install.*-o.*-g.*',
+'.*~/.*',
+'.*>>.*',
+]
+
+
+InstallActRegex =(
+r'(?P<InstallByGroupUser>)',
+r'(?P<UserSpec>)',
+r'(?P<AppAct>())',
+r'(?P<Append>.*>>.*)',
+)
+
+InstallSpaceFolder=(
+r'(.* /.*|.*>/.*)',
+
+)
+InstallMakeInstall=(
+r'.*make.*install.*',
+)
+
+
+class InstallRegx(MultiRegex):
+
+	pass
+	
+	def SpaceFolder(self,mo,*args):
+		line = mo.group()
+
+		if "/dev/null" in line:
+			'''
+			zic -L /dev/null   -d $ZONEINFO/posix -y "sh yearistype.sh" ${tz}
+			'''
+			return line
+		elif "ln " in line:
+			'''
+			ln -sv ....
+			'''
+			if findfolder(line[8:]):
+				#print line[8:]
+				#print findfolder(line[8:])
+				#print walk2(findfolder(line[8:])[0]),"level========================"
+				pass
+			line = line[:8].replace(' /',' ../') + line[8:].replace(' /'," ${RPM_BUILD_ROOT}/")
+		
+		else:
+			return line.replace(' /'," ${RPM_BUILD_ROOT}/")
+		
+		 	
+		return line
+
+	
+	
+	def MakeInstall(self,mo,*args):
+		line = mo.group()
+		if "make modules_install" in line:
+			line = line.strip("\n") + " INSTALL_MOD_PATH=$RPM_BUILD_ROOT \n"
+		if "make BINDIR=${RPM_BUILD_ROOT}/sbin install" in line: 
+	
+			line = line.strip("\n") + " install prefix=$RPM_BUILD_ROOT \n"
+		if "make -C src install" in line:
+	
+			line = line.strip("\n") + " ROOT=$RPM_BUILD_ROOT \n"
+		if "&&" in line:
+	
+			line = line.strip("\n").strip("&&").strip() + " DESTDIR=$RPM_BUILD_ROOT \n"
+		else:
+			line = line.strip("\n") + " DESTDIR=$RPM_BUILD_ROOT \n"
+		return line
 
 
 def parseinstall(install,makefolders,postrun):
 	tmp = install
 	install = []
-	
-	for i,line in enumerate(tmp):
+	lines = iter(tmp)
+	trash = []
+
+	for i,line in enumerate(lines):
 	 	
 		if containsAny(line,['/tools/lib/','/tools/bin/','*gdb.py']):
-			print install
+			
 			continue
 		else:
 			makefolders.extend(findfolder(line))
-			if re.search("=/",line) and not containsAny(line,['vmlinuz','configure','sed -i','Configure']):
-				tmp[i] = line.replace("=/","=${RPM_BUILD_ROOT}/")
-			if re.search(" /",line) and not containsAny(line,['#','vimrc','ehci_hcd','pri=1','/dev/','/sys ','devpts','tmpfs','exec','/etc/ld.so.conf.d/*.conf','-e \"s|'])  :#'/proc','sed -i',
-				if "ln -sv " not in line:
-					tmp[i] = line.replace(" /"," ${RPM_BUILD_ROOT}/")
-				else:
-					
-					if findfolder(line[8:]):
-						#print line[8:]
-						#print findfolder(line[8:])
-						#print walk2(findfolder(line[8:])[0]),"level========================"
-						pass
-					tmp[i] = line[:8].replace(' /',' ../') + line[8:].replace(' /'," ${RPM_BUILD_ROOT}/")
-			if containsAll(line,['make','install']):
-				if "make modules_install" in line:
-					tmp[i] = line.strip("\n") + " INSTALL_MOD_PATH=$RPM_BUILD_ROOT \n"
-				if "make BINDIR=${RPM_BUILD_ROOT}/sbin install" in line: 
-				
-					tmp[i] = line.strip("\n") + " install prefix=$RPM_BUILD_ROOT \n"
-				if "make -C src install" in line:
-				
-					tmp[i] = line.strip("\n") + " ROOT=$RPM_BUILD_ROOT \n"
-				else:
-					tmp[i] = line.strip("\n") + " DESTDIR=$RPM_BUILD_ROOT \n"
-			if containsAny(line,['f ../']):#tar -xvf ../
-				
-				tmp[i] = line.replace("f ../","f ~/rpmbuild/SOURCES/")
-			if containsAny(line,['DESTDIR=']):
-				tmp[i] = line.replace("DESTDIR=","DESTDIR=$RPM_BUILD_ROOT")
-			if containsAny(line, ['pwconv','grpconv',"echo 'root:ping' | chpasswd",'grub-install ','build/udevadm hwdb --update']) :
-				postrun.append(line)
-				continue
+			if matchBlock('cat >>\s*/.*(EOF|"EOF")','^EOF',lines,line,postrun,True,False): continue
+			if matchBlock('cat >\s*/.*(EOF|"EOF")','^EOF',lines,line,install): continue
+			if matchBlock('cat (>|>>) ~/','^EOF',lines,line,postrun) : continue
+			if matchBlock('^menuentry ','^}',lines,line,trash) : continue
+			#if matchPostAction(line,postrun) : continue 
+			#if matchUserSettings(line,postrun) : continue 
+			#if matchChangeGroupUser(line,postrun): continue
+			if InstallRegx(PostrunRegex,move_line).search(line,postrun): continue
+			line = InstallRegx(InstallSubRegex,replace_line).sub(line)
+			line = InstallRegx(InstallSpaceFolder,SpaceFolder).sub(line)
+			line = InstallRegx(InstallMakeInstall,MakeInstall).sub(line)
+
 			if containsAny(line, ['bash udev-lfs-206-1/init-net-rules.sh']):
 				install.append("mkdir -pv $RPM_BUILD_ROOT/etc/udev/rules.d/\n")
 				install.append("cp -v /etc/udev/rules.d/70-persistent-net.rules $RPM_BUILD_ROOT/etc/udev/rules.d/\n")
 				install.append('sed -i \'s/\"00:0c:29:[^\\".]*\"/\"00:0c:29:*:*:*\"/\' $RPM_BUILD_ROOT/etc/udev/rules.d/70-persistent-net.rules\n')
 				continue
+
+		install.append(line)
 			
-			install.append(tmp[i])
+
 	return install
-			
+
 
 class Package:
 	def __init__(self,no,name,cmds,downs,depends,page,chapter,book):
@@ -418,13 +716,13 @@ class Package:
 		self._fullname = ""
 		self.targetname = self.no + "-" + self.shortname + " "
 		self._summary = ""
-		self._soup = None
+		
 		
 
 	def makeblock(self,extra_depend=""):
 		makestr = ""
 		if "blfs" in self.book.link :
-			print self.book.link
+			
 			packtgt = self.fullname + " "
 			packmakeblock='''\
 	@$(call echo_message, Building)
@@ -441,22 +739,30 @@ class Package:
 
 		makestr += "\n\n" + packtgt + " : " + extra_depend + " " + self.dependency  + "\n" + packmakeblock
 		return makestr.encode("utf-8")
-	#@profile
-	def specs(self):
-		if not containsAny(self.shortname,['preparing-virtual','adjusting','cleaning-up','entering','package-management','rebooting','stripping']):
+	#
+	def rpmrequire(self):
+		depend = []
+		if self.dependency:
+			for d in self.dependency.split():
+				depend.append(shortname(d))
+		return depend
 
+	def specs(self):
+		if not containsAny(self.shortname,SpecsSkipList):
+			pre = []
 			build = []
 			install = []
 			buildfolder=[]
 			installfolders = []
 			postrun = []
 			on = 0
+			specstxt = ""
 			if self.commands:
 				for cmd in self.commands:
 					if type(cmd) is not str:
 						line = self.findchild(cmd)
 					else:
-						line = cmd.text.encode('utf-8').strip()
+						line = cmd.strip()
 			
 					if containsAll(line, ['install','make']) and not containsAny(line,['makeinfo']) :
 			
@@ -472,55 +778,87 @@ class Package:
 					install =  build 
 					build = []
 				
-				parsebuild(build,buildfolder)
+				build = parsebuild(build,buildfolder,pre)
 				
 				install = parseinstall(install,installfolders,postrun)
 
-			
-				specstxt =""
-				specstxt += 'Summary:    ' + str(self.fullname) + '\n'
+
+				specstxt +="%define dist " + self.book.name + "\n"
+				specstxt +="%define srcdir %_builddir/%{name}-%{version} \n"
+				specstxt += 'Summary:    ' + str(self.page.summary if self.page.summary else self.fullname) + '\n'
 				specstxt += 'Name:       ' + str(self.shortname if self.no != "6071" else "linux-API-header") + '\n'
 				specstxt += 'Version:    ' + str(self.version if self.version else "1.0")+ "\n"
-				specstxt += 'Release:    1%{?dist}'+ "\n"
+				specstxt += 'Release:    %{?dist}'+ self.book.version + "\n"
 				specstxt += 'License:    GPLv3+'+ "\n"
 				specstxt += 'Group:      Development/Tools'+ "\n"
-				specstxt += '\n'.join('Source' + str(i) + ':      ' + line for i,line in enumerate(self.downloads)) + "\n"
+				specstxt +=  '\n'.join('Requires:  ' + d for d in self.rpmrequire() if self.dependency ) + "\n"
+				specstxt += '\n'.join('Source' + str(i) + ':    ' + line for i,line in enumerate(self.downloads)) + "\n"
 				specstxt += 'URL:        ' + str(self.downloads[0].rsplit('/',1)[0]  if self.downloads else "http://" + self.page.link ) + "\n"
 
 				specstxt += '%description'+ "\n"
-				specstxt += self.fullname + "\n"
-
+				specstxt +=  str(self.page.summary if self.page.summary else self.fullname)  + "\n"
+				specstxt += "%pre\n"
+				specstxt += '\n'.join(str(line) for line in pre)
 				specstxt += '%prep'+ "\n"
-				if self.shortname == "vim" :
+				specstxt += 'export XORG_PREFIX="/opt"\n'
+				specstxt += 'export XORG_CONFIG="--prefix=$XORG_PREFIX  --sysconfdir=/etc --localstatedir=/var --disable-static"\n'
+				#specstxt += '\n'.join('wget --no-check-certificate -nc ' + line  + ' -P %_sourcedir\n' for i,line in enumerate(self.downloads)) + "\n"
+				specstxt += '''\
+rm -rf %{srcdir}
+mkdir -pv %{srcdir} || :
+case %SOURCE0 in 
+	*.zip)
+	unzip -x %SOURCE0 -d %{srcdir}
+	;;
+	*tar)
+	tar xf %SOURCE0 -C %{srcdir} 
+	;;
+	*)
+	tar xf %SOURCE0 -C %{srcdir} --strip-components 1
+	;;
+esac
+'''
+				'''if self.shortname == "vim" :
 					specstxt += "%setup -q -n vim" + self.version.replace(".","")
-				#elif self.shortname == "sysvinit":
-				#	specstxt += "%setup -q -n sysvinit-%{version}dsf"
 				elif self.shortname =="udev":
 					specstxt += "%setup -q -n systemd-%{version}"
 				elif self.no == "6071":
 					specstxt += "%setup -q -n linux-%{version}"
 				elif self.downloads:
-					specstxt += "%setup -q"
+					specstxt += "%setup -q -n %{name}-%{version}"
 				else:
 					specstxt += ""
-
+'''
 				specstxt += '\n%build'+ "\n"
-				specstxt += ''.join(str(line).strip("\n") + " %{?_smp_mflags} \n"  if re.search('make[\n ]',line) else str(line) for line in build)  + "\n"
+				specstxt += 'cd %{srcdir}\n'
+				specstxt += ''.join(str(line)  for line in build)  + "\n"
 
 				specstxt += '%install'+ "\n"
+
+				specstxt += 'cd %{srcdir}\n'
+
 				specstxt += 'rm -rf ${RPM_BUILD_ROOT}'+ "\n"
+
 				specstxt += str(buildfolder[0] if buildfolder else "" ) + "\n"
+
 				specstxt += '\n'.join("mkdir -pv $RPM_BUILD_ROOT" + f for f in set(installfolders)) + "\n"
+
 				specstxt += ''.join(line for line in install)  + "\n"
 
 				specstxt += '[ -d $RPM_BUILD_ROOT%{_infodir} ] && rm -f $RPM_BUILD_ROOT%{_infodir}/dir'+ "\n"
 
 				specstxt += '%clean'+ "\n"
+
 				specstxt += 'rm -rf ${RPM_BUILD_ROOT}'+ "\n"
+				specstxt += 'rm -rf %{srcdir}'+ "\n"
 
 				specstxt += '%post'+ "\n"
-				specstxt += '\n'.join(line for line in postrun) + "\n"
-				specstxt += '/sbin/install-info %{_infodir}/*.info %{_infodir}/dir || :'+ "\n"
+
+				specstxt += '/sbin/ldconfig\n'
+
+				specstxt += '\n'.join(line for line in postrun) 
+
+				specstxt += '/usr/bin/install-info %{_infodir}/*.info %{_infodir}/dir || :'+ "\n"
 
 				specstxt += '%preun'+ "\n"
 
@@ -533,24 +871,53 @@ class Package:
 			return specstxt
 		else:
 			return None
+	@run_once
+	def writefunctions(self,scriptfolder):
+		print "run once--------"
+		if not os.path.exists(scriptfolder):
+			os.makedirs(scriptfolder)
+		else:
+			scriptfile= scriptfolder + "/" + functionfile
+			file = open(scriptfile,'wb')
+			file.write(functionstr)
+			file.close
+	@run_once
+	def rpmbuildtree(self):
+		print "run once--------"
+		paths = ['~/rpmbuild/BUILD','~/rpmbuild/BUILDROOT','~/rpmbuild/RPMS','~/rpmbuild/SOURCES','~/rpmbuild/SPECS','~/rpmbuild/SRPMS' ]
+		for path in paths:
+			dirname = os.path.expanduser(path)
+			if not os.path.exists(dirname):
+				os.makedirs(dirname)
+	def downpack(self,targetDir):
+		for link in self.downloads:
 	
+			os.system('wget --no-check-certificate -nc --timeout=60 --tries=5 ' + link + ' -P ' + targetDir )
+
 	def writespecs(self):
+		action = run_once(self.rpmbuildtree)
 		txt = self.specs()
 		if txt :
-			output=os.path.expanduser("~/rpmbuild/SPECS/") +  str(self.shortname if self.no != "6071" else "linux-API-header") + ".spec"
+			action()
+			output=os.path.expanduser("~/rpmbuild/SPECS/") +  str(self.fullname if self.no != "6071" else "linux-API-header") + ".spec"
 			file = open(output, 'wb')
 			file.write(txt)
 			file.close
 
 	def writescript(self,filename,scriptfolder):
+		action = run_once(self.writefunctions)
+		
 		if not os.path.exists(scriptfolder):
 			os.makedirs(scriptfolder)
 		else:
+			action(scriptfolder)
 			scriptfile= scriptfolder + "/" + filename.strip() + ".sh"
 			file = open(scriptfile,'wb')
 			file.write(self.script())
 			file.close
-	
+	def overruncmds(self,cmds):
+		if cmds:
+			self.commands = cmds
 	def script(self):
 		scriptstr =""
 		short = self.shortname
@@ -560,12 +927,12 @@ class Package:
 				short = "systemd"
 		
 		if containsAny(short,['nss','json','pulseaudio','libiodbc']):
-			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 1'\n" + scriptheader2
+			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 1'\n" 
 		else:
-			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 4'\n" + scriptheader2
+			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 4'\n" 
 					
 		if self.downloads:
-			for link in self.downloads:
+			for link in set(self.downloads):
 				
 				if "blfs" in self.book.link and 'wget' not in short and 'openssl' not in short:
 					
@@ -576,34 +943,12 @@ class Package:
 			scriptstr += "cd ${SOURCES}/${pkgname}-${version} \n"
 		if self.commands:
 			for line in self.commands:
-				
-				if type(line) is not str:
-					go = 1
-					for p in line.parent.findPreviousSiblings():
-						if p.findAll('a',{"title" : "BLFS Boot Scripts"}):
-							go = 0
-							break
-					
-					if go and line.parent.findPreviousSibling():
-						prev = line.parent.findPreviousSibling().text.encode('utf-8').strip()
-						if containsAny(prev, ['doxygen','Doxygen','texlive','TeX Live','Sphinx']) and not containsAny(prev,['Install Doxygen']):
+				#print type(line),line
+				#if type(line) is not str:
+				#	go = 1
 
-							pass
-						elif   containsAny(prev, ['documentation','manual']) and containsAny(prev, ['If you','API','alternate''optional','Sphinx','DocBook-utils','Additional','PDF','Postscript']) and  not containsAny(prev,['If you downloaded','Man and info reader programs','The Info documentation system']):
-							pass
-						else:
-							
-							#
-							
-							for lin in self.lineadd(self.findchild(line)):
-							
-								scriptstr += lin
-					elif go:
-						for lin in self.lineadd(self.findchild(line)):
-								
-							scriptstr += lin
-				else:
-					scriptstr += self.massreplaceline(line)
+
+				scriptstr += self.massreplaceline(line)
 
 		if self.downloads:	
 			scriptstr += "cd ${SOURCES}\nrm -rf ${pkgname}-${version} \nrm -rf ${pkgname}-build\n"
@@ -654,7 +999,7 @@ class Package:
 						lst.append(self.massreplaceline(line) + "\n")
 		
 		return lst
-	#@profile
+	#
 	def massreplaceline(self,string):
  		if "blfs" in self.book.link :
 			globalreplace = blfsreplace
@@ -673,7 +1018,7 @@ class Package:
 				self.replace_log += "-------------------------------------------------\n"
 	   			string = string.replace(k, v)
 			
-	
+
 		for k, v in OrderedDict(globalregx).iteritems():
 			laststr = string
 			string = re.sub(k ,v, laststr)#,flags=re.DEBUG)
@@ -684,7 +1029,7 @@ class Package:
 				self.replace_log += "Rules     : " + k + "\n"
 				self.replace_log += "-------------------------------------------------\n"
 		
-	
+		
 		return string
 	@property
 	def fullname(self):
@@ -705,10 +1050,6 @@ class Package:
 	@property
 	def shortname(self):
 		if not self._shortname:
-			#pkgname =  NormName(self.name)
-					     
-			#namematch = re.search("([a-zA-Z]+[a-zA-Z0-9]*(-[0-9]*[a-zA-Z]+[0-9]*)*)",pkgname)
-			#shortname = namematch.group(1)
 			self._shortname = shortname(self.name)
 		return self._shortname
 	@property
@@ -717,15 +1058,7 @@ class Package:
 			self._soup =  self.page.pagesoup
 		return self._soup
 
-	@property
-	def summary(self):
-		if not self._summary:
-			summary = self.packsoup.findAll("div",attrs={'class':'package'})
-			if summary:
-				self._summary = NormName(summary[0].p.text)
-			else:
-				self._summary = ""
-		return self._summary
+
 
 
 class Page:
@@ -736,14 +1069,21 @@ class Page:
 		self.book = book
 		self.link = self.book.bookdir + "/" + pagelink
 		self.chapter = chapter
-		#self.populate()
-		#self.pagesoup = self.openpage()
 		self._soup = None
+		self._summary = ""
 
 	def show(self):
 		print self.no,self.name,self.link
 
-
+	@property
+	def summary(self):
+		if not self._summary:
+			summary = str(''.join(re.sub("[ \n]+"," ",''.join(i).encode('utf-8')) for i in self.pagesoup.xpath(".//div[@class='package']/p[1]//text()")))
+			if summary :
+				self._summary = summary
+			else:
+				self._summary = ""
+		return self._summary
 	
 	def parsedownload(self,subsoup):
 		download_link = []
@@ -756,7 +1096,7 @@ class Page:
 		
 		if self.book.wget_file_list:
 
-			link = grep('/' + shortname(short) + '[^/]*\.tar\.((bz2)|(xz)|(gz))$' ,self.book.wget_file_list)
+			link = grep('/' + short + '[^/]*\.tar\.((bz2)|(xz)|(gz))$' ,self.book.wget_file_list)
 			
 			if link:
 				download_link.append(link)
@@ -765,60 +1105,70 @@ class Page:
 			return download_link
 		else:
 			
-			uls=subsoup.findAll("ul",attrs={'class':'compact'})
+			uls=subsoup.xpath(".//div[@class='itemizedlist']/ul[@class='compact']")
 			counter=0
 			if uls:
 		
 				for ul in uls:
-					for alink in ul.findAll("a",attrs={'class':'ulink'}):
-				
-						if str(alink['href']).endswith('/') or "certdata" in str(alink['href']) or str(alink['href']).endswith('.html') :
+					for alink in ul.xpath(".//a[@class='ulink']"):
+						dlink = alink.attrib['href'].strip()
+						if str(dlink ).endswith('/') or "certdata" in str(dlink ) or str(dlink ).endswith('.html') :
 							pass  
 						else:
-							download_link.append(alink['href'])
+							download_link.append(dlink)
 
 			return download_link
 
 	def parsedependency(self,depsoup):
 
-		#strainer = SoupStrainer("p",attrs={'class':re.compile(r"^(recommended|required)$")})
-		ps=depsoup.findAll("p",attrs={'class':re.compile(r"^(recommended|required)$")})
+		ps=depsoup.xpath(".//p[contains(@class,'required') or contains(@class,'recommended')]")
+		noskip = 1 
 		if ps:
-			dependstr_link=""
+			dependstr=""
 
 			for p in ps:
-				child_iter = iter(p.contents)
-				for child in child_iter:
-					
-					if  hasattr(child,"name"):
-						
-						if  child.has_key("title"):
-
-								pkgname = NormName(child.text)
-					
-								if containsAny(pkgname,["x-window-system"]):
-									short =  "x-window-system-environment"
-								elif containsAny(pkgname,['udev-installed-lfs-version']):
-									short = 'udev-extras-from-systemd'
-								else:
-									short = shortname(pkgname)
-								ver = version(child.text.lower())	
-								if ver:
-									dependstr_link += short + "-"  + ver + " "
-								else:
- 									dependstr_link += short + " "
 				
-					else:
-						orstrip = re.compile("[ \t,\n\r]+",re.MULTILINE)
-						orstr = orstrip.sub("",child.string)
-						if orstr=="or":
-							next(child_iter,None)
+				for node in p.xpath("./node()"):
+					
+					try:
+						
+						#dname = NormName(re.sub(r"[\x90-\xff]", "",node.xpath("./@title")[0]))
+						dname = node.xpath("./@title")[0]
+						#print dname,'dnametitle',noskip,node.xpath("./@title")
+						if noskip:
+							pkgname = NormName(dname)
+							
+							if containsAny(pkgname,["x-window-system"]):
+								short =  "x-window-system-environment"
+							elif containsAny(pkgname,['udev-installed-lfs-version']):
+								short = 'udev-extras-from-systemd'
+							else:
+								short = shortname(dname)
+							ver = version(dname)	
+							if ver:
+								dependstr += short + "-"  + ver + " "
+							else:
+								dependstr += short + " "
+							
+						noskip = 1
+					except (AttributeError,IndexError):
+						try:
+							dname = node.strip()
+							
+							if "or" == dname:
+								noskip = 0
 							continue
+						except AttributeError:
+							continue
+						
+							
 					
 		else:
-			dependstr_link=""
+			dependstr=""
 
-		return dependstr_link
+		return dependstr
+
+
 	def addpack(self,package):
 		self._packages.append(package)
 	
@@ -833,122 +1183,178 @@ class Page:
 		if packlink:
 			return packlink
 		else:
-			soup = BeautifulSoup(urllib2.urlopen(link).read())
+			soup = etree.HTML(urllib2.urlopen(link).read())
 	
-			alink = soup.findAll("a",attrs={'href':re.compile("tar\.gz")}) # package link
+			alinks = soup.xpath(".//a/@href")
+			for alink in alinks:
+				if "tar.gz" in alink:
+					packlink = alink.strip()
 	
-			if alink:
+			if packlink:
 				match = re.search('(http://[^/]+/)',link) #http://search.cpan.org/
-				download_link=" " +match.group(1) +  alink[0]['href'].strip("/") + "\n"
+				packlink=match.group(1) +  packlink.strip("/") + "\n"
 				file = open(perl_pack_lists,"a")
-				file.write(download_link)
+				file.write(packlink)
 				file.close
-				return download_link
+				return packlink
 			else:
 				return ""
 
 	
-	def parseperldownload(self,alink):
-	
-		if alink and alink.has_key('href'):
+	def parseperldownload(self,link):
 		
-			if str(alink['href']).endswith('/'): #parse external link :http://search.cpan.org/~gaas/LWP-Protocol-https/
+		if link:#.attrib['href']:
+			#link = str(alink.attrib['href'].strip())
+			 
+			if link.endswith('/'): #parse external link :http://search.cpan.org/~gaas/LWP-Protocol-https/
 			
-				return str(self.parseexternal(str(alink['href'])))
-				#return alink['href']
+				return str(self.parseexternal(link))
+				
 
-			elif   ".html" in str(alink['href']):# same page no need to parse,ex:# /www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
+			elif   ".html" in link:# same page no need to parse,ex:# /www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
 							      #within BLFS, no need to parse
-				pass
+				return None
 
 			else:                               # otherwises, need to parse all 
 
-				return alink['href']
+				return link
+
 	
 	def parseperl(self,plist,i):
 		global counter
 		#link =  "www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html"
 		link = self.book.perl_modules_link
 		
-		soup = BeautifulSoup(open(link).read())
+		soup = etree.HTML(open(link).read())#BeautifulSoup(open(link).read())
 
-		titles=soup.findAll('h3')
-		pkglist=[]
-		perlstr=""
-		for title in titles:
-
-			if title != None:
-				div = title.findNextSibling(attrs={'class':'itemizedlist'})
-
-				if div != None :
-					#func == "Crypt_SSLeay_0_64" :
-					self.perldepend(div,"",plist,i,[])
-					i = counter
+		divs = soup.xpath(".//div[@class='package']/div[@class='itemizedlist']")#(findNextSibling(attrs={'class':'itemizedlist'})
+		for div in divs:
+			if div != None :
+				
+				
+				self.perldepend(div,None,plist,i,[])
+				i = counter
 	
 
 	
 	def perldepend(self,div,link,plist,i,lastdown):
+		'''
+		div : next div to parse
+		link: next link of div to parse ex: ['libwww-perl-6.05']->['HTML::Form']->['HTTP::Message']
+		
+		'''
 		global counter
 		nextdown = deque()
-		if div.string == None:
-			for ul in div.contents:
-				 if ul.string == None:
-					dependency=""			
-					downloads=[]					
-					for li in ul.contents:   # Iterate over lis
-						if li.string == None:
-							try:
-								url = str(li.a['href'])
-							except (KeyError,AttributeError):
-								li.a = li.a.findNextSibling(attrs={'class':'ulink'})
-								url = str(li.a['href'])
-							
-							if link and ".html" in url: # /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
-										     # /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/postlfs/openssl.html
-								downloads = []
-								
-							else:        #http://www.cpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.64.tar.gz/ TITLE
-								downloads = [ self.parseperldownload(li.a) ]
-							
-							if downloads:
-								packname = parselink(downloads[0]).strip(".tar.gz")
-								dependency += fullname(packname) + "  "
-							else:
-								dependency += fullname(li.a.text) + " "
-							
-						
-							if downloads and not li.div:
-								packname = fullname(packname)
-								i += 1
-								packno = packno = str(self.no) + str(i)
-								plist.append(Package(packno,packname,perlcmd,downloads,"",self,self.chapter,self.book))
-								counter =  i
-							elif downloads:
-								for down in downloads:
-									nextdown.append(down)
-							
-					if link:
-					
-						thisdown = lastdown.popleft() 
-						packname = fullname(parselink(thisdown).strip(".tar.gz"))
-						
-						i += 1
-						packno = packno = str(self.no) + str(i)
-						plist.append(Package(packno,packname,perlcmd,[thisdown],dependency,self,self.chapter,self.book))
-						counter = i
+		dependency=""			
+		downloads=[]					
 
-					for li in ul.contents:  # Iterate over div of class itemizedlist
-						if li.string == None and li.div:
-							# Tiltle of next div need to be iterate, for example, Crypt::SSLeay-0.64
-							self.perldepend(li.div,li.div.findPreviousSibling().a,plist,i,nextdown)
+		lis = div.xpath("./ul/li")
+		#encode-locale-1.03  html-form-6.03  http-cookies-6.01  http-negotiate-6.01  net-http-6.06  www-robotrules-6.02  http-daemon-6.01  file-listing-6.04
+		
+		for li in lis:
+			for a in li.xpath("./p/a"):
+				try:
+					url = a.attrib['href'].strip()
+				except (KeyError,AttributeError):
+					continue
+			
+			#print "URL     :",url
+
+			if link != None and ".html" in url: # /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
+						     # /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/postlfs/openssl.html
+				downloads = []
+	
+			else:        #http://www.cpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.64.tar.gz/ TITLE
+				downloads = filter(None,[ self.parseperldownload(url) ])
+			
+
+			if downloads:
+				#if download exists, parse its download link as dependency
+				packname = parselink(downloads[0]).strip(".tar.gz")
+			
+				dependency += fullname(packname) + "  "
+			else:   # or parse its text as dependency 
+				dependency += fullname(li.xpath("./p/a//text()")[0].strip()) + " "
+		
+
+			if downloads and not li.xpath("./div"):
+				# li has not div descendants, mean there is no dependency along with it.
+				packname = fullname(packname)
+				i += 1
+				packno = packno = str(self.no) + str(i)
+				'''print "--------------------"
+				print '===  down:',downloads
+				print ":packname:",packname
+				print ":packno  :",packno'''
+				plist.append(Package(packno,packname,perlcmd,downloads,"",self,self.chapter,self.book))
+				counter =  i
+			elif downloads:
+				for down in downloads:
+					nextdown.append(down)
+		
+		if link is not None:# previous parents exists,['libwww-perl-6.05']->['HTML::Form']->['HTTP::Message']
+
+			thisdown = lastdown.popleft() 
+			packname = fullname(parselink(thisdown).strip(".tar.gz"))
+	
+			i += 1
+			packno = packno = str(self.no) + str(i)
+			'''print "--------------------"
+			print '     down:',thisdown
+			print ":packname:",packname
+			print ":packno  :",packno
+			print "depend   :",dependency'''
+			plist.append(Package(packno,packname,perlcmd,[thisdown],dependency,self,self.chapter,self.book))
+			counter = i
+
+		nextdiv = div.xpath("./ul/li/div[@class='itemizedlist']")# next div to parse
+		for ndiv in nextdiv:  # Iterate over div of class itemizedlist
+			
+			isnextdiv = ndiv.xpath("./preceding-sibling::*/a/text()")
+			# Tiltle of next div need to be iterate, for example, Crypt::SSLeay-0.64
+			#print "next link:",isnextdiv
+			if ndiv is not None:
+				self.perldepend(ndiv,isnextdiv,plist,i,nextdown)
 
 	
 	@property
 	def pagesoup(self):
 		if not self._soup:
-			self._soup =  BeautifulSoup(open(self.link).read())
+			self._soup = etree.HTML(open(self.link).read())
 		return self._soup
 
+	def parsecmds(self,lines,cmds):
+		
+		for line in lines:
+			if line is not None:
+				
+				prev = ''.join(l.strip() for l in line.xpath("../preceding-sibling::p[1]//text()"))
+				thisline = ''.join(str(l) for l in line.xpath(".//text()")) + "\n"
+				
+				if containsAny(prev, ['doxygen','Doxygen','texlive','TeX Live','Sphinx']) and not containsAny(prev,['Install Doxygen']):
+					
+					pass
+				elif   containsAny(prev, ['documentation','manual']) and containsAny(prev, ['If you','API','alternate''optional','Sphinx','DocBook-utils','Additional','PDF','Postscript']) and  not containsAny(prev,['If you downloaded','Man and info reader programs','The Info documentation system']):
+					
+					pass
+				elif line.xpath("../preceding-sibling::p//a[@title='BLFS Boot Scripts']"):
+					bootscript = self.book.search("BLFS")
+					#bootscript[0].overruncmds([''.join(str(l) for l in line.xpath(".//text()")) + "\n"])
+					#print bootscript[0].commands
+					#print bootscript[0].script()
+					cmds.append("mkdir /etc\n")
+					cmds.append("mkdir  " + bootscript[0].shortname + "\n")
+					cmds.append("tar xf ../" + parselink(bootscript[0].downloads[0])+" -C " + bootscript[0].shortname + " --strip-components 1\n")
+					cmds.append("cd " + bootscript[0].shortname+"\n")
+					cmds.append(thisline)
+
+				else:
+					cmds.append(thisline)
+			else:
+				print line,'============================'
+				cmds.append(line.xpath(".//text()") + "\n")
+
+			
 	@property
 	
 	def packages(self):
@@ -960,19 +1366,29 @@ class Page:
 			string = shortname(self.name)
 			
 			if string == "python-modules" or string == "xorg-drivers" :
-				headers = pagesoup.findAll('h2',attrs={'class':'sect2'})
+				
+				headers = pagesoup.xpath(".//h2[@class='sect2']") 
 			else:
-				headers = pagesoup.findAll('h1',attrs={'class':'sect1'})
+				headers = pagesoup.xpath(".//h1[@class='sect1']")
 			plist = [] 
 			for i,header in enumerate(headers):
 			 
 				
-				cmds=header.parent.findAll("kbd",{'class':'command'})
-				if cmds:
+				parent =header.xpath(".//parent::*")[0]
+				lines=parent.xpath(".//kbd[@class='command']")
+				cmds =[]
+				downs = []
+				downs =  self.parsedownload(parent)
+				
+				self.parsecmds(lines,cmds)
+				
+				
+				if cmds or downs:
+					#packname = header.xpath("//h1[@class='sect1']//text()[2]")[0]
+					packname = ''.join(str(l) for l in header.xpath(".//text()")) 
 					
-					packname = header.text
-					if string == "libvpx":
-						packname = string + '-' + version(self.name).replace('v','')
+					#if string == "libvpx":
+					#	packname = string + '-' + version(self.name).replace('v','')
 
 					if string == 'xkeyboardconfig':
 						packname = 'xkeyboard-config' + "-" + version(self.name)
@@ -982,11 +1398,11 @@ class Page:
 						i = counter
 					else:
 						packno = str(self.no) + str(i+1)
-						downs = []
+						
 						depends = ""
-						downs =  self.parsedownload(header.parent)
+						
 						if "blfs" in self.book.link:
-							depends = self.parsedependency(header.parent)
+							depends = self.parsedependency(parent)
 						plist.append(Package(packno,packname,cmds,downs,depends,self,self.chapter,self.book))
 			self._packages = plist
 		return self._packages
@@ -999,17 +1415,17 @@ class Chapter:
 		self.book = book
 		self.soup = section
 		self._pages = []
-		#self.populate()	
+			
 
 	def listpage(self,pagesection,tag):
 		if not self._pages:
 			plist = []
-			pagesgrp = pagesection.findNextSiblings()
+			pagesgrp = pagesection.xpath(".//following-sibling::*")
 			for pageul in pagesgrp:
-				pages = pageul.findAll(tag)
+				pages = pageul.xpath(tag)
 				for i,p in enumerate(pages):
 					 
-					plist.append(Page(str(self.no) + str(i+1).zfill(2),p.text,p['href'],self,self.book))
+					plist.append(Page(str(self.no) + str(i+1).zfill(2),p.text,p.attrib['href'] ,self,self.book))
 			self._pages = plist
 
 	def addpage(self,page):
@@ -1017,6 +1433,7 @@ class Chapter:
 
 
 	def normname(self,name):
+		
 		namestrip= re.compile("\\b&nbsp;\\b|[ 0-9\~\:\+\.\_\-\?'\$\(\)\/\n\t\r]+",re.MULTILINE)
 		return namestrip.sub("-",name).lower().strip("-")
 	def mkblock(self):
@@ -1029,9 +1446,9 @@ class Chapter:
 		else:
 			mkstr += "\n\n" + self.name + " : "
 		mkstr += '''
-\t@$(call echo_message, Building)
-\t@time source /etc/profile  && make  mk-''' + self.name + '''
-\t@touch $@
+	@$(call echo_message, Building)
+	@time source /etc/profile  && make  mk-''' + self.name + '''
+	@touch $@
 mk-''' + self.name + " :  $(" + self.name + ")\n\n"
 		return mkstr
 	@property
@@ -1039,13 +1456,14 @@ mk-''' + self.name + " :  $(" + self.name + ")\n\n"
 	def pages(self):
 		if not self._pages:
 			print "lazy generating chapters for:" + self.name
-			self.listpage(self.soup,"a")
+			self.listpage(self.soup,".//a")
 		return self._pages
 
 	
 	
 class Book:
-	#_udev_version = ""
+	
+	
 	def __init__(self,link,baseonbook=None):
 		self._chapters= []
 		self._name = ''
@@ -1059,7 +1477,7 @@ class Book:
 		self._perl_modules_link = ""
 		
 		self._udev_version = ""
-		self.rpmbuildtree()
+
 
 		if baseonbook and isinstance(baseonbook,Book):
 			self.LFS = baseonbook
@@ -1070,13 +1488,7 @@ class Book:
                 if self.name == "BLFS":
                        blfsregx.append([r"udev-lfs(-([0-9]+))+",self.udev_version])
 
-		#self.populate()
-	def rpmbuildtree(self):
-		paths = ['~/rpmbuild/BUILD','~/rpmbuild/BUILDROOT','~/rpmbuild/RPMS','~/rpmbuild/SOURCES','~/rpmbuild/SPECS','~/rpmbuild/SRPMS' ]
-		for path in paths:
-			dirname = os.path.expanduser(path)
-			if not os.path.exists(dirname):
-				os.makedirs(dirname)
+
 	@property
 	def name(self):
 		if not self._name :
@@ -1098,10 +1510,13 @@ class Book:
 				
 			pack = book.search("systemd")
 			if pack:
-				for cmd in pack.commands:
-					match = re.search('/(udev-lfs(-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',cmd.text,re.IGNORECASE)
-					if match:
-						self._udev_version = match.group(1)
+				for p in pack:
+					for cmd in p.commands:
+						
+						match = re.search('/(udev-lfs(-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',cmd,re.IGNORECASE)
+						if match:
+							self._udev_version = match.group(1)
+							break
 		return self._udev_version
 
 	@property
@@ -1121,63 +1536,101 @@ class Book:
 	def perl_modules_link(self):
 		if not self._perl_modules_link :
 			
-			soup = self.booksoup.findAll(text = re.compile("Perl\s*Modules",re.IGNORECASE))
-			for s in soup:
-				link = s.parent
-			self._perl_modules_link = self.bookdir + "/" + link['href']
+			soup = self.booksoup.xpath('.//a[contains(text(),"' + "Perl Modules" + '")]')
+			
+			link = soup[0].attrib['href']
+			self._perl_modules_link = self.bookdir + "/" + link 
 		return self._perl_modules_link
 
 	def listchapter(self,booksoup,tag):
 		if not self._chapters:
 			clist = []
-			chapters =  booksoup.findAll(tag)
+			chapters =  booksoup.xpath(tag)
+			
 			for i,ch in enumerate(chapters):
-				tmpch = Chapter(i,ch.text,ch,self)
+				
+				for name in ch.xpath(".//text()"):
+					if name.strip():
+						chname = name.strip()
+				try:
+					chno = re.search("^\s*([0-9]{1,2})",chname).group(1)
+				except (AttributeError,IndexError):
+					chno = 0 
+				
+				tmpch = Chapter(chno,chname,ch,self)
 				clist.append(tmpch)
 			self._chapters = clist
 		 
-	def addchapter(self,chapter):
-		self._chapters.append(chapter)
+	def findchapter(self,chno):
+	
+		for ch in self.chapters:
+
+			if str(ch.no) == str(chno):
+				
+				return ch
+		return None
 
 	def search(self,name):
-		
-		soup = self.booksoup.findAll(text = re.compile(name,re.IGNORECASE))
+		print name
+		soup = self.booksoup.xpath('.//a[contains(translate(., "ABCDEFGHJIKLMNOPQRSTUVWXYZ", "abcdefghjiklmnopqrstuvwxyz"),"' + name.lower() + '")]/../../../h4//text()')
 		
 		chno = 0
 		counter = 0
+		chapters = []
+		chnos = []
+		packs = []
+		print len(soup)
 		if soup:
 			for a in soup:
-				chapters = a.parent.parent.parent.findPreviousSiblings()
-			for chapter in chapters:
-				chno =  int(re.search("^\s*([0-9]{1,2}).",chapter.text,re.MULTILINE).group(1))
+				txt= a.strip()
+				if txt is not None:
+					chapters.append(txt)
 			
-			for i,page in enumerate(self.chapters[chno].pages):
+			for chapter in chapters:
+				
+				mat= re.search("^\s*([0-9]{1,2})",chapter)
+				if mat:
 
-				if re.search(name.lower(),page.name.lower(),re.MULTILINE):
+					chnos.append(int(mat.group(1))) 
+			
+			for chno in chnos:
+				
+				dchapter = self.findchapter(chno)
+				
+				if dchapter:
+					for i,page in enumerate(dchapter.pages):
+						
+						if re.search(name.lower(),NormName(page.name),re.MULTILINE):
 					
-					counter =  i
-					break
-		if chno >= 0 and counter >0 :
-			return self.chapters[chno].pages[counter].packages[0]
-		else:
+							counter= i
+							
+							break
+				
+					for pack in dchapter.pages[counter].packages:
+						packs.append(pack)
+			
+		if packs is None:
 			return None
+		else:
+			return packs
+	
 	@property
 	def version(self):
 		if not self._version:
-			version=self.booksoup.findAll("h2",attrs={'class':"subtitle"})
+			version=self.booksoup.xpath("//h2[@class='subtitle']")
 			if version:
 				for v in version:
-					self._version = v.text.strip()	
+					self._version = v.text.replace("Version","").strip()
 		return self._version
 
 	@property
 	def booksoup(self):
-		if not self._soup:
+		if self._soup is None:
 			try:
-				self._soup = BeautifulSoup(open(self.link).read())
+				self._soup = etree.HTML(open(self.link).read())#soupparser.fromstring(open(self.link).read())[1]
 			except IOError:
 				os.system("wget --recursive  --no-clobber --html-extension  --convert-links  --restrict-file-names=windows  --domains www.linuxfromscratch.org   --no-parent " + self.link)
-				self._soup = BeautifulSoup(open(self.link).read())
+				self._soup = etree.HTML(open(self.link).read()) #soupparser.fromstring(open(self.link).read())[1]
 		
 		return self._soup
 
@@ -1186,7 +1639,7 @@ class Book:
 	def chapters(self):
 		if not self._chapters:
 			print "lazy generating chapters for :",self.name
-			self.listchapter(self.booksoup,"h4")
+			self.listchapter(self.booksoup,".//h4")
 		return self._chapters
 
 
@@ -1194,19 +1647,89 @@ class Book:
 def blfstest():
 	#
 	
-	link = "www.linuxfromscratch.org/blfs/view/svn/index.html"
+	link = "www.linuxfromscratch.org/blfs/view/stable/index.html"
 	blfs = Book(link, Book("www.linuxfromscratch.org/lfs/view/stable/index.html"))
+	
 	
 	#print blfs.udev_version
 	#print "-----------",grep('/XML-SAX-Expat-([0-9.]+)[^/]*\.tar\.((bz2)|(xz)|(gz))$' ,lfs.perl_packs)
-	#pack = lfs.search("Perl\s*Modules")
-	#page = lfs.chapters[13].pages[19]
+	packs = blfs.search("openssh")
+	#print blfs.wget_file_list
+	#pack = blfs.chapters[13].pages[19].packages[6]
 	#lfs.search("Changing\s*Ownership")
 	#pack = blfs.search("totem")
 	#print '---------------------',page
 	#page.populate()
-	#print lfs.perl_modules_link
+	#print blfs.perl_modules_link,"link"
 	#for pack in page.packages:
+	#print len(packs),"len"
+	for ch in blfs.chapters:
+		print ch.name,ch.no
+		for page in ch.pages:
+			#print page.summary
+			pack = page.packages
+			if pack:
+				for package in pack:
+					#for line in package.commands:
+					#	if re.search('cat > ~/[^\\bEOF\\b]*EOF',line,re.MULTILINE):
+								#print line
+					#			print "==========="
+					#	if re.search('cat\s*>[^\\bEOF\\b]*<<\s*(EOF|"EOF")',line,re.MULTILINE):
+					#		print re.sub("cat\s*(>|>>)\s*/","cat \g<1> $RPM_BUILD_ROOT/",line) 
+					#		print "==========="
+					#print package.fullname
+					package.writespecs()
+					#print package.specs()
+	
+						
+
+'''
+for pack in packs:
+	
+		print "name:",pack.name
+		print "short:",pack.shortname
+		print "version:",pack.version
+		#print "command:",pack.commands
+		#print pack.downloads
+		#print pack.dependency
+		print "------------------------------------------------"
+		print pack.specs()
+
+					 
+	for pack in packs:
+	
+		print "name:",pack.name
+		print "short:",pack.shortname
+		print "version:",pack.version
+		#print "command:",pack.commands
+		print pack.downloads
+		print pack.dependency
+		print "------------------------------------------------"
+		print pack.specs()
+		print pack.script()
+		print "------------------------------------------------"
+for pack in packs:
+	
+		print "name:",pack.name
+		print pack.shortname
+		print pack.version
+		print "command:",pack.commands
+		print pack.downloads
+		print pack.dependency
+		print "------------------------------------------------"
+		print pack.specs()
+		print pack.script()
+		print "------------------------------------------------"
+		pack.writespecs()
+		pack.writescript()
+
+
+
+
+
+
+
+		
 	for ch in blfs.chapters:
 		print ch.name,ch.no
 		for page in ch.pages:
@@ -1215,7 +1738,7 @@ def blfstest():
 				for package in pack:
 					#print package.specs()
 					package.writespecs()
-'''
+
 	if pack:
 		print pack.name
 		print pack.shortname
@@ -1232,11 +1755,43 @@ def blfstest():
 		print page.name,page.dependency
 '''
 
+
 def lfstest():
 	link = "www.linuxfromscratch.org/lfs/view/stable/index.html"
 	lfs = Book(link)
+	#packs = lfs.search("network")
+	
 	for ch in lfs.chapters:
 		print ch.name,ch.no
+
+		for page in ch.pages:
+			
+			pack = page.packages
+			if pack:
+				for package in pack:
+					
+					#		print "==========="
+						
+					#print package.version
+					#print package.shortname
+					#print package.commands
+					#print package.specs()
+					package.writespecs()
+	
+'''	
+for pack in packs:
+		if pack:
+			print pack.name
+			print pack.shortname
+		 	print pack.version
+			print pack.page.summary
+			print pack.dependency
+			print pack.script()
+			#print pack.specs()
+					#print package.dependency
+					#print package.script()
+					for i in package.commands:
+						print i
 		if ch.no > 5 :
 			for page in ch.pages:
 				pack = page.packages
@@ -1244,7 +1799,7 @@ def lfstest():
 					for package in pack:
 						#print package.specs()
 						package.writespecs()
-'''	
+	
 	#pack = lfs.search("Perl\s*Modules")
 	#pack = lfs.search("systemd")
 	pack = ''
@@ -1304,5 +1859,5 @@ p = pstats.Stats('testout')
 p.strip_dirs().sort_stats('cumulative').print_stats()
 '''
 
+#blfstest()
 blfstest()
-#lfstest()

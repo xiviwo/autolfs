@@ -163,7 +163,7 @@ def main():
 	
 	makestr = ""
 	for ch in blfs.chapters:
-	
+		print ch.name,'chapertname'
 		chapterstr += ch.name + " = "
 		allstr += "$(" + ch.name + ") "
 		

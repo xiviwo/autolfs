@@ -15,13 +15,13 @@ SOURCES=LFS + '/sources'
 lfs = Book(link)
 blfs = Book(link2,lfs)
 
-wget = blfs.search("wget")
-ssl = blfs.search("openssl")
-adduser = lfs.search("Adding\s*the\s*LFS\s*User")
+wget = blfs.search("wget")[0]
+ssl = blfs.search("openssl")[0]
+adduser = lfs.search("adding the lfs")[0]
 
-changeownership = lfs.search("Changing\s*Ownership")
+changeownership = lfs.search("Ownership")[0]
 
-virtualfs = lfs.search("Preparing\s*Virtual\s*Kernel\s*File\s*Systems")
+virtualfs = lfs.search("Virtual")[0]
 
 CWD		=os.path.dirname(os.path.realpath(__file__))
 wget_list= CWD + "/" + lfs.wgetlist
@@ -37,10 +37,11 @@ comment += "#Current book release : " + lfs.version.replace("\n","") + "\n"
 replace_delete_log=""
 
 
-def get_down(name):
+def get_down(names):
 	dstr = ""
-	for d in name.downloads:
-		
+	
+	for d in names.downloads:
+	
 		dstr += "\t@wget -nc --no-check-certificate " + d + " -P  $(SOURCES) $(REDIRECT)\n"
 	return dstr
 
