@@ -1,0 +1,26 @@
+TARGETS=isoroot/initrd.img isoroot/rootfs
+OUTPUT=bblinux-v1.iso
+all: $(OUTPUT)
+
+test: $(OUTPUT)
+
+	sudo kvm -cdrom $^ -m 512
+
+clean:
+
+	rm -f $(OUTPUT) $(TARGETS)
+
+$(OUTPUT): isoroot/isolinux.cfg isoroot/vmlinuz $(TARGETS)
+	genisoimage -o $@ -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table isoroot/
+
+isoroot/initrd.img: initramfs
+
+	mkinitramfs -d $^ -o $@
+
+isoroot/rootfs: sysroot
+
+	-umount -v sysroot/dev
+	-umount -v sysroot/proc
+	-umount -v sysroot/sys
+	mksquashfs $^ $@ -all-root
+FORCE :

@@ -1,0 +1,29 @@
+
+#!/bin/sh
+
+case "${1}" in
+
+    prereqs)
+
+        echo 'iso script run'
+
+        exit 0
+
+        ;;
+
+esac
+
+mkdir /cdrom
+
+mount -t iso9660 /dev/sr0 /cdrom
+
+mkdir /cdroot
+
+mount -t squashfs /cdrom/rootfs /cdroot
+
+mkdir /shadow
+
+mount -t tmpfs -o size=128m none /shadow
+
+mount -t aufs -o br:/shadow=rw:/cdroot=ro none /root
+
