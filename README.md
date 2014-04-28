@@ -34,3 +34,8 @@ Install steps:
 - Issue command: `ginger xfce/gnome/kde` to install the xwindow out of your favor!
 - Ask, trouble-shoot, enjoy and contribute!
 
+Disclaimer
+=======
+- This distribution is closely connected to LFS, as LFS is not strictly linear, so the script/instruction is not guaranteed to work.
+- That is why I can this distribution ginger, and it's your responsbility to ask, or figure out why something doesn't work out. But, all throught the hassle and frustration, you will grow quickly, learn a lot and enjoy finally. That is why this distribution comes into exists.
+- No warranty and guaranteed is assumed.
