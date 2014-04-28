@@ -39,7 +39,9 @@ Build Rpm and install from RPM:
 - `python gen_rpm.py lfs` to generate specs file for lfs, similarly, `python gen_rpm.py blfs` to generate for blfs.
 - `rpmbuild -ba *.spec` to build rpm packages
 - `rpm -ivh --replacepkgs  --replacefiles --nodeps --root /mnt/lfs *.rpm` to bootstrap the new system.
-- 
+
+
+ 
 Disclaimer
 =======
 - This distribution is closely connected to LFS, as LFS is not strictly linear, so the script/instruction is not guaranteed to work.
