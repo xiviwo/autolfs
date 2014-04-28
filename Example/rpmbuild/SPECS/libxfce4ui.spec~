@@ -1,0 +1,44 @@
+%define dist BLFS
+Summary:     The libxfce4ui package contains GTK+ 2 widgets that are used by other Xfce applications. 
+Name:       libxfce4ui
+Version:    4.10.0
+Release:    %{?dist}7.4
+License:    GPLv3+
+Group:      Development/Tools
+Requires:  gtk
+Requires:  xfconf
+Requires:  startup-notification
+Source0:    http://archive.xfce.org/src/xfce/libxfce4ui/4.10/libxfce4ui-4.10.0.tar.bz2
+URL:        http://archive.xfce.org/src/xfce/libxfce4ui/4.10
+%description
+ The libxfce4ui package contains GTK+ 2 widgets that are used by other Xfce applications. 
+%pre
+%prep
+%setup -q -n %{name}-%{version}
+%build
+env
+echo ${PKG_CONFIG_PATH}
+pkg-config --modversion gtk+-2.0
+pkg-config --atleast-version=2.10.0 gtk+-2.0
+./configure --prefix=/usr --sysconfdir=/etc &&
+make %{?_smp_mflags} 
+
+%install
+rm -rf ${RPM_BUILD_ROOT}
+
+
+make install DESTDIR=$RPM_BUILD_ROOT 
+
+[ -d $RPM_BUILD_ROOT%{_infodir} ] && rm -f $RPM_BUILD_ROOT%{_infodir}/dir
+%clean
+rm -rf ${RPM_BUILD_ROOT}
+%post
+/sbin/ldconfig
+
+/sbin/install-info %{_infodir}/*.info %{_infodir}/dir || :
+%preun
+%files
+%defattr(-,root,root,-)
+%doc
+/*
+%changelog

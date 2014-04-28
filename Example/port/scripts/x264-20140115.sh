@@ -1,0 +1,37 @@
+#/bin/bash
+set +h
+set -e
+
+SOURCES=$LFS/sources
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source ${DIR}/functions.sh
+pkgname=x264
+version=20140115
+export MAKEFLAGS='-j 4'
+download()
+{
+nwget ftp://ftp.videolan.org/pub/videolan/x264/snapshots/x264-snapshot-20140115-2245-stable.tar.bz2
+
+}
+unpack()
+{
+preparepack "$pkgname" "$version" x264-snapshot-20140115-2245-stable.tar.bz2
+cd ${SOURCES}/${pkgname}-${version} 
+
+}
+build()
+{
+./configure --prefix=/usr --enable-shared --disable-cli 
+make
+
+make install
+
+
+}
+clean()
+{
+cd ${SOURCES}
+rm -rf ${pkgname}-${version} 
+rm -rf ${pkgname}-build
+}
+download;unpack;build;clean

@@ -1,0 +1,50 @@
+#!/bin/bash
+makedir=/port/makefiles
+makefile="${makedir}/Makefile"
+NORMAL="\e[0m"
+RED="\e[1;31m"
+GREEN="\e[1;32m"
+
+
+[ `id -u` = "0" ] || { echo "you are not root!"; exit 1;}
+
+[ $# -ne 1 ] && { echo "Need one package name to initiate installation"; exit 1;}
+
+packname=$1
+
+ret=$(grep --color -oEi "^[^0-9]*${packname}.* :" "$makefile" | sed 's@:@@g')
+
+counter=0
+for r in $ret
+do
+counter=$((counter+1))
+pkg[$counter]=$r
+echo -e "$GREEN $r $NORMAL ${RED}[${NORMAL}${counter}${RED}]${NORMAL}:"
+done
+if [ $counter -gt 1 ] ; then
+	echo "There are $counter matches found, which you do you want to install ?"
+
+	select yn in ${pkg[@]}; do
+
+		for a in "${pkg[@]}"
+		do 
+		    case $yn in
+		       "$a") cd ${makedir} && make $yn;break;;
+		    esac
+		done
+	    exit
+	done
+else if [ $counter -eq 1 ] ; then
+	
+		echo -e "Will install ${RED}${pkg[1]}${NORMAL} ,OK[Y/N]?"
+		read -p ": " yn
+		case $yn in
+		y|Y) cd ${makedir} && make ${pkg[1]};;
+		*)   exit ;;
+		esac
+
+     else 
+		echo "No Match found,quit!"; exit 0
+     fi
+fi
+	
