@@ -1,8 +1,0 @@
-
-def part1():
-    print "part1 expensive computation running"
-    time.sleep(3)
-    return "This was expensive to compute"
-
-def part2(value):
-    print "part2 running with %s" % value
