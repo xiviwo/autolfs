@@ -23,7 +23,7 @@ Assumption:
 - Python is ready, and must below python3(Python 3 is not yet test).
 - python-lxml on host is installed,(or yum install python-lxml)
 
-Install steps:
+Install from Sources:
 - clone git
 - `python bootstrap.py`
 - `cd /mnt/lfs/bootstrap`
@@ -34,6 +34,12 @@ Install steps:
 - Issue command: `ginger xfce/gnome/kde` to install the xwindow out of your favor!
 - Ask, trouble-shoot, enjoy and contribute!
 
+Build Rpm and install from RPM:
+- clone git
+- `python gen_rpm.py lfs` to generate specs file for lfs, similarly, `python gen_rpm.py blfs` to generate for blfs.
+- `rpmbuild -ba *.spec` to build rpm packages
+- `rpm -ivh --replacepkgs  --replacefiles --nodeps --root /mnt/lfs *.rpm` to bootstrap the new system.
+- 
 Disclaimer
 =======
 - This distribution is closely connected to LFS, as LFS is not strictly linear, so the script/instruction is not guaranteed to work.
