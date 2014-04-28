@@ -7,25 +7,24 @@
     <title>
       6.63.&nbsp;Vim-7.4
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="udev.html" title=
-          "Udev-206 (Extracted from systemd-206)">Prev</a>
+          <a accesskey="p" href="man-db.html" title="Man-DB-2.6.6">Prev</a>
           <p>
-            Udev-206 (Extracted from systemd-206)
+            Man-DB-2.6.6
           </p>
         </li>
         <li class="next">
@@ -41,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -100,9 +99,9 @@
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <strong>The meaning of the configure options:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class=
               "parameter"><code>--enable-multibyte</code></em></span>
@@ -187,15 +186,17 @@ done</kbd>
         <p>
           By default, <span class="command"><strong>vim</strong></span> runs
           in vi-incompatible mode. This may be new to users who have used
-          other editors in the past. The &ldquo;<span class=
-          "quote">nocompatible</span>&rdquo; setting is included below to
-          highlight the fact that a new behavior is being used. It also
-          reminds those who would change to &ldquo;<span class=
-          "quote">compatible</span>&rdquo; mode that it should be the first
-          setting in the configuration file. This is necessary because it
-          changes other settings, and overrides must come after this setting.
-          Create a default <span class="command"><strong>vim</strong></span>
-          configuration file by running the following:
+          other editors in the past. The <span class=
+          "quote">&ldquo;<span class=
+          "quote">nocompatible</span>&rdquo;</span> setting is included below
+          to highlight the fact that a new behavior is being used. It also
+          reminds those who would change to <span class=
+          "quote">&ldquo;<span class="quote">compatible</span>&rdquo;</span>
+          mode that it should be the first setting in the configuration file.
+          This is necessary because it changes other settings, and overrides
+          must come after this setting. Create a default <span class=
+          "command"><strong>vim</strong></span> configuration file by running
+          the following:
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; /etc/vimrc &lt;&lt; "EOF"
@@ -215,13 +216,13 @@ EOF</kbd>
           The <em class="parameter"><code>set nocompatible</code></em>
           setting makes <span class="command"><strong>vim</strong></span>
           behave in a more useful way (the default) than the vi-compatible
-          manner. Remove the &ldquo;<span class="quote">no</span>&rdquo; to
-          keep the old <span class="command"><strong>vi</strong></span>
-          behavior. The <em class="parameter"><code>set
-          backspace=2</code></em> setting allows backspacing over line
-          breaks, autoindents, and the start of insert. The <em class=
-          "parameter"><code>syntax on</code></em> parameter enables vim's
-          syntax highlighting. Finally, the <span class=
+          manner. Remove the <span class="quote">&ldquo;<span class=
+          "quote">no</span>&rdquo;</span> to keep the old <span class=
+          "command"><strong>vi</strong></span> behavior. The <em class=
+          "parameter"><code>set backspace=2</code></em> setting allows
+          backspacing over line breaks, autoindents, and the start of insert.
+          The <em class="parameter"><code>syntax on</code></em> parameter
+          enables vim's syntax highlighting. Finally, the <span class=
           "emphasis"><em>if</em></span> statement with the <em class=
           "parameter"><code>set background=dark</code></em> setting corrects
           <span class="command"><strong>vim</strong></span>'s guess about the
@@ -288,8 +289,11 @@ set spell</code>
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -434,10 +438,9 @@ set spell</code>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="udev.html" title=
-          "Udev-206 (Extracted from systemd-206)">Prev</a>
+          <a accesskey="p" href="man-db.html" title="Man-DB-2.6.6">Prev</a>
           <p>
-            Udev-206 (Extracted from systemd-206)
+            Man-DB-2.6.6
           </p>
         </li>
         <li class="next">
@@ -453,7 +456,7 @@ set spell</code>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

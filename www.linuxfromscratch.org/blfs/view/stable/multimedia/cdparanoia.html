@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;38.&nbsp;Audio Utilities
+        Chapter&nbsp;40.&nbsp;Audio Utilities
       </h3>
       <ul>
         <li class="prev">
@@ -35,11 +35,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="audioutils.html" title=
-          "Chapter&nbsp;38.&nbsp;Audio Utilities">Up</a>
+          "Chapter&nbsp;40.&nbsp;Audio Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           Linux can be used.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -104,8 +104,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/cdparanoia-III-10.2-gcc_fixes-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/cdparanoia-III-10.2-gcc_fixes-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/cdparanoia-III-10.2-gcc_fixes-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/cdparanoia-III-10.2-gcc_fixes-1.patch</a>
               </p>
             </li>
           </ul>
@@ -119,6 +119,15 @@
         <h2 class="sect2">
           Installation of CDParanoia
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This package does not support parallel build.
+          </p>
+        </div>
         <p>
           Install <span class="application">CDParanoia</span> by running the
           following commands:
@@ -126,8 +135,8 @@
         <pre class="userinput">
 <kbd class=
 "command">patch -Np1 -i ../cdparanoia-III-10.2-gcc_fixes-1.patch &amp;&amp;
-./configure --prefix=/usr &amp;&amp;
-make</kbd>
+./configure --prefix=/usr --mandir=/usr/share/man &amp;&amp;
+make -j1</kbd>
 </pre>
         <p>
           This package does not come with a test suite.
@@ -244,7 +253,7 @@ chmod -v 755 /usr/lib/libcdda_*.so.0.10.2</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-05 10:04:34 -0700
+        Last updated on 2014-02-25 04:04:57 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -263,11 +272,11 @@ chmod -v 755 /usr/lib/libcdda_*.so.0.10.2</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="audioutils.html" title=
-          "Chapter&nbsp;38.&nbsp;Audio Utilities">Up</a>
+          "Chapter&nbsp;40.&nbsp;Audio Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

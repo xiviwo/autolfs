@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Gimp-2.8.6
+      Gimp-2.8.10
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;36.&nbsp;Other X-based Programs
+        Chapter&nbsp;38.&nbsp;Other X-based Programs
       </h3>
       <ul>
         <li class="prev">
@@ -35,17 +35,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="other.html" title=
-          "Chapter&nbsp;36.&nbsp;Other X-based Programs">Up</a>
+          "Chapter&nbsp;38.&nbsp;Other X-based Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gimp" name="gimp"></a>Gimp-2.8.6
+        <a id="gimp" name="gimp"></a>Gimp-2.8.10
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           image composition and image authoring.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -68,18 +68,19 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://artfiles.org/gimp.org/gimp/v2.8/gimp-2.8.6.tar.bz2">http://artfiles.org/gimp.org/gimp/v2.8/gimp-2.8.6.tar.bz2</a>
+                "http://artfiles.org/gimp.org/gimp/v2.8/gimp-2.8.10.tar.bz2">http://artfiles.org/gimp.org/gimp/v2.8/gimp-2.8.10.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gimp.org/pub/gimp/v2.8/gimp-2.8.6.tar.bz2">ftp://ftp.gimp.org/pub/gimp/v2.8/gimp-2.8.6.tar.bz2</a>
+                "ftp://mirrors.xmission.com/gimp/gimp/v2.8/gimp-2.8.10.tar.bz2">
+                ftp://mirrors.xmission.com/gimp/gimp/v2.8/gimp-2.8.10.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 12b3fdf33d1f07ae79b412a9e38b9693
+                Download MD5 sum: 84c964aab7044489af69f7319bb59b47
               </p>
             </li>
             <li>
@@ -89,17 +90,17 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 670 MB (additional 680 MB to
-                run the test suite, the help files add from 267 MB (en only)
-                to 1.3 GB (all), typically increasing by 60 MB per
-                translation)
+                Estimated disk space required: 570 MB (additional 553 MB to
+                run the test suite, the help files add from 288 MB (en only)
+                to 1.3 GB (all 18 languages), typically increasing by 54 MB
+                per translation)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 4.9 SBU (additional 1.2 SBU to run the
-                test suite, for the help files from 0.7 SBU (en only) to 29
-                SBU (all) - typically 1.5 SBU per translation)
+                Estimated build time: 4.7 SBU (additional 0.9 SBU to run the
+                test suite, for the help files from 0.6 SBU (en only) to 19
+                SBU (all) - typically 1.3 SBU per translation)
               </p>
             </li>
           </ul>
@@ -112,36 +113,32 @@
             <li>
               <p>
                 Optional help files: <a class="ulink" href=
-                "ftp://gimp.org/pub/gimp/help/gimp-help-2.8.0.tar.bz2">ftp://gimp.org/pub/gimp/help/gimp-help-2.8.0.tar.bz2</a>
+                "ftp://mirrors.xmission.com/gimp/gimp/help/gimp-help-2.8.1.tar.bz2">
+                ftp://mirrors.xmission.com/gimp/gimp/help/gimp-help-2.8.1.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: d6e07a569fe4b3bb11aaf5630da2693b
+                Download MD5 sum: 7f48c64bcadab9611ce8d3d89d990bb4
               </p>
             </li>
             <li>
               <p>
-                Download size: 127 MB
+                Download size: 133 MB
               </p>
             </li>
             <li>
               <p>
-                Optional compressed patch for the help files: <a class=
-                "ulink" href=
-                "ftp://anduin.linuxfromscratch.org/other/gimp-help-2.8.0-build_fixes-1.patch.xz">
-                ftp://anduin.linuxfromscratch.org/other/gimp-help-2.8.0-build_fixes-1.patch.xz</a>
-                (to build the Catalan translations).
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/gimp-2.8.10-freetype-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/gimp-2.8.10-freetype-1.patch</a>
               </p>
             </li>
             <li>
               <p>
-                Compressed Patch MD5 sum: 5312793a67132131a6e3360e76f392e4
-              </p>
-            </li>
-            <li>
-              <p>
-                Compressed Patch size: 486 KB
+                Optional patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/gimp-2.8.10-device_info-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/gimp-2.8.10-device_info-1.patch</a>
               </p>
             </li>
           </ul>
@@ -155,7 +152,7 @@
         <p class="required">
           <a class="xref" href="../general/gegl.html" title=
           "gegl-0.2.0">gegl-0.2.0</a>, <a class="xref" href="../x/gtk2.html"
-          title="GTK+-2.24.20">GTK+-2.24.20</a> and <a class="xref" href=
+          title="GTK+-2.24.23">GTK+-2.24.23</a> and <a class="xref" href=
           "../general/intltool.html" title=
           "Intltool-0.50.2">Intltool-0.50.2</a>
         </p>
@@ -175,34 +172,34 @@
           "AAlib-1.4rc5">AAlib-1.4rc5</a>, <a class="xref" href=
           "../multimedia/alsa-lib.html" title=
           "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
-          "../basicnet/curl.html" title="cURL-7.32.0">cURL-7.32.0</a>,
+          "../basicnet/curl.html" title="cURL-7.36.0">cURL-7.36.0</a>,
           <a class="xref" href="../general/dbus-glib.html" title=
-          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
-          "../pst/gs.html" title="ghostscript-9.10">ghostscript-9.10</a>
+          "dbus-glib-0.102">dbus-glib-0.102</a>, <a class="xref" href=
+          "../pst/gs.html" title="ghostscript-9.14">ghostscript-9.14</a>
           (with libgs installed), <a class="xref" href="../gnome/gvfs.html"
-          title="Gvfs-1.16.3">Gvfs-1.16.3</a>, <a class="xref" href=
-          "../general/iso-codes.html" title="ISO Codes-3.46">ISO
-          Codes-3.46</a>, <a class="xref" href="../general/jasper.html"
+          title="Gvfs-1.20.1">Gvfs-1.20.1</a>, <a class="xref" href=
+          "../general/iso-codes.html" title="ISO Codes-3.52">ISO
+          Codes-3.52</a>, <a class="xref" href="../general/jasper.html"
           title="JasPer-1.900.1">JasPer-1.900.1</a>, <a class="xref" href=
-          "../general/lcms.html" title="Little CMS-1.19">Little CMS-1.19</a>,
-          <a class="xref" href="../general/libexif.html" title=
+          "../general/lcms.html" title="Little CMS-1.19">Little CMS-1.19</a>
+          or <a class="xref" href="../general/lcms2.html" title=
+          "Little CMS-2.6">Little CMS-2.6</a>, <a class="xref" href=
+          "../general/libexif.html" title=
           "libexif-0.6.21">libexif-0.6.21</a>, <a class="xref" href=
           "../general/libmng.html" title="libmng-2.0.2">libmng-2.0.2</a>,
           <a class="xref" href="../general/librsvg.html" title=
-          "librsvg-2.37.0">librsvg-2.37.0</a>, <a class="ulink" href=
+          "librsvg-2.40.2">librsvg-2.40.2</a>, <a class="ulink" href=
           "http://wvware.sourceforge.net/libwmf.html">libwmf</a>, <a class=
           "xref" href="../general/poppler.html" title=
-          "Poppler-0.24.1">Poppler-0.24.1</a>, an <a class="xref" href=
+          "Poppler-0.24.5">Poppler-0.24.5</a>, an <a class="xref" href=
           "../server/mail.html" title=
           "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a> (that provides
           a <span class="command"><strong>sendmail</strong></span> program),
-          <a class="xref" href="../general/udev.html" title=
-          "Udev-Installed LFS Version">udev-Installed LFS Version</a> or
           <a class="xref" href="../general/udev-extras.html" title=
           "Udev Extras (from systemd)">udev-extras (from systemd)</a> (for
           GUdev), <a class="xref" href="../x/webkitgtk.html" title=
           "WebKitGTK+-1.10.2">WebKitGTK+-1.10.2</a> and <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>
         </p>
         <h4>
           Optional, for optimizing the PNG files in the help system
@@ -222,12 +219,21 @@
           Installation of Gimp
         </h2>
         <p>
+          In order to get rid of an annoying message when running from a
+          terminal and/or if you wish to run the test suite, optionally use
+          the following patch:
+        </p>
+        <pre class="userinput">
+<kbd class="command">patch -Np1 -i ../gimp-2.8.10-device_info-1.patch</kbd>
+</pre>
+        <p>
           Install <span class="application">Gimp</span> by running the
           following commands:
         </p>
         <pre class="userinput">
 <kbd class=
-"command">./configure --prefix=/usr --sysconfdir=/etc --without-gvfs &amp;&amp;
+"command">patch -Np1 -i ../gimp-2.8.10-freetype-1.patch              &amp;&amp;
+./configure --prefix=/usr --sysconfdir=/etc --without-gvfs &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -248,33 +254,18 @@ make</kbd>
         <p>
           If you downloaded the <code class="filename">gimp-help</code>
           tarball, unpack it and change into the root of the newly created
-          source tree. This release fails to build for its first language,
-          Catalan ("ca") but those who wish to build the remaining languages
-          can prepare for the build with the following command:
+          source tree. Prepare for the build with the following command:
         </p>
         <pre class="userinput">
 <kbd class=
-"command">ALL_LINGUAS="da de el en en_GB es fi fr hr it ja ko lt nl nn pl ru sl sv zh_CN" \
+"command">ALL_LINGUAS="ca da de el en en_GB es fr it ja ko nl nn pt_BR ru sl sv zh_CN" \
 ./configure --prefix=/usr &amp;&amp;</kbd>
 </pre>
         <p>
           Remove from <code class="envar">ALL_LINGUAS</code> the codes for
-          any languages which you do not wish to install.
-        </p>
-        <p>
-          Alternatively, if you wish to build languages including Catalan,
-          apply the patch:
-        </p>
-        <pre class="userinput">
-<kbd class="command">xzcat ../gimp-help-2.8.0-build_fixes-1.patch.xz \
- | patch -p1 &amp;&amp;
-./autogen.sh --prefix=/usr &amp;&amp;</kbd>
-</pre>
-        <p>
-          Again, you can specify a subset of languages by specifying
-          <code class="envar">ALL_LINGUAS</code> in front of <span class=
-          "command"><strong>./autogen.sh</strong></span>, but this time
-          including "ca".
+          any languages which you do not wish to install. Alternatively,
+          remove the line starting with <code class=
+          "envar">ALL_LINGUAS</code>, if you wish to build all languages.
         </p>
         <p>
           Now build the help files:
@@ -306,9 +297,9 @@ chown -R root:root /usr/share/gimp/2.0/help</kbd>
             <code class=
             "filename">/usr/share/applications/mimeinfo.cache</code>. To
             perform the update you must have <a class="xref" href=
-            "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a> or
+            "../x/gtk2.html" title="GTK+-2.24.23">GTK+-2.24.23</a> or
             <a class="xref" href="../x/gtk3.html" title=
-            "GTK+-3.8.4">GTK+-3.8.4</a> installed (for the icon cache) and
+            "GTK+-3.12.1">GTK+-3.12.1</a> installed (for the icon cache) and
             <a class="xref" href="../general/desktop-file-utils.html" title=
             "desktop-file-utils-0.22">desktop-file-utils-0.22</a> (for the
             desktop cache) and issue the following commands as the
@@ -326,10 +317,10 @@ update-desktop-database</kbd>
           "gimp-cmd-explanations"></a>Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>LINGUAS="ca da de en en_GB
-          ..."</strong></span>: by default, the help files will be rendered
-          in all the available languages. Remove the codes of any languages
-          you do not wish to build.
+          <code class="envar">ALL_LINGUAS="ca da de el en en_GB ..."</code>:
+          by default, the help files will be rendered in all the available
+          languages. Remove the codes of any languages you do not wish to
+          build.
         </p>
         <p>
           <em class="parameter"><code>--without-gvfs</code></em>: the choice
@@ -347,23 +338,6 @@ update-desktop-database</kbd>
           <code class="option">--disable-python</code>: This option is
           necessary if you have not installed <span class=
           "application">PyGTK</span>.
-        </p>
-        <p>
-          <em class="parameter"><code>./autogen.sh --prefix=/usr</code></em>:
-          In this case, using <span class=
-          "command"><strong>autoreconf</strong></span> to regenerate
-          <code class="filename">configure</code> does not work, because of
-          how the gimp-help developers chose to address problems with the
-          autotools.
-        </p>
-        <p>
-          <em class="parameter"><code>xzcat
-          ../gimp-help-2.8.0-build_fixes-1.patch.xz</code></em>: this patch
-          is large, so it has been compressed with <span class=
-          "application">xz</span>. You are encouraged to be suspicious of all
-          patches until you have looked at them. Use <span class=
-          "command"><strong>view</strong></span> to read the compressed patch
-          before you apply it.
         </p>
         <p>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
@@ -682,7 +656,7 @@ update-desktop-database</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 11:24:34 +0000
+        Last updated on 2014-04-08 09:48:26 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -701,11 +675,11 @@ update-desktop-database</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="other.html" title=
-          "Chapter&nbsp;36.&nbsp;Other X-based Programs">Up</a>
+          "Chapter&nbsp;38.&nbsp;Other X-based Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

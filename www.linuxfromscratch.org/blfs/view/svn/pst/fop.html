@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;45.&nbsp;PostScript
+        Chapter&nbsp;47.&nbsp;PostScript
       </h3>
       <ul>
         <li class="prev">
@@ -36,11 +36,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="ps.html" title=
-          "Chapter&nbsp;45.&nbsp;PostScript">Up</a>
+          "Chapter&nbsp;47.&nbsp;PostScript">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -63,7 +63,7 @@
           text. The primary output target is PDF.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -143,20 +143,21 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../x/xorg7.html" title=
-          "Introduction to Xorg-7.7">Xorg-7.7</a> and <a class="xref" href=
-          "../general/apache-ant.html" title=
-          "apache-ant-1.9.2">apache-ant-1.9.2</a>
+          <a class="xref" href="../general/apache-ant.html" title=
+          "apache-ant-1.9.3">apache-ant-1.9.3</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/junit.html" title=
-          "JUnit-4.11">JUnit-4.11</a> (to run tests), <a class="ulink" href=
+          "JUnit-4.11">JUnit-4.11</a> (to run tests), <a class="xref" href=
+          "../x/installing.html" title=
+          "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
+          System</a> (to run tests), <a class="ulink" href=
           "http://java.sun.com/products/jimi/">JIMI SDK</a>, <a class="ulink"
           href="http://xmlunit.sourceforge.net/">XMLUnit</a>, <a class=
-          "ulink" href="https://jai-imageio.dev.java.net/">JAI Image I/O
+          "ulink" href="https://java.net/projects/jai-imageio">JAI Image I/O
           Tools</a>, <a class="ulink" href=
           "http://jeuclid.sourceforge.net/">JEuclid</a>, <a class="ulink"
           href="http://pmd.sourceforge.net">PMD</a> (requires <a class=
@@ -173,17 +174,6 @@
         <h2 class="sect2">
           Installation of fop
         </h2>
-        <div class="admon important">
-          <img alt="[Important]" src="../images/important.png" />
-          <h3>
-            Important
-          </h3>
-          <p>
-            You must run this installation from an X-window using a GL-aware
-            <span class="application">Xorg</span> server or some of the
-            <span class="application">JUnit</span> tests will hang.
-          </p>
-        </div>
         <p>
           Ensure <code class="envar">$JAVA_HOME</code> is set correctly
           before beginning the build. To build the <span class=
@@ -238,10 +228,13 @@ mv build/javadocs .</kbd>
 <kbd class="command">ant docs</kbd>
 </pre>
           <p>
-            To test the application run <span class="command"><strong>ant
+            To test the application, run <span class="command"><strong>ant
             junit-all</strong></span>. The hyphenation tests will fail. To
             see a list of other test targets, use <span class=
-            "command"><strong>ant -p</strong></span>.
+            "command"><strong>ant -p</strong></span>. You must run the tests
+            from an X-window using a GL-aware <span class=
+            "application">Xorg</span> server or some of the <span class=
+            "application">JUnit</span> tests will hang.
           </p>
           <p>
             Now, as the <code class="systemitem">root</code> user:
@@ -332,10 +325,7 @@ EOF</kbd>
             "replaceable"><code>&lt;RAM_Installed&gt;</code></em> with a
             number representing the amount of RAM installed in your computer
             (in megabytes). An example would be <strong class=
-            "userinput"><code>FOP_OPTS="-Xmx768m"</code></strong>. For more
-            information about memory issues running <span class=
-            "application">fop</span>, see <a class="ulink" href=
-            "http://xml.apache.org/fop/running.html#memory">http://xml.apache.org/fop/running.html#memory</a>.
+            "userinput"><code>FOP_OPTS="-Xmx768m"</code></strong>.
           </p>
           <p>
             To include the <span class="command"><strong>fop</strong></span>
@@ -431,7 +421,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-02 18:10:49 +0000
+        Last updated on 2014-02-22 00:09:26 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -451,11 +441,11 @@ EOF</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="ps.html" title=
-          "Chapter&nbsp;45.&nbsp;PostScript">Up</a>
+          "Chapter&nbsp;47.&nbsp;PostScript">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

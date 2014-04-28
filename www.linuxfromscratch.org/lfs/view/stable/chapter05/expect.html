@@ -7,24 +7,24 @@
     <title>
       5.12.&nbsp;Expect-5.45
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="tcl.html" title="Tcl-8.6.0">Prev</a>
+          <a accesskey="p" href="tcl.html" title="Tcl-8.6.1">Prev</a>
           <p>
-            Tcl-8.6.0
+            Tcl-8.6.1
           </p>
         </li>
         <li class="next">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -84,14 +84,15 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
           Now prepare Expect for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/tools --with-tcl=/tools/lib \
-  --with-tclinclude=/tools/include</kbd>
+<kbd class="command">./configure --prefix=/tools       \
+            --with-tcl=/tools/lib \
+            --with-tclinclude=/tools/include</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <strong>The meaning of the configure options:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class=
               "parameter"><code>--with-tcl=/tools/lib</code></em></span>
@@ -147,9 +148,9 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the make parameter:</b>
+            <strong>The meaning of the make parameter:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class=
               "parameter"><code>SCRIPTS=""</code></em></span>
@@ -176,7 +177,7 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed library:</strong>
-              <span class="segbody">libexpect-5.45.a</span>
+              <span class="segbody">libexpect-5.45.so</span>
             </div>
           </div>
         </div>
@@ -184,8 +185,11 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -207,7 +211,7 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
                   <p>
                     <a id="libexpect" name="libexpect"></a><span class=
                     "term"><code class=
-                    "filename">libexpect-5.45.a</code></span>
+                    "filename">libexpect-5.45.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -226,9 +230,9 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="tcl.html" title="Tcl-8.6.0">Prev</a>
+          <a accesskey="p" href="tcl.html" title="Tcl-8.6.1">Prev</a>
           <p>
-            Tcl-8.6.0
+            Tcl-8.6.1
           </p>
         </li>
         <li class="next">
@@ -243,7 +247,7 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

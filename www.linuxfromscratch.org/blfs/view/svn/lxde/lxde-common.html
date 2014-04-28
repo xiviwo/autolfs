@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      lxde-common-0.5.5
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2014-04-20">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
+      </h4>
+      <h3>
+        Chapter&nbsp;34.&nbsp;LXDE Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxsession.html" title=
+          "LXSession-0.4.9.2">Prev</a>
+          <p>
+            LXSession-0.4.9.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxde-apps.html" title=
+          "LXDE Applications">Next</a>
+          <p>
+            LXDE Applications
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxde-desktop.html" title=
+          "Chapter&nbsp;34.&nbsp;LXDE Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="lxde-common" name="lxde-common"></a>lxde-common-0.5.5
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to LXDE Common
+        </h2>
+        <p>
+          The <span class="application">LXDE Common</span> package provides a
+          set of default configuration for LXDE.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.5
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://downloads.sourceforge.net/lxde/lxde-common-0.5.5.tar.gz">
+                http://downloads.sourceforge.net/lxde/lxde-common-0.5.5.tar.gz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: e51a6b2a815a89fda1f497b509465a97
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 880 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 2.4 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: less than 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          LXDE Common Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../postlfs/consolekit.html" title=
+          "ConsoleKit-0.4.6">ConsoleKit-0.4.6</a>, <a class="xref" href=
+          "lxde-icon-theme.html" title=
+          "lxde-icon-theme-0.5.0">lxde-icon-theme-0.5.0</a>, <a class="xref"
+          href="lxpanel.html" title="LXPanel-0.6.1">LXPanel-0.6.1</a>,
+          <a class="xref" href="lxsession.html" title=
+          "LXSession-0.4.9.2">LXSession-0.4.9.2</a>, <a class="xref" href=
+          "../x/openbox.html" title="openbox-3.5.2">openbox-3.5.2</a>
+          (runtime), and <a class="xref" href="pcmanfm.html" title=
+          "PCManFM-1.2.0">PCManFM-1.2.0</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/desktop-file-utils.html" title=
+          "desktop-file-utils-0.22">desktop-file-utils-0.22</a>, <a class=
+          "xref" href="../general/hicolor-icon-theme.html" title=
+          "hicolor-icon-theme-0.13">hicolor-icon-theme-0.13</a>, and
+          <a class="xref" href="../general/shared-mime-info.html" title=
+          "shared-mime-info-1.3">shared-mime-info-1.3</a>
+        </p>
+        <h4>
+          Optional Runtime Dependencies
+        </h4>
+        <p class="optional">
+          Notification Daemon, such as <a class="xref" href=
+          "../gnome/notification-daemon.html" title=
+          "notification-daemon-0.7.6">notification-daemon-0.7.6</a> or
+          <a class="xref" href="../xfce/xfce4-notifyd.html" title=
+          "xfce4-notifyd-0.2.4">xfce4-notifyd-0.2.4</a> and Polkit
+          Authentication Agent, such as <a class="xref" href="lxpolkit.html"
+          title="LXPolkit-0.1.0">LXPolkit-0.1.0</a> or <a class="xref" href=
+          "../gnome/polkit-gnome.html" title=
+          "polkit-gnome-0.105">polkit-gnome-0.105</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/lxde-common">http://wiki.linuxfromscratch.org/blfs/wiki/lxde-common</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of LXDE Common
+        </h2>
+        <p>
+          Install <span class="application">LXDE Common</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -e "s:@prefix@/share/lxde/pcmanfm:@sysconfdir@/xdg/pcmanfm/LXDE:" \
+    -i startlxde.in &amp;&amp;
+./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+install -Dm644 lxde-logout.desktop /usr/share/applications/lxde-logout.desktop</kbd>
+</pre>
+        <p>
+          If you have installed recommended dependencies, run the following
+          commands as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">update-mime-database /usr/share/mime &amp;&amp;
+gtk-update-icon-cache -qf /usr/share/icons/hicolor &amp;&amp;
+update-desktop-database -q</kbd>
+</pre>
+      </div>
+      <div class="using" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Starting LXDE
+        </h2>
+        <p>
+          To start <span class="application">LXDE</span> using <a class=
+          "xref" href="../x/xinit.html" title="xinit-1.3.3">xinit-1.3.3</a>,
+          run the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; ~/.xinitrc &lt;&lt; "EOF"
+ck-launch-session startlxde
+EOF
+
+startx</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -e ...</strong></span>: This sed
+          fixes the wrong path of the default <span class=
+          "application">PCManFM</span> configuration file.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">lxde-logout, openbox-lxde and
+              startlxde</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/etc/xdg/lxsession/LXDE,
+              /etc/xdg/pcmanfm/LXDE, /usr/share/lxde and
+              /usr/share/lxpanel/profile/LXDE</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="openbox-lxde" name="openbox-lxde"></a><span class=
+                    "term"><span class=
+                    "command"><strong>openbox-lxde</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a wrapper script which runs <span class=
+                    "application">Openbox</span> with <span class=
+                    "application">LXDE</span> specific config file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="startlxde" name="startlxde"></a><span class=
+                    "term"><span class=
+                    "command"><strong>startlxde</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to start the desktop session for <span class=
+                    "application">LXDE</span>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2014-02-20 12:20:28 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="lxsession.html" title=
+          "LXSession-0.4.9.2">Prev</a>
+          <p>
+            LXSession-0.4.9.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="lxde-apps.html" title=
+          "LXDE Applications">Next</a>
+          <p>
+            LXDE Applications
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxde-desktop.html" title=
+          "Chapter&nbsp;34.&nbsp;LXDE Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

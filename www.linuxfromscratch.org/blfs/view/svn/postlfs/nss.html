@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      NSS-3.15.1
+      NSS-3.16
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="openssh.html" title="OpenSSH-6.2p2">Next</a>
+          <a accesskey="n" href="openssh.html" title="OpenSSH-6.6p1">Next</a>
           <p>
-            OpenSSH-6.2p2
+            OpenSSH-6.6p1
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="nss" name="nss"></a>NSS-3.15.1
+        <a id="nss" name="nss"></a>NSS-3.16
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,7 +62,7 @@
           into an application.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -73,35 +73,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_15_1_RTM/src/nss-3.15.1.tar.gz">
-                http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_15_1_RTM/src/nss-3.15.1.tar.gz</a>
+                "http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_16_RTM/src/nss-3.16.tar.gz">
+                http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_16_RTM/src/nss-3.16.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_15_1_RTM/src/nss-3.15.1.tar.gz">
-                ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_15_1_RTM/src/nss-3.15.1.tar.gz</a>
+                "ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_16_RTM/src/nss-3.16.tar.gz">
+                ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_16_RTM/src/nss-3.16.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: fb68f4d210ac9397dd0d3c39c4f938eb
+                Download MD5 sum: 0a6f8503d08c078d64d500e77678e33c
               </p>
             </li>
             <li>
               <p>
-                Download size: 6.0 MB
+                Download size: 6.1 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 74 MB
+                Estimated disk space required: 72 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.2 SBU
+                Estimated build time: 0.7 SBU
               </p>
             </li>
           </ul>
@@ -114,8 +114,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.15.1-standalone-2.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.15.1-standalone-2.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.16-standalone-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.16-standalone-1.patch</a>
               </p>
             </li>
           </ul>
@@ -128,14 +128,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/nspr.html" title=
-          "NSPR-4.10">NSPR-4.10</a>
+          "NSPR-4.10.4">NSPR-4.10.4</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../server/sqlite.html" title=
-          "SQLite-3.8.0.2">SQLite-3.8.0.2</a>
+          "SQLite-3.8.4.3">SQLite-3.8.4.3</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -160,15 +160,14 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../nss-3.15.1-standalone-2.patch &amp;&amp;
+<kbd class="command">patch -Np1 -i ../nss-3.16-standalone-1.patch &amp;&amp;
 cd nss &amp;&amp;
 make BUILD_OPT=1                      \
   NSPR_INCLUDE_DIR=/usr/include/nspr  \
   USE_SYSTEM_ZLIB=1                   \
   ZLIB_LIBS=-lz                       \
   $([ $(uname -m) = x86_64 ] &amp;&amp; echo USE_64=1) \
-  $([ -f /usr/include/sqlite3.h ] &amp;&amp; echo NSS_USE_SYSTEM_SQLITE=1)</kbd>
+  $([ -f /usr/include/sqlite3.h ] &amp;&amp; echo NSS_USE_SYSTEM_SQLITE=1) -j1</kbd>
 </pre>
         <p>
           This package does not come with a test suite.
@@ -183,7 +182,7 @@ install -v -m755 Linux*/lib/*.so              /usr/lib           &amp;&amp;
 install -v -m644 Linux*/lib/{*.chk,libcrmf.a} /usr/lib           &amp;&amp;
 install -v -m755 -d                           /usr/include/nss   &amp;&amp;
 cp -v -RL {public,private}/nss/*              /usr/include/nss   &amp;&amp;
-chmod 644                                     /usr/include/nss/* &amp;&amp;
+chmod -v 644                                  /usr/include/nss/* &amp;&amp;
 install -v -m755 Linux*/bin/{certutil,nss-config,pk12util} /usr/bin &amp;&amp;
 install -v -m644 Linux*/lib/pkgconfig/nss.pc  /usr/lib/pkgconfig</kbd>
 </pre>
@@ -322,7 +321,7 @@ install -v -m644 Linux*/lib/pkgconfig/nss.pc  /usr/lib/pkgconfig</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-20 20:51:02 +0000
+        Last updated on 2014-04-06 19:52:43 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -334,9 +333,9 @@ install -v -m644 Linux*/lib/pkgconfig/nss.pc  /usr/lib/pkgconfig</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="openssh.html" title="OpenSSH-6.2p2">Next</a>
+          <a accesskey="n" href="openssh.html" title="OpenSSH-6.6p1">Next</a>
           <p>
-            OpenSSH-6.2p2
+            OpenSSH-6.6p1
           </p>
         </li>
         <li class="up">
@@ -345,7 +344,7 @@ install -v -m644 Linux*/lib/pkgconfig/nss.pc  /usr/lib/pkgconfig</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

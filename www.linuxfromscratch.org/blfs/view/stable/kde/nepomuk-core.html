@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Nepomuk-core-4.11.1
+      Nepomuk-core-4.12.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;28.&nbsp;The KDE Core
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="nepomuk-widgets.html" title=
-          "Nepomuk-widgets-4.11.1">Next</a>
+          "Nepomuk-widgets-4.12.2">Next</a>
           <p>
-            Nepomuk-widgets-4.11.1
+            Nepomuk-widgets-4.12.2
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="nepomuk-core" name="nepomuk-core"></a>Nepomuk-core-4.11.1
+        <a id="nepomuk-core" name="nepomuk-core"></a>Nepomuk-core-4.12.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           corresponding client libraries.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -71,35 +71,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://download.kde.org/stable/4.11.1/src/nepomuk-core-4.11.1.tar.xz">
-                http://download.kde.org/stable/4.11.1/src/nepomuk-core-4.11.1.tar.xz</a>
+                "http://download.kde.org/stable/4.12.2/src/nepomuk-core-4.12.2.tar.xz">
+                http://download.kde.org/stable/4.12.2/src/nepomuk-core-4.12.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.kde.org/pub/kde/stable/4.11.1/src/nepomuk-core-4.11.1.tar.xz">
-                ftp://ftp.kde.org/pub/kde/stable/4.11.1/src/nepomuk-core-4.11.1.tar.xz</a>
+                "ftp://ftp.kde.org/pub/kde/stable/4.12.2/src/nepomuk-core-4.12.2.tar.xz">
+                ftp://ftp.kde.org/pub/kde/stable/4.12.2/src/nepomuk-core-4.12.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: dcf5ef02c6581bec50dfc367f6616ce2
+                Download MD5 sum: 923361f03ac583b5c04990035dc78890
               </p>
             </li>
             <li>
               <p>
-                Download size: 390 KB
+                Download size: 371 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 37 MB
+                Estimated disk space required: 41 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.3 SBU
+                Estimated build time: 1.9 SBU
               </p>
             </li>
           </ul>
@@ -112,18 +112,28 @@
         </h4>
         <p class="required">
           <a class="xref" href="kdelibs.html" title=
-          "Kdelibs-4.11.1">kdelibs-4.11.1</a>
+          "Kdelibs-4.12.2">kdelibs-4.12.2</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/poppler.html" title=
-          "Poppler-0.24.1">Poppler-0.24.1</a>, <a class="xref" href=
-          "../multimedia/taglib.html" title="Taglib-1.8">taglib-1.8</a>,
+          "Poppler-0.24.5">Poppler-0.24.5</a>, <a class="xref" href=
+          "../multimedia/taglib.html" title="Taglib-1.9.1">taglib-1.9.1</a>,
           <a class="xref" href="../general/exiv2.html" title=
-          "Exiv2-0.23">Exiv2-0.23</a> and <a class="xref" href=
-          "../multimedia/ffmpeg.html" title="FFmpeg-1.2.2">FFmpeg-1.2.2</a>
+          "Exiv2-0.24">Exiv2-0.24</a> and <a class="xref" href=
+          "../multimedia/ffmpeg.html" title="FFmpeg-2.1.3">FFmpeg-2.1.3</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/ebook-tools">libepub</a> and
+          <a class="ulink" href=
+          "https://projects.kde.org/projects/kde/kdegraphics/kdegraphics-mobipocket">
+          Mobipocket</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -144,7 +154,7 @@ cd    build &amp;&amp;
 
 cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
       -DCMAKE_BUILD_TYPE=Release         \
-      .. &amp;&amp;
+      -Wno-dev .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -185,7 +195,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-10 09:12:30 -0700
+        Last updated on 2014-02-27 20:59:01 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -199,9 +209,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="nepomuk-widgets.html" title=
-          "Nepomuk-widgets-4.11.1">Next</a>
+          "Nepomuk-widgets-4.12.2">Next</a>
           <p>
-            Nepomuk-widgets-4.11.1
+            Nepomuk-widgets-4.12.2
           </p>
         </li>
         <li class="up">
@@ -210,7 +220,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

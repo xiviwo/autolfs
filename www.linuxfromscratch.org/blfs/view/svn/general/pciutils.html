@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      pciutils-3.2.0
+      pciutils-3.2.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="obexd.html" title="Obexd-0.48">Prev</a>
+          <a accesskey="p" href="pax.html" title="Pax-070715">Prev</a>
           <p>
-            Obexd-0.48
+            Pax-070715
           </p>
         </li>
         <li class="next">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="pciutils" name="pciutils"></a>pciutils-3.2.0
+        <a id="pciutils" name="pciutils"></a>pciutils-3.2.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           and setting their configuration registers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -69,35 +69,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.2.0.tar.xz">
-                http://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.2.0.tar.xz</a>
+                "http://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.2.1.tar.xz">
+                http://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.2.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.2.0.tar.xz">
-                ftp://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.2.0.tar.xz</a>
+                "ftp://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.2.1.tar.xz">
+                ftp://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.2.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: adb27c2d6ca54405115c532ae4c348e6
+                Download MD5 sum: fe7806d075994db0e28894e42668a02a
               </p>
             </li>
             <li>
               <p>
-                Download size: 272 KB
+                Download size: 276 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 3.7 MB
+                Estimated disk space required: 3.0 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: less than 0.1 SBU
+                Estimated build time: 0.1 SBU
               </p>
             </li>
           </ul>
@@ -118,10 +118,7 @@
         <pre class="userinput">
 <kbd class="command">make PREFIX=/usr              \
      SHAREDIR=/usr/share/misc \
-     MANDIR=/usr/share/man    \
-     SHARED=yes               \
-     ZLIB=no                  \
-     all</kbd>
+     SHARED=yes</kbd>
 </pre>
         <p>
           This package does not come with a test suite.
@@ -130,15 +127,12 @@
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">
-make PREFIX=/usr              \
+<kbd class="command">make PREFIX=/usr              \
      SHAREDIR=/usr/share/misc \
-     MANDIR=/usr/share/man    \
      SHARED=yes               \
-     ZLIB=no                  \
      install install-lib      &amp;&amp;
 
-chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
+chmod -v 755 /usr/lib/libpci.so</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -150,9 +144,8 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
           enables building of shared library instead of static one.
         </p>
         <p>
-          <em class="parameter"><code>ZLIB=no</code></em>: This parameter
-          prevents compression of the <code class="filename">pci.ids</code>
-          file.
+          <code class="option">ZLIB=no</code>: This option prevents
+          compression of the <code class="filename">pci.ids</code> file.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -167,12 +160,12 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
           the <a class="xref" href="which.html" title=
           "Which-2.20 and Alternatives">Which-2.20</a> script or program to
           find <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
-          "../basicnet/lynx.html" title=
-          "Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a> or <a class="xref" href=
-          "../basicnet/wget.html" title="Wget-1.14">Wget-1.14</a> which are
-          used to download the most current file, and then replace the
-          existing file in <code class="filename">/usr/share/misc</code>.
+          "cURL-7.36.0">cURL-7.36.0</a>, <a class="xref" href=
+          "../basicnet/lynx.html" title="Lynx-2.8.8rel.2">Lynx-2.8.8rel.2</a>
+          or <a class="xref" href="../basicnet/wget.html" title=
+          "Wget-1.15">Wget-1.15</a> which are used to download the most
+          current file, and then replace the existing file in <code class=
+          "filename">/usr/share/misc</code>.
         </p>
         <p>
           You may wish to add an entry to <code class=
@@ -250,11 +243,11 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
                   <p>
                     fetches the current version of the PCI ID list. Requires
                     <a class="xref" href="../basicnet/curl.html" title=
-                    "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
+                    "cURL-7.36.0">cURL-7.36.0</a>, <a class="xref" href=
                     "../basicnet/lynx.html" title=
-                    "Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a> or <a class=
-                    "xref" href="../basicnet/wget.html" title=
-                    "Wget-1.14">Wget-1.14</a>.
+                    "Lynx-2.8.8rel.2">Lynx-2.8.8rel.2</a> or <a class="xref"
+                    href="../basicnet/wget.html" title=
+                    "Wget-1.15">Wget-1.15</a>.
                   </p>
                 </td>
               </tr>
@@ -277,15 +270,15 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-18 21:52:29 +0000
+        Last updated on 2014-02-17 23:16:31 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="obexd.html" title="Obexd-0.48">Prev</a>
+          <a accesskey="p" href="pax.html" title="Pax-070715">Prev</a>
           <p>
-            Obexd-0.48
+            Pax-070715
           </p>
         </li>
         <li class="next">
@@ -301,7 +294,7 @@ chmod -v 755 /usr/lib/libpci.so.3.2.0</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

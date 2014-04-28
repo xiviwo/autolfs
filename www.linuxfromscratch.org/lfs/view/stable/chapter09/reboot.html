@@ -7,15 +7,15 @@
     <title>
       9.3.&nbsp;Rebooting the System
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter09/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;The End
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -61,7 +61,7 @@
       </p>
       <div class="itemizedlist">
         <ul>
-          <li>
+          <li class="listitem">
             <p>
               A text mode browser such as <a class="ulink" href=
               "http://www.linuxfromscratch.org/blfs//view/svn/basicnet/lynx.html">
@@ -69,7 +69,7 @@
               virtual terminal, while building packages in another.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               The <a class="ulink" href=
               "http://www.linuxfromscratch.org/blfs//view/svn/general/gpm.html">
@@ -77,7 +77,7 @@
               your virtual terminals.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               If you are in a situation where static IP configuration does
               not meet your networking requirements, installing a package
@@ -88,7 +88,7 @@
               dhcp</a> may be useful.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Installing <a class="ulink" href=
               "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/sudo.html">
@@ -97,7 +97,7 @@
               system.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               If you want to access your new system from a remote system
               within a comfortable GUI environment, install <a class="ulink"
@@ -108,7 +108,7 @@
               openssl</a>.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               To make fetching files over the internet easier, install
               <a class="ulink" href=
@@ -116,7 +116,7 @@
               wget</a>.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               If one or more of your disk drives have a GUID partition table
               (GPT), either <a class="ulink" href=
@@ -126,69 +126,69 @@
               parted</a> will be useful.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Finally, a review of the following configuration files is also
               appropriate at this point.
             </p>
             <div class="itemizedlist">
               <ul>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/bashrc
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/dircolors
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/fstab
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/hosts
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/inputrc
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/profile
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/resolv.conf
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/vimrc
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /root/.bash_profile
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /root/.bashrc
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/sysconfig/network
                   </p>
                 </li>
-                <li>
+                <li class="listitem">
                   <p>
                     /etc/sysconfig/ifconfig.eth0
                   </p>
@@ -211,16 +211,8 @@
       </p>
       <pre class="userinput">
 <kbd class="command">umount -v $LFS/dev/pts
-
-if [ -h $LFS/dev/shm ]; then
-  link=$(readlink $LFS/dev/shm)
-  umount -v $LFS/$link
-  unset link
-else
-  umount -v $LFS/dev/shm
-fi
-
 umount -v $LFS/dev
+umount -v $LFS/run
 umount -v $LFS/proc
 umount -v $LFS/sys</kbd>
 </pre>
@@ -247,7 +239,7 @@ umount -v $LFS</kbd>
 </pre>
       <p>
         Assuming the GRUB boot loader was set up as outlined earlier, the
-        menu is set to boot <span class="emphasis"><em>LFS 7.4</em></span>
+        menu is set to boot <span class="emphasis"><em>LFS 7.5</em></span>
         automatically.
       </p>
       <p>
@@ -276,7 +268,7 @@ umount -v $LFS</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

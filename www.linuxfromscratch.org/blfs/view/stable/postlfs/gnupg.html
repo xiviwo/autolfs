@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GnuPG-1.4.14
+      GnuPG-2.0.22
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gnupg2.html" title="GnuPG-2.0.21">Next</a>
+          <a accesskey="n" href="gnutls.html" title="GnuTLS-3.2.11">Next</a>
           <p>
-            GnuPG-2.0.21
+            GnuTLS-3.2.11
           </p>
         </li>
         <li class="up">
@@ -40,28 +40,29 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gnupg" name="gnupg"></a>GnuPG-1.4.14
+        <a id="gnupg2" name="gnupg2"></a>GnuPG-2.0.22
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
           Introduction to GnuPG
         </h2>
         <p>
-          The <span class="application">GnuPG</span> package contains a
-          public/private key encryptor. This is useful for signing files or
-          emails as proof of identity and preventing tampering with the
-          contents of the file or email. For a more enhanced version of GnuPG
-          which supports S/MIME, see the <a class="xref" href="gnupg2.html"
-          title="GnuPG-2.0.21">GnuPG-2.0.21</a> package.
+          The <span class="application">GnuPG</span> package is GNU's tool
+          for secure communication and data storage. It can be used to
+          encrypt data and to create digital signatures. It includes an
+          advanced key management facility and is compliant with the proposed
+          OpenPGP Internet standard as described in RFC2440 and the S/MIME
+          standard as described by several RFCs. GnuPG 2 is the stable
+          version of GnuPG integrating support for OpenPGP and S/MIME.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -71,59 +72,72 @@
           <ul class="compact">
             <li>
               <p>
-                Download (HTTP): <a class="ulink" href=
-                "http://anduin.linuxfromscratch.org/sources/BLFS/svn/g/gnupg-1.4.14.tar.bz2">
-                http://anduin.linuxfromscratch.org/sources/BLFS/svn/g/gnupg-1.4.14.tar.bz2</a>
-              </p>
-            </li>
-            <li>
-              <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.14.tar.bz2">ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.14.tar.bz2</a>
+                "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.22.tar.bz2">ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.22.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 99dede468204cb6ee22de7e3e3772ab1
+                Download MD5 sum: ee22e7b4fdbfcb50229c2e6db6db291e
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.5 MB
+                Download size: 4.1 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 45 MB
+                Estimated disk space required: 65 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.6 SBU
+                Estimated build time: 1.3 SBU
               </p>
             </li>
           </ul>
         </div>
         <h3>
-          GnuPG Dependencies
+          GnuPG 2 Dependencies
         </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/pth.html" title=
+          "Pth-2.0.7">Pth-2.0.7</a>, <a class="xref" href=
+          "../general/libassuan.html" title=
+          "libassuan-2.1.1">Libassuan-2.1.1</a>, <a class="xref" href=
+          "../general/libgcrypt.html" title=
+          "libgcrypt-1.6.1">libgcrypt-1.6.1</a>, and <a class="xref" href=
+          "../general/libksba.html" title="Libksba-1.3.0">Libksba-1.3.0</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/pinentry.html" title=
+          "PIN-Entry-0.8.3">PIN-Entry-0.8.3</a> (Run-time requirement for
+          most of the package's functionality)
+        </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../server/openldap.html" title=
-          "OpenLDAP-2.4.36">OpenLDAP-2.4.36</a>, <a class="xref" href=
+          "OpenLDAP-2.4.39">OpenLDAP-2.4.39</a>, <a class="xref" href=
           "../general/libusb-compat.html" title=
           "libusb-compat-0.1.5">libusb-compat-0.1.5</a>, <a class="xref"
-          href="../basicnet/curl.html" title="cURL-7.32.0">cURL-7.32.0</a>,
-          an <a class="xref" href="../server/mail.html" title=
-          "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a>, and <a class=
-          "ulink" href=
-          "http://www.oasis-open.org/docbook/tools/dtm/">docbook-to-man</a>
+          href="../basicnet/curl.html" title="cURL-7.35.0">cURL-7.35.0</a>,
+          <a class="ulink" href=
+          "http://www.chiark.greenend.org.uk/~ian/adns/">GNU adns</a>, and an
+          <a class="xref" href="../server/mail.html" title=
+          "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
-          "http://wiki.linuxfromscratch.org/blfs/wiki/gnupg">http://wiki.linuxfromscratch.org/blfs/wiki/gnupg</a>
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gnupg2">http://wiki.linuxfromscratch.org/blfs/wiki/gnupg2</a>
         </p>
       </div>
       <div class="installation" lang="en" xml:lang="en">
@@ -135,18 +149,21 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">./configure --prefix=/usr --libexecdir=/usr/lib &amp;&amp;
-make</kbd>
+<kbd class="command">./configure --prefix=/usr \
+            --docdir=/usr/share/doc/gnupg-2.0.22 &amp;&amp;
+make &amp;&amp;
+
+makeinfo --html --no-split -o doc/gnupg_nochunks.html doc/gnupg.texi &amp;&amp;
+makeinfo --plaintext       -o doc/gnupg.txt           doc/gnupg.texi</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="../pst/texlive.html" title=
           "texlive-20130530">texlive-20130530</a> installed and you wish to
           create documentation in alternate formats, issue the following
-          command:
+          commands:
         </p>
         <pre class="userinput">
-<kbd class="command">make -C doc pdf html</kbd>
+<kbd class="command">make -C doc pdf ps html</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
@@ -154,18 +171,20 @@ make</kbd>
         </p>
         <p>
           Note that if you have already installed <span class=
-          "application">GnuPG 2</span>, the instructions below will overwrite
+          "application">GnuPG</span>, the instructions below will overwrite
           <code class="filename">/usr/share/man/man1/gpg-zip.1</code>. Now,
           as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make install &amp;&amp;
+<kbd class="command">make install               &amp;&amp;
+ln -sv gpg2  /usr/bin/gpg  &amp;&amp;
+ln -sv gpgv2 /usr/bin/gpgv &amp;&amp;
 
-install -v -m755 -d /usr/share/doc/gnupg-1.4.14 &amp;&amp;
-cp      -v          /usr/share/gnupg/FAQ \
-                    /usr/share/doc/gnupg-1.4.14 &amp;&amp;
-install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
-                    /usr/share/doc/gnupg-1.4.14</kbd>
+install -v -m755 -d /usr/share/doc/gnupg-2.0.22/html       &amp;&amp;
+install -v -m644    doc/gnupg_nochunks.html \
+                    /usr/share/doc/gnupg-2.0.22/gnupg.html &amp;&amp;
+install -v -m644    doc/*.texi doc/gnupg.txt \
+                    /usr/share/doc/gnupg-2.0.22</kbd>
 </pre>
         <p>
           If you created alternate formats of the documentation, install it
@@ -173,8 +192,10 @@ install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
           "systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class=
-"command">cp -v -R doc/gnupg1.{html,pdf} /usr/share/doc/gnupg-1.4.14</kbd>
+<kbd class="command">install -v -m644 doc/gnupg.html/* \
+                 /usr/share/doc/gnupg-2.0.22/html &amp;&amp;
+install -v -m644 doc/gnupg.{pdf,dvi,ps} \
+                 /usr/share/doc/gnupg-2.0.22</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -182,10 +203,26 @@ install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>--libexecdir=/usr/lib</code></em>: This
-          command creates a <code class="filename">gnupg</code> directory in
+          <span class="command"><strong>ln -sv gpg...</strong></span>:
+          Symlinks for compatibility with the first version of <span class=
+          "application">GnuPG</span>.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>--docdir=/usr/share/doc/gnupg-2.0.22</code></em>:
+          This switch changes the default docdir to <code class=
+          "filename">/usr/share/doc/gnupg-2.0.22</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-symcryptrun</code></em>: This
+          switch enables building the symcryptrun program.
+        </p>
+        <p>
+          <code class="option">--libexecdir=/usr/lib/gnupg2</code>: This
+          option creates a <code class="filename">gnupg</code> directory in
           <code class="filename">/usr/lib</code> instead of <code class=
-          "filename">/usr/libexec</code>.
+          "filename">/usr/libexec</code> in accordance with the old version
+          of the FHS used before LFS-7.5.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -196,7 +233,10 @@ install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">gpg, gpg-zip, gpgsplit, and gpgv</span>
+              <span class="segbody">addgnupghome, applygnupgdefaults,
+              gpg-agent, gpg-connect-agent, gpg2, gpgconf, gpgkey2ssh,
+              gpgparsemail, gpgsm, gpgsm-gencert.sh, gpgv2, kbxutil,
+              scdaemon, symcryptrun, and watchgnupg</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -204,8 +244,8 @@ install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/lib/gnupg, /usr/share/gnupg and
-              /usr/share/doc/gnupg-1.4.14</span>
+              <span class="segbody">/usr/share/gnupg and
+              /usr/share/doc/gnupg-2.0.22</span>
             </div>
           </div>
         </div>
@@ -219,58 +259,223 @@ install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
               <tr>
                 <td>
                   <p>
-                    <a id="gpg" name="gpg"></a><span class=
-                    "term"><span class="command"><strong>gpg</strong></span></span>
+                    <a id="addgnupghome" name="addgnupghome"></a><span class=
+                    "term"><span class=
+                    "command"><strong>addgnupghome</strong></span></span>
                   </p>
                 </td>
                 <td>
                   <p>
-                    is the backend (command-line interface) for this OpenPGP
-                    implementation.
+                    is used to create and populate user's <code class=
+                    "filename">~/.gnupg</code> directories
                   </p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <p>
-                    <a id="gpg-zip" name="gpg-zip"></a><span class=
-                    "term"><span class=
-                    "command"><strong>gpg-zip</strong></span></span>
+                    <a id="applygnupgdefaults" name=
+                    "applygnupgdefaults"></a><span class="term"><span class=
+                    "command"><strong>applygnupgdefaults</strong></span></span>
                   </p>
                 </td>
                 <td>
                   <p>
-                    shell script that implements a gpg-ized version of
-                    <span class="command"><strong>tar</strong></span>.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="gpgsplit" name="gpgsplit"></a><span class=
-                    "term"><span class=
-                    "command"><strong>gpgsplit</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    separates key rings.
+                    is a wrapper script used to run <span class=
+                    "command"><strong>gpgconf</strong></span> with the
+                    <em class="parameter"><code>--apply-defaults</code></em>
+                    parameter on all user's GnuPG home directories.
                   </p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <p>
-                    <a id="gpgv" name="gpgv"></a><span class=
+                    <a id="gpg-agent" name="gpg-agent"></a><span class=
                     "term"><span class=
-                    "command"><strong>gpgv</strong></span></span>
+                    "command"><strong>gpg-agent</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a daemon used to manage secret (private) keys
+                    independently from any protocol. It is used as a backend
+                    for <span class="command"><strong>gpg</strong></span> and
+                    <span class="command"><strong>gpgsm</strong></span> as
+                    well as for a couple of other utilities.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gpg-connect-agent" name=
+                    "gpg-connect-agent"></a><span class="term"><span class=
+                    "command"><strong>gpg-connect-agent</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a utility used to communicate with a running
+                    <span class="command"><strong>gpg-agent</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gpg2" name="gpg2"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gpg2</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the OpenPGP part of the GNU Privacy Guard (GnuPG). It
+                    is a tool used to provide digital encryption and signing
+                    services using the OpenPGP standard.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gpgconf" name="gpgconf"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gpgconf</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a utility used to automatically and reasonable safely
+                    query and modify configuration files in the <code class=
+                    "filename">~/.gnupg</code> home directory. It is designed
+                    not to be invoked manually by the user, but automatically
+                    by graphical user interfaces.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gpgparsemail" name="gpgparsemail"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gpgparsemail</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a utility currently only useful for debugging. Run it
+                    with <em class="parameter"><code>--help</code></em> for
+                    usage information.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gpgsm" name="gpgsm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gpgsm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a tool similar to <span class=
+                    "command"><strong>gpg</strong></span> used to provide
+                    digital encryption and signing services on X.509
+                    certificates and the CMS protocol. It is mainly used as a
+                    backend for S/MIME mail processing.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gpgsm-gencert.sh" name=
+                    "gpgsm-gencert.sh"></a><span class="term"><span class=
+                    "command"><strong>gpgsm-gencert.sh</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a simple tool used to interactively generate a
+                    certificate request which will be printed to stdout.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gpgv2" name="gpgv2"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gpgv2</strong></span></span>
                   </p>
                 </td>
                 <td>
                   <p>
                     is a verify only version of <span class=
-                    "command"><strong>gpg</strong></span>.
+                    "command"><strong>gpg2</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kbxutil" name="kbxutil"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kbxutil</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to list, export and import Keybox data.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="scdaemon" name="scdaemon"></a><span class=
+                    "term"><span class=
+                    "command"><strong>scdaemon</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a daemon used to manage smartcards. It is usually
+                    invoked by <span class=
+                    "command"><strong>gpg-agent</strong></span> and in
+                    general not used directly.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="symcryptrun" name="symcryptrun"></a><span class=
+                    "term"><span class=
+                    "command"><strong>symcryptrun</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a simple symmetric encryption tool.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="watchgnupg" name="watchgnupg"></a><span class=
+                    "term"><span class=
+                    "command"><strong>watchgnupg</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to listen to a Unix Domain socket created by any
+                    of the GnuPG tools.
                   </p>
                 </td>
               </tr>
@@ -279,7 +484,7 @@ install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-22 15:40:33 -0700
+        Last updated on 2014-03-03 19:06:31 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -292,9 +497,9 @@ install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gnupg2.html" title="GnuPG-2.0.21">Next</a>
+          <a accesskey="n" href="gnutls.html" title="GnuTLS-3.2.11">Next</a>
           <p>
-            GnuPG-2.0.21
+            GnuTLS-3.2.11
           </p>
         </li>
         <li class="up">
@@ -303,7 +508,7 @@ install -v -m644    doc/{highlights-1.4.txt,OpenPGP,samplekeys.asc,DETAILS} \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

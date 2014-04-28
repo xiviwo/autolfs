@@ -12,25 +12,25 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;26.&nbsp;Window Managers
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="icewm.html" title="IceWM-1.3.7">Prev</a>
+          <a accesskey="p" href="icewm.html" title="IceWM-1.3.8">Prev</a>
           <p>
-            IceWM-1.3.7
+            IceWM-1.3.8
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sawfish.html" title="sawfish-1.9.1">Next</a>
+          <a accesskey="n" href="sawfish.html" title="sawfish-1.10">Next</a>
           <p>
-            sawfish-1.9.1
+            sawfish-1.10
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           desktop.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -104,20 +104,20 @@
           <a class="xref" href="installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a> and <a class="xref" href="pango.html" title=
-          "Pango-1.34.1">Pango-1.34.1</a> (compiled with support for libXft)
+          "Pango-1.36.2">Pango-1.36.2</a> (compiled with support for libXft)
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../general/imlib2.html" title=
-          "Imlib2-1.4.5">Imlib2-1.4.5</a> (to enable icons in the right click
+          <a class="xref" href="imlib2.html" title=
+          "Imlib2-1.4.6">Imlib2-1.4.6</a> (to enable icons in the right click
           menu), <a class="xref" href="../general/python-modules.html#pyxdg"
           title="PyXDG-0.25">PyXDG-0.25</a>, <a class="xref" href=
           "startup-notification.html" title=
           "startup-notification-0.12">startup-notification-0.12</a>, and
           <a class="xref" href="../general/librsvg.html" title=
-          "librsvg-2.37.0">librsvg-2.37.0</a>
+          "librsvg-2.40.1">librsvg-2.40.1</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -147,7 +147,6 @@
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr                         \
-            --libexecdir=/usr/lib/openbox         \
             --sysconfdir=/etc                     \
             --docdir=/usr/share/doc/openbox-3.5.2 \
             --disable-static                      &amp;&amp;
@@ -222,8 +221,8 @@ make</kbd>
           </p>
           <p>
             To have icons in your right click menu requires installing
-            <a class="xref" href="../general/imlib2.html" title=
-            "Imlib2-1.4.5">Imlib2-1.4.5</a> before you install <span class=
+            <a class="xref" href="imlib2.html" title=
+            "Imlib2-1.4.6">Imlib2-1.4.6</a> before you install <span class=
             "application">Openbox</span>. To set an icon for an entry in the
             menu edit <code class=
             "filename">~/.config/openbox/menu.xml</code> and add an icon to
@@ -297,9 +296,10 @@ EOF</kbd>
           <p>
             If you like to have the numlock key set whan you start Xorg,
             install <a class="ulink" href=
-            "http://home.kde.org/~seli/numlockx/">Numlockx</a> and add that
-            to your xinitrc. Another useful application is <a class="xref"
-            href="../general/dbus.html" title="D-Bus-1.6.14">D-Bus-1.6.14</a>
+            "http://ftp.de.debian.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz">
+            Numlockx</a> and add that to your xinitrc. Another useful
+            application is <a class="xref" href="../general/dbus.html" title=
+            "D-Bus-1.8.0">D-Bus-1.8.0</a>
           </p>
           <pre class="user">
 <kbd class="command">cat &gt; ~/.xinitrc &lt;&lt; "EOF"
@@ -523,21 +523,21 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-25 04:52:57 -0700
+        Last updated on 2014-03-03 16:39:21 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="icewm.html" title="IceWM-1.3.7">Prev</a>
+          <a accesskey="p" href="icewm.html" title="IceWM-1.3.8">Prev</a>
           <p>
-            IceWM-1.3.7
+            IceWM-1.3.8
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sawfish.html" title="sawfish-1.9.1">Next</a>
+          <a accesskey="n" href="sawfish.html" title="sawfish-1.10">Next</a>
           <p>
-            sawfish-1.9.1
+            sawfish-1.10
           </p>
         </li>
         <li class="up">
@@ -546,7 +546,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

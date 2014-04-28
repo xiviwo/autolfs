@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.59.&nbsp;Sysvinit-2.88dsf
+      6.57.&nbsp;Sysvinit-2.88dsf
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="tar.html" title="Tar-1.26">Next</a>
+          <a accesskey="n" href="tar.html" title="Tar-1.27.1">Next</a>
           <p>
-            Tar-1.26
+            Tar-1.27.1
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-sysvinit" name="ch-system-sysvinit"></a>6.59.
+        <a id="ch-system-sysvinit" name="ch-system-sysvinit"></a>6.57.
         Sysvinit-2.88dsf
       </h1>
       <div class="package" lang="en" xml:lang="en">
@@ -68,37 +68,15 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.59.1. Installation of Sysvinit
+          6.57.1. Installation of Sysvinit
         </h2>
         <p>
-          When run-levels are changed (for example, when halting the system),
-          <span class="command"><strong>init</strong></span> sends
-          termination signals to those processes that <span class=
-          "command"><strong>init</strong></span> itself started and that
-          should not be running in the new run-level. While doing this,
-          <span class="command"><strong>init</strong></span> outputs messages
-          like &ldquo;<span class="quote">Sending processes the TERM
-          signal</span>&rdquo; which seem to imply that it is sending these
-          signals to all currently running processes. To avoid this
-          misinterpretation, modify the source so that these messages read
-          like &ldquo;<span class="quote">Sending processes configured via
-          /etc/inittab the TERM signal</span>&rdquo; instead:
+          First, apply a patch that removes several programs installed by
+          other packages, clarifies a message, and fixes a compiler warning:
         </p>
         <pre class="userinput">
 <kbd class=
-"command">sed -i 's@Sending processes@&amp; configured via /etc/inittab@g' src/init.c</kbd>
-</pre>
-        <p>
-          Maintained versions of the <span class=
-          "command"><strong>wall</strong></span>, <span class=
-          "command"><strong>mountpoint</strong></span>, and <span class=
-          "command"><strong>utmpdump</strong></span> programs were installed
-          earlier by Util-linux. Suppress the installation of Sysvinit's
-          versions of these programs and their man pages:
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i -e '/utmpdump/d' \
-       -e '/mountpoint/d' src/Makefile</kbd>
+"command">patch -Np1 -i ../sysvinit-2.88dsf-consolidated-1.patch</kbd>
 </pre>
         <p>
           Compile the package:
@@ -118,7 +96,7 @@
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-sysvinit" name="contents-sysvinit"></a>6.59.2.
+          <a id="contents-sysvinit" name="contents-sysvinit"></a>6.57.2.
           Contents of Sysvinit
         </h2>
         <div class="segmentedlist">
@@ -126,9 +104,8 @@
             <div class="seg">
               <strong class="segtitle">Installed programs:</strong>
               <span class="segbody">bootlogd, fstab-decode, halt, init,
-              killall5, last, lastb (link to last), mesg, pidof (link to
-              killall5), poweroff (link to halt), reboot (link to halt),
-              runlevel, shutdown, sulogin, and telinit (link to init)</span>
+              killall5, poweroff (link to halt), reboot (link to halt),
+              runlevel, shutdown, and telinit (link to init)</span>
             </div>
           </div>
         </div>
@@ -136,8 +113,11 @@
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -222,67 +202,6 @@
               <tr>
                 <td>
                   <p>
-                    <a id="last" name="last"></a><span class=
-                    "term"><span class=
-                    "command"><strong>last</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Shows which users last logged in (and out), searching
-                    back through the <code class=
-                    "filename">/var/log/wtmp</code> file; it also shows
-                    system boots, shutdowns, and run-level changes
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="lastb" name="lastb"></a><span class=
-                    "term"><span class=
-                    "command"><strong>lastb</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Shows the failed login attempts, as logged in
-                    <code class="filename">/var/log/btmp</code>
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="mesg" name="mesg"></a><span class=
-                    "term"><span class=
-                    "command"><strong>mesg</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Controls whether other users can send messages to the
-                    current user's terminal
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="pidof" name="pidof"></a><span class=
-                    "term"><span class=
-                    "command"><strong>pidof</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Reports the PIDs of the given programs
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="poweroff" name="poweroff"></a><span class=
                     "term"><span class=
                     "command"><strong>poweroff</strong></span></span>
@@ -345,23 +264,6 @@
               <tr>
                 <td>
                   <p>
-                    <a id="sulogin" name="sulogin"></a><span class=
-                    "term"><span class=
-                    "command"><strong>sulogin</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Allows <code class="systemitem">root</code> to log in; it
-                    is normally invoked by <span class=
-                    "command"><strong>init</strong></span> when the system
-                    goes into single user mode
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="telinit" name="telinit"></a><span class=
                     "term"><span class=
                     "command"><strong>telinit</strong></span></span>
@@ -388,9 +290,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="tar.html" title="Tar-1.26">Next</a>
+          <a accesskey="n" href="tar.html" title="Tar-1.27.1">Next</a>
           <p>
-            Tar-1.26
+            Tar-1.27.1
           </p>
         </li>
         <li class="up">
@@ -399,7 +301,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

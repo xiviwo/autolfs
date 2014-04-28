@@ -7,15 +7,15 @@
     <title>
       7.5.&nbsp;Creating Custom Symlinks to Devices
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter07/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -66,14 +66,15 @@
           two modes of operation you wish to have the script use.
         </p>
         <p>
-          First, the script can operate in &ldquo;<span class=
-          "quote">by-path</span>&rdquo; mode (used by default for USB and
-          FireWire devices), where the rules it creates depend on the
-          physical path to the CD or DVD device. Second, it can operate in
-          &ldquo;<span class="quote">by-id</span>&rdquo; mode (default for
-          IDE and SCSI devices), where the rules it creates depend on
-          identification strings stored in the CD or DVD device itself. The
-          path is determined by Udev's <span class=
+          First, the script can operate in <span class=
+          "quote">&ldquo;<span class="quote">by-path</span>&rdquo;</span>
+          mode (used by default for USB and FireWire devices), where the
+          rules it creates depend on the physical path to the CD or DVD
+          device. Second, it can operate in <span class=
+          "quote">&ldquo;<span class="quote">by-id</span>&rdquo;</span> mode
+          (default for IDE and SCSI devices), where the rules it creates
+          depend on identification strings stored in the CD or DVD device
+          itself. The path is determined by Udev's <span class=
           "command"><strong>path_id</strong></span> script, and the
           identification strings are read from the hardware by its
           <span class="command"><strong>ata_id</strong></span> or
@@ -86,13 +87,14 @@
           expect the physical path to the device (that is, the ports and/or
           slots that it plugs into) to change, for example because you plan
           on moving the drive to a different IDE port or a different USB
-          connector, then you should use the &ldquo;<span class=
-          "quote">by-id</span>&rdquo; mode. On the other hand, if you expect
-          the device's identification to change, for example because it may
-          die, and you would replace it with a different device with the same
-          capabilities and which is plugged into the same connectors, then
-          you should use the &ldquo;<span class="quote">by-path</span>&rdquo;
-          mode.
+          connector, then you should use the <span class=
+          "quote">&ldquo;<span class="quote">by-id</span>&rdquo;</span> mode.
+          On the other hand, if you expect the device's identification to
+          change, for example because it may die, and you would replace it
+          with a different device with the same capabilities and which is
+          plugged into the same connectors, then you should use the
+          <span class="quote">&ldquo;<span class=
+          "quote">by-path</span>&rdquo;</span> mode.
         </p>
         <p>
           If either type of change is possible with your drive, then choose a
@@ -124,19 +126,21 @@
 </pre>
         <p>
           Look at the lines containing the output of various *_id programs.
-          The &ldquo;<span class="quote">by-id</span>&rdquo; mode will use
-          the ID_SERIAL value if it exists and is not empty, otherwise it
-          will use a combination of ID_MODEL and ID_REVISION. The
-          &ldquo;<span class="quote">by-path</span>&rdquo; mode will use the
-          ID_PATH value.
+          The <span class="quote">&ldquo;<span class=
+          "quote">by-id</span>&rdquo;</span> mode will use the ID_SERIAL
+          value if it exists and is not empty, otherwise it will use a
+          combination of ID_MODEL and ID_REVISION. The <span class=
+          "quote">&ldquo;<span class="quote">by-path</span>&rdquo;</span>
+          mode will use the ID_PATH value.
         </p>
         <p>
           If the default mode is not suitable for your situation, then the
           following modification can be made to the <code class=
           "filename">/etc/udev/rules.d/83-cdrom-symlinks.rules</code> file,
           as follows (where <em class="replaceable"><code>mode</code></em> is
-          one of &ldquo;<span class="quote">by-id</span>&rdquo; or
-          &ldquo;<span class="quote">by-path</span>&rdquo;):
+          one of <span class="quote">&ldquo;<span class=
+          "quote">by-id</span>&rdquo;</span> or <span class=
+          "quote">&ldquo;<span class="quote">by-path</span>&rdquo;</span>):
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e 's/"write_cd_rules"/"write_cd_rules <em class=
@@ -249,7 +253,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

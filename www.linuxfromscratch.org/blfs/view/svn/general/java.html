@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      About Java
+      Java-1.7.0.55
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
@@ -40,21 +40,25 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="java" name="java"></a>About Java
+        <a id="java" name="java"></a>Java-1.7.0.55
       </h1>
-      <p>
-        Java is different from most of the packages in LFS and BLFS. It is a
-        programming language that works with files of byte codes to obtain
-        instructions and executes then in a Java Virtual Machine (JVM). An
-        introductory java program looks like:
-      </p>
-      <pre class="screen">
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          About Java
+        </h2>
+        <p>
+          Java is different from most of the packages in LFS and BLFS. It is
+          a programming language that works with files of byte codes to
+          obtain instructions and executes then in a Java Virtual Machine
+          (JVM). An introductory java program looks like:
+        </p>
+        <pre class="screen">
 <code class="literal">public class HelloWorld 
 {
     public static void main(String[] args) 
@@ -63,40 +67,37 @@
     }
 }</code>
 </pre>
-      <p>
-        This program is saved as <code class=
-        "filename">HelloWorld.java</code>. The file name, <span class=
-        "emphasis"><em>HelloWorld</em></span>, must match the class name. It
-        is then converted into byte code with <span class=
-        "command"><strong>javac HelloWorld.java</strong></span>. The output
-        file is <code class="filename">HelloWorld.class</code>. The program
-        is executed with <span class="command"><strong>java
-        HelloWorld</strong></span>. This creates a JVM and runs the code. The
-        'class' extension must not be specified.
-      </p>
-      <p>
-        Several class files can be combined into one file with the
-        <span class="command"><strong>jar</strong></span> command. This is
-        similar to the standard <span class=
-        "command"><strong>tar</strong></span> command. For instance, the
-        command <span class="command"><strong>jar cf myjar.jar
-        *.class</strong></span> will combine all class files in a directory
-        into one jar file. These act as library files.
-      </p>
-      <p>
-        The JVM can search for and use classes in jar files automatically. It
-        uses the <code class="envar">CLASSPATH</code> environment variable to
-        search for jar files. This is a standard list of colon-separated
-        directory names similar to the <code class="envar">PATH</code>
-        environment variable.
-      </p>
-      <p>
-        This package is known to build and work properly using an LFS-7.4
-        platform.
-      </p>
-      <div class="sect2" lang="en" xml:lang="en">
+        <p>
+          This program is saved as <code class=
+          "filename">HelloWorld.java</code>. The file name, <span class=
+          "emphasis"><em>HelloWorld</em></span>, must match the class name.
+          It is then converted into byte code with <span class=
+          "command"><strong>javac HelloWorld.java</strong></span>. The output
+          file is <code class="filename">HelloWorld.class</code>. The program
+          is executed with <span class="command"><strong>java
+          HelloWorld</strong></span>. This creates a JVM and runs the code.
+          The 'class' extension must not be specified.
+        </p>
+        <p>
+          Several class files can be combined into one file with the
+          <span class="command"><strong>jar</strong></span> command. This is
+          similar to the standard <span class=
+          "command"><strong>tar</strong></span> command. For instance, the
+          command <span class="command"><strong>jar cf myjar.jar
+          *.class</strong></span> will combine all class files in a directory
+          into one jar file. These act as library files.
+        </p>
+        <p>
+          The JVM can search for and use classes in jar files automatically.
+          It uses the <code class="envar">CLASSPATH</code> environment
+          variable to search for jar files. This is a standard list of
+          colon-separated directory names similar to the <code class=
+          "envar">PATH</code> environment variable.
+        </p>
+      </div>
+      <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="java-bin" name="java-bin"></a>Installing a binary JDK
+          <a id="java-bin" name="java-bin"></a>Binary JDK Information
         </h2>
         <p>
           Creating a JVM from source requires a set of circular dependencies.
@@ -104,7 +105,7 @@
           Development Kit (JDK). This set of programs includes <span class=
           "command"><strong>java</strong></span>, <span class=
           "command"><strong>javac</strong></span>, <span class=
-          "command"><strong>jar</strong></span>, and severl others. It also
+          "command"><strong>jar</strong></span>, and several others. It also
           includes several base <span class="emphasis"><em>jar</em></span>
           files.
         </p>
@@ -114,6 +115,10 @@
           "filename">/opt</code> directory to allow for multiple
           installations, including a source based version.
         </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.5
+          platform.
+        </p>
         <h3>
           Binary Package Information
         </h3>
@@ -122,23 +127,23 @@
             <li>
               <p>
                 Binary download (x86): <a class="ulink" href=
-                "http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.7.0.40/OpenJDK-1.7.0.40-i686-bin.tar.xz">
-                http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.7.0.40/OpenJDK-1.7.0.40-i686-bin.tar.xz</a>
+                "http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.7.0.55/OpenJDK-1.7.0.55-i686-bin.tar.xz">
+                http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.7.0.55/OpenJDK-1.7.0.55-i686-bin.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 5a099f50edbd6b0f83b746c907032d5c
+                Download MD5 sum: 233a8d4cb78d5e97d708dcf6fdd2c6e8
               </p>
             </li>
             <li>
               <p>
-                Download size (binary): 163 MB
+                Download size (binary): 173 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 499 MB
+                Estimated disk space required: 547 MB
               </p>
             </li>
           </ul>
@@ -148,27 +153,49 @@
             <li>
               <p>
                 Binary download (x86_64): <a class="ulink" href=
-                "http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.7.0.40/OpenJDK-1.7.0.40-x86_64-bin.tar.xz">
-                http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.7.0.40/OpenJDK-1.7.0.40-x86_64-bin.tar.xz</a>
+                "http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.7.0.55/OpenJDK-1.7.0.55-x86_64-bin.tar.xz">
+                http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.7.0.55/OpenJDK-1.7.0.55-x86_64-bin.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 506ca98b2f4064c350ee08ab8f8f5416
+                Download MD5 sum: 39f8740aecf5ae7c3e9d74419e7f6d25
               </p>
             </li>
             <li>
               <p>
-                Download size (binary): 146 MB
+                Download size (binary): 145 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 421 MB
+                Estimated disk space required: 420 MB
               </p>
             </li>
           </ul>
         </div>
+        <h3>
+          Java Binary Runtime Dependencies
+        </h3>
+        <p class="required">
+          <a class="xref" href="../x/atk.html" title=
+          "ATK-2.12.0">ATK-2.12.0</a>, <a class="xref" href="../x/cairo.html"
+          title="Cairo-1.12.16">Cairo-1.12.16</a>, <a class="xref" href=
+          "../pst/cups.html" title="Cups-1.7.2">Cups-1.7.2</a>, <a class=
+          "xref" href="../x/gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.30.7">gdk-pixbuf-2.30.7</a>, <a class="xref" href=
+          "giflib.html" title="giflib-5.0.6">giflib-5.0.6</a>, <a class=
+          "xref" href="../x/gtk2.html" title="GTK+-2.24.23">GTK+-2.24.23</a>,
+          <a class="xref" href="lcms2.html" title="Little CMS-2.6">Little
+          CMS-2.6</a>, <a class="xref" href="../multimedia/pulseaudio.html"
+          title="PulseAudio-5.0">PulseAudio-5.0</a>, and <a class="xref"
+          href="../x/x7lib.html" title="Xorg Libraries">Xorg Libraries</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of the Java BinaryJDK
+        </h2>
         <p>
           Begin by extracting the appropriate binary tarball for your
           architecture and changing to the extracted directory. Install the
@@ -176,18 +203,27 @@
           commands as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">install -vdm755 /opt/OpenJDK-1.7.0.40-bin &amp;&amp;
-mv -v * /opt/OpenJDK-1.7.0.40-bin         &amp;&amp;
-chown -R root:root /opt/OpenJDK-1.7.0.40-bin</kbd>
+<kbd class="command">install -vdm755 /opt/OpenJDK-1.7.0.55-bin &amp;&amp;
+mv -v * /opt/OpenJDK-1.7.0.55-bin         &amp;&amp;
+chown -R root:root /opt/OpenJDK-1.7.0.55-bin</kbd>
 </pre>
         <p>
           Configure the temporary <span class="application">OpenJDK</span>
-          installation with the following commands:
+          installation by issuing the following commands (note that if you
+          logout and login back before having definitely configured <a class=
+          "xref" href="openjdk.html" title=
+          "OpenJDK-1.7.0.55/IcedTea-2.4.7">OpenJDK-1.7.0.55/IcedTea-2.4.7</a>,
+          you'll have to issue them again):
         </p>
         <pre class="userinput">
 <kbd class="command">export CLASSPATH=.:/usr/share/java &amp;&amp;
-export PATH="$PATH:/opt/OpenJDK-1.7.0.40-bin/bin"</kbd>
+export JAVA_HOME=/opt/OpenJDK-1.7.0.55-bin &amp;&amp;
+export PATH="$PATH:/opt/OpenJDK-1.7.0.55-bin/bin"</kbd>
 </pre>
+        <p>
+          Do not forget to reboot or to source the profile file after
+          modification.
+        </p>
         <p>
           The binary version is now installed. If you don't want to compile
           the sources, skip ahead to the <a class="xref" href=
@@ -195,14 +231,14 @@ export PATH="$PATH:/opt/OpenJDK-1.7.0.40-bin/bin"</kbd>
           "Configuring OpenJDK">Configuring OpenJDK</a> section. Otherwise,
           continue to the <a class="xref" href="junit.html" title=
           "JUnit-4.11">JUnit-4.11</a>, <a class="xref" href="apache-ant.html"
-          title="apache-ant-1.9.2">apache-ant-1.9.2</a>, and <a class="xref"
+          title="apache-ant-1.9.3">apache-ant-1.9.3</a>, and <a class="xref"
           href="openjdk.html" title=
-          "OpenJDK-1.7.0.40/IcedTea-2.4.1">OpenJDK-1.7.0.40/IcedTea-2.4.1</a>
+          "OpenJDK-1.7.0.55/IcedTea-2.4.7">OpenJDK-1.7.0.55/IcedTea-2.4.7</a>
           sections.
         </p>
       </div>
       <p class="updated">
-        Last updated on 2013-08-30 10:16:31 +0000
+        Last updated on 2014-04-19 18:14:33 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -226,7 +262,7 @@ export PATH="$PATH:/opt/OpenJDK-1.7.0.40-bin/bin"</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

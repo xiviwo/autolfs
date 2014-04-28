@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      network-manager-applet-0.9.8.2
+      network-manager-applet-0.9.8.9
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;31.&nbsp;GNOME Applications
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="nautilus.html" title=
-          "Nautilus-3.8.2">Prev</a>
+          "Nautilus-3.12.0">Prev</a>
           <p>
-            Nautilus-3.8.2
+            Nautilus-3.12.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="seahorse.html" title=
-          "Seahorse-3.9.91">Next</a>
+          "Seahorse-3.12.0">Next</a>
           <p>
-            Seahorse-3.9.91
+            Seahorse-3.12.0
           </p>
         </li>
         <li class="up">
@@ -41,26 +41,29 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="network-manager-applet" name=
-        "network-manager-applet"></a>network-manager-applet-0.9.8.2
+        "network-manager-applet"></a>network-manager-applet-0.9.8.9
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
           Introduction to NetworkManager Applet
         </h2>
         <p>
-          The <span class="application">NetworkManager Applet</span> is a
-          tool used to configure wired and wireless network connections
-          through GUI.
+          The <span class="application">NetworkManager Applet</span> provides
+          a tool and a panel applet used to configure wired and wireless
+          network connections through GUI. It's designed for use with any
+          desktop environment that uses <span class="application">GTK+</span>
+          like <span class="application">Xfce</span> and <span class=
+          "application">LXDE</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -71,20 +74,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/0.9/network-manager-applet-0.9.8.2.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/0.9/network-manager-applet-0.9.8.2.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/0.9/network-manager-applet-0.9.8.9.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/0.9/network-manager-applet-0.9.8.9.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/network-manager-applet/0.9/network-manager-applet-0.9.8.2.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/network-manager-applet/0.9/network-manager-applet-0.9.8.2.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/network-manager-applet/0.9/network-manager-applet-0.9.8.9.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/network-manager-applet/0.9/network-manager-applet-0.9.8.9.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 1dbece6519f32aa43a746abd96181aa0
+                Download MD5 sum: f789da3c70127bc323f04d61bff89cf9
               </p>
             </li>
             <li>
@@ -94,7 +97,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 50 MB
+                Estimated disk space required: 42 MB
               </p>
             </li>
             <li>
@@ -112,19 +115,28 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.8.4">GTK+-3.8.4</a>, <a class="xref" href=
-          "../general/iso-codes.html" title="ISO Codes-3.46">ISO
-          Codes-3.46</a>, <a class="xref" href="libsecret.html" title=
-          "libsecret-0.16">libsecret-0.16</a>, <a class="xref" href=
+          "GTK+-3.12.1">GTK+-3.12.1</a>, <a class="xref" href=
+          "../general/iso-codes.html" title="ISO Codes-3.52">ISO
+          Codes-3.52</a>, <a class="xref" href="libsecret.html" title=
+          "libsecret-0.18">libsecret-0.18</a>, <a class="xref" href=
           "../x/libnotify.html" title="libnotify-0.7.6">libnotify-0.7.6</a>,
           and <a class="xref" href="../basicnet/networkmanager.html" title=
-          "NetworkManager-0.9.8.2">NetworkManager-0.9.8.2</a>
+          "NetworkManager-0.9.8.9">NetworkManager-0.9.8.9</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/gobject-introspection.html" title=
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
         </p>
         <h4>
           Required (Runtime)
         </h4>
         <p class="required">
-          <a class="xref" href="polkit-gnome.html" title=
+          <a class="xref" href="../lxde/lxpolkit.html" title=
+          "LXPolkit-0.1.0">LXPolkit-0.1.0</a> or <a class="xref" href=
+          "polkit-gnome.html" title=
           "polkit-gnome-0.105">polkit-gnome-0.105</a>
         </p>
         <h4>
@@ -135,7 +147,8 @@
           "http://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/">GNOME
           Bluetooth</a>, <a class="ulink" href=
           "http://ftp.gnome.org/pub/gnome/sources/mobile-broadband-provider-info">
-          mobile-broadband-provider-info</a>, and <a class="ulink" href=
+          mobile-broadband-provider-info</a> (runtime), and <a class="ulink"
+          href=
           "http://www.freedesktop.org/software/ModemManager/">ModemManager</a>
         </p>
         <p class="usernotes">
@@ -149,13 +162,12 @@
           Installation of NetworkManager Applet
         </h2>
         <p>
-          Install <span class="application">MetworkManager Applet</span> by
+          Install <span class="application">NetworkManager Applet</span> by
           running the following commands:
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --libexecdir=/usr/lib/NetworkManager \
             --disable-migration \
             --disable-static &amp;&amp;
 make</kbd>
@@ -249,23 +261,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-04 21:37:09 +0000
+        Last updated on 2014-04-06 19:52:43 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="nautilus.html" title=
-          "Nautilus-3.8.2">Prev</a>
+          "Nautilus-3.12.0">Prev</a>
           <p>
-            Nautilus-3.8.2
+            Nautilus-3.12.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="seahorse.html" title=
-          "Seahorse-3.9.91">Next</a>
+          "Seahorse-3.12.0">Next</a>
           <p>
-            Seahorse-3.9.91
+            Seahorse-3.12.0
           </p>
         </li>
         <li class="up">
@@ -274,7 +286,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

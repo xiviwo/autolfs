@@ -12,25 +12,25 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="acpid.html" title="acpid-2.0.19">Prev</a>
+          <a accesskey="p" href="acpid.html" title="acpid-2.0.21">Prev</a>
           <p>
-            acpid-2.0.19
+            acpid-2.0.21
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="autofs.html" title="autofs-5.0.7">Next</a>
+          <a accesskey="n" href="autofs.html" title="autofs-5.0.8">Next</a>
           <p>
-            autofs-5.0.7
+            autofs-5.0.8
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           Base (LSB) conformance.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -108,18 +108,15 @@
           Required
         </h4>
         <p class="required">
-          An MTA such as <a class="xref" href="../server/postfix.html" title=
-          "Postfix-2.10.2">Postfix-2.10.2</a>, <a class="xref" href=
-          "../server/sendmail.html" title=
-          "sendmail-8.14.7">sendmail-8.14.7</a>, or <a class="xref" href=
-          "../server/exim.html" title="Exim-4.80.1">Exim-4.80.1</a>
+          An <a class="xref" href="../server/mail.html" title=
+          "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -148,8 +145,10 @@ mkdir -p /var/spool/cron</kbd>
           commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --with-daemon_username=atd  \
-            --with-daemon_groupname=atd &amp;&amp;
+<kbd class="command">./configure --docdir=/usr/share/doc/at-3.1.14 \
+            --with-daemon_username=atd        \
+            --with-daemon_groupname=atd       \
+            SENDMAIL=/usr/sbin/sendmail &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -184,7 +183,7 @@ make</kbd>
             Install the <code class="filename">/etc/init.d/atd</code> init
             script from the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-atd</kbd>
@@ -279,21 +278,21 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-09 15:17:21 -0700
+        Last updated on 2014-02-23 03:31:30 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="acpid.html" title="acpid-2.0.19">Prev</a>
+          <a accesskey="p" href="acpid.html" title="acpid-2.0.21">Prev</a>
           <p>
-            acpid-2.0.19
+            acpid-2.0.21
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="autofs.html" title="autofs-5.0.7">Next</a>
+          <a accesskey="n" href="autofs.html" title="autofs-5.0.8">Next</a>
           <p>
-            autofs-5.0.7
+            autofs-5.0.8
           </p>
         </li>
         <li class="up">
@@ -302,7 +301,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;28.&nbsp;The KDE Core
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="phonon.html" title="Phonon-4.6.0">Next</a>
+          <a accesskey="n" href="phonon.html" title="Phonon-4.7.1">Next</a>
           <p>
-            Phonon-4.6.0
+            Phonon-4.7.1
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           "application">CMake</span> as the buildsystem.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -110,7 +110,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/cmake.html" title=
-          "CMake-2.8.11.2">CMake-2.8.11.2</a> and <a class="xref" href=
+          "CMake-2.8.12.2">CMake-2.8.12.2</a> and <a class="xref" href=
           "../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
         </p>
         <p class="usernotes">
@@ -130,7 +130,7 @@
 <kbd class="command">mkdir build &amp;&amp;
 cd    build &amp;&amp;
 
-cmake -DCMAKE_INSTALL_PREFIX=$QTDIR .. &amp;&amp;
+cmake -DCMAKE_INSTALL_PREFIX=$QT4DIR -Wno-dev .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -139,6 +139,15 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">-Wno-dev</code>: Suppress warnings that are
+          meant for the author of the CMakeLists.txt files.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -187,7 +196,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-26 17:26:25 +0000
+        Last updated on 2014-02-28 04:59:01 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -199,9 +208,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="phonon.html" title="Phonon-4.6.0">Next</a>
+          <a accesskey="n" href="phonon.html" title="Phonon-4.7.1">Next</a>
           <p>
-            Phonon-4.6.0
+            Phonon-4.7.1
           </p>
         </li>
         <li class="up">
@@ -210,7 +219,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

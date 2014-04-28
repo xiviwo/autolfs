@@ -7,15 +7,15 @@
     <title>
       7.2.&nbsp;General Network Configuration
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter07/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -127,13 +127,13 @@
         </p>
         <div class="itemizedlist">
           <ul>
-            <li>
+            <li class="listitem">
               <p>
                 <code class="literal">SUBSYSTEM=="net"</code> - This tells
                 Udev to ignore devices that are not network cards.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 <code class="literal">ACTION=="add"</code> - This tells Udev
                 to ignore this rule for a uevent that isn't an add ("remove"
@@ -141,7 +141,7 @@
                 network interfaces).
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 <code class="literal">DRIVERS=="?*"</code> - This exists so
                 that Udev will ignore VLAN or bridge sub-interfaces (because
@@ -150,13 +150,13 @@
                 assigned would collide with their parent devices.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 <code class="literal">ATTR{address}</code> - The value of
                 this key is the NIC's MAC address.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 <code class="literal">ATTR{type}=="1"</code> - This ensures
                 the rule only matches the primary interface in the case of
@@ -166,7 +166,7 @@
                 would be a name collision otherwise.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 <code class="literal">KERNEL=="eth*"</code> - This key was
                 added to the Udev rule generator to handle machines that have
@@ -177,7 +177,7 @@
                 From Scratch users, but does not hurt.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 <code class="literal">NAME</code> - The value of this key is
                 the name that Udev will assign to this interface.
@@ -202,12 +202,13 @@
           depends on the files in <code class=
           "filename">/etc/sysconfig/</code>. This directory should contain a
           file for each interface to be configured, such as <code class=
-          "filename">ifconfig.xyz</code>, where &ldquo;<span class=
-          "quote">xyz</span>&rdquo; is meaningful to the administrator such
-          as the device name (e.g. eth0). Inside this file are attributes to
-          this interface, such as its IP address(es), subnet masks, and so
-          forth. It is necessary that the stem of the filename be
-          <span class="emphasis"><em>ifconfig</em></span>.
+          "filename">ifconfig.xyz</code>, where <span class=
+          "quote">&ldquo;<span class="quote">xyz</span>&rdquo;</span> is
+          meaningful to the administrator such as the device name (e.g.
+          eth0). Inside this file are attributes to this interface, such as
+          its IP address(es), subnet masks, and so forth. It is necessary
+          that the stem of the filename be <span class=
+          "emphasis"><em>ifconfig</em></span>.
         </p>
         <p>
           The following command creates a sample file for the <span class=
@@ -231,12 +232,13 @@ EOF</kbd>
         </p>
         <p>
           If the <code class="envar">ONBOOT</code> variable is set to
-          &ldquo;<span class="quote">yes</span>&rdquo; the network script
-          will bring up the Network Interface Card (NIC) during booting of
-          the system. If set to anything but &ldquo;<span class=
-          "quote">yes</span>&rdquo; the NIC will be ignored by the network
-          script and not be automatically brought up. The interface can be
-          manually started or stopped with the <span class=
+          <span class="quote">&ldquo;<span class=
+          "quote">yes</span>&rdquo;</span> the network script will bring up
+          the Network Interface Card (NIC) during booting of the system. If
+          set to anything but <span class="quote">&ldquo;<span class=
+          "quote">yes</span>&rdquo;</span> the NIC will be ignored by the
+          network script and not be automatically brought up. The interface
+          can be manually started or stopped with the <span class=
           "command"><strong>ifup</strong></span> and <span class=
           "command"><strong>ifdown</strong></span> commands.
         </p>
@@ -349,7 +351,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

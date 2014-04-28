@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -54,13 +54,13 @@
         signed by a trusted agent called a Certificate Authority (CA). The
         certificates loaded by this section are from the list on the Mozilla
         version control system and formats it into a form used by <a class=
-        "xref" href="openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>.
+        "xref" href="openssl.html" title="OpenSSL-1.0.1g">OpenSSL-1.0.1g</a>.
         The certificates can also be used by other applications either
         directly of indirectly through <span class=
         "application">openssl</span>.
       </p>
       <p>
-        This package is known to build and work properly using an LFS-7.4
+        This package is known to build and work properly using an LFS-7.5
         platform.
       </p>
       <div class="package" lang="en" xml:lang="en">
@@ -75,8 +75,8 @@
             <li>
               <p>
                 CA Certificate Download: <a class="ulink" href=
-                "http://mxr.mozilla.org/mozilla/source/security/nss/lib/ckfw/builtins/certdata.txt?raw=1">
-                http://mxr.mozilla.org/mozilla/source/security/nss/lib/ckfw/builtins/certdata.txt?raw=1</a>
+                "http://anduin.linuxfromscratch.org/sources/other/certdata.txt">
+                http://anduin.linuxfromscratch.org/sources/other/certdata.txt</a>
               </p>
             </li>
             <li>
@@ -96,6 +96,22 @@
             </li>
           </ul>
         </div>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            The certfile.txt file above is actually retrieved from <a class=
+            "ulink" href=
+            "https://hg.mozilla.org/releases/mozilla-release/file/default/security/nss/lib/ckfw/builtins/certdata.txt">
+            https://hg.mozilla.org/releases/mozilla-release/file/default/security/nss/lib/ckfw/builtins/certdata.txt</a>.
+            It is really an HTML file, but the text file can be retrieved
+            indirectly from the HTML file. The Download URL above automates
+            that process and also adds a line where the date can be extracted
+            as a revision number by the scripts below.
+          </p>
+        </div>
         <h3>
           Certificate Authority Certificates Dependencies
         </h3>
@@ -104,14 +120,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          "OpenSSL-1.0.1g">OpenSSL-1.0.1g</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../basicnet/wget.html" title=
-          "Wget-1.14">Wget-1.14</a>
+          "Wget-1.15">Wget-1.15</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -248,7 +264,7 @@ done
 unset CERTBEGINLIST CERTDATA CERTENDLIST certebegin certend
 
 mkdir -p certs
-rm certs/*      # Make sure the directory is clean
+rm -f certs/*      # Make sure the directory is clean
 
 for tempfile in ${TEMPDIR}/certs/*.tmp; do
   # Make sure that the cert is trusted...
@@ -483,7 +499,7 @@ unset SSLDIR</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-11 17:21:08 +0000
+        Last updated on 2014-03-10 04:39:15 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -507,7 +523,7 @@ unset SSLDIR</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

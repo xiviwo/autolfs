@@ -12,36 +12,35 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="pulseaudio.html" title=
-          "PulseAudio-4.0">Prev</a>
+          <a accesskey="p" href="sbc.html" title="SBC-1.2">Prev</a>
           <p>
-            PulseAudio-4.0
+            SBC-1.2
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="soundtouch.html" title=
-          "SoundTouch-1.7.1">Next</a>
+          "SoundTouch-1.8.0">Next</a>
           <p>
-            SoundTouch-1.7.1
+            SoundTouch-1.8.0
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +58,7 @@
           write multimedia software, such as games and emulators.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -103,23 +102,22 @@
         </h4>
         <p class="optional">
           <a class="xref" href="alsa.html" title=
-          "ALSA-1.0.27">ALSA-1.0.27</a>, <a class="xref" href="esound.html"
-          title="EsounD-0.2.41">EsounD-0.2.41</a>, <a class="xref" href=
+          "ALSA-1.0.27">ALSA-1.0.27</a>, <a class="xref" href=
           "pulseaudio.html" title="PulseAudio-4.0">PulseAudio-4.0</a>
-          <a class="xref" href="../general/NASM.html" title=
-          "NASM-2.10.09">NASM-2.10.09</a>, <a class="xref" href=
-          "../general/libusb.html" title="libusb-1.0.9">libusb-1.0.9</a>,
-          <a class="xref" href="../x/installing.html" title=
+          <a class="xref" href="../general/nasm.html" title=
+          "NASM-2.11">NASM-2.11</a>, <a class="xref" href=
+          "../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
-          System</a>, <a class="xref" href="../general/aalib.html" title=
-          "AAlib-1.4rc5">AAlib-1.4rc5</a>, <a class="xref" href=
-          "../general/pth.html" title="Pth-2.0.7">Pth-2.0.7</a>, <a class=
-          "ulink" href="http://www.directfb.org/">DirectFB</a>, <a class=
-          "ulink" href="http://www.ggi-project.org/">GGI</a>, <a class=
-          "ulink" href=
+          System</a>, <a class="xref" href="../x/glu.html" title=
+          "GLU-9.0.0">GLU-9.0.0</a>, <a class="xref" href=
+          "../general/aalib.html" title="AAlib-1.4rc5">AAlib-1.4rc5</a>,
+          <a class="xref" href="../general/pth.html" title=
+          "Pth-2.0.7">Pth-2.0.7</a>, <a class="ulink" href=
+          "http://www.directfb.org/">DirectFB</a>, <a class="ulink" href=
+          "http://www.ggi-project.org/">GGI</a>, <a class="ulink" href=
           "http://my.arava.co.il/~matan/svgalib/">SVGAlib-1.9.5</a>
           (<a class="ulink" href=
-          "http://www.linuxfromscratch.org/patches/blfs/svn/svgalib-1.9.25-megafixes-1.patch">patched</a>),
+          "http://www.linuxfromscratch.org/patches/blfs/7.5/svgalib-1.9.25-megafixes-1.patch">patched</a>),
           <a class="ulink" href=
           "http://caca.zoy.org/wiki/libcaca">libcaca</a> and <a class="ulink"
           href="http://picogui.org/">PicoGUI</a>
@@ -140,6 +138,7 @@
         <pre class="userinput">
 <kbd class=
 "command">sed -i '/_XData32/s:register long:register _Xconst long:' src/video/x11/SDL_x11sym.h &amp;&amp;
+
 ./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
@@ -276,32 +275,31 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-20 18:40:33 -0700
+        Last updated on 2014-02-27 13:57:10 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="pulseaudio.html" title=
-          "PulseAudio-4.0">Prev</a>
+          <a accesskey="p" href="sbc.html" title="SBC-1.2">Prev</a>
           <p>
-            PulseAudio-4.0
+            SBC-1.2
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="soundtouch.html" title=
-          "SoundTouch-1.7.1">Next</a>
+          "SoundTouch-1.8.0">Next</a>
           <p>
-            SoundTouch-1.7.1
+            SoundTouch-1.8.0
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

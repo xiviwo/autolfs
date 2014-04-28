@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
@@ -23,15 +23,15 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">Prev</a>
+          "libjpeg-turbo-1.3.1">Prev</a>
           <p>
-            libjpeg-turbo-1.3.0
+            libjpeg-turbo-1.3.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libpng.html" title="libpng-1.6.3">Next</a>
+          <a accesskey="n" href="libpng.html" title="libpng-1.6.10">Next</a>
           <p>
-            libpng-1.6.3
+            libpng-1.6.10
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           (MNG) files which are the animation equivalents to PNG files.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -103,8 +103,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a> and <a class="xref"
-          href="lcms2.html" title="Little CMS-2.5">Little CMS-2.5</a>
+          "libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a> and <a class="xref"
+          href="lcms2.html" title="Little CMS-2.6">Little CMS-2.6</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -122,6 +122,7 @@
         <pre class="userinput">
 <kbd class=
 "command">sed -i "s:#include &lt;jpeg:#include &lt;stdio.h&gt;\n&amp;:" libmng_types.h &amp;&amp;
+
 ./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
@@ -133,7 +134,8 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-install -v -m755 -d /usr/share/doc/libmng-2.0.2 &amp;&amp;
+
+install -v -m755 -d        /usr/share/doc/libmng-2.0.2 &amp;&amp;
 install -v -m644 doc/*.txt /usr/share/doc/libmng-2.0.2</kbd>
 </pre>
       </div>
@@ -199,22 +201,22 @@ install -v -m644 doc/*.txt /usr/share/doc/libmng-2.0.2</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 20:56:44 +0000
+        Last updated on 2014-02-24 00:02:13 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">Prev</a>
+          "libjpeg-turbo-1.3.1">Prev</a>
           <p>
-            libjpeg-turbo-1.3.0
+            libjpeg-turbo-1.3.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libpng.html" title="libpng-1.6.3">Next</a>
+          <a accesskey="n" href="libpng.html" title="libpng-1.6.10">Next</a>
           <p>
-            libpng-1.6.3
+            libpng-1.6.10
           </p>
         </li>
         <li class="up">
@@ -223,7 +225,7 @@ install -v -m644 doc/*.txt /usr/share/doc/libmng-2.0.2</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

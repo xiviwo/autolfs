@@ -7,15 +7,15 @@
     <title>
       7.12.&nbsp;The rc.site File
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter07/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -171,7 +171,7 @@
         </p>
         <div class="itemizedlist">
           <ul>
-            <li>
+            <li class="listitem">
               <p>
                 During the boot script <code class="filename">udev</code>,
                 there is a call to <span class="command"><strong>udev
@@ -183,7 +183,7 @@
                 OMIT_UDEV_SETTLE=y.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 The boot script <code class="filename">udev_retry</code> also
                 runs <span class="command"><strong>udev
@@ -197,7 +197,7 @@
                 by setting the variable OMIT_UDEV_RETRY_SETTLE=y.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 By default, the file system checks are silent. This can
                 appear to be a delay during the bootup process. To turn on
@@ -205,7 +205,7 @@
                 output, set the variable VERBOSE_FSCK=y.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 When rebooting, you may want to skip the filesystem check,
                 <span class="command"><strong>fsck</strong></span>,
@@ -226,7 +226,7 @@
                 permanent basis.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 Normally, all files in the <code class="filename">/tmp</code>
                 directory are deleted at boot time. Depending on the number
@@ -235,7 +235,7 @@
                 the variable SKIPTMPCLEAN=y.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 During shutdown, the <span class=
                 "command"><strong>init</strong></span> program sends a TERM
@@ -281,7 +281,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

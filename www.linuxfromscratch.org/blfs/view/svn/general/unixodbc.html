@@ -5,34 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      unixODBC-2.3.1
+      unixODBC-2.3.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;11.&nbsp;General Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="tidy.html" title=
-          "HTML Tidy-cvs_20101110">Prev</a>
+          <a accesskey="p" href="tree.html" title="tree-1.6.0">Prev</a>
           <p>
-            HTML Tidy-cvs_20101110
+            tree-1.6.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="xscreensaver.html" title=
-          "XScreenSaver-5.22">Next</a>
+          "XScreenSaver-5.26">Next</a>
           <p>
-            XScreenSaver-5.22
+            XScreenSaver-5.26
           </p>
         </li>
         <li class="up">
@@ -41,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="unixodbc" name="unixodbc"></a>unixODBC-2.3.1
+        <a id="unixodbc" name="unixodbc"></a>unixODBC-2.3.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -67,7 +66,7 @@
           driver setup libraries.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -78,19 +77,19 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.unixodbc.org/unixODBC-2.3.1.tar.gz">http://www.unixodbc.org/unixODBC-2.3.1.tar.gz</a>
+                "http://www.unixodbc.org/unixODBC-2.3.2.tar.gz">http://www.unixodbc.org/unixODBC-2.3.2.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://mirror.ovh.net/gentoo-distfiles/distfiles/unixODBC-2.3.1.tar.gz">
-                ftp://mirror.ovh.net/gentoo-distfiles/distfiles/unixODBC-2.3.1.tar.gz</a>
+                "ftp://mirror.ovh.net/gentoo-distfiles/distfiles/unixODBC-2.3.2.tar.gz">
+                ftp://mirror.ovh.net/gentoo-distfiles/distfiles/unixODBC-2.3.2.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 86788d4006620fa1f171c13d07fdcaab
+                Download MD5 sum: 5e4528851eda5d3d4aed249b669bd05b
               </p>
             </li>
             <li>
@@ -100,12 +99,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 30 MB
+                Estimated disk space required: 33 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.5 SBU
+                Estimated build time: 0.4 SBU
               </p>
             </li>
           </ul>
@@ -148,11 +147,11 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 
-find doc -name "Makefile*" -exec rm {} \; &amp;&amp;
+find doc -name "Makefile*" -delete              &amp;&amp;
 chmod 644 doc/{lst,ProgrammerManual/Tutorial}/* &amp;&amp;
 
-install -v -m755 -d /usr/share/doc/unixODBC-2.3.1 &amp;&amp;
-cp -v -R doc/* /usr/share/doc/unixODBC-2.3.1</kbd>
+install -v -m755 -d /usr/share/doc/unixODBC-2.3.2 &amp;&amp;
+cp      -v -R doc/* /usr/share/doc/unixODBC-2.3.2</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -196,14 +195,14 @@ cp -v -R doc/* /usr/share/doc/unixODBC-2.3.1</kbd>
             "application">unixODBC</span> config files.
           </p>
           <p>
-            Unfortunately, there are no <span class=
-            "command"><strong>man</strong></span> or <span class=
+            Unfortunately, there are no many <span class=
+            "command"><strong>man</strong></span> or any <span class=
             "command"><strong>info</strong></span> pages for the various
             programs available in the <span class=
             "application">unixODBC</span> package. Along with the information
             in the &ldquo;<span class="quote">Short
             Descriptions</span>&rdquo; below and the documentation installed
-            in <code class="filename">/usr/share/doc/unixODBC-2.3.1</code>,
+            in <code class="filename">/usr/share/doc/unixODBC-2.3.2</code>,
             there are many <code class="filename">README</code> files
             throughout the source tree where the use and functionality of the
             programs can be found. Additionally, you can use the parameter
@@ -223,18 +222,18 @@ cp -v -R doc/* /usr/share/doc/unixODBC-2.3.1</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">dltest, isql, iusql, odbc_config and
-              odbcinst</span>
+              <span class="segbody">dltest, isql, iusql, odbc_config,
+              odbcinst, and slencheck</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libodbc.so, libodbccr.so and
+              <span class="segbody">libodbc.so, libodbccr.so, and
               libodbcinst.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/unixODBC and
-              /usr/share/doc/unixODBC-2.3.1</span>
+              /usr/share/doc/unixODBC-2.3.2</span>
             </div>
           </div>
         </div>
@@ -329,23 +328,22 @@ cp -v -R doc/* /usr/share/doc/unixODBC-2.3.1</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-26 17:26:25 +0000
+        Last updated on 2014-02-23 19:35:28 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="tidy.html" title=
-          "HTML Tidy-cvs_20101110">Prev</a>
+          <a accesskey="p" href="tree.html" title="tree-1.6.0">Prev</a>
           <p>
-            HTML Tidy-cvs_20101110
+            tree-1.6.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="xscreensaver.html" title=
-          "XScreenSaver-5.22">Next</a>
+          "XScreenSaver-5.26">Next</a>
           <p>
-            XScreenSaver-5.22
+            XScreenSaver-5.26
           </p>
         </li>
         <li class="up">
@@ -354,7 +352,7 @@ cp -v -R doc/* /usr/share/doc/unixODBC-2.3.1</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

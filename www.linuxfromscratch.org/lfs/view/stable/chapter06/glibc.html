@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.9.&nbsp;Glibc-2.18
+      6.9.&nbsp;Glibc-2.19
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="man-pages.html" title=
-          "Man-pages-3.53">Prev</a>
+          "Man-pages-3.59">Prev</a>
           <p>
-            Man-pages-3.53
+            Man-pages-3.59
           </p>
         </li>
         <li class="next">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-glibc" name="ch-system-glibc"></a>6.9. Glibc-2.18
+        <a id="ch-system-glibc" name="ch-system-glibc"></a>6.9. Glibc-2.19
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -83,15 +83,30 @@
             order to translate data from one encoding to another. The
             project's home page (<a class="ulink" href=
             "http://www.gnu.org/software/libiconv/">http://www.gnu.org/software/libiconv/</a>)
-            says &ldquo;<span class="quote">This library provides an
-            <code class="function">iconv()</code> implementation, for use on
-            systems which don't have one, or whose implementation cannot
-            convert from/to Unicode.</span>&rdquo; Glibc provides an
-            <code class="function">iconv()</code> implementation and can
-            convert from/to Unicode, therefore libiconv is not required on an
-            LFS system.
+            says <span class="quote">&ldquo;<span class="quote">This library
+            provides an <code class="function">iconv()</code> implementation,
+            for use on systems which don't have one, or whose implementation
+            cannot convert from/to Unicode.</span>&rdquo;</span> Glibc
+            provides an <code class="function">iconv()</code> implementation
+            and can convert from/to Unicode, therefore libiconv is not
+            required on an LFS system.
           </p>
         </div>
+        <p>
+          First fix a minor problem when installing the tzselect script:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i 's/\\$$(pwd)/`pwd`/' timezone/Makefile</kbd>
+</pre>
+        <p>
+          Some of the Glibc programs use non-FHS compilant <code class=
+          "filename">/var/db</code> directory to store their runtime data.
+          Apply the following patch to make such programs store their runtime
+          data in the FHS-compliant locations:
+        </p>
+        <pre class="userinput">
+<kbd class="command">patch -Np1 -i ../glibc-2.19-fhs-1.patch</kbd>
+</pre>
         <p>
           The Glibc build system is self-contained and will install
           perfectly, even though the compiler specs file and linker are still
@@ -100,13 +115,6 @@
           Glibc autoconf tests would give false results and defeat the goal
           of achieving a clean build.
         </p>
-        <p>
-          An upstream change needs to be reverted:
-        </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i -e 's/static __m128i/inline &amp;/' sysdeps/x86_64/multiarch/strstr.c</kbd>
-</pre>
         <p>
           The Glibc documentation recommends building Glibc outside of the
           source directory in a dedicated build directory:
@@ -119,26 +127,26 @@ cd ../glibc-build</kbd>
           Prepare Glibc for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">../glibc-2.18/configure    \
+<kbd class="command">../glibc-2.19/configure    \
     --prefix=/usr          \
     --disable-profile      \
     --enable-kernel=2.6.32 \
-    --libexecdir=/usr/lib/glibc</kbd>
+    --enable-obsolete-rpc</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the new configure options:</b>
+            <strong>The meaning of the new configure options:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class=
-              "parameter"><code>--libexecdir=/usr/lib/glibc</code></em></span>
+              "parameter"><code>--enable-obsolete-rpc</code></em></span>
             </dt>
             <dd>
               <p>
-                This changes the location of some auxillary files from the
-                default of <code class="filename">/usr/libexec</code> to
-                <code class="filename">/usr/lib/glibc</code>.
+                Installs NIS and RPC related headers that are not installed
+                by default; these are required to rebuild Glibc and by
+                several BLFS packages.
               </p>
             </dd>
           </dl>
@@ -176,7 +184,7 @@ grep Error glibc-check-log</kbd>
         </p>
         <div class="itemizedlist">
           <ul>
-            <li>
+            <li class="listitem">
               <p>
                 The <span class="emphasis"><em>nptl/tst-clock2</em></span>,
                 <span class="emphasis"><em>nptl/tst-attr3</em></span>,
@@ -187,14 +195,14 @@ grep Error glibc-check-log</kbd>
                 trigger these failures.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 The math tests sometimes fail when running on systems where
                 the CPU is not a relatively new genuine Intel or authentic
                 AMD processor.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 When running on older and slower hardware or on systems under
                 load, some tests can fail because of test timeouts being
@@ -204,17 +212,23 @@ grep Error glibc-check-log</kbd>
                 check</strong></span>).
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 posix/tst-getaddrinfo4 will always fail due to not having a
                 network connection when the test is run.
               </p>
             </li>
-            <li>
+            <li class="listitem">
+              <p>
+                libio/tst-ftell-partial-wide.out fails because it needs a
+                locale that has not yet been generated.
+              </p>
+            </li>
+            <li class="listitem">
               <p>
                 Other tests known to fail on some architectures are
                 posix/bug-regex32, misc/tst-writev, elf/check-textrel,
-                nptl/tst-getpid2, and stdio-common/bug22.
+                nptl/tst-getpid2, nptl/tst-robust8, and stdio-common/bug22.
               </p>
             </li>
           </ul>
@@ -234,14 +248,12 @@ grep Error glibc-check-log</kbd>
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          Install NIS and RPC related headers that are not installed by
-          default; these are required to rebuild glibc and by several BLFS
-          packages:
+          Install the configuration file and runtime directory for
+          <span class="command"><strong>nscd</strong></span>:
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v ../glibc-2.18/sunrpc/rpc/*.h /usr/include/rpc
-cp -v ../glibc-2.18/sunrpc/rpcsvc/*.h /usr/include/rpcsvc
-cp -v ../glibc-2.18/nis/rpcsvc/*.h /usr/include/rpcsvc</kbd>
+<kbd class="command">cp -v ../glibc-2.19/nscd/nscd.conf /etc/nscd.conf
+mkdir -pv /var/cache/nscd</kbd>
 </pre>
         <p>
           The locales that can make the system respond in a different
@@ -292,7 +304,7 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
         </p>
         <p>
           Alternatively, install all locales listed in the <code class=
-          "filename">glibc-2.18/localedata/SUPPORTED</code> file (it includes
+          "filename">glibc-2.19/localedata/SUPPORTED</code> file (it includes
           every locale listed above and many more) at once with the following
           time-consuming command:
         </p>
@@ -303,7 +315,7 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
           Then use the <span class=
           "command"><strong>localedef</strong></span> command to create and
           install locales not listed in the <code class=
-          "filename">glibc-2.18/localedata/SUPPORTED</code> file in the
+          "filename">glibc-2.19/localedata/SUPPORTED</code> file in the
           unlikely case you need them.
         </p>
       </div>
@@ -344,14 +356,13 @@ EOF</kbd>
           Install timezone data:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xf ../tzdata2013d.tar.gz
+<kbd class="command">tar -xf ../tzdata2013i.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
 
 for tz in etcetera southamerica northamerica europe africa antarctica  \
-          asia australasia backward pacificnew solar87 solar88 solar89 \
-          systemv; do
+          asia australasia backward pacificnew systemv; do
     zic -L /dev/null   -d $ZONEINFO       -y "sh yearistype.sh" ${tz}
     zic -L /dev/null   -d $ZONEINFO/posix -y "sh yearistype.sh" ${tz}
     zic -L leapseconds -d $ZONEINFO/right -y "sh yearistype.sh" ${tz}
@@ -363,9 +374,9 @@ unset ZONEINFO</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the zic commands:</b>
+            <strong>The meaning of the zic commands:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class="parameter"><code>zic -L /dev/null
               ...</code></em></span>
@@ -432,34 +443,13 @@ unset ZONEINFO</kbd>
           by running:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">cp -v --remove-destination /usr/share/zoneinfo/<em class="replaceable"><code>&lt;xxx&gt;</code></em> \
-    /etc/localtime</kbd>
+<kbd class="command">cp -v /usr/share/zoneinfo/<em class=
+"replaceable"><code>&lt;xxx&gt;</code></em> /etc/localtime</kbd>
 </pre>
         <p>
           Replace <em class="replaceable"><code>&lt;xxx&gt;</code></em> with
           the name of the time zone selected (e.g., Canada/Eastern).
         </p>
-        <div class="variablelist">
-          <p class="title">
-            <b>The meaning of the cp option:</b>
-          </p>
-          <dl>
-            <dt>
-              <span class="term"><em class=
-              "parameter"><code>--remove-destination</code></em></span>
-            </dt>
-            <dd>
-              <p>
-                This is needed to force removal of the already existing
-                symbolic link. The reason for copying the file instead of
-                using a symlink is to cover the situation where <code class=
-                "filename">/usr</code> is on a separate partition. This could
-                be important when booted into single user mode.
-              </p>
-            </dd>
-          </dl>
-        </div>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -525,14 +515,14 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
             <div class="seg">
               <strong class="segtitle">Installed libraries:</strong>
               <span class="segbody">ld.so, libBrokenLocale.{a,so},
-              libSegFault.so, libanl.{a,so}, libbsd-compat.a, libc.{a,so},
-              libc_nonshared.a, libcidn.so, libcrypt.{a,so}, libdl.{a,so},
-              libg.a, libieee.a, libm.{a,so}, libmcheck.a, libmemusage.so,
-              libnsl.{a,so}, libnss_compat.so, libnss_dns.so,
-              libnss_files.so, libnss_hesiod.so, libnss_nis.so,
-              libnss_nisplus.so, libpcprofile.so, libpthread.{a,so},
-              libpthread_nonshared.a, libresolv.{a,so}, librpcsvc.a,
-              librt.{a,so}, libthread_db.so, and libutil.{a,so}</span>
+              libSegFault.so, libanl.{a,so}, libc.{a,so}, libc_nonshared.a,
+              libcidn.so, libcrypt.{a,so}, libdl.{a,so}, libg.a, libieee.a,
+              libm.{a,so}, libmcheck.a, libmemusage.so, libnsl.{a,so},
+              libnss_compat.so, libnss_dns.so, libnss_files.so,
+              libnss_hesiod.so, libnss_nis.so, libnss_nisplus.so,
+              libpcprofile.so, libpthread.{a,so}, libpthread_nonshared.a,
+              libresolv.{a,so}, librpcsvc.a, librt.{a,so}, libthread_db.so,
+              and libutil.{a,so}</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
@@ -544,9 +534,9 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
               /usr/include/netpacket, /usr/include/netrom,
               /usr/include/netrose, /usr/include/nfs, /usr/include/protocols,
               /usr/include/rpc, /usr/include/rpcsvc, /usr/include/sys,
-              /usr/lib/audit, /usr/lib/gconv, /usr/lib/glibc,
-              /usr/lib/locale, /usr/share/i18n, /usr/share/zoneinfo,
-              /var/db</span>
+              /usr/lib/audit, /usr/lib/gconv, /usr/lib/locale,
+              /usr/libexec/getconf, /usr/share/i18n, /usr/share/zoneinfo,
+              /var/cache/nscd, and /var/lib/nss_db</span>
             </div>
           </div>
         </div>
@@ -554,8 +544,11 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -929,7 +922,7 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
                     Used internally by Glibc as a gross hack to get broken
                     programs (e.g., some Motif applications) running. See
                     comments in <code class=
-                    "filename">glibc-2.18/locale/broken_cur_max.c</code> for
+                    "filename">glibc-2.19/locale/broken_cur_max.c</code> for
                     more information
                   </p>
                 </td>
@@ -958,21 +951,6 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
                 <td>
                   <p>
                     An asynchronous name lookup library
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="libbsd-compat" name=
-                    "libbsd-compat"></a><span class="term"><code class=
-                    "filename">libbsd-compat</code></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Provides the portability needed in order to run certain
-                    Berkeley Software Distribution (BSD) programs under Linux
                   </p>
                 </td>
               </tr>
@@ -1221,9 +1199,9 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
                 </td>
                 <td>
                   <p>
-                    Contains code for &ldquo;<span class=
-                    "quote">standard</span>&rdquo; functions used in many
-                    different Unix utilities
+                    Contains code for <span class="quote">&ldquo;<span class=
+                    "quote">standard</span>&rdquo;</span> functions used in
+                    many different Unix utilities
                   </p>
                 </td>
               </tr>
@@ -1236,9 +1214,9 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="man-pages.html" title=
-          "Man-pages-3.53">Prev</a>
+          "Man-pages-3.59">Prev</a>
           <p>
-            Man-pages-3.53
+            Man-pages-3.59
           </p>
         </li>
         <li class="next">
@@ -1254,7 +1232,7 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

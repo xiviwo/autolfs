@@ -7,15 +7,15 @@
     <title>
       6.5.&nbsp;Creating Directories
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -56,24 +56,26 @@
       </p>
       <pre class="userinput">
 <kbd class=
-"command">mkdir -pv /{bin,boot,etc/{opt,sysconfig},home,lib,mnt,opt,run}
+"command">mkdir -pv /{bin,boot,etc/{opt,sysconfig},home,lib,mnt,opt}
 mkdir -pv /{media/{floppy,cdrom},sbin,srv,var}
 install -dv -m 0750 /root
 install -dv -m 1777 /tmp /var/tmp
 mkdir -pv /usr/{,local/}{bin,include,lib,sbin,src}
-mkdir -pv /usr/{,local/}share/{doc,info,locale,man}
+mkdir -pv /usr/{,local/}share/{color,dict,doc,info,locale,man}
 mkdir -v  /usr/{,local/}share/{misc,terminfo,zoneinfo}
+mkdir -v  /usr/libexec
 mkdir -pv /usr/{,local/}share/man/man{1..8}
-for dir in /usr /usr/local; do
-  ln -sv share/{man,doc,info} $dir
-done
+
 case $(uname -m) in
- x86_64) ln -sv lib /lib64 &amp;&amp; ln -sv lib /usr/lib64 &amp;&amp; ln -sv lib /usr/local/lib64 ;;
+ x86_64) ln -sv lib /lib64     &amp;&amp; 
+         ln -sv lib /usr/lib64 &amp;&amp; 
+         ln -sv lib /usr/local/lib64 ;;
 esac
+
 mkdir -v /var/{log,mail,spool}
 ln -sv /run /var/run
 ln -sv /run/lock /var/lock
-mkdir -pv /var/{opt,cache,lib/{misc,locate},local}</kbd>
+mkdir -pv /var/{opt,cache,lib/{color,misc,locate},local}</kbd>
 </pre>
       <p>
         Directories are, by default, created with permission mode 755, but
@@ -89,9 +91,9 @@ mkdir -pv /var/{opt,cache,lib/{misc,locate},local}</kbd>
         change makes sure that any user can write to the <code class=
         "filename">/tmp</code> and <code class="filename">/var/tmp</code>
         directories, but cannot remove another user's files from them. The
-        latter is prohibited by the so-called &ldquo;<span class=
-        "quote">sticky bit,</span>&rdquo; the highest bit (1) in the 1777 bit
-        mask.
+        latter is prohibited by the so-called <span class=
+        "quote">&ldquo;<span class="quote">sticky bit,</span>&rdquo;</span>
+        the highest bit (1) in the 1777 bit mask.
       </p>
       <div class="sect2" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -142,7 +144,7 @@ mkdir -pv /var/{opt,cache,lib/{misc,locate},local}</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

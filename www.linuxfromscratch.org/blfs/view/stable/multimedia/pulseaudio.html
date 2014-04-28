@@ -12,34 +12,34 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="opal.html" title="Opal-3.10.10">Prev</a>
+          <a accesskey="p" href="opus.html" title="Opus-1.1">Prev</a>
           <p>
-            Opal-3.10.10
+            Opus-1.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sdl.html" title="SDL-1.2.15">Next</a>
+          <a accesskey="n" href="sbc.html" title="SBC-1.2">Next</a>
           <p>
-            SDL-1.2.15
+            SBC-1.2
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -61,7 +61,7 @@
           easily achieved using a sound server.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -107,11 +107,9 @@
         <p class="required">
           <a class="xref" href="../general/intltool.html" title=
           "Intltool-0.50.2">Intltool-0.50.2</a>, <a class="xref" href=
-          "../general/json-c.html" title="JSON-C-0.11">JSON-C-0.11</a>,
+          "../general/json-c.html" title="JSON-C-0.11">JSON-C-0.11</a>, and
           <a class="xref" href="libsndfile.html" title=
-          "libsndfile-1.0.25">libsndfile-1.0.25</a> and <a class="xref" href=
-          "../general/pkgconfig.html" title=
-          "pkg-config-0.28">pkg-config-0.28</a>
+          "libsndfile-1.0.25">libsndfile-1.0.25</a>
         </p>
         <h4>
           Recommended
@@ -119,11 +117,11 @@
         <p class="recommended">
           <a class="xref" href="alsa-lib.html" title=
           "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
-          "../general/dbus.html" title="D-Bus-1.6.14">D-Bus-1.6.14</a>,
-          <a class="xref" href="../postlfs/libcap2.html" title=
-          "libcap2-2.22">libcap2-2.22</a>, <a class="xref" href=
+          "../general/dbus.html" title="D-Bus-1.8.0">D-Bus-1.8.0</a>,
+          <a class="xref" href="../postlfs/libcap.html" title=
+          "libcap-2.24">libcap-2.24</a>, <a class="xref" href=
           "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="xref" href=
           "speex.html" title="Speex-1.2rc1">Speex-1.2rc1</a> and <a class=
           "xref" href="../x/x7lib.html" title="Xorg Libraries">Xorg
           Libraries</a>
@@ -134,9 +132,9 @@
         <p class="optional">
           <a class="xref" href="../gnome/GConf.html" title=
           "GConf-3.2.6">GConf-3.2.6</a>, <a class="xref" href=
-          "../general/glib2.html" title="GLib-2.36.4">GLib-2.36.4</a> and
+          "../general/glib2.html" title="GLib-2.38.2">GLib-2.38.2</a> and
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.20">GTK+-2.24.20</a>
+          "GTK+-2.24.22">GTK+-2.24.22</a>
         </p>
         <h4>
           Optional
@@ -145,9 +143,9 @@
           <a class="xref" href="../basicnet/avahi.html" title=
           "Avahi-0.6.31">Avahi-0.6.31</a>, <a class="xref" href=
           "../general/bluez.html" title="BlueZ-4.101">BlueZ-4.101</a> and
-          <a class="xref" href="../general/sbc.html" title=
-          "SBC-1.1">SBC-1.1</a>, <a class="xref" href="../general/check.html"
-          title="Check-0.9.10">Check-0.9.10</a>, <a class="ulink" href=
+          <a class="xref" href="sbc.html" title="SBC-1.2">SBC-1.2</a>,
+          <a class="xref" href="../general/check.html" title=
+          "Check-0.9.12">Check-0.9.12</a>, <a class="ulink" href=
           "http://www.fftw.org/">FFTW</a>, <a class="ulink" href=
           "http://www.jackaudio.org/">JACK</a>, <a class="ulink" href=
           "http://0pointer.de/lennart/projects/libasyncns/">libasyncns</a>,
@@ -192,7 +190,6 @@ usermod -a -G audio pulse</kbd>
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var \
-            --libexecdir=/usr/lib \
             --with-module-dir=/usr/lib/pulse/modules &amp;&amp;
 make</kbd>
 </pre>
@@ -249,8 +246,8 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/pulse, /usr/include/pulse,
-              /usr/lib/cmake/PulseAudio, /usr/lib/pulse and
-              /usr/share/pulseaudio</span>
+              /usr/lib/cmake/PulseAudio, /usr/lib/pulse, /usr/libexec/pulse
+              and /usr/share/pulseaudio</span>
             </div>
           </div>
         </div>
@@ -493,30 +490,30 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-20 18:40:33 -0700
+        Last updated on 2014-03-03 16:39:21 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="opal.html" title="Opal-3.10.10">Prev</a>
+          <a accesskey="p" href="opus.html" title="Opus-1.1">Prev</a>
           <p>
-            Opal-3.10.10
+            Opus-1.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sdl.html" title="SDL-1.2.15">Next</a>
+          <a accesskey="n" href="sbc.html" title="SBC-1.2">Next</a>
           <p>
-            SDL-1.2.15
+            SBC-1.2
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

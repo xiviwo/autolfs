@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Wireshark-1.10.2
+      Wireshark-1.10.6
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;16.&nbsp;Networking Utilities
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="wireshark" name="wireshark"></a>Wireshark-1.10.2
+        <a id="wireshark" name="wireshark"></a>Wireshark-1.10.6
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -64,7 +64,7 @@
           capture files from many other popular network analyzers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -75,28 +75,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.wireshark.org/download/src/all-versions/wireshark-1.10.2.tar.bz2">
-                http://www.wireshark.org/download/src/all-versions/wireshark-1.10.2.tar.bz2</a>
+                "http://www.wireshark.org/download/src/all-versions/wireshark-1.10.6.tar.bz2">
+                http://www.wireshark.org/download/src/all-versions/wireshark-1.10.6.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: cd7fedd0a67df5ad4905fd356efdc1e8
+                Download MD5 sum: c67435039d67ef1757bfff0ab88824ab
               </p>
             </li>
             <li>
               <p>
-                Download size: 25 MB
+                Download size: 26 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 1.1 GB
+                Estimated disk space required: 926 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 5.4 SBU
+                Estimated build time: 5.3 SBU
               </p>
             </li>
           </ul>
@@ -126,45 +126,48 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.36.4">GLib-2.36.4</a> (to build the TTY-mode front-end
+          "GLib-2.40.0">GLib-2.40.0</a> (to build the TTY-mode front-end
           only)
         </p>
         <p>
-          Note that if you don't have <span class="application">Gtk+</span>
-          installed, you will need to pass <code class=
-          "option">--disable-wireshark</code> to the <span class=
-          "command"><strong>configure</strong></span> command.
+          Note that you need <span class="application">Gtk+</span> or
+          <span class="application">Qt4</span> installed, otherwise, you will
+          need to pass <code class="option">--disable-wireshark</code> to the
+          <span class="command"><strong>configure</strong></span> command.
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="libpcap.html" title=
-          "libpcap-1.4.0">libpcap-1.4.0</a> (required to capture data)
+          "libpcap-1.5.3">libpcap-1.5.3</a> (required to capture data)
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../general/pkgconfig.html" title=
-          "pkg-config-0.28">pkg-config-0.28</a>, <a class="xref" href=
-          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a> or <a class=
-          "xref" href="../x/gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a> (to
-          build the GUI front-end), <a class="xref" href=
-          "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
-          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.3">MIT
-          Kerberos V5-1.11.3</a>, <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>,
-          <a class="xref" href="../general/pcre.html" title=
-          "PCRE-8.33">PCRE-8.33</a>, <a class="xref" href=
-          "../postlfs/gnutls.html" title="GnuTLS-3.2.4">GnuTLS-3.2.4</a>,
           <a class="ulink" href=
-          "http://www.portaudio.com/download.html">PortAudio</a>, <a class=
+          "http://www.gnu.org/software/adns/adns.html">adns</a>, <a class=
           "ulink" href="http://www.maxmind.com/app/c">GeoIP</a>, <a class=
-          "ulink" href="http://www.gnu.org/software/adns/adns.html">adns</a>,
-          and <a class="xref" href="../general/lua.html" title=
-          "Lua-5.1.5">Lua-5.1.5</a>
+          "xref" href="../postlfs/gnutls.html" title=
+          "GnuTLS-3.3.0">GnuTLS-3.3.0</a>, <a class="xref" href=
+          "../general/libgcrypt.html" title=
+          "libgcrypt-1.6.1">libgcrypt-1.6.1</a>, <a class="xref" href=
+          "../general/lua.html" title="Lua-5.2.3">Lua-5.2.3</a>, <a class=
+          "xref" href="../postlfs/mitkrb.html" title=
+          "MIT Kerberos V5-1.12.1">MIT Kerberos V5-1.12.1</a>, <a class=
+          "xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1g">OpenSSL-1.0.1g</a>, and <a class="ulink" href=
+          "http://www.portaudio.com/download.html">PortAudio</a>
+        </p>
+        <h4>
+          Optional (to build the GUI front-end)
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../x/gtk2.html" title=
+          "GTK+-2.24.23">GTK+-2.24.23</a>, <a class="xref" href=
+          "../x/gtk3.html" title="GTK+-3.12.1">GTK+-3.12.1</a>, or <a class=
+          "xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -238,15 +241,15 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 
-install -v -m755 -d /usr/share/doc/wireshark-1.10.2 &amp;&amp;
+install -v -m755 -d /usr/share/doc/wireshark-1.10.6 &amp;&amp;
 install -v -m755 -d /usr/share/pixmaps/wireshark &amp;&amp;
 
 install -v -m644    README{,.linux} doc/README.* doc/*.{pod,txt} \
-                    /usr/share/doc/wireshark-1.10.2 &amp;&amp;
+                    /usr/share/doc/wireshark-1.10.6 &amp;&amp;
 
-pushd /usr/share/doc/wireshark-1.10.2 &amp;&amp;
+pushd /usr/share/doc/wireshark-1.10.6 &amp;&amp;
    for FILENAME in ../../wireshark/*.html; do
-      ln -s -v $FILENAME .
+      ln -s -v -f $FILENAME .
    done &amp;&amp;
 popd &amp;&amp;
 
@@ -267,7 +270,7 @@ install -v -m644    image/*.{png,ico,xpm,bmp} \
         </p>
         <pre class="root">
 <kbd class="command">install -v -m644 <em class=
-"replaceable"><code>&lt;Downloaded_Files&gt;</code></em> /usr/share/doc/wireshark-1.10.2</kbd>
+"replaceable"><code>&lt;Downloaded_Files&gt;</code></em> /usr/share/doc/wireshark-1.10.6</kbd>
 </pre>
         <p>
           Now, set ownership and permissions of sensitive applications to
@@ -295,14 +298,25 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
           "command"><strong>wireshark</strong></span>.
         </p>
         <p>
-          <code class="option">--with-ssl</code>: This parameter is required
-          if you are linking Kerberos libraries into the build so that the
-          <span class="application">OpenSSL</span> <code class=
-          "filename">libcrypto</code> library is found.
+          <code class="option">--disable-wireshark</code>: This option is
+          required if you have <span class="application">GTK+</span>
+          installed but do not want to build the GUI.
         </p>
         <p>
-          <code class="option">--with-python</code>: This parameter is
-          required if you want Python bindings built.
+          <code class="option">--with-gtk3=yes</code>: This option is
+          required if you want to use <span class="application">GTK+</span>3
+          instead of 2, for the GUI.
+        </p>
+        <p>
+          <code class="option">--with-qt=yes</code>: This option is required
+          if you want to use <span class="application">Qt</span> instead of
+          <span class="application">GTK+</span>, for the GUI.
+        </p>
+        <p>
+          <code class="option">--with-ssl</code>: This option is required if
+          you are linking Kerberos libraries into the build so that the
+          <span class="application">OpenSSL</span> <code class=
+          "filename">libcrypto</code> library is found.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -339,7 +353,7 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
             <p>
               If you want to look at packets, make sure you don't filter them
               out with <a class="xref" href="../postlfs/iptables.html" title=
-              "Iptables-1.4.20">Iptables-1.4.20</a>. If you want to exclude
+              "Iptables-1.4.21">Iptables-1.4.21</a>. If you want to exclude
               certain classes of packets, it is more efficient to do it with
               <span class="application">iptables</span> than it is with
               <span class="application">Wireshark</span>.
@@ -356,18 +370,19 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">capinfos, dftest, dumpcap, editcap,
-              idl2wrs, mergecap, randpkt, rawshark, text2pcap, tshark, and
+              mergecap, randpkt, rawshark, reordercap, text2pcap, tshark, and
               wireshark</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libwireshark.so, libwiretap.so,
-              libwsutil.so, and numerous plugin modules</span>
+              libwsutil.so, and numerous plugin modules under
+              /usr/lib/wireshark/plugins</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/lib/wireshark,
-              /usr/share/doc/wireshark-1.10.2, /usr/share/pixmaps/wireshark,
+              /usr/share/doc/wireshark-1.10.6, /usr/share/pixmaps/wireshark,
               and /usr/share/wireshark</span>
             </div>
           </div>
@@ -449,23 +464,6 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="idl2wrs" name="idl2wrs"></a><span class=
-                    "term"><span class=
-                    "command"><strong>idl2wrs</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    takes a user specified CORBA IDL file and generates
-                    &ldquo;<span class="quote">C</span>&rdquo; source code
-                    that can be used to create an <span class=
-                    "application">Wireshark</span> plugin.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="mergecap" name="mergecap"></a><span class=
                     "term"><span class=
                     "command"><strong>mergecap</strong></span></span>
@@ -503,6 +501,20 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
                 <td>
                   <p>
                     dump and analyze raw libpcap data.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="reordercap" name="reordercap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>reordercap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    reorder timestamps of input file frames into output file.
                   </p>
                 </td>
               </tr>
@@ -593,7 +605,7 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-11 19:10:25 +0000
+        Last updated on 2014-03-07 23:06:50 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -617,7 +629,7 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

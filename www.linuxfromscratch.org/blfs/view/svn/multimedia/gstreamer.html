@@ -12,19 +12,20 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="grilo.html" title="Grilo-0.2.6">Prev</a>
+          <a accesskey="p" href="grilo-plugins.html" title=
+          "Grilo-Plugins-0.2.12">Prev</a>
           <p>
-            Grilo-0.2.6
+            Grilo-Plugins-0.2.12
           </p>
         </li>
         <li class="next">
@@ -36,11 +37,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -71,7 +72,7 @@
           "gst-ffmpeg-0.10.13">gst-ffmpeg-0.10.13</a> packages.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <div class="admon note">
@@ -134,7 +135,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.36.4">GLib-2.36.4</a> and <a class="xref" href=
+          "GLib-2.40.0">GLib-2.40.0</a> and <a class="xref" href=
           "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
         </p>
         <h4>
@@ -142,15 +143,16 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gsl.html" title=
-          "Gsl-1.16">Gsl-1.16</a>, <a class="ulink" href=
-          "http://www.valgrind.org/">Valgrind</a> (optionally used during the
+          "Gsl-1.16">Gsl-1.16</a>, <a class="xref" href=
+          "../general/valgrind.html" title=
+          "Valgrind-3.9.0">Valgrind-3.9.0</a> (optionally used during the
           unit regression tests)
         </p>
         <h4>
@@ -158,8 +160,8 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>
+          "GTK-Doc-1.20">GTK-Doc-1.20</a> and <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.6">Python-2.7.6</a>
           (compiled against an XML Parser such as <a class="xref" href=
           "../general/expat.html" title="Expat-2.1.0">expat-2.1.0</a>).
         </p>
@@ -169,7 +171,7 @@
         <p class="optional">
           <a class="xref" href="../pst/docbook-utils.html" title=
           "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, <a class="xref"
-          href="../pst/gs.html" title="ghostscript-9.10">ghostscript-9.10</a>
+          href="../pst/gs.html" title="ghostscript-9.14">ghostscript-9.14</a>
           <a class="xref" href="../general/libxslt.html" title=
           "libxslt-1.1.28">libxslt-1.1.28</a> and <a class="xref" href=
           "../pst/texlive.html" title="texlive-20130530">texlive-20130530</a>
@@ -194,7 +196,6 @@
             gst/parse/grammar.y &amp;&amp;
 
 ./configure --prefix=/usr \
-            --libexecdir=/usr/lib \
             --disable-static &amp;&amp;
 make</kbd>
 </pre>
@@ -249,14 +250,6 @@ fi</kbd>
           problem caused by the most recent version of Bison.
         </p>
         <p>
-          <em class="parameter"><code>--libexecdir=/usr/lib</code></em>: This
-          parameter is used so that the <span class=
-          "application">GStreamer</span> internal support programs are
-          installed in the preferred location of <code class=
-          "filename">/usr/lib/gstreamer-0.10</code> instead of <code class=
-          "filename">/usr/libexec/gstreamer-0.10</code>.
-        </p>
-        <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
         </p>
@@ -279,6 +272,13 @@ fi</kbd>
           command changes the ownership of the installed documentation files
           to root:root, and is only executed if the documentation files were
           built and installed.
+        </p>
+        <p>
+          <code class="option">--libexecdir=/usr/lib</code>: This option puts
+          the internal support programs into <code class=
+          "filename">/usr/lib/gstreamer-0.10</code> instead of <code class=
+          "filename">/usr/libexec/gstreamer-0.10.</code> in accordance with
+          the old version of the FHS used before LFS-7.5.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -304,7 +304,7 @@ fi</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/gstreamer-0.10,
-              /usr/lib/gstreamer-0.10,
+              /usr/lib/gstreamer-0.10, /usr/libexec/gstreamer-0.10,
               /usr/share/gtk-doc/html/gstreamer-0.10,
               /usr/share/gtk-doc/html/gstreamer-libs-0.10 and
               /usr/share/gtk-doc/html/gstreamer-plugins-0.10</span>
@@ -417,15 +417,16 @@ fi</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-24 01:26:43 +0000
+        Last updated on 2014-03-15 23:51:18 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="grilo.html" title="Grilo-0.2.6">Prev</a>
+          <a accesskey="p" href="grilo-plugins.html" title=
+          "Grilo-Plugins-0.2.12">Prev</a>
           <p>
-            Grilo-0.2.6
+            Grilo-Plugins-0.2.12
           </p>
         </li>
         <li class="next">
@@ -437,11 +438,11 @@ fi</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

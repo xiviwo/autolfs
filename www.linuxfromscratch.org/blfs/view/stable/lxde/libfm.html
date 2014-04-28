@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      libfm-1.1.4
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.5">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+      </h4>
+      <h3>
+        Chapter&nbsp;34.&nbsp;LXDE Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="menu-cache.html" title=
+          "menu-cache-0.5.1">Prev</a>
+          <p>
+            menu-cache-0.5.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pcmanfm.html" title="PCManFM-1.1.2">Next</a>
+          <p>
+            PCManFM-1.1.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxde-desktop.html" title=
+          "Chapter&nbsp;34.&nbsp;LXDE Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="libfm" name="libfm"></a>libfm-1.1.4
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to libfm
+        </h2>
+        <p>
+          The <span class="application">libfm</span> package contains a
+          library used to develop file managers providing some file
+          management utilities.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.5
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://downloads.sourceforge.net/pcmanfm/libfm-1.1.4.tar.xz">
+                http://downloads.sourceforge.net/pcmanfm/libfm-1.1.4.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: fd3ff9174e097ab3fd619e4a10fd822a
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 684 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 23 MB (additional 5 MB to
+                rebuild and install the API documentation)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 0.2 SBU (additional 0.1 SBU to rebuild
+                and install the API documentation)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          libfm Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../x/gtk2.html" title=
+          "GTK+-2.24.22">GTK+-2.24.22</a> and <a class="xref" href=
+          "menu-cache.html" title="menu-cache-0.5.1">menu-cache-0.5.1</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/libexif.html" title=
+          "libexif-0.6.21">libexif-0.6.21</a>, <a class="xref" href=
+          "../general/vala.html" title="Vala-0.22.1">Vala-0.22.1</a>, and
+          <a class="xref" href="lxmenu-data.html" title=
+          "lxmenu-data-0.1.2">lxmenu-data-0.1.2</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/dbus-glib.html" title=
+          "dbus-glib-0.102">dbus-glib-0.102</a> and <a class="xref" href=
+          "../general/udisks.html" title="UDisks-1.0.4">UDisks-1.0.4</a> (for
+          volume management - experimental) or <a class="xref" href=
+          "../gnome/gvfs.html" title="Gvfs-1.18.3">Gvfs-1.18.3</a> and
+          <a class="xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.19">GTK-Doc-1.19</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/libfm">http://wiki.linuxfromscratch.org/blfs/wiki/libfm</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of libfm
+        </h2>
+        <p>
+          Install <span class="application">libfm</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --disable-static &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <span class="application">GTK-Doc</span> is installed and you wish
+          to rebuild and install the API documentation.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Program:</strong>
+              <span class="segbody">libfm-pref-apps</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libfm.so and libfm-gtk.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/etc/xdg/libfm, /usr/include/libfm-1.0,
+              /usr/share/gtk-doc/html/libfm and /usr/share/libfm</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libfm-pref-apps" name=
+                    "libfm-pref-apps"></a><span class="term"><span class=
+                    "command"><strong>libfm-pref-apps</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    sets preferred applications for programs based on
+                    <span class="application">libfm</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libfm-lib" name="libfm-lib"></a><span class=
+                    "term"><code class="filename">libfm.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the <span class="application">libfm</span> API
+                    functions.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2014-02-20 04:20:28 -0800
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="menu-cache.html" title=
+          "menu-cache-0.5.1">Prev</a>
+          <p>
+            menu-cache-0.5.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pcmanfm.html" title="PCManFM-1.1.2">Next</a>
+          <p>
+            PCManFM-1.1.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lxde-desktop.html" title=
+          "Chapter&nbsp;34.&nbsp;LXDE Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

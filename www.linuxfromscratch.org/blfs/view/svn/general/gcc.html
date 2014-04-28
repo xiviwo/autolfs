@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GCC-4.8.1
+      GCC-4.8.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gc.html" title="GC-7.2d">Next</a>
+          <a accesskey="n" href="gc.html" title="GC-7.4.0">Next</a>
           <p>
-            GC-7.2d
+            GC-7.4.0
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gcc" name="gcc"></a>GCC-4.8.1
+        <a id="gcc" name="gcc"></a>GCC-4.8.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,14 +59,14 @@
           (C and C++ are installed in LFS) before you install them.
           Additionally, there are instructions in the BLFS book to install
           <a class="xref" href="openjdk.html" title=
-          "OpenJDK-1.7.0.40/IcedTea-2.4.1">OpenJDK-1.7.0.40/IcedTea-2.4.1</a>,
+          "OpenJDK-1.7.0.55/IcedTea-2.4.7">OpenJDK-1.7.0.55/IcedTea-2.4.7</a>,
           which can be used instead of the Java provided by the <span class=
           "application">GCC</span> package. Many consider the Iced Tea
           version to be a more robust Java environment than the one provided
           by <span class="application">GCC</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <div class="admon caution">
@@ -76,7 +76,7 @@
           </h3>
           <p>
             If you are upgrading <span class="application">GCC</span> from
-            any other version prior to 4.8.1, then you must be careful
+            any other version prior to 4.8.2, then you must be careful
             compiling 3rd party kernel modules. You should ensure that the
             kernel and all its native modules are also compiled using the
             same version of <span class="application">GCC</span> that you use
@@ -98,35 +98,33 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.bz2">http://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.bz2</a>
+                "http://ftp.gnu.org/gnu/gcc/gcc-4.8.2/gcc-4.8.2.tar.bz2">http://ftp.gnu.org/gnu/gcc/gcc-4.8.2/gcc-4.8.2.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.bz2">ftp://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.bz2</a>
+                "ftp://ftp.gnu.org/gnu/gcc/gcc-4.8.2/gcc-4.8.2.tar.bz2">ftp://ftp.gnu.org/gnu/gcc/gcc-4.8.2/gcc-4.8.2.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 3b2386c114cd74185aa3754b58a79304
+                Download MD5 sum: a3d7d63b9cb6b6ea049469a0c4a43c9d
               </p>
             </li>
             <li>
               <p>
-                Download size: 83 MB
+                Download size: 82 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: ~6.2 GB (build, test and
-                install all compilers)
+                Estimated disk space required: 6.6 GB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 98 SBU (build, test and install all
-                compilers)
+                Estimated build time: 110 SBU
               </p>
             </li>
           </ul>
@@ -135,13 +133,6 @@
           GCC Dependencies
         </h3>
         <h4>
-          Recommended
-        </h4>
-        <p class="recommended">
-          <a class="xref" href="dejagnu.html" title=
-          "DejaGnu-1.5.1">DejaGnu-1.5.1</a>
-        </p>
-        <h4>
           Required if building java
         </h4>
         <p class="required">
@@ -149,6 +140,13 @@
           <a class="xref" href="unzip.html" title="UnZip-6.0">UnZip-6.0</a>,
           and <a class="xref" href="which.html" title=
           "Which-2.20 and Alternatives">Which-2.20</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="dejagnu.html" title=
+          "DejaGnu-1.5.1">DejaGnu-1.5.1</a>
         </p>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -242,10 +240,6 @@ find /opt/gnat -name as -exec mv -v {} {}.old \;</kbd>
         <h2 class="sect2">
           Installation of GCC
         </h2>
-        <p>
-          Install <span class="application">GCC</span> by running the
-          following commands:
-        </p>
         <div class="admon important">
           <img alt="[Important]" src="../images/important.png" />
           <h3>
@@ -275,55 +269,60 @@ find /opt/gnat -name as -exec mv -v {} {}.old \;</kbd>
           </p>
         </div>
         <p>
-          The instructions below let the build machinery perform a
-          &ldquo;<span class="quote">bootstrap</span>&rdquo; intentionally.
-          This is necessary if you install the <span class=
-          "application">Ada</span> compiler anyway. Even if you don't, a
-          bootstrap is recommended for robustness.
+          The instructions below will make sure that &ldquo;<span class=
+          "quote">bootstrap</span>&rdquo; is performed intentionally. This is
+          necessary if the <span class="application">Ada</span> compiler is
+          being built anyway. Even if it isn't, a bootstrap is recommended
+          for robustness. To disable bootstrap anyways, pass <em class=
+          "parameter"><code>--disable-bootstrap</code></em> to the
+          <span class="command"><strong>./configure</strong></span> options
+          below.
+        </p>
+        <p>
+          Install <span class="application">GCC</span> by running the
+          following commands:
         </p>
         <pre class="userinput">
 <kbd class=
 "command">sed -i 's/\(install.*:\) install-.*recursive/\1/' libffi/Makefile.in         &amp;&amp;
 sed -i 's/\(install-data-am:\).*/\1/'             libffi/include/Makefile.in &amp;&amp;
-sed -i 's/install_to_$(INSTALL_DEST) //'          libiberty/Makefile.in      &amp;&amp;
-sed -i 's@\./fixinc\.sh@-c true@'                 gcc/Makefile.in            &amp;&amp;
 
 case `uname -m` in
       i?86) sed -i 's/^T_CFLAGS =$/&amp; -fomit-frame-pointer/' gcc/Makefile.in ;;
 esac &amp;&amp;
 
+sed -i -e /autogen/d -e /check.sh/d fixincludes/Makefile.in 
+mv -v libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx{,.disable}
+
 mkdir ../gcc-build &amp;&amp;
 cd    ../gcc-build &amp;&amp;
 
-../gcc-4.8.1/configure          \
+../gcc-4.8.2/configure          \
     --prefix=/usr               \
     --libdir=/usr/lib           \
-    --libexecdir=/usr/lib       \
     --enable-shared             \
     --enable-threads=posix      \
     --enable-__cxa_atexit       \
-    --disable-multilib          \
-    --disable-bootstrap         \
-    --disable-install-libiberty \
-    --with-system-zlib          \
     --enable-clocale=gnu        \
+    --disable-multilib          \
+    --with-system-zlib          \
     --enable-lto                \
     --enable-languages=c,c++,fortran,ada,go,java,objc,obj-c++ &amp;&amp;
-make
-</kbd>
+make</kbd>
 </pre>
         <p>
-          If you have installed additional packages such as valgrind and gdb,
-          the gcc part of the testsuite will run more tests than in LFS. Some
-          of those will report FAIL and others XPASS (pass when expected to
-          FAIL). To run the checks:
+          If you have installed additional packages such as <span class=
+          "application">Valgrind</span> and <span class=
+          "application">GDB</span>, the <span class="application">GCC</span>
+          part of the testsuite will run more tests than in LFS. Some of
+          those will report FAIL and others XPASS (pass when expected to
+          FAIL). To run the tests, issue:
         </p>
         <pre class="userinput">
-<kbd class="command">
-ulimit -s 32768 &amp;&amp;
+<kbd class="command">ulimit -s 32768 &amp;&amp;
 make -k check   &amp;&amp;
 
-../gcc-4.8.1/contrib/test_summary</kbd>
+../gcc-4.8.2/contrib/test_summary</kbd>
 </pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -334,9 +333,12 @@ make -k check   &amp;&amp;
 ln -v -sf ../usr/bin/cpp /lib &amp;&amp;
 ln -v -sf gcc /usr/bin/cc     &amp;&amp;
 
+mkdir -pv /usr/share/gdb/auto-load/usr/lib              &amp;&amp;
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &amp;&amp;
+
 chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/4.8.1/include{,-fixed} \
-    /usr/lib/gcc/*linux-gnu/4.8.1/ada{lib,include}</kbd>
+    /usr/lib/gcc/*linux-gnu/4.8.2/include{,-fixed} \
+    /usr/lib/gcc/*linux-gnu/4.8.2/ada{lib,include}</kbd>
 </pre>
         <p>
           You should now remove the <span class="application">GNAT</span>
@@ -358,9 +360,8 @@ unset PATH_HOLD</kbd>
           "application">libffi</span> library bundled with <span class=
           "application">GCC</span>, since it is outdated compared to
           <a class="xref" href="libffi.html" title=
-          "libffi-3.0.13">libffi-3.0.13</a>. The three other <span class=
-          "command"><strong>sed</strong></span> commands are the same ones
-          used during the build of LFS.
+          "libffi-3.0.13">libffi-3.0.13</a>. The following three commands are
+          the same ones used during the build of LFS.
         </p>
         <p>
           <span class="command"><strong>mkdir ../gcc-build; cd
@@ -375,23 +376,23 @@ unset PATH_HOLD</kbd>
           published standards.
         </p>
         <p>
+          <em class="parameter"><code>--enable-clocale=gnu</code></em>: This
+          parameter is a failsafe for incomplete locale data.
+        </p>
+        <p>
           <em class="parameter"><code>--disable-multilib</code></em>: This
           parameter ensures that files are created for the specific
           architecture of your computer.
         </p>
         <p>
-          <em class="parameter"><code>--enable-clocale=gnu</code></em>: This
-          parameter is a failsafe for incomplete locale data.
-        </p>
-        <p>
           <em class="parameter"><code>--enable-lto</code></em>: Setting this
           parameter allows to build a compiler which is able to perform
-          &ldquo;<span class="quote">link time optimization
-          (lto)</span>&rdquo;.
+          &ldquo;<span class="quote">Link Time Optimization
+          (LTO)</span>&rdquo;.
         </p>
         <p>
           <em class=
-          "parameter"><code>--enable-languages=c,c++,fortran,java,objc,obj-c++,ada,go</code></em>:
+          "parameter"><code>--enable-languages=c,c++,fortran,ada,go,java,objc,obj-c++</code></em>:
           This command identifies which languages to build. You may modify
           this command to remove undesired languages.
         </p>
@@ -406,7 +407,7 @@ unset PATH_HOLD</kbd>
         </p>
         <p>
           <span class=
-          "command"><strong>../gcc-4.8.1/contrib/test_summary</strong></span>:
+          "command"><strong>../gcc-4.8.2/contrib/test_summary</strong></span>:
           This command will produce a summary of the test suite results. You
           can append <span class="command"><strong>| grep -A7
           Summ</strong></span> to the command to produce an even more
@@ -457,14 +458,14 @@ unset PATH_HOLD</kbd>
               <span class="segbody">libgcj_bc.so, libgcj.so, libgcj-tools.so,
               libgfortran.{so,a}, libgij.so, libgo.{so,a}, libgobegin.a,
               libobjc.{so,a} and numerous other run-time libraries and
-              executables in /usr/lib/gcc</span>
+              executables in /usr/lib/gcc and /usr/libexec/gcc</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class=
-              "segbody">/usr/include/c++/4.8.1/{gcj,gnu,java,javax,org,sun},
-              /usr/lib/gcc/&lt;arch-model&gt;-linux-gnu/4.8.1/ada{include,lib},
-              /usr/lib/gcj-4.8.1-13, /usr/lib/go, /usr/lib/security, and
+              "segbody">/usr/include/c++/4.8.2/{gcj,gnu,java,javax,org,sun},
+              /usr/lib/gcc/&lt;arch-model&gt;-linux-gnu/4.8.2/ada{include,lib},
+              /usr/lib/gcj-4.8.2-13, /usr/lib/go, /usr/lib/security, and
               /usr/share/java</span>
             </div>
           </div>
@@ -1005,7 +1006,7 @@ unset PATH_HOLD</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-06 03:07:58 +0000
+        Last updated on 2014-02-18 20:55:40 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -1017,9 +1018,9 @@ unset PATH_HOLD</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gc.html" title="GC-7.2d">Next</a>
+          <a accesskey="n" href="gc.html" title="GC-7.4.0">Next</a>
           <p>
-            GC-7.2d
+            GC-7.4.0
           </p>
         </li>
         <li class="up">
@@ -1028,7 +1029,7 @@ unset PATH_HOLD</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="cracklib.html" title=
-          "CrackLib-2.9.0">Next</a>
+          "CrackLib-2.9.1">Next</a>
           <p>
-            CrackLib-2.9.0
+            CrackLib-2.9.1
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -61,7 +61,7 @@
           associated with them.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -107,7 +107,7 @@
         <p class="required">
           <a class="xref" href="acl.html" title="acl-2.2.52">acl-2.2.52</a>,
           <a class="xref" href="../general/dbus-glib.html" title=
-          "dbus-glib-0.100.2">dbus-glib-0.100.2</a> and <a class="xref" href=
+          "dbus-glib-0.102">dbus-glib-0.102</a> and <a class="xref" href=
           "../x/x7lib.html" title="Xorg Libraries">Xorg Libraries</a>
         </p>
         <h4>
@@ -115,8 +115,8 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a> and <a class="xref" href=
-          "polkit.html" title="Polkit-0.111">Polkit-0.111</a>
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a> and <a class="xref" href=
+          "polkit.html" title="Polkit-0.112">Polkit-0.112</a>
         </p>
         <div class="admon warning">
           <img alt="[Warning]" src="../images/warning.png" />
@@ -151,13 +151,11 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">
-./configure --prefix=/usr        \
+<kbd class="command">./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --enable-udev-acl    \
-            --enable-pam-module  \
-            --libexecdir=/usr/lib/ConsoleKit &amp;&amp;
+            --enable-pam-module  &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -194,6 +192,14 @@ make</kbd>
           <code class="option">--enable-docbook-docs</code>: Use this switch
           if <span class="application">xmlto</span> is installed and you wish
           to build the API documentation.
+        </p>
+        <p>
+          <code class="option">--libexecdir=/usr/lib/ConsoleKit</code>: This
+          option creates a <code class="filename">ConsoleKit</code> directory
+          in <code class="filename">/usr/lib</code> instead of putting the
+          program's private executables into <code class=
+          "filename">/usr/libexec</code> in accordance with the old version
+          of the FHS used before LFS-7.5.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -286,7 +292,7 @@ chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-22 15:40:33 -0700
+        Last updated on 2014-03-03 19:06:31 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -300,9 +306,9 @@ chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="cracklib.html" title=
-          "CrackLib-2.9.0">Next</a>
+          "CrackLib-2.9.1">Next</a>
           <p>
-            CrackLib-2.9.0
+            CrackLib-2.9.1
           </p>
         </li>
         <li class="up">
@@ -311,7 +317,7 @@ chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

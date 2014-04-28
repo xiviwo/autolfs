@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;15.&nbsp;Networking Programs
@@ -29,9 +29,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="nfs-utils.html" title=
-          "NFS-Utils-1.2.8">Next</a>
+          "NFS-Utils-1.3.0">Next</a>
           <p>
-            NFS-Utils-1.2.8
+            NFS-Utils-1.3.0
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           Linux kernel.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -102,6 +102,20 @@
             </li>
           </ul>
         </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/net-tools-CVS_20101030-remove_dups-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/net-tools-CVS_20101030-remove_dups-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
           "http://wiki.linuxfromscratch.org/blfs/wiki/net-tools">http://wiki.linuxfromscratch.org/blfs/wiki/net-tools</a>
@@ -111,27 +125,6 @@
         <h2 class="sect2">
           Installation of Net-tools
         </h2>
-        <div class="admon note">
-          <img alt="[Note]" src="../images/note.png" />
-          <h3>
-            Note
-          </h3>
-          <p>
-            The <span class="application">Net-tools</span> package installs a
-            <span class="command"><strong>hostname</strong></span> program
-            which will overwrite the existing program installed by
-            <span class="application">Inetutils</span> during a base LFS
-            installation. If, for whatever reason, you need to reinstall the
-            <span class="application">Inetutils</span> package after
-            installing <span class="application">Net-tools</span>, you should
-            add <span class=
-            "command"><strong>--disable-hostname</strong></span> to the
-            Inetutils <span class="command"><strong>configure</strong></span>
-            command in LFS if you wish to preserve the <span class=
-            "application">Net-tools</span> <span class=
-            "command"><strong>hostname</strong></span> program.
-          </p>
-        </div>
         <p>
           <a id="net-tools-automate-example" name=
           "net-tools-automate-example"></a>The instructions below automate
@@ -166,13 +159,20 @@
           </p>
         </div>
         <p>
+          The patch below cleans up the installation so that it does not
+          overwrite the <span class="application">ifconfig</span> and
+          <span class="application">hostname</span> programs that were
+          installed in LFS.
+        </p>
+        <p>
           Install <span class="application">Net-tools</span> by running the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">sed -i -e '/Token/s/y$/n/'        config.in &amp;&amp;
-sed -i -e '/HAVE_HWSTRIP/s/y$/n/' config.in &amp;&amp;
-yes "" | make config                 &amp;&amp;
+<kbd class=
+"command">patch -Np1 -i ../net-tools-CVS_20101030-remove_dups-1.patch &amp;&amp;
+
+yes "" | make config &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -190,17 +190,6 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed -i -e '/Token/s/y$/n/'
-          config.in</strong></span>: Change the default for building obsolete
-          token ring support to no. This is a simpler change than changing
-          the location for the token ring headers.
-        </p>
-        <p>
-          <span class="command"><strong>sed -i -e '/HAVE_HWSTRIP/s/y$/n/'
-          config.in</strong></span>: Removes obsolete Metricom radio support
-          that requires a header no longer included in the kernel.
-        </p>
-        <p>
           <span class="command"><strong>yes "" | make config</strong></span>:
           Piping <span class="command"><strong>yes</strong></span> to
           <span class="command"><strong>make config</strong></span> skips the
@@ -215,10 +204,8 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">arp, dnsdomainname, domainname, hostname,
-              ifconfig, ipmaddr, iptunnel, mii-tool, nameif, netstat,
-              nisdomainname, plipconfig, rarp, route, slattach, and
-              ypdomainname</span>
+              <span class="segbody">arp, ipmaddr, iptunnel, mii-tool, nameif,
+              netstat, plipconfig, rarp, route, and slattach</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -248,62 +235,6 @@ make</kbd>
                   <p>
                     is used to manipulate the kernel's ARP cache, usually to
                     add or delete an entry, or to dump the entire cache.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="dnsdomainname" name=
-                    "dnsdomainname"></a><span class="term"><span class=
-                    "command"><strong>dnsdomainname</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    reports the system's DNS domain name.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="domainname" name="domainname"></a><span class=
-                    "term"><span class=
-                    "command"><strong>domainname</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    reports or sets the system's NIS/YP domain name.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="hostname" name="hostname"></a><span class=
-                    "term"><span class=
-                    "command"><strong>hostname</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    reports or sets the name of the current host system.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="ifconfig" name="ifconfig"></a><span class=
-                    "term"><span class=
-                    "command"><strong>ifconfig</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is the main utility for configuring network interfaces.
                   </p>
                 </td>
               </tr>
@@ -383,21 +314,6 @@ make</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="nisdomainname" name=
-                    "nisdomainname"></a><span class="term"><span class=
-                    "command"><strong>nisdomainname</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    does the same as <span class=
-                    "command"><strong>domainname</strong></span>.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="plipconfig" name="plipconfig"></a><span class=
                     "term"><span class=
                     "command"><strong>plipconfig</strong></span></span>
@@ -454,27 +370,12 @@ make</kbd>
                   </p>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="ypdomainname" name="ypdomainname"></a><span class=
-                    "term"><span class=
-                    "command"><strong>ypdomainname</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    does the same as <span class=
-                    "command"><strong>domainname</strong></span>.
-                  </p>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-05 17:04:34 +0000
+        Last updated on 2014-03-01 06:00:12 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -487,9 +388,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="nfs-utils.html" title=
-          "NFS-Utils-1.2.8">Next</a>
+          "NFS-Utils-1.3.0">Next</a>
           <p>
-            NFS-Utils-1.2.8
+            NFS-Utils-1.3.0
           </p>
         </li>
         <li class="up">
@@ -498,7 +399,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

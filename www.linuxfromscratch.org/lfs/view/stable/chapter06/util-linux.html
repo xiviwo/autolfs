@@ -5,32 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.23.&nbsp;Util-linux-2.23.2
+      6.61.&nbsp;Util-linux-2.24.1
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="shadow.html" title="Shadow-4.1.5.1">Prev</a>
+          <a accesskey="p" href="udev.html" title=
+          "Udev-208 (Extracted from systemd-208)">Prev</a>
           <p>
-            Shadow-4.1.5.1
+            Udev-208 (Extracted from systemd-208)
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="psmisc.html" title="Psmisc-22.20">Next</a>
+          <a accesskey="n" href="man-db.html" title="Man-DB-2.6.6">Next</a>
           <p>
-            Psmisc-22.20
+            Man-DB-2.6.6
           </p>
         </li>
         <li class="up">
@@ -39,14 +40,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-util-linux" name="ch-system-util-linux"></a>6.23.
-        Util-linux-2.23.2
+        <a id="ch-system-util-linux" name="ch-system-util-linux"></a>6.61.
+        Util-linux-2.24.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -69,7 +70,7 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.23.1. FHS compliance notes
+          6.61.1. FHS compliance notes
         </h2>
         <p>
           The FHS recommends using the <code class=
@@ -81,45 +82,21 @@
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \
-     $(grep -rl '/etc/adjtime' .)
+          $(grep -rl '/etc/adjtime' .)
 
 mkdir -pv /var/lib/hwclock</kbd>
 </pre>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.23.2. Installation of Util-linux
+          6.61.2. Installation of Util-linux
         </h2>
+        <p>
+          Prepare Util-linux for compilation:
+        </p>
         <pre class="userinput">
-<kbd class=
-"command">./configure --disable-su --disable-sulogin --disable-login</kbd>
+<kbd class="command">./configure</kbd>
 </pre>
-        <div class="variablelist">
-          <p class="title">
-            <b>The meaning of the configure option:</b>
-          </p>
-          <dl>
-            <dt>
-              <span class="term"><em class=
-              "parameter"><code>--disable-*</code></em></span>
-            </dt>
-            <dd>
-              <p>
-                These switches disable building su, sulogin, and login. They
-                duplicate the same programs provided by <a class="xref" href=
-                "shadow.html" title=
-                "6.22.&nbsp;Shadow-4.1.5.1">Section&nbsp;6.22,
-                &ldquo;Shadow-4.1.5.1&rdquo;</a> and <a class="xref" href=
-                "sysvinit.html" title=
-                "6.59.&nbsp;Sysvinit-2.88dsf">Section&nbsp;6.59,
-                &ldquo;Sysvinit-2.88dsf&rdquo;</a>. They also require
-                <a class="ulink" href=
-                "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/linux-pam.html">
-                Linux-PAM</a> which is not available in LFS.
-              </p>
-            </dd>
-          </dl>
-        </div>
         <p>
           Compile the package:
         </p>
@@ -136,20 +113,31 @@ mkdir -pv /var/lib/hwclock</kbd>
           </h3>
           <p>
             Running the test suite as the root user can be harmful to your
-            system. To run it, the kernel CONFIG_SCSI_DEBUG option for the
-            kernel must be available in the currently running system. The
-            CONFIG_SCSI_DEBUG option must be built as a module. Building it
-            into the kernel will prevent booting. For complete coverage,
-            other BLFS packages must be installed. If desired, this test can
-            be run after rebooting into the completed LFS system and running:
+            system. To run it, the CONFIG_SCSI_DEBUG option for the kernel
+            must be available in the currently running system, and must be
+            built as a module. Building it into the kernel will prevent
+            booting. For complete coverage, other BLFS packages must be
+            installed. If desired, this test can be run after rebooting into
+            the completed LFS system and running:
           </p>
           <pre class="userinput">
 <kbd class="command">bash tests/run.sh --srcdir=$PWD --builddir=$PWD</kbd>
 </pre>
         </div>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Two tests, last/ipv6 and last/last, fail in the chroot
+            environment due to the DNS resolver not being active yet. If the
+            tests are rerun after booting, they pass.
+          </p>
+        </div>
         <pre class="userinput">
 <kbd class="command">chown -Rv nobody .
-su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
+su nobody -s /bin/bash -c "PATH=$PATH make -k check"</kbd>
 </pre>
         <p>
           Install the package:
@@ -160,27 +148,28 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-utillinux" name="contents-utillinux"></a>6.23.3.
+          <a id="contents-utillinux" name="contents-utillinux"></a>6.61.3.
           Contents of Util-linux
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">addpart, agetty, blkid, blockdev, cal,
-              cfdisk, chcpu, chrt, col, colcrt, colrm, column, ctrlaltdel,
-              cytune, delpart, dmesg, eject, fallocate, fdformat, fdisk,
-              findfs, findmnt, flock, fsck, fsck.cramfs, fsck.minix,
+              <span class="segbody">addpart, agetty, blkdiscard, blkid,
+              blockdev, cal, cfdisk, chcpu, chrt, col, colcrt, colrm, column,
+              ctrlaltdel, cytune, delpart, dmesg, eject, fallocate, fdformat,
+              fdisk, findfs, findmnt, flock, fsck, fsck.cramfs, fsck.minix,
               fsfreeze, fstrim, getopt, hexdump, hwclock, i386, ionice,
-              ipcmk, ipcrm, ipcs, isosize, ldattach, linux32, linux64,
-              logger, look, losetup, lsblk, lscpu, lslocks, mcookie, mkfs,
-              mkfs.bfs, mkfs.cramfs, mkfs.minix, mkswap, more, mount,
-              mountpoint, namei, partx, pg, pivot_root, prlimit, raw,
-              readprofile, rename, renice, resizepart, rev, rtcwake, script,
-              scriptreplay, setarch, setsid, setterm, sfdisk, swaplabel,
-              swapoff (link to swapon), swapon, switch_root, tailf, taskset,
-              ul, umount, unshare, utmpdump, uuidd, uuidgen, wall, wdctl,
-              whereis, wipefs, and x86_64</span>
+              ipcmk, ipcrm, ipcs, isosize, kill, last, lastb (link to last),
+              ldattach, linux32, linux64, logger, look, losetup, lsblk,
+              lscpu, lslocks, mcookie, mkfs, mkfs.bfs, mkfs.cramfs,
+              mkfs.minix, mkswap, more, mount, mountpoint, namei, partx, pg,
+              pivot_root, prlimit, raw, readprofile, rename, renice,
+              resizepart, rev, rtcwake, script, scriptreplay, setarch,
+              setsid, setterm, sfdisk, sulogin, swaplabel, swapoff (link to
+              swapon), swapon, switch_root, tailf, taskset, ul, umount,
+              unshare, utmpdump, uuidd, uuidgen, wall, wdctl, whereis,
+              wipefs, and x86_64</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed libraries:</strong>
@@ -190,8 +179,8 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
               <span class="segbody">/usr/include/blkid,
-              /usr/include/libmount, /usr/include/uuid, /usr/share/getopt,
-              /var/lib/hwclock</span>
+              /usr/include/libmount, /usr/include/uuid,
+              /usr/share/doc/util-linux/getopt, /var/lib/hwclock</span>
             </div>
           </div>
         </div>
@@ -199,8 +188,11 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -229,6 +221,20 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
                     Opens a tty port, prompts for a login name, and then
                     invokes the <span class=
                     "command"><strong>login</strong></span> program
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="blkdiscard" name="blkdiscard"></a><span class=
+                    "term"><span class=
+                    "command"><strong>blkdiscard</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Discards sectors on a device
                   </p>
                 </td>
               </tr>
@@ -755,6 +761,38 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="last" name="last"></a><span class=
+                    "term"><span class=
+                    "command"><strong>last</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Shows which users last logged in (and out), searching
+                    back through the <code class=
+                    "filename">/var/log/wtmp</code> file; it also shows
+                    system boots, shutdowns, and run-level changes
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lastb" name="lastb"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lastb</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Shows the failed login attempts, as logged in
+                    <code class="filename">/var/log/btmp</code>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="ldattach" name="ldattach"></a><span class=
                     "term"><span class=
                     "command"><strong>ldattach</strong></span></span>
@@ -898,6 +936,21 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="mesg" name="mesg"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mesg</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Controls whether other users can send messages to the
+                    current user's terminal
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="mkfs" name="mkfs"></a><span class=
                     "term"><span class=
                     "command"><strong>mkfs</strong></span></span>
@@ -1021,6 +1074,20 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
                 <td>
                   <p>
                     Shows the symbolic links in the given pathnames
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="nsenter" name="nsenter"></a><span class=
+                    "term"><span class=
+                    "command"><strong>nsenter</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Runs a program with namespaces of other processes
                   </p>
                 </td>
               </tr>
@@ -1261,6 +1328,23 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
                 <td>
                   <p>
                     A disk partition table manipulator
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sulogin" name="sulogin"></a><span class=
+                    "term"><span class=
+                    "command"><strong>sulogin</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Allows <code class="systemitem">root</code> to log in; it
+                    is normally invoked by <span class=
+                    "command"><strong>init</strong></span> when the system
+                    goes into single user mode
                   </p>
                 </td>
               </tr>
@@ -1564,15 +1648,16 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="shadow.html" title="Shadow-4.1.5.1">Prev</a>
+          <a accesskey="p" href="udev.html" title=
+          "Udev-208 (Extracted from systemd-208)">Prev</a>
           <p>
-            Shadow-4.1.5.1
+            Udev-208 (Extracted from systemd-208)
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="psmisc.html" title="Psmisc-22.20">Next</a>
+          <a accesskey="n" href="man-db.html" title="Man-DB-2.6.6">Next</a>
           <p>
-            Psmisc-22.20
+            Man-DB-2.6.6
           </p>
         </li>
         <li class="up">
@@ -1581,7 +1666,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make check"</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

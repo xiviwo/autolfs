@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Tk-8.6.0
+      Tk-8.6.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="tcl.html" title="Tcl-8.6.0">Prev</a>
+          <a accesskey="p" href="tcl.html" title="Tcl-8.6.1">Prev</a>
           <p>
-            Tcl-8.6.0
+            Tcl-8.6.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="vala.html" title="Vala-0.20.1">Next</a>
+          <a accesskey="n" href="vala.html" title="Vala-0.24.0">Next</a>
           <p>
-            Vala-0.20.1
+            Vala-0.24.0
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="tk" name="tk"></a>Tk-8.6.0
+        <a id="tk" name="tk"></a>Tk-8.6.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -56,7 +56,7 @@
           Toolkit.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -67,12 +67,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/tcl/tk8.6.0-src.tar.gz">http://downloads.sourceforge.net/tcl/tk8.6.0-src.tar.gz</a>
+                "http://downloads.sourceforge.net/tcl/tk8.6.1-src.tar.gz">http://downloads.sourceforge.net/tcl/tk8.6.1-src.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: b883a1a3c489c17413fb602a94bf54e8
+                Download MD5 sum: 63f21c3a0e0cefbd854b4eb29b129ac6
               </p>
             </li>
             <li>
@@ -82,7 +82,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 30 MB
+                Estimated disk space required: 24 MB
               </p>
             </li>
             <li>
@@ -99,7 +99,7 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="tcl.html" title="Tcl-8.6.0">Tcl-8.6.0</a> and
+          <a class="xref" href="tcl.html" title="Tcl-8.6.1">Tcl-8.6.1</a> and
           <a class="xref" href="../x/x7lib.html" title="Xorg Libraries">Xorg
           Libraries</a>
         </p>
@@ -129,11 +129,13 @@ sed -e "s@^\(TK_SRC_DIR='\).*@\1/usr/include'@" \
     -i tkConfig.sh</kbd>
 </pre>
         <p>
-          Running the tests is not recommended. Some tests may crash your X
-          Server. To test the results anyway, issue: <span class=
+          Running the tests is not recommended. Failures will occur in the
+          tests, depending on the screen resolution/capabilities, fonts
+          installed and other X related parameters. Some tests may crash your
+          X Server. To test the results anyway, issue: <span class=
           "command"><strong>make test</strong></span>. Ensure you run it from
-          an X Window display device with the GLX extensions loaded,
-          otherwise the tests will hang.
+          an X Window display device with the GLX extensions loaded, but even
+          so, tests may hang.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -258,21 +260,21 @@ chmod -v 755 /usr/lib/libtk8.6.so</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-20 20:51:02 +0000
+        Last updated on 2014-02-19 10:11:12 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="tcl.html" title="Tcl-8.6.0">Prev</a>
+          <a accesskey="p" href="tcl.html" title="Tcl-8.6.1">Prev</a>
           <p>
-            Tcl-8.6.0
+            Tcl-8.6.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="vala.html" title="Vala-0.20.1">Next</a>
+          <a accesskey="n" href="vala.html" title="Vala-0.24.0">Next</a>
           <p>
-            Vala-0.20.1
+            Vala-0.24.0
           </p>
         </li>
         <li class="up">
@@ -281,7 +283,7 @@ chmod -v 755 /usr/lib/libtk8.6.so</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

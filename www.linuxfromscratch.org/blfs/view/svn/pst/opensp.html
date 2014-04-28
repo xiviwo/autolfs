@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;43.&nbsp;Standard Generalized Markup Language (SGML)
+        Chapter&nbsp;45.&nbsp;Standard Generalized Markup Language (SGML)
       </h3>
       <ul>
         <li class="prev">
@@ -36,12 +36,12 @@
         </li>
         <li class="up">
           <a accesskey="u" href="sgml.html" title=
-          "Chapter&nbsp;43.&nbsp;Standard Generalized Markup Language (SGML)">
+          "Chapter&nbsp;45.&nbsp;Standard Generalized Markup Language (SGML)">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           and XML documents.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -112,7 +112,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="xmlto.html" title=
-          "xmlto-0.0.25">xmlto-0.0.25</a>
+          "xmlto-0.0.26">xmlto-0.0.26</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -131,12 +131,14 @@
 <kbd class="command">sed -i 's/32,/253,/' lib/Syntax.cxx &amp;&amp;
 sed -i 's/LITLEN          240 /LITLEN          8092/' \
     unicode/{gensyntax.pl,unicode.syn} &amp;&amp;
+
 ./configure --prefix=/usr                              \
             --disable-static                           \
             --disable-doc-build                        \
             --enable-default-catalog=/etc/sgml/catalog \
             --enable-http                              \
             --enable-default-search-path=/usr/share/sgml &amp;&amp;
+
 make pkgdatadir=/usr/share/sgml/OpenSP-1.5.2</kbd>
 </pre>
         <p>
@@ -473,7 +475,7 @@ ln -v -sf libosp.so /usr/lib/libsp.so</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-18 04:37:04 +0000
+        Last updated on 2014-02-18 20:59:20 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -493,12 +495,12 @@ ln -v -sf libosp.so /usr/lib/libsp.so</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="sgml.html" title=
-          "Chapter&nbsp;43.&nbsp;Standard Generalized Markup Language (SGML)">
+          "Chapter&nbsp;45.&nbsp;Standard Generalized Markup Language (SGML)">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

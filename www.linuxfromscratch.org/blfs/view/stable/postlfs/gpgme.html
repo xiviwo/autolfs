@@ -12,26 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnutls.html" title="GnuTLS-3.2.4">Prev</a>
+          <a accesskey="p" href="gnutls.html" title="GnuTLS-3.2.11">Prev</a>
           <p>
-            GnuTLS-3.2.4
+            GnuTLS-3.2.11
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="iptables.html" title=
-          "Iptables-1.4.20">Next</a>
+          "Iptables-1.4.21">Next</a>
           <p>
-            Iptables-1.4.20
+            Iptables-1.4.21
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
           signature verification and key management.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -113,9 +113,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="gnupg.html" title=
-          "GnuPG-1.4.14">GnuPG-1.4.14</a> or <a class="xref" href=
-          "gnupg2.html" title="GnuPG-2.0.21">GnuPG-2.0.21</a> (used during
-          the testsuite)
+          "GnuPG-2.0.22">GnuPG-2.0.22</a> (used during the testsuite)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -131,8 +129,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">./configure --prefix=/usr --disable-fd-passing &amp;&amp;
+<kbd class="command">./configure --prefix=/usr \
+--disable-fd-passing      \
+--disable-gpgsm-test      &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -154,6 +153,10 @@ make</kbd>
           <code class="option">--disable-fd-passing</code>: This option
           disables a problem causing a hang for some operations on some
           systems.
+        </p>
+        <p>
+          <code class="option">--disable-gpgsm-test</code>: This option
+          disables a test with gpgsm in some systems breaking make.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -219,22 +222,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 03:32:24 -0700
+        Last updated on 2014-02-22 07:13:35 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnutls.html" title="GnuTLS-3.2.4">Prev</a>
+          <a accesskey="p" href="gnutls.html" title="GnuTLS-3.2.11">Prev</a>
           <p>
-            GnuTLS-3.2.4
+            GnuTLS-3.2.11
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="iptables.html" title=
-          "Iptables-1.4.20">Next</a>
+          "Iptables-1.4.21">Next</a>
           <p>
-            Iptables-1.4.20
+            Iptables-1.4.21
           </p>
         </li>
         <li class="up">
@@ -243,7 +246,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

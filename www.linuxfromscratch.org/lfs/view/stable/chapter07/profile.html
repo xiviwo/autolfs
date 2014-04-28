@@ -7,15 +7,15 @@
     <title>
       7.13.&nbsp;The Bash Shell Startup Files
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter07/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -52,12 +52,13 @@
       <p>
         The shell program <span class=
         "command"><strong>/bin/bash</strong></span> (hereafter referred to as
-        &ldquo;<span class="quote">the shell</span>&rdquo;) uses a collection
-        of startup files to help create an environment to run in. Each file
-        has a specific use and may affect login and interactive environments
-        differently. The files in the <code class="filename">/etc</code>
-        directory provide global settings. If an equivalent file exists in
-        the home directory, it may override the global settings.
+        <span class="quote">&ldquo;<span class="quote">the
+        shell</span>&rdquo;</span>) uses a collection of startup files to
+        help create an environment to run in. Each file has a specific use
+        and may affect login and interactive environments differently. The
+        files in the <code class="filename">/etc</code> directory provide
+        global settings. If an equivalent file exists in the home directory,
+        it may override the global settings.
       </p>
       <p>
         An interactive login shell is started after a successful login, using
@@ -87,12 +88,12 @@
       </p>
       <div class="itemizedlist">
         <ul>
-          <li>
+          <li class="listitem">
             <p>
               The output of programs translated into the native language
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Correct classification of characters into letters, digits and
               other classes. This is necessary for <span class=
@@ -100,17 +101,17 @@
               non-ASCII characters in command lines in non-English locales
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               The correct alphabetical sorting order for the country
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Appropriate default paper size
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Correct formatting of monetary, time, and date values
             </p>
@@ -119,15 +120,15 @@
       </div>
       <p>
         Replace <em class="replaceable"><code>&lt;ll&gt;</code></em> below
-        with the two-letter code for the desired language (e.g.,
-        &ldquo;<span class="quote">en</span>&rdquo;) and <em class=
-        "replaceable"><code>&lt;CC&gt;</code></em> with the two-letter code
-        for the appropriate country (e.g., &ldquo;<span class=
-        "quote">GB</span>&rdquo;). <em class=
-        "replaceable"><code>&lt;charmap&gt;</code></em> should be replaced
-        with the canonical charmap for your chosen locale. Optional modifiers
-        such as &ldquo;<span class="quote">@euro</span>&rdquo; may also be
-        present.
+        with the two-letter code for the desired language (e.g., <span class=
+        "quote">&ldquo;<span class="quote">en</span>&rdquo;</span>) and
+        <em class="replaceable"><code>&lt;CC&gt;</code></em> with the
+        two-letter code for the appropriate country (e.g., <span class=
+        "quote">&ldquo;<span class="quote">GB</span>&rdquo;</span>).
+        <em class="replaceable"><code>&lt;charmap&gt;</code></em> should be
+        replaced with the canonical charmap for your chosen locale. Optional
+        modifiers such as <span class="quote">&ldquo;<span class=
+        "quote">@euro</span>&rdquo;</span> may also be present.
       </p>
       <p>
         The list of all locales supported by Glibc can be obtained by running
@@ -137,37 +138,42 @@
 <kbd class="command">locale -a</kbd>
 </pre>
       <p>
-        Charmaps can have a number of aliases, e.g., &ldquo;<span class=
-        "quote">ISO-8859-1</span>&rdquo; is also referred to as
-        &ldquo;<span class="quote">iso8859-1</span>&rdquo; and
-        &ldquo;<span class="quote">iso88591</span>&rdquo;. Some applications
-        cannot handle the various synonyms correctly (e.g., require that
-        &ldquo;<span class="quote">UTF-8</span>&rdquo; is written as
-        &ldquo;<span class="quote">UTF-8</span>&rdquo;, not
-        &ldquo;<span class="quote">utf8</span>&rdquo;), so it is safest in
-        most cases to choose the canonical name for a particular locale. To
-        determine the canonical name, run the following command, where
-        <em class="replaceable"><code>&lt;locale name&gt;</code></em> is the
-        output given by <span class="command"><strong>locale
-        -a</strong></span> for your preferred locale (&ldquo;<span class=
-        "quote">en_GB.iso88591</span>&rdquo; in our example).
+        Charmaps can have a number of aliases, e.g., <span class=
+        "quote">&ldquo;<span class="quote">ISO-8859-1</span>&rdquo;</span> is
+        also referred to as <span class="quote">&ldquo;<span class=
+        "quote">iso8859-1</span>&rdquo;</span> and <span class=
+        "quote">&ldquo;<span class="quote">iso88591</span>&rdquo;</span>.
+        Some applications cannot handle the various synonyms correctly (e.g.,
+        require that <span class="quote">&ldquo;<span class=
+        "quote">UTF-8</span>&rdquo;</span> is written as <span class=
+        "quote">&ldquo;<span class="quote">UTF-8</span>&rdquo;</span>, not
+        <span class="quote">&ldquo;<span class=
+        "quote">utf8</span>&rdquo;</span>), so it is safest in most cases to
+        choose the canonical name for a particular locale. To determine the
+        canonical name, run the following command, where <em class=
+        "replaceable"><code>&lt;locale name&gt;</code></em> is the output
+        given by <span class="command"><strong>locale -a</strong></span> for
+        your preferred locale (<span class="quote">&ldquo;<span class=
+        "quote">en_GB.iso88591</span>&rdquo;</span> in our example).
       </p>
       <pre class="userinput">
 <kbd class="command">LC_ALL=<em class=
 "replaceable"><code>&lt;locale name&gt;</code></em> locale charmap</kbd>
 </pre>
       <p>
-        For the &ldquo;<span class="quote">en_GB.iso88591</span>&rdquo;
-        locale, the above command will print:
+        For the <span class="quote">&ldquo;<span class=
+        "quote">en_GB.iso88591</span>&rdquo;</span> locale, the above command
+        will print:
       </p>
       <pre class="screen">
 <code class="computeroutput">ISO-8859-1</code>
 </pre>
       <p>
-        This results in a final locale setting of &ldquo;<span class=
-        "quote">en_GB.ISO-8859-1</span>&rdquo;. It is important that the
-        locale found using the heuristic above is tested prior to it being
-        added to the Bash startup files:
+        This results in a final locale setting of <span class=
+        "quote">&ldquo;<span class=
+        "quote">en_GB.ISO-8859-1</span>&rdquo;</span>. It is important that
+        the locale found using the heuristic above is tested prior to it
+        being added to the Bash startup files:
       </p>
       <pre class="userinput">
 <kbd class="command">LC_ALL=&lt;locale name&gt; locale language
@@ -236,19 +242,22 @@ export LANG=<em class=
 EOF</kbd>
 </pre>
       <p>
-        The &ldquo;<span class="quote">C</span>&rdquo; (default) and
-        &ldquo;<span class="quote">en_US</span>&rdquo; (the recommended one
-        for United States English users) locales are different.
-        &ldquo;<span class="quote">C</span>&rdquo; uses the US-ASCII 7-bit
-        character set, and treats bytes with the high bit set as invalid
-        characters. That's why, e.g., the <span class=
-        "command"><strong>ls</strong></span> command substitutes them with
-        question marks in that locale. Also, an attempt to send mail with
-        such characters from Mutt or Pine results in non-RFC-conforming
-        messages being sent (the charset in the outgoing mail is indicated as
-        &ldquo;<span class="quote">unknown 8-bit</span>&rdquo;). So you can
-        use the &ldquo;<span class="quote">C</span>&rdquo; locale only if you
-        are sure that you will never need 8-bit characters.
+        The <span class="quote">&ldquo;<span class=
+        "quote">C</span>&rdquo;</span> (default) and <span class=
+        "quote">&ldquo;<span class="quote">en_US</span>&rdquo;</span> (the
+        recommended one for United States English users) locales are
+        different. <span class="quote">&ldquo;<span class=
+        "quote">C</span>&rdquo;</span> uses the US-ASCII 7-bit character set,
+        and treats bytes with the high bit set as invalid characters. That's
+        why, e.g., the <span class="command"><strong>ls</strong></span>
+        command substitutes them with question marks in that locale. Also, an
+        attempt to send mail with such characters from Mutt or Pine results
+        in non-RFC-conforming messages being sent (the charset in the
+        outgoing mail is indicated as <span class="quote">&ldquo;<span class=
+        "quote">unknown 8-bit</span>&rdquo;</span>). So you can use the
+        <span class="quote">&ldquo;<span class="quote">C</span>&rdquo;</span>
+        locale only if you are sure that you will never need 8-bit
+        characters.
       </p>
       <p>
         UTF-8 based locales are not supported well by many programs. Work is
@@ -279,7 +288,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

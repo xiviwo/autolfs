@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libxcb.html" title="libxcb-1.9.1">Prev</a>
+          <a accesskey="p" href="libxcb.html" title="libxcb-1.10">Prev</a>
           <p>
-            libxcb-1.9.1
+            libxcb-1.10
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           routines that are used within all X Window applications.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -84,12 +84,26 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 280 MB
+                Estimated disk space required: 275 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 3.7 SBU
+                Estimated build time: 3.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/libXft-2.3.1-freetype_fix-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/libXft-2.3.1-freetype_fix-1.patch</a>
               </p>
             </li>
           </ul>
@@ -102,8 +116,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/fontconfig.html" title=
-          "Fontconfig-2.10.93">Fontconfig-2.10.93</a> and <a class="xref"
-          href="libxcb.html" title="libxcb-1.9.1">libxcb-1.9.1</a>
+          "Fontconfig-2.11.0">Fontconfig-2.11.0</a> and <a class="xref" href=
+          "libxcb.html" title="libxcb-1.10">libxcb-1.10</a>
         </p>
         <h4>
           Optional
@@ -113,11 +127,11 @@
           "xmlto-0.0.25">xmlto-0.0.25</a> with one or more of the following:
           <a class="xref" href="../pst/fop.html" title="fop-1.1">fop-1.1</a>,
           <a class="xref" href="../basicnet/links.html" title=
-          "Links-2.7">Links-2.7</a>, <a class="xref" href=
-          "../basicnet/lynx.html" title=
-          "Lynx-2.8.8dev.16">Lynx-2.8.8dev.16</a>, and <a class="xref" href=
-          "../basicnet/w3m.html" title="W3m-0.5.3">w3m-0.5.3</a> (to generate
-          additional PDF or text documentation for the libXfont package).
+          "Links-2.8">Links-2.8</a>, <a class="xref" href=
+          "../basicnet/lynx.html" title="Lynx-2.8.8">Lynx-2.8.8</a>, and
+          <a class="xref" href="../basicnet/w3m.html" title=
+          "W3m-0.5.3">w3m-0.5.3</a> (to generate additional PDF or text
+          documentation for the libXfont package).
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -134,7 +148,7 @@
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; lib-7.7.md5 &lt;&lt; "EOF"
-<code class="literal">84c66908cf003ad8c272b0eecbdbaee3  xtrans-1.2.7.tar.bz2
+<code class="literal">2f14c31ab556fc91039f51a113b38aa2  xtrans-1.3.3.tar.bz2
 c35d6ad95b06635a524579e88622fdb5  libX11-1.6.2.tar.bz2
 4376101e51bb2c6c44d9ab14344e85ad  libXext-1.3.2.tar.bz2
 e3c77ca27942ebc5eb2ca99f29363515  libFS-1.0.5.tar.bz2
@@ -151,7 +165,7 @@ f7a218dcbf6f0848599c6c36fc65c51a  libXcomposite-0.4.4.tar.bz2
 1e7c17afbbce83e2215917047c57d1b3  libXcursor-1.1.14.tar.bz2
 0cf292de2a9fa2e9a939aefde68fd34f  libXdamage-1.1.4.tar.bz2
 ad2919764933e075bb0361ad5caa3d19  libfontenc-1.1.2.tar.bz2
-351a9b7348d165029bda52c9fdcb5c7a  libXfont-1.4.6.tar.bz2
+b21ee5739d5d2e5028b302fbf9fe630b  libXfont-1.4.7.tar.bz2
 78d64dece560c9e8699199f3faa521c0  libXft-2.3.1.tar.bz2
 f4df3532b1af1dcc905d804f55b30b4a  libXi-1.7.2.tar.bz2
 9336dc46ae3bf5f81c247f7131461efd  libXinerama-1.1.3.tar.bz2
@@ -164,7 +178,8 @@ d7dd9b9df336b7dd4028b6b56542ff2c  libXxf86dga-1.1.4.tar.bz2
 e46f6ee4f4567349a3189044fe1bb712  libXxf86vm-1.1.3.tar.bz2
 ba983eba5a9f05d152a0725b8e863151  libdmx-1.1.3.tar.bz2
 b7c0d3afce14eedca57312a3141ec13a  libpciaccess-0.13.2.tar.bz2
-19e6533ae64abba0773816a23f2b9507  libxkbfile-1.0.8.tar.bz2</code>
+19e6533ae64abba0773816a23f2b9507  libxkbfile-1.0.8.tar.bz2
+2dd10448c1166e71a176206a8dfabe6d  libxshmfence-1.1.tar.bz2</code>
 EOF</kbd>
 </pre>
         <p>
@@ -204,8 +219,8 @@ md5sum -c ../lib-7.7.md5</kbd>
                 <p>
                   Use the <span class="command"><strong>sudo</strong></span>
                   command from the <a class="xref" href=
-                  "../postlfs/sudo.html" title="Sudo-1.8.7">Sudo-1.8.7</a>
-                  package.
+                  "../postlfs/sudo.html" title=
+                  "Sudo-1.8.9p5">Sudo-1.8.9p5</a> package.
                 </p>
               </li>
               <li>
@@ -252,8 +267,18 @@ do
   tar -xf $package
   pushd $packagedir
   case $packagedir in
+    libFS-[0-9]* )
+      sed -e '/#include &lt;X11/ i\#include &lt;X11\/Xtrans\/Xtransint.h&gt;' \
+          -e 's/_FSTransReadv(svr-&gt;trans_conn/readv(svr-&gt;trans_conn-&gt;fd/' \
+          -i src/FSlibInt.c
+      ./configure $XORG_CONFIG
+    ;;
     libXfont-[0-9]* )
       ./configure $XORG_CONFIG --disable-devel-docs
+    ;;
+    libXft-[0-9]* )
+      patch -Np1 -i ../../libXft-2.3.1-freetype_fix-1.patch
+      ./configure $XORG_CONFIG
     ;;
     libXt-[0-9]* )
       ./configure $XORG_CONFIG \
@@ -331,8 +356,8 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
               libXdamage.so, libXext.so, libXfixes.so, libXfont.so,
               libXft.so, libXinerama.so, libXi.so, libxkbfile.so, libXmu.so,
               libXmuu.so, libXpm.so, libXrandr.so, libXrender.so, libXRes.so,
-              libXss.so, libXt.so, libXtst.so, libXvMC.so, libXvMCW.so,
-              libXv.so, libXxf86dga.so and libXxf86vm.so</span>
+              libxshmfence.so, libXss.so, libXt.so, libXtst.so, libXvMC.so,
+              libXvMCW.so, libXv.so, libXxf86dga.so and libXxf86vm.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -737,6 +762,20 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="libxshmfence" name="libxshmfence"></a><span class=
+                    "term"><code class=
+                    "filename">libxshmfence.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    exposes an event API on top of Linux futexes.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="libXss" name="libXss"></a><span class=
                     "term"><code class="filename">libXss.so</code></span>
                   </p>
@@ -846,15 +885,15 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-10 03:49:02 -0700
+        Last updated on 2014-02-18 12:55:40 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libxcb.html" title="libxcb-1.9.1">Prev</a>
+          <a accesskey="p" href="libxcb.html" title="libxcb-1.10">Prev</a>
           <p>
-            libxcb-1.9.1
+            libxcb-1.10
           </p>
         </li>
         <li class="next">
@@ -870,7 +909,7 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

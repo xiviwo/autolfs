@@ -7,15 +7,15 @@
     <title>
       8.2.&nbsp;Creating the /etc/fstab File
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter08/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;8.&nbsp;Making the LFS System Bootable
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="kernel.html" title="Linux-3.10.10">Next</a>
+          <a accesskey="n" href="kernel.html" title="Linux-3.13.3">Next</a>
           <p>
-            Linux-3.10.10
+            Linux-3.13.3
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -88,14 +88,15 @@ EOF</kbd>
       </p>
       <p>
         Filesystems with MS-DOS or Windows origin (i.e.: vfat, ntfs, smbfs,
-        cifs, iso9660, udf) need the &ldquo;<span class=
-        "quote">iocharset</span>&rdquo; mount option in order for non-ASCII
-        characters in file names to be interpreted properly. The value of
-        this option should be the same as the character set of your locale,
-        adjusted in such a way that the kernel understands it. This works if
-        the relevant character set definition (found under File systems -&gt;
-        Native Language Support) has been compiled into the kernel or built
-        as a module. The &ldquo;<span class="quote">codepage</span>&rdquo;
+        cifs, iso9660, udf) need the <span class="quote">&ldquo;<span class=
+        "quote">iocharset</span>&rdquo;</span> mount option in order for
+        non-ASCII characters in file names to be interpreted properly. The
+        value of this option should be the same as the character set of your
+        locale, adjusted in such a way that the kernel understands it. This
+        works if the relevant character set definition (found under File
+        systems -&gt; Native Language Support) has been compiled into the
+        kernel or built as a module. The <span class=
+        "quote">&ldquo;<span class="quote">codepage</span>&rdquo;</span>
         option is also needed for vfat and smbfs filesystems. It should be
         set to the codepage number used under MS-DOS in your country. E.g.,
         in order to mount USB flash drives, a ru_RU.KOI8-R user would need
@@ -128,21 +129,25 @@ EOF</kbd>
 </pre>
         <p>
           This negative recommendation should be ignored, since all other
-          values of the &ldquo;<span class="quote">iocharset</span>&rdquo;
-          option result in wrong display of filenames in UTF-8 locales.
+          values of the <span class="quote">&ldquo;<span class=
+          "quote">iocharset</span>&rdquo;</span> option result in wrong
+          display of filenames in UTF-8 locales.
         </p>
       </div>
       <p>
         It is also possible to specify default codepage and iocharset values
         for some filesystems during kernel configuration. The relevant
-        parameters are named &ldquo;<span class="quote">Default NLS
-        Option</span>&rdquo; (<code class=
-        "option">CONFIG_NLS_DEFAULT)</code>, &ldquo;<span class=
-        "quote">Default Remote NLS Option</span>&rdquo; (<code class=
-        "option">CONFIG_SMB_NLS_DEFAULT</code>), &ldquo;<span class=
-        "quote">Default codepage for FAT</span>&rdquo; (<code class=
-        "option">CONFIG_FAT_DEFAULT_CODEPAGE</code>), and &ldquo;<span class=
-        "quote">Default iocharset for FAT</span>&rdquo; (<code class=
+        parameters are named <span class="quote">&ldquo;<span class=
+        "quote">Default NLS Option</span>&rdquo;</span> (<code class=
+        "option">CONFIG_NLS_DEFAULT)</code>, <span class=
+        "quote">&ldquo;<span class="quote">Default Remote NLS
+        Option</span>&rdquo;</span> (<code class=
+        "option">CONFIG_SMB_NLS_DEFAULT</code>), <span class=
+        "quote">&ldquo;<span class="quote">Default codepage for
+        FAT</span>&rdquo;</span> (<code class=
+        "option">CONFIG_FAT_DEFAULT_CODEPAGE</code>), and <span class=
+        "quote">&ldquo;<span class="quote">Default iocharset for
+        FAT</span>&rdquo;</span> (<code class=
         "option">CONFIG_FAT_DEFAULT_IOCHARSET</code>). There is no way to
         specify these settings for the ntfs filesystem at kernel compilation
         time.
@@ -177,9 +182,9 @@ EOF</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="kernel.html" title="Linux-3.10.10">Next</a>
+          <a accesskey="n" href="kernel.html" title="Linux-3.13.3">Next</a>
           <p>
-            Linux-3.10.10
+            Linux-3.13.3
           </p>
         </li>
         <li class="up">
@@ -188,7 +193,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

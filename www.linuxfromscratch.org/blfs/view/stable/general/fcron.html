@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="eject.html" title="eject-2.1.5">Prev</a>
+          <a accesskey="p" href="dbus.html" title="D-Bus-1.8.0">Prev</a>
           <p>
-            eject-2.1.5
+            D-Bus-1.8.0
           </p>
         </li>
         <li class="next">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           "application">Vixie Cron</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -112,7 +112,7 @@
           <span class="command"><strong>vi</strong></span> from the <a class=
           "xref" href="../postlfs/vim.html" title="Vim-7.4">Vim-7.4</a>
           package), <a class="xref" href="../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>, <a class="xref" href=
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>, <a class="xref" href=
           "../pst/docbook-utils.html" title=
           "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>
         </p>
@@ -169,8 +169,7 @@ useradd -d /dev/null -c "Fcron User" -g fcron -s /bin/false -u 22 fcron</kbd>
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr --sysconfdir=/etc \
-    --localstatedir=/var --without-sendmail --with-boot-install=no \
-    --with-dsssl-dir=/usr/share/sgml/docbook/dsssl-stylesheets-1.79 &amp;&amp;
+    --localstatedir=/var --without-sendmail --with-boot-install=no &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -219,7 +218,8 @@ make</kbd>
         <p>
           <code class="option">--with-dsssl-dir=<em class=
           "replaceable"><code>&lt;/path/to/dsssl-stylesheets&gt;</code></em></code>:
-          Avoid a warning message about not finding the DSSSL stylesheets.
+          May be used in order to avoid a warning message about not finding
+          the DSSSL stylesheets.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -272,7 +272,7 @@ make</kbd>
             Install the <code class="filename">/etc/rc.d/init.d/fcron</code>
             init script from the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-fcron</kbd>
@@ -375,15 +375,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-20 13:22:42 -0700
+        Last updated on 2014-02-20 06:45:35 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="eject.html" title="eject-2.1.5">Prev</a>
+          <a accesskey="p" href="dbus.html" title="D-Bus-1.8.0">Prev</a>
           <p>
-            eject-2.1.5
+            D-Bus-1.8.0
           </p>
         </li>
         <li class="next">
@@ -398,7 +398,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

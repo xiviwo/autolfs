@@ -7,24 +7,24 @@
     <title>
       6.10.&nbsp;Adjusting the Toolchain
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glibc.html" title="Glibc-2.18">Prev</a>
+          <a accesskey="p" href="glibc.html" title="Glibc-2.19">Prev</a>
           <p>
-            Glibc-2.18
+            Glibc-2.19
           </p>
         </li>
         <li class="next">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -67,12 +67,12 @@ ln -sv /tools/bin/ld /tools/$(gcc -dumpmachine)/bin/ld</kbd>
 </pre>
       <p>
         Next, amend the GCC specs file so that it points to the new dynamic
-        linker. Simply deleting all instances of &ldquo;<span class=
-        "quote">/tools</span>&rdquo; should leave us with the correct path to
-        the dynamic linker. Also adjust the specs file so that GCC knows
-        where to find the correct headers and Glibc start files. A
-        <span class="command"><strong>sed</strong></span> command
-        accomplishes this:
+        linker. Simply deleting all instances of <span class=
+        "quote">&ldquo;<span class="quote">/tools</span>&rdquo;</span> should
+        leave us with the correct path to the dynamic linker. Also adjust the
+        specs file so that GCC knows where to find the correct headers and
+        Glibc start files. A <span class=
+        "command"><strong>sed</strong></span> command accomplishes this:
       </p>
       <pre class="userinput">
 <kbd class=
@@ -198,9 +198,9 @@ SEARCH_DIR("/lib");</code>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glibc.html" title="Glibc-2.18">Prev</a>
+          <a accesskey="p" href="glibc.html" title="Glibc-2.19">Prev</a>
           <p>
-            Glibc-2.18
+            Glibc-2.19
           </p>
         </li>
         <li class="next">
@@ -215,7 +215,7 @@ SEARCH_DIR("/lib");</code>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

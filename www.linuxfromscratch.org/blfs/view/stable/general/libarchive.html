@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="keyutils.html" title=
-          "keyutils-1.5.6">Prev</a>
+          "keyutils-1.5.8">Prev</a>
           <p>
-            keyutils-1.5.6
+            keyutils-1.5.8
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           single interface for reading/writing various compression formats.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -103,13 +103,15 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/acl.html" title=
-          "acl-2.2.52">acl-2.2.52</a>, <a class="xref" href="libxml2.html"
-          title="libxml2-2.9.1">libxml2-2.9.1</a> or <a class="xref" href=
+          "acl-2.2.52">acl-2.2.52</a>, <a class="xref" href=
+          "../postlfs/attr.html" title="attr-2.4.47">attr-2.4.47</a>,
+          <a class="xref" href="libxml2.html" title=
+          "libxml2-2.9.1">libxml2-2.9.1</a> or <a class="xref" href=
           "expat.html" title="Expat-2.1.0">expat-2.1.0</a>, <a class="xref"
-          href="LZO.html" title="LZO-2.06">LZO-2.06</a>, <a class="xref"
+          href="LZO.html" title="LZO-2.06">LZO-2.06</a>, and <a class="xref"
           href="../postlfs/nettle.html" title="Nettle-2.7.1">Nettle-2.7.1</a>
-          and <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          or <a class="xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -129,8 +131,8 @@
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <strong class="userinput"><code>make
-          check</code></strong>.
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -146,6 +148,16 @@ make</kbd>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
+        </p>
+        <p>
+          <code class="option">--without-xml2</code>: This switch sets expat
+          for xar archive format support instead of preferred libxml2 if both
+          packages are installed.
+        </p>
+        <p>
+          <code class="option">--without-nettle</code>: This switch sets
+          OpenSSL for crypto support instead of preferred Nettle if both
+          packages are installed.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -225,16 +237,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 13:56:44 -0700
+        Last updated on 2014-02-19 12:41:42 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="keyutils.html" title=
-          "keyutils-1.5.6">Prev</a>
+          "keyutils-1.5.8">Prev</a>
           <p>
-            keyutils-1.5.6
+            keyutils-1.5.8
           </p>
         </li>
         <li class="next">
@@ -250,7 +262,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

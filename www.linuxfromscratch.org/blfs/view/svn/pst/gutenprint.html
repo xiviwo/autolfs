@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;41.&nbsp;Printing
+        Chapter&nbsp;43.&nbsp;Printing
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gs.html" title="ghostscript-9.10">Prev</a>
+          <a accesskey="p" href="gs.html" title="ghostscript-9.14">Prev</a>
           <p>
-            ghostscript-9.10
+            ghostscript-9.14
           </p>
         </li>
         <li class="next">
@@ -35,11 +35,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="printing.html" title=
-          "Chapter&nbsp;41.&nbsp;Printing">Up</a>
+          "Chapter&nbsp;43.&nbsp;Printing">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -56,15 +56,15 @@
           <span class="application">Gimp-Print</span>) package contains high
           quality drivers for many brands and models of printers for use with
           <a class="xref" href="gs.html" title=
-          "ghostscript-9.10">ghostscript-9.10</a>, <a class="xref" href=
-          "cups.html" title="Cups-1.6.3">Cups-1.6.3</a>, <a class="ulink"
+          "ghostscript-9.14">ghostscript-9.14</a>, <a class="xref" href=
+          "cups.html" title="Cups-1.7.2">Cups-1.7.2</a>, <a class="ulink"
           href="http://www.linuxprinting.org/foomatic.html">Foomatic</a>, and
           the <span class="application">GIMP-2.0</span>. See a list of
           supported printers at <a class="ulink" href=
           "http://gutenprint.sourceforge.net/p_Supported_Printers.php">http://gutenprint.sourceforge.net/p_Supported_Printers.php</a>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -108,9 +108,9 @@
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="cups.html" title="Cups-1.6.3">Cups-1.6.3</a>,
+          <a class="xref" href="cups.html" title="Cups-1.7.2">Cups-1.7.2</a>,
           and <a class="xref" href="../xsoft/gimp.html" title=
-          "Gimp-2.8.6">Gimp-2.8.6</a>
+          "Gimp-2.8.10">Gimp-2.8.10</a>
         </p>
         <h4>
           Optional
@@ -126,10 +126,10 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/imagemagick.html" title=
-          "ImageMagick-6.8.6-9">ImageMagick-6.8.6-9</a>, <a class="xref"
+          "ImageMagick-6.8.9-0">ImageMagick-6.8.9-0</a>, <a class="xref"
           href="texlive.html" title="texlive-20130530">texlive-20130530</a>,
           <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.5">Doxygen-1.8.5</a>, and <a class="xref" href=
+          "Doxygen-1.8.6">Doxygen-1.8.6</a>, and <a class="xref" href=
           "docbook-utils.html" title=
           "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>
         </p>
@@ -137,6 +137,27 @@
           User Notes: <a class="ulink" href=
           "http://wiki.linuxfromscratch.org/blfs/wiki/gutenprint">http://wiki.linuxfromscratch.org/blfs/wiki/gutenprint</a>
         </p>
+      </div>
+      <div class="kernel" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="gutenprint-escputil" name="gutenprint-escputil"></a>Kernel
+          Configuration
+        </h2>
+        <p>
+          If you intend to use <span class="application">escputil</span> with
+          a USB-connected Epson Stylus printer for commands such as
+          <span class="command"><strong>--ink-level</strong></span> which
+          need to access the raw device, you must enable the kernel's usblp
+          driver. Enable the following options in your kernel configuration
+          and recompile the kernel:
+        </p>
+        <pre class="screen">
+Device Drivers  ---&gt;
+  USB support  ---&gt;
+    OHCI HCD (USB 1.1) support: Y or M
+    UHCI HCD (most Intel and VIA) support: Y or M
+    USB Printer support: Y or M
+</pre>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -295,15 +316,15 @@ install -v -m644    doc/gutenprintui2/html/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-25 20:36:37 +0000
+        Last updated on 2014-02-19 20:41:42 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gs.html" title="ghostscript-9.10">Prev</a>
+          <a accesskey="p" href="gs.html" title="ghostscript-9.14">Prev</a>
           <p>
-            ghostscript-9.10
+            ghostscript-9.14
           </p>
         </li>
         <li class="next">
@@ -314,11 +335,11 @@ install -v -m644    doc/gutenprintui2/html/* \
         </li>
         <li class="up">
           <a accesskey="u" href="printing.html" title=
-          "Chapter&nbsp;41.&nbsp;Printing">Up</a>
+          "Chapter&nbsp;43.&nbsp;Printing">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

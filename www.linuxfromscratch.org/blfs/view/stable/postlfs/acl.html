@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           fine-grained discretionary access rights for files and directories.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -149,7 +149,7 @@ install -v -m644 doc/*.txt /usr/share/doc/acl-2.2.52</kbd>
         <p>
           You should now re-install <span class="application"><a class=
           "ulink" href=
-          "http://www.linuxfromscratch.org/lfs/view/7.4/chapter06/coreutils.html">Coreutils</a></span>
+          "http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/coreutils.html">Coreutils</a></span>
           and proceed to run the test suite.
         </p>
         <p>
@@ -183,6 +183,14 @@ install -v -m644 doc/*.txt /usr/share/doc/acl-2.2.52</kbd>
           <span class="command"><strong>sed -i ...
           include/builddefs.in</strong></span>: This command modifies the
           documentation directory so that it is a versioned directory.
+        </p>
+        <p>
+          <span class=
+          "command"><strong>--libexecdir=/usr/lib</strong></span>: This
+          switch ensures that <code class="filename">libacl.la</code> is
+          installed in the correct directory, and that a spurious
+          <code class="filename">libacl.so</code> symlink is not created in
+          <code class="filename">/usr/libexec/</code>.
         </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
@@ -305,7 +313,7 @@ install -v -m644 doc/*.txt /usr/share/doc/acl-2.2.52</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-22 13:45:41 -0700
+        Last updated on 2014-02-26 17:45:11 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -329,7 +337,7 @@ install -v -m644 doc/*.txt /usr/share/doc/acl-2.2.52</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

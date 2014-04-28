@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Phonon-backend-gstreamer-4.6.3
+      Phonon-backend-gstreamer-4.7.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;28.&nbsp;The KDE Core
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="phonon.html" title="Phonon-4.6.0">Prev</a>
+          <a accesskey="p" href="phonon.html" title="Phonon-4.7.1">Prev</a>
           <p>
-            Phonon-4.6.0
+            Phonon-4.7.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="phonon-backend-vlc.html" title=
-          "Phonon-backend-vlc-0.6.2">Next</a>
+          "Phonon-backend-vlc-0.7.1">Next</a>
           <p>
-            Phonon-backend-vlc-0.6.2
+            Phonon-backend-vlc-0.7.1
           </p>
         </li>
         <li class="up">
@@ -40,14 +40,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="phonon-backend-gstreamer" name=
-        "phonon-backend-gstreamer"></a>Phonon-backend-gstreamer-4.6.3
+        "phonon-backend-gstreamer"></a>Phonon-backend-gstreamer-4.7.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           "application">GStreamer</span> media framework.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,25 +70,25 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.6.3/src/phonon-backend-gstreamer-4.6.3.tar.xz">
-                http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.6.3/src/phonon-backend-gstreamer-4.6.3.tar.xz</a>
+                "http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.7.1/phonon-backend-gstreamer-4.7.1.tar.xz">
+                http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.7.1/phonon-backend-gstreamer-4.7.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-gstreamer/4.6.3/src/phonon-backend-gstreamer-4.6.3.tar.xz">
-                ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-gstreamer/4.6.3/src/phonon-backend-gstreamer-4.6.3.tar.xz</a>
+                "ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-gstreamer/4.7.1/phonon-backend-gstreamer-4.7.1.tar.xz">
+                ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-gstreamer/4.7.1/phonon-backend-gstreamer-4.7.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: d7b0b6245f380347c52c09033a814931
+                Download MD5 sum: 7c0cfab4ec0bbe1f201503e6ccc7290a
               </p>
             </li>
             <li>
               <p>
-                Download size: 72 KB
+                Download size: 74 KB
               </p>
             </li>
             <li>
@@ -111,7 +111,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="phonon.html" title=
-          "Phonon-4.6.0">phonon-4.6.0</a> and <a class="xref" href=
+          "Phonon-4.7.1">phonon-4.7.1</a> and <a class="xref" href=
           "../multimedia/gstreamer.html" title=
           "GStreamer-0.10.36">GStreamer-0.10.36</a>
         </p>
@@ -151,8 +151,9 @@
 cd    build &amp;&amp;
 
 cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
+      -DCMAKE_INSTALL_LIBDIR=lib         \
       -DCMAKE_BUILD_TYPE=Release         \
-      .. &amp;&amp;
+      -Wno-dev .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -195,22 +196,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-26 17:26:25 +0000
+        Last updated on 2014-02-28 04:59:01 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="phonon.html" title="Phonon-4.6.0">Prev</a>
+          <a accesskey="p" href="phonon.html" title="Phonon-4.7.1">Prev</a>
           <p>
-            Phonon-4.6.0
+            Phonon-4.7.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="phonon-backend-vlc.html" title=
-          "Phonon-backend-vlc-0.6.2">Next</a>
+          "Phonon-backend-vlc-0.7.1">Next</a>
           <p>
-            Phonon-backend-vlc-0.6.2
+            Phonon-backend-vlc-0.7.1
           </p>
         </li>
         <li class="up">
@@ -219,7 +220,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

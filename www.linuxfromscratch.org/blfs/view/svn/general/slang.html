@@ -12,26 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="scons.html" title="SCons-2.3.0">Prev</a>
+          <a accesskey="p" href="scons.html" title="SCons-2.3.1">Prev</a>
           <p>
-            SCons-2.3.0
+            SCons-2.3.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="subversion.html" title=
-          "Subversion-1.8.3">Next</a>
+          "Subversion-1.8.8">Next</a>
           <p>
-            Subversion-1.8.3
+            Subversion-1.8.8
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           keymaps.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -105,8 +105,8 @@
         </h4>
         <p class="optional">
           <a class="xref" href="libpng.html" title=
-          "libpng-1.6.3">libpng-1.6.3</a>, <a class="xref" href="pcre.html"
-          title="PCRE-8.33">PCRE-8.33</a>, and <a class="ulink" href=
+          "libpng-1.6.10">libpng-1.6.10</a>, <a class="xref" href="pcre.html"
+          title="PCRE-8.35">PCRE-8.35</a>, and <a class="ulink" href=
           "http://www.geocities.jp/kosako3/oniguruma/">Oniguruma</a>
         </p>
         <p class="usernotes">
@@ -118,13 +118,24 @@
         <h2 class="sect2">
           Installation of S-Lang
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This package does not support parallel build.
+          </p>
+        </div>
         <p>
           Install <span class="application">S-Lang</span> by running the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
-make</kbd>
+<kbd class="command">./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --with-readline=gnu &amp;&amp;
+make -j1</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
@@ -149,6 +160,12 @@ chmod -v 755 /usr/lib/libslang.so.2.2.4 \
           Command Explanations
         </h2>
         <p>
+          <em class="parameter"><code>--with-readline=gnu</code></em>: This
+          parameter sets GNU <span class="application">Readline</span> to be
+          used by the parser interface instead of the <span class=
+          "application">S-Lang</span> internal version.
+        </p>
+        <p>
           <span class="command"><strong>make
           install_doc_dir=/usr/share/doc/slang-2.2.4
           SLSH_DOC_DIR=/usr/share/doc/slang-2.2.4/slsh
@@ -156,12 +173,6 @@ chmod -v 755 /usr/lib/libslang.so.2.2.4 \
           library as well as the dynamic shared version and related modules.
           It also changes the documentation installation directories to a
           versioned directory.
-        </p>
-        <p>
-          <code class="option">--with-readline=gnu</code>: Use this parameter
-          to use the Gnu <span class="application">Readline</span> parser
-          instead of the <span class="application">S-Lang</span> internal
-          version.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -231,22 +242,22 @@ chmod -v 755 /usr/lib/libslang.so.2.2.4 \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-21 01:40:33 +0000
+        Last updated on 2014-02-25 12:04:57 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="scons.html" title="SCons-2.3.0">Prev</a>
+          <a accesskey="p" href="scons.html" title="SCons-2.3.1">Prev</a>
           <p>
-            SCons-2.3.0
+            SCons-2.3.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="subversion.html" title=
-          "Subversion-1.8.3">Next</a>
+          "Subversion-1.8.8">Next</a>
           <p>
-            Subversion-1.8.3
+            Subversion-1.8.8
           </p>
         </li>
         <li class="up">
@@ -255,7 +266,7 @@ chmod -v 755 /usr/lib/libslang.so.2.2.4 \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

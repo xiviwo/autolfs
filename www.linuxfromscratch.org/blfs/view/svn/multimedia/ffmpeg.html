@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      FFmpeg-1.2.2
+      FFmpeg-2.2.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;39.&nbsp;Video Utilities
+        Chapter&nbsp;41.&nbsp;Video Utilities
       </h3>
       <ul>
         <li class="prev">
@@ -36,17 +36,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="videoutils.html" title=
-          "Chapter&nbsp;39.&nbsp;Video Utilities">Up</a>
+          "Chapter&nbsp;41.&nbsp;Video Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ffmpeg" name="ffmpeg"></a>FFmpeg-1.2.2
+        <a id="ffmpeg" name="ffmpeg"></a>FFmpeg-2.2.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -66,7 +66,7 @@
           source.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -77,27 +77,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ffmpeg.org/releases/ffmpeg-1.2.2.tar.bz2">http://ffmpeg.org/releases/ffmpeg-1.2.2.tar.bz2</a>
+                "http://ffmpeg.org/releases/ffmpeg-2.2.1.tar.bz2">http://ffmpeg.org/releases/ffmpeg-2.2.1.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 4997660dfc077922e37d0583f9322f6b
+                Download MD5 sum: b8a1ee4964c2638f46fcc803ed453818
               </p>
             </li>
             <li>
               <p>
-                Download size: 5.7 MB
+                Download size: 6.7 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 100 MB
+                Estimated disk space required: 119 MB (additional 757 MB for
+                docs and 1.7 GB to run the FATE tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 4.0 SBU
+                Estimated build time: 3.0 SBU (additional 0.8 SBU for docs
+                and 4.2 SBU to run the FATE tests, after test files are
+                downloaded)
               </p>
             </li>
           </ul>
@@ -109,47 +112,60 @@
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="faac.html" title="FAAC-1.28">FAAC-1.28</a>,
-          <a class="xref" href="../general/freetype2.html" title=
-          "FreeType-2.5.0.1">FreeType-2.5.0.1</a>, <a class="xref" href=
-          "lame.html" title="LAME-3.99.5">LAME-3.99.5</a>, <a class="xref"
-          href="../general/openjpeg.html" title=
-          "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a>, <a class="xref" href=
-          "pulseaudio.html" title="PulseAudio-4.0">PulseAudio-4.0</a>,
-          <a class="xref" href="speex.html" title=
-          "Speex-1.2rc1">Speex-1.2rc1</a>, <a class="xref" href=
-          "libtheora.html" title="libtheora-1.1.1">libtheora-1.1.1</a>,
-          <a class="xref" href="libvorbis.html" title=
-          "libvorbis-1.3.3">libvorbis-1.3.3</a>, <a class="xref" href=
-          "libvpx.html" title="libvpx-v1.2.0">libvpx-1.2.0</a>, <a class=
-          "xref" href="xvid.html" title="XviD-1.3.2">XviD-1.3.2</a>,
-          <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
-          "sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>, <a class="xref" href=
-          "../x/x7lib.html" title="Xorg Libraries">Xorg Libraries</a>,
           <a class="xref" href="../general/yasm.html" title=
-          "yasm-1.2.0">yasm-1.2.0</a>
+          "yasm-1.2.0">yasm-1.2.0</a>, <a class="xref" href="libass.html"
+          title="libass-0.11.1">libass-0.11.1</a>, <a class="xref" href=
+          "fdk-aac.html" title="fdk-aac-0.1.3">fdk-aac-0.1.3</a>, <a class=
+          "xref" href="lame.html" title="LAME-3.99.5">LAME-3.99.5</a>,
+          <a class="xref" href="opus.html" title="Opus-1.1">Opus-1.1</a>,
+          <a class="xref" href="libtheora.html" title=
+          "libtheora-1.1.1">libtheora-1.1.1</a>, <a class="xref" href=
+          "libvorbis.html" title="libvorbis-1.3.4">libvorbis-1.3.4</a>,
+          <a class="xref" href="libvpx.html" title=
+          "libvpx-v1.3.0">libvpx-1.3.0</a>, and <a class="xref" href=
+          "x264.html" title="x264-20140316-2245">x264-20140316-2245</a>
         </p>
         <h4>
-          Recommended (For Hardware Video Decoding)
+          Recommended for desktop use
         </h4>
         <p>
-          <a class="xref" href="../x/x7driver.html#libva" title=
-          "libva-1.2.1">libva-1.2.1</a> and <a class="xref" href=
-          "../x/x7driver.html#libvdpau" title="libvdpau-0.7">libvdpau-0.7</a>
-          (with the corresponding driver package)
+          <a class="xref" href="../x/installing.html" title=
+          "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
+          System</a>, <a class="xref" href="alsa-lib.html" title=
+          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
+          "sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>, <a class="xref" href=
+          "../x/x7driver.html#libva" title="libva-1.3.0">libva-1.3.0</a> and
+          <a class="xref" href="../x/x7driver.html#libvdpau" title=
+          "libvdpau-0.7">libvdpau-0.7</a> (with the corresponding driver
+          package)
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../general/fontconfig.html" title=
-          "Fontconfig-2.10.93">Fontconfig-2.10.93</a>, <a class="ulink" href=
-          "http://www.piksel.org/frei0r">frei0r</a>, <a class="xref" href=
-          "../postlfs/gnutls.html" title="GnuTLS-3.2.4">GnuTLS-3.2.4</a>,
-          <a class="ulink" href="http://tipok.org.ua/node/17">libaacplus</a>,
+          <a class="xref" href="faac.html" title="FAAC-1.28">FAAC-1.28</a>,
+          <a class="xref" href="../general/freetype2.html" title=
+          "FreeType-2.5.3">FreeType-2.5.3</a>, <a class="xref" href=
+          "../general/libwebp.html" title="libwebp-0.4.0">libwebp-0.4.0</a>,
+          <a class="xref" href="../general/openjpeg.html" title=
+          "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a>, <a class="xref" href=
+          "pulseaudio.html" title="PulseAudio-5.0">PulseAudio-5.0</a>,
+          <a class="xref" href="speex.html" title=
+          "Speex-1.2rc1">Speex-1.2rc1</a>, <a class="xref" href="xvid.html"
+          title="XviD-1.3.3">XviD-1.3.3</a>, <a class="xref" href=
+          "../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1g">OpenSSL-1.0.1g</a>, <a class="xref" href=
+          "../general/fontconfig.html" title=
+          "Fontconfig-2.11.1">Fontconfig-2.11.1</a>, <a class="ulink" href=
+          "https://files.dyne.org/frei0r/snapshots/">frei0r</a>, <a class=
+          "xref" href="../postlfs/gnutls.html" title=
+          "GnuTLS-3.3.0">GnuTLS-3.3.0</a>, <a class="ulink" href=
+          "http://xhevc.com/en/hevc/decoder/download.jsp">HEVC/H.265</a>,
+          <a class="ulink" href="http://www.ladspa.org/">LADSPA</a>,
+          <a class="ulink" href="http://www.libssh.org/">libssh</a>,
           <a class="ulink" href=
-          "http://code.google.com/p/libass/">libass</a>, <a class="ulink"
+          "http://zapping.sourceforge.net/ZVBI/">ZVBI</a>, <a class="ulink"
+          href="http://tipok.org.ua/node/17">libaacplus</a>, <a class="ulink"
           href=
           "http://www.videolan.org/developers/libbluray.html">libbluray</a>,
           <a class="ulink" href="http://caca.zoy.org/">libcaca</a>, <a class=
@@ -157,8 +173,6 @@
           "ulink" href="http://ftp.gnu.org/pub/gnu/libcdio/">libcdio</a>,
           <a class="ulink" href=
           "http://sourceforge.net/projects/libdc1394">libdc1394</a>,
-          <a class="ulink" href=
-          "http://sourceforge.net/projects/opencore-amr/">fdk-aac</a>,
           <a class="ulink" href=
           "http://www.speech.cs.cmu.edu/flite/">Flite</a>, <a class="ulink"
           href="http://www.quut.com/gsm/">GSM</a>, <a class="ulink" href=
@@ -168,28 +182,27 @@
           href=
           "http://sourceforge.net/projects/modplug-xmms/">libmodplug</a>,
           <a class="ulink" href=
-          "http://svn.mplayerhq.hu/nut/src/trunk/">libnut</a> (SVN checkout),
+          "https://github.com/Distrotech/libnut">libnut</a> (Git checkout),
           <a class="ulink" href=
           "http://sourceforge.net/projects/opencore-amr">OpenCore AMR</a>,
           <a class="ulink" href="http://opencv.org/">OpenCV</a>, <a class=
-          "ulink" href="http://www.opus-codec.org/">Opus</a>, <a class=
-          "ulink" href="http://sourceforge.net/projects/librtmp">librtmp</a>,
-          <a class="ulink" href="http://diracvideo.org/">Schroedinger</a>,
-          <a class="ulink" href="http://www.twolame.org/">TwoLAME</a>,
-          <a class="ulink" href=
+          "ulink" href="http://rtmpdump.mplayerhq.hu/">librtmp</a>, <a class=
+          "ulink" href="http://diracvideo.org/">Schroedinger</a>, <a class=
+          "ulink" href="http://www.twolame.org/">TwoLAME</a>, <a class=
+          "ulink" href=
           "http://linuxtv.org/downloads/v4l-utils/">Video4Linux</a>,
           <a class="ulink" href=
           "http://sourceforge.net/projects/opencore-amr/files/vo-aacenc/">vo-aaenc</a>,
           <a class="ulink" href=
           "http://sourceforge.net/projects/opencore-amr/files/vo-amrwbenc/">vo-amrwbenc</a>,
-          <a class="ulink" href=
-          "http://www.videolan.org/developers/x264.html">x264</a>, <a class=
-          "ulink" href="http://xavs.sourceforge.net/">libxavs</a> (SVN
-          checkout), <a class="ulink" href=
-          "http://kcat.strangesoft.net/openal-releases/">OpenAL</a>, and
+          <a class="ulink" href="http://xavs.sourceforge.net/">libxavs</a>
+          (SVN checkout), <a class="ulink" href=
+          "http://kcat.strangesoft.net/openal-releases/">OpenAL</a>,
           <a class="ulink" href=
           "http://www.nongnu.org/texi2html">texi2html</a> (to build HTML
-          documentation)
+          documentation), and <a class="ulink" href=
+          "http://www.videolan.org/developers/x265.html">x265 (H.265/MPEG-H
+          HEVC)</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -200,14 +213,6 @@
         <h2 class="sect2">
           Installation of FFmpeg
         </h2>
-        <p>
-          If <span class="application">Xorg</span> is installed in a prefix
-          other than <code class="filename">/usr</code>, the build will fail.
-          Fix this by issuing the following command:
-        </p>
-        <pre class="userinput">
-<kbd class="command">export LIBRARY_PATH=$XORG_PREFIX/lib</kbd>
-</pre>
         <p>
           Install <span class="application">FFmpeg</span> by running the
           following commands:
@@ -221,22 +226,18 @@
             --enable-nonfree     \
             --disable-static     \
             --enable-shared      \
-            --enable-x11grab     \
-            --enable-libfaac     \
-            --enable-libfreetype \
+            --disable-debug      \
+            --enable-libass      \
+            --enable-libfdk-aac  \
             --enable-libmp3lame  \
-            --enable-libopenjpeg \
-            --enable-libpulse    \
-            --enable-libspeex    \
+            --enable-libopus     \
             --enable-libtheora   \
             --enable-libvorbis   \
             --enable-libvpx      \
-            --enable-libxvid     \
-            --enable-openssl     \
-            --disable-debug      &amp;&amp;
+            --enable-libx264     \
+            --enable-x11grab     &amp;&amp;
 make &amp;&amp;
-gcc tools/qt-faststart.c -o tools/qt-faststart &amp;&amp;
-unset LIBRARY_PATH</kbd>
+gcc tools/qt-faststart.c -o tools/qt-faststart</kbd>
 </pre>
         <p>
           HTML documentation was built in the previous step if <a class=
@@ -255,24 +256,25 @@ do
     texi2pdf -b $DOCNAME.texi &amp;&amp;
     texi2dvi -b $DOCNAME.texi &amp;&amp;
     dvips -o    $DOCNAME.ps   \
-                $DOCNAME.dvi  &amp;&amp;
+                $DOCNAME.dvi
 done                          &amp;&amp;
 popd                          &amp;&amp;
 unset DOCNAME</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.5">Doxygen-1.8.5</a> installed and wish to create the
-          API documentation (takes about 300 MB of space), issue the command
+          "Doxygen-1.8.6">Doxygen-1.8.6</a> installed and wish to create the
+          API documentation (takes about 350 MB of space), issue the command
           <span class="command"><strong>doxygen doc/Doxyfile</strong></span>.
         </p>
         <p>
           To properly test the installation you must have <a class="xref"
-          href="../basicnet/rsync.html" title="rsync-3.0.9">rsync-3.0.9</a>
+          href="../basicnet/rsync.html" title="rsync-3.1.0">rsync-3.1.0</a>
           installed and follow the instructions for the <a class="ulink"
-          href="http://ffmpeg.org/fate.html">FFmpeg Automated Testing
-          Environment</a>. Note that the BLFS team has not performed this
-          regression testing.
+          href="http://www.ffmpeg.org/fate.html">FFmpeg Automated Testing
+          Environment</a> (FATE). First, about 756 MB of data files used to
+          run FATE are downloaded. Next, FATE is executed. Estimated values
+          in "Package Information" do not include the download SBU.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -280,9 +282,9 @@ unset DOCNAME</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 install -v -m755    tools/qt-faststart /usr/bin &amp;&amp;
-install -v -m755 -d /usr/share/doc/ffmpeg-1.2.2 &amp;&amp;
+install -v -m755 -d /usr/share/doc/ffmpeg &amp;&amp;
 install -v -m644    doc/*.txt \
-                    /usr/share/doc/ffmpeg-1.2.2</kbd>
+                    /usr/share/doc/ffmpeg</kbd>
 </pre>
         <p>
           If HTML documentation was built, issue the following command to
@@ -290,7 +292,7 @@ install -v -m644    doc/*.txt \
         </p>
         <pre class="root">
 <kbd class="command">install -v -m644 doc/*.html \
-                 /usr/share/doc/ffmpeg-1.2.2</kbd>
+                 /usr/share/doc/ffmpeg</kbd>
 </pre>
         <p>
           If you used <span class="command"><strong>doxygen</strong></span>
@@ -299,10 +301,9 @@ install -v -m644    doc/*.txt \
           "systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class=
-"command">install -v -m755 -d /usr/share/doc/ffmpeg-1.2.2/api &amp;&amp;
+<kbd class="command">install -v -m755 -d /usr/share/doc/ffmpeg/api &amp;&amp;
 install -v -m644    doc/doxy/html/* \
-                    /usr/share/doc/ffmpeg-1.2.2/api</kbd>
+                    /usr/share/doc/ffmpeg/api</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -317,14 +318,8 @@ install -v -m644    doc/doxy/html/* \
           <span class="application">Flite</span>.
         </p>
         <p>
-          <span class="command"><strong>gcc tools/qt-faststart.c -o
-          tools/qt-faststart</strong></span>: This builds the <span class=
-          "command"><strong>qt-faststart</strong></span> program which can
-          modify QuickTime formatted movies (<code class=
-          "filename">.mov</code> or <code class="filename">.mp4</code>) so
-          that the header information is located at the beginning of the file
-          instead of the end. This allows the movie file to begin playing
-          before the entire file has been downloaded.
+          <code class="option">--enable-libfreetype</code>: Enables
+          <span class="application">Freetype</span> support.
         </p>
         <p>
           <em class="parameter"><code>--enable-gpl</code></em>: Enables the
@@ -350,80 +345,74 @@ install -v -m644    doc/doxy/html/* \
           built and installed.
         </p>
         <p>
-          <em class="parameter"><code>--enable-x11grab</code></em>: Enables
-          X11 grabbing.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libfaac</code></em>: Enables
-          AAC encoding via <code class="filename">libfaac</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libfreetype</code></em>:
-          Enables the use of <code class="filename">libfreetype</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libmp3lame</code></em>:
-          Enables MP3 encoding via <code class="filename">libmp3lame</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libopenjpeg</code></em>:
-          Enables JPEG 2000 de/encoding via <code class=
-          "filename">libopenjpeg</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libpulse</code></em>: Enables
-          <span class="application">Pulseaudio</span> input via <code class=
-          "filename">libpulse</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libspeex</code></em>: Enables
-          <span class="application">Speex</span> de/encoding via <code class=
-          "filename">libspeex</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libtheora</code></em>: Enables
-          <span class="application">Theora</span> encoding via <code class=
-          "filename">libtheora</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libvorbis</code></em>: Enables
-          <span class="application">Vorbis</span> de/encoding via
-          <code class="filename">libvorbis</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libvpx</code></em>: Enables
-          VP8 de/encoding via <code class="filename">libvpx</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libxvid</code></em>: Enables
-          <span class="application">Xvid</span> encoding via <code class=
-          "filename">libxvidcore</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-openssl</code></em>: Enables
-          <span class="application">OpenSSL</span> cryptography.
-        </p>
-        <p>
           <em class="parameter"><code>--disable-debug</code></em>: Disables
           building debugging symbols into the programs and libraries.
         </p>
         <p>
-          <code class="option">--enable-<em class=
-          "replaceable"><code>&lt;codec&gt;</code></em></code>: <span class=
-          "application">FFmpeg</span> comes with code to compile decoders for
-          almost every codec you could think of. The only reason to enable a
-          specific codec (and make <span class="application">FFmpeg</span>
-          link to the prerequisite shared library installed on your system)
-          is to make <span class="application">FFmpeg</span> compile an
-          <span class="emphasis"><em>encoder</em></span> for that codec.
-          <span class="application">FFmpeg</span> provides an excellent
-          collection of decoders. If you just want to use <span class=
-          "application">FFmpeg</span> to watch video or listen to music (via
-          other applications such as <span class=
-          "application">Gstreamer</span> or <span class=
-          "application">Xine</span>) then you will not benefit from linking
-          <span class="application">FFmpeg</span> to other codec libraries.
+          <em class="parameter"><code>--enable-libass</code></em>: Enables
+          ASS/SSA subtitle format rendering via <code class=
+          "filename">libass</code>.
         </p>
+        <p>
+          <em class="parameter"><code>--enable-libfdk-aac</code></em>:
+          Enables currently the highest-quality AAC audio encoding via
+          <code class="filename">libfdk-aac</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libmp3lame</code></em>:
+          Enables MP3 audio encoding via <code class=
+          "filename">libmp3lame</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libopus</code></em>: Enables
+          Opus encoding for low latency streaming via <code class=
+          "filename">libopus</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libvorbis
+          --enable-libtheora</code></em>: Enables Theora video encoding via
+          <code class="filename">libvorbis</code> and <code class=
+          "filename">libtheora</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libvorbis
+          --enable-libvpx</code></em>: Enables WebM encoding via <code class=
+          "filename">libvorbis</code> and <code class=
+          "filename">libvpx</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-libx264</code></em>: Enables
+          high-quality H.264/MPEG-4 AVC encoding via <code class=
+          "filename">libx264</code>.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-x11grab</code></em>: Enables
+          X11 grabbing.
+        </p>
+        <p>
+          <span class="command"><strong>gcc tools/qt-faststart.c -o
+          tools/qt-faststart</strong></span>: This builds the <span class=
+          "command"><strong>qt-faststart</strong></span> program which can
+          modify QuickTime formatted movies (<code class=
+          "filename">.mov</code> or <code class="filename">.mp4</code>) so
+          that the header information is located at the beginning of the file
+          instead of the end. This allows the movie file to begin playing
+          before the entire file has been downloaded.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Support for most of the dependency packages requires using
+            options passed to the <span class=
+            "command"><strong>configure</strong></span> script. View the
+            output from <span class="command"><strong>./configure
+            --help</strong></span> for complete information about enabling
+            dependency packages.
+          </p>
+        </div>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -453,14 +442,14 @@ install -v -m644    doc/doxy/html/* \
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">ffmpeg, ffplay, ffprobe, ffserver and
+              <span class="segbody">ffmpeg, ffplay, ffprobe, ffserver, and
               qt-faststart</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libavcodec.so, libavdevice.so,
               libavfilter.so, libavformat.so, libavutil.so, libpostproc.so,
-              libswresample and libswscale.so</span>
+              libswresample, and libswscale.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -468,8 +457,8 @@ install -v -m644    doc/doxy/html/* \
               /usr/include/libavdevice, /usr/include/libavfilter,
               /usr/include/libavformat, /usr/include/libavutil,
               /usr/include/libpostproc, /usr/include/libswresample
-              /usr/include/libswscale, /usr/share/ffmpeg and
-              /usr/share/doc/ffmpeg-1.2.2</span>
+              /usr/include/libswscale, /usr/share/ffmpeg, and
+              /usr/share/doc/ffmpeg</span>
             </div>
           </div>
         </div>
@@ -684,7 +673,7 @@ install -v -m644    doc/doxy/html/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-25 20:35:12 +0000
+        Last updated on 2014-04-10 22:43:19 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -704,11 +693,11 @@ install -v -m644    doc/doxy/html/* \
         </li>
         <li class="up">
           <a accesskey="u" href="videoutils.html" title=
-          "Chapter&nbsp;39.&nbsp;Video Utilities">Up</a>
+          "Chapter&nbsp;41.&nbsp;Video Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

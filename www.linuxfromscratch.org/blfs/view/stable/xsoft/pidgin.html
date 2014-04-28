@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Pidgin-2.10.7
+      Pidgin-2.10.9
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;36.&nbsp;Other X-based Programs
+        Chapter&nbsp;38.&nbsp;Other X-based Programs
       </h3>
       <ul>
         <li class="prev">
@@ -37,17 +37,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="other.html" title=
-          "Chapter&nbsp;36.&nbsp;Other X-based Programs">Up</a>
+          "Chapter&nbsp;38.&nbsp;Other X-based Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="pidgin" name="pidgin"></a>Pidgin-2.10.7
+        <a id="pidgin" name="pidgin"></a>Pidgin-2.10.9
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           Gadu-Gadu, SILC, Zephyr and Yahoo!
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -71,28 +71,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/pidgin/pidgin-2.10.7.tar.bz2">
-                http://downloads.sourceforge.net/pidgin/pidgin-2.10.7.tar.bz2</a>
+                "http://downloads.sourceforge.net/pidgin/pidgin-2.10.9.tar.bz2">
+                http://downloads.sourceforge.net/pidgin/pidgin-2.10.9.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: ea88976b9952e80b702b030489f94393
+                Download MD5 sum: 10a4a69d077893f6dd3438cd8af94e81
               </p>
             </li>
             <li>
               <p>
-                Download size: 9.6 MB
+                Download size: 9.7 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 315 MB
+                Estimated disk space required: 238 MB (additional 2MB for the
+                tests and 90 MB for API docs)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 2.0 SBU
+                Estimated build time: 1.7 SBU (additional 0.1 SBU for API
+                docs)
               </p>
             </li>
           </ul>
@@ -105,7 +107,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.20">GTK+-2.24.20</a> and <a class="xref" href=
+          "GTK+-2.24.22">GTK+-2.24.22</a> and <a class="xref" href=
           "../general/perl-modules.html#perl-xml-parser" title=
           "XML::Parser-2.41">XML::Parser-2.41</a>
         </p>
@@ -114,10 +116,10 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/libgcrypt.html" title=
-          "libgcrypt-1.5.3">libgcrypt-1.5.3</a> and <a class="xref" href=
-          "../postlfs/gnutls.html" title="GnuTLS-3.2.4">GnuTLS-3.2.4</a> or
+          "libgcrypt-1.6.1">libgcrypt-1.6.1</a> and <a class="xref" href=
+          "../postlfs/gnutls.html" title="GnuTLS-3.2.11">GnuTLS-3.2.11</a> or
           <a class="xref" href="../postlfs/nss.html" title=
-          "NSS-3.15.1">NSS-3.15.1</a>
+          "NSS-3.15.4">NSS-3.15.4</a>
         </p>
         <p>
           SSL support is required for the MSN Messenger, Yahoo!, Novel
@@ -132,11 +134,11 @@
           <a class="xref" href="../basicnet/avahi.html" title=
           "Avahi-0.6.31">Avahi-0.6.31</a> (required for the Bonjour plugin),
           <a class="xref" href="../general/check.html" title=
-          "Check-0.9.10">Check-0.9.10</a> (only used during the test suite),
+          "Check-0.9.12">Check-0.9.12</a> (only used during the test suite),
           <a class="xref" href="../postlfs/cyrus-sasl.html" title=
           "Cyrus SASL-2.1.26">Cyrus SASL-2.1.26</a>, <a class="xref" href=
           "../general/dbus-glib.html" title=
-          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="ulink" href=
+          "dbus-glib-0.102">dbus-glib-0.102</a>, <a class="ulink" href=
           "http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/">Evolution
           Data Server</a>, <a class="ulink" href=
           "http://www.freedesktop.org/wiki/Software/Farstream">Farstream
@@ -150,23 +152,22 @@
           href="../general/intltool.html" title=
           "Intltool-0.50.2">Intltool-0.50.2</a>, <a class="xref" href=
           "../general/libidn.html" title="libidn-1.28">libidn-1.28</a>,
-          <a class="ulink" href="http://toxygen.net/libgadu/">libgadu</a>,
-          <a class="ulink" href=
-          "http://meanwhile.sourceforge.net/">Meanwhile</a> (required for
-          Sametime protocol support), <a class="xref" href=
-          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.3">MIT
-          Kerberos V5-1.11.3</a> (required for Kerberos support in the Zephyr
+          <a class="ulink" href="http://libgadu.net/">libgadu</a>, <a class=
+          "ulink" href="http://meanwhile.sourceforge.net/">Meanwhile</a>
+          (required for Sametime protocol support), <a class="xref" href=
+          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.12.1">MIT
+          Kerberos V5-1.12.1</a> (required for Kerberos support in the Zephyr
           module), <a class="xref" href="../basicnet/networkmanager.html"
-          title="NetworkManager-0.9.8.2">NetworkManager-0.9.8.2</a>,
+          title="NetworkManager-0.9.8.8">NetworkManager-0.9.8.8</a>,
           <a class="ulink" href="http://silcnet.org/software/">SILC
           Client</a>, <a class="ulink" href=
           "http://silcnet.org/software/">SILC Toolkit</a>, <a class="xref"
           href="../x/startup-notification.html" title=
           "startup-notification-0.12">startup-notification-0.12</a>,
           <a class="xref" href="../server/sqlite.html" title=
-          "SQLite-3.8.0.2">SQLite-3.8.0.2</a> (required for the Contact
+          "SQLite-3.8.3.1">SQLite-3.8.3.1</a> (required for the Contact
           Availability Prediction plugin), <a class="xref" href=
-          "../general/tcl.html" title="Tcl-8.6.0">Tcl-8.6.0</a>, and
+          "../general/tcl.html" title="Tcl-8.6.1">Tcl-8.6.1</a>, and
           <a class="ulink" href=
           "http://packages.debian.org/stable/source/zephyr">Zephyr</a>
         </p>
@@ -199,9 +200,9 @@ make</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.5">Doxygen-1.8.5</a> installed (<a class="xref" href=
+          "Doxygen-1.8.6">Doxygen-1.8.6</a> installed (<a class="xref" href=
           "../general/graphviz.html" title=
-          "Graphviz-2.34.0">Graphviz-2.34.0</a> can be used also) and you
+          "Graphviz-2.36.0">Graphviz-2.36.0</a> can be used also) and you
           wish to create the API documentation, issue: <span class=
           "command"><strong>make docs</strong></span>
         </p>
@@ -214,8 +215,8 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-mkdir -pv /usr/share/doc/pidgin-2.10.7 &amp;&amp;
-cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.10.7</kbd>
+mkdir -pv /usr/share/doc/pidgin-2.10.9 &amp;&amp;
+cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.10.9</kbd>
 </pre>
         <p>
           If you created the API documentation, install it using the
@@ -223,9 +224,38 @@ cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.10.7</kbd>
           user:
         </p>
         <pre class="root">
-<kbd class="command">mkdir -pv /usr/share/doc/pidgin-2.10.7/api &amp;&amp;
-cp -v doc/html/* /usr/share/doc/pidgin-2.10.7/api</kbd>
+<kbd class="command">mkdir -pv /usr/share/doc/pidgin-2.10.9/api &amp;&amp;
+cp -v doc/html/* /usr/share/doc/pidgin-2.10.9/api</kbd>
 </pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This package installs icon files into the <code class=
+            "filename">/usr/share/icons/hicolor</code> hierarchy and desktop
+            files into the <code class=
+            "filename">/usr/share/applications</code> hierarchy. You can
+            improve system performance and memory usage by updating
+            <code class=
+            "filename">/usr/share/icons/hicolor/index.theme</code> and
+            <code class=
+            "filename">/usr/share/applications/mimeinfo.cache</code>. To
+            perform the update you must have <a class="xref" href=
+            "../x/gtk2.html" title="GTK+-2.24.22">GTK+-2.24.22</a> or
+            <a class="xref" href="../x/gtk3.html" title=
+            "GTK+-3.10.7">GTK+-3.10.7</a> installed (for the icon cache) and
+            <a class="xref" href="../general/desktop-file-utils.html" title=
+            "desktop-file-utils-0.22">desktop-file-utils-0.22</a> (for the
+            desktop cache) and issue the following commands as the
+            <code class="systemitem">root</code> user:
+          </p>
+          <pre class="root">
+<kbd class="command">gtk-update-icon-cache &amp;&amp;
+update-desktop-database</kbd>
+</pre>
+        </div>
       </div>
       <div class="commands" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -239,7 +269,7 @@ cp -v doc/html/* /usr/share/doc/pidgin-2.10.7/api</kbd>
         <p>
           <code class="option">--disable-dbus</code>: Remove this switch if
           you've installed <a class="xref" href="../general/dbus.html" title=
-          "D-Bus-1.6.14">D-Bus-1.6.14</a>.
+          "D-Bus-1.8.0">D-Bus-1.8.0</a>.
         </p>
         <p>
           <code class="option">--disable-gtkspell</code>: Spellchecking.
@@ -266,7 +296,7 @@ cp -v doc/html/* /usr/share/doc/pidgin-2.10.7/api</kbd>
           <code class="option">--disable-nm</code>: Remove this switch if
           you've installed <a class="xref" href=
           "../basicnet/networkmanager.html" title=
-          "NetworkManager-0.9.8.2">NetworkManager-0.9.8.2</a>.
+          "NetworkManager-0.9.8.8">NetworkManager-0.9.8.8</a>.
         </p>
         <p>
           <code class="option">--disable-vv</code>: Video and voice. Remove
@@ -277,7 +307,7 @@ cp -v doc/html/* /usr/share/doc/pidgin-2.10.7/api</kbd>
         <p>
           <code class="option">--disable-tcl</code>: Remove this switch if
           you've installed <a class="xref" href="../general/tcl.html" title=
-          "Tcl-8.6.0">Tcl-8.6.0</a>.
+          "Tcl-8.6.1">Tcl-8.6.1</a>.
         </p>
         <p>
           <code class="option">--enable-cyrus-sasl</code>: Use this switch if
@@ -288,10 +318,10 @@ cp -v doc/html/* /usr/share/doc/pidgin-2.10.7/api</kbd>
         <p>
           <code class="option">--disable-gnutls</code>: Use this switch if
           you've got both <a class="xref" href="../postlfs/gnutls.html"
-          title="GnuTLS-3.2.4">GnuTLS-3.2.4</a> and <a class="xref" href=
-          "../postlfs/nss.html" title="NSS-3.15.1">NSS-3.15.1</a> installed,
+          title="GnuTLS-3.2.11">GnuTLS-3.2.11</a> and <a class="xref" href=
+          "../postlfs/nss.html" title="NSS-3.15.4">NSS-3.15.4</a> installed,
           but want to use <a class="xref" href="../postlfs/nss.html" title=
-          "NSS-3.15.1">NSS-3.15.1</a> for the SSL support.
+          "NSS-3.15.4">NSS-3.15.4</a> for the SSL support.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -337,15 +367,16 @@ cp -v doc/html/* /usr/share/doc/pidgin-2.10.7/api</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libgnt.so, libpurple.so, and
-              libpurple-client.so</span>
+              <span class="segbody">libgnt.so, libpurple.so,
+              libpurple-client.so, and plugins under
+              /usr/lib/{finch,gnt,pidgin,purple-2}</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/finch, /usr/include/gnt,
               /usr/include/libpurple, /usr/include/pidgin, /usr/lib/finch,
               /usr/lib/gnt, /usr/lib/pidgin, /usr/lib/purple-2,
-              /usr/share/doc/pidgin-2.10.7, /usr/share/pixmaps/pidgin,
+              /usr/share/doc/pidgin-2.10.9, /usr/share/pixmaps/pidgin,
               /usr/share/purple, and /usr/share/sounds/purple</span>
             </div>
           </div>
@@ -391,7 +422,7 @@ cp -v doc/html/* /usr/share/doc/pidgin-2.10.7/api</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-06 12:06:41 -0700
+        Last updated on 2014-02-25 03:54:44 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -412,11 +443,11 @@ cp -v doc/html/* /usr/share/doc/pidgin-2.10.7/api</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="other.html" title=
-          "Chapter&nbsp;36.&nbsp;Other X-based Programs">Up</a>
+          "Chapter&nbsp;38.&nbsp;Other X-based Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

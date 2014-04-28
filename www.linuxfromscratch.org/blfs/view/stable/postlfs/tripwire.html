@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="sudo.html" title="Sudo-1.8.7">Prev</a>
+          <a accesskey="p" href="sudo.html" title="Sudo-1.8.9p5">Prev</a>
           <p>
-            Sudo-1.8.7
+            Sudo-1.8.9p5
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           system.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -104,7 +104,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
         </p>
         <h4>
           Optional
@@ -131,6 +131,8 @@
 "command">sed -i -e 's@TWDB="${prefix}@TWDB="/var@' install/install.cfg            &amp;&amp;
 sed -i -e 's/!Equal/!this-&gt;Equal/' src/cryptlib/algebra.h                &amp;&amp;
 sed -i -e '/stdtwadmin.h/i#include &lt;unistd.h&gt;' src/twadmin/twadmincl.cpp &amp;&amp;
+sed -i -e '/TWMAN/ s|${prefix}|/usr/share|' \
+       -e '/TWDOCS/s|${prefix}|/usr/share|' install/install.cfg          &amp;&amp;
 
 ./configure --prefix=/usr --sysconfdir=/etc/tripwire                     &amp;&amp;
 make</kbd>
@@ -155,7 +157,7 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-cp -v policy/*.txt /usr/doc/tripwire</kbd>
+cp -v policy/*.txt /usr/share/doc/tripwire</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -317,12 +319,6 @@ twprint --print-report -r /var/lib/tripwire/report/<em class=
             filename in the report and type <span class=
             "command"><strong>:wq</strong></span>.
           </p>
-          <p>
-            A good summary of tripwire operations can be found at <a class=
-            "ulink" href=
-            "http://va-holladays.no-ip.info:2200/tools/security-docs/tripwire-v1.0.pdf">
-            http://va-holladays.no-ip.info:2200/tools/security-docs/tripwire-v1.0.pdf</a>.
-          </p>
         </div>
         <div class="sect3" lang="en" xml:lang="en">
           <h3 class="sect3">
@@ -436,15 +432,15 @@ tripwire --init</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 03:32:24 -0700
+        Last updated on 2014-02-22 18:30:29 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="sudo.html" title="Sudo-1.8.7">Prev</a>
+          <a accesskey="p" href="sudo.html" title="Sudo-1.8.9p5">Prev</a>
           <p>
-            Sudo-1.8.7
+            Sudo-1.8.9p5
           </p>
         </li>
         <li class="next">
@@ -460,7 +456,7 @@ tripwire --init</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

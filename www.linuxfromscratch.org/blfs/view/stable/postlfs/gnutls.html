@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GnuTLS-3.2.4
+      GnuTLS-3.2.11
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnupg2.html" title="GnuPG-2.0.21">Prev</a>
+          <a accesskey="p" href="gnupg.html" title="GnuPG-2.0.22">Prev</a>
           <p>
-            GnuPG-2.0.21
+            GnuPG-2.0.22
           </p>
         </li>
         <li class="next">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gnutls" name="gnutls"></a>GnuTLS-3.2.4
+        <a id="gnutls" name="gnutls"></a>GnuTLS-3.2.11
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -75,7 +75,7 @@
           OpenPGP certificate handling.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -86,29 +86,30 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/gnutls-3.2.4.tar.xz">
-                ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/gnutls-3.2.4.tar.xz</a>
+                "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/gnutls-3.2.11.tar.xz">
+                ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/gnutls-3.2.11.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 79ef8538d65128b7ed47046649b98c27
+                Download MD5 sum: 3fce0742dd7e273235a9d376dd895657
               </p>
             </li>
             <li>
               <p>
-                Download size: 4.7 MB
+                Download size: 4.9 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 104 MB
+                Estimated disk space required: 102 MB (additional 10 MB for
+                the tests and 4 MB for the API documentation rebuild)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.2 SBU (additional 1.2 SBU if running
-                the testsuite)
+                Estimated build time: 0.9 SBU (additional 1.3 SBU for the
+                tests and less than 0.1 SBU for API documentation rebuild)
               </p>
             </li>
           </ul>
@@ -130,19 +131,23 @@
           <a class="xref" href="cacerts.html" title=
           "Certificate Authority Certificates">Certificate Authority
           Certificates</a> and <a class="xref" href=
-          "../general/libtasn1.html" title="libtasn1-3.3">libtasn1-3.3</a>
+          "../general/libtasn1.html" title="libtasn1-3.4">libtasn1-3.4</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../general/gtk-doc.html" title=
+          <a class="ulink" href=
+          "http://ftp.gnu.org/gnu/autogen/">autogen</a>, <a class="xref"
+          href="../general/gtk-doc.html" title=
           "GTK-Doc-1.19">GTK-Doc-1.19</a>, <a class="xref" href=
           "../general/guile.html" title="Guile-2.0.9">Guile-2.0.9</a>,
           <a class="xref" href="../general/libidn.html" title=
           "libidn-1.28">libidn-1.28</a>, <a class="xref" href="p11-kit.html"
-          title="p11-kit-0.20.1">p11-kit-0.20.1</a>, <a class="xref" href=
-          "../server/unbound.html" title="Unbound-1.4.20">Unbound-1.4.20</a>
+          title="p11-kit-0.20.2">p11-kit-0.20.2</a>, <a class="ulink" href=
+          "http://sourceforge.net/projects/trousers/files/trousers/">Trousers</a>
+          (Trusted Platform Module support), <a class="xref" href=
+          "../server/unbound.html" title="Unbound-1.4.21">Unbound-1.4.21</a>
           (to build the DANE library), and <a class="ulink" href=
           "http://valgrind.org/">Valgrind</a> (used during the test suite)
         </p>
@@ -153,7 +158,7 @@
           </h3>
           <p>
             Note that if you do not install <a class="xref" href=
-            "../general/libtasn1.html" title="libtasn1-3.3">libtasn1-3.3</a>,
+            "../general/libtasn1.html" title="libtasn1-3.4">libtasn1-3.4</a>,
             an older version shipped in the <span class=
             "application">GnuTLS</span> tarball will be used instead.
           </p>
@@ -236,13 +241,14 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libgnutls.so, libgnutls-openssl.so,
-              libgnutls-xssl.so and libgnutlsxx.so</span>
+              libgnutls-xssl.so, libgnutlsxx.so and
+              /usr/lib/guile/2.0/guile-gnutls-v-2.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/gnutls,
-              /usr/share/doc/gnutls-3.2.1, and
-              /usr/share/gtk-doc/html/gnutls</span>
+              /usr/share/gtk-doc/html/gnutls and
+              /usr/share/guile/site/gnutls</span>
             </div>
           </div>
         </div>
@@ -279,7 +285,10 @@ make</kbd>
                 <td>
                   <p>
                     is a simple wrapper that waits for TLS/SSL connections,
-                    and proxies them to an unencrypted location.
+                    and proxies them to an unencrypted location. Only
+                    installed if <a class="xref" href=
+                    "../general/libidn.html" title=
+                    "libidn-1.28">libidn-1.28</a> is present.
                   </p>
                 </td>
               </tr>
@@ -425,15 +434,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-01 09:34:27 -0700
+        Last updated on 2014-02-20 06:45:35 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnupg2.html" title="GnuPG-2.0.21">Prev</a>
+          <a accesskey="p" href="gnupg.html" title="GnuPG-2.0.22">Prev</a>
           <p>
-            GnuPG-2.0.21
+            GnuPG-2.0.22
           </p>
         </li>
         <li class="next">
@@ -448,7 +457,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

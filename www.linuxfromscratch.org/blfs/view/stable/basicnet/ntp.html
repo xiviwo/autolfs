@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;15.&nbsp;Networking Programs
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           implementation of the NTP protocol.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -107,18 +107,18 @@
           ntp Dependencies
         </h3>
         <h4>
-          Required
+          Recommended
         </h4>
-        <p class="required">
-          <a class="xref" href="../postlfs/libcap2.html" title=
-          "libcap2-2.22">libcap2-2.22</a>
+        <p class="recommended">
+          <a class="xref" href="../postlfs/libcap.html" title=
+          "libcap-2.24">libcap-2.24</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a> and <a class="ulink" href=
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a> and <a class="ulink" href=
           "http://www.thrysoee.dk/editline/">libedit</a>
         </p>
         <p class="usernotes">
@@ -146,8 +146,7 @@ useradd -c "Network Time Protocol" -d /var/lib/ntp -u 87 \
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">
-./configure --prefix=/usr         \
+<kbd class="command">./configure --prefix=/usr         \
             --sysconfdir=/etc     \
             --enable-linuxcaps    \
             --with-binsubdir=sbin \
@@ -258,7 +257,7 @@ EOF</kbd>
             If you choose Option one, then install the <code class=
             "filename">/etc/rc.d/init.d/ntp</code> init script included in
             the <a class="xref" href="../introduction/bootscripts.html"
-            title="BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
+            title="BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-ntpd</kbd>
@@ -472,7 +471,7 @@ ln -v -sf ../init.d/setclock /etc/rc.d/rc6.d/K46setclock</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-20 18:40:33 -0700
+        Last updated on 2014-02-17 15:16:31 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -496,7 +495,7 @@ ln -v -sf ../init.d/setclock /etc/rc.d/rc6.d/K46setclock</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

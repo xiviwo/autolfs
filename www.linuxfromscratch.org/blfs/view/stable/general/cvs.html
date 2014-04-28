@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="cmake.html" title="CMake-2.8.11.2">Prev</a>
+          <a accesskey="p" href="cmake.html" title="CMake-2.8.12.2">Prev</a>
           <p>
-            CMake-2.8.11.2
+            CMake-2.8.12.2
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
           "Running a CVS Server">Running a CVS Server</a>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -115,8 +115,8 @@
             <li>
               <p>
                 Recommended patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/cvs-1.11.23-zlib-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/cvs-1.11.23-zlib-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/cvs-1.11.23-zlib-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/cvs-1.11.23-zlib-1.patch</a>
               </p>
             </li>
           </ul>
@@ -130,10 +130,10 @@
         <p class="optional">
           <a class="xref" href="../postlfs/tcsh.html" title=
           "Tcsh-6.18.01">Tcsh-6.18.01</a>, <a class="xref" href=
-          "../postlfs/openssh.html" title="OpenSSH-6.3p1">OpenSSH-6.3p1</a>,
-          <a class="ulink" href="http://www.pdc.kth.se/kth-krb/">krb4</a>,
+          "../postlfs/openssh.html" title="OpenSSH-6.5p1">OpenSSH-6.5p1</a>,
+          <a class="ulink" href="ftp://ftp.pdc.kth.se/pub/krb/src/">krb4</a>,
           <a class="xref" href="../postlfs/mitkrb.html" title=
-          "MIT Kerberos V5-1.11.3">MIT Kerberos V5-1.11.3</a> (for the GSSAPI
+          "MIT Kerberos V5-1.12.1">MIT Kerberos V5-1.12.1</a> (for the GSSAPI
           libraries), <a class="xref" href="../pst/gs.html" title=
           "ghostscript-9.10">ghostscript-9.10</a>, and an <a class="xref"
           href="../server/mail.html" title=
@@ -208,24 +208,23 @@
           Now fix some conflicts with newer libraries and programs:
         </p>
         <pre class="userinput">
-<kbd class="command">
-sed -i -e 's/getline /get_line /' lib/getline.{c,h} &amp;&amp;
-sed -i -e 's/^@sp$/&amp; 1/'          doc/cvs.texinfo 
-</kbd>
+<kbd class=
+"command">sed -i -e 's/getline /get_line /' lib/getline.{c,h} &amp;&amp;
+sed -i -e 's/^@sp$/&amp; 1/'          doc/cvs.texinfo &amp;&amp;
+touch doc/*.pdf</kbd>
 </pre>
         <p>
           Install <span class="application">CVS</span> by running the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class=
+"command">./configure --prefix=/usr --docdir=/usr/share/doc/cvs-1.11.23 &amp;&amp;
 make</kbd>
 </pre>
         <p>
-          If you have <a class="xref" href="../pst/texlive.html" title=
-          "texlive-20130530">texlive-20130530</a> installed and wish to
-          create HTML or text docs from the documentation source files, issue
-          the following command:
+          If you wish to create HTML or text docs from the documentation
+          source files, issue the following command:
         </p>
         <pre class="userinput">
 <kbd class="command">make -C doc html txt</kbd>
@@ -253,9 +252,8 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-install -v -m755 -d         /usr/share/doc/cvs-1.11.23 &amp;&amp;
-install -v -m644 FAQ README /usr/share/doc/cvs-1.11.23 &amp;&amp;
-install -v -m644 doc/*.pdf  /usr/share/doc/cvs-1.11.23</kbd>
+make -C doc install-pdf &amp;&amp;
+install -v -m644 FAQ README /usr/share/doc/cvs-1.11.23</kbd>
 </pre>
         <p>
           If you created any additional documentation, install it by issuing
@@ -389,15 +387,15 @@ install -v -m644 doc/cvsclient.html/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-05 09:23:52 -0700
+        Last updated on 2014-02-23 13:25:47 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="cmake.html" title="CMake-2.8.11.2">Prev</a>
+          <a accesskey="p" href="cmake.html" title="CMake-2.8.12.2">Prev</a>
           <p>
-            CMake-2.8.11.2
+            CMake-2.8.12.2
           </p>
         </li>
         <li class="next">
@@ -413,7 +411,7 @@ install -v -m644 doc/cvsclient.html/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

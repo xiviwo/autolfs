@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;File Systems and Disk Management
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gptfdisk.html" title=
-          "gptfdisk-0.8.7">Prev</a>
+          "gptfdisk-0.8.10">Prev</a>
           <p>
-            gptfdisk-0.8.7
+            gptfdisk-0.8.10
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           partitioning and partition resizing tool.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -102,7 +102,7 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="lvm2.html" title=
-          "LVM2-2.02.100">LVM2-2.02.100</a> (device-mapper, required if
+          "LVM2-2.02.106">LVM2-2.02.106</a> (device-mapper, required if
           building <span class="application">udisks</span>)
         </p>
         <p class="usernotes">
@@ -119,7 +119,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
+<kbd class="command">sed -i parted/ui.c \
+    -e "s:(CPPFunction\*) complete:(rl_completion_func_t\*) complete:" &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
 make &amp;&amp;
 
 make -C doc html                                       &amp;&amp;
@@ -140,7 +142,8 @@ dvips                -o doc/parted.ps  doc/parted.dvi</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
+          check</strong></span>. Note that many tests are skipped if not run
+          as the <code class="systemitem">root</code> user.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -168,6 +171,12 @@ install -v -m644    doc/{FAT,API,parted.{txt,html}} \
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <span class="command"><strong>sed -i parted/ui.c
+          ...</strong></span>: This <span class=
+          "command"><strong>sed</strong></span> fixes building with
+          <span class="application">Readline</span> 6.x (x&gt;2).
+        </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
@@ -252,16 +261,16 @@ install -v -m644    doc/{FAT,API,parted.{txt,html}} \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 10:32:24 +0000
+        Last updated on 2014-03-19 22:51:57 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="gptfdisk.html" title=
-          "gptfdisk-0.8.7">Prev</a>
+          "gptfdisk-0.8.10">Prev</a>
           <p>
-            gptfdisk-0.8.7
+            gptfdisk-0.8.10
           </p>
         </li>
         <li class="next">
@@ -277,7 +286,7 @@ install -v -m644    doc/{FAT,API,parted.{txt,html}} \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

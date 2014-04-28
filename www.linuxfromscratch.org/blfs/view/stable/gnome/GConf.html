@@ -12,36 +12,36 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;30.&nbsp;GNOME Core Packages
+        Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="yelp-xsl.html" title=
-          "yelp-xsl-3.8.1">Prev</a>
+          "yelp-xsl-3.10.1">Prev</a>
           <p>
-            yelp-xsl-3.8.1
+            yelp-xsl-3.10.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libgnome-keyring.html" title=
-          "libgnome-keyring-3.8.0">Next</a>
+          <a accesskey="n" href="libsecret.html" title=
+          "libsecret-0.16">Next</a>
           <p>
-            libgnome-keyring-3.8.0
+            libsecret-0.16
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           "application">GNOME</span> applications.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -111,7 +111,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/dbus-glib.html" title=
-          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
+          "dbus-glib-0.102">dbus-glib-0.102</a>, <a class="xref" href=
           "../general/intltool.html" title=
           "Intltool-0.50.2">Intltool-0.50.2</a> and <a class="xref" href=
           "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
@@ -121,10 +121,10 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>,
+          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>,
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.8.4">GTK+-3.8.4</a> and <a class="xref" href=
-          "../postlfs/polkit.html" title="Polkit-0.111">Polkit-0.111</a>
+          "GTK+-3.10.7">GTK+-3.10.7</a> and <a class="xref" href=
+          "../postlfs/polkit.html" title="Polkit-0.112">Polkit-0.112</a>
         </p>
         <h4>
           Optional
@@ -133,7 +133,7 @@
           <a class="xref" href="../general/gtk-doc.html" title=
           "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="xref" href=
           "../server/openldap.html" title=
-          "OpenLDAP-2.4.36">OpenLDAP-2.4.36</a>
+          "OpenLDAP-2.4.39">OpenLDAP-2.4.39</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -151,7 +151,6 @@
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --libexecdir=/usr/lib/GConf \
             --disable-orbit \
             --disable-static &amp;&amp;
 make</kbd>
@@ -205,8 +204,8 @@ ln -s gconf.xml.defaults /etc/gconf/gconf.xml.system</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/gconf, /usr/include/gconf,
-              /usr/lib/GConf, /usr/share/GConf, /usr/share/gtk-doc/html/gconf
-              and /usr/share/sgml/gconf</span>
+              /usr/lib/GConf, /usr/share/gtk-doc/html/gconf and
+              /usr/share/sgml/gconf</span>
             </div>
           </div>
         </div>
@@ -298,32 +297,32 @@ ln -s gconf.xml.defaults /etc/gconf/gconf.xml.system</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-25 04:52:57 -0700
+        Last updated on 2014-02-22 07:06:53 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="yelp-xsl.html" title=
-          "yelp-xsl-3.8.1">Prev</a>
+          "yelp-xsl-3.10.1">Prev</a>
           <p>
-            yelp-xsl-3.8.1
+            yelp-xsl-3.10.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libgnome-keyring.html" title=
-          "libgnome-keyring-3.8.0">Next</a>
+          <a accesskey="n" href="libsecret.html" title=
+          "libsecret-0.16">Next</a>
           <p>
-            libgnome-keyring-3.8.0
+            libsecret-0.16
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

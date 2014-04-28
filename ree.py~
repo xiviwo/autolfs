@@ -1,0 +1,313 @@
+#!/usr/bin/env python
+import re
+#import inspect
+#from inspect import getargspec
+#from inspect import ismethod
+#from itertools import izip
+blfsregx = (
+
+(r"mkdir\s*-v",						"mkdir -pv"),
+(r"mkdir\s*/",							"mkdir -pv /"),
+(r"mkdir\s*",							"mkdir -pv "),
+(r"export\s*",		"export LANG=en_US.utf8"),
+(r'"\s*<PREFIX>\s*"',						'"/opt"'),
+(r"\s*</path/to/unzipped/files>\s*",				''),
+(r'&&$',							'match end'),
+(r'[A-Z]{2,}',							'upper'),
+)
+ActionList = (
+'^\s*pwconv.*',
+'^\s*grpconv.*',
+"^\s*echo 'root:ping'.*",
+'^\s*grub-install .*',
+'^\s*build/udevadm hwdb --update.*',
+'^\s*chgrp.*',
+'^\s*chmod.*',
+'^\s*chown.*',
+'^\s*gtk-update-icon-cache.*',
+'^\s*update-desktop-database.*',
+'^\s*usermod.*',
+'^\s*useradd.*',
+'^\s*groupadd.*',
+'^\s*ssh-keygen.*',
+'^\s*unset public_key.*',
+#'^\s*rndc-confgen.*',
+'mknod',
+'^\s*/etc/rc.d/init.d/.*',
+'^exim -v -bi',
+'^/usr/sbin/.*',
+
+)
+
+def make_dummy(self,regx):
+  
+	#print "in dummmm",regx
+	for i,v in enumerate(regx): 
+		name = "replace_line" + str(i)
+		#print 'create function: ',name,i,v
+		if callable(replace_line):
+			_method = replace_line(self,i,regx)
+			setattr(self, name, _method)
+    
+
+def append_line(self,regx):
+    def _method(self,*args):
+	for arg in args:
+		if isinstance(arg, type(re.match("",""))):
+        		#print 'append===',type(self),' after = ', arg.string
+			return arg.string.strip("\n").strip() + ' %{?_smp_mflags} \n'
+    return _method
+
+def replace_line(self,i,regx):
+    def _method(self,*args):
+	#print 'in replace line'
+	for arg in args:
+		if isinstance(arg, type(re.match("",""))):
+			line = arg.string
+        		#print 'replace===',i,arg.string,' with==',regx[i][1]
+			return regx[i][1]
+    return _method
+
+def move_line(self,mo,*args):
+	def _method(self,*args):
+		#print 'in move line'
+		for arg in args:
+			if isinstance(arg, type(re.match("",""))):
+				line = arg.string
+		for arg in args:
+			#print "arg===",arg,
+			if type(arg) is list:
+				#print "list name =",getlistname(arg)
+				arg.append(line)
+				#print 'move line : ',line," to ", arg
+				break
+	return _method
+
+
+def make_method(i,regx):
+    def _method(self,*args):
+	 
+	print "i=",i
+	print "line ===",args[0].string
+	for arg in args:
+        	print "make_method_args=",arg
+	return regx[i][1]
+    return _method
+
+
+def make_method2(i,name):
+    def _method(self,*args):
+	print "this is method2"
+	for arg in args:
+        	print arg
+	return blfsregx[i][1]
+    return _method
+
+def make_action_func(name):
+    def _method(self,*args):
+	print "this is action func"
+	for arg in args:
+        	print arg
+	return ActionList[0]
+    return _method
+
+def test_func(*args):
+	for arg in args:
+        	print "test_func=",arg
+	print "in test function"
+	return 'replacement'
+
+class MultiRegex(object):
+	flags = re.DOTALL
+	regexes = ()
+	#line = ""
+	def __init__(self,regex,func):
+	    	regname =  str(id(regex))#+ "_" +  getlistname(regex)
+		#print 'list name ===',regname
+		funcname = func.__name__ #+ "_" +  str(id(regex))
+		#print 'func name ===',funcname
+		try:
+			self._regx = getattr(self, regname)
+		except AttributeError:
+
+
+			try:
+
+				if type(regex[0]) is str:
+					regx = "(?P<" + funcname + '>(' + '|'.join(l for l in regex) + '))'
+
+					regvalue = re.compile( regx , self.flags)
+				else:
+					regx = '|'.join("(?P<" + 'replace_line' + str(i) + '>' + l + ")" for i,l in enumerate(zip(*regex)[0]))
+					ex =  regx + "|" if self.regexes  else regx
+					#print 'ex=======',"|".join(self.regexes) +  ex
+					regvalue = re.compile(ex + "|".join(self.regexes) , self.flags)
+
+
+			except IndexError:
+				raise Exception('Regex {0} list is Null'.format(regx))
+
+
+			setattr(self, regname,regvalue)
+			self._regx = getattr(self, regname)
+			#print '',getattr(self, regname)
+		
+			print regvalue.pattern
+			#print regvalue.flags
+			#if type(exregx[0]) is str:
+
+
+			if callable(func):
+			#_method = make_func(name)
+		
+				__method = func(self,regex)
+				#print "Create Function:---------",funcname,'type=',type(__method)
+				if callable(__method):
+					setattr(self, funcname, __method)
+				else:
+					setattr(self, funcname, func)
+			#if func.__name__ == "make_dummy":
+			#	makefunc = getattr(self, name)
+			#	print "in dummy",makefunc
+				#print inspect.getsource(makefunc)
+			#	print makefunc(self,regex)
+			#print inspect.getmembers(self, predicate=inspect.ismethod)
+			#print '------------init-----------------------------'
+			#for k,v in self.__dict__.items():
+			#	print k,'---------',v
+			#print '------------init-----------------------------'
+
+	 
+
+	def search(self,s,*args):
+		#print "for line====================================================",s
+		#for key,val in self.__dict__.items():
+		#	c = 0
+		
+		#	if isinstance(val, type(re.compile(""))):
+		#		print key,'++++++',val.pattern
+		c=0
+		for mo in self._regx.finditer(s):
+			print self._regx.pattern
+			print
+			print 'Search Found===',mo.groupdict()
+			for k,v in mo.groupdict().iteritems():
+
+				if v:
+					func = getattr(self, k)
+
+
+					if callable(func):
+						#print "calling func",func.__name__
+						func(self,mo,*args)
+						break
+					else:
+
+						func
+						break
+			c += 1
+		#print "for line========================================================"
+		return c > 0 
+
+	def sub(self,s,*args):
+		#for key,val in self.__dict__.items():
+		
+		#	if isinstance(val, type(re.compile(""))):
+		#		print key,'=====',val
+		#print s
+		return self._regx.sub(self._sub, s)
+
+	def _sub(self, mo,*args):
+		'''
+		determine which partial regex matched, and
+		dispatch on self accordingly.
+		'''
+		
+		#print self._regx.pattern
+		print
+		print 'sub Found===',mo.groupdict()
+		for k,v in mo.groupdict().iteritems():
+		    
+		    if v:
+
+			sub = getattr(self, k)
+			if callable(sub):
+			    #print "calling func",sub.__name__
+			    return sub(self,mo,*args)
+			return sub
+		raise AttributeError,'nothing captured, matching sub-regex could not be identified'
+
+
+
+
+InstallSubRegex = (
+(r'=/',			"=${RPM_BUILD_ROOT}/"),
+(r'DESTDIR=',		"DESTDIR=$RPM_BUILD_ROOT"),
+(r'f ../',		"f  %_sourcedir/"),
+)
+
+
+class TrivialExample(MultiRegex):
+    regexes = (
+	r'(?!(?P<MakeInstall>.*make.*install.*))',
+    )
+
+    def Lower(self, mo):
+        return 'lower:' + mo.group() 
+
+    upper = lambda self, mo: 'upper:' + mo.group()
+    test = " && "
+    mixed = 'stuff'
+
+    def MakeInstall(self,mo,*args):
+	if isinstance(mo, type(re.match("",""))):
+		line = mo.string
+	else:
+		line = ""
+	for arg in args:
+		#print 'arg===',arg
+		if isinstance(arg, type(re.match("",""))):
+			line = arg.string
+			break
+	#print "line ====",line
+	if "make modules_install" in line:
+		line = line.strip("\n") + " INSTALL_MOD_PATH=$RPM_BUILD_ROOT \n"
+	if "make BINDIR=${RPM_BUILD_ROOT}/sbin install" in line: 
+
+		line = line.strip("\n") + " install prefix=$RPM_BUILD_ROOT \n"
+	if "make -C src install" in line:
+
+		line = line.strip("\n") + " ROOT=$RPM_BUILD_ROOT \n"
+	if "&&" in line:
+
+		line = line.strip("\n").strip("&&").strip() + " DESTDIR=$RPM_BUILD_ROOT \n"
+	else:
+		line = line.strip("\n") + " DESTDIR=$RPM_BUILD_ROOT \n"
+	#print "line ====",line
+	return line
+
+
+class TrivialExample2(TrivialExample):
+    '''
+    this illustrates that the order of regexes is important
+    '''
+    regexes = (
+        r'(?P<mixed>[a-zA-Z]+)',
+        r'(?P<lower>[a-z]{2,})',
+        r'(?P<upper>[A-Z]{2,})'
+    )
+
+a = 'make infodir=/usr/share/info install.info'
+#print TrivialExample().sub(a)
+#print TrivialExample2().sub(a)
+#print TrivialExample(ActionList,test_func).search(a,9,9,0,9,0)
+print '------------------'
+print TrivialExample(InstallSubRegex,make_dummy).sub(a)
+#print TrivialExample(blfsregx,test_func,a)
+print '=================='
+'''
+produces:                                                                      
+stuff lower:cake lower:was upper:AWESOME, lower:dude!
+stuff stuff stuff stuff, stuff!
+'''
+

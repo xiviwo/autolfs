@@ -12,35 +12,34 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libvpx.html" title="libvpx-v1.2.0">Prev</a>
+          <a accesskey="p" href="libvpx.html" title="libvpx-v1.3.0">Prev</a>
           <p>
-            libvpx-v1.2.0
+            libvpx-v1.3.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="pulseaudio.html" title=
-          "PulseAudio-4.0">Next</a>
+          <a accesskey="n" href="opus.html" title="Opus-1.1">Next</a>
           <p>
-            PulseAudio-4.0
+            Opus-1.1
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +57,7 @@
           a single integrated call model.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -110,8 +109,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/opal-3.10.10-ffmpeg-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/opal-3.10.10-ffmpeg-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/opal-3.10.10-ffmpeg2-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/opal-3.10.10-ffmpeg2-1.patch</a>
               </p>
             </li>
           </ul>
@@ -132,18 +131,18 @@
         <p class="optional">
           <a class="ulink" href="http://www.celt-codec.org/">Celt</a>,
           <a class="xref" href="ffmpeg.html" title=
-          "FFmpeg-1.2.2">FFmpeg-1.2.2</a>, <a class="ulink" href=
+          "FFmpeg-2.1.3">FFmpeg-2.1.3</a>, <a class="ulink" href=
           "http://www.quut.com/gsm/">GSM</a>, <a class="ulink" href=
           "http://www.isdn4linux.de/">ISDN4Linux</a>, <a class="xref" href=
           "libtheora.html" title="libtheora-1.1.1">libtheora-1.1.1</a>,
           <a class="xref" href="../general/openjdk.html" title=
-          "OpenJDK-1.7.0.40/IcedTea-2.4.1">OpenJDK-1.7.0.40/IcedTea-2.4.1</a>,
+          "OpenJDK-1.7.0.51/IcedTea-2.4.5">OpenJDK-1.7.0.51/IcedTea-2.4.5</a>,
           <a class="xref" href="../general/ruby.html" title=
-          "Ruby-2.0.0">Ruby-2.0.0</a>, <a class="ulink" href=
+          "Ruby-2.1.0">Ruby-2.1.0</a>, <a class="ulink" href=
           "http://www.linuxfromscratch.org/blfs/view/stable/multimedia/www.soft-switch.org/">Spandsp</a>, <a class="xref" href=
           "speex.html" title="Speex-1.2rc1">Speex-1.2rc1</a>, and <a class=
-          "ulink" href=
-          "http://www.videolan.org/developers/x264.html">x264</a>
+          "xref" href="x264.html" title=
+          "x264-20140115-2245">x264-20140115-2245</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -159,7 +158,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../opal-3.10.10-ffmpeg-1.patch &amp;&amp;
+<kbd class="command">patch -Np1 -i ../opal-3.10.10-ffmpeg2-1.patch &amp;&amp;
 
 ./configure --prefix=/usr &amp;&amp;
 make</kbd>
@@ -222,31 +221,30 @@ chmod -v 644 /usr/lib/libopal_s.a</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-05 10:04:34 -0700
+        Last updated on 2014-02-27 03:06:47 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libvpx.html" title="libvpx-v1.2.0">Prev</a>
+          <a accesskey="p" href="libvpx.html" title="libvpx-v1.3.0">Prev</a>
           <p>
-            libvpx-v1.2.0
+            libvpx-v1.3.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="pulseaudio.html" title=
-          "PulseAudio-4.0">Next</a>
+          <a accesskey="n" href="opus.html" title="Opus-1.1">Next</a>
           <p>
-            PulseAudio-4.0
+            Opus-1.1
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

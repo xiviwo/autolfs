@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Boost-1.54.0
+      Boost-1.55.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -29,10 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="dbus-glib.html" title=
-          "dbus-glib-0.100.2">Next</a>
+          <a accesskey="n" href="clucene.html" title=
+          "CLucene-2.3.3.4">Next</a>
           <p>
-            dbus-glib-0.100.2
+            CLucene-2.3.3.4
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="boost" name="boost"></a>Boost-1.54.0
+        <a id="boost" name="boost"></a>Boost-1.55.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           image processing, regular expressions and unit testing.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -71,42 +71,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/boost/boost_1_54_0.tar.bz2">
-                http://downloads.sourceforge.net/boost/boost_1_54_0.tar.bz2</a>
+                "http://downloads.sourceforge.net/boost/boost_1_55_0.tar.bz2">
+                http://downloads.sourceforge.net/boost/boost_1_55_0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 15cb8c0803064faef0c4ddf5bc5ca279
+                Download MD5 sum: d6eef4b4cacb2183f2bf265a5a03a354
               </p>
             </li>
             <li>
               <p>
-                Download size: 55 MB
+                Download size: 56 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 713 MB
+                Estimated disk space required: 828 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 5.4 SBU
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/boost-1.54.0-glibc-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/boost-1.54.0-glibc-1.patch</a>
+                Estimated build time: 11.7 SBU
               </p>
             </li>
           </ul>
@@ -118,9 +104,9 @@
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="icu.html" title="ICU-51.2">ICU-51.2</a> and
+          <a class="xref" href="icu.html" title="ICU-53.1">ICU-53.1</a> and
           <a class="xref" href="python2.html" title=
-          "Python-2.7.5">Python-2.7.5</a>
+          "Python-2.7.6">Python-2.7.6</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -136,8 +122,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../boost-1.54.0-glibc-1.patch &amp;&amp;
-./bootstrap.sh --prefix=/usr &amp;&amp;
+<kbd class="command">./bootstrap.sh --prefix=/usr &amp;&amp;
 ./b2 stage threading=multi link=shared</kbd>
 </pre>
         <p>
@@ -181,14 +166,16 @@
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libboost_atomic.so, libboost_chrono.so,
-              libboost_context.so, libboost_date_time.so,
-              libboost_exception.a, libboost_filesystem.so,
-              libboost_graph.so, libboost_iostreams.so, libboost_locale.so,
-              libboost_math_c99f.so, libboost_math_c99l.so,
-              libboost_math_c99.so, libboost_math_tr1f.so,
-              libboost_math_tr1l.so, libboost_math_tr1.so,
-              libboost_prg_exec_monitor.so, libboost_program_options.so,
-              libboost_python.so, libboost_random.so, libboost_regex.so,
+              libboost_context.so, libboost_coroutine.so,
+              libboost_date_time.so, libboost_exception.a,
+              libboost_filesystem.so, libboost_graph.so,
+              libboost_iostreams.so, libboost_locale.so,
+              libboost_log_setup.so, libboost_log.so, libboost_math_c99f.so,
+              libboost_math_c99l.so, libboost_math_c99.so,
+              libboost_math_tr1f.so, libboost_math_tr1l.so,
+              libboost_math_tr1.so, libboost_prg_exec_monitor.so,
+              libboost_program_options.so, libboost_python.so,
+              libboost_random.so, libboost_regex.so,
               libboost_serialization.so, libboost_signals.so,
               libboost_system.so, libboost_test_exec_monitor.a,
               libboost_thread.so, libboost_timer.so,
@@ -203,7 +190,7 @@
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-26 17:26:25 +0000
+        Last updated on 2014-02-22 15:06:53 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -216,10 +203,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="dbus-glib.html" title=
-          "dbus-glib-0.100.2">Next</a>
+          <a accesskey="n" href="clucene.html" title=
+          "CLucene-2.3.3.4">Next</a>
           <p>
-            dbus-glib-0.100.2
+            CLucene-2.3.3.4
           </p>
         </li>
         <li class="up">
@@ -228,7 +215,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

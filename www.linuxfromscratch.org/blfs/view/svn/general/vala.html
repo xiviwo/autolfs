@@ -5,32 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Vala-0.20.1
+      Vala-0.24.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="tk.html" title="Tk-8.6.0">Prev</a>
+          <a accesskey="p" href="tk.html" title="Tk-8.6.1">Prev</a>
           <p>
-            Tk-8.6.0
+            Tk-8.6.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="yasm.html" title="yasm-1.2.0">Next</a>
+          <a accesskey="n" href="valgrind.html" title=
+          "Valgrind-3.9.0">Next</a>
           <p>
-            yasm-1.2.0
+            Valgrind-3.9.0
           </p>
         </li>
         <li class="up">
@@ -39,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="vala" name="vala"></a>Vala-0.20.1
+        <a id="vala" name="vala"></a>Vala-0.24.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +60,7 @@
           ABI compared to applications and libraries written in C.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,20 +71,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/vala/0.20/vala-0.20.1.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/vala/0.20/vala-0.20.1.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/vala/0.24/vala-0.24.0.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/vala/0.24/vala-0.24.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/vala/0.20/vala-0.20.1.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/vala/0.20/vala-0.20.1.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/vala/0.24/vala-0.24.0.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/vala/0.24/vala-0.24.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: f285a90af17c400e5a4bcecb2b9c318a
+                Download MD5 sum: beddeff9c06d3c278988b237da0e7401
               </p>
             </li>
             <li>
@@ -93,12 +94,14 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 120 MB
+                Estimated disk space required: 126 MB (additional 2 MB to run
+                the test suite)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.2 SBU
+                Estimated build time: 0.8 SBU (additional 0.1 SBU to run the
+                test suite)
               </p>
             </li>
           </ul>
@@ -111,14 +114,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="glib2.html" title=
-          "GLib-2.36.4">GLib-2.36.4</a>
+          "GLib-2.40.0">GLib-2.40.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="dbus.html" title=
-          "D-Bus-1.6.14">D-Bus-1.6.14</a> (Required for the tests) and
+          "D-Bus-1.8.0">D-Bus-1.8.0</a> (Required for the tests) and
           <a class="xref" href="libxslt.html" title=
           "libxslt-1.1.28">libxslt-1.1.28</a> (Required for generating the
           documentation)
@@ -161,19 +164,19 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">vala, vala-0.20, valac, valac-0.20,
-              vala-gen-introspect, vala-gen-introspect-0.20, vapicheck,
-              vapicheck-0.20, vapigen and vapigen-0.20</span>
+              <span class="segbody">vala, vala-0.24, valac, valac-0.24,
+              vala-gen-introspect, vala-gen-introspect-0.24, vapicheck,
+              vapicheck-0.24, vapigen and vapigen-0.24</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libvala-0.20.so</span>
+              <span class="segbody">libvala-0.24.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/vala-0.20,
-              /usr/lib/vala-0.20, /usr/share/devhelp/books/vala-0.20,
-              /usr/share/vala and /usr/share/vala-0.20</span>
+              <span class="segbody">/usr/include/vala-0.24,
+              /usr/lib/vala-0.24, /usr/share/devhelp/books/vala-0.24,
+              /usr/share/vala and /usr/share/vala-0.24</span>
             </div>
           </div>
         </div>
@@ -249,7 +252,7 @@ make</kbd>
                   <p>
                     <a id="libvala" name="libvala"></a><span class=
                     "term"><code class=
-                    "filename">libvala-0.20.so</code></span>
+                    "filename">libvala-0.24.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -264,21 +267,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-22 01:50:45 +0000
+        Last updated on 2014-03-28 22:49:18 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="tk.html" title="Tk-8.6.0">Prev</a>
+          <a accesskey="p" href="tk.html" title="Tk-8.6.1">Prev</a>
           <p>
-            Tk-8.6.0
+            Tk-8.6.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="yasm.html" title="yasm-1.2.0">Next</a>
+          <a accesskey="n" href="valgrind.html" title=
+          "Valgrind-3.9.0">Next</a>
           <p>
-            yasm-1.2.0
+            Valgrind-3.9.0
           </p>
         </li>
         <li class="up">
@@ -287,7 +291,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

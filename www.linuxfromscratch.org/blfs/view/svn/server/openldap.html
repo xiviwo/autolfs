@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      OpenLDAP-2.4.36
+      OpenLDAP-2.4.39
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;23.&nbsp;Other Server Software
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="soprano.html" title="Soprano-2.9.3">Next</a>
+          <a accesskey="n" href="soprano.html" title="Soprano-2.9.4">Next</a>
           <p>
-            Soprano-2.9.3
+            Soprano-2.9.4
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="openldap" name="openldap"></a>OpenLDAP-2.4.36
+        <a id="openldap" name="openldap"></a>OpenLDAP-2.4.39
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           Protocol.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -69,13 +69,13 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.36.tgz">
-                ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.36.tgz</a>
+                "ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.39.tgz">
+                ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.39.tgz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 744701405d396b1fb9de6cb7a453c6e9
+                Download MD5 sum: b0d5ee4b252c841dec6b332d679cf943
               </p>
             </li>
             <li>
@@ -85,12 +85,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 130 MB
+                Estimated disk space required: 48 MB (client) 103 MB (server)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.2 SBU
+                Estimated build time: 0.9 SBU (client) 1.8 SBU (server)
               </p>
             </li>
           </ul>
@@ -103,22 +103,15 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.36-blfs_paths-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.36-blfs_paths-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.39-blfs_paths-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.39-blfs_paths-1.patch</a>
               </p>
             </li>
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.36-symbol_versions-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.36-symbol_versions-1.patch</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                Optional patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.36-ntlm-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.36-ntlm-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.39-symbol_versions-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.39-symbol_versions-1.patch</a>
               </p>
             </li>
           </ul>
@@ -130,8 +123,8 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="db.html" title="Berkeley DB-6.0.20">Berkeley
-          DB-6.0.20</a>
+          <a class="xref" href="db.html" title="Berkeley DB-6.0.30">Berkeley
+          DB-6.0.30</a> (only if building server)
         </p>
         <h4>
           Recommended
@@ -139,21 +132,22 @@
         <p class="recommended">
           <a class="xref" href="../postlfs/cyrus-sasl.html" title=
           "Cyrus SASL-2.1.26">Cyrus SASL-2.1.26</a> and <a class="xref" href=
-          "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          "../postlfs/openssl.html" title="OpenSSL-1.0.1g">OpenSSL-1.0.1g</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/icu.html" title=
-          "ICU-51.2">ICU-51.2</a>, <a class="xref" href="mysql.html" title=
-          "MySQL-5.6.13">MySQL-5.6.13</a> or <a class="xref" href=
-          "postgresql.html" title="PostgreSQL-9.3.0">PostgreSQL-9.3.0</a>,
+          "ICU-53.1">ICU-53.1</a>, <a class="xref" href="mariadb.html" title=
+          "MariaDB-10.0.10">MariaDB-10.0.10</a> or <a class="ulink" href=
+          "http://www.mysql.com/">MySQL</a> or <a class="xref" href=
+          "postgresql.html" title="PostgreSQL-9.3.4">PostgreSQL-9.3.4</a>,
           <a class="ulink" href="http://www.openslp.org/">OpenSLP</a>,
           <a class="xref" href="../general/pth.html" title=
           "Pth-2.0.7">Pth-2.0.7</a> and <a class="xref" href=
           "../general/unixodbc.html" title=
-          "unixODBC-2.3.1">unixODBC-2.3.1</a>
+          "unixODBC-2.3.2">unixODBC-2.3.2</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -164,23 +158,6 @@
         <h2 class="sect2">
           Installation of OpenLDAP
         </h2>
-        <div class="admon important">
-          <img alt="[Important]" src="../images/important.png" />
-          <h3>
-            Important
-          </h3>
-          <p>
-            Without the following patch, the <span class=
-            "application">Evolution</span> Exchange addressbook integration
-            uses simple binds with cleartext passwords. If you are going to
-            build <span class="application">Evolution Data Server</span> with
-            <span class="application">OpenLDAP</span> support, apply the
-            following patch:
-          </p>
-          <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../openldap-2.4.36-ntlm-1.patch</kbd>
-</pre>
-        </div>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
           <h3>
@@ -191,23 +168,23 @@
             "command"><strong>ldap*</strong></span> binaries, corresponding
             man pages, libraries and header files (referred to as a
             &ldquo;<span class="quote">client-only</span>&rdquo; install),
-            issue the following <span class=
-            "command"><strong>configure</strong></span> command instead of
-            the other one, and then proceed with the remaining commands (no
-            test suite available):
+            issue these commands instead of the following ones (no test suite
+            available):
           </p>
           <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../openldap-2.4.36-blfs_paths-1.patch &amp;&amp;
-patch -Np1 -i ../openldap-2.4.36-symbol_versions-1.patch &amp;&amp;
+"command">patch -Np1 -i ../openldap-2.4.39-blfs_paths-1.patch &amp;&amp;
+patch -Np1 -i ../openldap-2.4.39-symbol_versions-1.patch &amp;&amp;
 autoconf &amp;&amp;
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
+            --disable-static  \
             --enable-dynamic  \
             --disable-debug   \
             --disable-slapd &amp;&amp;
 make depend &amp;&amp;
-make</kbd>
+make &amp;&amp;
+make install</kbd>
 </pre>
         </div>
         <p>
@@ -227,8 +204,8 @@ useradd -c "OpenLDAP Daemon Owner" -d /var/lib/openldap -u 83 \
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../openldap-2.4.36-blfs_paths-1.patch &amp;&amp;
-patch -Np1 -i ../openldap-2.4.36-symbol_versions-1.patch &amp;&amp;
+"command">patch -Np1 -i ../openldap-2.4.39-blfs_paths-1.patch &amp;&amp;
+patch -Np1 -i ../openldap-2.4.39-symbol_versions-1.patch &amp;&amp;
 autoconf &amp;&amp;
 ./configure --prefix=/usr         \
             --sysconfdir=/etc     \
@@ -250,7 +227,7 @@ make</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
-          test</strong></span>.
+          test</strong></span>. Tests may fail after a long time (~ 5 SBU).
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -258,13 +235,26 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 
-chown -R ldap:ldap /var/lib/openldap &amp;&amp;
+chmod -v 700 /var/lib/openldap                                         &amp;&amp;
+chown -v -R ldap:ldap /var/lib/openldap                                &amp;&amp;
+chmod -v 640 /etc/openldap/{slapd.{conf,ldif},DB_CONFIG.example}       &amp;&amp;
+chown -v root:ldap /etc/openldap/{slapd.{conf,ldif},DB_CONFIG.example} &amp;&amp;
+install -v -dm700 -o ldap -g ldap /etc/openldap/slapd.d                &amp;&amp;
 
-install -v -dm755  /usr/share/doc/openldap-2.4.36 &amp;&amp;
-cp -vfr doc/drafts /usr/share/doc/openldap-2.4.36 &amp;&amp;
-cp -vfr doc/rfc    /usr/share/doc/openldap-2.4.36 &amp;&amp;
-cp -vfr doc/guide  /usr/share/doc/openldap-2.4.36</kbd>
+install -v -dm755  /usr/share/doc/openldap-2.4.39 &amp;&amp;
+cp -vfr doc/drafts /usr/share/doc/openldap-2.4.39 &amp;&amp;
+cp -vfr doc/rfc    /usr/share/doc/openldap-2.4.39 &amp;&amp;
+cp -vfr doc/guide  /usr/share/doc/openldap-2.4.39</kbd>
 </pre>
+        <p>
+          Having slapd configuration files and ldap databases in
+          /var/lib/openldap readable by anyone is a SECURITY ISSUE,
+          especially since a file stores admin password in PLAIN TEXT. That's
+          why mode 640 and root:ldap ownership were used. Owner is root, so
+          only root can modify the file, and group is ldap, so that the group
+          which owns slapd daemon could read but not modify the file in case
+          of a security breach.
+        </p>
       </div>
       <div class="commands" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -275,49 +265,59 @@ cp -vfr doc/guide  /usr/share/doc/openldap-2.4.36</kbd>
           switch prevents installation of static versions of the libraries.
         </p>
         <p>
-          <code class="option">--disable-debug</code>: This switch disables
-          the debugging code in <span class="application">OpenLDAP</span>.
+          <em class="parameter"><code>--disable-debug</code></em>: This
+          switch disables the debugging code in <span class=
+          "application">OpenLDAP</span>.
         </p>
         <p>
-          <code class="option">--enable-dynamic</code>: This switch forces
-          the <span class="application">OpenLDAP</span> libraries to be
-          dynamically linked to the executable programs.
+          <em class="parameter"><code>--enable-dynamic</code></em>: This
+          switch forces the <span class="application">OpenLDAP</span>
+          libraries to be dynamically linked to the executable programs.
         </p>
         <p>
-          <code class="option">--enable-crypt</code>: This switch enables
-          using of <span class="command"><strong>crypt(3)</strong></span>
-          passwords.
+          <em class="parameter"><code>--enable-crypt</code></em>: This switch
+          enables using of <span class=
+          "command"><strong>crypt(3)</strong></span> passwords.
         </p>
         <p>
-          <code class="option">--enable-spasswd</code>: This switch enables
-          <span class="application">SASL</span> password verification.
+          <em class="parameter"><code>--enable-spasswd</code></em>: This
+          switch enables <span class="application">SASL</span> password
+          verification.
         </p>
         <p>
-          <code class="option">--enable-modules</code>: This switch enables
-          dynamic module support.
+          <em class="parameter"><code>--enable-modules</code></em>: This
+          switch enables dynamic module support.
         </p>
         <p>
-          <code class="option">--enable-rlookups</code>: This switch enables
-          reverse lookups of client hostnames.
+          <em class="parameter"><code>--enable-rlookups</code></em>: This
+          switch enables reverse lookups of client hostnames.
         </p>
         <p>
-          <code class="option">--enable-backends</code>: This switch enables
-          all available backends.
+          <em class="parameter"><code>--enable-backends</code></em>: This
+          switch enables all available backends.
         </p>
         <p>
-          <code class="option">--enable-overlays</code>: This switch enables
-          all available overlays.
+          <em class="parameter"><code>--enable-overlays</code></em>: This
+          switch enables all available overlays.
         </p>
         <p>
-          <code class="option">--disable-ndb</code>: This switch disables
-          <span class="application">MySQL</span> NDB Cluster backend which
-          causes configure to fail if <span class="application">MySQL</span>
-          is present.
+          <em class="parameter"><code>--disable-ndb</code></em>: This switch
+          disables <span class="application">MySQL</span> NDB Cluster backend
+          which causes configure to fail if <span class=
+          "application">MySQL</span> is present.
         </p>
         <p>
-          <code class="option">--disable-sql</code>: This switch explicitly
-          disables the SQL backend. Omit this switch if a SQL server is
-          installed and you are going to use a SQL backend.
+          <em class="parameter"><code>--disable-sql</code></em>: This switch
+          explicitly disables the SQL backend. Omit this switch if a SQL
+          server is installed and you are going to use a SQL backend.
+        </p>
+        <p>
+          <em class="parameter"><code>--libexecdir=/usr/lib</code></em>: This
+          switch controls where the <code class=
+          "filename">/usr/lib/openldap</code> directory is installed.
+          Everything in that directory is a library, so it belongs under
+          <code class="filename">/usr/lib</code> instead of <code class=
+          "filename">/usr/libexec</code>.
         </p>
         <p>
           <code class="option">--enable-slp</code>: This switch enables SLPv2
@@ -391,7 +391,7 @@ cp -vfr doc/guide  /usr/share/doc/openldap-2.4.36</kbd>
                   "http://www.openldap.org/doc/admin24/">OpenLDAP 2.4
                   Administrator's Guide</a> (also installed locally in
                   <code class=
-                  "filename">/usr/share/doc/openldap-2.4.36/guide/admin</code>).
+                  "filename">/usr/share/doc/openldap-2.4.39/guide/admin</code>).
                 </p>
               </li>
               <li>
@@ -425,7 +425,7 @@ cp -vfr doc/guide  /usr/share/doc/openldap-2.4.36</kbd>
             install the <code class="filename">/etc/rc.d/init.d/slapd</code>
             init script included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package using
+            "BLFS Boot Scripts">blfs-bootscripts-20140329</a> package using
             the following command:
           </p>
           <pre class="root">
@@ -437,7 +437,6 @@ cp -vfr doc/guide  /usr/share/doc/openldap-2.4.36</kbd>
               Note
             </h3>
             <p>
-              The init script starts the daemon without any parameters.
               You'll need to modify the <code class=
               "filename">/etc/sysconfig/slapd</code> to include the
               parameters needed for your specific configuration. See the
@@ -499,18 +498,18 @@ result: 0 Success
               <span class="segbody">ldapadd, ldapcompare, ldapdelete,
               ldapexop, ldapmodify, ldapmodrdn, ldappasswd, ldapsearch,
               ldapurl, ldapwhoami, slapacl, slapadd, slapauth, slapcat,
-              slapd, slapdn, slapindex, slappasswd, slapschema and
+              slapd, slapdn, slapindex, slappasswd, slapschema, and
               slaptest</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">liblber.so, libldap.so and
-              libldap_r.so</span>
+              <span class="segbody">liblber.so, libldap.so, libldap_r.so, and
+              several under /usr/lib/openldap</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/etc/openldap, /usr/lib/openldap and
-              /var/lib/openldap</span>
+              <span class="segbody">/etc/openldap, /usr/lib/openldap,
+              /usr/share/doc/openldap-2.4.39, and /var/lib/openldap</span>
             </div>
           </div>
         </div>
@@ -873,7 +872,7 @@ result: 0 Success
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-26 17:26:25 +0000
+        Last updated on 2014-04-16 16:05:09 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -886,9 +885,9 @@ result: 0 Success
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="soprano.html" title="Soprano-2.9.3">Next</a>
+          <a accesskey="n" href="soprano.html" title="Soprano-2.9.4">Next</a>
           <p>
-            Soprano-2.9.3
+            Soprano-2.9.4
           </p>
         </li>
         <li class="up">
@@ -897,7 +896,7 @@ result: 0 Success
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

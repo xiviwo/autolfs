@@ -5,48 +5,48 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Gjs-1.36.1
+      Gjs-1.38.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;30.&nbsp;GNOME Core Packages
+        Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gvfs.html" title="Gvfs-1.16.3">Prev</a>
+          <a accesskey="p" href="gvfs.html" title="Gvfs-1.18.3">Prev</a>
           <p>
-            Gvfs-1.16.3
+            Gvfs-1.18.3
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gnome-desktop.html" title=
-          "gnome-desktop-3.8.4">Next</a>
+          "gnome-desktop-3.10.2">Next</a>
           <p>
-            gnome-desktop-3.8.4
+            gnome-desktop-3.10.2
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gjs" name="gjs"></a>Gjs-1.36.1
+        <a id="gjs" name="gjs"></a>Gjs-1.38.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           <span class="application">GNOME</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -68,17 +68,25 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "https://people.gnome.org/~walters/gjs-js17-1.36.1.tar.bz2">https://people.gnome.org/~walters/gjs-js17-1.36.1.tar.bz2</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gjs/1.38/gjs-1.38.1.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gjs/1.38/gjs-1.38.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: d97bdc386ee6ce84d7c69e7fbeed238d
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.38/gjs-1.38.1.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.38/gjs-1.38.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download size: 468 KB
+                Download MD5 sum: 0f3422a114cb69735274e75e325013a3
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 412 KB
               </p>
             </li>
             <li>
@@ -103,7 +111,7 @@
           <a class="xref" href="../x/cairo.html" title=
           "Cairo-1.12.16">Cairo-1.12.16</a>, <a class="xref" href=
           "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>,
+          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>,
           and <a class="xref" href="../general/JS.html" title=
           "JS-17.0.0">JS-17.0.0</a>
         </p>
@@ -125,8 +133,8 @@
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
+          The package comes with a testsuite, but it fails for yet unknown
+          reasons.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -134,6 +142,18 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">--libexecdir=/usr/lib</code>: This option will
+          put the package's private programs into <code class=
+          "filename">/usr/lib/gjs</code> instead of <code class=
+          "filename">/usr/libexec/gjs</code> in accordance with the old
+          version of the FHS used before LFS-7.5..
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -152,7 +172,7 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/gjs-1.0, /usr/lib/gjs,
-              /usr/lib/gjs-1.0 and /usr/share/gjs-1.0</span>
+              /usr/libexec/gjs, and /usr/share/gjs-1.0</span>
             </div>
           </div>
         </div>
@@ -182,31 +202,31 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-02 13:01:46 -0700
+        Last updated on 2014-03-03 19:06:31 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gvfs.html" title="Gvfs-1.16.3">Prev</a>
+          <a accesskey="p" href="gvfs.html" title="Gvfs-1.18.3">Prev</a>
           <p>
-            Gvfs-1.16.3
+            Gvfs-1.18.3
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gnome-desktop.html" title=
-          "gnome-desktop-3.8.4">Next</a>
+          "gnome-desktop-3.10.2">Next</a>
           <p>
-            gnome-desktop-3.8.4
+            gnome-desktop-3.10.2
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

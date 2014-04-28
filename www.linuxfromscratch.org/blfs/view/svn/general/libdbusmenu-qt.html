@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -29,9 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.46">Next</a>
+          <a accesskey="n" href="libesmtp.html" title=
+          "libESMTP-1.0.6">Next</a>
           <p>
-            libdrm-2.4.46
+            libESMTP-1.0.6
           </p>
         </li>
         <li class="up">
@@ -40,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +59,7 @@
           on DBus.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -111,7 +112,7 @@
           <a class="xref" href="qjson.html" title=
           "QJson-0.8.1">QJson-0.8.1</a> (for building the test suite) and
           <a class="xref" href="doxygen.html" title=
-          "Doxygen-1.8.5">Doxygen-1.8.5</a> (for building the API
+          "Doxygen-1.8.6">Doxygen-1.8.6</a> (for building the API
           documentation)
         </p>
         <p class="usernotes">
@@ -130,15 +131,16 @@
         <pre class="userinput">
 <kbd class="command">mkdir build &amp;&amp;
 cd build &amp;&amp;
-cmake -DCMAKE_INSTALL_PREFIX=$QTDIR \
-      -DCMAKE_BUILD_TYPE=Release \
+cmake -DCMAKE_INSTALL_PREFIX=$QT4DIR \
+      -DCMAKE_BUILD_TYPE=Release     \
       -DWITH_DOC=OFF .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
           To test the results (<a class="ulink" href=
           "http://qjson.sourceforge.net/">QJson</a> must be installed),
-          issue: <span class="command"><strong>make check</strong></span>.
+          issue: <span class="command"><strong>make -k check</strong></span>.
+          One test fails.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -179,13 +181,13 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">$QTDIR/include/dbusmenu-qt</span>
+              <span class="segbody">$QT4DIR/include/dbusmenu-qt</span>
             </div>
           </div>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-24 18:18:35 +0000
+        Last updated on 2014-03-28 09:31:28 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -198,9 +200,10 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.46">Next</a>
+          <a accesskey="n" href="libesmtp.html" title=
+          "libESMTP-1.0.6">Next</a>
           <p>
-            libdrm-2.4.46
+            libESMTP-1.0.6
           </p>
         </li>
         <li class="up">
@@ -209,7 +212,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

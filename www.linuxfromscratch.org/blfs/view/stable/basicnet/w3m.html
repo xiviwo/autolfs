@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;18.&nbsp;Text Web Browsers
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="lynx.html" title="Lynx-2.8.8dev.16">Prev</a>
+          <a accesskey="p" href="lynx.html" title="Lynx-2.8.8">Prev</a>
           <p>
-            Lynx-2.8.8dev.16
+            Lynx-2.8.8
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           can also be used as a text-mode WWW browser.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -101,8 +101,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/w3m-0.5.3-bdwgc72-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/w3m-0.5.3-bdwgc72-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/w3m-0.5.3-bdwgc72-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/w3m-0.5.3-bdwgc72-1.patch</a>
               </p>
             </li>
           </ul>
@@ -115,7 +115,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/gc.html" title=
-          "GC-7.2d">GC-7.2d</a>
+          "GC-7.4.0">GC-7.4.0</a>
         </p>
         <h4>
           Optional
@@ -124,16 +124,16 @@
           <a class="xref" href="../general/gpm.html" title=
           "GPM-1.20.7">GPM-1.20.7</a>, <a class="xref" href=
           "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
-          "../general/imlib2.html" title="Imlib2-1.4.5">Imlib2-1.4.5</a>,
-          <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.20">GTK+-2.24.20</a>, <a class="ulink" href=
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="xref" href=
+          "../x/imlib2.html" title="Imlib2-1.4.6">Imlib2-1.4.6</a>, <a class=
+          "xref" href="../x/gtk2.html" title="GTK+-2.24.22">GTK+-2.24.22</a>,
+          <a class="ulink" href=
           "http://ftp.gnome.org/pub/gnome/sources/imlib/1.9/">Imlib</a> (not
           recommended: obsolete, abandoned upstream, <a class="ulink" href=
           "http://bugs.debian.org/448360">buggy</a>, and gives no additional
           functionality as compared to other image loading libraries),
           <a class="xref" href="../x/gdk-pixbuf.html" title=
-          "gdk-pixbuf-2.28.2">gdk-pixbuf-2.28.2</a>, <a class="xref" href=
+          "gdk-pixbuf-2.30.4">gdk-pixbuf-2.30.4</a>, <a class="xref" href=
           "../general/compface.html" title=
           "Compface-1.5.2">Compface-1.5.2</a>, and <a class="ulink" href=
           "http://packages.debian.org/unstable/text/nkf">nkf</a>, a Mail User
@@ -157,7 +157,7 @@
 sed -i 's/file_handle/file_foo/' istream.{c,h} &amp;&amp;
 sed -i 's#gdk-pixbuf-xlib-2.0#&amp; x11#' configure &amp;&amp;
 
-./configure --prefix=/usr --sysconfdir=/etc --libexecdir=/usr/lib &amp;&amp;
+./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -194,9 +194,9 @@ install -v -m644    doc/{HISTORY,READ*,keymap.*,menu.*,*.html} \
           <span class="command"><strong>sed -i 's#gdk-pixbuf-xlib-2.0#&amp;
           x11#' configure</strong></span>: This sed fixes compiling
           <span class="application">w3m</span> using <a class="xref" href=
-          "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a> as its image
+          "../x/gtk2.html" title="GTK+-2.24.22">GTK+-2.24.22</a> as its image
           library. It has no impact if <a class="xref" href="../x/gtk2.html"
-          title="GTK+-2.24.20">GTK+-2.24.20</a> is not installed.
+          title="GTK+-2.24.22">GTK+-2.24.22</a> is not installed.
         </p>
         <p>
           <code class="option">--sysconfdir=/etc</code>: This option puts the
@@ -279,15 +279,15 @@ install -v -m644    doc/{HISTORY,READ*,keymap.*,menu.*,*.html} \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-06 10:46:32 -0700
+        Last updated on 2014-03-03 16:39:21 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="lynx.html" title="Lynx-2.8.8dev.16">Prev</a>
+          <a accesskey="p" href="lynx.html" title="Lynx-2.8.8">Prev</a>
           <p>
-            Lynx-2.8.8dev.16
+            Lynx-2.8.8
           </p>
         </li>
         <li class="next">
@@ -303,7 +303,7 @@ install -v -m644    doc/{HISTORY,READ*,keymap.*,menu.*,*.html} \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

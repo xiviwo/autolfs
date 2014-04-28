@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      AbiWord-2.9.4
+      AbiWord-3.0.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;34.&nbsp;Office Programs
+        Chapter&nbsp;36.&nbsp;Office Programs
       </h3>
       <ul>
         <li class="prev">
@@ -30,24 +30,24 @@
         </li>
         <li class="next">
           <a accesskey="n" href="gnumeric.html" title=
-          "Gnumeric-1.12.7">Next</a>
+          "Gnumeric-1.12.14">Next</a>
           <p>
-            Gnumeric-1.12.7
+            Gnumeric-1.12.14
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="office.html" title=
-          "Chapter&nbsp;34.&nbsp;Office Programs">Up</a>
+          "Chapter&nbsp;36.&nbsp;Office Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="abiword" name="abiword"></a>AbiWord-2.9.4
+        <a id="abiword" name="abiword"></a>AbiWord-3.0.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           documents.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,28 +70,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.abisource.com/downloads/abiword/2.9.4/source/abiword-2.9.4.tar.gz">
-                http://www.abisource.com/downloads/abiword/2.9.4/source/abiword-2.9.4.tar.gz</a>
+                "http://www.abisource.com/downloads/abiword/3.0.0/source/abiword-3.0.0.tar.gz">
+                http://www.abisource.com/downloads/abiword/3.0.0/source/abiword-3.0.0.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 62e59bea4279c7ec48de8824aea8dc58
+                Download MD5 sum: 8d9c41cff3a8fbef8d0c835c65600e65
               </p>
             </li>
             <li>
               <p>
-                Download size: 10 MB
+                Download size: 11 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 1.8 GB (160 MB installed)
+                Estimated disk space required: 648 MB (84 MB installed)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 6.6 SBU
+                Estimated build time: 7.3 SBU
               </p>
             </li>
           </ul>
@@ -104,18 +104,25 @@
             <li>
               <p>
                 AbiWord Docs: <a class="ulink" href=
-                "http://www.abisource.com/downloads/abiword/2.9.4/source/abiword-docs-2.9.4.tar.gz">
-                http://www.abisource.com/downloads/abiword/2.9.4/source/abiword-docs-2.9.4.tar.gz</a>
+                "http://www.abisource.com/downloads/abiword/3.0.0/source/abiword-docs-3.0.0.tar.gz">
+                http://www.abisource.com/downloads/abiword/3.0.0/source/abiword-docs-3.0.0.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                AbiWord Docs MD5 sum: 1.4 MB
+                AbiWord Docs MD5 sum: 1.5 MB
               </p>
             </li>
             <li>
               <p>
-                AbiWord Docs size: 4e694a7ba6bf8294b3498118f2b6eb27
+                AbiWord Docs size: ed73d0743a19eb85e46b59464e0ef2bb
+              </p>
+            </li>
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/svn/abiword-3.0.0-libgcrypt_1_6_0-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/abiword-3.0.0-libgcrypt_1_6_0-1.patch</a>
               </p>
             </li>
           </ul>
@@ -128,10 +135,10 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/boost.html" title=
-          "Boost-1.54.0">Boost-1.54.0</a>, <a class="xref" href=
+          "Boost-1.55.0">Boost-1.55.0</a>, <a class="xref" href=
           "../general/fribidi.html" title=
-          "FriBidi-0.19.5">FriBidi-0.19.5</a>, <a class="xref" href=
-          "../x/goffice010.html" title="GOffice-0.10.7">GOffice-0.10.7</a>,
+          "FriBidi-0.19.6">FriBidi-0.19.6</a>, <a class="xref" href=
+          "../x/goffice010.html" title="GOffice-0.10.14">GOffice-0.10.14</a>,
           and <a class="xref" href="../general/wv.html" title=
           "wv-1.2.9">wv-1.2.9</a>
         </p>
@@ -149,20 +156,20 @@
           <a class="ulink" href=
           "http://aiksaurus.sourceforge.net/">Aiksaurus</a>, <a class="xref"
           href="../general/dbus-glib.html" title=
-          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="ulink" href=
+          "dbus-glib-0.102">dbus-glib-0.102</a>, <a class="ulink" href=
           "http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/">Evolution
           Data Server</a>, <a class="xref" href=
           "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>,
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>,
           <a class="ulink" href=
           "http://helm.cs.unibo.it/mml-widget/">GtkMathView</a>, <a class=
           "ulink" href=
           "http://ftp.gnome.org/pub/gnome/sources/libchamplain">libchamplain</a>,
           <a class="xref" href="../general/libgcrypt.html" title=
-          "libgcrypt-1.5.3">libgcrypt-1.5.3</a>, <a class="xref" href=
+          "libgcrypt-1.6.1">libgcrypt-1.6.1</a>, <a class="xref" href=
           "../general/libical.html" title="libical-1.0">libical-1.0</a>,
           <a class="xref" href="../basicnet/libsoup.html" title=
-          "libsoup-2.42.2">libsoup-2.42.2</a>, <a class="ulink" href=
+          "libsoup-2.46.0">libsoup-2.46.0</a>, <a class="ulink" href=
           "http://sourceforge.net/projects/wvware">libwmf</a>, <a class=
           "ulink" href="http://sourceforge.net/projects/libwpd/">libwpd</a>,
           <a class="ulink" href=
@@ -173,12 +180,13 @@
           Parser</a>, <a class="ulink" href=
           "http://ftp.gnome.org/pub/gnome/sources/loudmouth">Loudmouth</a>,
           <a class="xref" href="../general/redland.html" title=
-          "Redland-1.0.16">Redland-1.0.16</a>, <a class="ulink" href=
+          "Redland-1.0.17">Redland-1.0.17</a>, <a class="ulink" href=
           "http://telepathy.freedesktop.org/releases/telepathy-glib/">Telepathy
           GLib</a>, <a class="ulink" href=
           "http://libots.sourceforge.net/">OTS</a> <a class="ulink" href=
           "http://software.frodo.looijaard.name/psiconv/">Psiconv</a>, and
-          <a class="ulink" href="http://www.valgrind.org/">Valgrind</a>
+          <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.9.0">Valgrind-3.9.0</a>
         </p>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -207,7 +215,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class=
+"command">patch -Np1 -i ../abiword-3.0.0-libgcrypt_1_6_0-1.patch &amp;&amp;
+./configure --prefix=/usr                              &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -224,9 +234,9 @@ make</kbd>
           first
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xf ../abiword-docs-2.9.4.tar.gz &amp;&amp;
-cd abiword-docs-2.9.4 &amp;&amp;
-./configure --prefix=/usr &amp;&amp;
+<kbd class="command">tar -xf ../abiword-docs-3.0.0.tar.gz &amp;&amp;
+cd abiword-docs-3.0.0                &amp;&amp;
+./configure --prefix=/usr            &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -241,12 +251,6 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--disable-collab-backend-telepathy</code>:
-          This switch disables <span class="application">Telepathy</span>
-          Colab backend which causes build to fail when using recent versions
-          of <span class="application">Telepathy GLib</span>.
-        </p>
-        <p>
           <code class="option">--without-evolution-data-server</code>: This
           switch disables <span class="application">AbiWord</span>
           <span class="application">Evolution Data Server</span> support
@@ -255,10 +259,10 @@ make</kbd>
         </p>
         <p>
           <code class="option">--enable-plugins="collab openxml goffice
-          grammar"</code>: Build some or all of the collab plugins. The
-          openxml plugin enables <span class="application">Abiword</span> to
-          open some .docx files. The grammar plugin requires <a class="ulink"
-          href="http://www.abisource.com/projects/link-grammar/">Link Grammar
+          grammar"</code>: Build some or all plugins. The openxml plugin
+          enables <span class="application">Abiword</span> to open some .docx
+          files. The grammar plugin requires <a class="ulink" href=
+          "http://www.abisource.com/projects/link-grammar/">Link Grammar
           Parser</a>
         </p>
       </div>
@@ -283,7 +287,7 @@ make</kbd>
             list produced by the following command:
           </p>
           <pre class="userinput">
-<kbd class="command">ls /usr/share/abiword-2.9/templates</kbd>
+<kbd class="command">ls /usr/share/abiword-3.0/templates</kbd>
 </pre>
           <p>
             Create the folder <code class=
@@ -292,7 +296,7 @@ make</kbd>
           </p>
           <pre class="userinput">
 <kbd class="command">install -v -m750 -d ~/.AbiSuite/templates &amp;&amp;
-install -v -m640    /usr/share/abiword-2.9/templates/normal.awt-<em class=
+install -v -m640    /usr/share/abiword-3.0/templates/normal.awt-<em class=
 "replaceable"><code>&lt;lang&gt;</code></em> \
                     ~/.AbiSuite/templates/normal.awt</kbd>
 </pre>
@@ -316,6 +320,13 @@ install -v -m640    /usr/share/abiword-2.9/templates/normal.awt-<em class=
             "command"><strong>update-desktop-database</strong></span> command
             to update the mimeinfo cache and allow the Help system to work.
           </p>
+          <p>
+            If you have <a class="xref" href="xdg-utils.html" title=
+            "xdg-utils-1.1.0-rc1">xdg-utils-1.1.0-rc1</a> installed, you
+            should run the <span class="command"><strong>xdg-icon-resource
+            forceupdate --theme hicolor</strong></span> command, for the
+            installed icon to be displayed in the menu item.
+          </p>
         </div>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -330,12 +341,12 @@ install -v -m640    /usr/share/abiword-2.9/templates/normal.awt-<em class=
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libabiword-2.9.so</span>
+              <span class="segbody">libabiword-3.0.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/abiword-2.9,
-              /usr/lib/abiword-2.9, and /usr/share/abiword-2.9</span>
+              <span class="segbody">/usr/include/abiword-3.0,
+              /usr/lib/abiword-3.0, and /usr/share/abiword-3.0</span>
             </div>
           </div>
         </div>
@@ -357,7 +368,7 @@ install -v -m640    /usr/share/abiword-2.9/templates/normal.awt-<em class=
                 <td>
                   <p>
                     is the word processor, a wrapper for the functions in
-                    libabiword-2.9 - it can also be used on the command line,
+                    libabiword-3.0 - it can also be used on the command line,
                     see <span class="command"><strong>man 1
                     abiword</strong></span>.
                   </p>
@@ -368,7 +379,7 @@ install -v -m640    /usr/share/abiword-2.9/templates/normal.awt-<em class=
                   <p>
                     <a id="libabiword" name="libabiword"></a><span class=
                     "term"><code class=
-                    "filename">libabiword-2.9.so</code></span>
+                    "filename">libabiword-3.0.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -382,7 +393,7 @@ install -v -m640    /usr/share/abiword-2.9/templates/normal.awt-<em class=
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-07 00:59:05 +0000
+        Last updated on 2014-03-16 18:29:27 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -396,18 +407,18 @@ install -v -m640    /usr/share/abiword-2.9/templates/normal.awt-<em class=
         </li>
         <li class="next">
           <a accesskey="n" href="gnumeric.html" title=
-          "Gnumeric-1.12.7">Next</a>
+          "Gnumeric-1.12.14">Next</a>
           <p>
-            Gnumeric-1.12.7
+            Gnumeric-1.12.14
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="office.html" title=
-          "Chapter&nbsp;34.&nbsp;Office Programs">Up</a>
+          "Chapter&nbsp;36.&nbsp;Office Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

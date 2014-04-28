@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+#1.12 support lfs 7.5
+#1.11 regex stablized
 #1.10 mass regex applied
 #1.09 migrate beautifulsoup to lxml
 #1.08 add generate-specs function
@@ -14,7 +16,8 @@ from os import error, listdir
 from os.path import join, isdir, islink
 #import lxml.html.soupparser as soupparser  
 from lxml import etree
-
+from settings import *
+from consts import *
 functionfile = "functions.sh"
 
 scriptheader1='''\
@@ -24,7 +27,7 @@ set -e
 
 SOURCES=$LFS/sources
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source ${DIR}/''' + functionfile + "\n"
+source ${DIR}/%s'''%functionfile
 
 functionstr='''\
 env
@@ -53,221 +56,34 @@ local packlink=$1
 wget --no-check-certificate -nc --timeout=60 --tries=5 $packlink -P ${SOURCES}
 }
 '''
-IP="192.168.122.13"
-GATEWAY="192.168.122.1"
-BROADCAST="192.168.122.255"
-domain="ibm.com"
-nameserver1 ="192.168.122.1"
-nameserver2 ="192.168.122.1"
-hostname= "alfs"
-guestdev1="vda1"
-guestdev2="vda2"
-guestfs="ext3"
-guestdev="vdb"
-newuser = "mao"
-passwd = "ping" 
-hostdev1="vdb1"
-hostdev2="vdb2"
-LFSHOME = "/home/lfs"
+
 CWD=os.path.dirname(os.path.realpath(__file__))
 
-arch=platform.machine()
-if arch == 'i686':
-	ABI=32
-elif arch == 'x86_64':
-	ABI=64
-else:	
-	print "Unknown platform error"
-	raise 
+
 
 perl_pack_lists= "perl_pack_lists"
 
 counter = 0
 
-lfsreplace = [
-('&lt;',						'<'),
-('&gt;',						'>'),
-
-('&amp;',						'&'),
-('&lt;&lt;',						'<<'),
-("IP=192.168.1.1",					"IP="+IP),
-("GATEWAY=192.168.1.2",					"GATEWAY=" + GATEWAY),
-("BROADCAST=192.168.1.255",				"BROADCAST=" + BROADCAST),
-('KEYMAP="de-latin1"',					'KEYMAP="us"'),
-('KEYMAP_CORRECTIONS="euro2"',				''),
-('LEGACY_CHARSET="iso-8859-15"',			''),
-('FONT="LatArCyrHeb-16 -m 8859-15"',			''),
-("chown -v",						"chown -Rv"),
-('DISTRIB_CODENAME="<your name here>"',			'DISTRIB_CODENAME="MAO"'),
-("passwd lfs",						"echo 'lfs:ping' | chpasswd"),
-("passwd root",						"echo 'root:ping' | chpasswd"),
-("make test",						""),
-("exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash",		"source /home/lfs/.bashrc"),
-("set root=(hd0,2)",					"set root=(hd0,1)"),
-("root=/dev/sda2 ro",					"root=/dev/" + guestdev1 + " ro"),
-("./configure --prefix=/usr --enable-cxx",		"ABI=" + str(ABI) +" \n\t./configure --prefix=/usr --enable-cxx"),
-("--with-libpam=no",					""),
-("./configure --sysconfdir=/etc",			"./configure --sysconfdir=/etc --with-libpam=no --with-attr=no --with-selinux=no --with-audit=no --with-acl=no"),
-("grub-install /dev/sda",				"grub-install /dev/" + guestdev ),
-('groupadd lfs',					'	groupadd lfs || true'),
-('useradd -s /bin/bash -g lfs -m -k /dev/null lfs',	'useradd -s /bin/bash -g lfs -m -k /dev/null lfs || true'),
-('cat > ~/.bash_profile << "EOF"',			'cat > ' + LFSHOME + '/.bash_profile << "EOF"'),
-('cat > ~/.bashrc << "EOF"',				'cat > ' + LFSHOME + '/.bashrc << "EOF"'),
-('source ~/.bash_profile',				'source ' + LFSHOME + '/.bash_profile'),
-('--enable-no-install-program=kill,uptime',		' --enable-no-install-program=kill,uptime   --disable-acl --without-selinux --disable-xattr'),
-('--libexecdir=/usr/lib/glibc',				'--libexecdir=/usr/lib/glibc   --with-selinux=no --with-audit=no'),
-
-]
-
-blfsreplace = [
-('&lt;',						'<'),
-('&gt;',						'>'),
-
-('&amp;',						'&'),
-('&lt;&lt;',						'<<'),
-("<newuser>",						newuser + " || true"),
-("<username>",						newuser),
-("<password>",						passwd),
-("ln -s ",						"ln -svf "),
-("<new-password>",					passwd)					
-]
-
-lfsregx = [
-
-(r"domain.*Domain.*",					"domain " + domain),
-(r"nameserver.*primary.*",				"nameserver " + nameserver1),
-(r"nameserver.*secondary.*",				"nameserver " + nameserver2),
-(r"127\.0\.0\.1.*HOSTNAME.*",				"127.0.0.1 localhost\n" + IP + "	alfs"),
-(r'echo\s*"HOSTNAME.*',					'echo "HOSTNAME=' + hostname + '" > /etc/sysconfig/network'),
-(r"/dev/\s*<xxx>\s*/\s*<fff>",				'/dev/' + guestdev1 + '     /            ' + guestfs + '    '),
-(r"/dev/\s*<yyy>\s*swap\s*swap",			'/dev/' + guestdev2 + '    swap         swap'),
-(r"export\s*LANG=.*",					"export LANG=en_US.utf8"),
-(r"mkdir\s*-v",					"mkdir -pv"),
-(r"mkdir\s*/",						"mkdir -pv /"),
-(r"mount.*\$LFS",					'mount -v -t ext3 /dev/' + hostdev1 + ' $LFS'),
-(r"/sbin/swapon\s*\-v\s*/dev/\s*<zzz>",		"/sbin/swapon -v /dev/" + hostdev2),
-(r"make\s*LANG=.*menuconfig",				'make localmodconfig'),
-(r"zoneinfo/\s*<xxx>",					"zoneinfo/Asia/Shanghai"),
-(r"PAGE=\s*<paper_size>",				"PAGE=A4")
-
-]
-
-
-blfsregx = [
-
-(r"mkdir\s*-v",						"mkdir -pv"),
-(r"mkdir\s*/",							"mkdir -pv /"),
-(r"mkdir\s*",							"mkdir -pv "),
-(r"export\s*LANG=.*",						"export LANG=en_US.utf8"),
-(r'"\s*<PREFIX>\s*"',						'"/opt"'),
-(r"\s*</path/to/unzipped/files>\s*",				''),
-(r'&&$',							''),
-#(r"udev-lfs(-([0-9.]+))+",					Book._udev_version)
-		
-]
-
-
-
-lfsignorelist = [
-'dummy',
-'libfoo',
-'make check',
-'localedef',
-'tzselect',
-'spawn ls',
-'ulimit',
-':options',
-'logout',
-'\nexit',
-'shutdown -r',
-'grub-img.iso',
-'hdparm -I /dev/sda | grep NCQ',
-'video4linux/',
-'make -k check',
-'make -k test',
-'make test',
-'udevadm test',
-'test_summary',
-'83-cdrom-symlinks.rules',
-'cat /etc/udev/rules.d/70-persistent-net.rules',
-'locale -a',
-'locale name',
-'glibc-check-log',
-'su - lfs',
-'grep FATAL check.log',
-'readelf',
-'ABI=32 ./configure ...',
-'make NON_ROOT_USERNAME=nobody check-root',
-'su nobody -s /bin/bash ',
- '-c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"',
-'gmp-check-log',
-'mkdir -v $LFS/usr',
-'mount -v -t ext3 /dev/<yyy> $LFS/usr',
-'make RUN_EXPENSIVE_TESTS=yes check',
-'cd /tmp &&',
-'exec /tools/bin/bash --login +h',
-'sed -i \'s/if ignore_if; then continue; fi/#&/\' udev-lfs-197-2/init-net-rules.sh',
-' /etc/udev/rules.d/70-persistent-net.rules',
-'chown -Rv nobody .',
-'exec /bin/bash --login +h',
-'/tools/bin/bash --login',
-'unset pathremove pathprepend pathappend',
-'mkdir -pv /etc/pam.d/',
-'patch -Np1 -i ../Python-2.7.3-bsddb_fix-1.patch &&',
-'tar xvf krb5-1.11.2.tar.gz',
-'cd krb5-1.11.2',
-"ABI=" + str(ABI),
-'install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \\',
-'    /etc/sgml/sgml-docbook.cat',
-'sshfs THINGY:~ ~/MOUNTPATH',
-'fusermount -u ~/MOUNTPATH',
-'tripwire --init',
-"egrep '^flags.*(vmx|svm)' /proc/cpuinfo",
-'export LIBRARY_PATH=/opt/xorg/lib',
-"export MAKEFLAGS='-j 2'",
-"make -j2",
-'bash tests/run.sh',
-'pushd testsuite',
-"sed -i -e 's|exec which sleep|exec echo /tools/bin/sleep|' \\",
-'.exp',
-'popd',
-"write_cd_rules"
-
-]
-
-blfsignorelist = [
-'make -k check',
-'make -k test',
-'make test',
-'bash -e',
-'<report-name.twr>',
-'convmv',
-'</path/to/unzipped/files>',
-'lp -o number-up=2 <filename>',
-'gpg --verify ',
-'gpg gpg --keyserver pgp.mit.edu --recv-keys 0xF376813D',
-'glxinfo',
-'mkinitramfs [KERNEL VERSION]'
-]
-
-SpecsSkipList = [
-'preparing-virtual',
-'adjusting',
-'cleaning-up',
-'entering',
-'package-management',
-'rebooting',
-'stripping',
-'conventions-used-in-this-book',
-'notes-on-building-software',
-'about-devices',
-'about-raid'
-
-]
 
 
 perlcmd= ['perl Makefile.PL && make && make install\n']
 
+untar = '''\
+rm -rf %{srcdir}
+mkdir -pv %{srcdir} || :
+case %SOURCE0 in 
+	*.zip)
+	unzip -x %SOURCE0 -d %{srcdir}
+	;;
+	*tar)
+	tar xf %SOURCE0 -C %{srcdir} 
+	;;
+	*)
+	tar xf %SOURCE0 -C %{srcdir} --strip-components 1
+	;;
+esac
+'''
 
 
 def containsAny(str, set):
@@ -294,7 +110,10 @@ def shortname(name):
 	return shortname
 
 def version(name):
-	versionmatch = re.search("-([\w]*[0-9.]*[\w]*$)",name.strip(),re.MULTILINE)
+	
+	versionmatch = re.search("-([\w]*[0-9.]+[\w]*)",name.strip(),re.MULTILINE)
+	#no $, GCC-4.8.2 - Pass 1 will fail
+	#change [0-9.]* to [0-9.]+ as Tie-IxHash-1.23 will parse wrongly
 	#blfs-bootscripts-20130908.tar.bz2
 	#-([a-zA-Z0-9]*[0-9.]+[a-zA-Z0-9]*)
 	try:
@@ -381,12 +200,12 @@ def matchgroupuser(lines,line,pre):
 			
 			if re.search('useradd',line) and line.endswith('\\'):
 				
-				pre.append(line)
+				pre.append(line + " || : ")
 				pre.append(next(lines))
 				return 1
 				 
 			else:
-				pre.append(line + "\n")
+				pre.append(line + " || :\n")
 				return 1
 	else:
 		
@@ -394,7 +213,8 @@ def matchgroupuser(lines,line,pre):
 
 def matchBlock(start,end,lines,line,lst,cont=True,repl=True):
 	if re.search(start,line,re.MULTILINE):
-		if repl : line =  InstallRegx(InstallSpaceFolder,SpaceFolder).sub(line)
+		#InstallRegx(InstallSpaceFolder,SpaceFolder)
+		if repl : line =  InstallRegx(InstallSubRegex,make_dummy).sub(line)
 	 	lst.append(line)
 		try:
 		    while True:
@@ -408,100 +228,172 @@ def matchBlock(start,end,lines,line,lst,cont=True,repl=True):
 			return cont
 	else:
 		return False	
-	
-class MultiRegex(object):
-    flags = re.MULTILINE
-    
-
-    def __init__(self,exregx,make_func):
-        '''
-        compile a disjunction of regexes, in order
-        '''
-	self.regexes = ()
-	try:
-	
-		if type(exregx[0]) is str:
-			regx = "(?P<" + make_func.__name__ + str(0) + '>(' + '|'.join(l for l in exregx) + '))'
-		else:
-			regx = '|'.join("(?P<" + make_func.__name__ + str(i) + '>' + l + ")" for i,l in enumerate(zip(*exregx)[0]))
-	
-	except IndexError:
-		raise Exception('Regex {0} list is Null'.format(exregx))
-
-	ex = "|" + regx if self.regexes  else regx
-	#print 'ex=======',"|".join(self.regexes) +  ex
-        self._regex = re.compile("|".join(self.regexes) +  ex , self.flags)
-
-	#print self._regex.pattern
-
-	if type(exregx[0]) is str:
-	        name = make_func.__name__ + str(0)
-
-	        if callable(make_func):
-		    #_method = make_func(name)
-		  
-		    setattr(self, name, make_func)
+def getlistname(lst):
+	tmp = []
+	tmp = globals()
+	for k,v in tmp.items():
+		
+		if v == lst :
+		
+			return k
+		
+class Singleton(type):
+    _instances = {}
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        
 	else:
+            cls._instances[cls].__init__(*args, **kwargs)
+	return cls._instances[cls]
+ 
+
+class MultiRegex(object):
+	__metaclass__ = Singleton
+	flags = re.I #re.MULTILINE
+	regexes = ()
+
+	def Block(self,mo,*args):
+
+		if isinstance(mo, type(re.match("",""))):
+			print "found match 1 = ", mo.group()
+			print mo.groupdict()
+			return mo.group()
+		for arg in args:
+			if isinstance(arg, type(re.match("",""))):
+				print "found match 2= ", arg.group()
+				return arg.group()
 		
-		for i,v in enumerate(exregx):
-		    
-		    name = make_func.__name__ + str(i)
-		    print 'create function: ',name,i,v
-		    if callable(make_func):
-			    _method = make_func(i,exregx)
-			  
-			    setattr(self, name, _method)
-		 
+	
+	def __init__(self,regex,func):
+		'''
+		compile a disjunction of regexes, in order
+		'''
 
-    def search(self,s,*args):
-	c = 0
-	for mo in self._regex.finditer(s):
-		print 'search===',mo.groupdict()
-		for k,v in mo.groupdict().iteritems():
+		regname =  str(id(regex))
 
-		    if v:
-		        func = getattr(self, k)
+		funcname = func.__name__ 
+
+		try:
+			self._regx = getattr(self, regname)
+		except AttributeError:
+
+
+			try:
+
+				if type(regex[0]) is str:
+					regx = "(?P<" + funcname + '>(' + '|'.join(l for l in regex) + '))'
+
+					ex = "|" + regx if self.regexes  else regx
 			
-		
-		        if callable(func):
-		            func(self,mo,*args)
-			    break
-			else:
-				
-		            func
-			    break
-		c += 1
-	return c > 0 
+					regvalue = re.compile( "|".join(self.regexes) + ex, self.flags)
+				else:
+					regx = '|'.join("(?P<" + str('replace_line' if funcname == "make_dummy" else funcname) + str(i) + '>' + l + ")" for i,l in enumerate(zip(*regex)[0]))
+					ex = "|" + regx if self.regexes  else regx
+					
+					regvalue = re.compile("|".join(self.regexes) +  ex , self.flags)
+	
 
-    def sub(self,s,*args):
-        return self._regex.sub(self._sub, s)
+			except IndexError:
+				raise Exception('Regex {0} list is Null'.format(regx))
 
-    def _sub(self, mo,*args):
-        '''
-        determine which partial regex matched, and
-        dispatch on self accordingly.
-        '''
-	print 'sub===',mo.groupdict()
-        for k,v in mo.groupdict().iteritems():
-	    
-            if v:
-                sub = getattr(self, k)
-                if callable(sub):
-                    return sub(self,mo,*args)
-                return sub
-        raise AttributeError,'nothing captured, matching sub-regex could not be identified'
+
+			setattr(self, regname,regvalue)
+			self._regx = getattr(self, regname)
+
+
+			if callable(func):
+
+			
+				__method = func(self,regex)
+
+				if callable(__method):
+					setattr(self, funcname, __method)
+				else:
+					setattr(self, funcname, func)
+
+	def findmatch(self,s,*args):
+		for mo in self._regx.finditer(s):
+			#print self._regx.pattern
+			print
+
+			for k,v in mo.groupdict().iteritems():
+
+				if v:
+					
+					func = getattr(self, k)
+
+
+					if callable(func):
+						#print "calling func",func.__name__
+						return func(self,mo,*args)
+						break
+					else:
+	
+						return func
+						break
+		return ''
+	
+	def search(self,s,*args):
+
+		c=0
+		for mo in self._regx.finditer(s):
+
+			print
+
+			for k,v in mo.groupdict().iteritems():
+
+				if v:
+					func = getattr(self, k)
+
+
+					if callable(func):
+
+						func(self,mo,*args)
+						break
+					else:
+	
+						func
+						break
+			c += 1
+
+		return c > 0 
+	
+	def sub(self,s,*args):
+
+		return self._regx.sub(self._sub, s)
+    	
+	def _sub(self, mo,*args):
+		'''
+		determine which partial regex matched, and
+		dispatch on self accordingly.
+		'''
+
+		print
+
+		for k,v in mo.groupdict().iteritems():
+		    
+		    if v:
+			
+
+		        sub = getattr(self, k)
+		        if callable(sub):
+
+		            return sub(self,mo,*args)
+		        return sub
+		raise AttributeError,'nothing captured, matching sub-regex could not be identified'
 
 
 
 
 BuildSubRegex = (
 (r'patch -Np1 -i ../',		'patch -Np1 -i %_sourcedir/'),
-(r'f ../',			"f  %_sourcedir/"),
-
+(r'f \.\./',			"f  %_sourcedir/"),
+(r'(d \.\./)',		"d  %_sourcedir/"),
 )
 
 BuildCDRegex =(
-r'cd .*',
+r'^cd [^|]*',
 )
 
 BuildPreRegex =(
@@ -511,34 +403,95 @@ r'^\s*chgrp.*',
 )
 
 BuildMakeRegex=(
-(r'(.*make[\n ].*)',		' %{?_smp_mflags} \n'),
-
-
+r'(.*(?<![a-z])make[\n ].*)',		
 
 )
 
-def append_line(i,regx):
+
+
+def make_dummy(self,regx):
+  
+
+	for i,v in enumerate(regx): 
+		name = "replace_line" + str(i)
+
+		if callable(replace_line):
+			_method = replace_line(self,i,regx)
+			setattr(self, name, _method)
+    
+
+def append_line(self,regx):
     def _method(self,*args):
 	for arg in args:
-        	print 'append===',regx[i][1],' after = ', arg.string
-	return args[0].string.strip("\n") + regx[i][1]
+		if isinstance(arg, type(re.match("",""))):
+
+			return arg.string.strip("\n").strip() + ' %{?_smp_mflags} \n'
     return _method
 
-def replace_line(i,regx):
+def replace_line(self,i,regx):
     def _method(self,*args):
+
 	for arg in args:
-        	print 'replace===',arg.string,' with==',regx[i][1]
-	return regx[i][1]
+		if isinstance(arg, type(re.match("",""))):
+			line = arg.string
+
+			return regx[i][1]
     return _method
 
 def move_line(self,mo,*args):
-	print 'move line : ',mo.string," to ", args[0]
-	if type(args[0]) is list:
-		args[0].append(mo.string)
+	def _method(self,*args):
 
+		for arg in args:
+			if isinstance(arg, type(re.match("",""))):
+				line = arg.string
+		for arg in args:
+
+			if type(arg) is list:
+
+				arg.append(line)
+
+				break
+	return _method
+def return_line(self,mo,*args):
+	
+	if isinstance(mo, type(re.match("",""))):
+
+		return mo.group()
+
+	for arg in args:
+		if isinstance(arg, type(re.match("",""))):
+
+			return arg.group()
+	return ''
+
+def return_block_tag(self,mo,*args):
+	return "TOBEREPLACED"
+
+def skip_line(self,regx):
+	return ''
+
+BuildArg = (
+(BuildSubRegex,make_dummy),
+(BuildCDRegex,move_line),
+(BuildPreRegex,move_line),
+(BuildMakeRegex,append_line),
+)
+def Make(self,mo,*args):
+
+	for arg in args:
+		
+		if isinstance(arg, type(re.match("",""))):
+			line = arg.string
+			break
+
+	return line.replace("&&","").strip() + ' %{?_smp_mflags} \n'
 
 class BuildRegx(MultiRegex):
-	pass
+	regexes = (
+
+	)
+
+
 
 
 
@@ -554,9 +507,11 @@ def parsebuild(build,buildfolder,pre):
 		if matchBlock('cat (>|>>)\s*/.*(EOF|"EOF")','^EOF',lines,line,build,True,False) : continue
 		
 		if BuildRegx(BuildPreRegex,move_line).search(line,pre) : continue
+		#print dir(BuildRegx),'ppppppppppppppppppp'
 		BuildRegx(BuildCDRegex,move_line).search(line,buildfolder)
 		
-		line = BuildRegx(BuildSubRegex,replace_line).sub(line)
+		line = BuildRegx(BuildSubRegex,make_dummy).sub(line)
+		
 		line = BuildRegx(BuildMakeRegex,append_line).sub(line)
 
 		build.append(line)
@@ -565,36 +520,14 @@ def parsebuild(build,buildfolder,pre):
 
 InstallSubRegex = (
 (r'=/',			"=${RPM_BUILD_ROOT}/"),
-(r'DESTDIR=',		"DESTDIR=$RPM_BUILD_ROOT"),
-(r'f ../',		"f  %_sourcedir/"),
+(r'DESTDIR=',		"DESTDIR=${RPM_BUILD_ROOT}"),
+(r'(f \.\./)',		"f  %_sourcedir/"),
+(r'(d \.\./)',		"d  %_sourcedir/"),
+
 )
 
 
-PostrunRegex = [
-'^\s*pwconv.*',
-'^\s*grpconv.*',
-"^\s*echo 'root:ping'.*",
-'^\s*grub-install .*',
-'^\s*build/udevadm hwdb --update.*',
-'^\s*chgrp.*',
-'^\s*chmod.*',
-'^\s*chown.*',
-'^\s*gtk-update-icon-cache.*',
-'^\s*update-desktop-database.*',
-'^\s*usermod.*',
-'^\s*useradd.*',
-'^\s*groupadd.*',
-'^\s*ssh-keygen.*',
-'^\s*unset public_key.*',
-#'^\s*rndc-confgen.*',
-'^\s*mknod.*',
-'^\s*/etc/rc.d/init.d/.*',
-'^exim -v -bi',
-'^/usr/sbin/.*',
-'.*install.*-o.*-g.*',
-'.*~/.*',
-'.*>>.*',
-]
+
 
 
 InstallActRegex =(
@@ -613,53 +546,81 @@ r'.*make.*install.*',
 )
 
 
+	
+InstallArg = (
+(InstallSubRegex,make_dummy),
+(PostrunRegex,move_line),
+#(InstallSpaceFolder,SpaceFolder),
+#(InstallMakeInstall,MakeInstall),
+)
+def SpaceFolder(self,mo,*args):
+
+	if isinstance(mo, type(re.match("",""))):
+		line = mo.string
+	else:
+		line = ""
+	for arg in args:
+		#print 'arg===',arg
+		if isinstance(arg, type(re.match("",""))):
+			line = arg.string
+		
+			break
+
+	#line = args[0].string
+
+	if "/dev/null" in line:
+		'''
+		zic -L /dev/null   -d $ZONEINFO/posix -y "sh yearistype.sh" ${tz}
+		'''
+		return line
+	elif "ln " in line:
+		'''
+		ln -sv ....
+		'''
+		if findfolder(line[8:]):
+
+			pass
+		line = line[:8].replace(' /',' ../') + line[8:].replace(' /'," ${RPM_BUILD_ROOT}/")
+
+	else:
+		return line.replace(' /'," ${RPM_BUILD_ROOT}/")
+
+	 	
+	return line
+
+
+
+def MakeInstall(self,mo,*args):
+	if isinstance(mo, type(re.match("",""))):
+		line = mo.string
+	else:
+		line = ""
+	for arg in args:
+
+		if isinstance(arg, type(re.match("",""))):
+			line = arg.string
+			break
+
+	if "make modules_install" in line:
+		line = line.strip("\n") + " INSTALL_MOD_PATH=${RPM_BUILD_ROOT} \n"
+	if "make BINDIR=${RPM_BUILD_ROOT}/sbin install" in line: 
+
+		line = line.strip("\n") + " install prefix=${RPM_BUILD_ROOT} \n"
+	if "make -C src install" in line:
+
+		line = line.strip("\n") + " ROOT=${RPM_BUILD_ROOT} \n"
+	if "&&" in line:
+
+		line = line.strip("\n").strip() + " DESTDIR=${RPM_BUILD_ROOT} \n"
+	else:
+		line = line.strip("\n") + " DESTDIR=${RPM_BUILD_ROOT} \n"
+	#print "line ====",line
+	return line
 class InstallRegx(MultiRegex):
+	regexes = (
+	
+	)
 
-	pass
-	
-	def SpaceFolder(self,mo,*args):
-		line = mo.group()
-
-		if "/dev/null" in line:
-			'''
-			zic -L /dev/null   -d $ZONEINFO/posix -y "sh yearistype.sh" ${tz}
-			'''
-			return line
-		elif "ln " in line:
-			'''
-			ln -sv ....
-			'''
-			if findfolder(line[8:]):
-				#print line[8:]
-				#print findfolder(line[8:])
-				#print walk2(findfolder(line[8:])[0]),"level========================"
-				pass
-			line = line[:8].replace(' /',' ../') + line[8:].replace(' /'," ${RPM_BUILD_ROOT}/")
-		
-		else:
-			return line.replace(' /'," ${RPM_BUILD_ROOT}/")
-		
-		 	
-		return line
-
-	
-	
-	def MakeInstall(self,mo,*args):
-		line = mo.group()
-		if "make modules_install" in line:
-			line = line.strip("\n") + " INSTALL_MOD_PATH=$RPM_BUILD_ROOT \n"
-		if "make BINDIR=${RPM_BUILD_ROOT}/sbin install" in line: 
-	
-			line = line.strip("\n") + " install prefix=$RPM_BUILD_ROOT \n"
-		if "make -C src install" in line:
-	
-			line = line.strip("\n") + " ROOT=$RPM_BUILD_ROOT \n"
-		if "&&" in line:
-	
-			line = line.strip("\n").strip("&&").strip() + " DESTDIR=$RPM_BUILD_ROOT \n"
-		else:
-			line = line.strip("\n") + " DESTDIR=$RPM_BUILD_ROOT \n"
-		return line
 
 
 def parseinstall(install,makefolders,postrun):
@@ -683,20 +644,36 @@ def parseinstall(install,makefolders,postrun):
 			#if matchUserSettings(line,postrun) : continue 
 			#if matchChangeGroupUser(line,postrun): continue
 			if InstallRegx(PostrunRegex,move_line).search(line,postrun): continue
-			line = InstallRegx(InstallSubRegex,replace_line).sub(line)
+			line = InstallRegx(InstallSubRegex,make_dummy).sub(line)
 			line = InstallRegx(InstallSpaceFolder,SpaceFolder).sub(line)
 			line = InstallRegx(InstallMakeInstall,MakeInstall).sub(line)
 
 			if containsAny(line, ['bash udev-lfs-206-1/init-net-rules.sh']):
-				install.append("mkdir -pv $RPM_BUILD_ROOT/etc/udev/rules.d/\n")
-				install.append("cp -v /etc/udev/rules.d/70-persistent-net.rules $RPM_BUILD_ROOT/etc/udev/rules.d/\n")
-				install.append('sed -i \'s/\"00:0c:29:[^\\".]*\"/\"00:0c:29:*:*:*\"/\' $RPM_BUILD_ROOT/etc/udev/rules.d/70-persistent-net.rules\n')
+				install.append("mkdir -pv ${RPM_BUILD_ROOT}/etc/udev/rules.d/\n")
+				install.append("cp -v /etc/udev/rules.d/70-persistent-net.rules ${RPM_BUILD_ROOT}/etc/udev/rules.d/\n")
+				install.append('sed -i \'s/\"00:0c:29:[^\\".]*\"/\"00:0c:29:*:*:*\"/\' ${RPM_BUILD_ROOT}/etc/udev/rules.d/70-persistent-net.rules\n')
 				continue
 
 		install.append(line)
 			
 
 	return install
+SkipBlock = r'(?P<Block>(EOF|"EOF")((?!EOF).)*EOF)'
+
+DeleteBlock = (
+r'menuentry.*}',
+
+)
+class BookRegex(MultiRegex):
+	#regexes = (SkipBlock,)
+	pass
+
+class BookReplace(MultiRegex):
+	#regexes = (SkipBlock,)
+	pass
+class BookIgnore(MultiRegex):
+	pass
+
 
 
 class Package:
@@ -759,6 +736,10 @@ class Package:
 			specstxt = ""
 			if self.commands:
 				for cmd in self.commands:
+					print type(cmd)
+					print "---------------------"
+					print cmd
+					print "---------------------"
 					if type(cmd) is not str:
 						line = self.findchild(cmd)
 					else:
@@ -803,21 +784,8 @@ class Package:
 				specstxt += 'export XORG_PREFIX="/opt"\n'
 				specstxt += 'export XORG_CONFIG="--prefix=$XORG_PREFIX  --sysconfdir=/etc --localstatedir=/var --disable-static"\n'
 				#specstxt += '\n'.join('wget --no-check-certificate -nc ' + line  + ' -P %_sourcedir\n' for i,line in enumerate(self.downloads)) + "\n"
-				specstxt += '''\
-rm -rf %{srcdir}
-mkdir -pv %{srcdir} || :
-case %SOURCE0 in 
-	*.zip)
-	unzip -x %SOURCE0 -d %{srcdir}
-	;;
-	*tar)
-	tar xf %SOURCE0 -C %{srcdir} 
-	;;
-	*)
-	tar xf %SOURCE0 -C %{srcdir} --strip-components 1
-	;;
-esac
-'''
+				specstxt += untar
+
 				'''if self.shortname == "vim" :
 					specstxt += "%setup -q -n vim" + self.version.replace(".","")
 				elif self.shortname =="udev":
@@ -841,11 +809,11 @@ esac
 
 				specstxt += str(buildfolder[0] if buildfolder else "" ) + "\n"
 
-				specstxt += '\n'.join("mkdir -pv $RPM_BUILD_ROOT" + f for f in set(installfolders)) + "\n"
+				specstxt += '\n'.join("mkdir -pv ${RPM_BUILD_ROOT}" + f for f in set(installfolders)) + "\n"
 
 				specstxt += ''.join(line for line in install)  + "\n"
 
-				specstxt += '[ -d $RPM_BUILD_ROOT%{_infodir} ] && rm -f $RPM_BUILD_ROOT%{_infodir}/dir'+ "\n"
+				specstxt += '[ -d ${RPM_BUILD_ROOT}%{_infodir} ] && rm -f ${RPM_BUILD_ROOT}%{_infodir}/dir'+ "\n"
 
 				specstxt += '%clean'+ "\n"
 
@@ -918,6 +886,7 @@ esac
 	def overruncmds(self,cmds):
 		if cmds:
 			self.commands = cmds
+	
 	def script(self):
 		scriptstr =""
 		short = self.shortname
@@ -927,36 +896,55 @@ esac
 				short = "systemd"
 		
 		if containsAny(short,['nss','json','pulseaudio','libiodbc']):
-			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 1'\n" 
+			scriptstr += scriptheader1 + "\npkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 1'\n" 
 		else:
-			scriptstr += scriptheader1 + "pkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 4'\n" 
-					
-		if self.downloads:
+			scriptstr += scriptheader1 + "\npkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 4'\n" 
+		scriptstr += "download()\n{\n"		
+		if self.downloads and not self.downloads[0].endswith(".patch"):
+			tmp = ""
 			for link in set(self.downloads):
 				
 				if "blfs" in self.book.link and 'wget' not in short and 'openssl' not in short:
 					
 					scriptstr += "nwget " + link + "\n"
 				else:
-					pass
-			scriptstr += "preparepack \"$pkgname\" \"$version\" " + parselink(self.downloads[0]) + "\n"
-			scriptstr += "cd ${SOURCES}/${pkgname}-${version} \n"
+					tmp = ":"
+			
+			scriptstr += tmp
+		else:
+			scriptstr +=  ":"
+		scriptstr += "\n}\nunpack()\n{\n"
+		if self.downloads and not self.downloads[0].endswith(".patch"):
+			scriptstr += "preparepack \"$pkgname\" \"$version\" " + parselink(self.downloads[0])
+			scriptstr += "\ncd ${SOURCES}/${pkgname}-${version} \n"
+		else:
+			scriptstr +=  "\ncd ${SOURCES} \n"
+
+		scriptstr += "\n}\nbuild()\n{\n"
 		if self.commands:
-			for line in self.commands:
-				#print type(line),line
-				#if type(line) is not str:
-				#	go = 1
+	
+			allline = '\n'.join(line for i,line in enumerate(self.commands))
 
+			lastline = allline
 
-				scriptstr += self.massreplaceline(line)
+			line = self.modify_line(allline)
+			if lastline != line:
+
+				pass
+			scriptstr += line
+
+		else:
+			scriptstr +=  ":"
+		scriptstr += "\n}\n"
 
 		if self.downloads:	
-			scriptstr += "cd ${SOURCES}\nrm -rf ${pkgname}-${version} \nrm -rf ${pkgname}-build\n"
+			scriptstr += "clean()\n{\ncd ${SOURCES}\nrm -rf ${pkgname}-${version} \nrm -rf ${pkgname}-build\n}\n"
+		scriptstr += str( "download;unpack;build;clean\n" if self.downloads else  "download;unpack;build\n" )
 		return scriptstr
 
 
 	
-	def findchild(self,tag):
+	def findchildj(self,tag):
 		cmdline=""
 		if tag.string!=None:
 			tmpstr = tag.string
@@ -977,12 +965,45 @@ esac
 					
 			cmdline = cmdline + "\n"						
 		return cmdline
+	def match_block(self,start,end,line,lst,cont=True):
+		bregx = re.compile(r"'" + start + "(\n*[^" + end + "]*\n*)*" + end + ")'", re.MULTILINE)
+		pass
 	
+	def modify_line(self,line):
+
+
+	 	if self.book.name == "BLFS" :
+			ignorelist = blfsignorelist
+			globalreplace = blfsreplace
+			globalregx = blfsregx
+		else:
+			ignorelist = lfsignorelist
+			globalreplace = lfsreplace
+			globalregx = lfsregx
+
+		nline = ''
+		for l in line.split("\n"):
+			if containsAny(l,ignorelist):
+				print l,'in igore'
+				pass 
+			else:
+				nline += l + "\n"
+		line = nline
+		line = BookReplace(globalreplace,make_dummy).sub(line)
+
+		line = BookRegex(globalregx,make_dummy).sub(line)
+
+		return line
+
+			
+
+
 	def lineadd(self,block):
 		
 		lst = []
 		if block:
 			for i,line in enumerate(block.splitlines()):
+				
 				if line and line !="\n":
 	 				if "blfs" in self.book.link :
 						ignorelist = blfsignorelist
@@ -993,6 +1014,7 @@ esac
 						self.delete_log += "\n--------------------" + self.name + "-------------------------\n"
 						self.delete_log += "Delete line : " + str(i) + " : " + line + " from :\n"
 						self.delete_log += block + "\n"
+						
 						pass
 			   		else:
 				
@@ -1008,27 +1030,24 @@ esac
 			globalreplace = lfsreplace
 			globalregx = lfsregx
 
-		for k, v in OrderedDict(globalreplace).iteritems():
-
-			if k in string:
-			
-				self.replace_log += "\nOrigin    : " + string + "\n"
-				self.replace_log += "Replacing : " + k + " with : " + v  + "\n"
-				self.replace_log += "Rules     : " + k + "\n"
+		laststr = string 
+		string = BookReplace(globalreplace,make_dummy).sub(string)
+		
+		if string != laststr:
+				self.replace_log += "\nOrigin    : " + laststr + "\n"
+				
+				self.replace_log += "Replacing : " + laststr + " with : " + string  + "\n"
+				#
 				self.replace_log += "-------------------------------------------------\n"
-	   			string = string.replace(k, v)
-			
 
-		for k, v in OrderedDict(globalregx).iteritems():
-			laststr = string
-			string = re.sub(k ,v, laststr)#,flags=re.DEBUG)
-			if string != laststr:
-
+		laststr = string 
+		string = BookRegex(globalregx,make_dummy).sub(string)
+		if string != laststr:
 				self.replace_log += "\nOrigin    : " + laststr + "\n"
 				self.replace_log += "Replacing : " + laststr + " with : " + string  + "\n"
-				self.replace_log += "Rules     : " + k + "\n"
+
 				self.replace_log += "-------------------------------------------------\n"
-		
+
 		
 		return string
 	@property
@@ -1096,7 +1115,7 @@ class Page:
 		
 		if self.book.wget_file_list:
 
-			link = grep('/' + short + '[^/]*\.tar\.((bz2)|(xz)|(gz))$' ,self.book.wget_file_list)
+			link = grep('/' + short + '-[^/]*\.tar\.((bz2)|(xz)|(gz))$' ,self.book.wget_file_list)
 			
 			if link:
 				download_link.append(link)
@@ -1132,9 +1151,9 @@ class Page:
 					
 					try:
 						
-						#dname = NormName(re.sub(r"[\x90-\xff]", "",node.xpath("./@title")[0]))
+						
 						dname = node.xpath("./@title")[0]
-						#print dname,'dnametitle',noskip,node.xpath("./@title")
+						
 						if noskip:
 							pkgname = NormName(dname)
 							
@@ -1142,6 +1161,8 @@ class Page:
 								short =  "x-window-system-environment"
 							elif containsAny(pkgname,['udev-installed-lfs-version']):
 								short = 'udev-extras-from-systemd'
+							elif  'xorg-build-environment' in pkgname:
+								short = 'introduction-to-xorg-7.7'
 							else:
 								short = shortname(dname)
 							ver = version(dname)	
@@ -1257,8 +1278,7 @@ class Page:
 					url = a.attrib['href'].strip()
 				except (KeyError,AttributeError):
 					continue
-			
-			#print "URL     :",url
+
 
 			if link != None and ".html" in url: # /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
 						     # /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/postlfs/openssl.html
@@ -1271,7 +1291,7 @@ class Page:
 			if downloads:
 				#if download exists, parse its download link as dependency
 				packname = parselink(downloads[0]).strip(".tar.gz")
-			
+				
 				dependency += fullname(packname) + "  "
 			else:   # or parse its text as dependency 
 				dependency += fullname(li.xpath("./p/a//text()")[0].strip()) + " "
@@ -1280,12 +1300,10 @@ class Page:
 			if downloads and not li.xpath("./div"):
 				# li has not div descendants, mean there is no dependency along with it.
 				packname = fullname(packname)
+				
 				i += 1
 				packno = packno = str(self.no) + str(i)
-				'''print "--------------------"
-				print '===  down:',downloads
-				print ":packname:",packname
-				print ":packno  :",packno'''
+
 				plist.append(Package(packno,packname,perlcmd,downloads,"",self,self.chapter,self.book))
 				counter =  i
 			elif downloads:
@@ -1299,11 +1317,7 @@ class Page:
 	
 			i += 1
 			packno = packno = str(self.no) + str(i)
-			'''print "--------------------"
-			print '     down:',thisdown
-			print ":packname:",packname
-			print ":packno  :",packno
-			print "depend   :",dependency'''
+
 			plist.append(Package(packno,packname,perlcmd,[thisdown],dependency,self,self.chapter,self.book))
 			counter = i
 
@@ -1319,6 +1333,7 @@ class Page:
 	
 	@property
 	def pagesoup(self):
+		
 		if not self._soup:
 			self._soup = etree.HTML(open(self.link).read())
 		return self._soup
@@ -1330,7 +1345,8 @@ class Page:
 				
 				prev = ''.join(l.strip() for l in line.xpath("../preceding-sibling::p[1]//text()"))
 				thisline = ''.join(str(l) for l in line.xpath(".//text()")) + "\n"
-				
+				#make line extend two line into one line
+				thisline =  re.compile(r'\s*\\\n\s*',re.MULTILINE).sub(' ',thisline)
 				if containsAny(prev, ['doxygen','Doxygen','texlive','TeX Live','Sphinx']) and not containsAny(prev,['Install Doxygen']):
 					
 					pass
@@ -1342,10 +1358,12 @@ class Page:
 					#bootscript[0].overruncmds([''.join(str(l) for l in line.xpath(".//text()")) + "\n"])
 					#print bootscript[0].commands
 					#print bootscript[0].script()
+					
 					cmds.append("mkdir /etc\n")
-					cmds.append("mkdir  " + bootscript[0].shortname + "\n")
-					cmds.append("tar xf ../" + parselink(bootscript[0].downloads[0])+" -C " + bootscript[0].shortname + " --strip-components 1\n")
-					cmds.append("cd " + bootscript[0].shortname+"\n")
+					cmds.append("mkdir  ${SOURCES}/" + bootscript[0].shortname + "\n")
+					cmds.append("cd ${SOURCES}/" + bootscript[0].shortname + "\n")
+					cmds.append("tar xf ../" + parselink(bootscript[0].downloads[0])+"  --strip-components 1\n")
+					#cmds.append("cd " + bootscript[0].shortname+"\n")
 					cmds.append(thisline)
 
 				else:
@@ -1384,11 +1402,8 @@ class Page:
 				
 				
 				if cmds or downs:
-					#packname = header.xpath("//h1[@class='sect1']//text()[2]")[0]
-					packname = ''.join(str(l) for l in header.xpath(".//text()")) 
 					
-					#if string == "libvpx":
-					#	packname = string + '-' + version(self.name).replace('v','')
+					packname = ''.join(str(l) for l in header.xpath(".//text()")) 
 
 					if string == 'xkeyboardconfig':
 						packname = 'xkeyboard-config' + "-" + version(self.name)
@@ -1485,9 +1500,10 @@ class Book:
 			self.LFS = self
 
 		self.wgetlist = self.LFS.bookdir + "/wget-list"
-                if self.name == "BLFS":
-                       blfsregx.append([r"udev-lfs(-([0-9]+))+",self.udev_version])
-
+		if self.name == "BLFS":
+			blfsregx.append([r"udev-lfs(-([0-9]+))+",self.udev_version])
+			blfsreplace.append( ("UDEV=<version>","UDEV=%s"%self.udev_version))
+			
 
 	@property
 	def name(self):
@@ -1513,9 +1529,9 @@ class Book:
 				for p in pack:
 					for cmd in p.commands:
 						
-						match = re.search('/(udev-lfs(-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',cmd,re.IGNORECASE)
+						match = re.search('/udev-lfs((-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',cmd,re.IGNORECASE)
 						if match:
-							self._udev_version = match.group(1)
+							self._udev_version = match.group(1).strip("-")
 							break
 		return self._udev_version
 
@@ -1571,7 +1587,7 @@ class Book:
 		return None
 
 	def search(self,name):
-		print name
+		
 		soup = self.booksoup.xpath('.//a[contains(translate(., "ABCDEFGHJIKLMNOPQRSTUVWXYZ", "abcdefghjiklmnopqrstuvwxyz"),"' + name.lower() + '")]/../../../h4//text()')
 		
 		chno = 0
@@ -1627,11 +1643,11 @@ class Book:
 	def booksoup(self):
 		if self._soup is None:
 			try:
-				self._soup = etree.HTML(open(self.link).read())#soupparser.fromstring(open(self.link).read())[1]
+				self._soup = etree.HTML(open(self.link).read())
 			except IOError:
 				os.system("wget --recursive  --no-clobber --html-extension  --convert-links  --restrict-file-names=windows  --domains www.linuxfromscratch.org   --no-parent " + self.link)
-				self._soup = etree.HTML(open(self.link).read()) #soupparser.fromstring(open(self.link).read())[1]
-		
+				self._soup = etree.HTML(open(self.link).read())
+
 		return self._soup
 
 	@property
@@ -1643,221 +1659,3 @@ class Book:
 		return self._chapters
 
 
-
-def blfstest():
-	#
-	
-	link = "www.linuxfromscratch.org/blfs/view/stable/index.html"
-	blfs = Book(link, Book("www.linuxfromscratch.org/lfs/view/stable/index.html"))
-	
-	
-	#print blfs.udev_version
-	#print "-----------",grep('/XML-SAX-Expat-([0-9.]+)[^/]*\.tar\.((bz2)|(xz)|(gz))$' ,lfs.perl_packs)
-	packs = blfs.search("openssh")
-	#print blfs.wget_file_list
-	#pack = blfs.chapters[13].pages[19].packages[6]
-	#lfs.search("Changing\s*Ownership")
-	#pack = blfs.search("totem")
-	#print '---------------------',page
-	#page.populate()
-	#print blfs.perl_modules_link,"link"
-	#for pack in page.packages:
-	#print len(packs),"len"
-	for ch in blfs.chapters:
-		print ch.name,ch.no
-		for page in ch.pages:
-			#print page.summary
-			pack = page.packages
-			if pack:
-				for package in pack:
-					#for line in package.commands:
-					#	if re.search('cat > ~/[^\\bEOF\\b]*EOF',line,re.MULTILINE):
-								#print line
-					#			print "==========="
-					#	if re.search('cat\s*>[^\\bEOF\\b]*<<\s*(EOF|"EOF")',line,re.MULTILINE):
-					#		print re.sub("cat\s*(>|>>)\s*/","cat \g<1> $RPM_BUILD_ROOT/",line) 
-					#		print "==========="
-					#print package.fullname
-					package.writespecs()
-					#print package.specs()
-	
-						
-
-'''
-for pack in packs:
-	
-		print "name:",pack.name
-		print "short:",pack.shortname
-		print "version:",pack.version
-		#print "command:",pack.commands
-		#print pack.downloads
-		#print pack.dependency
-		print "------------------------------------------------"
-		print pack.specs()
-
-					 
-	for pack in packs:
-	
-		print "name:",pack.name
-		print "short:",pack.shortname
-		print "version:",pack.version
-		#print "command:",pack.commands
-		print pack.downloads
-		print pack.dependency
-		print "------------------------------------------------"
-		print pack.specs()
-		print pack.script()
-		print "------------------------------------------------"
-for pack in packs:
-	
-		print "name:",pack.name
-		print pack.shortname
-		print pack.version
-		print "command:",pack.commands
-		print pack.downloads
-		print pack.dependency
-		print "------------------------------------------------"
-		print pack.specs()
-		print pack.script()
-		print "------------------------------------------------"
-		pack.writespecs()
-		pack.writescript()
-
-
-
-
-
-
-
-		
-	for ch in blfs.chapters:
-		print ch.name,ch.no
-		for page in ch.pages:
-			pack = page.packages
-			if pack:
-				for package in pack:
-					#print package.specs()
-					package.writespecs()
-
-	if pack:
-		print pack.name
-		print pack.shortname
-	 	print pack.version
-		print pack.downloads
-		print pack.writespecs()
-		
-	#print "downn=",pack.downloads
-	#print "depend=",pack.dependency
-	print "------------------------"
-
-		page = lfs.search('wget')
-	if page:
-		print page.name,page.dependency
-'''
-
-
-def lfstest():
-	link = "www.linuxfromscratch.org/lfs/view/stable/index.html"
-	lfs = Book(link)
-	#packs = lfs.search("network")
-	
-	for ch in lfs.chapters:
-		print ch.name,ch.no
-
-		for page in ch.pages:
-			
-			pack = page.packages
-			if pack:
-				for package in pack:
-					
-					#		print "==========="
-						
-					#print package.version
-					#print package.shortname
-					#print package.commands
-					#print package.specs()
-					package.writespecs()
-	
-'''	
-for pack in packs:
-		if pack:
-			print pack.name
-			print pack.shortname
-		 	print pack.version
-			print pack.page.summary
-			print pack.dependency
-			print pack.script()
-			#print pack.specs()
-					#print package.dependency
-					#print package.script()
-					for i in package.commands:
-						print i
-		if ch.no > 5 :
-			for page in ch.pages:
-				pack = page.packages
-				if pack:
-					for package in pack:
-						#print package.specs()
-						package.writespecs()
-	
-	#pack = lfs.search("Perl\s*Modules")
-	#pack = lfs.search("systemd")
-	pack = ''
-	if pack:
-		print pack.name
-		print pack.shortname
-	 	print pack.version
-		print pack.commands
-		#print pack.script()
-		#for cmd in pack.commands:
-		#	match = re.search('/(udev-lfs(-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',cmd.text,re.IGNORECASE)
-		#	if match:
-		#		print match.group(1)
-
-	for i in lfs.wget_file_list:
-		print i
-	page = lfs.chapters[5].pages[6]
-	for pack in page.packages:
-		print pack.downloads
-
-
-	changeownership = lfs.search("Changing\s*Ownership")
-	virtualfs = lfs.search("Preparing\s*Virtual\s*Kernel\s*File\s*Systems")
-	print changeownership.no,changeownership.targetname
-	print virtualfs.no,virtualfs.name,virtualfs.targetname
-
-
-	page = lfs.chapters[5].pages[6]
-	#page.populate()
-	for pack in page.packages:
-		print pack.no
-	 	print pack.name
-		print pack.shortname,"-",pack.version
-		print pack.commands
-		print pack.downloads
-		print pack.dependency
-		print "------------------------"
-	
-	
-	for ch in lfs.chapters:
-		print ch.name,ch.no
-		 
-		for page in ch.pages:
-			if page.packages:
-				for package in page.packages:
-					#print dir(page.packages)
-					#package = page.packages
-					print "	",package.no	
-					print "	",package.name
-					print "      ",package.downloads
-					print "      ",package.dependency
-					print "      --------------------------------"
-import cProfile
-cProfile.run('blfstest()',"testout",4)
-import pstats
-p = pstats.Stats('testout')
-p.strip_dirs().sort_stats('cumulative').print_stats()
-'''
-
-#blfstest()
-blfstest()

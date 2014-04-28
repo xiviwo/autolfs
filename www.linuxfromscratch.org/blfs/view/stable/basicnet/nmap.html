@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;16.&nbsp;Networking Utilities
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="networkmanager.html" title=
-          "NetworkManager-0.9.8.2">Prev</a>
+          "NetworkManager-0.9.8.8">Prev</a>
           <p>
-            NetworkManager-0.9.8.2
+            NetworkManager-0.9.8.8
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           scanning and TCP/IP fingerprinting.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -121,25 +121,25 @@
         </div>
         <p class="recommended">
           <a class="xref" href="libpcap.html" title=
-          "libpcap-1.4.0">libpcap-1.4.0</a>, <a class="xref" href=
-          "../general/lua.html" title="Lua-5.1.5">Lua-5.1.5</a>, <a class=
-          "xref" href="../general/pcre.html" title="PCRE-8.33">PCRE-8.33</a>
-          and <a class="ulink" href=
-          "http://www.csie.ntu.edu.tw/~cjlin/liblinear/">liblinear</a>
+          "libpcap-1.5.3">libpcap-1.5.3</a>, <a class="xref" href=
+          "../general/lua.html" title="Lua-5.2.3">Lua-5.2.3</a>, <a class=
+          "xref" href="../general/pcre.html" title="PCRE-8.34">PCRE-8.34</a>,
+          and <a class="xref" href="../general/liblinear.html" title=
+          "liblinear-1.94">liblinear-1.94</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="xref" href=
           "../general/python-modules.html#pygtk" title=
           "PyGTK-2.24.0">PyGTK-2.24.0</a> (required for <span class=
           "command"><strong>zenmap</strong></span>), <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>
+          "../general/python2.html" title="Python-2.7.6">Python-2.7.6</a>
           (required for <span class="command"><strong>ndiff</strong></span>)
           and <a class="xref" href="../general/subversion.html" title=
-          "Subversion-1.8.3">Subversion-1.8.3</a> (required for <span class=
+          "Subversion-1.8.5">Subversion-1.8.5</a> (required for <span class=
           "command"><strong>nmap-update</strong></span>)
         </p>
         <p class="usernotes">
@@ -151,13 +151,22 @@
         <h2 class="sect2">
           Installation of Nmap
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This package does not support parallel build.
+          </p>
+        </div>
         <p>
           Install <span class="application">Nmap</span> by running the
           following commands:
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr &amp;&amp;
-make</kbd>
+make -j1</kbd>
 </pre>
         <p>
           This package does not come with a test suite.
@@ -183,7 +192,7 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class=
-              "segbody">/usr/lib/python2.7.5/site-packages/</span>
+              "segbody">/usr/lib/python2.7.6/site-packages/</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -299,9 +308,6 @@ make</kbd>
                 <td>
                   <p>
                     is a Python based graphical nmap frontend viewer.
-                    <a class="xref" href="../x/gtk2.html" title=
-                    "GTK+-2.24.20">GTK+-2.24.20</a> is a required run time
-                    dependency.
                   </p>
                 </td>
               </tr>
@@ -310,16 +316,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-22 04:10:10 -0700
+        Last updated on 2014-02-25 04:04:57 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="networkmanager.html" title=
-          "NetworkManager-0.9.8.2">Prev</a>
+          "NetworkManager-0.9.8.8">Prev</a>
           <p>
-            NetworkManager-0.9.8.2
+            NetworkManager-0.9.8.8
           </p>
         </li>
         <li class="next">
@@ -335,7 +341,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

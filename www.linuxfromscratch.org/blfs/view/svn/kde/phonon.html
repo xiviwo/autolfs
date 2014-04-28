@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Phonon-4.6.0
+      Phonon-4.7.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;28.&nbsp;The KDE Core
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="phonon-backend-gstreamer.html" title=
-          "Phonon-backend-gstreamer-4.6.3">Next</a>
+          "Phonon-backend-gstreamer-4.7.1">Next</a>
           <p>
-            Phonon-backend-gstreamer-4.6.3
+            Phonon-backend-gstreamer-4.7.1
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="phonon" name="phonon"></a>Phonon-4.6.0
+        <a id="phonon" name="phonon"></a>Phonon-4.7.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           GStreamer or VLC backend.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -71,25 +71,25 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://download.kde.org/stable/phonon/4.6.0/src/phonon-4.6.0.tar.xz">
-                http://download.kde.org/stable/phonon/4.6.0/src/phonon-4.6.0.tar.xz</a>
+                "http://download.kde.org/stable/phonon/4.7.1/phonon-4.7.1.tar.xz">
+                http://download.kde.org/stable/phonon/4.7.1/phonon-4.7.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.kde.org/pub/kde/stable/phonon/4.6.0/src/phonon-4.6.0.tar.xz">
-                ftp://ftp.kde.org/pub/kde/stable/phonon/4.6.0/src/phonon-4.6.0.tar.xz</a>
+                "ftp://ftp.kde.org/pub/kde/stable/phonon/4.7.1/phonon-4.7.1.tar.xz">
+                ftp://ftp.kde.org/pub/kde/stable/phonon/4.7.1/phonon-4.7.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: bbe0c1c62ed14c31479c4c1a6cf1e173
+                Download MD5 sum: 0935e1c00440a03e3032860030398665
               </p>
             </li>
             <li>
               <p>
-                Download size: 275 KB
+                Download size: 322 KB
               </p>
             </li>
             <li>
@@ -113,14 +113,16 @@
         <p class="required">
           <a class="xref" href="automoc4.html" title=
           "Automoc4-0.9.88">automoc4-0.9.88</a> and <a class="xref" href=
-          "../general/glib2.html" title="GLib-2.36.4">GLib-2.36.4</a>
+          "../general/glib2.html" title="GLib-2.40.0">GLib-2.40.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../multimedia/pulseaudio.html" title=
-          "PulseAudio-4.0">PulseAudio-4.0</a> and <a class="ulink" href=
+          "PulseAudio-5.0">PulseAudio-5.0</a>, <a class="xref" href=
+          "../x/qt5.html" title="Qt-5.2.1">Qt-5.2.1</a> and <a class="ulink"
+          href=
           "http://projects.kde.org/projects/kdesupport/libqzeitgeist/">QZeitgeist</a>
         </p>
         <p class="usernotes">
@@ -146,10 +148,12 @@
 <kbd class="command">mkdir build &amp;&amp;
 cd    build &amp;&amp;
 
-cmake -DCMAKE_INSTALL_PREFIX=$QTDIR \
+cmake -DCMAKE_INSTALL_PREFIX=$QT4DIR \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_INSTALL_LIBDIR=lib \
       -DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=TRUE \
       -DDBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces \
-      .. &amp;&amp;
+      -Wno-dev .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -164,16 +168,29 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class=
-          "option">-DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=TRUE</code>:
-          This option ensures that the plugins and mkspecs files get
+          <em class="parameter"><code>-DCMAKE_BUILD_TYPE=Release</code></em>:
+          This switch is used to apply higher level of the compiler
+          optimizations.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>-DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=TRUE</code></em>:
+          This switch ensures that the plugins and mkspecs files get
           installed in the correct location.
         </p>
         <p>
-          <code class=
-          "option">-DDBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces</code>:
-          This option sets the correct installation path for a D-Bus
-          interfaces file.
+          <em class=
+          "parameter"><code>-DDBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces</code></em>:
+          This switch sets the correct installation path for the <span class=
+          "application">D-Bus</span> interfaces file.
+        </p>
+        <p>
+          <code class="option">-DPHONON_BUILD_PHONON4QT5=ON</code>: Use this
+          switch if you want to build <span class="application">Phonon</span>
+          against <span class="application">Qt5</span>. Note that both
+          <span class="application">Qt4</span> and <span class=
+          "application">Qt5</span> versions can be installed at the same time
+          without any conflicts.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -184,7 +201,7 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">none</span>
+              <span class="segbody">None</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -193,13 +210,14 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">none</span>
+              <span class="segbody">$QT4DIR/include/KDE/Phonon,
+              $QT4DIR/include/phonon, and $QT4DIR/share/phonon</span>
             </div>
           </div>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-26 17:26:25 +0000
+        Last updated on 2014-02-28 04:59:01 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -213,9 +231,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="phonon-backend-gstreamer.html" title=
-          "Phonon-backend-gstreamer-4.6.3">Next</a>
+          "Phonon-backend-gstreamer-4.7.1">Next</a>
           <p>
-            Phonon-backend-gstreamer-4.6.3
+            Phonon-backend-gstreamer-4.7.1
           </p>
         </li>
         <li class="up">
@@ -224,7 +242,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

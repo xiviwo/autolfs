@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.8.&nbsp;Libstdc++-4.8.1
+      5.8.&nbsp;Libstdc++-4.8.2
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glibc.html" title="Glibc-2.18">Prev</a>
+          <a accesskey="p" href="glibc.html" title="Glibc-2.19">Prev</a>
           <p>
-            Glibc-2.18
+            Glibc-2.19
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="binutils-pass2.html" title=
-          "Binutils-2.23.2 - Pass 2">Next</a>
+          "Binutils-2.24 - Pass 2">Next</a>
           <p>
-            Binutils-2.23.2 - Pass 2
+            Binutils-2.24 - Pass 2
           </p>
         </li>
         <li class="up">
@@ -40,14 +40,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-tools-libstdcpp" name="ch-tools-libstdcpp"></a>5.8.
-        Libstdc++-4.8.1
+        Libstdc++-4.8.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -79,7 +79,7 @@
           <p>
             <span class="application">Libstdc++</span> is part of the GCC
             sources. You should first unpack the GCC tarball and change to
-            the <code class="filename">gcc-4.8.1</code> directory.
+            the <code class="filename">gcc-4.8.2</code> directory.
           </p>
         </div>
         <p>
@@ -93,21 +93,21 @@ cd ../gcc-build</kbd>
           Prepare Libstdc++ for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">../gcc-4.8.1/libstdc++-v3/configure \
-    --host=$LFS_TGT                      \
-    --prefix=/tools                      \
-    --disable-multilib                   \
-    --disable-shared                     \
-    --disable-nls                        \
-    --disable-libstdcxx-threads          \
-    --disable-libstdcxx-pch              \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/4.8.1</kbd>
+<kbd class="command">../gcc-4.8.2/libstdc++-v3/configure \
+    --host=$LFS_TGT                 \
+    --prefix=/tools                 \
+    --disable-multilib              \
+    --disable-shared                \
+    --disable-nls                   \
+    --disable-libstdcxx-threads     \
+    --disable-libstdcxx-pch         \
+    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/4.8.2</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <strong>The meaning of the configure options:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class=
               "parameter"><code>--host=...</code></em></span>
@@ -140,7 +140,7 @@ cd ../gcc-build</kbd>
             </dd>
             <dt>
               <span class="term"><em class=
-              "parameter"><code>--with-gxx-include-dir=/tools/include/c++/4.8.1</code></em></span>
+              "parameter"><code>--with-gxx-include-dir=/tools/include/c++/4.8.2</code></em></span>
             </dt>
             <dd>
               <p>
@@ -149,7 +149,7 @@ cd ../gcc-build</kbd>
                 information is automatically passed to the Libstdc++
                 <span class="command"><strong>configure</strong></span>
                 options from the toplevel directory. In our case, this
-                information must be explicitely given.
+                information must be explicitly given.
               </p>
             </dd>
           </dl>
@@ -179,16 +179,16 @@ cd ../gcc-build</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glibc.html" title="Glibc-2.18">Prev</a>
+          <a accesskey="p" href="glibc.html" title="Glibc-2.19">Prev</a>
           <p>
-            Glibc-2.18
+            Glibc-2.19
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="binutils-pass2.html" title=
-          "Binutils-2.23.2 - Pass 2">Next</a>
+          "Binutils-2.24 - Pass 2">Next</a>
           <p>
-            Binutils-2.23.2 - Pass 2
+            Binutils-2.24 - Pass 2
           </p>
         </li>
         <li class="up">
@@ -197,7 +197,7 @@ cd ../gcc-build</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -56,7 +56,7 @@
           compatible databases.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -94,6 +94,20 @@
           </ul>
         </div>
         <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/libiodbc-3.52.8-parallel_build-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/libiodbc-3.52.8-parallel_build-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
           libiodbc Dependencies
         </h3>
         <h4>
@@ -101,7 +115,7 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.20">GTK+-2.24.20</a> (to create the GUI admin tool)
+          "GTK+-2.24.22">GTK+-2.24.22</a> (to create the GUI admin tool)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -117,10 +131,15 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr                   \
+<kbd class=
+"command">patch -Np1 -i ../libiodbc-3.52.8-parallel_build-1.patch &amp;&amp;
+autoreconf -fiv &amp;&amp;
+
+./configure --prefix=/usr                   \
             --with-iodbc-inidir=/etc/iodbc  \
             --includedir=/usr/include/iodbc \
-            --disable-libodbc               &amp;&amp;
+            --disable-libodbc               \
+            --disable-static                &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -138,7 +157,8 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>--with-iodbc-inidir</code></em>:
+          <em class=
+          "parameter"><code>--with-iodbc-inidir=/etc/iodbc</code></em>:
           <span class="application">libiodbc</span> will install
           configuration files in this directory.
         </p>
@@ -155,6 +175,10 @@ make</kbd>
           "filename">libodbc.so</code> symbolic link to avoid a conflict with
           <span class="application">unixODBC</span>.
         </p>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -169,8 +193,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libiodbc.{a,so}, libiodbcinst.{a,so}, and
-              libiodbcadm.{a,so}</span>
+              <span class="segbody">libiodbc.so, libiodbcinst.so, and
+              libiodbcadm.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
@@ -234,7 +258,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-26 10:26:25 -0700
+        Last updated on 2014-02-23 11:35:28 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -257,7 +281,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

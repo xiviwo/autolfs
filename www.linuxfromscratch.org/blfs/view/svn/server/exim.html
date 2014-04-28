@@ -5,34 +5,34 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Exim-4.80.1
+      Exim-4.82
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;21.&nbsp;Mail Server Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="mail.html" title=
-          "Mail Server Software">Prev</a>
+          <a accesskey="p" href="dovecot.html" title=
+          "Dovecot-2.2.12">Prev</a>
           <p>
-            Mail Server Software
+            Dovecot-2.2.12
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="postfix.html" title=
-          "Postfix-2.10.2">Next</a>
+          "Postfix-2.11.0">Next</a>
           <p>
-            Postfix-2.10.2
+            Postfix-2.11.0
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="exim" name="exim"></a>Exim-4.80.1
+        <a id="exim" name="exim"></a>Exim-4.82
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,8 +59,8 @@
           under the GNU Public License.
         </p>
         <p>
-          This package is known to build using an LFS 7.4 platform but has
-          not been tested.
+          This package is known to build and work properly using an LFS-7.5
+          platform.
         </p>
         <h3>
           Package Information
@@ -70,28 +70,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.exim.org/pub/exim/exim4/exim-4.80.1.tar.bz2">http://ftp.exim.org/pub/exim/exim4/exim-4.80.1.tar.bz2</a>
+                "http://ftp.exim.org/pub/exim/exim4/exim-4.82.tar.bz2">http://ftp.exim.org/pub/exim/exim4/exim-4.82.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.exim.org/pub/exim/exim4/exim-4.80.1.tar.bz2">ftp://ftp.exim.org/pub/exim/exim4/exim-4.80.1.tar.bz2</a>
+                "ftp://ftp.exim.org/pub/exim/exim4/exim-4.82.tar.bz2">ftp://ftp.exim.org/pub/exim/exim4/exim-4.82.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 1a95dc9f02834b1b7430403a75edf162
+                Download MD5 sum: feb933baa4db773c2ef76b794c60b647
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.6 MB
+                Download size: 1.7 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 16 MB
+                Estimated disk space required: 14 MB
               </p>
             </li>
             <li>
@@ -123,29 +123,33 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="db.html" title="Berkeley DB-6.0.20">Berkeley
-          DB-6.0.20</a> or GDBM (GDBM built in LFS) or <a class="ulink" href=
-          "http://sourceforge.net/projects/tdb">TDB</a>
+          <a class="xref" href="../general/pcre.html" title=
+          "PCRE-8.35">PCRE-8.35</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../x/installing.html" title=
-          "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
+          <a class="xref" href="db.html" title="Berkeley DB-6.0.30">Berkeley
+          DB-6.0.30</a> or <a class="ulink" href=
+          "http://sourceforge.net/projects/tdb">TDB</a> (as an alternative to
+          GDBM, built in LFS), <a class="xref" href="../x/installing.html"
+          title="Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a>, <a class="xref" href="openldap.html" title=
-          "OpenLDAP-2.4.36">OpenLDAP-2.4.36</a>, <a class="xref" href=
-          "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          "OpenLDAP-2.4.39">OpenLDAP-2.4.39</a>, <a class="xref" href=
+          "../postlfs/openssl.html" title="OpenSSL-1.0.1g">OpenSSL-1.0.1g</a>
           or <a class="xref" href="../postlfs/gnutls.html" title=
-          "GnuTLS-3.2.4">GnuTLS-3.2.4</a>, <a class="xref" href=
+          "GnuTLS-3.3.0">GnuTLS-3.3.0</a>, <a class="xref" href=
           "../postlfs/cyrus-sasl.html" title="Cyrus SASL-2.1.26">Cyrus
-          SASL-2.1.26</a>, <a class="xref" href="mysql.html" title=
-          "MySQL-5.6.13">MySQL-5.6.13</a>, <a class="xref" href=
-          "postgresql.html" title="PostgreSQL-9.3.0">PostgreSQL-9.3.0</a>,
+          SASL-2.1.26</a>, <a class="xref" href="mariadb.html" title=
+          "MariaDB-10.0.10">MariaDB-10.0.10</a> or <a class="ulink" href=
+          "http://www.mysql.com/">MySQL</a>, <a class="xref" href=
+          "postgresql.html" title="PostgreSQL-9.3.4">PostgreSQL-9.3.4</a>,
           <a class="xref" href="sqlite.html" title=
-          "SQLite-3.8.0.2">SQLite-3.8.0.2</a>, and <a class="xref" href=
+          "SQLite-3.8.4.3">SQLite-3.8.4.3</a>, <a class="xref" href=
           "../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>, and <a class="ulink" href=
+          "http://www.trusteddomain.org/opendmarc/">OpenDMARC</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -175,6 +179,7 @@ useradd -d /dev/null -c "Exim Daemon" -g exim -s /bin/false -u 31 exim</kbd>
     -e 's,^CONF.*$,CONFIGURE_FILE=/etc/exim.conf,' \
     -e 's,^EXIM_USER.*$,EXIM_USER=exim,' \
     -e 's,^EXIM_MONITOR,#EXIM_MONITOR,' src/EDITME &gt; Local/Makefile &amp;&amp;
+echo -e "USE_GDBM = yes\nDBMLIB = -lgdbm" &gt;&gt; Local/Makefile &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -186,9 +191,9 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 install -v -m644 doc/exim.8 /usr/share/man/man8 &amp;&amp;
-install -v -d -m755 /usr/share/doc/exim-4.80.1 &amp;&amp;
-install -v -m644 doc/* /usr/share/doc/exim-4.80.1 &amp;&amp;
-ln -sv exim /usr/sbin/sendmail</kbd>
+install -v -d -m755 /usr/share/doc/exim-4.82 &amp;&amp;
+install -v -m644 doc/* /usr/share/doc/exim-4.82 &amp;&amp;
+ln -sfv exim /usr/sbin/sendmail</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -204,6 +209,13 @@ ln -sv exim /usr/sbin/sendmail</kbd>
           <code class="filename">src/EDITME</code> file. This command
           specifies the minimum set of options. Descriptions for the options
           are listed below.
+        </p>
+        <p>
+          <span class="command"><strong>echo -e ... &gt;
+          Local/Makefile</strong></span>: Setting those variables allows to
+          use GDBM instead of the default Berkeley DB. Remove this command if
+          you have installed <a class="xref" href="db.html" title=
+          "Berkeley DB-6.0.30">Berkeley DB-6.0.30</a>.
         </p>
         <p>
           <em class="parameter"><code>BIN_DIRECTORY=/usr/sbin</code></em>:
@@ -238,7 +250,7 @@ ln -sv exim /usr/sbin/sendmail</kbd>
           Local/eximon.conf</strong></span>.
         </p>
         <p>
-          <span class="command"><strong>ln -sv exim
+          <span class="command"><strong>ln -sfv exim
           /usr/sbin/sendmail</strong></span>: Creates a link to <span class=
           "command"><strong>sendmail</strong></span> for applications which
           need it. <span class="application">Exim</span> will accept most
@@ -263,55 +275,54 @@ ln -sv exim /usr/sbin/sendmail</kbd>
           If you wish to build and install the <code class=
           "filename">.info</code> documentation, refer to <a class="ulink"
           href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch04.html#SECTinsinfdoc">
-          http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch04.html#SECTinsinfdoc</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch04.html#SECTinsinfdoc">
+          http://exim.org/exim-html-4.82/doc/html/spec_html/ch04.html#SECTinsinfdoc</a>.
         </p>
         <p>
           If you wish to build in Exim's interfaces for calling virus and
           spam scanning software directly from access control lists,
           uncomment the <code class="option">WITH_CONTENT_SCAN=yes</code>
           parameter and review the information found at <a class="ulink"
-          href="http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch41.html">
-          http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch41.html</a>.
+          href="http://exim.org/exim-html-4.82/doc/html/spec_html/ch41.html">http://exim.org/exim-html-4.82/doc/html/spec_html/ch41.html</a>.
         </p>
         <p>
           To use a backend database other than <span class=
           "application">Berkeley DB</span>, see the instructions at <a class=
           "ulink" href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch04.html#SECTdb">
-          http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch04.html#SECTdb</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch04.html#SECTdb">
+          http://exim.org/exim-html-4.82/doc/html/spec_html/ch04.html#SECTdb</a>.
         </p>
         <p>
           For SSL functionality, see the instructions at <a class="ulink"
           href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch04.html#SECTinctlsssl">
-          http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch04.html#SECTinctlsssl</a>
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch04.html#SECTinctlsssl">
+          http://exim.org/exim-html-4.82/doc/html/spec_html/ch04.html#SECTinctlsssl</a>
           and <a class="ulink" href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch39.html">http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch39.html</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch39.html">http://exim.org/exim-html-4.82/doc/html/spec_html/ch39.html</a>.
         </p>
         <p>
           For <span class="application">tcpwrappers</span> functionality, see
           the instructions at <a class="ulink" href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch04.html#SECID27">
-          http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch04.html#SECID27</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch04.html#SECID27">
+          http://exim.org/exim-html-4.82/doc/html/spec_html/ch04.html#SECID27</a>.
         </p>
         <p>
           For information about adding authentication mechanisms to the
           build, see chapters 33-37 of <a class="ulink" href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/index.html">http://exim.org/exim-html-4.80.1/doc/html/spec_html/index.html</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/index.html">http://exim.org/exim-html-4.82/doc/html/spec_html/index.html</a>.
         </p>
         <p>
           For information about linking <span class=
           "application">Linux-PAM</span>, refer to the instructions <a class=
           "ulink" href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch11.html#SECTexpcond">
-          http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch11.html#SECTexpcond</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch11.html#SECTexpcond">
+          http://exim.org/exim-html-4.82/doc/html/spec_html/ch11.html#SECTexpcond</a>.
         </p>
         <p>
           For information about linking database engine libraries used for
           <span class="application">Exim</span> name lookups, see the
           instructions at <a class="ulink" href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch09.html">http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch09.html</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch09.html">http://exim.org/exim-html-4.82/doc/html/spec_html/ch09.html</a>.
         </p>
         <p>
           If you wish to add <span class="application">Readline</span>
@@ -319,15 +330,15 @@ ln -sv exim /usr/sbin/sendmail</kbd>
           &ldquo;<span class="quote">test expansion</span>&rdquo;
           (<code class="option">-be</code>) mode, see the information in the
           <code class="option">-be</code> section of <a class="ulink" href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch05.html#id2525974">
-          http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch05.html#id2525974</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch05.html#id2525974">
+          http://exim.org/exim-html-4.82/doc/html/spec_html/ch05.html#id2525974</a>.
         </p>
         <p>
           You may wish to modify the default configuration and send log files
           to syslog instead of the default <code class=
           "filename">/var/spool/exim/log</code> directory. See the
           information at <a class="ulink" href=
-          "http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch49.html">http://exim.org/exim-html-4.80.1/doc/html/spec_html/ch49.html</a>.
+          "http://exim.org/exim-html-4.82/doc/html/spec_html/ch49.html">http://exim.org/exim-html-4.82/doc/html/spec_html/ch49.html</a>.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -392,7 +403,7 @@ exim -v -bi &amp;&amp;
             <code class="filename">/etc/rc.d/init.d/exim</code> init script
             included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20140329</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-exim</kbd>
@@ -416,7 +427,7 @@ exim -v -bi &amp;&amp;
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">exicyclog, exigrep, exim, exim-4.43-2,
+              <span class="segbody">exicyclog, exigrep, exim, exim-4.82-3,
               exim_checkaccess, exim_dbmbuild, exim_dumpdb, exim_fixdb,
               exim_lock, exim_tidydb, eximstats, exinext, exipick, exiqgrep,
               exiqsumm, exiwhat, and optionally, eximon and eximon.bin</span>
@@ -427,7 +438,7 @@ exim -v -bi &amp;&amp;
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/share/doc/exim-4.80.1 and
+              <span class="segbody">/usr/share/doc/exim-4.82 and
               /var/spool/exim</span>
             </div>
           </div>
@@ -478,16 +489,16 @@ exim -v -bi &amp;&amp;
                 <td>
                   <p>
                     is a symlink to the <span class=
-                    "command"><strong>exim-4.43-2</strong></span> MTA daemon.
+                    "command"><strong>exim-4.82-3</strong></span> MTA daemon.
                   </p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <p>
-                    <a id="exim-4.43-2" name="exim-4.43-2"></a><span class=
+                    <a id="exim-4.82-3" name="exim-4.82-3"></a><span class=
                     "term"><span class=
-                    "command"><strong>exim-4.43-2</strong></span></span>
+                    "command"><strong>exim-4.82-3</strong></span></span>
                   </p>
                 </td>
                 <td>
@@ -713,23 +724,23 @@ exim -v -bi &amp;&amp;
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-06 19:06:41 +0000
+        Last updated on 2014-04-16 16:05:09 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="mail.html" title=
-          "Mail Server Software">Prev</a>
+          <a accesskey="p" href="dovecot.html" title=
+          "Dovecot-2.2.12">Prev</a>
           <p>
-            Mail Server Software
+            Dovecot-2.2.12
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="postfix.html" title=
-          "Postfix-2.10.2">Next</a>
+          "Postfix-2.11.0">Next</a>
           <p>
-            Postfix-2.10.2
+            Postfix-2.11.0
           </p>
         </li>
         <li class="up">
@@ -738,7 +749,7 @@ exim -v -bi &amp;&amp;
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Linux-PAM-1.1.7
+      Linux-PAM-1.1.8
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libcap2.html" title="libcap2-2.22">Prev</a>
+          <a accesskey="p" href="libcap.html" title="libcap-2.24">Prev</a>
           <p>
-            libcap2-2.22
+            libcap-2.24
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="mitkrb.html" title=
-          "MIT Kerberos V5-1.11.3">Next</a>
+          "MIT Kerberos V5-1.12.1">Next</a>
           <p>
-            MIT Kerberos V5-1.11.3
+            MIT Kerberos V5-1.12.1
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="linux-pam" name="linux-pam"></a>Linux-PAM-1.1.7
+        <a id="linux-pam" name="linux-pam"></a>Linux-PAM-1.1.8
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,8 +58,8 @@
           administrator to choose how applications authenticate users.
         </p>
         <p>
-          This package is known to build using an LFS 7.4 platform but has
-          not been tested.
+          This package is known to build and work properly using an LFS-7.5
+          platform.
         </p>
         <h3>
           Package Information
@@ -69,12 +69,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://linux-pam.org/library/Linux-PAM-1.1.7.tar.bz2">http://linux-pam.org/library/Linux-PAM-1.1.7.tar.bz2</a>
+                "http://linux-pam.org/library/Linux-PAM-1.1.8.tar.bz2">http://linux-pam.org/library/Linux-PAM-1.1.8.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 9f90888cd22212a6b5af2920f4eaaf1b
+                Download MD5 sum: 35b6091af95981b1b2cd60d813b5e4ee
               </p>
             </li>
             <li>
@@ -84,7 +84,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 36 MB
+                Estimated disk space required: 22 MB
               </p>
             </li>
             <li>
@@ -105,18 +105,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://linux-pam.org/documentation/Linux-PAM-1.1.7-docs.tar.bz2">
-                http://linux-pam.org/documentation/Linux-PAM-1.1.7-docs.tar.bz2</a>
+                "http://linux-pam.org/documentation/Linux-PAM-1.1.8-docs.tar.bz2">
+                http://linux-pam.org/documentation/Linux-PAM-1.1.8-docs.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 808054213e884e69e3f7045d80700da1
+                Download MD5 sum: 730895d1c6e1c706dc5ffe2419f9b3f5
               </p>
             </li>
             <li>
               <p>
-                Download size 152 KB
+                Download size 148 KB
               </p>
             </li>
           </ul>
@@ -129,10 +129,10 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../server/db.html" title=
-          "Berkeley DB-6.0.20">Berkeley DB-6.0.20</a>, <a class="xref" href=
-          "cracklib.html" title="CrackLib-2.9.0">CrackLib-2.9.0</a>,
+          "Berkeley DB-6.0.30">Berkeley DB-6.0.30</a>, <a class="xref" href=
+          "cracklib.html" title="CrackLib-2.9.1">CrackLib-2.9.1</a>,
           <a class="xref" href="../basicnet/libtirpc.html" title=
-          "libtirpc-0.2.3">libtirpc-0.2.3</a> and <a class="ulink" href=
+          "libtirpc-0.2.4">libtirpc-0.2.4</a> and <a class="ulink" href=
           "http://www.prelude-ids.org/">Prelude</a>
         </p>
         <h4>
@@ -163,7 +163,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">tar -xf ../Linux-PAM-1.1.7-docs.tar.bz2 --strip-components=1</kbd>
+"command">tar -xf ../Linux-PAM-1.1.8-docs.tar.bz2 --strip-components=1</kbd>
 </pre>
         <p>
           Install <span class="application">Linux PAM</span> by running the
@@ -172,16 +172,39 @@
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/Linux-PAM-1.1.7 \
-            --disable-nis &amp;&amp;
+            --libdir=/usr/lib \
+            --enable-securedir=/lib/security \
+            --docdir=/usr/share/doc/Linux-PAM-1.1.8 &amp;&amp;
 make</kbd>
 </pre>
         <p>
-          To test the results, a configuration file must be created. This
-          file will be removed after the tests have completed. Ensure there
-          are no errors produced by the tests before continuing the
-          installation. First create the configuration file by issuing the
-          following commands as the <code class="systemitem">root</code>
+          To test the results, a suitable <code class=
+          "filename">/etc/pam.d/other</code> configuration file must exist.
+        </p>
+        <div class="admon caution">
+          <img alt="[Caution]" src="../images/caution.png" />
+          <h3>
+            Reinstallation or upgrade of Linux PAM
+          </h3>
+          <p>
+            If you have a system with Linux PAM installed and working, be
+            careful when modifying the files in <code class=
+            "filename">/etc/pam.d</code>, since your system may become
+            totally unusable. If you want to run the tests, you do not need
+            to create another <code class="filename">/etc/pam.d/other</code>
+            file. The installed one can be used for that purpose.
+          </p>
+          <p>
+            You should also be aware that <span class="command"><strong>make
+            install</strong></span> overwrites the configuration files in
+            <code class="filename">/etc/security</code> as well as
+            <code class="filename">/etc/environment</code>. In case you have
+            modified those files, be sure to backup them.
+          </p>
+        </div>
+        <p>
+          For a first installation, create the configuration file by issuing
+          the following commands as the <code class="systemitem">root</code>
           user:
         </p>
         <pre class="root">
@@ -196,11 +219,13 @@ EOF</kbd>
 </pre>
         <p>
           Now run the tests by issuing <span class="command"><strong>make
-          check</strong></span>.
+          check</strong></span>. Ensure there are no errors produced by the
+          tests before continuing the installation.
         </p>
         <p>
-          Remove the configuration file created earlier by issuing the
-          following command as the <code class="systemitem">root</code> user:
+          Only in case of a first installation, remove the configuration file
+          created earlier by issuing the following command as the
+          <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
 <kbd class="command">rm -rfv /etc/pam.d</kbd>
@@ -210,7 +235,13 @@ EOF</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-chmod -v 4755 /sbin/unix_chkpwd</kbd>
+chmod -v 4755 /sbin/unix_chkpwd &amp;&amp;
+
+for file in pam pam_misc pamc
+do
+  mv -v /usr/lib/lib${file}.so.* /lib &amp;&amp;
+  ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
+done</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -218,11 +249,10 @@ chmod -v 4755 /sbin/unix_chkpwd</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--disable-nis</code>: This switch disables
-          building of the Network Information Service/Yellow Pages support in
-          pam_unix and pam_access modules. Remove it if you have installed
-          <a class="xref" href="../basicnet/libtirpc.html" title=
-          "libtirpc-0.2.3">libtirpc-0.2.3</a>.
+          <em class=
+          "parameter"><code>--enable-securedir=/lib/security</code></em>:
+          This switch sets install location for the <span class=
+          "application">PAM</span> modules.
         </p>
         <p>
           <span class="command"><strong>chmod -v 4755
@@ -268,9 +298,9 @@ password        required        pam_unix.so     nullok
             "command"><strong>man pam</strong></span>) provides a good
             starting point for descriptions of fields and allowable entries.
             The <a class="ulink" href=
-            "http://debian.securedservers.com/kernel/pub/linux/libs/pam/Linux-PAM-html/Linux-PAM_SAG.html">
-            Linux-PAM System Administrators' Guide</a> is recommended for
-            additional information.
+            "http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_SAG.html">Linux-PAM
+            System Administrators' Guide</a> is recommended for additional
+            information.
           </p>
           <p>
             Refer to <a class="ulink" href=
@@ -309,7 +339,7 @@ password        required        pam_unix.so     nullok
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/security, /lib/security,
-              /usr/include/security and /usr/share/doc/Linux-PAM-1.1.7</span>
+              /usr/include/security and /usr/share/doc/Linux-PAM-1.1.8</span>
             </div>
           </div>
         </div>
@@ -429,22 +459,22 @@ password        required        pam_unix.so     nullok
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-13 03:08:10 +0000
+        Last updated on 2014-02-18 17:38:44 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libcap2.html" title="libcap2-2.22">Prev</a>
+          <a accesskey="p" href="libcap.html" title="libcap-2.24">Prev</a>
           <p>
-            libcap2-2.22
+            libcap-2.24
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="mitkrb.html" title=
-          "MIT Kerberos V5-1.11.3">Next</a>
+          "MIT Kerberos V5-1.12.1">Next</a>
           <p>
-            MIT Kerberos V5-1.11.3
+            MIT Kerberos V5-1.12.1
           </p>
         </li>
         <li class="up">
@@ -453,7 +483,7 @@ password        required        pam_unix.so     nullok
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      ntfs-3g-2013.1.13
+      ntfs-3g-2014.2.15
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;File Systems and Disk Management
@@ -29,9 +29,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="gptfdisk.html" title=
-          "gptfdisk-0.8.7">Next</a>
+          "gptfdisk-0.8.10">Next</a>
           <p>
-            gptfdisk-0.8.7
+            gptfdisk-0.8.10
           </p>
         </li>
         <li class="up">
@@ -40,26 +40,32 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ntfs-3g" name="ntfs-3g"></a>ntfs-3g-2013.1.13
+        <a id="ntfs-3g" name="ntfs-3g"></a>ntfs-3g-2014.2.15
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
           Introduction to Ntfs-3g
         </h2>
         <p>
-          The <span class="application">Ntfs-3g</span> package contains an
-          open source, driver for Windows NTFS file system. This can mount
-          Windows partitions so that they are writeable and allows you edit
-          or delete Windows files from Linux.
+          The <span class="application">Ntfs-3g</span> package contains a
+          stable, read-write open source driver for NTFS partitions. NTFS
+          partitions are used by newer Microsoft operating systems. Ntfs-3g
+          enables you to mount NTFS partitions in read-write mode from your
+          Linux system. It uses the FUSE kernel module to be able to
+          implement NTFS support in user space.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package contains both the NTFS-3g driver itself and various
+          utilities useful for manipulating NTFS partitions.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,18 +76,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://tuxera.com/opensource/ntfs-3g_ntfsprogs-2013.1.13.tgz">
-                http://tuxera.com/opensource/ntfs-3g_ntfsprogs-2013.1.13.tgz</a>
+                "http://tuxera.com/opensource/ntfs-3g_ntfsprogs-2014.2.15.tgz">
+                http://tuxera.com/opensource/ntfs-3g_ntfsprogs-2014.2.15.tgz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 2d6fb47ddf62b51733227126fe9227fe
+                Download MD5 sum: f11d563816249d730a00498983485f3a
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.2 MB
+                Download size: 1.1 MB
               </p>
             </li>
             <li>
@@ -171,10 +177,14 @@ ln -sv /usr/share/man/man8/{ntfs-3g,mount.ntfs}.8</kbd>
           <span class="command"><strong>lowntfs-3g</strong></span> and
           <span class="command"><strong>ntfs-3g</strong></span>. If you have
           installed <a class="xref" href="fuse.html" title=
-          "Fuse-2.9.3">Fuse-2.9.3</a> use this <code class=
-          "option">--with-fuse=external</code> option to dynamically link
+          "Fuse-2.9.3">Fuse-2.9.3</a> use this option to dynamically link
           <span class="command"><strong>lowntfs-3g</strong></span> and
           <span class="command"><strong>ntfs-3g</strong></span> to libfuse.
+        </p>
+        <p>
+          <code class="option">--disable-ntfsprogs</code>: Disables
+          installation of various utilities used to manipulate NTFS
+          partitions.
         </p>
         <p>
           <span class="command"><strong>ln -sv ../bin/ntfs-3g
@@ -572,7 +582,7 @@ ln -sv /usr/share/man/man8/{ntfs-3g,mount.ntfs}.8</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 10:32:24 +0000
+        Last updated on 2014-03-09 20:07:19 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -585,9 +595,9 @@ ln -sv /usr/share/man/man8/{ntfs-3g,mount.ntfs}.8</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="gptfdisk.html" title=
-          "gptfdisk-0.8.7">Next</a>
+          "gptfdisk-0.8.10">Next</a>
           <p>
-            gptfdisk-0.8.7
+            gptfdisk-0.8.10
           </p>
         </li>
         <li class="up">
@@ -596,7 +606,7 @@ ln -sv /usr/share/man/man8/{ntfs-3g,mount.ntfs}.8</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

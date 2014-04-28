@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Samba-4.0.9
+      Samba-4.1.7
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;15.&nbsp;Networking Programs
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="rsync.html" title="rsync-3.0.9">Prev</a>
+          <a accesskey="p" href="rsync.html" title="rsync-3.1.0">Prev</a>
           <p>
-            rsync-3.0.9
+            rsync-3.1.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="wget.html" title="Wget-1.14">Next</a>
+          <a accesskey="n" href="wget.html" title="Wget-1.15">Next</a>
           <p>
-            Wget-1.14
+            Wget-1.15
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="samba" name="samba"></a>Samba-4.0.9
+        <a id="samba" name="samba"></a>Samba-4.1.7
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,7 +61,7 @@
           provides LAN browsing support).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -72,35 +72,36 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.samba.org/pub/samba/stable/samba-4.0.9.tar.gz">http://ftp.samba.org/pub/samba/stable/samba-4.0.9.tar.gz</a>
+                "http://ftp.samba.org/pub/samba/stable/samba-4.1.7.tar.gz">http://ftp.samba.org/pub/samba/stable/samba-4.1.7.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.samba.org/pub/samba/stable/samba-4.0.9.tar.gz">ftp://ftp.samba.org/pub/samba/stable/samba-4.0.9.tar.gz</a>
+                "ftp://ftp.samba.org/pub/samba/stable/samba-4.1.7.tar.gz">ftp://ftp.samba.org/pub/samba/stable/samba-4.1.7.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: f5f2ad0e2aabf024e2e3e2f297a0631a
+                Download MD5 sum: bc44b0a245468c3574ef07644206ede3
               </p>
             </li>
             <li>
               <p>
-                Download size: 21 MB
+                Download size: 22 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 482 MB (up to 900MB additional
-                for all tests)
-              </p>
-            </li>
-            <li>
-              <p>
-                Estimated build time: 7.2 SBU (up to 110 SBU to run all
+                Estimated disk space required: 504 MB (additional 27 MB for
+                the quicktest, reputedly up to 500 MB additional for all
                 tests)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 7.9 SBU (additional 8.7 SBU for the
+                quicktest, reputedly up to 110 SBU to run all tests)
               </p>
             </li>
           </ul>
@@ -112,8 +113,8 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="libtirpc.html" title=
-          "libtirpc-0.2.3">libtirpc-0.2.3</a>
+          <a class="xref" href="../general/python2.html" title=
+          "Python-2.7.6">Python-2.7.6</a>
         </p>
         <h4>
           Optional
@@ -122,34 +123,33 @@
           <a class="xref" href="../general/popt.html" title=
           "Popt-1.16">popt-1.16</a>, <a class="xref" href=
           "../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>, <a class="xref" href=
-          "../pst/cups.html" title="Cups-1.6.3">Cups-1.6.3</a>, <a class=
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>, <a class="xref" href=
+          "../pst/cups.html" title="Cups-1.7.2">Cups-1.7.2</a>, <a class=
           "xref" href="../server/openldap.html" title=
-          "OpenLDAP-2.4.36">OpenLDAP-2.4.36</a>, <a class="xref" href=
-          "../general/gamin.html" title="Gamin-0.1.10">Gamin-0.1.10</a>,
-          <a class="xref" href="../postlfs/acl.html" title=
+          "OpenLDAP-2.4.39">OpenLDAP-2.4.39</a>, <a class="ulink" href=
+          "https://people.gnome.org/~veillard/gamin/">Gamin</a>, <a class=
+          "xref" href="../postlfs/acl.html" title=
           "acl-2.2.52">acl-2.2.52</a>, <a class="xref" href=
           "../postlfs/xfsprogs.html" title=
           "xfsprogs-3.1.11">xfsprogs-3.1.11</a>, <a class="xref" href=
-          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.3">MIT
-          Kerberos V5-1.11.3</a>, <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>
-          (used only in parts of the test suite), <a class="xref" href=
+          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.12.1">MIT
+          Kerberos V5-1.12.1</a>, <a class="xref" href=
           "../general/libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
           (used only for documentation), <a class="ulink" href=
           "http://tdb.samba.org/">tdb</a>, <a class="ulink" href=
           "http://ctdb.samba.org/">ctdb</a>, <a class="xref" href=
-          "../postlfs/libcap2.html" title="libcap2-2.22">libcap2-2.22</a>,
+          "../postlfs/libcap.html" title="libcap-2.24">libcap-2.24</a>,
           <a class="ulink" href=
           "http://www.nongnu.org/libunwind/">libunwind</a>, <a class="xref"
           href="avahi.html" title="Avahi-0.6.31">Avahi-0.6.31</a>, <a class=
           "ulink" href="http://www.openafs.org/">OpenAFS</a>, and <a class=
-          "ulink" href="http://valgrind.org/">Valgrind</a> (optionally used
-          by the test suite)
+          "xref" href="../general/valgrind.html" title=
+          "Valgrind-3.9.0">Valgrind-3.9.0</a> (optionally used by the test
+          suite)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
-          "http://wiki.linuxfromscratch.org/blfs/wiki/samba">http://wiki.linuxfromscratch.org/blfs/wiki/samba</a>
+          "http://wiki.linuxfromscratch.org/blfs/wiki/samba4">http://wiki.linuxfromscratch.org/blfs/wiki/samba4</a>
         </p>
       </div>
       <div class="installation" lang="en" xml:lang="en">
@@ -178,27 +178,34 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i -e "/dmapi_lib/s/$/ldflags='-ltirpc',/" source3/wscript_build &amp;&amp;
-
-./configure                            \
-    --prefix=/usr                      \
-    --sysconfdir=/etc                  \
-    --localstatedir=/var               \
-    --with-piddir=/run/samba           \
-    --with-pammodulesdir=/lib/security \
-    --enable-fhs                       \
-    --enable-nss-wrapper               &amp;&amp;
+<kbd class="command">./configure                             \
+    --prefix=/usr                       \
+    --sysconfdir=/etc                   \
+    --localstatedir=/var                \
+    --with-piddir=/run/samba            \
+    --with-pammodulesdir=/lib/security  \
+    --enable-fhs                        \
+    --enable-nss-wrapper                &amp;&amp;
 
 make</kbd>
 </pre>
         <p>
           To test the results, as the <code class="systemitem">root</code>
-          user,issue: <span class="command"><strong>make
-          quicktest</strong></span> (about 8 SBU). There are other targets
-          (test, subunit-test) available, but take a very long (over 100 SBU)
-          time.
+          user, issue: <span class="command"><strong>make
+          quicktest</strong></span>. There are other targets (test,
+          subunit-test) available, but take a very long time (over 100 SBU).
         </p>
+        <p>
+          If one quicktest fails, it can be disabled. For example,
+          &ldquo;<span class="quote"><em class=
+          "replaceable"><code>samba3.raw.eas</code></em></span>&rdquo; has
+          been reported to fail for prior Samba versions. To disable it, run
+          the following command:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i "/samba3.blackbox.failure.failure/i \^samba3.raw.eas" selftest/knownfail</kbd>
+</pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
@@ -219,35 +226,13 @@ install -v -m644    examples/LDAP/README              \
 install -v -m644    examples/LDAP/samba*              \
                     /etc/openldap/schema              &amp;&amp;
                     
-install -v -m755    examples/LDAP/{convert*,get*,ol*} \
+install -v -m755    examples/LDAP/{get*,ol*} \
                     /etc/openldap/schema              &amp;&amp;
 
-install -v -m755 -d /usr/share/doc/samba-4.0.9 &amp;&amp;
+install -v -m755 -d /usr/share/doc/samba-4.1.7 &amp;&amp;
 
 install -v -m644    lib/ntdb/doc/design.pdf \
-                    /usr/share/doc/samba-4.0.9 &amp;&amp;
-
-ln -v -s ../../samba/swat  /usr/share/doc/samba-4.0.9</kbd>
-</pre>
-        <p>
-          To create the html documents needed for <span class=
-          "command"><strong>swat</strong></span> (<a class="xref" href=
-          "../general/libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
-          required), do the following:
-        </p>
-        <pre class="userinput">
-<kbd class="command">cd docs-xml &amp;&amp;
-autoreconf  &amp;&amp;
-./configure &amp;&amp;
-make htmlman</kbd>
-</pre>
-        <p>
-          Now, as the <code class="systemitem">root</code> user:
-        </p>
-        <pre class="root">
-<kbd class=
-"command">mkdir -pv                          /usr/share/samba/swat/help/manpages &amp;&amp;
-cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
+                    /usr/share/doc/samba-4.1.7</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -255,23 +240,7 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed ...
-          source3/wscript_build</strong></span>: This command enables the
-          build to complete when using libtirpc instead of the deprecated
-          glibc rpc functions.
-        </p>
-        <p>
-          <em class="parameter"><code>--sysconfdir=/etc</code></em>: Sets the
-          configuration file directory to avoid the default of <code class=
-          "filename">/usr/etc</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--localstatedir=/var</code></em>: Sets
-          the variable data directory to avoid the default of <code class=
-          "filename">/usr/var</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--with-fhs</code></em>: Assigns all
+          <em class="parameter"><code>--enable-fhs</code></em>: Assigns all
           other file paths in a manner compliant with the Filesystem
           Hierarchy Standard (FHS).
         </p>
@@ -280,9 +249,9 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
           Builds the nss-wrapper library.
         </p>
         <p>
-          <em class="parameter"><code>--enable-socket-wrapper</code></em> and
-          <em class="parameter"><code>--enable-selftest</code></em>: These
-          options are required to run the test suite.
+          <code class="option">--enable-socket-wrapper</code> and
+          <code class="option">--enable-selftest</code>: These options are
+          required to run the test suite.
         </p>
         <p>
           <span class="command"><strong>mv -v /usr/lib/libnss_win{s,bind}.so*
@@ -378,7 +347,7 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2711480" name="id2711480"></a>Scenario 1:
+                    <a id="id2872919" name="id2872919"></a>Scenario 1:
                     Minimal Standalone Client-Only Installation
                   </h5>
                 </div>
@@ -431,7 +400,7 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2876046" name="id2876046"></a>Scenario 2:
+                    <a id="id3130445" name="id3130445"></a>Scenario 2:
                     Standalone File/Print Server
                   </h5>
                 </div>
@@ -450,7 +419,18 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
               "quote">unix charset</span>&rdquo; parameters to the
               &ldquo;<span class="quote">[global]</span>&rdquo; section as
               described in Scenario 1 in order to prevent filename
-              corruption.
+              corruption. For security reasons, you may wish to define
+              <em class="replaceable"><code>path =
+              /home/alice/shared-files</code></em>, assuming your user name
+              is <em class="replaceable"><code>alice</code></em> and you only
+              want to share the files in that directory, instead of your
+              entire home. Then, replace <em class=
+              "replaceable"><code>homes</code></em> by <em class=
+              "replaceable"><code>shared-files</code></em> and change also
+              the &ldquo;<span class="quote"><code class=
+              "literal">comment</code></span>&rdquo; if used the
+              configuration file below or the <code class=
+              "filename">/etc/samba/smb.conf.default</code> to create yours.
             </p>
             <p>
               The following configuration file creates a separate share for
@@ -503,8 +483,7 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
               "command"><strong>smbpasswd</strong></span> (with the
               <code class="option">-a</code> option to add users) to enable
               and set passwords for all accounts that need <span class=
-              "application">Samba</span> access, or use the SWAT web
-              interface (see below) to do the same. Using the default
+              "application">Samba</span> access. Using the default
               <span class="application">Samba</span> passdb backend, any user
               you attempt to add will also be required to exist in the
               <code class="filename">/etc/passwd</code> file.
@@ -515,7 +494,7 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2899618" name="id2899618"></a>Advanced
+                    <a id="id2896170" name="id2896170"></a>Advanced
                     Requirements
                   </h5>
                 </div>
@@ -559,13 +538,6 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
                     "http://www.samba.org/samba/docs/man/Samba-Guide/">http://www.samba.org/samba/docs/man/Samba-Guide/</a>
                   </p>
                 </li>
-                <li>
-                  <p>
-                    The Samba-3 man Pages <a class="ulink" href=
-                    "file:///usr/share/samba/swat/help/manpages/samba.7.html">
-                    file:///usr/share/samba/swat/help/manpages/samba.7.html</a>
-                  </p>
-                </li>
               </ul>
             </div>
           </div>
@@ -583,7 +555,7 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
               For your convenience, boot scripts have been provided for
               <span class="application">Samba</span>. There are two included
               in the <a class="xref" href="../introduction/bootscripts.html"
-              title="BLFS Boot Scripts">blfs-bootscripts-20130908</a>
+              title="BLFS Boot Scripts">blfs-bootscripts-20140329</a>
               package. The first, <code class="filename">samba</code>, will
               start the <span class="command"><strong>smbd</strong></span>
               and <span class="command"><strong>nmbd</strong></span> daemons
@@ -604,7 +576,7 @@ cp output/htmldocs/manpages/*.html /usr/share/samba/swat/help/manpages</kbd>
               issue the following commands as the <code class=
               "systemitem">root</code> user:
             </p>
-            <pre class="userinput">
+            <pre class="root">
 <kbd class="command">groupadd -g 99 nogroup &amp;&amp;
 useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup \
     -s /bin/false -u 99 nobody</kbd>
@@ -626,149 +598,6 @@ useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup \
 </pre>
           </div>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
-          <h3 class="sect3">
-            <a id="samba-swat-config" name=
-            "samba-swat-config"></a>Configuring SWAT
-          </h3>
-          <p>
-            The SWAT (<span class="application">Samba</span> Web
-            Administration Tool) utility can be used for configuration of the
-            <span class="application">Samba</span> installation.
-          </p>
-          <div class="sect4" lang="en" xml:lang="en">
-            <div class="titlepage">
-              <div>
-                <div>
-                  <h5 class="title">
-                    <a id="id2827624" name="id2827624"></a>Setting up SWAT
-                    using xinetd
-                  </h5>
-                </div>
-              </div>
-            </div>
-            <p>
-              If not already done, add an entry to <code class=
-              "filename">/etc/services</code> file as the <code class=
-              "systemitem">root</code> user:
-            </p>
-            <pre class="root">
-<kbd class=
-"command">echo "swat            905/tcp" &gt;&gt; /etc/services</kbd>
-</pre>
-            <p>
-              Create the <span class="application">Samba</span> <a class=
-              "xref" href="../server/xinetd.html" title=
-              "xinetd-2.3.15">xinetd-2.3.15</a> file as <code class=
-              "filename">/etc/xinetd.d/swat</code>.
-            </p>
-            <div class="admon warning">
-              <img alt="[Warning]" src="../images/warning.png" />
-              <h3>
-                Warning
-              </h3>
-              <p>
-                You may modify or remove the &ldquo;<span class=
-                "quote">only_from</span>&rdquo; line below to include other
-                host(s). BLFS does not recommend doing this because of the
-                security risk involved. However, in a home network
-                environment, disclosure of the <code class=
-                "systemitem">root</code> password may be an acceptable risk.
-              </p>
-            </div>
-            <pre class="root">
-<kbd class="command">cat &gt;&gt; /etc/xinetd.d/swat &lt;&lt; "EOF"
-<code class="literal"># Begin /etc/xinetd.d/swat
-
-service swat
-{
-    port            = 905
-    socket_type     = stream
-    wait            = no
-    instances       = 5
-    only_from       = 127.0.0.1
-    user            = root
-    server          = /usr/sbin/swat
-    log_on_failure += USERID
-}
-
-# End /etc/xinetd.d/swat</code>
-EOF</kbd>
-</pre>
-            <p>
-              Issue a <span class="command"><strong>killall -HUP
-              xinetd</strong></span> to read the new <code class=
-              "filename">/etc/xinetd.d/swat</code> file.
-            </p>
-            <div class="admon note">
-              <img alt="[Note]" src="../images/note.png" />
-              <h3>
-                Note
-              </h3>
-              <p>
-                If you linked <span class="application">Linux-PAM</span> into
-                the <span class="application">Samba</span> build, you'll need
-                to create an <code class="filename">/etc/pam.d/samba</code>
-                file.
-              </p>
-            </div>
-            <p>
-              SWAT can now be launched by pointing your web browser to
-              http://localhost:905.
-            </p>
-          </div>
-          <div class="sect4" lang="en" xml:lang="en">
-            <div class="titlepage">
-              <div>
-                <div>
-                  <h5 class="title">
-                    <a id="id2833472" name="id2833472"></a>Setting up SWAT
-                    using stunnel
-                  </h5>
-                </div>
-              </div>
-            </div>
-            <p>
-              A better way to set up SWAT for network access is through
-              <a class="xref" href="../postlfs/stunnel.html" title=
-              "stunnel-4.56">stunnel-4.56</a>. For convenience, a boot
-              scripts has been provided for SWAT via stunnel. First, create
-              the stunnel configuration file:
-            </p>
-            <pre class="root">
-<kbd class="command">cat &gt;&gt; /etc/stunnel/swat.conf &lt;&lt; "EOF"
-<code class="literal">; File: /etc/stunnel/swat.conf
-
-pid    = /run/stunnel-swat.pid
-setuid = root
-setgid = root
-cert   = /etc/stunnel/stunnel.pem
-
-[swat]
-accept = swat
-exec   = /usr/sbin/swat
-</code>
-EOF</kbd>
-</pre>
-            <p>
-              Next, install the swat bootscript:
-            </p>
-            <pre class="root">
-<kbd class="command">make install-swat</kbd>
-</pre>
-            <p>
-              After starting the SWAT boot script the tool can be accessed by
-              pointing your web browser to https://localhost:905. Note:
-              <span class="emphasis"><em>https</em></span>. If access to the
-              tool needs to be further restricted, then <a class="xref" href=
-              "../postlfs/iptables.html" title=
-              "Iptables-1.4.20">Iptables-1.4.20</a> can be used.
-            </p>
-          </div>
-        </div>
-        <div class="sect3" lang="en" xml:lang="en">
-          <h3 class="sect3"></h3>
-        </div>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -781,29 +610,39 @@ EOF</kbd>
               <span class="segbody">cifsdd, dbwrap_tool, eventlogadm,
               gentest, ldbadd, ldbdel, ldbedit, ldbmodify, ldbrename,
               ldbsearch, locktest, masktest, ndrdump, net, nmbd, nmblookup,
-              nmblookup4, ntlm_auth, oLschema2ldif, pdbedit, pidl, profiles,
-              regdiff, regpatch, regshell, regtree, rpcclient, samba,
-              samba_dnsupdate samba_kcc, samba_spnupdate, samba-tool,
+              nmblookup4, ntdbbackup, ntdbdump, ntdbrestore, ntdbtool,
+              ntlm_auth, oLschema2ldif, pdbedit, pidl, profiles, regdiff,
+              regpatch, regshell, regtree, rpcclient, samba, samba_dnsupdate,
+              samba_kcc, samba-regedit, samba_spnupdate, samba-tool,
               samba_upgradedns, sharesec, smbcacls, smbclient, smbclient4,
               smbcontrol, smbcquotas, smbd, smbget, smbpasswd, smbspool,
-              smbstatus, smbta-util, smbtar, smbtree, smbtorture, swat,
-              testparm, tdbbackup, tdbdump, tdbrestore, and tdbtool,
-              winbindd, and wbinfo</span>
+              smbstatus, smbtar, smbta-util, smbtorture, smbtree, tdbbackup,
+              tdbdump, tdbrestore, tdbtool, testparm, wbinfo, and
+              winbindd</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libnss_winbind.so, libnss_wins.so,
-              libnetapi.so, libsmbclient.so, libsmbsharemodes.so,
-              libwbclient.so, the pam_winbind.so and pam_smbpass.so PAM
-              libraries, and assorted character set, filesystem and support
-              modules.</span>
+              <span class="segbody">libdcerpc-atsvc.so, libdcerpc-binding.so,
+              libdcerpc-samr.so, libdcerpc-server.so, libdcerpc.so,
+              libgensec.so, libndr-krb5pac.so, libndr-nbt.so, libndr.so,
+              libndr-standard.so, libnetapi.so, libnss_winbind.so,
+              libnss_wins.so, libpdb.so, libregistry.so,
+              libsamba-credentials.so, libsamba-hostconfig.so,
+              libsamba-policy.so, libsamba-util.so, libsamdb.so,
+              libsmbclient-raw.so, libsmbclient.so, libsmbconf.so,
+              libsmbldap.so, libsmbsharemodes.so, libtevent-util.so,
+              libtorture.so, libwbclient.so, mit_samba.so, the pam_winbind.so
+              and pam_smbpass.so PAM libraries, winbind_krb5_locator.so, and
+              assorted character set, filesystem and support modules.</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/etc/samba, /usr/include/samba-4.0,
-              /usr/lib/samba, /usr/share/samba, /var/cache/samba,
-              /var/lib/samba, /var/log/samba, /var/lock/samba, and
-              /var/run/samba</span>
+              <span class="segbody">/etc/samba, /run/samba,
+              /usr/include/samba-4.0, /usr/lib/python2.7/site-packages/samba,
+              /usr/lib/samba, /usr/share/doc/samba-4.1.7,
+              /usr/share/perl5/Parse/Pidl/Samba{3,4}, /usr/share/samba,
+              /var/cache/samba, /var/lib/samba, /var/lock/samba,
+              /var/log/samba, and /var/run/samba</span>
             </div>
           </div>
         </div>
@@ -1207,21 +1046,6 @@ EOF</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="swat" name="swat"></a><span class=
-                    "term"><span class=
-                    "command"><strong>swat</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is the <span class="application">Samba</span> Web
-                    Administration Tool.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="tdbbackup" name="tdbbackup"></a><span class=
                     "term"><span class=
                     "command"><strong>tdbbackup</strong></span></span>
@@ -1404,21 +1228,21 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-27 09:03:59 +0000
+        Last updated on 2014-04-17 22:36:51 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="rsync.html" title="rsync-3.0.9">Prev</a>
+          <a accesskey="p" href="rsync.html" title="rsync-3.1.0">Prev</a>
           <p>
-            rsync-3.0.9
+            rsync-3.1.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="wget.html" title="Wget-1.14">Next</a>
+          <a accesskey="n" href="wget.html" title="Wget-1.15">Next</a>
           <p>
-            Wget-1.14
+            Wget-1.15
           </p>
         </li>
         <li class="up">
@@ -1427,7 +1251,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

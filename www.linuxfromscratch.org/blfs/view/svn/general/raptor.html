@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Raptor-2.0.10
+      Raptor-2.0.13
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="rasqal.html" title="Rasqal-0.9.30">Next</a>
+          <a accesskey="n" href="rasqal.html" title="Rasqal-0.9.32">Next</a>
           <p>
-            Rasqal-0.9.30
+            Rasqal-0.9.32
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="raptor" name="raptor"></a>Raptor-2.0.10
+        <a id="raptor" name="raptor"></a>Raptor-2.0.13
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           Description Framework (RDF) triples.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -69,12 +69,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://download.librdf.org/source/raptor2-2.0.10.tar.gz">http://download.librdf.org/source/raptor2-2.0.10.tar.gz</a>
+                "http://download.librdf.org/source/raptor2-2.0.13.tar.gz">http://download.librdf.org/source/raptor2-2.0.13.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: d9b0314eb835551adb48af037dcfd46e
+                Download MD5 sum: f380566229d6264590315b0a5341b689
               </p>
             </li>
             <li>
@@ -84,12 +84,14 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 33 MB
+                Estimated disk space required: 28 MB (additional 1 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: 0.2 SBU (additional 0.4 SBU for the
+                tests)
               </p>
             </li>
           </ul>
@@ -102,7 +104,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.32.0">cURL-7.32.0</a> and <a class="xref" href=
+          "cURL-7.36.0">cURL-7.36.0</a> and <a class="xref" href=
           "libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
         </p>
         <h4>
@@ -110,8 +112,8 @@
         </h4>
         <p class="optional">
           <a class="xref" href="gtk-doc.html" title=
-          "GTK-Doc-1.19">GTK-Doc-1.19</a>, <a class="xref" href="icu.html"
-          title="ICU-51.2">ICU-51.2</a> and <a class="ulink" href=
+          "GTK-Doc-1.20">GTK-Doc-1.20</a>, <a class="xref" href="icu.html"
+          title="ICU-53.1">ICU-53.1</a> and <a class="ulink" href=
           "http://lloyd.github.com/yajl/">libyajl</a>
         </p>
         <p class="usernotes">
@@ -132,8 +134,8 @@
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
+          To test the results, issue: <span class="command"><strong>make -k
+          check</strong></span>. Several tests are expected to fail.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -151,10 +153,9 @@ make</kbd>
           switch prevents installation of static versions of the libraries.
         </p>
         <p>
-          <em class=
-          "parameter"><code>--with-icu-config=/usr/bin/icu-config</code></em>:
+          <code class="option">--with-icu-config=/usr/bin/icu-config</code>:
           Use this switch if you have installed <a class="xref" href=
-          "icu.html" title="ICU-51.2">ICU-51.2</a> and wish to build
+          "icu.html" title="ICU-53.1">ICU-53.1</a> and wish to build
           <span class="application">Raptor</span> with its support.
         </p>
       </div>
@@ -219,7 +220,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-29 22:42:28 +0000
+        Last updated on 2014-02-20 21:02:22 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -232,9 +233,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="rasqal.html" title="Rasqal-0.9.30">Next</a>
+          <a accesskey="n" href="rasqal.html" title="Rasqal-0.9.32">Next</a>
           <p>
-            Rasqal-0.9.30
+            Rasqal-0.9.32
           </p>
         </li>
         <li class="up">
@@ -243,7 +244,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

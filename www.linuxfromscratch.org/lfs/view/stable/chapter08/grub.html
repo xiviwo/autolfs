@@ -7,24 +7,24 @@
     <title>
       8.4.&nbsp;Using GRUB to Set Up the Boot Process
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter08/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;8.&nbsp;Making the LFS System Bootable
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="kernel.html" title="Linux-3.10.10">Prev</a>
+          <a accesskey="p" href="kernel.html" title="Linux-3.13.3">Prev</a>
           <p>
-            Linux-3.10.10
+            Linux-3.13.3
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -67,13 +67,13 @@
           </p>
         </div>
         <p>
-          Ensure that an emergency boot disk is ready to &ldquo;<span class=
-          "quote">rescue</span>&rdquo; the computer if the computer becomes
-          unusable (un-bootable). If you do not already have a boot device,
-          you can create one. In order for the procedure below to work, you
-          need to jump ahead to BLFS and install <strong class=
-          "userinput"><code>xorriso</code></strong> from the <a class="ulink"
-          href=
+          Ensure that an emergency boot disk is ready to <span class=
+          "quote">&ldquo;<span class="quote">rescue</span>&rdquo;</span> the
+          computer if the computer becomes unusable (un-bootable). If you do
+          not already have a boot device, you can create one. In order for
+          the procedure below to work, you need to jump ahead to BLFS and
+          install <strong class="userinput"><code>xorriso</code></strong>
+          from the <a class="ulink" href=
           "http://www.linuxfromscratch.org/blfs/view/svn/multimedia/libisoburn.html">
           libisoburn</a> package.
         </p>
@@ -176,8 +176,8 @@ set timeout=5
 insmod ext2
 set root=(hd0,2)
 
-menuentry "GNU/Linux, Linux 3.10.10-lfs-7.4" {
-        linux   /boot/vmlinuz-3.10.10-lfs-7.4 root=/dev/sda2 ro
+menuentry "GNU/Linux, Linux 3.13.3-lfs-7.5" {
+        linux   /boot/vmlinuz-3.13.3-lfs-7.5 root=/dev/sda2 ro
 }</code>
 EOF</kbd>
 </pre>
@@ -224,9 +224,9 @@ EOF</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="kernel.html" title="Linux-3.10.10">Prev</a>
+          <a accesskey="p" href="kernel.html" title="Linux-3.13.3">Prev</a>
           <p>
-            Linux-3.10.10
+            Linux-3.13.3
           </p>
         </li>
         <li class="next">
@@ -242,7 +242,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

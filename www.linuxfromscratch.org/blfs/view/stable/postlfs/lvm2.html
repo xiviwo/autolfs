@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      LVM2-2.02.100
+      LVM2-2.02.105
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;File Systems and Disk Management
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="lvm2" name="lvm2"></a>LVM2-2.02.100
+        <a id="lvm2" name="lvm2"></a>LVM2-2.02.105
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           dynamic growing or shrinking of logical partitions.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,27 +70,29 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.100.tgz">ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.100.tgz</a>
+                "ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.105.tgz">ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.105.tgz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 9629cf5728544d7e637cafde1f73d777
+                Download MD5 sum: b5b3540661fc70bf329b526c1cfbcf3a
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.3 MB
+                Download size: 1.4 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 22 MB
+                Estimated disk space required: 24 MB (additional 2 MB to run
+                the test suite)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.3 SBU
+                Estimated build time: 0.3 SBU (additional 3.6 SBU to run the
+                test suite)
               </p>
             </li>
           </ul>
@@ -178,23 +180,23 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--enable-applib</code>: This switch enables
-          building of the shared application library.
+          <em class="parameter"><code>--enable-applib</code></em>: This
+          switch enables building of the shared application library.
         </p>
         <p>
-          <code class="option">--enable-cmdlib</code>: This switch enables
-          building of the shared command library. It is required when
-          building the event daemon.
+          <em class="parameter"><code>--enable-cmdlib</code></em>: This
+          switch enables building of the shared command library. It is
+          required when building the event daemon.
         </p>
         <p>
-          <code class="option">--enable-pkgconfig</code>: This switch enables
-          installation of <span class=
+          <em class="parameter"><code>--enable-pkgconfig</code></em>: This
+          switch enables installation of <span class=
           "command"><strong>pkg-config</strong></span> support files.
         </p>
         <p>
-          <code class="option">--enable-udev_sync</code>: This switch enables
-          synchronisation with <span class="application">Udev</span>
-          processing.
+          <em class="parameter"><code>--enable-udev_sync</code></em>: This
+          switch enables synchronisation with <span class=
+          "application">Udev</span> processing.
         </p>
         <p>
           <code class="option">--enable-dmeventd</code>: This switch enables
@@ -210,18 +212,24 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">dmsetup, fsadm, lvm, lvmconf, lvmdump,
-              vgimportclone. There are also numerous symbolic links to lvm
-              that implement specific functionality.</span>
+              <span class="segbody">blkdeactivate, dmeventd (optional),
+              dmsetup, fsadm, lvm, lvmconf, lvmdump, vgimportclone. There are
+              also numerous symbolic links to lvm that implement specific
+              functionality.</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libdevmapper.so, liblvm2app.so and
-              liblvm2cmd.so</span>
+              liblvm2cmd.so; optional: libdevmapper-event.so,
+              libdevmapper-event-lvm2.so, libdevmapper-event-lvm2mirror.so,
+              libdevmapper-event-lvm2snapshot.so,
+              libdevmapper-event-lvm2raid.so, libdevmapper-event-lvm2thin.so
+              and some under /lib/device-mapper</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">None</span>
+              <span class="segbody">/etc/lvm and /lib/device-mapper
+              (optional)</span>
             </div>
           </div>
         </div>
@@ -232,6 +240,34 @@ make</kbd>
           <table border="0">
             <col align="left" valign="top" />
             <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="blkdeactivate" name=
+                    "blkdeactivate"></a><span class="term"><span class=
+                    "command"><strong>blkdeactivate</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    utility to deactivate block device.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="dmeventd" name="dmeventd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>dmeventd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    (optional) is the Device Mapper event daemon.
+                  </p>
+                </td>
+              </tr>
               <tr>
                 <td>
                   <p>
@@ -343,7 +379,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-27 10:06:41 -0700
+        Last updated on 2014-02-22 04:49:29 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -367,7 +403,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

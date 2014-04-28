@@ -7,15 +7,15 @@
     <title>
       5.3.&nbsp;General Compilation Instructions
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="binutils-pass1.html" title=
-          "Binutils-2.23.2 - Pass 1">Next</a>
+          "Binutils-2.24 - Pass 1">Next</a>
           <p>
-            Binutils-2.23.2 - Pass 1
+            Binutils-2.24 - Pass 1
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
       </p>
       <div class="itemizedlist">
         <ul>
-          <li>
+          <li class="listitem">
             <p>
               Several of the packages are patched before compilation, but
               only when the patch is needed to circumvent a problem. A patch
@@ -71,7 +71,7 @@
               patch was still successfully applied.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               During the compilation of most packages, there will be several
               warnings that scroll by on the screen. These are normal and can
@@ -82,7 +82,7 @@
               but does prompt the warning.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Check one last time that the <code class="envar">LFS</code>
               environment variable is set up properly:
@@ -96,7 +96,7 @@
               using our example.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Finally, two last important items must be emphasized:
             </p>
@@ -113,20 +113,20 @@
               </p>
               <div class="itemizedlist">
                 <ul>
-                  <li>
+                  <li class="listitem">
                     <p>
                       <span class="command"><strong>bash</strong></span> is
                       the shell in use.
                     </p>
                   </li>
-                  <li>
+                  <li class="listitem">
                     <p>
                       <span class="command"><strong>sh</strong></span> is a
                       symbolic link to <span class=
                       "command"><strong>bash</strong></span>.
                     </p>
                   </li>
-                  <li>
+                  <li class="listitem">
                     <p>
                       <span class=
                       "command"><strong>/usr/bin/awk</strong></span> is a
@@ -134,7 +134,7 @@
                       "command"><strong>gawk</strong></span>.
                     </p>
                   </li>
-                  <li>
+                  <li class="listitem">
                     <p>
                       <span class=
                       "command"><strong>/usr/bin/yacc</strong></span> is a
@@ -156,7 +156,7 @@
               </p>
               <div class="orderedlist">
                 <ol class="compact">
-                  <li>
+                  <li class="listitem">
                     <p>
                       Place all the sources and patches in a directory that
                       will be accessible from the chroot environment such as
@@ -165,19 +165,19 @@
                       in <code class="filename">/mnt/lfs/tools/</code>.
                     </p>
                   </li>
-                  <li>
+                  <li class="listitem">
                     <p>
                       Change to the sources directory.
                     </p>
                   </li>
-                  <li>
+                  <li class="listitem">
                     <p>
                       <a id="buildinstr" name="buildinstr"></a>For each
                       package:
                     </p>
                     <div class="orderedlist">
                       <ol class="compact">
-                        <li>
+                        <li class="listitem">
                           <p>
                             Using the <span class=
                             "command"><strong>tar</strong></span> program,
@@ -187,24 +187,24 @@
                             extracting the package.
                           </p>
                         </li>
-                        <li>
+                        <li class="listitem">
                           <p>
                             Change to the directory created when the package
                             was extracted.
                           </p>
                         </li>
-                        <li>
+                        <li class="listitem">
                           <p>
                             Follow the book's instructions for building the
                             package.
                           </p>
                         </li>
-                        <li>
+                        <li class="listitem">
                           <p>
                             Change back to the sources directory.
                           </p>
                         </li>
-                        <li>
+                        <li class="listitem">
                           <p>
                             Delete the extracted source directory and any
                             <code class="filename"><em class=
@@ -234,9 +234,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="binutils-pass1.html" title=
-          "Binutils-2.23.2 - Pass 1">Next</a>
+          "Binutils-2.24 - Pass 1">Next</a>
           <p>
-            Binutils-2.23.2 - Pass 1
+            Binutils-2.24 - Pass 1
           </p>
         </li>
         <li class="up">
@@ -245,7 +245,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

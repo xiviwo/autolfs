@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;39.&nbsp;Video Utilities
+        Chapter&nbsp;41.&nbsp;Video Utilities
       </h3>
       <ul>
         <li class="prev">
@@ -28,18 +28,18 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="vlc.html" title="VLC-2.0.8">Next</a>
+          <a accesskey="n" href="vlc.html" title="VLC-2.1.4">Next</a>
           <p>
-            VLC-2.0.8
+            VLC-2.1.4
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="videoutils.html" title=
-          "Chapter&nbsp;39.&nbsp;Video Utilities">Up</a>
+          "Chapter&nbsp;41.&nbsp;Video Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           "http://www.transcoding.org/">http://www.transcoding.org/</a>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -111,8 +111,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/transcode-1.1.7-ffmpeg-2.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/transcode-1.1.7-ffmpeg-2.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/svn/transcode-1.1.7-ffmpeg2-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/svn/transcode-1.1.7-ffmpeg2-1.patch</a>
               </p>
             </li>
           </ul>
@@ -125,7 +125,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="ffmpeg.html" title=
-          "FFmpeg-1.2.2">FFmpeg-1.2.2</a>
+          "FFmpeg-2.2.1">FFmpeg-2.2.1</a>
         </p>
         <h4>
           Recommended
@@ -134,7 +134,9 @@
           <a class="xref" href="alsa-lib.html" title=
           "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
           "lame.html" title="LAME-3.99.5">LAME-3.99.5</a>, <a class="xref"
-          href="libmpeg2.html" title="libmpeg2-0.5.1">libmpeg2-0.5.1</a>, and
+          href="libdvdread.html" title=
+          "Libdvdread-4.9.9">libdvdread-4.9.9</a>, <a class="xref" href=
+          "libmpeg2.html" title="libmpeg2-0.5.1">libmpeg2-0.5.1</a>, and
           <a class="xref" href="../x/x7lib.html" title="Xorg Libraries">Xorg
           Libraries</a>
         </p>
@@ -144,21 +146,19 @@
         <p class="optional">
           <a class="xref" href="faac.html" title="FAAC-1.28">FAAC-1.28</a>,
           <a class="xref" href="../general/freetype2.html" title=
-          "FreeType-2.5.0.1">FreeType-2.5.0.1</a>, <a class="xref" href=
+          "FreeType-2.5.3">FreeType-2.5.3</a>, <a class="xref" href=
           "../general/imagemagick.html" title=
-          "ImageMagick-6.8.6-9">ImageMagick-6.8.6-9</a>, <a class="xref"
+          "ImageMagick-6.8.9-0">ImageMagick-6.8.9-0</a>, <a class="xref"
           href="liba52.html" title="Liba52-0.7.4">liba52-0.7.4</a>, <a class=
           "xref" href="libdv.html" title="Libdv-1.0.0">libdv-1.0.0</a>,
-          <a class="xref" href="libdvdread.html" title=
-          "Libdvdread-4.2.0">libdvdread-4.2.0</a>, <a class="xref" href=
-          "../general/libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
+          <a class="xref" href="../general/libjpeg.html" title=
+          "libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a>, <a class="xref"
           href="libogg.html" title="libogg-1.3.1">libogg-1.3.1</a>, <a class=
           "xref" href="libquicktime.html" title=
           "libquicktime-1.2.4">libquicktime-1.2.4</a>, <a class="xref" href=
           "libtheora.html" title="libtheora-1.1.1">libtheora-1.1.1</a>,
           <a class="xref" href="libvorbis.html" title=
-          "libvorbis-1.3.3">libvorbis-1.3.3</a>, <a class="xref" href=
+          "libvorbis-1.3.4">libvorbis-1.3.4</a>, <a class="xref" href=
           "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>,
           <a class="xref" href="../general/LZO.html" title=
           "LZO-2.06">LZO-2.06</a>, <a class="ulink" href=
@@ -167,9 +167,9 @@
           "xref" href="sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>, <a class=
           "ulink" href=
           "http://linuxtv.org/downloads/v4l-utils/">Video4Linux</a>,
-          <a class="ulink" href=
-          "http://www.videolan.org/developers/x264.html">x264</a>, and
-          <a class="xref" href="xvid.html" title="XviD-1.3.2">XviD-1.3.2</a>
+          <a class="xref" href="x264.html" title=
+          "x264-20140316-2245">x264-20140316-2245</a>, and <a class="xref"
+          href="xvid.html" title="XviD-1.3.3">XviD-1.3.3</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -207,13 +207,22 @@
           </p>
         </div>
         <p>
+          When building with --enable-freetype2 configure switch, fix the
+          code to find the header locations for <span class=
+          "application">FreeType-2.5.x</span> (x &gt; 0):
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i "s:#include &lt;freetype/ftglyph.h&gt;:#include FT_GLYPH_H:" filter/subtitler/load_font.c</kbd>
+</pre>
+        <p>
           Install <span class="application">Transcode</span> by running the
           following commands:
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i 's|doc/transcode|&amp;-$(PACKAGE_VERSION)|' \
        $(find . -name Makefile.in -exec grep -l 'docsdir =' {} \;) &amp;&amp;
-patch -Np1 -i ../transcode-1.1.7-ffmpeg-2.patch &amp;&amp;
+patch -Np1 -i ../transcode-1.1.7-ffmpeg2-1.patch &amp;&amp;
 ./configure --prefix=/usr \
             --enable-alsa \
             --enable-libmpeg2 &amp;&amp;
@@ -233,6 +242,12 @@ make</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <span class="command"><strong>sed -i ...
+          filter/subtitler/load_font.c</strong></span>: Fixes header
+          locations for new <span class="application">FreeType-2.5.x</span>
+          (x &gt; 0).
+        </p>
         <p>
           <span class="command"><strong>sed -i ...</strong></span>: Fixes
           install location for documentation.
@@ -507,7 +522,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-01 22:01:22 +0000
+        Last updated on 2014-02-26 21:47:01 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -519,18 +534,18 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="vlc.html" title="VLC-2.0.8">Next</a>
+          <a accesskey="n" href="vlc.html" title="VLC-2.1.4">Next</a>
           <p>
-            VLC-2.0.8
+            VLC-2.1.4
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="videoutils.html" title=
-          "Chapter&nbsp;39.&nbsp;Video Utilities">Up</a>
+          "Chapter&nbsp;41.&nbsp;Video Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

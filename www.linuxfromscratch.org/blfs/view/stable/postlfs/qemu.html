@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      qemu-1.6.0
+      qemu-1.7.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;8.&nbsp;Virtualization
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="qemu" name="qemu"></a>qemu-1.6.0
+        <a id="qemu" name="qemu"></a>qemu-1.7.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           extensions (Intel VT or AMD-V).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,22 +70,22 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://wiki.qemu.org/download/qemu-1.6.0.tar.bz2">http://wiki.qemu.org/download/qemu-1.6.0.tar.bz2</a>
+                "http://wiki.qemu.org/download/qemu-1.7.0.tar.bz2">http://wiki.qemu.org/download/qemu-1.7.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: f3f39308472d629aca57a255a0c91ba9
+                Download MD5 sum: 32893941d40d052a5e649efcf06aca06
               </p>
             </li>
             <li>
               <p>
-                Download size: 11.5 MB
+                Download size: 12 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 192 MB
+                Estimated disk space required: 215 MB
               </p>
             </li>
             <li>
@@ -103,8 +103,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.36.4">GLib-2.36.4</a>, <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>,
+          "GLib-2.38.2">GLib-2.38.2</a>, <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.6">Python-2.7.6</a>,
           <a class="xref" href="../multimedia/sdl.html" title=
           "SDL-1.2.15">SDL-1.2.15</a>, and <a class="xref" href=
           "../x/installing.html" title=
@@ -118,18 +118,24 @@
           <a class="xref" href="../multimedia/alsa.html" title=
           "ALSA-1.0.27">ALSA-1.0.27</a>, <a class="xref" href="attr.html"
           title="attr-2.4.47">attr-2.4.47</a>, <a class="xref" href=
-          "../general/check.html" title="Check-0.9.10">Check-0.9.10</a>,
+          "../general/check.html" title="Check-0.9.12">Check-0.9.12</a>,
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.32.0">cURL-7.32.0</a>, <a class="xref" href=
-          "../multimedia/esound.html" title=
-          "EsounD-0.2.41">EsounD-0.2.41</a>, <a class="xref" href=
-          "../x/mesalib.html" title="MesaLib-9.2.0">MesaLib-9.2.0</a>, and
+          "cURL-7.35.0">cURL-7.35.0</a>, <a class="xref" href=
+          "../x/mesalib.html" title="MesaLib-10.0.3">MesaLib-10.0.3</a>, and
           <a class="xref" href="cyrus-sasl.html" title=
-          "Cyrus SASL-2.1.26">Cyrus SASL-2.1.26</a>. Note that this optional
-          dependencies list is not comprehensive. See the output of
-          <span class="command"><strong>./configure --help</strong></span>
-          for a more complete list.
+          "Cyrus SASL-2.1.26">Cyrus SASL-2.1.26</a>
         </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This optional dependencies list is not comprehensive. See the
+            output of <span class="command"><strong>./configure
+            --help</strong></span> for a more complete list.
+          </p>
+        </div>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
           "http://wiki.linuxfromscratch.org/blfs/wiki/qemu">http://wiki.linuxfromscratch.org/blfs/wiki/qemu</a>
@@ -137,7 +143,7 @@
       </div>
       <div class="sect2" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="qemu-prereq" name="qemu-prereq"></a>KVM Prerequsites
+          <a id="qemu-prereq" name="qemu-prereq"></a>KVM Prerequisites
         </h2>
         <p>
           Before building <span class="application">qemu</span>, check to see
@@ -162,21 +168,29 @@
           recompile the kernel if necessary:
         </p>
         <pre class="screen">
-<code class="literal">Virtualization: Y
-  Kernel-based Virtual Machine (KVM) support: M or Y
-  KVM for Intel processors support:           M or Y
-  KVM for AMD processors support:             M or Y</code>
+<code class="literal">Virtualization:  ---&gt;
+  Kernel-based Virtual Machine (KVM) support: Y or M
+    KVM for Intel processors support: Y or M
+    KVM for AMD processors support: Y or M</code>
 </pre>
         <p>
           The Intel or AMD settings are not both required, but the one
           matching your system processor is required.
         </p>
         <p>
-          For networking, check that the settings CONFIG_BRIDGE, CONFIG_STP,
-          CONFIG_TUN are enabled and <a class="xref" href=
+          For networking, check that <a class="xref" href=
           "../basicnet/bridge-utils.html" title=
-          "bridge-utils-1.5">bridge-utils-1.5</a> is installed.
+          "bridge-utils-1.5">bridge-utils-1.5</a> is installed and the
+          following options in the kernel configuration are enabled:
         </p>
+        <pre class="screen">
+<code class="literal">Networking support  ---&gt;
+  Networking options  ---&gt;
+    802.1d Ethernet Bridging: Y or M
+Device Drivers  ---&gt;
+  Network device support  ---&gt;
+    Universal TUN/TAP device driver support: Y or M</code>
+</pre>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -195,8 +209,13 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr                \
-            --sysconfdir=/etc            \
+<kbd class="command">sed -e '/#include &lt;sys\/capability.h&gt;/ d' \
+    -e '/#include "virtio-9p-marshal.h"/ i#include &lt;sys\/capability.h&gt;' \
+    -i fsdev/virtfs-proxy-helper.c &amp;&amp;
+
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --docdir=/usr/share/doc/qemu-1.7.0 \
             --target-list=x86_64-softmmu &amp;&amp;
 make</kbd>
 </pre>
@@ -208,7 +227,34 @@ make</kbd>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make install</kbd>
+<kbd class="command">make install &amp;&amp;
+[ -e  /usr/lib/libcacard.so ] &amp;&amp; chmod -v 755 /usr/lib/libcacard.so</kbd>
+</pre>
+        <p>
+          You will need a dedicated group that will contain users (other than
+          root) allowed to access the KVM device. Add the group by running
+          the following command as the <code class="systemitem">root</code>
+          user:
+        </p>
+        <pre class="root">
+<kbd class="command">groupadd -g 61 kvm</kbd>
+</pre>
+        <p>
+          Add any users that might use the KVM device to that group:
+        </p>
+        <pre class="root">
+<kbd class="command">usermod -a -G kvm <em class=
+"replaceable"><code>&lt;username&gt;</code></em></kbd>
+</pre>
+        <p>
+          You will also need to add a Udev rule so that the KVM device gets
+          correct permissions:
+        </p>
+        <pre class="root">
+<kbd class="command">cat &gt; /lib/udev/rules.d/65-kvm.rules &lt;&lt; "EOF"
+<code class=
+"literal">KERNEL=="kvm", NAME="%k", GROUP="kvm", MODE="0660"</code>
+EOF</kbd>
 </pre>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -229,12 +275,25 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
+          <span class="command"><strong>sed -e '/#include ...
+          fsdev/virtfs-proxy-helper.c</strong></span>: Fixes <span class=
+          "application">qemu-1.7.0</span> to build with <span class=
+          "application">libcap-2.24</span>.
+        </p>
+        <p>
           <em class=
           "parameter"><code>--target-list=x86_64-softmmu</code></em>: This
-          option limits the build target to the x86_64 architecture. For
+          switch limits the build target to the x86_64 architecture. For
           other hardware emulation see the --target-list list in <span class=
           "command"><strong>configure</strong></span>'s help output. Omitting
           this option will build all architectures.
+        </p>
+        <p>
+          <code class="option">--audio-drv-list=alsa</code>: This switch sets
+          the audio driver to ALSA. For other drivers see the
+          --audio-drv-list list in <span class=
+          "command"><strong>configure</strong></span>'s help output. The
+          default audio driver is OSS.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -262,7 +321,7 @@ make</kbd>
             symbolic link, <strong class=
             "userinput"><code>qemu</code></strong>. Additionally, you must
             run <strong class="userinput"><code>qemu</code></strong> from an
-            X-Windows based terminal.
+            X Window System based terminal.
           </p>
         </div>
         <p>
@@ -387,7 +446,7 @@ chmod +x /etc/qemu-ifdown</kbd>
             Note
           </h3>
           <p>
-            The backslashes in the abouve script are for convenience for
+            The backslashes in the above script are for convenience for
             cut/paste operations. The backslashes should <span class=
             "emphasis"><em>not</em></span> appear in the final scripts.
           </p>
@@ -416,18 +475,19 @@ chmod +x /etc/qemu-ifdown</kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed Program:</strong>
+              <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">qemu-ga, qemu-img, qemu-io, qemu-nbd,
-              qemu-system-x86_64</span>
+              qemu-system-x86_64, virtfs-proxy-helper, and vscclient</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">None</span>
+              <strong class="segtitle">Installed Library:</strong>
+              <span class="segbody">libcacard.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/etc/qemu, /usr/share/qemu,
-              /usr/share/doc/qemu</span>
+              <span class="segbody">/etc/qemu, /usr/include/cacard,
+              /usr/lib/qemu, /usr/share/qemu, and
+              /usr/share/doc/qemu-1.7.0</span>
             </div>
           </div>
         </div>
@@ -514,12 +574,25 @@ chmod +x /etc/qemu-ifdown</kbd>
                   </p>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libcacard" name="libcacard"></a><span class=
+                    "term"><code class="filename">libcacard.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Virtual Smart Card Emulator library.
+                  </p>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-05 10:04:34 -0700
+        Last updated on 2014-03-03 10:55:42 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -544,7 +617,7 @@ chmod +x /etc/qemu-ifdown</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      wpa_supplicant-2.0
+      wpa_supplicant-2.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;15.&nbsp;Networking Programs
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="wpa_supplicant" name="wpa_supplicant"></a>wpa_supplicant-2.0
+        <a id="wpa_supplicant" name="wpa_supplicant"></a>wpa_supplicant-2.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -64,7 +64,7 @@
           access point.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -75,28 +75,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://hostap.epitest.fi/releases/wpa_supplicant-2.0.tar.gz">
-                http://hostap.epitest.fi/releases/wpa_supplicant-2.0.tar.gz</a>
+                "http://hostap.epitest.fi/releases/wpa_supplicant-2.1.tar.gz">
+                http://hostap.epitest.fi/releases/wpa_supplicant-2.1.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 3be2ebfdcced52e00eda0afe2889839d
+                Download MD5 sum: e96b8db5a8171cd17a5b2012d6ad7cc7
               </p>
             </li>
             <li>
               <p>
-                Download size: 2.0 MB
+                Download size: 2.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 32 MB
+                Estimated disk space required: 28 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: 0.3 SBU
               </p>
             </li>
           </ul>
@@ -109,15 +109,15 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="libnl.html" title=
-          "libnl-3.2.22">libnl-3.2.22</a> and <a class="xref" href=
-          "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          "libnl-3.2.24">libnl-3.2.24</a> and <a class="xref" href=
+          "../postlfs/openssl.html" title="OpenSSL-1.0.1g">OpenSSL-1.0.1g</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/dbus.html" title=
-          "D-Bus-1.6.14">D-Bus-1.6.14</a>, <a class="xref" href=
+          "D-Bus-1.8.0">D-Bus-1.8.0</a>, <a class="xref" href=
           "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
           and <a class="xref" href="../x/qt4.html" title=
           "Qt-4.8.5">Qt-4.8.5</a>
@@ -133,26 +133,25 @@
           "wpa_supplicant-kernel"></a>Kernel Configuration
         </h2>
         <p>
-          Enable the following options in the kernel configuration and
-          recompile the kernel if necessary:
+          Enable the following options in the kernel configuration as well as
+          specific device drivers for your hardware and recompile the kernel
+          if necessary:
         </p>
         <pre class="screen">
-<code class="literal">[*] Networking support  ---&gt;
-  [*]   Wireless  ---&gt;
-    [*]   cfg80211 - wireless configuration API
-    [*]     cfg80211 wireless extensions compatibility
-    [*]   Generic IEEE 802.11 Networking Stack (mac80211)
-
+<code class="literal">Networking support  ---&gt;
+  Wireless  ---&gt;
+    cfg80211 - wireless configuration API: Y or M
+      cfg80211 wireless extensions compatibility: Y
+    Generic IEEE 802.11 Networking Stack (mac80211): Y or M
 Device Drivers  ---&gt;
-  [*] Network device support  ---&gt;
-    [*]   Wireless LAN  ---&gt;
-</code>
+  Network device support  ---&gt;
+    Wireless LAN  ---&gt;</code>
 </pre>
         <p>
           Select the options that support your hardware: <span class=
           "command"><strong>lspci</strong></span> from <a class="xref" href=
           "../general/pciutils.html" title=
-          "pciutils-3.2.0">pciutils-3.2.0</a> can be used to view your
+          "pciutils-3.2.1">pciutils-3.2.1</a> can be used to view your
           hardware configuration.
         </p>
       </div>
@@ -171,7 +170,7 @@ Device Drivers  ---&gt;
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; wpa_supplicant/.config &lt;&lt; "EOF"
-CONFIG_BACKEND=file
+<code class="literal">CONFIG_BACKEND=file
 CONFIG_CTRL_IFACE=y
 CONFIG_DEBUG_FILE=y
 CONFIG_DEBUG_SYSLOG=y
@@ -195,15 +194,15 @@ CONFIG_PKCS12=y
 CONFIG_READLINE=y
 CONFIG_SMARTCARD=y
 CONFIG_WPS=y
-CFLAGS += -I/usr/include/libnl3
+CFLAGS += -I/usr/include/libnl3</code>
 EOF</kbd>
 </pre>
         <p>
           If you wish to use <span class="application">WPA Supplicant</span>
           with <a class="xref" href="networkmanager.html" title=
-          "NetworkManager-0.9.8.2">NetworkManager-0.9.8.2</a>, make sure that
+          "NetworkManager-0.9.8.9">NetworkManager-0.9.8.9</a>, make sure that
           you have installed <a class="xref" href="../general/dbus.html"
-          title="D-Bus-1.6.14">D-Bus-1.6.14</a> and <a class="xref" href=
+          title="D-Bus-1.8.0">D-Bus-1.8.0</a> and <a class="xref" href=
           "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>,
           then add the following options to the <span class="application">WPA
           Supplicant</span> build configuration file by running the following
@@ -211,9 +210,9 @@ EOF</kbd>
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt;&gt; wpa_supplicant/.config &lt;&lt; "EOF"
-CONFIG_CTRL_IFACE_DBUS=y
+<code class="literal">CONFIG_CTRL_IFACE_DBUS=y
 CONFIG_CTRL_IFACE_DBUS_NEW=y
-CONFIG_CTRL_IFACE_DBUS_INTRO=y
+CONFIG_CTRL_IFACE_DBUS_INTRO=y</code>
 EOF</kbd>
 </pre>
         <p>
@@ -292,7 +291,7 @@ install -v -m644 wpa_gui-qt4/icons/wpa_gui.svg /usr/share/pixmaps/</kbd>
             Note
           </h3>
           <p>
-            This package installes desktop files into the <code class=
+            This package installs desktop files into the <code class=
             "filename">/usr/share/applications</code> hierarchy and you can
             improve system performance and memory usage by updating
             <code class=
@@ -380,7 +379,7 @@ network={
             install the <code class="filename">/lib/services/wpa</code>
             script included in <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package:
+            "BLFS Boot Scripts">blfs-bootscripts-20140329</a> package:
           </p>
           <pre class="root">
 <kbd class="command">make install-service-wpa</kbd>
@@ -388,8 +387,8 @@ network={
           <p>
             If your router/access point uses DHCP to allocate IP addresses,
             you can install <a class="xref" href="dhcp.html" title=
-            "DHCP-4.2.5-P1">DHCP-4.2.5-P1</a> client and use it to
-            automatically obtain network addresses. Create the <code class=
+            "DHCP-4.3.0">DHCP-4.3.0</a> client and use it to automatically
+            obtain network addresses. Create the <code class=
             "filename">/etc/sysconfig/ifconfig-<em class=
             "replaceable"><code>wifi0</code></em></code> by running the
             following command as the <code class="systemitem">root</code>
@@ -420,10 +419,9 @@ EOF</kbd>
 </pre>
           <p>
             If you prefer <a class="xref" href="dhcpcd.html" title=
-            "dhcpcd-6.0.5">dhcpcd-6.0.5</a> instead of <a class="xref" href=
-            "dhcp.html" title="DHCP-4.2.5-P1">DHCP-4.2.5-P1</a> client, then
-            create the <code class=
-            "filename">/etc/sysconfig/ifconfig-<em class=
+            "dhcpcd-6.3.2">dhcpcd-6.3.2</a> instead of <a class="xref" href=
+            "dhcp.html" title="DHCP-4.3.0">DHCP-4.3.0</a> client, then create
+            the <code class="filename">/etc/sysconfig/ifconfig-<em class=
             "replaceable"><code>wifi0</code></em></code> by running the
             following command as the <code class="systemitem">root</code>
             user:
@@ -587,7 +585,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-02 15:55:05 +0000
+        Last updated on 2014-02-20 21:24:55 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -612,7 +610,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

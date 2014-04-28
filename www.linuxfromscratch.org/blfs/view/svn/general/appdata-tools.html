@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      appdata-tools-0.1.7
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-2014-04-20">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
+      </h4>
+      <h3>
+        Chapter&nbsp;11.&nbsp;General Utilities
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="genutils.html" title=
+          "General Utilities">Prev</a>
+          <p>
+            General Utilities
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="compface.html" title=
+          "Compface-1.5.2">Next</a>
+          <p>
+            Compface-1.5.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genutils.html" title=
+          "Chapter&nbsp;11.&nbsp;General Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="appdata-tools" name="appdata-tools"></a>appdata-tools-0.1.7
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to appdata-tools
+        </h2>
+        <p>
+          The <span class="application">appdata-tools</span> is used to
+          validate AppData files to conform to standard specification.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.5
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://people.freedesktop.org/~hughsient/releases/appdata-tools-0.1.7.tar.xz">
+                http://people.freedesktop.org/~hughsient/releases/appdata-tools-0.1.7.tar.xz</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: adc82ce1d396c45203a842a508114ead
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 260 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 2.7 MB (additional 0.3 MB for
+                the tests)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: less than 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          appdata-tools Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../x/gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.30.7">gdk-pixbuf-2.30.7</a>, <a class="xref" href=
+          "intltool.html" title="Intltool-0.50.2">Intltool-0.50.2</a>, and
+          <a class="xref" href="../basicnet/libsoup.html" title=
+          "libsoup-2.46.0">libsoup-2.46.0</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="gobject-introspection.html" title=
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="libxml2.html" title=
+          "libxml2-2.9.1">libxml2-2.9.1</a>, <a class="xref" href=
+          "libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>, <a class=
+          "xref" href="../pst/DocBook.html" title=
+          "docbook-xml-4.5">docbook-xml-4.5</a>, <a class="xref" href=
+          "../pst/docbook-xsl.html" title=
+          "docbook-xsl-1.78.1">docbook-xsl-1.78.1</a>, <a class="ulink" href=
+          "http://www.thaiopensource.com/download/old/relaxng/20030619/trang.html">
+          trang</a>, and <a class="ulink" href=
+          "http://lxml.de/index.html">lxml</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/appdata-tools">http://wiki.linuxfromscratch.org/blfs/wiki/appdata-tools</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of appdata-tools
+        </h2>
+        <p>
+          Install <span class="application">appdata-tools</span> by running
+          the following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">appdata-validate</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">None</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="appdata-validate" name=
+                    "appdata-validate"></a><span class="term"><span class=
+                    "command"><strong>appdata-validate</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    validates AppData metadata.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2014-04-03 19:28:38 +0000
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="genutils.html" title=
+          "General Utilities">Prev</a>
+          <p>
+            General Utilities
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="compface.html" title=
+          "Compface-1.5.2">Next</a>
+          <p>
+            Compface-1.5.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genutils.html" title=
+          "Chapter&nbsp;11.&nbsp;General Utilities">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

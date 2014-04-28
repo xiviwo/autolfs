@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Mpg123-1.15.4
+      Mpg123-1.18.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;38.&nbsp;Audio Utilities
+        Chapter&nbsp;40.&nbsp;Audio Utilities
       </h3>
       <ul>
         <li class="prev">
@@ -37,17 +37,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="audioutils.html" title=
-          "Chapter&nbsp;38.&nbsp;Audio Utilities">Up</a>
+          "Chapter&nbsp;40.&nbsp;Audio Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mpg123" name="mpg123"></a>Mpg123-1.15.4
+        <a id="mpg123" name="mpg123"></a>Mpg123-1.18.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           for Unix.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,23 +70,23 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/mpg123/mpg123-1.15.4.tar.bz2">
-                http://downloads.sourceforge.net/mpg123/mpg123-1.15.4.tar.bz2</a>
+                "http://downloads.sourceforge.net/mpg123/mpg123-1.18.0.tar.bz2">
+                http://downloads.sourceforge.net/mpg123/mpg123-1.18.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 0703bf3b104910ba41c658a4d1080c9b
+                Download MD5 sum: 0e27ecbc5e48827ec5dd4d4f5fd8e64b
               </p>
             </li>
             <li>
               <p>
-                Download size: 784 KB
+                Download size: 836 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 13 MB
+                Estimated disk space required: 12 MB
               </p>
             </li>
             <li>
@@ -110,8 +110,7 @@
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="esound.html" title=
-          "EsounD-0.2.41">EsounD-0.2.41</a>, <a class="ulink" href=
+          <a class="ulink" href=
           "http://kcat.strangesoft.net/openal-releases/">OpenAL</a>,
           <a class="xref" href="pulseaudio.html" title=
           "PulseAudio-4.0">PulseAudio-4.0</a>, <a class="ulink" href=
@@ -133,7 +132,8 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class=
+"command">./configure --prefix=/usr --with-module-suffix=.so &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -154,8 +154,8 @@ make</kbd>
           <em class="parameter"><code>--with-module-suffix=.so</code></em>:
           This switch tells <span class=
           "command"><strong>mpg123</strong></span> to load modules with
-          <code class="filename">.so</code> extension. Useful if you don't
-          want to keep <code class="filename">.la</code> files.
+          <code class="filename">.so</code> extension which is useful if you
+          don't want to keep <code class="filename">.la</code> files.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -165,12 +165,14 @@ make</kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed Program:</strong>
-              <span class="segbody">mpg123</span>
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">mpg123, mpg123-id3dump, and
+              mpg123-strip</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libmpg123.so</span>
+              <span class="segbody">libmpg123.so and several under
+              /usr/lib/mpg123/</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
@@ -218,7 +220,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 13:56:44 -0700
+        Last updated on 2014-02-25 03:54:44 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -239,11 +241,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="audioutils.html" title=
-          "Chapter&nbsp;38.&nbsp;Audio Utilities">Up</a>
+          "Chapter&nbsp;40.&nbsp;Audio Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

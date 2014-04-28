@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gdk-pixbuf-2.28.2
+      gdk-pixbuf-2.30.4
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
@@ -29,10 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="goffice010.html" title=
-          "GOffice-0.10.7">Next</a>
+          <a accesskey="n" href="glu.html" title="GLU-9.0.0">Next</a>
           <p>
-            GOffice-0.10.7
+            GLU-9.0.0
           </p>
         </li>
         <li class="up">
@@ -41,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gdk-pixbuf" name="gdk-pixbuf"></a>gdk-pixbuf-2.28.2
+        <a id="gdk-pixbuf" name="gdk-pixbuf"></a>gdk-pixbuf-2.30.4
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -64,7 +63,7 @@
           3</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -75,35 +74,37 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.28/gdk-pixbuf-2.28.2.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.28/gdk-pixbuf-2.28.2.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.4.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.4.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.28/gdk-pixbuf-2.28.2.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.28/gdk-pixbuf-2.28.2.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.4.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.4.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 04c04e5042acd85cff6c439aba1995f1
+                Download MD5 sum: f20c0a5aa827332869c85c47d88394ce
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.1 MB
+                Download size: 1.3 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 31 MB
+                Estimated disk space required: 25 MB (additional 1 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: 0.3 SBU (additional 0.3 SBU to run the
+                test suite)
               </p>
             </li>
           </ul>
@@ -116,10 +117,10 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.36.4">GLib-2.36.4</a>, <a class="xref" href=
+          "GLib-2.38.2">GLib-2.38.2</a>, <a class="xref" href=
           "../general/libjpeg.html" title=
           "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
-          href="../general/libpng.html" title="libpng-1.6.4">libpng-1.6.4</a>
+          href="../general/libpng.html" title="libpng-1.6.9">libpng-1.6.9</a>
           and <a class="xref" href="../general/libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>
         </p>
@@ -137,7 +138,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>
+          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
         </p>
         <h4>
           Optional
@@ -165,15 +166,15 @@
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
-        </p>
-        <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>, after the package is installed.
+        </p>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
           <h3>
@@ -227,8 +228,9 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libgdk_pixbuf-2.0.so and
-              libgdk_pixbuf_xlib-2.0.so</span>
+              <span class="segbody">libgdk_pixbuf-2.0.so,
+              libgdk_pixbuf_xlib-2.0.so, and several under
+              /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -311,7 +313,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-18 14:52:29 -0700
+        Last updated on 2014-02-19 12:41:42 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -324,10 +326,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="goffice010.html" title=
-          "GOffice-0.10.7">Next</a>
+          <a accesskey="n" href="glu.html" title="GLU-9.0.0">Next</a>
           <p>
-            GOffice-0.10.7
+            GLU-9.0.0
           </p>
         </li>
         <li class="up">
@@ -336,7 +337,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

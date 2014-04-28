@@ -5,50 +5,50 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gst-plugins-good-1.0.10
+      gst-plugins-good-1.2.3
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="gst10-plugins-base.html" title=
-          "gst-plugins-base-1.0.10">Prev</a>
+          "gst-plugins-base-1.2.3">Prev</a>
           <p>
-            gst-plugins-base-1.0.10
+            gst-plugins-base-1.2.3
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gst10-plugins-bad.html" title=
-          "gst-plugins-bad-1.0.10">Next</a>
+          "gst-plugins-bad-1.2.3">Next</a>
           <p>
-            gst-plugins-bad-1.0.10
+            gst-plugins-bad-1.2.3
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="gst10-plugins-good" name=
-        "gst10-plugins-good"></a>gst-plugins-good-1.0.10
+        "gst10-plugins-good"></a>gst-plugins-good-1.2.3
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -64,7 +64,7 @@
           filters are included.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <div class="admon note">
@@ -86,28 +86,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.0.10.tar.xz">
-                http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.0.10.tar.xz</a>
+                "http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.2.3.tar.xz">
+                http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.2.3.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 6576c133d4a0faa904087e5d1b32ccc5
+                Download MD5 sum: 1a1f96bc27ad446e559474299160a9a8
               </p>
             </li>
             <li>
               <p>
-                Download size: 2.6 MB
+                Download size: 2.8 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 107 MB
+                Estimated disk space required: 120 MB (additional 10 MB to
+                run the test suite)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.6 SBU
+                Estimated build time: 1.1 SBU (additional 1.3 SBU to run the
+                test suite)
               </p>
             </li>
           </ul>
@@ -120,24 +122,24 @@
         </h4>
         <p class="required">
           <a class="xref" href="gst10-plugins-base.html" title=
-          "gst-plugins-base-1.0.10">gst-plugins-base-1.0.10</a>
+          "gst-plugins-base-1.2.3">gst-plugins-base-1.2.3</a>
         </p>
         <h4>
-          Recommended
+          Optional
         </h4>
-        <p class="recommended">
+        <p class="optional">
           <a class="xref" href="../x/cairo.html" title=
           "Cairo-1.12.16">Cairo-1.12.16</a>, <a class="xref" href="flac.html"
           title="FLAC-1.3.0">FLAC-1.3.0</a>, <a class="xref" href=
           "../x/gdk-pixbuf.html" title=
-          "gdk-pixbuf-2.28.2">gdk-pixbuf-2.28.2</a>, <a class="xref" href=
+          "gdk-pixbuf-2.30.7">gdk-pixbuf-2.30.7</a>, <a class="xref" href=
           "../general/libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
+          "libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a>, <a class="xref"
           href="../general/libpng.html" title=
-          "libpng-1.6.3">libpng-1.6.3</a>, <a class="xref" href=
+          "libpng-1.6.10">libpng-1.6.10</a>, <a class="xref" href=
           "../basicnet/libsoup.html" title=
-          "libsoup-2.42.2">libsoup-2.42.2</a>, <a class="xref" href=
-          "libvpx.html" title="libvpx-v1.2.0">libvpx-1.2.0</a> and <a class=
+          "libsoup-2.46.0">libsoup-2.46.0</a>, <a class="xref" href=
+          "libvpx.html" title="libvpx-v1.3.0">libvpx-1.3.0</a>, <a class=
           "xref" href="../x/x7lib.html" title="Xorg Libraries">Xorg
           Libraries</a>
         </p>
@@ -146,17 +148,20 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/aalib.html" title=
-          "AAlib-1.4rc5">AAlib-1.4rc5</a>, <a class="xref" href="libdv.html"
+          "AAlib-1.4rc5">AAlib-1.4rc5</a>, <a class="xref" href=
+          "../x/gtk3.html" title="GTK+-3.12.1">GTK+-3.12.1</a>, <a class=
+          "xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.20">GTK-Doc-1.20</a>, <a class="xref" href="libdv.html"
           title="Libdv-1.0.0">libdv-1.0.0</a>, <a class="xref" href=
-          "pulseaudio.html" title="PulseAudio-4.0">PulseAudio-4.0</a>,
-          <a class="xref" href="taglib.html" title=
-          "Taglib-1.8">taglib-1.8</a>, <a class="xref" href=
-          "../general/udev.html" title=
-          "Udev-Installed LFS Version">udev-Installed LFS Version</a> or
-          <a class="xref" href="../general/udev-extras.html" title=
+          "pulseaudio.html" title="PulseAudio-5.0">PulseAudio-5.0</a>,
+          <a class="xref" href="speex.html" title=
+          "Speex-1.2rc1">Speex-1.2rc1</a>, <a class="xref" href="taglib.html"
+          title="Taglib-1.9.1">taglib-1.9.1</a>, <a class="xref" href=
+          "../general/udev-extras.html" title=
           "Udev Extras (from systemd)">udev-extras (from systemd)</a> (for
-          GUdev), <a class="ulink" href="http://jackaudio.org/">JACK</a>,
-          <a class="ulink" href=
+          GUdev), <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.9.0">Valgrind-3.9.0</a>, <a class="ulink" href=
+          "http://jackaudio.org/">JACK</a>, <a class="ulink" href=
           "http://caca.zoy.org/wiki/libcaca">libcaca</a>, <a class="ulink"
           href="http://sourceforge.net/projects/libraw1394/">libiec61883</a>,
           <a class="ulink" href=
@@ -165,7 +170,7 @@
           "http://www.icecast.org/download.php">libshout</a>, <a class=
           "ulink" href="http://code.entropywave.com/orc/">ORC</a>, <a class=
           "ulink" href=
-          "http://linuxtv.org/downloads/v4l-utils/">Video4Linux</a> and
+          "http://linuxtv.org/downloads/v4l-utils/">Video4Linux</a>, and
           <a class="ulink" href="http://wavpack.com/">WavPack</a>
         </p>
         <p class="usernotes">
@@ -183,13 +188,13 @@
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
-            --with-package-name="GStreamer Good Plugins 1.0.10 BLFS" \
+            --with-package-name="GStreamer Good Plugins 1.2.3 BLFS" \
             --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/"  &amp;&amp;
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
+          To test the results, issue: <span class="command"><strong>make -k
+          check</strong></span>. One test is known to fail.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -210,7 +215,7 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">Several plugins in
+              <span class="segbody">Several plugins under
               /usr/lib/gstreamer-1.0</span>
             </div>
             <div class="seg">
@@ -221,32 +226,32 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-01 15:30:05 +0000
+        Last updated on 2014-03-15 23:51:18 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="gst10-plugins-base.html" title=
-          "gst-plugins-base-1.0.10">Prev</a>
+          "gst-plugins-base-1.2.3">Prev</a>
           <p>
-            gst-plugins-base-1.0.10
+            gst-plugins-base-1.2.3
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gst10-plugins-bad.html" title=
-          "gst-plugins-bad-1.0.10">Next</a>
+          "gst-plugins-bad-1.2.3">Next</a>
           <p>
-            gst-plugins-bad-1.0.10
+            gst-plugins-bad-1.2.3
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

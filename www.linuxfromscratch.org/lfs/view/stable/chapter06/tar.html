@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.60.&nbsp;Tar-1.26
+      6.58.&nbsp;Tar-1.27.1
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="texinfo.html" title="Texinfo-5.1">Next</a>
+          <a accesskey="n" href="texinfo.html" title="Texinfo-5.2">Next</a>
           <p>
-            Texinfo-5.1
+            Texinfo-5.2
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-tar" name="ch-system-tar"></a>6.60. Tar-1.26
+        <a id="ch-system-tar" name="ch-system-tar"></a>6.58. Tar-1.27.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -67,20 +67,14 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.60.1. Installation of Tar
+          6.58.1. Installation of Tar
         </h2>
         <p>
           Add a program that generates a man page for tar from the source
           code:
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../tar-1.26-manpage-1.patch</kbd>
-</pre>
-        <p>
-          Fix an incompatibility between this package and Glibc-2.18:
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i -e '/gets is a/d' gnu/stdio.in.h</kbd>
+<kbd class="command">patch -Np1 -i ../tar-1.27.1-manpage-1.patch</kbd>
 </pre>
         <p>
           Prepare Tar for compilation:
@@ -88,14 +82,13 @@
         <pre class="userinput">
 <kbd class="command">FORCE_UNSAFE_CONFIGURE=1  \
 ./configure --prefix=/usr \
-            --bindir=/bin \
-            --libexecdir=/usr/sbin</kbd>
+            --bindir=/bin</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <strong>The meaning of the configure options:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><code class=
               "envar">FORCE_UNSAFE_CONFIGURE=1</code></span>
@@ -128,7 +121,7 @@
         </p>
         <pre class="userinput">
 <kbd class="command">make install
-make -C doc install-html docdir=/usr/share/doc/tar-1.26</kbd>
+make -C doc install-html docdir=/usr/share/doc/tar-1.27.1</kbd>
 </pre>
         <p>
           Finally, generate the man page and place it in the proper location:
@@ -139,7 +132,7 @@ make -C doc install-html docdir=/usr/share/doc/tar-1.26</kbd>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-tar" name="contents-tar"></a>6.60.2. Contents of
+          <a id="contents-tar" name="contents-tar"></a>6.58.2. Contents of
           Tar
         </h2>
         <div class="segmentedlist">
@@ -150,7 +143,7 @@ make -C doc install-html docdir=/usr/share/doc/tar-1.26</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/usr/share/doc/tar-1.26</span>
+              <span class="segbody">/usr/share/doc/tar-1.27.1</span>
             </div>
           </div>
         </div>
@@ -158,8 +151,11 @@ make -C doc install-html docdir=/usr/share/doc/tar-1.26</kbd>
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -204,9 +200,9 @@ make -C doc install-html docdir=/usr/share/doc/tar-1.26</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="texinfo.html" title="Texinfo-5.1">Next</a>
+          <a accesskey="n" href="texinfo.html" title="Texinfo-5.2">Next</a>
           <p>
-            Texinfo-5.1
+            Texinfo-5.2
           </p>
         </li>
         <li class="up">
@@ -215,7 +211,7 @@ make -C doc install-html docdir=/usr/share/doc/tar-1.26</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

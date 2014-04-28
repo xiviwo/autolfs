@@ -5,54 +5,63 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Chapter&nbsp;30.&nbsp;GNOME Core Packages
+      Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Part&nbsp;VIII.&nbsp;GNOME
+        Part&nbsp;VIII.&nbsp;Selected GNOME Applications
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnome.html" title="GNOME">Prev</a>
+          <a accesskey="p" href="gnome.html" title=
+          "Selected GNOME Applications">Prev</a>
           <p>
-            GNOME
+            Selected GNOME Applications
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="accountsservice.html" title=
-          "AccountsService-0.6.34">Next</a>
+          <a accesskey="n" href="gsettings-desktop-schemas.html" title=
+          "gsettings-desktop-schemas-3.12.0">Next</a>
           <p>
-            AccountsService-0.6.34
+            gsettings-desktop-schemas-3.12.0
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="gnome.html" title=
-          "Part&nbsp;VIII.&nbsp;GNOME">Up</a>
+          "Part&nbsp;VIII.&nbsp;Selected GNOME Applications">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="chapter" lang="en" xml:lang="en">
       <h1 class="chapter">
-        <a id="gnome-core" name="gnome-core"></a>GNOME Core Packages
+        <a id="gnome-core" name="gnome-core"></a>GNOME Libraries and
+        Utilities
       </h1>
       <p>
-        This section contains required packages for the <span class=
-        "application">GNOME</span> applications to build and function
-        properly. We don't provide any desktop related packages due to
-        dependency on Systemd which BLFS doesn't support.
+        The objective of this section is not to build a <span class=
+        "application">GNOME</span> desktop, because it depends on
+        <span class="application">Systemd</span>, which BLFS doesn't support.
+        Rather, it provides packages required for some platform independent
+        <span class="application">GNOME</span> applications to build and run
+        properly under any Window Manager (e.g. <span class=
+        "application">Fluxbox</span>, <span class="application">Icewm</span>,
+        <span class="application">Openbox</span>, <span class=
+        "application">Sawfish</span>), or Desktop Environment (e.g.
+        <span class="application">KDE</span>, <span class=
+        "application">XFCE</span>, <span class="application">LXDE</span>).
       </p>
       <div class="toc">
         <h3>
@@ -60,92 +69,86 @@
         </h3>
         <ul>
           <li class="sect1">
-            <span class="dummy">Platform</span>
-          </li>
-          <li class="sect1">
-            <a href="accountsservice.html">AccountsService-0.6.34</a>
-          </li>
-          <li class="sect1">
-            <a href="polkit-gnome.html">polkit-gnome-0.105</a>
+            <span class="dummy">Libraries</span>
           </li>
           <li class="sect1">
             <a href=
-            "gsettings-desktop-schemas.html">gsettings-desktop-schemas-3.8.2</a>
+            "gsettings-desktop-schemas.html">gsettings-desktop-schemas-3.12.0</a>
           </li>
           <li class="sect1">
-            <a href="yelp-xsl.html">yelp-xsl-3.8.1</a>
+            <a href="yelp-xsl.html">yelp-xsl-3.12.0</a>
           </li>
           <li class="sect1">
             <a href="GConf.html">GConf-3.2.6</a>
           </li>
           <li class="sect1">
-            <a href="libgnome-keyring.html">libgnome-keyring-3.8.0</a>
+            <a href="libsecret.html">libsecret-0.18</a>
           </li>
           <li class="sect1">
-            <a href="libsecret.html">libsecret-0.16</a>
+            <a href="gcr.html">Gcr-3.12.0</a>
           </li>
           <li class="sect1">
-            <a href="gcr.html">Gcr-3.9.91</a>
+            <a href="gnome-keyring.html">gnome-keyring-3.12.0</a>
           </li>
           <li class="sect1">
-            <a href="gnome-keyring.html">gnome-keyring-3.8.2</a>
+            <a href="gvfs.html">Gvfs-1.20.1</a>
           </li>
           <li class="sect1">
-            <a href="gvfs.html">Gvfs-1.16.3</a>
+            <a href="gjs.html">Gjs-1.40.1</a>
           </li>
           <li class="sect1">
-            <a href="gjs.html">Gjs-1.36.1</a>
+            <a href="gnome-desktop.html">gnome-desktop-3.12.1</a>
           </li>
           <li class="sect1">
-            <a href="gnome-desktop.html">gnome-desktop-3.8.4</a>
+            <a href="gnome-video-effects.html">gnome-video-effects-0.4.1</a>
           </li>
           <li class="sect1">
-            <a href="gnome-video-effects.html">gnome-video-effects-0.4.0</a>
-          </li>
-          <li class="sect1">
-            <a href="gtksourceview.html">gtksourceview-3.8.2</a>
+            <a href="gtksourceview.html">gtksourceview-3.12.1</a>
           </li>
           <li class="sect1">
             <a href="libgtop.html">libgtop-2.28.5</a>
           </li>
           <li class="sect1">
-            <a href="libpeas.html">libpeas-1.8.1</a>
+            <a href="libpeas.html">libpeas-1.10.0</a>
           </li>
           <li class="sect1">
             <a href="libwnck.html">libwnck-3.4.7</a>
           </li>
           <li class="sect1">
-            <a href="notification-daemon.html">notification-daemon-0.7.6</a>
+            <a href="totem-pl-parser.html">totem-pl-parser-3.10.2</a>
           </li>
           <li class="sect1">
-            <a href="totem-pl-parser.html">totem-pl-parser-3.4.5</a>
-          </li>
-          <li class="sect1">
-            <a href="vte.html">VTE-0.34.7</a>
+            <a href="vte.html">VTE-0.36.0</a>
           </li>
           <li class="sect1">
             <span class="dummy">Required Runtime Dependencies</span>
           </li>
           <li class="sect1">
-            <a href="dconf.html">DConf-0.16.1</a>
+            <a href="dconf.html">DConf-0.20.0</a>
           </li>
           <li class="sect1">
-            <a href="gnome-icon-theme.html">gnome-icon-theme-3.8.3</a>
-          </li>
-          <li class="sect1">
-            <a href=
-            "gnome-icon-theme-extras.html">gnome-icon-theme-extras-3.6.2</a>
+            <a href="gnome-icon-theme.html">gnome-icon-theme-3.12.0</a>
           </li>
           <li class="sect1">
             <a href=
-            "gnome-icon-theme-symbolic.html">gnome-icon-theme-symbolic-3.8.3</a>
+            "gnome-icon-theme-extras.html">gnome-icon-theme-extras-3.12.0</a>
           </li>
           <li class="sect1">
             <a href=
-            "gnome-themes-standard.html">gnome-themes-standard-3.8.4</a>
+            "gnome-icon-theme-symbolic.html">gnome-icon-theme-symbolic-3.12.0</a>
           </li>
           <li class="sect1">
-            <a href="yelp.html">Yelp-3.8.1</a>
+            <a href=
+            "gnome-themes-standard.html">gnome-themes-standard-3.12.0</a>
+          </li>
+          <li class="sect1">
+            <a href="notification-daemon.html">notification-daemon-0.7.6</a>
+          </li>
+          <li class="sect1">
+            <a href="polkit-gnome.html">polkit-gnome-0.105</a>
+          </li>
+          <li class="sect1">
+            <a href="yelp.html">Yelp-3.12.0</a>
           </li>
         </ul>
       </div>
@@ -153,25 +156,26 @@
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnome.html" title="GNOME">Prev</a>
+          <a accesskey="p" href="gnome.html" title=
+          "Selected GNOME Applications">Prev</a>
           <p>
-            GNOME
+            Selected GNOME Applications
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="accountsservice.html" title=
-          "AccountsService-0.6.34">Next</a>
+          <a accesskey="n" href="gsettings-desktop-schemas.html" title=
+          "gsettings-desktop-schemas-3.12.0">Next</a>
           <p>
-            AccountsService-0.6.34
+            gsettings-desktop-schemas-3.12.0
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="gnome.html" title=
-          "Part&nbsp;VIII.&nbsp;GNOME">Up</a>
+          "Part&nbsp;VIII.&nbsp;Selected GNOME Applications">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

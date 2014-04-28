@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.4.&nbsp;Binutils-2.23.2 - Pass 1
+      5.4.&nbsp;Binutils-2.24 - Pass 1
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="gcc-pass1.html" title=
-          "GCC-4.8.1 - Pass 1">Next</a>
+          "GCC-4.8.2 - Pass 1">Next</a>
           <p>
-            GCC-4.8.1 - Pass 1
+            GCC-4.8.2 - Pass 1
           </p>
         </li>
         <li class="up">
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-tools-binutils-pass1" name=
-        "ch-tools-binutils-pass1"></a>5.4. Binutils-2.23.2 - Pass 1
+        "ch-tools-binutils-pass1"></a>5.4. Binutils-2.24 - Pass 1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -89,14 +89,6 @@
           and assembler to determine which of their own features to enable.
         </p>
         <p>
-          Fix a couple of syntax errors that prevent the documentation from
-          building with Texinfo-5.1:
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i -e 's/@colophon/@@colophon/' \
-       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo</kbd>
-</pre>
-        <p>
           The Binutils documentation recommends building Binutils outside of
           the source directory in a dedicated build directory:
         </p>
@@ -133,7 +125,7 @@ cd ../binutils-build</kbd>
           Now prepare Binutils for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">../binutils-2.23.2/configure   \
+<kbd class="command">../binutils-2.24/configure     \
     --prefix=/tools            \
     --with-sysroot=$LFS        \
     --with-lib-path=/tools/lib \
@@ -143,9 +135,9 @@ cd ../binutils-build</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <strong>The meaning of the configure options:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class=
               "parameter"><code>--prefix=/tools</code></em></span>
@@ -263,9 +255,9 @@ esac</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="gcc-pass1.html" title=
-          "GCC-4.8.1 - Pass 1">Next</a>
+          "GCC-4.8.2 - Pass 1">Next</a>
           <p>
-            GCC-4.8.1 - Pass 1
+            GCC-4.8.2 - Pass 1
           </p>
         </li>
         <li class="up">
@@ -274,7 +266,7 @@ esac</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

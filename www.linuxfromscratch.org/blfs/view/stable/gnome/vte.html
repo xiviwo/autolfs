@@ -5,48 +5,48 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      VTE-0.34.7
+      VTE-0.34.9
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;30.&nbsp;GNOME Core Packages
+        Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="totem-pl-parser.html" title=
-          "totem-pl-parser-3.4.5">Prev</a>
+          "totem-pl-parser-3.10.0">Prev</a>
           <p>
-            totem-pl-parser-3.4.5
+            totem-pl-parser-3.10.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="dconf.html" title="DConf-0.16.1">Next</a>
+          <a accesskey="n" href="dconf.html" title="DConf-0.18.0">Next</a>
           <p>
-            DConf-0.16.1
+            DConf-0.18.0
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="vte" name="vte"></a>VTE-0.34.7
+        <a id="vte" name="vte"></a>VTE-0.34.9
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           file implementation for terminal emulators.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -67,36 +67,36 @@
           <ul class="compact">
             <li>
               <p>
-                Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/vte/0.34/vte-0.34.7.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/vte/0.34/vte-0.34.7.tar.xz</a>
+                (module.xml 2).xml Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnome.org/pub/gnome/sources/vte/0.34/vte-0.34.9.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/vte/0.34/vte-0.34.9.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/vte/0.34/vte-0.34.7.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/vte/0.34/vte-0.34.7.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/vte/0.34/vte-0.34.9.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/vte/0.34/vte-0.34.9.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: aaab625a8d3ffe1f9a95fc9cd132040e
+                Download MD5 sum: cb2f3cd4889581dcb61ab6db40bee542
               </p>
             </li>
             <li>
               <p>
-                Download size: 964 KB
+                Download size: 976 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 22 MB
+                Estimated disk space required: 20 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: 0.3 SBU
               </p>
             </li>
           </ul>
@@ -109,14 +109,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.8.4">GTK+-3.8.4</a>
+          "GTK+-3.10.7">GTK+-3.10.7</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>
+          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
         </p>
         <h4>
           Optional
@@ -140,12 +140,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">
-./configure --prefix=/usr          \
+<kbd class="command">./configure --prefix=/usr          \
             --sysconfdir=/etc      \
             --disable-static       \
-            --enable-introspection \
-            --libexecdir=/usr/lib/vte-2.90 &amp;&amp;
+            --enable-introspection &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -168,7 +166,7 @@ make</kbd>
           enables <span class="application">Gobject Introspection</span>
           bindings. Remove if you don't have <a class="xref" href=
           "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>
+          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
           installed.
         </p>
         <p>
@@ -179,6 +177,13 @@ make</kbd>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
           <span class="application">GTK-Doc</span> is installed and you wish
           to rebuild and install the API documentation.
+        </p>
+        <p>
+          <code class="option">--libexecdir=/usr/lib/vte-2.90</code>: This
+          option puts the package's private program into <code class=
+          "filename">/usr/lib/vte-2.90</code> instead of <code class=
+          "filename">/usr/libexec</code> in accordance with the old version
+          of the FHS used before LFS-7.5.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -197,8 +202,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/vte-2.90, /usr/lib/vte-2.90,
-              and /usr/share/gtk-doc/html/vte-2.90</span>
+              <span class="segbody">/usr/include/vte-2.90 and
+              /usr/share/gtk-doc/html/vte-2.90</span>
             </div>
           </div>
         </div>
@@ -243,31 +248,31 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-03 12:08:19 -0700
+        Last updated on 2014-03-03 19:06:31 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="totem-pl-parser.html" title=
-          "totem-pl-parser-3.4.5">Prev</a>
+          "totem-pl-parser-3.10.0">Prev</a>
           <p>
-            totem-pl-parser-3.4.5
+            totem-pl-parser-3.10.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="dconf.html" title="DConf-0.16.1">Next</a>
+          <a accesskey="n" href="dconf.html" title="DConf-0.18.0">Next</a>
           <p>
-            DConf-0.16.1
+            DConf-0.18.0
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

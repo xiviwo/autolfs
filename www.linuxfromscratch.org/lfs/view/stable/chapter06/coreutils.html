@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.27.&nbsp;Coreutils-8.21
+      6.26.&nbsp;Coreutils-8.22
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="e2fsprogs.html" title=
-          "E2fsprogs-1.42.8">Prev</a>
+          "E2fsprogs-1.42.9">Prev</a>
           <p>
-            E2fsprogs-1.42.8
+            E2fsprogs-1.42.9
           </p>
         </li>
         <li class="next">
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-coreutils" name="ch-system-coreutils"></a>6.27.
-        Coreutils-8.21
+        <a id="ch-system-coreutils" name="ch-system-coreutils"></a>6.26.
+        Coreutils-8.22
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -70,7 +70,7 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.27.1. Installation of Coreutils
+          6.26.1. Installation of Coreutils
         </h2>
         <p>
           POSIX requires that programs from Coreutils recognize character
@@ -79,7 +79,7 @@
           bugs:
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../coreutils-8.21-i18n-1.patch</kbd>
+<kbd class="command">patch -Np1 -i ../coreutils-8.22-i18n-4.patch</kbd>
 </pre>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -98,14 +98,13 @@
         <pre class="userinput">
 <kbd class="command">FORCE_UNSAFE_CONFIGURE=1 ./configure \
             --prefix=/usr            \
-            --libexecdir=/usr/lib    \
             --enable-no-install-program=kill,uptime</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <strong>The meaning of the configure options:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class=
               "parameter"><code>--enable-no-install-program=kill,uptime</code></em></span>
@@ -126,8 +125,8 @@
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          Skip down to &ldquo;<span class="quote">Install the
-          package</span>&rdquo; if not running the test suite.
+          Skip down to <span class="quote">&ldquo;<span class="quote">Install
+          the package</span>&rdquo;</span> if not running the test suite.
         </p>
         <p>
           Now the test suite is ready to be run. First, run the tests that
@@ -200,7 +199,7 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-coreutils" name="contents-coreutils"></a>6.27.2.
+          <a id="contents-coreutils" name="contents-coreutils"></a>6.26.2.
           Contents of Coreutils
         </h2>
         <div class="segmentedlist">
@@ -212,9 +211,9 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
               df, dir, dircolors, dirname, du, echo, env, expand, expr,
               factor, false, fmt, fold, groups, head, hostid, id, install,
               join, link, ln, logname, ls, md5sum, mkdir, mkfifo, mknod,
-              mktemp, mv, nice, nl, nohup, nproc, od, paste, pathchk, pinky,
-              pr, printenv, printf, ptx, pwd, readlink, realpath, rm, rmdir,
-              runcon, seq, sha1sum, sha224sum, sha256sum, sha384sum,
+              mktemp, mv, nice, nl, nohup, nproc, numfmt, od, paste, pathchk,
+              pinky, pr, printenv, printf, ptx, pwd, readlink, realpath, rm,
+              rmdir, runcon, seq, sha1sum, sha224sum, sha256sum, sha384sum,
               sha512sum, shred, shuf, sleep, sort, split, stat, stdbuf, stty,
               sum, sync, tac, tail, tee, test, timeout, touch, tr, true,
               truncate, tsort, tty, uname, unexpand, uniq, unlink, users,
@@ -234,8 +233,11 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -823,9 +825,10 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
                 </td>
                 <td>
                   <p>
-                    Creates First-In, First-Outs (FIFOs), a
-                    &ldquo;<span class="quote">named pipe</span>&rdquo; in
-                    UNIX parlance, with the given names
+                    Creates First-In, First-Outs (FIFOs), a <span class=
+                    "quote">&ldquo;<span class="quote">named
+                    pipe</span>&rdquo;</span> in UNIX parlance, with the
+                    given names
                   </p>
                 </td>
               </tr>
@@ -927,6 +930,20 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
                   <p>
                     Prints the number of processing units available to a
                     process
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="numfmt" name="numfmt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>numfmt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Converts numbers to or from human-readable strings
                   </p>
                 </td>
               </tr>
@@ -1651,8 +1668,9 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
                 </td>
                 <td>
                   <p>
-                    Repeatedly outputs &ldquo;<span class=
-                    "quote">y</span>&rdquo; or a given string until killed
+                    Repeatedly outputs <span class=
+                    "quote">&ldquo;<span class="quote">y</span>&rdquo;</span>
+                    or a given string until killed
                   </p>
                 </td>
               </tr>
@@ -1679,9 +1697,9 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="e2fsprogs.html" title=
-          "E2fsprogs-1.42.8">Prev</a>
+          "E2fsprogs-1.42.9">Prev</a>
           <p>
-            E2fsprogs-1.42.8
+            E2fsprogs-1.42.9
           </p>
         </li>
         <li class="next">
@@ -1697,7 +1715,7 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Apr-1.4.8
+      Apr-1.5.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="apr-util.html" title=
-          "Apr-Util-1.5.2">Next</a>
+          "Apr-Util-1.5.3">Next</a>
           <p>
-            Apr-Util-1.5.2
+            Apr-Util-1.5.3
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="apr" name="apr"></a>Apr-1.4.8
+        <a id="apr" name="apr"></a>Apr-1.5.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,7 +62,7 @@
           program portable across different platforms.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -73,34 +73,34 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://archive.apache.org/dist/apr/apr-1.4.8.tar.bz2">http://archive.apache.org/dist/apr/apr-1.4.8.tar.bz2</a>
+                "http://archive.apache.org/dist/apr/apr-1.5.0.tar.bz2">http://archive.apache.org/dist/apr/apr-1.5.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.4.8.tar.bz2">
-                ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.4.8.tar.bz2</a>
+                "ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.5.0.tar.bz2">
+                ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.5.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: ce2ab01a0c3cdb71cf0a6326b8654f41
+                Download MD5 sum: cc93bd2c12d0d037f68e21cc6385dc31
               </p>
             </li>
             <li>
               <p>
-                Download size: 760 KB
+                Download size: 796 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 14 MB
+                Estimated disk space required: 15.7 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU (1.4 with tests)
+                Estimated build time: 0.2 SBU (1.2 with tests)
               </p>
             </li>
           </ul>
@@ -119,8 +119,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --disable-static \
-  --with-installbuilddir=/usr/share/apr-1/build &amp;&amp;
+<kbd class="command">./configure --prefix=/usr    \
+            --disable-static \
+            --with-installbuilddir=/usr/share/apr-1/build &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -139,9 +140,8 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--disable-static</code>: This stops it from
-          compiling a static version of <code class=
-          "filename">libapr-1</code>.
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -206,7 +206,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-18 04:37:04 +0000
+        Last updated on 2014-02-17 22:31:12 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -220,9 +220,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="apr-util.html" title=
-          "Apr-Util-1.5.2">Next</a>
+          "Apr-Util-1.5.3">Next</a>
           <p>
-            Apr-Util-1.5.2
+            Apr-Util-1.5.3
           </p>
         </li>
         <li class="up">
@@ -231,7 +231,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

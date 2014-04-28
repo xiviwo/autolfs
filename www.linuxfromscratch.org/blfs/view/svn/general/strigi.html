@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="sg3_utils.html" title=
-          "sg3_utils-1.36">Prev</a>
+          "sg3_utils-1.38">Prev</a>
           <p>
-            sg3_utils-1.36
+            sg3_utils-1.38
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="sysstat.html" title=
-          "Sysstat-10.1.6">Next</a>
+          "Sysstat-10.2.1">Next</a>
           <p>
-            Sysstat-10.1.6
+            Sysstat-10.2.1
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -54,10 +54,13 @@
           Introduction to Strigi
         </h2>
         <p>
-          <span class="application">Strigi</span> is a desktop search engine.
+          <span class="application">Strigi</span> is a program for fast
+          indexing and searching of personal data. It can gather and index
+          information from files in the filesystem even if they are hidden in
+          emails or archives.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -102,7 +105,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="cmake.html" title=
-          "CMake-2.8.11.2">CMake-2.8.11.2</a>, <a class="xref" href=
+          "CMake-2.8.12.2">CMake-2.8.12.2</a> and <a class="xref" href=
           "expat.html" title="Expat-2.1.0">expat-2.1.0</a> or <a class="xref"
           href="libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
         </p>
@@ -110,21 +113,20 @@
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
-          and <a class="xref" href="dbus.html" title=
-          "D-Bus-1.6.14">D-Bus-1.6.14</a>
+          <a class="xref" href="dbus.html" title=
+          "D-Bus-1.8.0">D-Bus-1.8.0</a> and <a class="xref" href=
+          "../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a> (compiled with D-Bus
+          support)
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="gamin.html" title=
-          "Gamin-0.1.10">Gamin-0.1.10</a> (or FAM), <a class="xref" href=
-          "../multimedia/ffmpeg.html" title="FFmpeg-1.2.2">FFmpeg-1.2.2</a>,
-          <a class="xref" href="exiv2.html" title=
-          "Exiv2-0.23">Exiv2-0.23</a>, <a class="ulink" href=
-          "http://sourceforge.net/projects/clucene/">CLucene</a> and
-          <a class="ulink" href=
+          <a class="xref" href="../multimedia/ffmpeg.html" title=
+          "FFmpeg-2.2.1">FFmpeg-2.2.1</a>, <a class="xref" href="exiv2.html"
+          title="Exiv2-0.24">Exiv2-0.24</a>, <a class="ulink" href=
+          "http://sourceforge.net/projects/clucene/files/clucene-core-stable/">
+          CLucene version 0.9x</a> , and <a class="ulink" href=
           "http://logging.apache.org/log4cxx/">log4cxx</a>
         </p>
         <p class="usernotes">
@@ -141,9 +143,18 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">mkdir build &amp;&amp;
-cd build &amp;&amp;
-cmake -DCMAKE_INSTALL_PREFIX=/usr .. &amp;&amp;
+<kbd class=
+"command">sed -i "s/BufferedStream :/STREAMS_EXPORT &amp;/" libstreams/include/strigi/bufferedstream.h &amp;&amp;
+
+mkdir build &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_INSTALL_LIBDIR=lib  \
+      -DCMAKE_BUILD_TYPE=Release  \
+      -DENABLE_CLUCENE=OFF        \
+      -DENABLE_CLUCENE_NG=OFF     \
+      .. &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -162,9 +173,37 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
+          <span class="command"><strong>sed -i "..."</strong></span>: This
+          command fixes the build with recent <span class=
+          "application">GCC</span> versions.
+        </p>
+        <p>
+          <em class="parameter"><code>-DCMAKE_INSTALL_LIBDIR=lib</code></em>:
+          This switch is used so the package doesn't write over the lib64
+          symlink on 64 bit systems.
+        </p>
+        <p>
+          <em class="parameter"><code>-DCMAKE_BUILD_TYPE=Release</code></em>:
+          This switch is used to apply higher level of the compiler
+          optimizations.
+        </p>
+        <p>
           <code class="option">-DENABLE_DBUS=OFF</code>: Use this
           <span class="command"><strong>cmake</strong></span> variable if you
           don't have <span class="application">D-Bus</span> installed.
+        </p>
+        <p>
+          <code class="option">-DENABLE_QT4=OFF</code>: Use this <span class=
+          "command"><strong>cmake</strong></span> variable if you don't have
+          <span class="application">Qt4</span> installed or if you compiled
+          <span class="application">Qt4</span> without <span class=
+          "application">D-Bus</span> support.
+        </p>
+        <p>
+          <code class="option">-DENABLE_CLUCENE*=OFF</code>: These statements
+          disable the package from trying to use <a class="xref" href=
+          "clucene.html" title="CLucene-2.3.3.4">CLucene-2.3.3.4</a> (current
+          stable version).
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -176,40 +215,152 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">deepfind, deepgrep, rdfindexer,
-              strigiclient, strigicmd, strigidaemon and xmlindexer</span>
+              strigiclient, strigicmd, strigidaemon, and xmlindexer</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libsearchclient.so, libstreamanalyzer.so,
-              libstreams.so, libstrigihtmlgui.so, libstrigiqtdbusclient.so
+              libstreams.so, libstrigihtmlgui.so, libstrigiqtdbusclient.so,
               and several in /usr/lib/strigi</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/strigi, /usr/lib/strigi and
+              <span class="segbody">/usr/include/strigi, /usr/lib/strigi, and
               /usr/share/strigi</span>
             </div>
           </div>
         </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="deepfind" name="deepfind"></a><span class=
+                    "term"><span class=
+                    "command"><strong>deepfind</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a utility for searching for filenames in compressed
+                    archives like tar, cpio, and zip
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="deepgrep" name="deepgrep"></a><span class=
+                    "term"><span class=
+                    "command"><strong>deepgrep</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a utility for searching compressed archives like tar,
+                    cpio, and zip
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rdfindexer" name="rdfindexer"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rdfindexer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    manages and performs indexing of the RDF data for
+                    entities present on your site
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="strigiclient" name="strigiclient"></a><span class=
+                    "term"><span class=
+                    "command"><strong>strigiclient</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a Qt4 client (GUI) for the Strigi Desktop Search
+                    software
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="strigicmd" name="strigicmd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>strigicmd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a program for creating and querying indices
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="strigidaemon" name="strigidaemon"></a><span class=
+                    "term"><span class=
+                    "command"><strong>strigidaemon</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a daemon program for maintaining indices
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xmlindexer" name="xmlindexer"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xmlindexer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    indexes XML documents
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-26 17:26:25 +0000
+        Last updated on 2014-03-06 01:33:43 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="sg3_utils.html" title=
-          "sg3_utils-1.36">Prev</a>
+          "sg3_utils-1.38">Prev</a>
           <p>
-            sg3_utils-1.36
+            sg3_utils-1.38
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="sysstat.html" title=
-          "Sysstat-10.1.6">Next</a>
+          "Sysstat-10.2.1">Next</a>
           <p>
-            Sysstat-10.1.6
+            Sysstat-10.2.1
           </p>
         </li>
         <li class="up">
@@ -218,7 +369,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

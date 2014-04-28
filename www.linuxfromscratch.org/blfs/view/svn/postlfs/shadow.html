@@ -12,25 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="polkit.html" title="Polkit-0.111">Prev</a>
+          <a accesskey="p" href="polkit.html" title="Polkit-0.112">Prev</a>
           <p>
-            Polkit-0.111
+            Polkit-0.112
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="stunnel.html" title="stunnel-4.56">Next</a>
+          <a accesskey="n" href="ssh-askpass.html" title=
+          "ssh-askpass-6.6p1">Next</a>
           <p>
-            stunnel-4.56
+            ssh-askpass-6.6p1
           </p>
         </li>
         <li class="up">
@@ -39,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -66,7 +67,7 @@
           "command"><strong>su</strong></span> to utilize PAM.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -77,18 +78,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://pkg-shadow.alioth.debian.org/releases/shadow-4.1.5.1.tar.bz2">
-                http://pkg-shadow.alioth.debian.org/releases/shadow-4.1.5.1.tar.bz2</a>
+                "http://cdn.debian.net/debian/pool/main/s/shadow//shadow_4.1.5.1.orig.tar.gz">
+                http://cdn.debian.net/debian/pool/main/s/shadow//shadow_4.1.5.1.orig.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: a00449aa439c69287b6d472191dc2247
+                Download MD5 sum: ae66de9953f840fb3a97f6148bc39a30
               </p>
             </li>
             <li>
               <p>
-                Download size: 2.1 MB
+                Download size: 3.4 MB
               </p>
             </li>
             <li>
@@ -111,8 +112,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a> or <a class="xref" href=
-          "cracklib.html" title="CrackLib-2.9.0">CrackLib-2.9.0</a>
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a> or <a class="xref" href=
+          "cracklib.html" title="CrackLib-2.9.1">CrackLib-2.9.1</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -157,7 +158,6 @@
         <pre class="userinput">
 <kbd class="command">sed -i 's/groups$(EXEEXT) //' src/Makefile.in &amp;&amp;
 find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \; &amp;&amp;
-sed -i -e 's/ ko//' -e 's/ zh_CN zh_TW//' man/Makefile.in &amp;&amp;
 
 sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
        -e 's@/var/spool/mail@/var/mail@' etc/login.defs &amp;&amp;
@@ -198,12 +198,6 @@ mv -v /usr/bin/passwd /bin</kbd>
           "command"><strong>groups</strong></span> man pages so the existing
           ones installed from the <span class="application">Coreutils</span>
           package are not replaced.
-        </p>
-        <p>
-          <span class="command"><strong>sed -i -e '...' -e '...'
-          man/Makefile.in</strong></span>: This command disables the
-          installation of Chinese and Korean manual pages, since <span class=
-          "application">Man-DB</span> cannot format them properly.
         </p>
         <p>
           <span class="command"><strong>sed -i -e 's@#ENCRYPT_METHOD
@@ -297,7 +291,7 @@ mv -v /usr/bin/passwd /bin</kbd>
             will work effectively with <span class=
             "application">Linux-PAM</span>. Review the information and links
             on the <a class="xref" href="linux-pam.html" title=
-            "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a> page for further
+            "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a> page for further
             configuration information. For information specific to
             integrating <span class="application">Shadow</span>, <span class=
             "application">Linux-PAM</span> and <span class=
@@ -365,7 +359,7 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2839258" name="id2839258"></a>Configuring the
+                    <a id="id2965455" name="id2965455"></a>Configuring the
                     /etc/pam.d/ Files
                   </h5>
                 </div>
@@ -396,7 +390,7 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2880463" name="id2880463"></a>'system-account'
+                    <a id="id2928991" name="id2928991"></a>'system-account'
                   </h5>
                 </div>
               </div>
@@ -416,7 +410,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2903645" name="id2903645"></a>'system-auth'
+                    <a id="id2933400" name="id2933400"></a>'system-auth'
                   </h5>
                 </div>
               </div>
@@ -436,7 +430,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2834844" name="id2834844"></a>'system-passwd'
+                    <a id="id2884926" name="id2884926"></a>'system-passwd'
                     (with cracklib)
                   </h5>
                 </div>
@@ -479,7 +473,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2814987" name="id2814987"></a>'system-passwd'
+                    <a id="id2991419" name="id2991419"></a>'system-passwd'
                     (without cracklib)
                   </h5>
                 </div>
@@ -502,7 +496,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2792685" name="id2792685"></a>'system-session'
+                    <a id="id2949793" name="id2949793"></a>'system-session'
                   </h5>
                 </div>
               </div>
@@ -522,7 +516,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2774692" name="id2774692"></a>'login'
+                    <a id="id2927991" name="id2927991"></a>'login'
                   </h5>
                 </div>
               </div>
@@ -582,7 +576,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2805149" name="id2805149"></a>'passwd'
+                    <a id="id3067626" name="id3067626"></a>'passwd'
                   </h5>
                 </div>
               </div>
@@ -602,7 +596,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2850427" name="id2850427"></a>'su'
+                    <a id="id3022438" name="id3022438"></a>'su'
                   </h5>
                 </div>
               </div>
@@ -633,7 +627,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2801282" name="id2801282"></a>'chage'
+                    <a id="id2842725" name="id2842725"></a>'chage'
                   </h5>
                 </div>
               </div>
@@ -662,7 +656,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2736623" name="id2736623"></a>'chfn',
+                    <a id="id2973999" name="id2973999"></a>'chfn',
                     'chgpasswd', 'chgpasswd', 'chsh', 'groupadd', 'groupdel',
                     'groupmems', 'groupmod', 'newusers', 'useradd', 'userdel'
                     and 'usermod'
@@ -713,7 +707,7 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="id2696435" name="id2696435"></a>Other
+                    <a id="id2833237" name="id2833237"></a>Other
                   </h5>
                 </div>
               </div>
@@ -809,21 +803,22 @@ EOF</kbd>
         </p>
       </div>
       <p class="updated">
-        Last updated on 2013-08-23 10:32:24 +0000
+        Last updated on 2014-02-18 17:38:44 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="polkit.html" title="Polkit-0.111">Prev</a>
+          <a accesskey="p" href="polkit.html" title="Polkit-0.112">Prev</a>
           <p>
-            Polkit-0.111
+            Polkit-0.112
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="stunnel.html" title="stunnel-4.56">Next</a>
+          <a accesskey="n" href="ssh-askpass.html" title=
+          "ssh-askpass-6.6p1">Next</a>
           <p>
-            stunnel-4.56
+            ssh-askpass-6.6p1
           </p>
         </li>
         <li class="up">
@@ -832,7 +827,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

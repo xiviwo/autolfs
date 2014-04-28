@@ -8,10 +8,10 @@ except ImportError:
 	from ordereddict import OrderedDict
 
 link = "www.linuxfromscratch.org/lfs/view/stable/index.html"
-link2 = "www.linuxfromscratch.org/blfs/view/svn/index.html"
+link2 = "www.linuxfromscratch.org/blfs/view/stable/index.html"
 LFS="/mnt/lfs"
 SOURCES=LFS + '/sources'
-
+DSTROName = "ginger"
 lfs = Book(link)
 blfs = Book(link2,lfs)
 
@@ -144,7 +144,7 @@ mk_extra : mk_end
 
 mk_blfs : mk_end
 	@$(call echo_message, Building)
-	@cd ''' + CWD + ''' && python bb.py $(REDIRECT)
+	@cd ''' + CWD + ''' && python ''' + DSTROName + '''.py $(REDIRECT)
 	@touch $@
 
 umount_all :
@@ -237,23 +237,26 @@ def main():
 	lastpkg =""
 	global replace_delete_log
 	for ch in lfs.chapters:
-		print ch.name
 		
-		if ch.no == 6 :
+		print ch.name
+		chapternum = int(ch.no)
+
+		if chapternum == 6 :
 			chapterstr += "\n\nvirtfs : " + changeownership.targetname + " " +  virtualfs.targetname
 			chapterstr += "\n\n" + ch.name + " : SHELL=/tools/bin/bash "
-		if ch.no > 3 and ch.no < 6:
+		if chapternum > 3 and chapternum < 6:
 			chapterstr += "\n" + ch.name + " : LFS=" + LFS
-		if ch.no > 5:
+		if chapternum > 5:
 			chapterstr += "\n" + ch.name + " : LFS= "
-		if ch.no > 3:
+		if chapternum > 3:
 			chapterstr += "\n" + ch.name + " : "
+		
 		for page in ch.pages:
 			packs = page.packages
 			if packs:
 				for pack in packs:
 					
-					if pack.commands and ch.no > 3 and not containsAny(pack.shortname, ['chroot','package-management','cleaning-up','strip','rebooting']):
+					if pack.commands and chapternum > 3 and not containsAny(pack.shortname, ['chroot','about-sbus','package-management','cleaning-up','strip','rebooting']):
 					
 						
 						allstr += pack.targetname

@@ -7,15 +7,15 @@
     <title>
       7.10.&nbsp;Configuring the Linux Console
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter07/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -68,8 +68,10 @@
         will be used. Various language-specific HOWTOs can also help with
         this, see <a class="ulink" href=
         "http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html">http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html</a>.
-        If still in doubt, look in the <code class="filename">/lib/kbd</code>
-        directory for valid keymaps and screen fonts. Read <code class=
+        If still in doubt, look in the <code class=
+        "filename">/usr/share/keymaps</code> and <code class=
+        "filename">/usr/share/consolefonts</code> directories for valid
+        keymaps and screen fonts. Read <code class=
         "filename">loadkeys(1)</code> and <code class=
         "filename">setfont(8)</code> manual pages to determine the correct
         arguments for these programs.
@@ -80,7 +82,7 @@
         are recognized:
       </p>
       <div class="variablelist">
-        <dl>
+        <dl class="variablelist">
           <dt>
             <span class="term">LOGLEVEL</span>
           </dt>
@@ -99,11 +101,11 @@
             <p>
               This variable specifies the arguments for the <span class=
               "command"><strong>loadkeys</strong></span> program, typically,
-              the name of keymap to load, e.g., &ldquo;<span class=
-              "quote">es</span>&rdquo;. If this variable is not set, the
-              bootscript will not run the <span class=
-              "command"><strong>loadkeys</strong></span> program, and the
-              default kernel keymap will be used.
+              the name of keymap to load, e.g., <span class=
+              "quote">&ldquo;<span class="quote">es</span>&rdquo;</span>. If
+              this variable is not set, the bootscript will not run the
+              <span class="command"><strong>loadkeys</strong></span> program,
+              and the default kernel keymap will be used.
             </p>
           </dd>
           <dt>
@@ -117,7 +119,8 @@
               useful if the stock keymap is not completely satisfactory and a
               small adjustment has to be made. E.g., to include the Euro sign
               into a keymap that normally doesn't have it, set this variable
-              to &ldquo;<span class="quote">euro2</span>&rdquo;.
+              to <span class="quote">&ldquo;<span class=
+              "quote">euro2</span>&rdquo;</span>.
             </p>
           </dd>
           <dt>
@@ -127,14 +130,16 @@
             <p>
               This variable specifies the arguments for the <span class=
               "command"><strong>setfont</strong></span> program. Typically,
-              this includes the font name, &ldquo;<span class=
-              "quote">-m</span>&rdquo;, and the name of the application
-              character map to load. E.g., in order to load the
-              &ldquo;<span class="quote">lat1-16</span>&rdquo; font together
-              with the &ldquo;<span class="quote">8859-1</span>&rdquo;
-              application character map (as it is appropriate in the USA),
-              set this variable to &ldquo;<span class="quote">lat1-16 -m
-              8859-1</span>&rdquo;. In UTF-8 mode, the kernel uses the
+              this includes the font name, <span class=
+              "quote">&ldquo;<span class="quote">-m</span>&rdquo;</span>, and
+              the name of the application character map to load. E.g., in
+              order to load the <span class="quote">&ldquo;<span class=
+              "quote">lat1-16</span>&rdquo;</span> font together with the
+              <span class="quote">&ldquo;<span class=
+              "quote">8859-1</span>&rdquo;</span> application character map
+              (as it is appropriate in the USA), set this variable to
+              <span class="quote">&ldquo;<span class="quote">lat1-16 -m
+              8859-1</span>&rdquo;</span>. In UTF-8 mode, the kernel uses the
               application character map for conversion of composed 8-bit key
               codes in the keymap to UTF-8, and thus the argument of the "-m"
               parameter should be set to the encoding of the composed key
@@ -146,12 +151,13 @@
           </dt>
           <dd>
             <p>
-              Set this variable to &ldquo;<span class=
-              "quote">1</span>&rdquo;, &ldquo;<span class=
-              "quote">yes</span>&rdquo; or &ldquo;<span class=
-              "quote">true</span>&rdquo; in order to put the console into
-              UTF-8 mode. This is useful in UTF-8 based locales and harmful
-              otherwise.
+              Set this variable to <span class="quote">&ldquo;<span class=
+              "quote">1</span>&rdquo;</span>, <span class=
+              "quote">&ldquo;<span class="quote">yes</span>&rdquo;</span> or
+              <span class="quote">&ldquo;<span class=
+              "quote">true</span>&rdquo;</span> in order to put the console
+              into UTF-8 mode. This is useful in UTF-8 based locales and
+              harmful otherwise.
             </p>
           </dd>
           <dt>
@@ -174,7 +180,7 @@
       </p>
       <div class="itemizedlist">
         <ul>
-          <li>
+          <li class="listitem">
             <p>
               For a non-Unicode setup, only the KEYMAP and FONT variables are
               generally needed. E.g., for a Polish setup, one would use:
@@ -190,7 +196,7 @@ FONT="lat2a-16 -m 8859-2"
 EOF</kbd>
 </pre>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               As mentioned above, it is sometimes necessary to adjust a stock
               keymap slightly. The following example adds the Euro symbol to
@@ -208,7 +214,7 @@ FONT="lat0-16 -m 8859-15"
 EOF</kbd>
 </pre>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               The following is a Unicode-enabled example for Bulgarian, where
               a stock UTF-8 keymap exists:
@@ -225,7 +231,7 @@ FONT="LatArCyrHeb-16"
 EOF</kbd>
 </pre>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Due to the use of a 512-glyph LatArCyrHeb-16 font in the
               previous example, bright colors are no longer available on the
@@ -247,7 +253,7 @@ FONT="cyr-sun16"
 EOF</kbd>
 </pre>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               The following example illustrates keymap autoconversion from
               ISO-8859-15 to UTF-8 and enabling dead keys in Unicode mode:
@@ -266,27 +272,27 @@ FONT="LatArCyrHeb-16 -m 8859-15"
 EOF</kbd>
 </pre>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               Some keymaps have dead keys (i.e., keys that don't produce a
               character by themselves, but put an accent on the character
               produced by the next key) or define composition rules (such as:
-              &ldquo;<span class="quote">press Ctrl+. A E to get
-              Æ</span>&rdquo; in the default keymap). Linux-3.10.10
-              interprets dead keys and composition rules in the keymap
-              correctly only when the source characters to be composed
+              <span class="quote">&ldquo;<span class="quote">press Ctrl+. A E
+              to get Æ</span>&rdquo;</span> in the default keymap).
+              Linux-3.13.3 interprets dead keys and composition rules in the
+              keymap correctly only when the source characters to be composed
               together are not multibyte. This deficiency doesn't affect
               keymaps for European languages, because there accents are added
               to unaccented ASCII characters, or two ASCII characters are
               composed together. However, in UTF-8 mode it is a problem,
               e.g., for the Greek language, where one sometimes needs to put
-              an accent on the letter &ldquo;<span class=
-              "quote">alpha</span>&rdquo;. The solution is either to avoid
-              the use of UTF-8, or to install the X window system that
+              an accent on the letter <span class="quote">&ldquo;<span class=
+              "quote">alpha</span>&rdquo;</span>. The solution is either to
+              avoid the use of UTF-8, or to install the X window system that
               doesn't have this limitation in its input handling.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               For Chinese, Japanese, Korean and some other languages, the
               Linux console cannot be configured to display the needed
@@ -335,7 +341,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

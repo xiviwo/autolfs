@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      xterm-297
+      xterm-303
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="xterm2" name="xterm2"></a>xterm-297
+        <a id="xterm2" name="xterm2"></a>xterm-303
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,7 +61,7 @@
           Xorg installation.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -72,12 +72,12 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://invisible-island.net/xterm/xterm-297.tgz">ftp://invisible-island.net/xterm/xterm-297.tgz</a>
+                "ftp://invisible-island.net/xterm/xterm-303.tgz">ftp://invisible-island.net/xterm/xterm-303.tgz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 45610ae6fe90cf086fcd75b9cb97bbaf
+                Download MD5 sum: 48f6d49b2b6b6933d501d767cbed9254
               </p>
             </li>
             <li>
@@ -87,12 +87,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 14 MB
+                Estimated disk space required: 12 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: 0.1 SBU
               </p>
             </li>
           </ul>
@@ -122,7 +122,7 @@
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i '/v0/,+1s/new:/new:kb=^?:/' termcap &amp;&amp;
-echo -e '\tkbs=\\177,' &gt;&gt;terminfo &amp;&amp;
+echo -e '\tkbs=\\177,' &gt;&gt; terminfo &amp;&amp;
 
 TERMINFO=/usr/share/terminfo \
 ./configure $XORG_CONFIG     \
@@ -147,10 +147,10 @@ make install-ti</kbd>
         </h2>
         <p>
           <span class="command"><strong>sed -i ... termcap</strong></span>,
-          <span class="command"><strong>echo ...
-          &gt;&gt;terminfo</strong></span>: These commands modify the
-          terminal description, so that the Backspace key is expected to send
-          the character with ASCII code 127, for consistency with the Linux
+          <span class="command"><strong>echo ... &gt;&gt;
+          terminfo</strong></span>: These commands modify the terminal
+          description, so that the Backspace key is expected to send the
+          character with ASCII code 127, for consistency with the Linux
           console.
         </p>
         <p>
@@ -158,8 +158,7 @@ make install-ti</kbd>
           "parameter"><code>TERMINFO=/usr/share/terminfo</code></em>: This
           ensures that the <span class=
           "command"><strong>xterm</strong></span> terminfo files are
-          installed to the system terminfo database when the installation
-          prefix is not <code class="filename">/usr</code>.
+          installed to the system terminfo database.
         </p>
         <p>
           <em class="parameter"><code>--with-app-defaults=...</code></em>:
@@ -291,7 +290,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-11 18:26:33 +0000
+        Last updated on 2014-03-08 23:28:14 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -314,7 +313,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

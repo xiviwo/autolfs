@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gtksourceview-3.8.2
+      gtksourceview-3.10.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;30.&nbsp;GNOME Core Packages
+        Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
       </h3>
       <ul>
         <li class="prev">
@@ -37,17 +37,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gtksourceview" name="gtksourceview"></a>gtksourceview-3.8.2
+        <a id="gtksourceview" name="gtksourceview"></a>gtksourceview-3.10.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           highlighting.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -71,20 +71,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.8/gtksourceview-3.8.2.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.8/gtksourceview-3.8.2.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.10/gtksourceview-3.10.2.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.10/gtksourceview-3.10.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.8/gtksourceview-3.8.2.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.8/gtksourceview-3.8.2.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.10/gtksourceview-3.10.2.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.10/gtksourceview-3.10.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: fa8a252f811b6042cfc2eb47e580609f
+                Download MD5 sum: 64cabe12716f43b36092be398e7d7912
               </p>
             </li>
             <li>
@@ -94,12 +94,14 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 40 MB
+                Estimated disk space required: 39 MB (additional 1 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.3 SBU
+                Estimated build time: 0.3 SBU (additional 0.1 SBU for the
+                tests)
               </p>
             </li>
           </ul>
@@ -112,14 +114,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.8.4">GTK+-3.8.4</a>
+          "GTK+-3.10.7">GTK+-3.10.7</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>
+          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
         </p>
         <h4>
           Optional
@@ -147,8 +149,8 @@
 make</kbd>
 </pre>
         <p>
-          To test the results, issue <span class="command"><strong>make
-          check</strong></span>.
+          If the test suite is run before this package is installed, one test
+          may fail.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -156,6 +158,11 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
+        <p>
+          To test the results, issue <span class="command"><strong>make
+          check</strong></span>. The tests need to be run in a graphical
+          environment.
+        </p>
       </div>
       <div class="commands" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -215,7 +222,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-03 12:08:19 -0700
+        Last updated on 2014-02-22 07:06:53 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -236,11 +243,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Sysstat-10.1.6
+      Sysstat-10.2.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
@@ -28,10 +28,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="udev.html" title=
-          "Udev-Installed LFS Version">Next</a>
+          <a accesskey="n" href="udev-extras.html" title=
+          "Udev Extras (from systemd)">Next</a>
           <p>
-            Udev-Installed LFS Version
+            Udev Extras (from systemd)
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="sysstat" name="sysstat"></a>Sysstat-10.1.6
+        <a id="sysstat" name="sysstat"></a>Sysstat-10.2.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,7 +61,7 @@
           and historize performance and activity data.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -72,28 +72,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://perso.wanadoo.fr/sebastien.godard/sysstat-10.1.6.tar.bz2">
-                http://perso.wanadoo.fr/sebastien.godard/sysstat-10.1.6.tar.bz2</a>
+                "http://perso.wanadoo.fr/sebastien.godard/sysstat-10.2.1.tar.xz">
+                http://perso.wanadoo.fr/sebastien.godard/sysstat-10.2.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 61792b2591e4b3adcb7b979af2330fba
+                Download MD5 sum: 922958de1b54b657a08e87e353f4002f
               </p>
             </li>
             <li>
               <p>
-                Download size: 300 KB
+                Download size: 276 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 8.7 MB
+                Estimated disk space required: 6.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: less than 0.1 SBU
+                Estimated build time: 0.1 SBU
               </p>
             </li>
           </ul>
@@ -160,20 +160,35 @@ make</kbd>
           "systemitem">root</code>:<code class="systemitem">root</code>
           ownership.
         </p>
-        <p>
-          Run <span class="command"><strong>./configure
-          --help</strong></span> to see other influential environment
-          variables you can pass to <span class=
-          "command"><strong>configure</strong></span>. You may want to use
-          the <code class="envar">history</code> and <code class=
-          "envar">compressafter</code> variables to customize the amount of
-          data files kept on the system.
-        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Run <span class="command"><strong>./configure
+            --help</strong></span> to see other influential environment
+            variables you can pass to <span class=
+            "command"><strong>configure</strong></span>. You may want to use
+            the <code class="envar">history</code> and <code class=
+            "envar">compressafter</code> variables to customize the amount of
+            data files kept on the system.
+          </p>
+        </div>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
         <h2 class="sect2">
           Configuring Sysstat
         </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="sysstat-config" name="sysstat-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">/etc/sysconfig/sysstat</code> and
+            <code class="filename">/etc/sysconfig/sysstat.ioconf</code>
+          </p>
+        </div>
         <div class="sect3" lang="en" xml:lang="en">
           <h3 class="sect3">
             Cron Information
@@ -222,7 +237,7 @@ make</kbd>
             be automated by installing the <code class=
             "filename">/etc/rc.d/init.d/sysstat</code> init script included
             in the <a class="xref" href="../introduction/bootscripts.html"
-            title="BLFS Boot Scripts">blfs-bootscripts-20130908</a> package
+            title="BLFS Boot Scripts">blfs-bootscripts-20140329</a> package
             using the following command as the <code class=
             "systemitem">root</code> user:
           </p>
@@ -249,7 +264,7 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/lib/sa,
-              /usr/share/doc/sysstat-10.1.6 and /var/log/sa</span>
+              /usr/share/doc/sysstat-10.2.1 and, /var/log/sa</span>
             </div>
           </div>
         </div>
@@ -372,7 +387,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-05 17:23:42 +0000
+        Last updated on 2014-02-20 11:30:41 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -384,10 +399,10 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="udev.html" title=
-          "Udev-Installed LFS Version">Next</a>
+          <a accesskey="n" href="udev-extras.html" title=
+          "Udev Extras (from systemd)">Next</a>
           <p>
-            Udev-Installed LFS Version
+            Udev Extras (from systemd)
           </p>
         </li>
         <li class="up">
@@ -396,7 +411,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

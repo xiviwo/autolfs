@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      cups-filters-1.0.38
+      cups-filters-1.0.45
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;41.&nbsp;Printing
+        Chapter&nbsp;43.&nbsp;Printing
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="cups.html" title="Cups-1.6.3">Prev</a>
+          <a accesskey="p" href="cups.html" title="Cups-1.7.1">Prev</a>
           <p>
-            Cups-1.6.3
+            Cups-1.7.1
           </p>
         </li>
         <li class="next">
@@ -35,17 +35,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="printing.html" title=
-          "Chapter&nbsp;41.&nbsp;Printing">Up</a>
+          "Chapter&nbsp;43.&nbsp;Printing">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="cups-filters" name="cups-filters"></a>cups-filters-1.0.38
+        <a id="cups-filters" name="cups-filters"></a>cups-filters-1.0.45
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           maintained by Apple Inc.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -69,28 +69,29 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.openprinting.org/download/cups-filters/cups-filters-1.0.38.tar.xz">
-                http://www.openprinting.org/download/cups-filters/cups-filters-1.0.38.tar.xz</a>
+                "http://www.openprinting.org/download/cups-filters/cups-filters-1.0.45.tar.xz">
+                http://www.openprinting.org/download/cups-filters/cups-filters-1.0.45.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: bf9b6f34b3445ebc16b13cbb0c249ae1
+                Download MD5 sum: 96240f2aeb6bd44cda44ac5a3b0f55a2
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.0 MB
+                Download size: 1.1 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 29 MB
+                Estimated disk space required: 29 MB (additional 2 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.45 SBU
+                Estimated build time: 0.3 SBU
               </p>
             </li>
           </ul>
@@ -102,13 +103,13 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="cups.html" title="Cups-1.6.3">Cups-1.6.3</a>,
+          <a class="xref" href="cups.html" title="Cups-1.7.1">Cups-1.7.1</a>,
           <a class="xref" href="../general/ijs.html" title=
           "IJS-0.35">IJS-0.35</a>, <a class="xref" href=
           "../general/lcms2.html" title="Little CMS-2.5">Little CMS-2.5</a>,
           <a class="xref" href="../general/poppler.html" title=
-          "Poppler-0.24.1">Poppler-0.24.1</a> and <a class="xref" href=
-          "../general/qpdf.html" title="Qpdf-5.0.0">Qpdf-5.0.0</a>
+          "Poppler-0.24.5">Poppler-0.24.5</a> and <a class="xref" href=
+          "../general/qpdf.html" title="Qpdf-5.1.1">Qpdf-5.1.1</a>
         </p>
         <h4>
           Recommended
@@ -116,7 +117,7 @@
         <p class="recommended">
           <a class="xref" href="../general/libjpeg.html" title=
           "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
-          href="../general/libpng.html" title="libpng-1.6.4">libpng-1.6.4</a>
+          href="../general/libpng.html" title="libpng-1.6.9">libpng-1.6.9</a>
           and <a class="xref" href="../general/libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>
         </p>
@@ -126,7 +127,7 @@
         <p class="optional">
           <a class="xref" href="../basicnet/avahi.html" title=
           "Avahi-0.6.31">Avahi-0.6.31</a>, <a class="xref" href=
-          "../general/php.html" title="PHP-5.5.3">PHP-5.5.3</a> (use of this
+          "../general/php.html" title="PHP-5.5.9">PHP-5.5.9</a> (use of this
           might be broken) and <a class="ulink" href=
           "http://www.adobe.com/products/reader">acroread</a>
         </p>
@@ -157,11 +158,11 @@
 <kbd class=
 "command">./configure --prefix=/usr                               \
             --sysconfdir=/etc                           \
-            --docdir=/usr/share/doc/cups-filters-1.0.38 \
+            --localstatedir=/var                        \
+            --docdir=/usr/share/doc/cups-filters-1.0.45 \
             --without-rcdir                             \
             --with-gs-path=/usr/bin/gs                  \
             --with-pdftops-path=/usr/bin/gs             \
-            --disable-avahi                             \
             --disable-static                            &amp;&amp;
 make</kbd>
 </pre>
@@ -201,28 +202,24 @@ make</kbd>
           installed at build time.
         </p>
         <p>
-          <em class="parameter"><code>--disable-avahi</code></em>: This
-          switch is required if you have not installed <a class="xref" href=
-          "../basicnet/avahi.html" title="Avahi-0.6.31">Avahi-0.6.31</a>.
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
         </p>
         <p>
-          <em class="parameter"><code>make check 2&gt;&amp;1
-          &gt;testlog</code></em>: the testsuite dumps a stream of bytes into
-          the input buffer after it finishes. Sending the output to a file
-          keeps the history usable, but some debug information will still
-          appear on the screen.
+          <span class="command"><strong>make check 2&gt;&amp;1
+          &gt;testlog</strong></span>: the testsuite dumps a stream of bytes
+          into the input buffer after it finishes. Sending the output to a
+          file keeps the history usable, but some debug information will
+          still appear on the screen.
         </p>
         <p>
-          <code class="option">--with-test-path=VALUE</code> : if you wish to
-          run the tests, but you do not have the default <code class=
+          <code class="option">--with-test-path=<em class=
+          "replaceable"><code>VALUE</code></em></code> : if you wish to run
+          the tests, but you do not have the default <code class=
           "filename">/usr/share/fonts/dejavu/DejaVuSans.ttf</code> use this
           switch to specify where <code class=
           "filename">DejaVuSans.ttf</code> (or perhaps some other text TTF
           font - untested) is located.
-        </p>
-        <p>
-          <em class="parameter"><code>--disable-static</code></em>: This
-          switch prevents installation of static versions of the libraries.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -243,9 +240,11 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/cupsfilters,
-              /usr/include/fontembed, /usr/share/cups/banners,
-              /usr/share/cups/charsets, /usr/share/doc/cups-filters-1.0.38
-              and /usr/share/ppd/cups-filters</span>
+              /usr/include/fontembed, /usr/lib/cups/backend,
+              /usr/lib/cups/filter, /usr/share/cups/banners,
+              /usr/share/cups/charsets, /usr/share/cups/data,
+              /usr/share/doc/cups-filters-1.0.45 and
+              /usr/share/ppd/cupsfilters</span>
             </div>
           </div>
         </div>
@@ -276,15 +275,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-12 13:42:29 -0700
+        Last updated on 2014-02-26 04:33:28 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="cups.html" title="Cups-1.6.3">Prev</a>
+          <a accesskey="p" href="cups.html" title="Cups-1.7.1">Prev</a>
           <p>
-            Cups-1.6.3
+            Cups-1.7.1
           </p>
         </li>
         <li class="next">
@@ -295,11 +294,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="printing.html" title=
-          "Chapter&nbsp;41.&nbsp;Printing">Up</a>
+          "Chapter&nbsp;43.&nbsp;Printing">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

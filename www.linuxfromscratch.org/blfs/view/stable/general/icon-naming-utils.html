@@ -12,26 +12,27 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;11.&nbsp;General Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="hd2u.html" title="Hd2u-1.0.3">Prev</a>
+          <a accesskey="p" href="hicolor-icon-theme.html" title=
+          "hicolor-icon-theme-0.12">Prev</a>
           <p>
-            Hd2u-1.0.3
+            hicolor-icon-theme-0.12
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="imagemagick.html" title=
-          "ImageMagick-6.8.6-9">Next</a>
+          "ImageMagick-6.8.8-6">Next</a>
           <p>
-            ImageMagick-6.8.6-9
+            ImageMagick-6.8.8-6
           </p>
         </li>
         <li class="up">
@@ -40,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -59,11 +60,11 @@
           maintaining backwards compatibility with current desktop icon
           themes, while migrating to the names specified in the <a class=
           "ulink" href=
-          "http://www.freedesktop.org/wiki/Standards_2ficon_2dnaming_2dspec">Icon
+          "http://standards.freedesktop.org/icon-naming-spec/latest/">Icon
           Naming Specification</a>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -124,8 +125,7 @@
           running the following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr \
-            --libexecdir=/usr/lib/icon-naming-utils &amp;&amp;
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -143,11 +143,13 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <em class=
-          "parameter"><code>--libexecdir=/usr/lib/icon-naming-utils</code></em>:
-          This parameter is used so that the main program script is placed in
+          <code class=
+          "option">--libexecdir=/usr/lib/icon-naming-utils</code>: This
+          option installs <span class=
+          "command"><strong>icon-name-mapping</strong></span> into
           <code class="filename">/usr/lib/icon-naming-utils</code> instead of
-          <code class="filename">/usr/libexec</code>.
+          <code class="filename">/usr/libexec</code> in accordance with the
+          old version of the FHS used before LFS-7.5
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -200,22 +202,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-20 13:22:42 -0700
+        Last updated on 2014-03-03 19:06:31 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="hd2u.html" title="Hd2u-1.0.3">Prev</a>
+          <a accesskey="p" href="hicolor-icon-theme.html" title=
+          "hicolor-icon-theme-0.12">Prev</a>
           <p>
-            Hd2u-1.0.3
+            hicolor-icon-theme-0.12
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="imagemagick.html" title=
-          "ImageMagick-6.8.6-9">Next</a>
+          "ImageMagick-6.8.8-6">Next</a>
           <p>
-            ImageMagick-6.8.6-9
+            ImageMagick-6.8.8-6
           </p>
         </li>
         <li class="up">
@@ -224,7 +227,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

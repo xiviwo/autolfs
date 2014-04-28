@@ -5,48 +5,48 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      DConf-0.16.1
+      DConf-0.18.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;30.&nbsp;GNOME Core Packages
+        Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="vte.html" title="VTE-0.34.7">Prev</a>
+          <a accesskey="p" href="vte.html" title="VTE-0.34.9">Prev</a>
           <p>
-            VTE-0.34.7
+            VTE-0.34.9
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gnome-icon-theme.html" title=
-          "gnome-icon-theme-3.8.3">Next</a>
+          "gnome-icon-theme-3.10.0">Next</a>
           <p>
-            gnome-icon-theme-3.8.3
+            gnome-icon-theme-3.10.0
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="dconf" name="dconf"></a>DConf-0.16.1
+        <a id="dconf" name="dconf"></a>DConf-0.18.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           configuration storage systems.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,25 +70,25 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/dconf/0.16/dconf-0.16.1.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/dconf/0.16/dconf-0.16.1.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/dconf/0.18/dconf-0.18.0.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/dconf/0.18/dconf-0.18.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.16/dconf-0.16.1.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.16/dconf-0.16.1.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.18/dconf-0.18.0.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.18/dconf-0.18.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 1f17e92511a21240ab5a56e4523f77da
+                Download MD5 sum: 69a12ed68893f2e1e81ac4e531bc1515
               </p>
             </li>
             <li>
               <p>
-                Download size: 368 KB
+                Download size: 376 KB
               </p>
             </li>
             <li>
@@ -111,15 +111,15 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/dbus.html" title=
-          "D-Bus-1.6.14">D-Bus-1.6.14</a> and <a class="xref" href=
-          "../x/gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a>
+          "D-Bus-1.8.0">D-Bus-1.8.0</a> and <a class="xref" href=
+          "../x/gtk3.html" title="GTK+-3.10.7">GTK+-3.10.7</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/vala.html" title=
-          "Vala-0.20.1">Vala-0.20.1</a>
+          "Vala-0.22.1">Vala-0.22.1</a>
         </p>
         <h4>
           Optional
@@ -142,9 +142,8 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --libexecdir=/usr/lib/dconf &amp;&amp;
+<kbd class="command">./configure --prefix=/usr     \
+            --sysconfdir=/etc &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -175,7 +174,7 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">dconf, dconf-editor and
+              <span class="segbody">dconf, dconf-editor, and
               dconf-service</span>
             </div>
             <div class="seg">
@@ -185,8 +184,7 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/dconf,
-              /usr/include/dconf-dbus-1, /usr/lib/dconf,
-              /usr/share/dconf-editor and
+              /usr/include/dconf-dbus-1, /usr/share/dconf-editor, and
               /usr/share/gtk-doc/html/dconf</span>
             </div>
           </div>
@@ -280,31 +278,31 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-02 13:01:46 -0700
+        Last updated on 2014-02-22 07:06:53 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="vte.html" title="VTE-0.34.7">Prev</a>
+          <a accesskey="p" href="vte.html" title="VTE-0.34.9">Prev</a>
           <p>
-            VTE-0.34.7
+            VTE-0.34.9
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gnome-icon-theme.html" title=
-          "gnome-icon-theme-3.8.3">Next</a>
+          "gnome-icon-theme-3.10.0">Next</a>
           <p>
-            gnome-icon-theme-3.8.3
+            gnome-icon-theme-3.10.0
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

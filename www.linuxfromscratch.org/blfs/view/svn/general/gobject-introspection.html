@@ -5,32 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gobject-introspection-1.36.0
+      gobject-introspection-1.40.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gmime.html" title="GMime-2.6.17">Prev</a>
+          <a accesskey="p" href="gmime.html" title="GMime-2.6.20">Prev</a>
           <p>
-            GMime-2.6.17
+            GMime-2.6.20
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gsl.html" title="Gsl-1.16">Next</a>
+          <a accesskey="n" href="grantlee.html" title=
+          "Grantlee-0.4.0">Next</a>
           <p>
-            Gsl-1.16
+            Grantlee-0.4.0
           </p>
         </li>
         <li class="up">
@@ -39,14 +40,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="gobject-introspection" name=
-        "gobject-introspection"></a>gobject-introspection-1.36.0
+        "gobject-introspection"></a>gobject-introspection-1.40.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +59,7 @@
           readable format.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -69,35 +70,37 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.40/gobject-introspection-1.40.0.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.40/gobject-introspection-1.40.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.40/gobject-introspection-1.40.0.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.40/gobject-introspection-1.40.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 747523a60d02effe39417e2157b3a1c4
+                Download MD5 sum: bbb103b5d88dbf2a257b7a26ae9bc666
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.2 MB
+                Download size: 1.3 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 52 MB
+                Estimated disk space required: 45 MB (additional 5 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.5 SBU
+                Estimated build time: 0.3 SBU (additional 0.2 SBU for the
+                tests)
               </p>
             </li>
           </ul>
@@ -107,7 +110,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="glib2.html" title=
-          "GLib-2.36.4">GLib-2.36.4</a>
+          "GLib-2.40.0">GLib-2.40.0</a>
         </p>
         <h4>
           Optional
@@ -116,7 +119,7 @@
           <a class="xref" href="../x/cairo.html" title=
           "Cairo-1.12.16">Cairo-1.12.16</a> (required for the tests),
           <a class="xref" href="gtk-doc.html" title=
-          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="ulink" href=
+          "GTK-Doc-1.20">GTK-Doc-1.20</a> and <a class="ulink" href=
           "http://www.makotemplates.org/">Mako</a>
         </p>
         <p class="usernotes">
@@ -174,7 +177,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libgirepository-1.0.so</span>
+              <span class="segbody">libgirepository-1.0.so and
+              /usr/lib/gobject-introspection/giscanner/_giscanner.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -254,21 +258,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-18 21:52:29 +0000
+        Last updated on 2014-03-27 22:37:48 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gmime.html" title="GMime-2.6.17">Prev</a>
+          <a accesskey="p" href="gmime.html" title="GMime-2.6.20">Prev</a>
           <p>
-            GMime-2.6.17
+            GMime-2.6.20
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gsl.html" title="Gsl-1.16">Next</a>
+          <a accesskey="n" href="grantlee.html" title=
+          "Grantlee-0.4.0">Next</a>
           <p>
-            Gsl-1.16
+            Grantlee-0.4.0
           </p>
         </li>
         <li class="up">
@@ -277,7 +282,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

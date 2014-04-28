@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.23.&nbsp;Gettext-0.18.3
+      5.23.&nbsp;Gettext-0.18.3.2
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="grep.html" title="Grep-2.14">Next</a>
+          <a accesskey="n" href="grep.html" title="Grep-2.16">Next</a>
           <p>
-            Grep-2.14
+            Grep-2.16
           </p>
         </li>
         <li class="up">
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-tools-gettext" name="ch-tools-gettext"></a>5.23.
-        Gettext-0.18.3
+        Gettext-0.18.3.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -74,7 +74,7 @@
         </h2>
         <p>
           For our temporary set of tools, we only need to build and install
-          one binary from Gettext.
+          three programs from Gettext.
         </p>
         <p>
           Prepare Gettext for compilation:
@@ -85,9 +85,9 @@ EMACS="no" ./configure --prefix=/tools --disable-shared</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure option:</b>
+            <strong>The meaning of the configure option:</strong>
           </p>
-          <dl>
+          <dl class="variablelist">
             <dt>
               <span class="term"><em class=
               "parameter"><code>EMACS="no"</code></em></span>
@@ -116,27 +116,30 @@ EMACS="no" ./configure --prefix=/tools --disable-shared</kbd>
         </p>
         <pre class="userinput">
 <kbd class="command">make -C gnulib-lib
-make -C src msgfmt</kbd>
+make -C src msgfmt
+make -C src msgmerge
+make -C src xgettext</kbd>
 </pre>
         <p>
-          As only one binary has been compiled, it is not possible to run the
-          test suite without compiling additional support libraries from the
-          Gettext package. It is therefore not recommended to attempt to run
-          the test suite at this stage.
+          As only three programs have been compiled, it is not possible to
+          run the test suite without compiling additional support libraries
+          from the Gettext package. It is therefore not recommended to
+          attempt to run the test suite at this stage.
         </p>
         <p>
-          Install the <span class="command"><strong>msgfmt</strong></span>
-          binary:
+          Install the <span class="command"><strong>msgfmt</strong></span>,
+          <span class="command"><strong>msgmerge</strong></span> and
+          <span class="command"><strong>xgettext</strong></span> programs:
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v src/msgfmt /tools/bin</kbd>
+<kbd class="command">cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <p>
           Details on this package are located in <a class="xref" href=
           "../chapter06/gettext.html#contents-gettext" title=
-          "6.45.2.&nbsp;Contents of Gettext">Section&nbsp;6.45.2,
+          "6.44.2.&nbsp;Contents of Gettext">Section&nbsp;6.44.2,
           &ldquo;Contents of Gettext.&rdquo;</a>
         </p>
       </div>
@@ -150,9 +153,9 @@ make -C src msgfmt</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="grep.html" title="Grep-2.14">Next</a>
+          <a accesskey="n" href="grep.html" title="Grep-2.16">Next</a>
           <p>
-            Grep-2.14
+            Grep-2.16
           </p>
         </li>
         <li class="up">
@@ -161,7 +164,7 @@ make -C src msgfmt</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

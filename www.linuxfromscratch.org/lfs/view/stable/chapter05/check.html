@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.14.&nbsp;Check-0.9.10
+      5.14.&nbsp;Check-0.9.12
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-tools-check" name="ch-tools-check"></a>5.14. Check-0.9.10
+        <a id="ch-tools-check" name="ch-tools-check"></a>5.14. Check-0.9.12
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -72,8 +72,27 @@
           Prepare Check for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/tools</kbd>
+<kbd class="command">PKG_CONFIG= ./configure --prefix=/tools</kbd>
 </pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>The meaning of the configure parameter:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>PKG_CONFIG=</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                This tells the configure script to ignore any pkg-config
+                options that may cause the system to try to link with
+                libraries not in the <code class="filename">/tools</code>
+                directory.
+              </p>
+            </dd>
+          </dl>
+        </div>
         <p>
           Build the package:
         </p>
@@ -121,8 +140,11 @@
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -179,7 +201,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;19.&nbsp;Mail/News Clients
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -67,7 +67,7 @@
           useful for writing scripts and batch processing.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -112,8 +112,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/mailx-12.4-openssl_1.0.0_build_fix-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/mailx-12.4-openssl_1.0.0_build_fix-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/mailx-12.4-openssl_1.0.0_build_fix-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/mailx-12.4-openssl_1.0.0_build_fix-1.patch</a>
                 (if you intend to link this package against <span class=
                 "application">openssl</span>)
               </p>
@@ -128,10 +128,10 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a> or <a class="xref" href=
-          "../postlfs/nss.html" title="NSS-3.15.1">NSS-3.15.1</a>, <a class=
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a> or <a class="xref" href=
+          "../postlfs/nss.html" title="NSS-3.15.4">NSS-3.15.4</a>, <a class=
           "xref" href="../postlfs/mitkrb.html" title=
-          "MIT Kerberos V5-1.11.3">MIT Kerberos V5-1.11.3</a> (for IMAP
+          "MIT Kerberos V5-1.12.1">MIT Kerberos V5-1.12.1</a> (for IMAP
           GSSAPI authentication), and an <a class="xref" href=
           "../server/mail.html" title=
           "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a>
@@ -145,6 +145,15 @@
         <h2 class="sect2">
           Installation of Heirloom mailx
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This package does not support parallel build.
+          </p>
+        </div>
         <p>
           Install <span class="application">Heirloom mailx</span> by running
           the following commands.
@@ -152,7 +161,7 @@
         <pre class="userinput">
 <kbd class=
 "command">patch -Np1 -i ../mailx-12.4-openssl_1.0.0_build_fix-1.patch &amp;&amp;
-make SENDMAIL=/usr/sbin/sendmail</kbd>
+make SENDMAIL=/usr/sbin/sendmail -j1</kbd>
 </pre>
         <p>
           This package does not come with a test suite.
@@ -281,7 +290,7 @@ install -v -m644 README mailx.1.html /usr/share/doc/mailx-12.4</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-28 15:59:52 -0700
+        Last updated on 2014-02-25 04:04:57 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -306,7 +315,7 @@ install -v -m644 README mailx.1.html /usr/share/doc/mailx-12.4</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Git-1.8.4
+      Git-1.9.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gdb.html" title="GDB-7.6.1">Prev</a>
+          <a accesskey="p" href="gdb.html" title="GDB-7.7">Prev</a>
           <p>
-            GDB-7.6.1
+            GDB-7.7
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="guile.html" title="Guile-2.0.9">Next</a>
+          <a accesskey="n" href="guile.html" title="Guile-2.0.11">Next</a>
           <p>
-            Guile-2.0.9
+            Guile-2.0.11
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="git" name="git"></a>Git-1.8.4
+        <a id="git" name="git"></a>Git-1.9.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,14 +62,14 @@
           "application">Git</span> is used for version control of files, much
           like tools such as <span class="application">Mercurial</span>,
           <span class="application">Bazaar</span>, <a class="xref" href=
-          "subversion.html" title="Subversion-1.8.3">Subversion-1.8.3</a>,
+          "subversion.html" title="Subversion-1.8.8">Subversion-1.8.8</a>,
           <a class="xref" href="cvs.html" title=
           "CVS-1.11.23">CVS-1.11.23</a>, <span class=
           "application">Perforce</span>, and <span class="application">Team
           Foundation Server</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -80,27 +80,31 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://git-core.googlecode.com/files/git-1.8.4.tar.gz">http://git-core.googlecode.com/files/git-1.8.4.tar.gz</a>
+                "https://www.kernel.org/pub/software/scm/git/git-1.9.2.tar.xz">
+                https://www.kernel.org/pub/software/scm/git/git-1.9.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 355768a1c70d0cb4fedf4b598ac1375b
+                Download MD5 sum: 437c32078b5b5b229f1c10f6474eae78
               </p>
             </li>
             <li>
               <p>
-                Download size: 4.5 MB
+                Download size: 3.3 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 193 MB
+                Estimated disk space required: 218 MB (additional 13 MB for
+                downloaded docs and man pages, or 24 MB building docs and man
+                pages)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.7 SBU (additional 2.8 SBU for tests)
+                Estimated build time: 0.7 SBU (additional 7.9 SBU for tests
+                or 3.1 SBU for docs and man build)
               </p>
             </li>
           </ul>
@@ -113,18 +117,19 @@
             <li>
               <p>
                 <a class="ulink" href=
-                "http://git-core.googlecode.com/files/git-manpages-1.8.4.tar.gz">
-                http://git-core.googlecode.com/files/git-manpages-1.8.4.tar.gz</a>
-                (only needed if you've not installed asciidoc and xmlto)
+                "https://www.kernel.org/pub/software/scm/git/git-manpages-1.9.2.tar.xz">
+                https://www.kernel.org/pub/software/scm/git/git-manpages-1.9.2.tar.xz</a>
+                (if you prefer the original, not needed if you've installed
+                asciidoc and xmlto and prefer to build them).
               </p>
             </li>
             <li>
               <p>
                 <a class="ulink" href=
-                "http://git-core.googlecode.com/files/git-htmldocs-1.8.4.tar.gz">
-                http://git-core.googlecode.com/files/git-htmldocs-1.8.4.tar.gz</a>
-                and other docs (only needed if you've not installed
-                asciidoc).
+                "https://www.kernel.org/pub/software/scm/git/git-htmldocs-1.9.2.tar.xz">
+                https://www.kernel.org/pub/software/scm/git/git-htmldocs-1.9.2.tar.xz</a>
+                and other docs (if you prefer the original, not needed if
+                you've installed asciidoc and prefer to build them).
               </p>
             </li>
           </ul>
@@ -137,22 +142,22 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.32.0">cURL-7.32.0</a> (needed to use <span class=
+          "cURL-7.36.0">cURL-7.36.0</a> (needed to use <span class=
           "application">Git</span> over http, https, ftp or ftps), <a class=
           "xref" href="expat.html" title="Expat-2.1.0">expat-2.1.0</a>,
           <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a> and <a class="xref" href=
-          "python2.html" title="Python-2.7.5">Python-2.7.5</a>
+          "OpenSSL-1.0.1g">OpenSSL-1.0.1g</a> and <a class="xref" href=
+          "python2.html" title="Python-2.7.6">Python-2.7.6</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="pcre.html" title="PCRE-8.33">PCRE-8.33</a>,
+          <a class="xref" href="pcre.html" title="PCRE-8.35">PCRE-8.35</a>,
           <a class="xref" href="subversion.html" title=
-          "Subversion-1.8.3">Subversion-1.8.3</a> with Perl bindings (for
+          "Subversion-1.8.8">Subversion-1.8.8</a> with Perl bindings (for
           <span class="command"><strong>git svn</strong></span>), and
-          <a class="xref" href="tk.html" title="Tk-8.6.0">Tk-8.6.0</a> (gitk,
+          <a class="xref" href="tk.html" title="Tk-8.6.1">Tk-8.6.1</a> (gitk,
           a simple <span class="application">Git</span> repository viewer,
           uses <span class="application">Tk</span> at runtime)
         </p>
@@ -163,7 +168,7 @@
           <a class="ulink" href=
           "http://www.methods.co.nz/asciidoc/">AsciiDoc</a> and <a class=
           "xref" href="../pst/xmlto.html" title=
-          "xmlto-0.0.25">xmlto-0.0.25</a>
+          "xmlto-0.0.26">xmlto-0.0.26</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -179,8 +184,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr \
-            --libexecdir=/usr/lib \
+<kbd class="command">./configure --prefix=/usr         \
             --with-gitconfig=/etc/gitconfig &amp;&amp;
 make</kbd>
 </pre>
@@ -196,7 +200,7 @@ make</kbd>
           If you have installed <a class="ulink" href=
           "http://www.methods.co.nz/asciidoc/">AsciiDoc</a> and <a class=
           "xref" href="../pst/xmlto.html" title=
-          "xmlto-0.0.25">xmlto-0.0.25</a> you can create the man pages:
+          "xmlto-0.0.26">xmlto-0.0.26</a> you can create the man pages:
         </p>
         <pre class="userinput">
 <kbd class="command">make man</kbd>
@@ -224,16 +228,16 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class=
-"command">make htmldir=/usr/share/doc/git-1.8.4 install-html              &amp;&amp;
-mkdir -p /usr/share/doc/git-1.8.4/man-pages/{html,text}         &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/{git*.txt,man-pages/text}     &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/{git*.,index.,man-pages/}html &amp;&amp;
-mkdir    /usr/share/doc/git-1.8.4/technical/{html,text}         &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/technical/{*.txt,text}        &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/technical/{*.,}html           &amp;&amp;
-mkdir    /usr/share/doc/git-1.8.4/howto/{html,text}             &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/howto/{*.txt,text}            &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
+"command">make htmldir=/usr/share/doc/git-1.9.2 install-html              &amp;&amp;
+mkdir -p /usr/share/doc/git-1.9.2/man-pages/{html,text}         &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/{git*.txt,man-pages/text}     &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/{git*.,index.,man-pages/}html &amp;&amp;
+mkdir    /usr/share/doc/git-1.9.2/technical/{html,text}         &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/technical/{*.txt,text}        &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/technical/{*.,}html           &amp;&amp;
+mkdir    /usr/share/doc/git-1.9.2/howto/{html,text}             &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/howto/{*.txt,text}            &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/howto/{*.,}html</kbd>
 </pre>
         <p>
           Alternatively, If you downloaded the man pages untar them as the
@@ -241,7 +245,7 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
         </p>
         <pre class="root">
 <kbd class=
-"command">tar -xf ../git-manpages-1.8.4.tar.gz -C /usr/share/man --no-same-owner --no-overwrite-dir</kbd>
+"command">tar -xf ../git-manpages-1.9.2.tar.xz -C /usr/share/man --no-same-owner --no-overwrite-dir</kbd>
 </pre>
         <p>
           If you downloaded the html docs untar them as the <code class=
@@ -249,22 +253,22 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
         </p>
         <pre class="root">
 <kbd class=
-"command">mkdir -p /usr/share/doc/git-1.8.4/man-pages/{html,text}         &amp;&amp;
+"command">mkdir -p /usr/share/doc/git-1.9.2/man-pages/{html,text}         &amp;&amp;
 
-tar -xf  ../git-htmldocs-1.8.4.tar.gz \
-    -C   /usr/share/doc/git-1.8.4 --no-same-owner --no-overwrite-dir &amp;&amp;
+tar -xf  ../git-htmldocs-1.9.2.tar.xz \
+    -C   /usr/share/doc/git-1.9.2 --no-same-owner --no-overwrite-dir &amp;&amp;
 
-find /usr/share/doc/git-1.8.4 -type d -exec chmod 755 {} \;     &amp;&amp;
-find /usr/share/doc/git-1.8.4 -type f -exec chmod 644 {} \;     &amp;&amp;
+find /usr/share/doc/git-1.9.2 -type d -exec chmod 755 {} \;     &amp;&amp;
+find /usr/share/doc/git-1.9.2 -type f -exec chmod 644 {} \;     &amp;&amp;
 
-mv       /usr/share/doc/git-1.8.4/{git*.txt,man-pages/text}     &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/{git*.,index.,man-pages/}html &amp;&amp;
-mkdir    /usr/share/doc/git-1.8.4/technical/{html,text}         &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/technical/{*.txt,text}        &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/technical/{*.,}html           &amp;&amp;
-mkdir    /usr/share/doc/git-1.8.4/howto/{html,text}             &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/howto/{*.txt,text}            &amp;&amp;
-mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
+mv       /usr/share/doc/git-1.9.2/{git*.txt,man-pages/text}     &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/{git*.,index.,man-pages/}html &amp;&amp;
+mkdir    /usr/share/doc/git-1.9.2/technical/{html,text}         &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/technical/{*.txt,text}        &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/technical/{*.,}html           &amp;&amp;
+mkdir    /usr/share/doc/git-1.9.2/howto/{html,text}             &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/howto/{*.txt,text}            &amp;&amp;
+mv       /usr/share/doc/git-1.9.2/howto/{*.,}html</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -272,7 +276,8 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--with-gitconfig=/etc/gitconfig</code>: This
+          <em class=
+          "parameter"><code>--with-gitconfig=/etc/gitconfig</code></em>: This
           sets <code class="filename">/etc/gitconfig</code> as the file that
           stores the default, system wide, <span class=
           "application">Git</span> settings.
@@ -286,9 +291,9 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
           <span class="application">PCRE</span> is installed.
         </p>
         <p>
-          <span class="command"><strong>tar -xf ../git-manpages-1.8.4.tar.gz
+          <span class="command"><strong>tar -xf ../git-manpages-1.9.2.tar.gz
           -C /usr/share/man --no-same-owner</strong></span>: This untars
-          <code class="filename">git-manpages-1.8.4.tar.gz</code>. The
+          <code class="filename">git-manpages-1.9.2.tar.gz</code>. The
           <code class="option">-C</code> option makes tar change directory to
           <code class="filename">/usr/share/man</code> before it starts to
           decompress the docs. The <code class=
@@ -298,7 +303,7 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
           (potentially) be a security risk.
         </p>
         <p>
-          <span class="command"><strong>mv /usr/share/doc/git-1.8.4
+          <span class="command"><strong>mv /usr/share/doc/git-1.9.2
           ...</strong></span>: These commands move some of the files into
           subfolders to make it easier to sort through the docs and find what
           you're looking for.
@@ -307,6 +312,13 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
           <span class="command"><strong>find ... chmod ...</strong></span>:
           These commands correct the permissions in the shipped documentation
           tar file.
+        </p>
+        <p>
+          <code class="option">--libexecdir=/usr/lib</code>: This option puts
+          the <code class="filename">git-core</code> directory in
+          <code class="filename">/usr/lib</code> instead of <code class=
+          "filename">/usr/libexec</code> in accordance with the old version
+          of the FHS used before LFS-7.5.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -322,22 +334,6 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
             "filename">/etc/gitconfig</code>
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
-          <h3 class="sect3">
-            Configuration Information
-          </h3>
-          <p>
-            To be able to use git to pull from a https source you need first
-            install the <a class="xref" href="../postlfs/cacerts.html" title=
-            "Certificate Authority Certificates">Certificate Authority
-            Certificates</a> and then configure git to know where they are.
-            To set the default location of the SSL certificates, as the
-            <code class="systemitem">root</code> user:
-          </p>
-          <pre class="root">
-<kbd class="command">git config --system http.sslCAPath /etc/ssl/certs</kbd>
-</pre>
-        </div>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -347,9 +343,9 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">git, git-cvsserver, gitk,
-              git-receive-pack, git-shell, git-upload-archive and
-              git-upload-pack</span>
+              <span class="segbody">git, git-receive-pack and
+              git-upload-archive (hardlinked to each other), git-shell,
+              git-cvsserver, git-upload-pack, and gitk</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -357,10 +353,11 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/lib/git-core,
-              /usr/share/doc/git-1.8.4, /usr/share/git-core,
-              /usr/share/git-gui, /usr/share/gitk and
-              /usr/share/gitweb</span>
+              <span class="segbody">/usr/libexec/git-core,
+              /usr/share/doc/git-1.9.2, /usr/share/git-core,
+              /usr/share/git-gui, /usr/share/gitk, /usr/share/gitweb,
+              /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/Git and
+              /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/auto/Git</span>
             </div>
           </div>
         </div>
@@ -412,7 +409,7 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
                   <p>
                     is a graphical <span class="application">Git</span>
                     repository browser (needs <a class="xref" href="tk.html"
-                    title="Tk-8.6.0">Tk-8.6.0</a>).
+                    title="Tk-8.6.1">Tk-8.6.1</a>).
                   </p>
                 </td>
               </tr>
@@ -484,21 +481,21 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-06 06:18:35 +0000
+        Last updated on 2014-04-10 22:43:19 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gdb.html" title="GDB-7.6.1">Prev</a>
+          <a accesskey="p" href="gdb.html" title="GDB-7.7">Prev</a>
           <p>
-            GDB-7.6.1
+            GDB-7.7
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="guile.html" title="Guile-2.0.9">Next</a>
+          <a accesskey="n" href="guile.html" title="Guile-2.0.11">Next</a>
           <p>
-            Guile-2.0.9
+            Guile-2.0.11
           </p>
         </li>
         <li class="up">
@@ -507,7 +504,7 @@ mv       /usr/share/doc/git-1.8.4/howto/{*.,}html</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

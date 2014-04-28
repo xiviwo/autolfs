@@ -12,26 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;17.&nbsp;Networking Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="curl.html" title="cURL-7.32.0">Prev</a>
+          <a accesskey="p" href="curl.html" title="cURL-7.35.0">Prev</a>
           <p>
-            cURL-7.32.0
+            cURL-7.35.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="glib-networking.html" title=
-          "glib-networking-2.36.2">Next</a>
+          "glib-networking-2.38.2">Next</a>
           <p>
-            glib-networking-2.36.2
+            glib-networking-2.38.2
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           creating location-aware applications as simple as possible.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -105,8 +105,8 @@
             <li>
               <p>
                 Required patch (if GPSD is installed): <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/geoclue-0.12.0-gpsd_fix-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/geoclue-0.12.0-gpsd_fix-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/geoclue-0.12.0-gpsd_fix-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/geoclue-0.12.0-gpsd_fix-1.patch</a>
               </p>
             </li>
           </ul>
@@ -119,7 +119,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/dbus-glib.html" title=
-          "dbus-glib-0.100.2">dbus-glib-0.100.2</a>, <a class="xref" href=
+          "dbus-glib-0.102">dbus-glib-0.102</a>, <a class="xref" href=
           "../gnome/GConf.html" title="GConf-3.2.6">GConf-3.2.6</a> and
           <a class="xref" href="../general/libxslt.html" title=
           "libxslt-1.1.28">libxslt-1.1.28</a>
@@ -129,9 +129,9 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="libsoup.html" title=
-          "libsoup-2.42.2">libsoup-2.42.2</a> and <a class="xref" href=
+          "libsoup-2.44.2">libsoup-2.44.2</a> and <a class="xref" href=
           "networkmanager.html" title=
-          "NetworkManager-0.9.8.2">NetworkManager-0.9.8.2</a>
+          "NetworkManager-0.9.8.8">NetworkManager-0.9.8.8</a>
         </p>
         <h4>
           Optional
@@ -139,7 +139,7 @@
         <p class="optional">
           <a class="ulink" href=
           "https://savannah.nongnu.org/projects/gpsd">GPSD</a>, <a class=
-          "xref" href="../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a>
+          "xref" href="../x/gtk2.html" title="GTK+-2.24.22">GTK+-2.24.22</a>
           and <a class="ulink" href="http://ofono.org/">oFono</a>
         </p>
         <p class="usernotes">
@@ -162,7 +162,7 @@ sed -i "s@ -Werror@@" configure &amp;&amp;
 sed -i "s@libnm_glib@libnm-glib@g" configure &amp;&amp;
 sed -i "s@geoclue/libgeoclue.la@&amp; -lgthread-2.0@g" \
        providers/skyhook/Makefile.in &amp;&amp;
-./configure --prefix=/usr --libexecdir=/usr/lib/geoclue &amp;&amp;
+./configure --prefix=/usr &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -201,10 +201,10 @@ make</kbd>
           "application">binutils</span>.
         </p>
         <p>
-          <em class=
-          "parameter"><code>--libexecdir=/usr/lib/geoclue</code></em>: This
+          <code class="option">--libexecdir=/usr/lib/geoclue</code>: This
           option installs <span class="application">GeoClue's</span> private
-          executables into <code class="filename">/usr/lib/geoclue</code>.
+          executables into <code class="filename">/usr/lib/geoclue</code> in
+          accordance with the old version of the FHS used before LFS-7.5.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -223,7 +223,7 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">/usr/include/geoclue, /usr/lib/geoclue,
+              <span class="segbody">/usr/include/geoclue,
               /usr/share/geoclue-providers, and
               /usr/share/gtk-doc/html/geoclue</span>
             </div>
@@ -256,22 +256,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-25 04:52:57 -0700
+        Last updated on 2014-03-03 19:06:31 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="curl.html" title="cURL-7.32.0">Prev</a>
+          <a accesskey="p" href="curl.html" title="cURL-7.35.0">Prev</a>
           <p>
-            cURL-7.32.0
+            cURL-7.35.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="glib-networking.html" title=
-          "glib-networking-2.36.2">Next</a>
+          "glib-networking-2.38.2">Next</a>
           <p>
-            glib-networking-2.36.2
+            glib-networking-2.38.2
           </p>
         </li>
         <li class="up">
@@ -280,7 +280,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

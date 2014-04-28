@@ -12,27 +12,27 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;11.&nbsp;General Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="rxvt-unicode.html" title=
-          "rxvt-unicode-9.18">Prev</a>
+          <a accesskey="p" href="rep-gtk.html" title=
+          "Rep-gtk-0.90.8.1">Prev</a>
           <p>
-            rxvt-unicode-9.18
+            Rep-gtk-0.90.8.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sharutils.html" title=
-          "Sharutils-4.13.5">Next</a>
+          <a accesskey="n" href="shared-mime-info.html" title=
+          "shared-mime-info-1.3">Next</a>
           <p>
-            Sharutils-4.13.5
+            shared-mime-info-1.3
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -64,7 +64,7 @@
           sessions can be detached and resumed later on a different terminal.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -75,15 +75,13 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.uni-erlangen.de/pub/utilities/screen/screen-4.0.3.tar.gz">
-                http://ftp.uni-erlangen.de/pub/utilities/screen/screen-4.0.3.tar.gz</a>
+                "http://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz">http://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.uni-erlangen.de/pub/utilities/screen/screen-4.0.3.tar.gz">
-                ftp://ftp.uni-erlangen.de/pub/utilities/screen/screen-4.0.3.tar.gz</a>
+                "ftp://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz">ftp://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz</a>
               </p>
             </li>
             <li>
@@ -116,7 +114,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -133,6 +131,8 @@
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr                     \
+            --infodir=/usr/share/info         \
+            --mandir=/usr/share/man           \
             --with-socket-dir=/var/run/screen \
             --with-pty-group=5                \
             --with-sys-screenrc=/etc/screenrc &amp;&amp;
@@ -259,23 +259,23 @@ install -m 644 etc/etcscreenrc /etc/screenrc</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-05 16:23:52 +0000
+        Last updated on 2014-02-23 19:35:28 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="rxvt-unicode.html" title=
-          "rxvt-unicode-9.18">Prev</a>
+          <a accesskey="p" href="rep-gtk.html" title=
+          "Rep-gtk-0.90.8.1">Prev</a>
           <p>
-            rxvt-unicode-9.18
+            Rep-gtk-0.90.8.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sharutils.html" title=
-          "Sharutils-4.13.5">Next</a>
+          <a accesskey="n" href="shared-mime-info.html" title=
+          "shared-mime-info-1.3">Next</a>
           <p>
-            Sharutils-4.13.5
+            shared-mime-info-1.3
           </p>
         </li>
         <li class="up">
@@ -284,7 +284,7 @@ install -m 644 etc/etcscreenrc /etc/screenrc</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

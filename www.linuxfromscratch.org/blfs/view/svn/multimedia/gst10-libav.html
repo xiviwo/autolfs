@@ -5,27 +5,27 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gst-libav-1.0.10
+      gst-libav-1.2.3
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers
+        Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="gst10-plugins-ugly.html" title=
-          "gst-plugins-ugly-1.0.10">Prev</a>
+          "gst-plugins-ugly-1.2.3">Prev</a>
           <p>
-            gst-plugins-ugly-1.0.10
+            gst-plugins-ugly-1.2.3
           </p>
         </li>
         <li class="next">
@@ -36,17 +36,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gst10-libav" name="gst10-libav"></a>gst-libav-1.0.10
+        <a id="gst10-libav" name="gst10-libav"></a>gst-libav-1.2.3
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           "application">FFmpeg</span>).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <div class="admon note">
@@ -81,28 +81,29 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.0.10.tar.xz">
-                http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.0.10.tar.xz</a>
+                "http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.2.3.tar.xz">
+                http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.2.3.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 715564cdb735dad75b0e770e044488e0
+                Download MD5 sum: 58c7998a054d8d8ca041fa35738f72b6
               </p>
             </li>
             <li>
               <p>
-                Download size: 4.1 MB
+                Download size: 4.4 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 287 MB
+                Estimated disk space required: 340 MB (adittional 1 MB for
+                the tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 2.4 SBU
+                Estimated build time: 2.2 SBU
               </p>
             </li>
           </ul>
@@ -115,8 +116,13 @@
         </h4>
         <p class="required">
           <a class="xref" href="gst10-plugins-base.html" title=
-          "gst-plugins-base-1.0.10">gst-plugins-base-1.0.10</a> and <a class=
-          "xref" href="../general/yasm.html" title=
+          "gst-plugins-base-1.2.3">gst-plugins-base-1.2.3</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../general/yasm.html" title=
           "yasm-1.2.0">yasm-1.2.0</a>
         </p>
         <h4>
@@ -141,7 +147,7 @@
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
-            --with-package-name="GStreamer Libav Plugins 1.0.10 BLFS" \
+            --with-package-name="GStreamer Libav Plugins 1.2.3 BLFS" \
             --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &amp;&amp;
 make</kbd>
 </pre>
@@ -156,6 +162,17 @@ make</kbd>
 <kbd class="command">make install</kbd>
 </pre>
       </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class=
+          "option">--with-libav-extra-configure="--disable-yasm"</code>: Use
+          this switch if you don't have <span class="application">yasm</span>
+          installed.
+        </p>
+      </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
           Contents
@@ -168,8 +185,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">Several plugins in
-              /usr/lib/gstreamer-1.0</span>
+              <span class=
+              "segbody">/usr/lib/gstreamer-1.0/libgstlibav.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -179,16 +196,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-01 15:30:05 +0000
+        Last updated on 2014-02-20 19:59:37 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="gst10-plugins-ugly.html" title=
-          "gst-plugins-ugly-1.0.10">Prev</a>
+          "gst-plugins-ugly-1.2.3">Prev</a>
           <p>
-            gst-plugins-ugly-1.0.10
+            gst-plugins-ugly-1.2.3
           </p>
         </li>
         <li class="next">
@@ -199,11 +216,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="libdriv.html" title=
-          "Chapter&nbsp;37.&nbsp;Multimedia Libraries and Drivers">Up</a>
+          "Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

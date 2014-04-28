@@ -12,25 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="shadow.html" title="Shadow-4.1.5.1">Prev</a>
+          <a accesskey="p" href="ssh-askpass.html" title=
+          "ssh-askpass-6.5p1">Prev</a>
           <p>
-            Shadow-4.1.5.1
+            ssh-askpass-6.5p1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sudo.html" title="Sudo-1.8.7">Next</a>
+          <a accesskey="n" href="sudo.html" title="Sudo-1.8.9p5">Next</a>
           <p>
-            Sudo-1.8.7
+            Sudo-1.8.9p5
           </p>
         </li>
         <li class="up">
@@ -39,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -63,7 +64,7 @@
           without changes to the server package source code.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -113,7 +114,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -174,7 +175,7 @@ useradd -c "stunnel Daemon" -d /var/lib/stunnel \
 <kbd class="command">./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var \
-            --disable-libwrap &amp;&amp;
+            --disable-fips &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -192,22 +193,9 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>--sysconfdir=/etc</code></em>: This
-          parameter forces the configuration directory to <code class=
-          "filename">/etc</code> instead of <code class=
-          "filename">/usr/etc</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--localstatedir=/var</code></em>: This
-          parameter sets the installation to use <code class=
-          "filename">/var/lib/stunnel</code> instead of creating and using
-          <code class="filename">/usr/var/stunnel</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--disable-libwrap</code></em>: This
-          parameter is required if you don't have <span class=
-          "application">tcpwrappers</span> installed. Remove the parameter if
-          <span class="application">tcpwrappers</span> is installed.
+          <em class="parameter"><code>--disable-fips</code></em>: This switch
+          disables FIPS support which will cause <span class=
+          "application">Stunnel</span> to fail to start if it is enabled.
         </p>
         <p>
           <span class="command"><strong>make docdir=...
@@ -250,7 +238,8 @@ make</kbd>
           </p>
           <pre class="root">
 <kbd class=
-"command">install -v -m750 -o stunnel -g stunnel -d /var/lib/stunnel/run</kbd>
+"command">install -v -m750 -o stunnel -g stunnel -d /var/lib/stunnel/run &amp;&amp;
+chown stunnel:stunnel /var/lib/stunnel</kbd>
 </pre>
           <p>
             Next, create a basic <code class=
@@ -299,13 +288,7 @@ connect = <em class=
           <p>
             For a full explanation of the commands and syntax used in the
             configuration file, run <span class="command"><strong>man
-            stunnel</strong></span>. To see a BLFS example of an actual setup
-            of an <span class="command"><strong>stunnel</strong></span>
-            encrypted service, read the <a class="xref" href=
-            "../basicnet/samba.html#samba-swat-config" title=
-            "Configuring SWAT">the section called &ldquo;Configuring
-            SWAT&rdquo;</a> in the <span class="application">Samba</span>
-            instructions.
+            stunnel</strong></span>.
           </p>
         </div>
         <div class="sect3" lang="en" xml:lang="en">
@@ -318,7 +301,7 @@ connect = <em class=
             is rebooted, install the <code class=
             "filename">/etc/rc.d/init.d/stunnel</code> bootscript from the
             <a class="xref" href="../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-stunnel</kbd>
@@ -407,21 +390,22 @@ connect = <em class=
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-22 15:40:33 -0700
+        Last updated on 2014-02-19 12:16:20 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="shadow.html" title="Shadow-4.1.5.1">Prev</a>
+          <a accesskey="p" href="ssh-askpass.html" title=
+          "ssh-askpass-6.5p1">Prev</a>
           <p>
-            Shadow-4.1.5.1
+            ssh-askpass-6.5p1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="sudo.html" title="Sudo-1.8.7">Next</a>
+          <a accesskey="n" href="sudo.html" title="Sudo-1.8.9p5">Next</a>
           <p>
-            Sudo-1.8.7
+            Sudo-1.8.9p5
           </p>
         </li>
         <li class="up">
@@ -430,7 +414,7 @@ connect = <em class=
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -12,20 +12,20 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;3.&nbsp;After LFS Configuration Issues
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="compressdoc.html" title=
-          "Compressing Man and Info Pages">Prev</a>
+          <a accesskey="p" href="random.html" title=
+          "Random Number Generation">Prev</a>
           <p>
-            Compressing Man and Info Pages
+            Random Number Generation
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           distribution.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -105,6 +105,12 @@
           Installation of lsb_release
         </h2>
         <p>
+          First fix a minor display problem:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i "s|n/a|unavailable|" lsb_release</kbd>
+</pre>
+        <p>
           Install <span class="application">lsb_release</span> by running the
           following commands:
         </p>
@@ -120,6 +126,19 @@
 "command">install -v -m 644 lsb_release.1 /usr/share/man/man1/lsb_release.1 &amp;&amp;
 install -v -m 755 lsb_release /usr/bin/lsb_release</kbd>
 </pre>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuration Information
+        </h2>
+        <p>
+          The configuration for this package was done in <a class="ulink"
+          href=
+          "http://www.linuxfromscratch.org/lfs/view/stable/chapter09/theend.html">
+          LFS</a>. The file <code class="filename">/etc/lsb-release</code>
+          should already exist. Be sure that the DISTRIB_CODENAME entry has
+          been set properly.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -167,16 +186,16 @@ install -v -m 755 lsb_release /usr/bin/lsb_release</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-17 20:38:01 +0000
+        Last updated on 2014-02-17 20:22:24 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="compressdoc.html" title=
-          "Compressing Man and Info Pages">Prev</a>
+          <a accesskey="p" href="random.html" title=
+          "Random Number Generation">Prev</a>
           <p>
-            Compressing Man and Info Pages
+            Random Number Generation
           </p>
         </li>
         <li class="next">
@@ -191,7 +210,7 @@ install -v -m 755 lsb_release /usr/bin/lsb_release</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

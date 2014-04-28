@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -54,13 +54,13 @@
         signed by a trusted agent called a Certificate Authority (CA). The
         certificates loaded by this section are from the list on the Mozilla
         version control system and formats it into a form used by <a class=
-        "xref" href="openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>.
+        "xref" href="openssl.html" title="OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>.
         The certificates can also be used by other applications either
         directly of indirectly through <span class=
         "application">openssl</span>.
       </p>
       <p>
-        This package is known to build and work properly using an LFS-7.4
+        This package is known to build and work properly using an LFS-7.5
         platform.
       </p>
       <div class="package" lang="en" xml:lang="en">
@@ -104,14 +104,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../basicnet/wget.html" title=
-          "Wget-1.14">Wget-1.14</a>
+          "Wget-1.15">Wget-1.15</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -248,7 +248,7 @@ done
 unset CERTBEGINLIST CERTDATA CERTENDLIST certebegin certend
 
 mkdir -p certs
-rm certs/*      # Make sure the directory is clean
+rm -f certs/*      # Make sure the directory is clean
 
 for tempfile in ${TEMPDIR}/certs/*.tmp; do
   # Make sure that the cert is trusted...
@@ -483,7 +483,7 @@ unset SSLDIR</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-11 10:21:08 -0700
+        Last updated on 2014-02-20 06:45:35 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -507,7 +507,7 @@ unset SSLDIR</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

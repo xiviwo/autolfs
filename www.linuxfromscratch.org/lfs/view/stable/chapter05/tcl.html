@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.11.&nbsp;Tcl-8.6.0
+      5.11.&nbsp;Tcl-8.6.1
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gcc-pass2.html" title=
-          "GCC-4.8.1 - Pass 2">Prev</a>
+          "GCC-4.8.2 - Pass 2">Prev</a>
           <p>
-            GCC-4.8.1 - Pass 2
+            GCC-4.8.2 - Pass 2
           </p>
         </li>
         <li class="next">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-tools-tcl" name="ch-tools-tcl"></a>5.11. Tcl-8.6.0
+        <a id="ch-tools-tcl" name="ch-tools-tcl"></a>5.11. Tcl-8.6.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -60,7 +60,7 @@
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">33 MB</span>
+              <span class="segbody">55 MB</span>
             </div>
           </div>
         </div>
@@ -81,13 +81,6 @@
           "Chapter&nbsp;6.&nbsp;Installing Basic System Software">Chapter
           6</a>.
         </p>
-        <p>
-          First increase the amount of space needed by some regular
-          expressions in regression tests.
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i s/500/5000/ generic/regc_nfa.c</kbd>
-</pre>
         <p>
           Prepare Tcl for compilation:
         </p>
@@ -172,8 +165,11 @@
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -239,9 +235,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gcc-pass2.html" title=
-          "GCC-4.8.1 - Pass 2">Prev</a>
+          "GCC-4.8.2 - Pass 2">Prev</a>
           <p>
-            GCC-4.8.1 - Pass 2
+            GCC-4.8.2 - Pass 2
           </p>
         </li>
         <li class="next">
@@ -256,7 +252,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      GLU-9.0.0
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.5">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+      </h4>
+      <h3>
+        Chapter&nbsp;25.&nbsp;X Libraries
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.30.4">Prev</a>
+          <p>
+            gdk-pixbuf-2.30.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="goffice010.html" title=
+          "GOffice-0.10.10">Next</a>
+          <p>
+            GOffice-0.10.10
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapter&nbsp;25.&nbsp;X Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="glu" name="glu"></a>GLU-9.0.0
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to GLU
+        </h2>
+        <p>
+          This package provides the Mesa OpenGL Utility library.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.5
+          platform.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                GLU Download (FTP): <a class="ulink" href=
+                "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.bz2">ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                GLU Download MD5 sum: be9249132ff49275461cf92039083030
+              </p>
+            </li>
+            <li>
+              <p>
+                GLU Download size: 484 KB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated GLU disk space required: 13 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated GLU build time: 0.2 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          GLU Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="mesalib.html" title=
+          "MesaLib-10.0.3">MesaLib-10.0.3</a>
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/glu">http://wiki.linuxfromscratch.org/blfs/wiki/glu</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of GLU
+        </h2>
+        <p>
+          Install <span class="application">GLU</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">./configure --prefix=$XORG_PREFIX --disable-static &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not come with a test suite.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-static</code></em>: This
+          switch prevents installation of static versions of the libraries.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Library:</strong>
+              <span class="segbody">libGLU.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">None</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libGLU" name="libGLU"></a><span class=
+                    "term"><code class="filename">libGLU.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the <span class="application">Mesa</span> OpenGL
+                    Utility library.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2014-02-20 04:20:28 -0800
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gdk-pixbuf.html" title=
+          "gdk-pixbuf-2.30.4">Prev</a>
+          <p>
+            gdk-pixbuf-2.30.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="goffice010.html" title=
+          "GOffice-0.10.10">Next</a>
+          <p>
+            GOffice-0.10.10
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="lib.html" title=
+          "Chapter&nbsp;25.&nbsp;X Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

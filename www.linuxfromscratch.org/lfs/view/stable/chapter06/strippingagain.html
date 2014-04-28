@@ -7,15 +7,15 @@
     <title>
       6.65.&nbsp;Stripping Again
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -80,9 +80,9 @@
         Then reenter it with:
       </p>
       <pre class="userinput">
-<kbd class="command">chroot $LFS /tools/bin/env -i \
+<kbd class="command">chroot $LFS /tools/bin/env -i            \
     HOME=/root TERM=$TERM PS1='\u:\w\$ ' \
-    PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin   \
     /tools/bin/bash --login</kbd>
 </pre>
       <p>
@@ -90,7 +90,7 @@
       </p>
       <pre class="userinput">
 <kbd class="command">/tools/bin/find /{,usr/}{bin,lib,sbin} -type f \
-  -exec /tools/bin/strip --strip-debug '{}' ';'</kbd>
+    -exec /tools/bin/strip --strip-debug '{}' ';'</kbd>
 </pre>
       <p>
         A large number of files will be reported as having their file format
@@ -120,7 +120,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

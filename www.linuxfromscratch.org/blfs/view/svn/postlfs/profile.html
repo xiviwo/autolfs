@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;3.&nbsp;After LFS Configuration Issues
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -183,6 +183,7 @@ pathappend () {
         export $PATHVARIABLE="${!PATHVARIABLE:+${!PATHVARIABLE}:}$1"
 }
 
+export -f pathremove pathprepend pathappend
 
 # Set the initial path
 export PATH=/bin:/usr/bin
@@ -195,6 +196,9 @@ fi
 # Setup some environment variables.
 export HISTSIZE=1000
 export HISTIGNORE="&amp;:[bf]g:exit"
+
+# Set some defaults for graphical systems
+export XDG_DATA_DIRS=/usr/share
 
 # Setup a red prompt for root and a green one for users.
 NORMAL="\[\e[0m\]"
@@ -211,9 +215,6 @@ for script in /etc/profile.d/*.sh ; do
                 . $script
         fi
 done
-
-# Now to clean up
-unset pathremove pathprepend pathappend
 
 # End /etc/profile</code>
 EOF</kbd>
@@ -249,7 +250,7 @@ EOF</kbd>
           <pre class="root">
 <kbd class="command">cat &gt; /etc/profile.d/dircolors.sh &lt;&lt; "EOF"
 <code class=
-"literal"># Setup for /bin/ls to support color, the alias is in /etc/bashrc.
+"literal"># Setup for /bin/ls and /bin/grep to support color, the alias is in /etc/bashrc.
 if [ -f "/etc/dircolors" ] ; then
         eval $(dircolors -b /etc/dircolors)
 
@@ -257,7 +258,8 @@ if [ -f "/etc/dircolors" ] ; then
                 eval $(dircolors -b $HOME/.dircolors)
         fi
 fi
-alias ls='ls --color=auto'</code>
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'</code>
 EOF</kbd>
 </pre>
         </div>
@@ -392,10 +394,11 @@ EOF</kbd>
 # should go into ~/.bash_profile.  Personal aliases and functions should
 # go into ~/.bashrc
 
-# Provides a colored /bin/ls command.  Used in conjunction with code in
-# /etc/profile.
+# Provides colored /bin/ls and /bin/grep commands.  Used in conjunction
+# with code in /etc/profile.
 
 alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 # Provides prompt for non-login shells, specifically shells started
 # in the X environment. [Review the LFS archive thread titled
@@ -559,7 +562,7 @@ EOF</kbd>
         </p>
       </div>
       <p class="updated">
-        Last updated on 2012-12-19 19:57:20 +0000
+        Last updated on 2014-02-28 04:59:01 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -583,7 +586,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

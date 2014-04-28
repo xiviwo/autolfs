@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      libpeas-1.8.1
+      libpeas-1.10.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;30.&nbsp;GNOME Core Packages
+        Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
       </h3>
       <ul>
         <li class="prev">
@@ -36,17 +36,17 @@
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="libpeas" name="libpeas"></a>libpeas-1.8.1
+        <a id="libpeas" name="libpeas"></a>libpeas-1.10.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           assume its own extensibility.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -69,49 +69,36 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/libpeas/1.8/libpeas-1.8.1.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/libpeas/1.8/libpeas-1.8.1.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/libpeas/1.10/libpeas-1.10.0.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/libpeas/1.10/libpeas-1.10.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.8/libpeas-1.8.1.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.8/libpeas-1.8.1.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.10/libpeas-1.10.0.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.10/libpeas-1.10.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: f63d49ab7f72e1ab9eb398c1f0750790
+                Download MD5 sum: b388cdb1c38ac8701f85c8278df0de0a
               </p>
             </li>
             <li>
               <p>
-                Download size: 520 KB
+                Download size: 496 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 19 MB
+                Estimated disk space required: 16 MB (additional 6 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
                 Estimated build time: 0.3 SBU
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/libpeas-1.8.1-gjs_fixes-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/libpeas-1.8.1-gjs_fixes-1.patch</a>
               </p>
             </li>
           </ul>
@@ -124,18 +111,16 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a> and
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a> and
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.8.4">GTK+-3.8.4</a>
+          "GTK+-3.12.1">GTK+-3.12.1</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="gjs.html" title="Gjs-1.36.1">Gjs-1.36.1</a>
-          and <a class="xref" href=
-          "../general/python-modules.html#pygobject3" title=
-          "PyGObject-3.8.3">PyGObject-3.8.3</a> (<span class=
+          <a class="xref" href="../general/python-modules.html#pygobject3"
+          title="PyGObject-3.12.1">PyGObject-3.12.1</a> (<span class=
           "application">Python</span> 2 and <span class=
           "application">Python</span> 3 modules)
         </p>
@@ -144,12 +129,13 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gdb.html" title=
-          "GDB-7.6.1">GDB-7.6.1</a>, <a class="ulink" href=
+          "GDB-7.7">GDB-7.7</a>, <a class="ulink" href=
           "http://glade.gnome.org/">Glade</a>, <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>,
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>,
           <a class="ulink" href=
           "http://ftp.gnome.org/pub/gnome/sources/seed/">Seed</a>, and
-          <a class="ulink" href="http://www.valgrind.org">Valgrind</a>
+          <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.9.0">Valgrind-3.9.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -165,14 +151,13 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../libpeas-1.8.1-gjs_fixes-1.patch &amp;&amp;
-./configure --prefix=/usr &amp;&amp;
+<kbd class="command">./configure --prefix=/usr &amp;&amp;
 make</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
+          check</strong></span>. An active graphical session with bus address
+          is necessary to run the tests.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -270,7 +255,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-03 19:08:19 +0000
+        Last updated on 2014-03-31 21:32:12 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -290,11 +275,11 @@ make</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="core.html" title=
-          "Chapter&nbsp;30.&nbsp;GNOME Core Packages">Up</a>
+          "Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

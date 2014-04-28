@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           implementations.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -104,8 +104,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/libpng.html" title=
-          "libpng-1.6.4">libpng-1.6.4</a>, <a class="xref" href=
-          "mesalib.html" title="MesaLib-9.2.0">MesaLib-9.2.0</a>, <a class=
+          "libpng-1.6.9">libpng-1.6.9</a>, <a class="xref" href=
+          "mesalib.html" title="MesaLib-10.0.3">MesaLib-10.0.3</a>, <a class=
           "xref" href="xbitmaps.html" title=
           "xbitmaps-1.1.1">xbitmaps-1.1.1</a>, and <a class="xref" href=
           "xcb-util.html" title="xcb-util-0.3.9">xcb-util-0.3.9</a>
@@ -115,7 +115,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -142,8 +142,8 @@ f548e389ff68424947b87785df6a321b  sessreg-1.0.8.tar.bz2
 1001771344608e120e943a396317c33a  setxkbmap-1.3.0.tar.bz2
 edce41bd7562dcdfb813e05dbeede8ac  smproxy-1.0.5.tar.bz2
 5c3c7431a38775caaea6051312a49bc9  x11perf-1.5.4.tar.bz2
-cbcbd8f2156a53b609800bec4c6b6c0e  xauth-1.0.7.tar.bz2
-04189c90850c36592b9f2b358f8581e4  xbacklight-1.2.0.tar.bz2
+50ee2ec0836c0186b05ec8fdcfd566d0  xauth-1.0.8.tar.bz2
+0066f23f69ca3ef62dcaeb74a87fdc48  xbacklight-1.2.1.tar.bz2
 5812be48cbbec1068e7b718eec801766  xcmsdb-1.0.4.tar.bz2
 09f56978a62854534deacc8aa8ff3031  xcursorgen-1.0.5.tar.bz2
 cacc0733f16e4f2a97a5c430fcc4420e  xdpyinfo-1.3.1.tar.bz2
@@ -151,7 +151,7 @@ cacc0733f16e4f2a97a5c430fcc4420e  xdpyinfo-1.3.1.tar.bz2
 5b0a0b6f589441d546da21739fa75634  xev-1.2.1.tar.bz2
 c06067f572bc4a5298f324f27340da95  xgamma-1.0.5.tar.bz2
 f1669af1fe0554e876f03319c678e79d  xhost-1.0.6.tar.bz2
-d2459d35b4e0b41ded26a1d1159b7ac6  xinput-1.6.0.tar.bz2
+305980ac78a6954e306a14d80a54c441  xinput-1.6.1.tar.bz2
 a0fc1ac3fc4fe479ade09674347c5aa0  xkbcomp-1.2.4.tar.bz2
 37ed71525c63a9acd42e7cde211dcc5b  xkbevd-1.1.3.tar.bz2
 502b14843f610af977dffc6cbf2102d5  xkbutils-1.0.4.tar.bz2
@@ -210,8 +210,8 @@ md5sum -c ../app-7.7.md5</kbd>
                 <p>
                   Use the <span class="command"><strong>sudo</strong></span>
                   command from the <a class="xref" href=
-                  "../postlfs/sudo.html" title="Sudo-1.8.7">Sudo-1.8.7</a>
-                  package.
+                  "../postlfs/sudo.html" title=
+                  "Sudo-1.8.9p5">Sudo-1.8.9p5</a> package.
                 </p>
               </li>
               <li>
@@ -291,12 +291,13 @@ done</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">bdftopcf, iceauth, luit, mkfontdir,
-              mkfontscale, sessreg, setxkbmap, smproxy, x11perf, x11perfcomp,
-              xauth, xbacklight, xcmsdb, xcursorgen, xdpr, xdpyinfo,
-              xdriinfo, xev, xgamma, xhost, xinput, xkbbell, xkbcomp, xkbevd,
-              xkbvleds, xkbwatch, xkeystone, xkill, xlsatoms, xlsclients,
-              xmessage, xmodmap, xpr, xprop, xrandr, xrdb, xrefresh, xset,
-              xsetroot, xvinfo, xwd, xwininfo, and xwud</span>
+              mkfontscale, sessreg, setxkbmap, smproxy, test_xauth, x11perf,
+              x11perfcomp, xauth, xbacklight, xcmsdb, xcursorgen, xdpr,
+              xdpyinfo, xdriinfo, xev, xgamma, xhost, xinput, xkbbell,
+              xkbcomp, xkbevd, xkbvleds, xkbwatch, xkeystone, xkill,
+              xlsatoms, xlsclients, xmessage, xmodmap, xpr, xprop, xrandr,
+              xrdb, xrefresh, xset, xsetroot, xvinfo, xwd, xwininfo, and
+              xwud</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -912,7 +913,7 @@ done</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-10 03:49:02 -0700
+        Last updated on 2014-02-18 12:55:40 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -937,7 +938,7 @@ done</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

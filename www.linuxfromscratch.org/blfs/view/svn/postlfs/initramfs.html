@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;File Systems and Disk Management
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
@@ -166,7 +166,9 @@ mknod -m 640 $WDIR/dev/console c 5 1
 mknod -m 664 $WDIR/dev/null    c 1 3
 
 # Install the udev configuration files
-cp /etc/udev/udev.conf $WDIR/etc/udev/udev.conf
+if [ -f /etc/udev/udev.conf ]; then
+  cp /etc/udev/udev.conf $WDIR/etc/udev/udev.conf
+fi
 
 for file in $(find /etc/udev/rules.d/ -type f) ; do
   cp $file $WDIR/etc/udev/rules.d
@@ -199,7 +201,7 @@ for f in $binfiles ; do
 done
 
 # Add lvm if present
-if [ -x /sbin/lvm ] ; then sbinfiles="$sbinfiles lvm"; fi
+if [ -x /sbin/lvm ] ; then sbinfiles="$sbinfiles lvm dmsetup"; fi
 
 for f in $sbinfiles ; do
   ldd /sbin/$f | sed "s/\t//" | cut -d " " -f1 &gt;&gt; $unsorted
@@ -218,6 +220,7 @@ if [ -n "$KERNEL_VERSION" ] &amp;&amp; [ -x /bin/kmod ] ; then
 fi
 
 # Add lvm symlinks if appropriate
+# Also copy the lvm.conf file
 if  [ -x /sbin/lvm ] ; then
   ln -s lvm $WDIR/sbin/lvchange
   ln -s lvm $WDIR/sbin/lvrename
@@ -237,6 +240,8 @@ if  [ -x /sbin/lvm ] ; then
   ln -s lvm $WDIR/sbin/vgscan
   ln -s lvm $WDIR/sbin/vgrename
   ln -s lvm $WDIR/sbin/vgck
+  # Conf file(s)
+  cp -a /etc/lvm $WDIR/etc
 fi
 
 # Install libraries
@@ -373,9 +378,9 @@ ${UDEV_PATH}/udevd --daemon --resolve-names=never
 udevadm trigger
 udevadm settle
 
-if [ -f /etc/mdadm.conf ] ; then mdadm -As                                    ; fi
-if [ -x /sbin/vgchange  ] ; then /sbin/vgchange --noudevsync -a y &gt; /dev/null ; fi
-if [ -n "$rootdelay"    ] ; then sleep "$rootdelay"                           ; fi
+if [ -f /etc/mdadm.conf ] ; then mdadm -As                       ; fi
+if [ -x /sbin/vgchange  ] ; then /sbin/vgchange -a y &gt; /dev/null ; fi
+if [ -n "$rootdelay"    ] ; then sleep "$rootdelay"              ; fi
 
 do_mount_root
 
@@ -457,7 +462,7 @@ menuentry "LFS Dev (LFS-7.1-Feb20) initrd label, Linux 3.2.6"
         </p>
       </div>
       <p class="updated">
-        Last updated on 2013-02-11 18:51:17 +0000
+        Last updated on 2013-11-03 00:12:46 +0000
       </p>
     </div>
     <div class="navfooter">
@@ -481,7 +486,7 @@ menuentry "LFS Dev (LFS-7.1-Feb20) initrd label, Linux 3.2.6"
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

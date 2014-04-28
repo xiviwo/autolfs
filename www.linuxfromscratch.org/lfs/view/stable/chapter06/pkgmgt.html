@@ -7,15 +7,15 @@
     <title>
       6.3.&nbsp;Package Management
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -69,14 +69,14 @@
       </p>
       <div class="itemizedlist">
         <ul>
-          <li>
+          <li class="listitem">
             <p>
               Dealing with package management takes the focus away from the
               goals of these books&mdash;teaching how a Linux system is
               built.
             </p>
           </li>
-          <li>
+          <li class="listitem">
             <p>
               There are multiple solutions for package management, each
               having its strengths and drawbacks. Including one that
@@ -104,7 +104,7 @@
         </p>
         <div class="itemizedlist">
           <ul>
-            <li>
+            <li class="listitem">
               <p>
                 If one of the toolchain packages (Glibc, GCC or Binutils)
                 needs to be upgraded to a newer minor version, it is safer to
@@ -118,7 +118,7 @@
                 glibc-2.3.5 will not usually cause any problems.
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 If a package containing a shared library is updated, and if
                 the name of the library changes, then all the packages
@@ -150,7 +150,7 @@
           various techniques, particularly the drawbacks of the particular
           scheme.
         </p>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             6.3.2.1. It is All in My Head!
           </h3>
@@ -163,7 +163,7 @@
             is changed.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             6.3.2.2. Install in Separate Directories
           </h3>
@@ -188,7 +188,7 @@
             a few packages, this scheme becomes unmanageable.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             6.3.2.3. Symlink Style Package Management
           </h3>
@@ -239,7 +239,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
             "filename">/opt</code>.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             6.3.2.4. Timestamp Based
           </h3>
@@ -261,7 +261,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
             consoles.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             6.3.2.5. Tracing Installation Scripts
           </h3>
@@ -291,7 +291,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
             calls made during the execution of the installation scripts.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             6.3.2.6. Creating Package Archives
           </h3>
@@ -329,7 +329,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
             "http://www.slackbook.org/html/package-management.html">http://www.slackbook.org/html/package-management.html</a>.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             6.3.2.7. User Based Management
           </h3>
@@ -407,7 +407,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

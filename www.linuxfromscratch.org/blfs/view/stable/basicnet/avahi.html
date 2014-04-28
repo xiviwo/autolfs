@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;16.&nbsp;Networking Utilities
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="bind-utils.html" title=
-          "BIND Utilities-9.9.3-P2">Next</a>
+          "BIND Utilities-9.9.5">Next</a>
           <p>
-            BIND Utilities-9.9.3-P2
+            BIND Utilities-9.9.5
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           which facilitates service discovery on a local network.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -102,7 +102,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.36.4">GLib-2.36.4</a> and <a class="xref" href=
+          "GLib-2.38.2">GLib-2.38.2</a> and <a class="xref" href=
           "../general/intltool.html" title=
           "Intltool-0.50.2">Intltool-0.50.2</a>
         </p>
@@ -113,14 +113,13 @@
           <a class="xref" href="../general/python-modules.html#dbus-python"
           title="D-Bus Python">D-Bus Python-1.2.0</a>, <a class="xref" href=
           "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>,
+          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>,
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.20">GTK+-2.24.20</a>, <a class="xref" href=
-          "../x/gtk3.html" title="GTK+-3.8.4">GTK+-3.8.4</a>, <a class="xref"
-          href="../general/libdaemon.html" title=
+          "GTK+-2.24.22">GTK+-2.24.22</a>, <a class="xref" href=
+          "../x/gtk3.html" title="GTK+-3.10.7">GTK+-3.10.7</a>, <a class=
+          "xref" href="../general/libdaemon.html" title=
           "libdaemon-0.14">libdaemon-0.14</a> and <a class="xref" href=
-          "../general/libglade.html" title=
-          "libglade-2.6.4">libglade-2.6.4</a>
+          "../x/libglade.html" title="libglade-2.6.4">libglade-2.6.4</a>
         </p>
         <h4>
           Optional
@@ -161,7 +160,11 @@ useradd -c "Avahi Daemon Owner" -d /var/run/avahi-daemon -u 84 \
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr        \
+<kbd class=
+"command">sed -i 's/\(CFLAGS=.*\)-Werror \(.*\)/\1\2/' configure &amp;&amp;
+sed -i -e 's/-DG_DISABLE_DEPRECATED=1//' \
+ -e '/-DGDK_DISABLE_DEPRECATED/d' avahi-ui/Makefile.in &amp;&amp;
+./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --disable-static     \
@@ -188,6 +191,14 @@ make</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <span class="command"><strong>sed -i ...</strong></span>: These
+          seds allow the package to build after the deprecation of symbols in
+          <code class="literal">gtkstock.h</code> by current <span class=
+          "application">gtk+-3</span> by removing <code class=
+          "literal">-Werror</code> and by removing the defines for
+          G{,DK,TK}_DISABLE_DEPRECATED.
+        </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
@@ -274,7 +285,7 @@ make</kbd>
             rebooted, install the <code class=
             "filename">/etc/rc.d/init.d/avahi</code> bootscript from the
             <a class="xref" href="../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-avahi</kbd>
@@ -589,7 +600,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-25 13:35:12 -0700
+        Last updated on 2014-02-20 13:24:55 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -603,9 +614,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="bind-utils.html" title=
-          "BIND Utilities-9.9.3-P2">Next</a>
+          "BIND Utilities-9.9.5">Next</a>
           <p>
-            BIND Utilities-9.9.3-P2
+            BIND Utilities-9.9.5
           </p>
         </li>
         <li class="up">
@@ -614,7 +625,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -7,15 +7,15 @@
     <title>
       7.4.&nbsp;Device and Module Handling on an LFS System
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter07/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -118,7 +118,7 @@
         <h2 class="sect2">
           7.4.2. Udev Implementation
         </h2>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.2.1. Sysfs
           </h3>
@@ -138,7 +138,7 @@
             modifications to device nodes).
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.2.2. Device Node Creation
           </h3>
@@ -174,7 +174,7 @@
             used initially.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.2.3. Udev Bootscripts
           </h3>
@@ -223,7 +223,7 @@
             absolute path in /dev or /sys such as /dev/sr0 or /sys/class/rtc.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.2.4. Module Loading
           </h3>
@@ -235,14 +235,14 @@
             module. For example, the <span class=
             "emphasis"><em>snd-fm801</em></span> driver supports PCI devices
             with vendor ID 0x1319 and device ID 0x0801, and has an alias of
-            &ldquo;<span class=
-            "quote">pci:v00001319d00000801sv*sd*bc04sc01i*</span>&rdquo;. For
-            most devices, the bus driver exports the alias of the driver that
-            would handle the device via <code class=
+            <span class="quote">&ldquo;<span class=
+            "quote">pci:v00001319d00000801sv*sd*bc04sc01i*</span>&rdquo;</span>.
+            For most devices, the bus driver exports the alias of the driver
+            that would handle the device via <code class=
             "systemitem">sysfs</code>. E.g., the <code class=
             "filename">/sys/bus/pci/devices/0000:00:0d.0/modalias</code> file
-            might contain the string &ldquo;<span class=
-            "quote">pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</span>&rdquo;.
+            might contain the string <span class="quote">&ldquo;<span class=
+            "quote">pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</span>&rdquo;</span>.
             The default rules provided with Udev will cause <span class=
             "command"><strong>udevd</strong></span> to call out to
             <span class="command"><strong>/sbin/modprobe</strong></span> with
@@ -264,7 +264,7 @@
             protocols, filesystems and NLS support on demand.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.2.5. Handling Hotpluggable/Dynamic Devices
           </h3>
@@ -285,7 +285,7 @@
           There are a few possible problems when it comes to automatically
           creating device nodes.
         </p>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.3.1. A kernel module is not loaded automatically
           </h3>
@@ -293,9 +293,9 @@
             Udev will only load a module if it has a bus-specific alias and
             the bus driver properly exports the necessary aliases to
             <code class="systemitem">sysfs</code>. In other cases, one should
-            arrange module loading by other means. With Linux-3.10.10, Udev
-            is known to load properly-written drivers for INPUT, IDE, PCI,
-            USB, SCSI, SERIO, and FireWire devices.
+            arrange module loading by other means. With Linux-3.13.3, Udev is
+            known to load properly-written drivers for INPUT, IDE, PCI, USB,
+            SCSI, SERIO, and FireWire devices.
           </p>
           <p>
             To determine if the device driver you require has the necessary
@@ -316,33 +316,35 @@
             If there is no <code class="filename">modalias</code> file in the
             relevant directory under <code class="filename">/sys/bus</code>,
             this means that the kernel developers have not yet added modalias
-            support to this bus type. With Linux-3.10.10, this is the case
+            support to this bus type. With Linux-3.13.3, this is the case
             with ISA busses. Expect this issue to be fixed in later kernel
             versions.
           </p>
           <p>
-            Udev is not intended to load &ldquo;<span class=
-            "quote">wrapper</span>&rdquo; drivers such as <span class=
+            Udev is not intended to load <span class=
+            "quote">&ldquo;<span class="quote">wrapper</span>&rdquo;</span>
+            drivers such as <span class=
             "emphasis"><em>snd-pcm-oss</em></span> and non-hardware drivers
             such as <span class="emphasis"><em>loop</em></span> at all.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.3.2. A kernel module is not loaded automatically, and Udev is
             not intended to load it
           </h3>
           <p>
-            If the &ldquo;<span class="quote">wrapper</span>&rdquo; module
-            only enhances the functionality provided by some other module
-            (e.g., <span class="emphasis"><em>snd-pcm-oss</em></span>
-            enhances the functionality of <span class=
-            "emphasis"><em>snd-pcm</em></span> by making the sound cards
-            available to OSS applications), configure <span class=
-            "command"><strong>modprobe</strong></span> to load the wrapper
-            after Udev loads the wrapped module. To do this, add a
-            &ldquo;<span class="quote">softdep</span>&rdquo; line in any
-            <code class="filename">/etc/modprobe.d/<em class=
+            If the <span class="quote">&ldquo;<span class=
+            "quote">wrapper</span>&rdquo;</span> module only enhances the
+            functionality provided by some other module (e.g., <span class=
+            "emphasis"><em>snd-pcm-oss</em></span> enhances the functionality
+            of <span class="emphasis"><em>snd-pcm</em></span> by making the
+            sound cards available to OSS applications), configure
+            <span class="command"><strong>modprobe</strong></span> to load
+            the wrapper after Udev loads the wrapped module. To do this, add
+            a <span class="quote">&ldquo;<span class=
+            "quote">softdep</span>&rdquo;</span> line in any <code class=
+            "filename">/etc/modprobe.d/<em class=
             "replaceable"><code>&lt;filename&gt;</code></em>.conf</code>
             file. For example:
           </p>
@@ -350,13 +352,14 @@
 <code class="literal">softdep snd-pcm post: snd-pcm-oss</code>
 </pre>
           <p>
-            Note that the &ldquo;<span class="quote">softdep</span>&rdquo;
-            command also allows <code class="literal">pre:</code>
-            dependencies, or a mixture of both <code class=
-            "literal">pre:</code> and <code class="literal">post:</code>. See
-            the <code class="filename">modprobe.d(5)</code> manual page for
-            more information on &ldquo;<span class=
-            "quote">softdep</span>&rdquo; syntax and capabilities.
+            Note that the <span class="quote">&ldquo;<span class=
+            "quote">softdep</span>&rdquo;</span> command also allows
+            <code class="literal">pre:</code> dependencies, or a mixture of
+            both <code class="literal">pre:</code> and <code class=
+            "literal">post:</code>. See the <code class=
+            "filename">modprobe.d(5)</code> manual page for more information
+            on <span class="quote">&ldquo;<span class=
+            "quote">softdep</span>&rdquo;</span> syntax and capabilities.
           </p>
           <p>
             If the module in question is not a wrapper and is useful by
@@ -368,7 +371,7 @@
             suboptimal in that case.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.3.3. Udev loads some unwanted module
           </h3>
@@ -387,7 +390,7 @@
             command.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.3.4. Udev creates a device incorrectly, or makes a wrong
             symlink
@@ -401,7 +404,7 @@
             info</strong></span> command.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.3.5. Udev rule works unreliably
           </h3>
@@ -417,7 +420,7 @@
             Development list if you do so and it helps.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.3.6. Udev does not create a device
           </h3>
@@ -440,20 +443,20 @@
             "command"><strong>udev</strong></span> bootscript.
           </p>
         </div>
-        <div class="sect3" lang="en" xml:lang="en">
+        <div class="sect3">
           <h3 class="sect3">
             7.4.3.7. Device naming order changes randomly after rebooting
           </h3>
           <p>
             This is due to the fact that Udev, by design, handles uevents and
             loads modules in parallel, and thus in an unpredictable order.
-            This will never be &ldquo;<span class=
-            "quote">fixed</span>&rdquo;. You should not rely upon the kernel
-            device names being stable. Instead, create your own rules that
-            make symlinks with stable names based on some stable attributes
-            of the device, such as a serial number or the output of various
-            *_id utilities installed by Udev. See <a class="xref" href=
-            "symlinks.html" title=
+            This will never be <span class="quote">&ldquo;<span class=
+            "quote">fixed</span>&rdquo;</span>. You should not rely upon the
+            kernel device names being stable. Instead, create your own rules
+            that make symlinks with stable names based on some stable
+            attributes of the device, such as a serial number or the output
+            of various *_id utilities installed by Udev. See <a class="xref"
+            href="symlinks.html" title=
             "7.5.&nbsp;Creating Custom Symlinks to Devices">Section&nbsp;7.5,
             &ldquo;Creating Custom Symlinks to Devices&rdquo;</a> and
             <a class="xref" href="network.html" title=
@@ -472,7 +475,7 @@
         </p>
         <div class="itemizedlist">
           <ul>
-            <li>
+            <li class="listitem">
               <p>
                 A Userspace Implementation of <code class=
                 "systemitem">devfs</code> <a class="ulink" href=
@@ -480,7 +483,7 @@
                 http://www.kroah.com/linux/talks/ols_2003_udev_paper/Reprint-Kroah-Hartman-OLS2003.pdf</a>
               </p>
             </li>
-            <li>
+            <li class="listitem">
               <p>
                 The <code class="systemitem">sysfs</code> Filesystem
                 <a class="ulink" href=
@@ -514,7 +517,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

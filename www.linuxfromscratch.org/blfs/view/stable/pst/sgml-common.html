@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;43.&nbsp;Standard Generalized Markup Language (SGML)
+        Chapter&nbsp;45.&nbsp;Standard Generalized Markup Language (SGML)
       </h3>
       <ul>
         <li class="prev">
@@ -37,12 +37,12 @@
         </li>
         <li class="up">
           <a accesskey="u" href="sgml.html" title=
-          "Chapter&nbsp;43.&nbsp;Standard Generalized Markup Language (SGML)">
+          "Chapter&nbsp;45.&nbsp;Standard Generalized Markup Language (SGML)">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
           is useful for creating and maintaining centralized SGML catalogs.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -105,8 +105,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/sgml-common-0.6.3-manpage-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/sgml-common-0.6.3-manpage-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/sgml-common-0.6.3-manpage-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/sgml-common-0.6.3-manpage-1.patch</a>
               </p>
             </li>
           </ul>
@@ -155,9 +155,11 @@ make</kbd>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make install &amp;&amp;
+<kbd class="command">make docdir=/usr/share/doc install &amp;&amp;
+
 install-catalog --add /etc/sgml/sgml-ent.cat \
     /usr/share/sgml/sgml-iso-entities-8879.1986/catalog &amp;&amp;
+
 install-catalog --add /etc/sgml/sgml-docbook.cat \
     /etc/sgml/sgml-ent.cat</kbd>
 </pre>
@@ -173,6 +175,7 @@ install-catalog --add /etc/sgml/sgml-docbook.cat \
           <pre class="root">
 <kbd class="command">install-catalog --remove /etc/sgml/sgml-ent.cat \
     /usr/share/sgml/sgml-iso-entities-8879.1986/catalog &amp;&amp;
+
 install-catalog --remove /etc/sgml/sgml-docbook.cat \
     /etc/sgml/sgml-ent.cat</kbd>
 </pre>
@@ -299,7 +302,7 @@ install-catalog --remove /etc/sgml/sgml-docbook.cat \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-17 21:37:04 -0700
+        Last updated on 2014-02-22 18:30:29 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -320,12 +323,12 @@ install-catalog --remove /etc/sgml/sgml-docbook.cat \
         </li>
         <li class="up">
           <a accesskey="u" href="sgml.html" title=
-          "Chapter&nbsp;43.&nbsp;Standard Generalized Markup Language (SGML)">
+          "Chapter&nbsp;45.&nbsp;Standard Generalized Markup Language (SGML)">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

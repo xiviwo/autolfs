@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Xorg-Server-1.14.3
+      Xorg-Server-1.15.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="xkeyboard-config.html" title=
-          "XKeyboardConfig-2.9">Prev</a>
+          "XKeyboardConfig-2.11">Prev</a>
           <p>
-            XKeyboardConfig-2.9
+            XKeyboardConfig-2.11
           </p>
         </li>
         <li class="next">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="xorg-server" name="xorg-server"></a>Xorg-Server-1.14.3
+        <a id="xorg-server" name="xorg-server"></a>Xorg-Server-1.15.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           X Window system.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -68,20 +68,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://xorg.freedesktop.org/archive/individual/xserver/xorg-server-1.14.3.tar.bz2">
-                http://xorg.freedesktop.org/archive/individual/xserver/xorg-server-1.14.3.tar.bz2</a>
+                "http://xorg.freedesktop.org/archive/individual/xserver/xorg-server-1.15.0.tar.bz2">
+                http://xorg.freedesktop.org/archive/individual/xserver/xorg-server-1.15.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.x.org/pub/individual/xserver/xorg-server-1.14.3.tar.bz2">
-                ftp://ftp.x.org/pub/individual/xserver/xorg-server-1.14.3.tar.bz2</a>
+                "ftp://ftp.x.org/pub/individual/xserver/xorg-server-1.15.0.tar.bz2">
+                ftp://ftp.x.org/pub/individual/xserver/xorg-server-1.15.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 86abeb08d3f7ead3a2bd3d6a9ba6714e
+                Download MD5 sum: c2ace3697b32414094cf8c597c39d7d9
               </p>
             </li>
             <li>
@@ -91,7 +91,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 588 MB
+                Estimated disk space required: 548 MB
               </p>
             </li>
             <li>
@@ -109,8 +109,8 @@
             <li>
               <p>
                 Optional patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/xorg-server-1.14.3-add_prime_support-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/xorg-server-1.14.3-add_prime_support-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/xorg-server-1.15.0-add_prime_support-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/xorg-server-1.15.0-add_prime_support-1.patch</a>
               </p>
             </li>
           </ul>
@@ -123,19 +123,22 @@
         </h4>
         <p class="required">
           <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="xref" href=
-          "../general/pixman.html" title="Pixman-0.30.2">Pixman-0.30.2</a>,
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a> or <a class="xref" href=
+          "../postlfs/nettle.html" title="Nettle-2.7.1">Nettle-2.7.1</a> or
+          <a class="xref" href="../general/libgcrypt.html" title=
+          "libgcrypt-1.6.1">libgcrypt-1.6.1</a>, <a class="xref" href=
+          "../general/pixman.html" title="Pixman-0.32.4">Pixman-0.32.4</a>,
           <a class="xref" href="x7font.html" title="Xorg Fonts">Xorg
           Fonts</a>, and <a class="xref" href="xkeyboard-config.html" title=
-          "XKeyboardConfig-2.9">xkeyboard-config-2.9</a>
+          "XKeyboardConfig-2.11">xkeyboard-config-2.11</a>
         </p>
         <h4>
           Optional
         </h4>
         <p>
           <a class="xref" href="../general/acpid.html" title=
-          "acpid-2.0.19">acpid-2.0.19</a> (runtime), <a class="xref" href=
-          "../general/doxygen.html" title="Doxygen-1.8.5">Doxygen-1.8.5</a>
+          "acpid-2.0.21">acpid-2.0.21</a> (runtime), <a class="xref" href=
+          "../general/doxygen.html" title="Doxygen-1.8.6">Doxygen-1.8.6</a>
           (to build API documentation), <a class="xref" href=
           "../pst/fop.html" title="fop-1.1">fop-1.1</a>, (to build
           documentation), <a class="xref" href="../pst/gs.html" title=
@@ -158,7 +161,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../xorg-server-1.14.3-add_prime_support-1.patch</kbd>
+"command">patch -Np1 -i ../xorg-server-1.15.0-add_prime_support-1.patch</kbd>
 </pre>
         <p>
           Install the server by running the following commands:
@@ -180,8 +183,8 @@ make</kbd>
 <kbd class="command">make install &amp;&amp;
 mkdir -pv /etc/X11/xorg.conf.d &amp;&amp;
 cat &gt;&gt; /etc/sysconfig/createfiles &lt;&lt; "EOF"
-/tmp/.ICE-unix dir 1777 root root
-/tmp/.X11-unix dir 1777 root root
+<code class="literal">/tmp/.ICE-unix dir 1777 root root
+/tmp/.X11-unix dir 1777 root root</code>
 EOF</kbd>
 </pre>
       </div>
@@ -190,9 +193,9 @@ EOF</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--enable-install-setuid</code>: The Xorg
-          binary must run as the root user. This switch ensures that the
-          binary is installed setuid when <span class=
+          <em class="parameter"><code>--enable-install-setuid</code></em>:
+          The Xorg binary must run as the root user. This switch ensures that
+          the binary is installed setuid when <span class=
           "command"><strong>make</strong></span> is run by an unprivileged
           user.
         </p>
@@ -369,16 +372,16 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-13 12:50:39 -0700
+        Last updated on 2014-02-18 12:55:40 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="xkeyboard-config.html" title=
-          "XKeyboardConfig-2.9">Prev</a>
+          "XKeyboardConfig-2.11">Prev</a>
           <p>
-            XKeyboardConfig-2.9
+            XKeyboardConfig-2.11
           </p>
         </li>
         <li class="next">
@@ -393,7 +396,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

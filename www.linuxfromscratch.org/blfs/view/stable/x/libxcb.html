@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      libxcb-1.9.1
+      libxcb-1.10
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="xcb-proto.html" title=
-          "xcb-proto-1.8">Prev</a>
+          "xcb-proto-1.10">Prev</a>
           <p>
-            xcb-proto-1.8
+            xcb-proto-1.10
           </p>
         </li>
         <li class="next">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="libxcb" name="libxcb"></a>libxcb-1.9.1
+        <a id="libxcb" name="libxcb"></a>libxcb-1.10
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           allowing software to make requests and receive responses with both.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,41 +70,29 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://xcb.freedesktop.org/dist/libxcb-1.9.1.tar.bz2">http://xcb.freedesktop.org/dist/libxcb-1.9.1.tar.bz2</a>
+                "http://xcb.freedesktop.org/dist/libxcb-1.10.tar.bz2">http://xcb.freedesktop.org/dist/libxcb-1.10.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: ed632cb0dc31b6fbd7ea5c0f931cf5a4
+                Download MD5 sum: 074c335cc4453467eeb234e3dadda700
               </p>
             </li>
             <li>
               <p>
-                Download size: 365 KB
+                Download size: 468 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 39 MB
+                Estimated disk space required: 42 MB (124 MB with doxygen
+                generated documentation)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.3 SBU
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/libxcb-1.9.1-automake_bug-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/libxcb-1.9.1-automake_bug-1.patch</a>
+                Estimated build time: 0.3 SBU (additional 0.1 to generate API
+                documentation)
               </p>
             </li>
           </ul>
@@ -117,20 +105,26 @@
         </h4>
         <p class="required">
           <a class="xref" href="libXau.html" title=
-          "libXau-1.0.8">libXau-1.0.8</a>, <a class="xref" href=
-          "libXdmcp.html" title="libXdmcp-1.1.1">libXdmcp-1.1.1</a>,
-          <a class="xref" href="../general/libxslt.html" title=
-          "libxslt-1.1.28">libxslt-1.1.28</a>, and <a class="xref" href=
-          "xcb-proto.html" title="xcb-proto-1.8">xcb-proto-1.8</a>
+          "libXau-1.0.8">libXau-1.0.8</a> and <a class="xref" href=
+          "xcb-proto.html" title="xcb-proto-1.10">xcb-proto-1.10</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="libXdmcp.html" title=
+          "libXdmcp-1.1.1">libXdmcp-1.1.1</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.5">Doxygen-1.8.5</a> (to generate API documentation)
-          and <a class="xref" href="../general/check.html" title=
-          "Check-0.9.10">Check-0.9.10</a> (to run tests)
+          "Doxygen-1.8.6">Doxygen-1.8.6</a> (to generate API documentation)
+          <a class="xref" href="../general/check.html" title=
+          "Check-0.9.12">Check-0.9.12</a> (to run tests) and <a class="xref"
+          href="../general/libxslt.html" title=
+          "libxslt-1.1.28">libxslt-1.1.28</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -146,11 +140,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../libxcb-1.9.1-automake_bug-1.patch &amp;&amp;
-sed -e "s/pthread-stubs//" -i configure.ac &amp;&amp;
-autoreconf -fi &amp;&amp;
-./configure $XORG_CONFIG --docdir='${datadir}'/doc/libxcb-1.9.1 \
+<kbd class="command">sed -e "s/pthread-stubs//" -i configure.ac &amp;&amp;
+autoreconf -fiv &amp;&amp;
+./configure $XORG_CONFIG --docdir='${datadir}'/doc/libxcb-1.10 \
             --enable-xinput --enable-xkb &amp;&amp;
 make</kbd>
 </pre>
@@ -175,18 +167,14 @@ make</kbd>
           libpthread-stubs package which is useless on Linux.
         </p>
         <p>
-          <code class="option">--enable-xinput</code>: This switch enables
-          XCB Xinput extension.
+          <em class="parameter"><code>--enable-xinput</code></em>: This
+          switch enables XCB Xinput extension.
         </p>
         <p>
-          <code class="option">--enable-xkb</code>: This switch enables XCB
-          XKB extension.
-        </p>
-        <p>
-          <em class="parameter"><code>--without-doxygen</code></em>: This
-          switch can be used to disable the API documentation if <a class=
-          "xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.5">Doxygen-1.8.5</a> is installed.
+          <code class="option">--without-doxygen</code>: This switch can be
+          used to disable the API documentation if <a class="xref" href=
+          "../general/doxygen.html" title="Doxygen-1.8.6">Doxygen-1.8.6</a>
+          is installed.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -207,7 +195,7 @@ make</kbd>
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody"><code class=
               "envar">$XORG_PREFIX</code>/include/xcb and <code class=
-              "envar">$XORG_PREFIX</code>/share/doc/libxcb-1.9.1</span>
+              "envar">$XORG_PREFIX</code>/share/doc/libxcb-1.10</span>
             </div>
           </div>
         </div>
@@ -236,16 +224,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-18 14:52:29 -0700
+        Last updated on 2014-02-18 12:55:40 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="xcb-proto.html" title=
-          "xcb-proto-1.8">Prev</a>
+          "xcb-proto-1.10">Prev</a>
           <p>
-            xcb-proto-1.8
+            xcb-proto-1.10
           </p>
         </li>
         <li class="next">
@@ -260,7 +248,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

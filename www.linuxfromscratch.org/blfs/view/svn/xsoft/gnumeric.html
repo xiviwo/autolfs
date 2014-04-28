@@ -5,48 +5,48 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Gnumeric-1.12.7
+      Gnumeric-1.12.14
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
-        Chapter&nbsp;34.&nbsp;Office Programs
+        Chapter&nbsp;36.&nbsp;Office Programs
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="AbiWord.html" title="AbiWord-2.9.4">Prev</a>
+          <a accesskey="p" href="AbiWord.html" title="AbiWord-3.0.0">Prev</a>
           <p>
-            AbiWord-2.9.4
+            AbiWord-3.0.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="libreoffice.html" title=
-          "LibreOffice-4.1.1">Next</a>
+          "LibreOffice-4.2.3">Next</a>
           <p>
-            LibreOffice-4.1.1
+            LibreOffice-4.2.3
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="office.html" title=
-          "Chapter&nbsp;34.&nbsp;Office Programs">Up</a>
+          "Chapter&nbsp;36.&nbsp;Office Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gnumeric" name="gnumeric"></a>Gnumeric-1.12.7
+        <a id="gnumeric" name="gnumeric"></a>Gnumeric-1.12.14
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           spreadsheet program which is useful for mathematical analysis.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -68,35 +68,37 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.7.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.7.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.14.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.14.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.7.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.7.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.14.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.14.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 31c8cc37a7cfc571a1aa84437bf36b21
+                Download MD5 sum: 042fd1acd69fd58c92c0298184416be2
               </p>
             </li>
             <li>
               <p>
-                Download size: 15 MB
+                Download size: 18 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 270 MB
+                Estimated disk space required: 261 MB (additional 2 MB for
+                the tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.7 SBU
+                Estimated build time: 1.7 SBU (additional 1.3 SBU for the
+                tests)
               </p>
             </li>
           </ul>
@@ -109,7 +111,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/goffice010.html" title=
-          "GOffice-0.10.7">GOffice-0.10.7</a> and <a class="xref" href=
+          "GOffice-0.10.14">GOffice-0.10.14</a> and <a class="xref" href=
           "../general/rarian.html" title="Rarian-0.8.1">Rarian-0.8.1</a>
         </p>
         <h4>
@@ -119,15 +121,14 @@
           <a class="ulink" href="http://dblatex.sourceforge.net/">dblatex
           (for PDF docs)</a>, <a class="xref" href=
           "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>,
-          <a class="xref" href="../general/guile.html" title=
-          "Guile-2.0.9">Guile-2.0.9</a>, <a class="ulink" href=
-          "http://www.gnome-db.org/">libgda</a>, <a class="ulink" href=
-          "http://www.mono-project.com/">Mono</a>, <a class="ulink" href=
-          "http://pxlib.sourceforge.net/">pxlib</a>, <a class="ulink" href=
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>,
+          <a class="ulink" href="http://www.gnome-db.org/">libgda</a>,
+          <a class="ulink" href="http://www.mono-project.com/">Mono</a>,
+          <a class="ulink" href="http://pxlib.sourceforge.net/">pxlib</a>,
+          <a class="ulink" href=
           "http://www.frodol.dds.nl/psiconv/index.html">Psiconv</a> and
           <a class="xref" href="../general/python-modules.html#pygobject3"
-          title="PyGObject-3.8.3">PyGObject-3.8.3</a>
+          title="PyGObject-3.12.1">PyGObject-3.12.1</a>
         </p>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -137,7 +138,7 @@
           <p>
             Though only a run-time dependency, if you don't install the
             <a class="xref" href="../gnome/yelp.html" title=
-            "Yelp-3.8.1">Yelp-3.8.1</a> package, the built-in help
+            "Yelp-3.12.0">Yelp-3.12.0</a> package, the built-in help
             functionality in <span class="application">Gnumeric</span> will
             not be available.
           </p>
@@ -173,9 +174,8 @@ make</kbd>
 </pre>
         <p>
           If you wish to test the results, issue <span class=
-          "command"><strong>make check</strong></span>. 9 of the 14 tests
-          will fail for various reasons, many more will be skipped because
-          the xls files don't exist.
+          "command"><strong>make -k check</strong></span>. A few tests fail,
+          some for known reasons.
         </p>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -200,19 +200,22 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">gnumeric, gnumeric-1.12.7, ssconvert,
-              ssgrep and ssindex</span>
+              <span class="segbody">gnumeric (symlink), gnumeric-1.12.14,
+              ssconvert, ssdiff, ssgrep and ssindex</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libspreadsheet.so</span>
+              <span class="segbody">libspreadsheet-1.12.14.so,
+              libspreadsheet.so, several plugins under
+              /usr/lib/gnumeric/1.12.14/plugins/, and
+              /usr/lib/goffice/0.10/plugins/gnumeric/gnumeric.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/libspreadsheet-1.10,
+              <span class="segbody">/usr/include/libspreadsheet-1.12,
               /usr/lib/gnumeric, /usr/lib/goffice/0.10/plugins/gnumeric,
-              /usr/share/gnome/help/gnumeric, /usr/share/gnumeric and
-              /usr/share/omf/gnumeric</span>
+              /usr/share/gnome/help/gnumeric, /usr/share/gnumeric,
+              /usr/share/omf/gnumeric and /usr/share/pixmaps/gnumeric</span>
             </div>
           </div>
         </div>
@@ -234,7 +237,7 @@ make</kbd>
                 <td>
                   <p>
                     is a symlink to <span class=
-                    "command"><strong>gnumeric-1.12.7</strong></span>.
+                    "command"><strong>gnumeric-1.12.14</strong></span>.
                   </p>
                 </td>
               </tr>
@@ -243,7 +246,7 @@ make</kbd>
                   <p>
                     <a id="gnumeric-1" name="gnumeric-1"></a><span class=
                     "term"><span class=
-                    "command"><strong>gnumeric-1.12.7</strong></span></span>
+                    "command"><strong>gnumeric-1.12.14</strong></span></span>
                   </p>
                 </td>
                 <td>
@@ -265,6 +268,20 @@ make</kbd>
                   <p>
                     is a command line utility to convert spreadsheet files
                     between various spreadsheet file formats.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ssdiff" name="ssdiff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ssdiff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command line utility to compare two spreadsheets.
                   </p>
                 </td>
               </tr>
@@ -303,31 +320,31 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-10 23:59:56 +0000
+        Last updated on 2014-04-15 16:37:13 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="AbiWord.html" title="AbiWord-2.9.4">Prev</a>
+          <a accesskey="p" href="AbiWord.html" title="AbiWord-3.0.0">Prev</a>
           <p>
-            AbiWord-2.9.4
+            AbiWord-3.0.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="libreoffice.html" title=
-          "LibreOffice-4.1.1">Next</a>
+          "LibreOffice-4.2.3">Next</a>
           <p>
-            LibreOffice-4.1.1
+            LibreOffice-4.2.3
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="office.html" title=
-          "Chapter&nbsp;34.&nbsp;Office Programs">Up</a>
+          "Chapter&nbsp;36.&nbsp;Office Programs">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>

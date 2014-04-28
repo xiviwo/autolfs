@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      libpcap-1.4.0
+      libpcap-1.5.3
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;17.&nbsp;Networking Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libnl.html" title="libnl-3.2.22">Prev</a>
+          <a accesskey="p" href="libnl.html" title="libnl-3.2.24">Prev</a>
           <p>
-            libnl-3.2.22
+            libnl-3.2.24
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="libsoup.html" title=
-          "libsoup-2.42.2">Next</a>
+          "libsoup-2.44.2">Next</a>
           <p>
-            libsoup-2.42.2
+            libsoup-2.44.2
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="libpcap" name="libpcap"></a>libpcap-1.4.0
+        <a id="libpcap" name="libpcap"></a>libpcap-1.5.3
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           user-level packet capture, used in low-level network monitoring.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -68,22 +68,22 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.tcpdump.org/release/libpcap-1.4.0.tar.gz">http://www.tcpdump.org/release/libpcap-1.4.0.tar.gz</a>
+                "http://www.tcpdump.org/release/libpcap-1.5.3.tar.gz">http://www.tcpdump.org/release/libpcap-1.5.3.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 56e88a5aabdd1e04414985ac24f7e76c
+                Download MD5 sum: 7e7321fb3aff2f2bb05c8229f3795d4a
               </p>
             </li>
             <li>
               <p>
-                Download size: 608 KB
+                Download size: 628 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 10 MB
+                Estimated disk space required: 8.1 MB
               </p>
             </li>
             <li>
@@ -103,9 +103,9 @@
           <a class="xref" href="../general/bluez.html" title=
           "BlueZ-4.101">BlueZ-4.101</a>, Software distribution for the
           <a class="ulink" href="http://www.endace.com/">DAG</a>, <a class=
-          "xref" href="libnl.html" title="libnl-3.2.22">libnl-3.2.22</a>,
+          "xref" href="libnl.html" title="libnl-3.2.24">libnl-3.2.24</a>,
           <a class="xref" href="../general/libusb.html" title=
-          "libusb-1.0.9">libusb-1.0.9</a> and <a class="ulink" href=
+          "libusb-1.0.18">libusb-1.0.18</a> and <a class="ulink" href=
           "http://www.intel.com/">Septel</a> range of passive network
           monitoring cards.
         </p>
@@ -129,6 +129,13 @@ make</kbd>
         <p>
           This package does not come with a test suite.
         </p>
+        <p>
+          If you want to disable installing the static library, use this sed:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i '/INSTALL_DATA.*libpcap.a\|RANLIB.*libpcap.a/ s/^/#/' Makefile</kbd>
+</pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
@@ -197,22 +204,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-22 04:10:10 -0700
+        Last updated on 2014-02-17 15:16:31 -0800
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libnl.html" title="libnl-3.2.22">Prev</a>
+          <a accesskey="p" href="libnl.html" title="libnl-3.2.24">Prev</a>
           <p>
-            libnl-3.2.22
+            libnl-3.2.24
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="libsoup.html" title=
-          "libsoup-2.42.2">Next</a>
+          "libsoup-2.44.2">Next</a>
           <p>
-            libsoup-2.42.2
+            libsoup-2.44.2
           </p>
         </li>
         <li class="up">
@@ -221,7 +228,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

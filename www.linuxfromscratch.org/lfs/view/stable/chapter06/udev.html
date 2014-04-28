@@ -5,32 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.62.&nbsp;Udev-206 (Extracted from systemd-206)
+      6.60.&nbsp;Udev-208 (Extracted from systemd-208)
     </title>
-    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
-    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
-    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
-    "text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
+    media="print" />
   </head>
-  <body class="lfs" id="lfs-7.4">
+  <body class="lfs" id="lfs-7.5">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.4
+        Linux From Scratch - Version 7.5
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="texinfo.html" title="Texinfo-5.1">Prev</a>
+          <a accesskey="p" href="texinfo.html" title="Texinfo-5.2">Prev</a>
           <p>
-            Texinfo-5.1
+            Texinfo-5.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="vim.html" title="Vim-7.4">Next</a>
+          <a accesskey="n" href="util-linux.html" title=
+          "Util-linux-2.24.1">Next</a>
           <p>
-            Vim-7.4
+            Util-linux-2.24.1
           </p>
         </li>
         <li class="up">
@@ -39,14 +40,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-udev" name="ch-system-udev"></a>6.62. Udev-206
-        (Extracted from systemd-206)
+        <a id="ch-system-udev" name="ch-system-udev"></a>6.60. Udev-208
+        (Extracted from systemd-208)
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -70,7 +71,7 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.62.1. Installation of Udev
+          6.60.1. Installation of Udev
         </h2>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -80,7 +81,7 @@
           <p>
             This package is a little different from other packages. The
             initial package that is extracted is <code class=
-            "filename">systemd-206.tar.xz</code> even though the application
+            "filename">systemd-208.tar.xz</code> even though the application
             we are installing is udev. After changing to the systemd
             directory, follow the instructions below.
           </p>
@@ -90,19 +91,31 @@
           Udev. Unpack it into the systemd source directory:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xvf ../udev-lfs-206-1.tar.bz2</kbd>
+<kbd class="command">tar -xvf ../udev-lfs-208-3.tar.bz2</kbd>
 </pre>
         <p>
-          Compile the package:
+          Create two symbolic links to header files and set an environment
+          variable to properly use <a class="xref" href=
+          "../chapter05/util-linux.html" title=
+          "5.33.&nbsp;Util-linux-2.24.1">Section&nbsp;5.33,
+          &ldquo;Util-linux-2.24.1&rdquo;</a>.
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-206-1/Makefile.lfs</kbd>
+<kbd class="command">ln -svf /tools/include/blkid /usr/include
+ln -svf /tools/include/uuid  /usr/include
+export LD_LIBRARY_PATH=/tools/lib</kbd>
+</pre>
+        <p>
+          Build the package:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make -f udev-lfs-208-3/Makefile.lfs</kbd>
 </pre>
         <p>
           Install the package:
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-206-1/Makefile.lfs install</kbd>
+<kbd class="command">make -f udev-lfs-208-3/Makefile.lfs install</kbd>
 </pre>
         <div class="admon caution">
           <img alt="[Caution]" src="../images/caution.png" />
@@ -115,7 +128,7 @@
             directory paths embedded. For instance, the binary version of the
             hardware database's path and file name used at run time,
             <code class="filename">/etc/udev/hwdb.bin</code>, cannot be
-            changed without explict changes to the source code.
+            changed without explicit changes to the source code.
           </p>
         </div>
         <p>
@@ -136,12 +149,19 @@
           following script to work.
         </p>
         <pre class="userinput">
-<kbd class="command">bash udev-lfs-206-1/init-net-rules.sh</kbd>
+<kbd class="command">bash udev-lfs-208-3/init-net-rules.sh</kbd>
+</pre>
+        <p>
+          Do some cleanup:
+        </p>
+        <pre class="userinput">
+<kbd class="command">rm -fv /usr/include/{uuid,blkid}
+unset LD_LIBRARY_PATH</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-udev" name="contents-udev"></a>6.62.2. Contents of
+          <a id="contents-udev" name="contents-udev"></a>6.60.2. Contents of
           Udev
         </h2>
         <div class="segmentedlist">
@@ -166,8 +186,11 @@
           <h3>
             Short Descriptions
           </h3>
-          <table border="0">
-            <col align="left" valign="top" />
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
             <tbody>
               <tr>
                 <td>
@@ -299,15 +322,16 @@
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="texinfo.html" title="Texinfo-5.1">Prev</a>
+          <a accesskey="p" href="texinfo.html" title="Texinfo-5.2">Prev</a>
           <p>
-            Texinfo-5.1
+            Texinfo-5.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="vim.html" title="Vim-7.4">Next</a>
+          <a accesskey="n" href="util-linux.html" title=
+          "Util-linux-2.24.1">Next</a>
           <p>
-            Vim-7.4
+            Util-linux-2.24.1
           </p>
         </li>
         <li class="up">
@@ -316,7 +340,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.4">Home</a>
+          "Linux From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

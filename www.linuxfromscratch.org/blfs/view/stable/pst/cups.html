@@ -5,20 +5,20 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Cups-1.6.3
+      Cups-1.7.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.4">
+  <body class="blfs" id="blfs-7.5">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.4
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
       </h4>
       <h3>
-        Chapter&nbsp;41.&nbsp;Printing
+        Chapter&nbsp;43.&nbsp;Printing
       </h3>
       <ul>
         <li class="prev">
@@ -29,24 +29,24 @@
         </li>
         <li class="next">
           <a accesskey="n" href="cups-filters.html" title=
-          "cups-filters-1.0.38">Next</a>
+          "cups-filters-1.0.45">Next</a>
           <p>
-            cups-filters-1.0.38
+            cups-filters-1.0.45
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="printing.html" title=
-          "Chapter&nbsp;41.&nbsp;Printing">Up</a>
+          "Chapter&nbsp;43.&nbsp;Printing">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="cups" name="cups"></a>Cups-1.6.3
+        <a id="cups" name="cups"></a>Cups-1.7.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           raster printers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -70,23 +70,23 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.cups.org/software/1.6.3/cups-1.6.3-source.tar.bz2">
-                http://www.cups.org/software/1.6.3/cups-1.6.3-source.tar.bz2</a>
+                "http://www.cups.org/software/1.7.1/cups-1.7.1-source.tar.bz2">
+                http://www.cups.org/software/1.7.1/cups-1.7.1-source.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 946a2d8ad1aec6beced312fce18543da
+                Download MD5 sum: 55277c40fd4b7183dc3671d39c5c42b7
               </p>
             </li>
             <li>
               <p>
-                Download size: 7.9 MB
+                Download size: 8.4 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 56 MB
+                Estimated disk space required: 63 MB
               </p>
             </li>
             <li>
@@ -104,8 +104,15 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/svn/cups-1.6.3-blfs-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/svn/cups-1.6.3-blfs-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/cups-1.7.1-blfs-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/cups-1.7.1-blfs-1.patch</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Optional patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/7.5/cups-1.7.1-content_type-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.5/cups-1.7.1-content_type-1.patch</a>
               </p>
             </li>
           </ul>
@@ -118,10 +125,10 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/colord.html" title=
-          "Colord-1.0.3">Colord-1.0.3</a>, <a class="xref" href=
-          "../general/dbus.html" title="D-Bus-1.6.14">D-Bus-1.6.14</a>, and
+          "Colord-1.0.6">Colord-1.0.6</a>, <a class="xref" href=
+          "../general/dbus.html" title="D-Bus-1.8.0">D-Bus-1.8.0</a>, and
           <a class="xref" href="../general/libusb.html" title=
-          "libusb-1.0.9">libusb-1.0.9</a>
+          "libusb-1.0.18">libusb-1.0.18</a>
         </p>
         <h4>
           Optional
@@ -131,19 +138,21 @@
           "acl-2.2.52">acl-2.2.52</a>, <a class="xref" href=
           "../basicnet/avahi.html" title="Avahi-0.6.31">Avahi-0.6.31</a>,
           <a class="xref" href="../postlfs/gnutls.html" title=
-          "GnuTLS-3.2.4">GnuTLS-3.2.4</a> or <a class="xref" href=
-          "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>, <a class="ulink" href=
+          "GnuTLS-3.2.11">GnuTLS-3.2.11</a> (if you have it installed, then
+          <a class="xref" href="../general/libgcrypt.html" title=
+          "libgcrypt-1.6.1">libgcrypt-1.6.1</a> is required) or <a class=
+          "xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="ulink" href=
           "http://packages.debian.org/source/sid/libpaper">libpaper</a>,
           <a class="xref" href="../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.7">Linux-PAM-1.1.7</a>, <a class="xref" href=
-          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.11.3">MIT
-          Kerberos V5-1.11.3</a>, <a class="xref" href=
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>, <a class="xref" href=
+          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.12.1">MIT
+          Kerberos V5-1.12.1</a>, <a class="xref" href=
           "../general/openjdk.html" title=
-          "OpenJDK-1.7.0.40/IcedTea-2.4.1">OpenJDK-1.7.0.40/IcedTea-2.4.1</a>,
+          "OpenJDK-1.7.0.51/IcedTea-2.4.5">OpenJDK-1.7.0.51/IcedTea-2.4.5</a>,
           <a class="xref" href="../general/php.html" title=
-          "PHP-5.5.3">PHP-5.5.3</a>, <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.5">Python-2.7.5</a>,
+          "PHP-5.5.9">PHP-5.5.9</a>, <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.6">Python-2.7.6</a>,
           and <a class="xref" href="../xsoft/xdg-utils.html" title=
           "xdg-utils-1.1.0-rc1">xdg-utils-1.1.0-rc1</a>
         </p>
@@ -152,7 +161,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="cups-filters.html" title=
-          "cups-filters-1.0.38">cups-filters-1.0.38</a>
+          "cups-filters-1.0.45">cups-filters-1.0.45</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -169,27 +178,25 @@
             Note
           </h3>
           <p>
-            There is a conflict between the <span class=
+            There used to be a conflict between the <span class=
             "application">Cups</span> <span class="application">libusb</span>
-            backend and the usblp kernel driver. If you want to use
-            <span class="application">Cups</span> with <span class=
-            "application">libusb</span>, <span class="emphasis"><em>do
-            not</em></span> enable USB Printer support in your kernel.
+            backend and the usblp kernel driver. This is no longer the case
+            and cups will work with both of these enabled.
           </p>
         </div>
         <p>
-          If you want to use the kernel usblp driver, enable the following
+          If you want to use the kernel usblp driver (for example, if you
+          wish to use <span class="application">escputil</span> from
+          <a class="xref" href="gutenprint.html" title=
+          "Gutenprint-5.2.9">Gutenprint-5.2.9</a>) enable the following
           options in your kernel configuration and recompile the kernel:
         </p>
         <pre class="screen">
 Device Drivers  ---&gt;
-  [*] USB support  ---&gt;
-...
-Enable support for either UHCI or OHCI, not both:
-    [*]   OHCI HCD support
-    [*]   UHCI HCD (most Intel and VIA) support
-...
-    [*]   USB Printer support
+  USB support  ---&gt;
+    OHCI HCD (USB 1.1) support: Y or M
+    UHCI HCD (most Intel and VIA) support: Y or M
+    USB Printer support: Y or M
 </pre>
         <p>
           If you have a parallel printer, enable the following options in
@@ -197,11 +204,10 @@ Enable support for either UHCI or OHCI, not both:
         </p>
         <pre class="screen">
 <code class="literal">Device Drivers  ---&gt;
-  [*] Parallel port support  ---&gt;
-    [*]   PC-style hardware
-...
+  Parallel port support  ---&gt;
+    PC-style hardware: Y or M
   Character devices  ---&gt;
-    [*] Parallel printer support</code>
+    Parallel printer support: Y or M</code>
 </pre>
       </div>
       <div class="installation" lang="en" xml:lang="en">
@@ -257,11 +263,18 @@ Enable support for either UHCI or OHCI, not both:
           the web browser of your choice.
         </p>
         <p>
+          If you need to access a remote <span class=
+          "application">Cups</span> print server, use the following patch:
+        </p>
+        <pre class="userinput">
+<kbd class="command">patch -Np1 -i ../cups-1.7.1-content_type-1.patch</kbd>
+</pre>
+        <p>
           Install <span class="application">Cups</span> by running the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../cups-1.6.3-blfs-1.patch &amp;&amp;
+<kbd class="command">patch -Np1 -i ../cups-1.7.1-blfs-1.patch &amp;&amp;
 aclocal -I config-scripts &amp;&amp;
 autoconf -I config-scripts &amp;&amp;
 
@@ -281,7 +294,7 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 rm -rf /tmp/cupsinit &amp;&amp;
-ln -sv ../cups/doc /usr/share/doc/cups-1.6.3</kbd>
+ln -svfn ../cups/doc /usr/share/doc/cups-1.7.1</kbd>
 </pre>
         <p>
           Create a basic <span class="application">Cups</span> client
@@ -307,15 +320,27 @@ rm -rf /usr/share/cups/data/testprint</kbd>
             Note
           </h3>
           <p>
+            If you reinstall or update <span class="application">Cups</span>,
+            commands above break <a class="xref" href="cups-filters.html"
+            title="cups-filters-1.0.45">cups-filters-1.0.45</a>, which needs,
+            therefore, to be reinstalled.
+          </p>
+        </div>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
             This package installes icon files into the <code class=
             "filename">/usr/share/icons/hicolor</code> hierarchy and you can
             improve system performance and memory usage by updating
             <code class=
             "filename">/usr/share/icons/hicolor/index.theme</code>. To
             perform the update you must have <a class="xref" href=
-            "../x/gtk2.html" title="GTK+-2.24.20">GTK+-2.24.20</a> or
+            "../x/gtk2.html" title="GTK+-2.24.22">GTK+-2.24.22</a> or
             <a class="xref" href="../x/gtk3.html" title=
-            "GTK+-3.8.4">GTK+-3.8.4</a> installed and issue the following
+            "GTK+-3.10.7">GTK+-3.10.7</a> installed and issue the following
             command as the <code class="systemitem">root</code> user:
           </p>
           <pre class="root">
@@ -348,7 +373,7 @@ rm -rf /usr/share/cups/data/testprint</kbd>
         <p>
           <code class="option">--disable-libusb</code>: Use this switch if
           you have installed <a class="xref" href="../general/libusb.html"
-          title="libusb-1.0.9">libusb-1.0.9</a>, but wish to use the kernel
+          title="libusb-1.0.18">libusb-1.0.18</a>, but wish to use the kernel
           usblp driver.
         </p>
         <p>
@@ -359,9 +384,9 @@ rm -rf /usr/share/cups/data/testprint</kbd>
         <p>
           <code class="option">--disable-gnutls --enable-openssl</code>: This
           switch tells the build process to use <a class="xref" href=
-          "../postlfs/openssl.html" title="OpenSSL-1.0.1e">OpenSSL-1.0.1e</a>
+          "../postlfs/openssl.html" title="OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
           instead of <a class="xref" href="../postlfs/gnutls.html" title=
-          "GnuTLS-3.2.4">GnuTLS-3.2.4</a>. The current version of
+          "GnuTLS-3.2.11">GnuTLS-3.2.11</a>. The current version of
           <span class="application">GnuTLS</span> might produce lot of
           warnings during the <span class="application">Cups</span> build.
         </p>
@@ -370,30 +395,43 @@ rm -rf /usr/share/cups/data/testprint</kbd>
         <h2 class="sect2">
           Configuring Cups
         </h2>
-        <p>
-          Configuration of <span class="application">Cups</span> is dependent
-          on the type of printer and can be complex. Generally, PostScript
-          printers are easier. For detailed instructions on configuration and
-          use of <span class="application">Cups</span>, see <a class="ulink"
-          href=
-          "http://www.cups.org/documentation.php">http://www.cups.org/documentation.php</a>.
-          The Software Administrators Manual and Software Users Manual are
-          particularly useful.
-        </p>
-        <p>
-          For non-PostScript printers to print with <span class=
-          "application">Cups</span>, you need to install <a class="xref"
-          href="gs.html" title="ghostscript-9.10">ghostscript-9.10</a> to
-          convert PostScript to raster images and a driver (e.g., from
-          <a class="xref" href="gutenprint.html" title=
-          "Gutenprint-5.2.9">Gutenprint-5.2.9</a>) to convert the resulting
-          raster images to a form that the printer understands. <a class=
-          "ulink" href=
-          "http://www.linuxprinting.org/foomatic.html">Foomatic</a> drivers
-          use Ghostscript to convert PostScript to a printable form directly,
-          but this is considered to be a hack by <span class=
-          "application">Cups</span> developers.
-        </p>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="cups-config" name="cups-config"></a>Config Files
+          </h3>
+          <p>
+            <code class="filename">/etc/cups/*</code>
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Configuration Information
+          </h3>
+          <p>
+            Configuration of <span class="application">Cups</span> is
+            dependent on the type of printer and can be complex. Generally,
+            PostScript printers are easier. For detailed instructions on
+            configuration and use of <span class="application">Cups</span>,
+            see <a class="ulink" href=
+            "http://www.cups.org/documentation.php">http://www.cups.org/documentation.php</a>.
+            The Software Administrators Manual and Software Users Manual are
+            particularly useful.
+          </p>
+          <p>
+            For non-PostScript printers to print with <span class=
+            "application">Cups</span>, you need to install <a class="xref"
+            href="gs.html" title="ghostscript-9.10">ghostscript-9.10</a> to
+            convert PostScript to raster images and a driver (e.g., from
+            <a class="xref" href="gutenprint.html" title=
+            "Gutenprint-5.2.9">Gutenprint-5.2.9</a>) to convert the resulting
+            raster images to a form that the printer understands. <a class=
+            "ulink" href=
+            "http://www.linuxprinting.org/foomatic.html">Foomatic</a> drivers
+            use Ghostscript to convert PostScript to a printable form
+            directly, but this is considered to be a hack by <span class=
+            "application">Cups</span> developers.
+          </p>
+        </div>
         <div class="sect3" lang="en" xml:lang="en">
           <h3 class="sect3">
             <a id="cups-init" name="cups-init"></a>Boot Script
@@ -403,7 +441,7 @@ rm -rf /usr/share/cups/data/testprint</kbd>
             service to start automatically when the system is booted, install
             the init script included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20130908</a> package:
+            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package:
           </p>
           <pre class="root">
 <kbd class="command">make install-cups</kbd>
@@ -420,10 +458,10 @@ rm -rf /usr/share/cups/data/testprint</kbd>
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">accept, cancel, cupsaccept, cupsaddsmb,
               cups-config, cupsctl, cupsd, cupsdisable, cupsenable,
-              cupsfilter, cupsreject, cupstestdsc, cupstestppd, ipptool, lp,
-              lpadmin, lpc, lpinfo, lpmove, lpoptions, lppasswd, lpq, lpr,
-              lprm, lpstat, ppdc, ppdhtml, ppdi, ppdmerge, ppdpo and
-              reject</span>
+              cupsfilter, cupsreject, cupstestdsc, cupstestppd, ippfind,
+              ipptool, lp, lpadmin, lpc, lpinfo, lpmove, lpoptions, lppasswd,
+              lpq, lpr, lprm, lpstat, ppdc, ppdhtml, ppdi, ppdmerge, ppdpo
+              and reject</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -433,7 +471,7 @@ rm -rf /usr/share/cups/data/testprint</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/cups, /usr/include/cups,
-              /usr/lib/cups, /usr/share/cups, /usr/share/doc/cups-1.6.3,
+              /usr/lib/cups, /usr/share/cups, /usr/share/doc/cups-1.7.1,
               /var/cache/cups, /var/log/cups, /var/run/cups and
               /var/spool/cups</span>
             </div>
@@ -494,8 +532,8 @@ rm -rf /usr/share/cups/data/testprint</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="cups-config" name="cups-config"></a><span class=
-                    "term"><span class=
+                    <a id="cups-config-prog" name=
+                    "cups-config-prog"></a><span class="term"><span class=
                     "command"><strong>cups-config</strong></span></span>
                   </p>
                 </td>
@@ -575,6 +613,20 @@ rm -rf /usr/share/cups/data/testprint</kbd>
                 <td>
                   <p>
                     tests the conformance of PPD files.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ippfind" name="ippfind"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ippfind</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    finds internet printing protocol printers.
                   </p>
                 </td>
               </tr>
@@ -864,7 +916,7 @@ rm -rf /usr/share/cups/data/testprint</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-09-12 06:19:11 -0700
+        Last updated on 2014-02-20 06:45:35 -0800
       </p>
     </div>
     <div class="navfooter">
@@ -877,18 +929,18 @@ rm -rf /usr/share/cups/data/testprint</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="cups-filters.html" title=
-          "cups-filters-1.0.38">Next</a>
+          "cups-filters-1.0.45">Next</a>
           <p>
-            cups-filters-1.0.38
+            cups-filters-1.0.45
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="printing.html" title=
-          "Chapter&nbsp;41.&nbsp;Printing">Up</a>
+          "Chapter&nbsp;43.&nbsp;Printing">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.4">Home</a>
+          "Beyond Linux® From Scratch - Version 7.5">Home</a>
         </li>
       </ul>
     </div>

@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Colord-1.0.3
+      Colord-1.2.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-2013-09-12">
+  <body class="blfs" id="blfs-2014-04-20">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 2013-09-12
+        Beyond Linux<sup>®</sup> From Scratch - Version 2014-04-20
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="bluez.html" title="BlueZ-4.101">Prev</a>
+          <a accesskey="p" href="bluez.html" title="BlueZ-5.18">Prev</a>
           <p>
-            BlueZ-4.101
+            BlueZ-5.18
           </p>
         </li>
         <li class="next">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="colord" name="colord"></a>Colord-1.0.3
+        <a id="colord" name="colord"></a>Colord-1.2.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           integration and use when there are no users logged in.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.4
+          This package is known to build and work properly using an LFS-7.5
           platform.
         </p>
         <h3>
@@ -69,28 +69,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.freedesktop.org/software/colord/releases/colord-1.0.3.tar.xz">
-                http://www.freedesktop.org/software/colord/releases/colord-1.0.3.tar.xz</a>
+                "http://www.freedesktop.org/software/colord/releases/colord-1.2.0.tar.xz">
+                http://www.freedesktop.org/software/colord/releases/colord-1.2.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: a5e0da68c656812113fe0fcdda33e82c
+                Download MD5 sum: 740b321a32c6e54d28e6d043007947ea
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.1 MB
+                Download size: 1.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 35 MB
+                Estimated disk space required: 32 MB (additional 3 MB to
+                rebuild and install the API documentation, and 3 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.3 SBU
+                Estimated build time: 0.7 SBU
               </p>
             </li>
           </ul>
@@ -102,22 +104,34 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="dbus.html" title=
-          "D-Bus-1.6.14">D-Bus-1.6.14</a>, <a class="xref" href=
-          "libgusb.html" title="libgusb-0.1.6">libgusb-0.1.6</a>, <a class=
-          "xref" href="lcms2.html" title="Little CMS-2.5">Little CMS-2.5</a>
-          and <a class="xref" href="../server/sqlite.html" title=
-          "SQLite-3.8.0.2">SQLite-3.8.0.2</a>
+          <a class="xref" href="glib2.html" title=
+          "GLib-2.40.0">GLib-2.40.0</a>, <a class="xref" href="intltool.html"
+          title="Intltool-0.50.2">Intltool-0.50.2</a>, <a class="xref" href=
+          "lcms2.html" title="Little CMS-2.6">Little CMS-2.6</a>, <a class=
+          "xref" href="../server/sqlite.html" title=
+          "SQLite-3.8.4.3">SQLite-3.8.4.3</a>, and <a class="xref" href=
+          "dbus.html" title="D-Bus-1.8.0">D-Bus-1.8.0</a>
+        </p>
+        <h4>
+          Required (for the tests)
+        </h4>
+        <p class="required">
+          <a class="xref" href="valgrind.html" title=
+          "Valgrind-3.9.0">Valgrind-3.9.0</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
+          <a class="xref" href="libgusb.html" title=
+          "libgusb-0.1.6">libgusb-0.1.6</a>, <a class="xref" href=
+          "udev-extras.html" title="Udev Extras (from systemd)">udev-extras
+          (from systemd)</a> (for GUdev), <a class="xref" href=
+          "../postlfs/polkit.html" title="Polkit-0.112">Polkit-0.112</a>,
           <a class="xref" href="gobject-introspection.html" title=
-          "gobject-introspection-1.36.0">gobject-introspection-1.36.0</a>,
-          <a class="xref" href="../postlfs/polkit.html" title=
-          "Polkit-0.111">Polkit-0.111</a> and <a class="xref" href=
-          "vala.html" title="Vala-0.20.1">Vala-0.20.1</a>
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>,
+          and <a class="xref" href="vala.html" title=
+          "Vala-0.24.0">Vala-0.24.0</a>
         </p>
         <h4>
           Optional
@@ -127,12 +141,12 @@
           Completion</a>, <a class="ulink" href=
           "http://www.freedesktop.org/software/colord/releases/">colord-gtk</a>
           and <a class="xref" href="../gnome/gnome-desktop.html" title=
-          "gnome-desktop-3.8.4">gnome-desktop-3.8.4</a> (To build the example
-          tools), <a class="xref" href="../pst/docbook-utils.html" title=
-          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, <a class="xref"
-          href="gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a> and
-          <a class="xref" href="../pst/sane.html" title=
-          "SANE-1.0.23">SANE-1.0.23</a>
+          "gnome-desktop-3.12.1">gnome-desktop-3.12.1</a> (To build the
+          example tools), <a class="xref" href="../pst/docbook-utils.html"
+          title="DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, <a class=
+          "xref" href="gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>
+          and <a class="xref" href="../pst/sane.html" title=
+          "SANE-1.0.24">SANE-1.0.24</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -162,7 +176,6 @@ useradd -c "Color Daemon Owner" -d /var/lib/colord -u 71 \
 <kbd class="command">./configure --prefix=/usr                \
             --sysconfdir=/etc            \
             --localstatedir=/var         \
-            --libexecdir=/usr/lib/colord \
             --with-daemon-user=colord    \
             --enable-vala                \
             --disable-bash-completion    \
@@ -177,10 +190,10 @@ make</kbd>
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make
-          check</strong></span>. Note that system-wide <span class=
-          "application">D-Bus</span> daemon must be running or the tests will
-          fail.
+          To test the results, issue: <span class="command"><strong>make -k
+          check</strong></span>. For unknown reasons, some tests may fail.
+          Note that system-wide <span class="application">D-Bus</span> daemon
+          must be running or the tests will fail.
         </p>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -195,20 +208,22 @@ make</kbd>
           user.
         </p>
         <p>
-          <code class="option">--enable-vala</code>: This switch enables
-          building of the Vala bindings. Remove if you don't have <a class=
-          "xref" href="vala.html" title="Vala-0.20.1">Vala-0.20.1</a>
-          installed.
+          <em class="parameter"><code>--enable-vala</code></em>: This switch
+          enables building of the Vala bindings. Remove if you don't have
+          <a class="xref" href="vala.html" title=
+          "Vala-0.24.0">Vala-0.24.0</a> installed.
         </p>
         <p>
-          <code class="option">--disable-bash-completion</code>: This switch
-          disables <span class="application">Bash Completion</span> support
-          for <span class="application">Colord</span> apps.
+          <em class="parameter"><code>--disable-bash-completion</code></em>:
+          This switch disables <span class="application">Bash
+          Completion</span> support for <span class=
+          "application">Colord</span> apps.
         </p>
         <p>
-          <code class="option">--disable-systemd-login</code>: This switch
-          prevents <span class="command"><strong>configure</strong></span> to
-          look for <span class="application">Systemd</span> libraries since
+          <em class="parameter"><code>--disable-systemd-login</code></em>:
+          This switch prevents <span class=
+          "command"><strong>configure</strong></span> to look for
+          <span class="application">Systemd</span> libraries since
           <span class="application">Systemd</span> is not part of LFS or
           BLFS.
         </p>
@@ -220,6 +235,26 @@ make</kbd>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
           <span class="application">GTK-Doc</span> is installed and you wish
           to rebuild and install the API documentation.
+        </p>
+        <p>
+          <code class="option">--disable-gusb</code>: Use this switch if you
+          don't have <span class="application">libgusb</span> installed.
+        </p>
+        <p>
+          <code class="option">--disable-gudev</code>: Use this switch if you
+          don't have GUdev installed.
+        </p>
+        <p>
+          <code class="option">--disable-polkit</code>: Use this switch if
+          you don't have <span class="application">Polkit</span> installed.
+        </p>
+        <p>
+          <code class="option">--libexecdir=/usr/lib/colord</code>: This
+          option creates a <code class="filename">colord</code> directory in
+          <code class="filename">/usr/lib</code> instead of putting the
+          program's private programs into <code class=
+          "filename">/usr/libexec</code> in accordance with the old version
+          of the FHS used before LFS-7.5.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -236,8 +271,9 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libcolordprivate.so, libcolord.so and
-              libcolorhug.so</span>
+              <span class="segbody">libcolordprivate.so, libcolord.so,
+              libcolorhug.so, and several under /usr/lib/colord-plugin and
+              /usr/lib/colord-sensors</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -317,15 +353,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2013-08-24 11:19:06 +0000
+        Last updated on 2014-04-07 18:45:56 +0000
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="bluez.html" title="BlueZ-4.101">Prev</a>
+          <a accesskey="p" href="bluez.html" title="BlueZ-5.18">Prev</a>
           <p>
-            BlueZ-4.101
+            BlueZ-5.18
           </p>
         </li>
         <li class="next">
@@ -340,7 +376,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 2013-09-12">Home</a>
+          "Beyond Linux® From Scratch - Version 2014-04-20">Home</a>
         </li>
       </ul>
     </div>
