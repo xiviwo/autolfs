@@ -47,3 +47,11 @@ Disclaimer
 - This distribution is closely connected to LFS, as LFS is not strictly linear, so the script/instruction is not guaranteed to work.
 - That is why I can this distribution ginger, and it's your responsbility to ask, or figure out why something doesn't work out. But, all throught the hassle and frustration, you will grow quickly, learn a lot and enjoy finally. That is why this distribution comes into exists.
 - No warranty and guaranteed is assumed.
+
+ScreenShot
+=======
+- Desktop
+![Desktop1](https://github.com/xiviwo/ginger/DeskTop1.png)
+![Desktop2](https://github.com/xiviwo/ginger/DeskTop2.png)
+- Package Manager System
+![PKG](https://github.com/xiviwo/ginger/PackageManager.png)
