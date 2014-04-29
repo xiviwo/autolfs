@@ -7,10 +7,23 @@ This is Ginger linux!
 - This is a linux distribution based on LFS(linux from scratch), so LFS experience is expected before further readering.
 - It's not a linux distribution for newbie. Please don't complain.
 
+Why Ginger Linux
+=======
+The LFS is best distribution to learn linux building,and the essence of LFS is to build every package of Linux from sources, from scratch,
+so that you will learn how linux distribution comes into being, from physical, organizational point of view.
+(Linux kernel is best way for discovering how linux is functioning as OS under the hood, from progamming point of view)
+While ginger linux try to retain the essence of LFS, and at the same time, get rid of those repetive,meaningless work, like download software, unpack them, resolve the dependency, blah, blah, blah.
+You are still in charge of each software build and focus more on software interplay as a whole and how to configure system to your need.
+
+Philosophy
+=======
+Engage more, Depend less, so-called Freedom.
+Linux mean freedom.
 
 Installation
 =======
 Glossary:
+
 Host: the system you are working on.
 
 Guest: the system you are going to install.
@@ -52,6 +65,7 @@ ScreenShot
 =======
 - Desktop
 ![Desktop1](https://raw.githubusercontent.com/xiviwo/ginger/lxml/DeskTop1.png)
+
 ![Desktop2](https://raw.githubusercontent.com/xiviwo/ginger/lxml/DeskTop2.png)
 - Package Manager System
 ![PKG](https://raw.githubusercontent.com/xiviwo/ginger/lxml/PackageManager.png)
