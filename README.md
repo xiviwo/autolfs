@@ -51,7 +51,7 @@ Disclaimer
 ScreenShot
 =======
 - Desktop
-![Desktop1](https://github.com/xiviwo/ginger/blob/lxml/DeskTop1.png)
-![Desktop2](https://github.com/xiviwo/ginger/blob/lxml/DeskTop2.png)
+![Desktop1](https://raw.githubusercontent.com/xiviwo/ginger/lxml/DeskTop1.png)
+![Desktop2](https://raw.githubusercontent.com/xiviwo/ginger/lxml/DeskTop2.png)
 - Package Manager System
-![PKG](https://github.com/xiviwo/ginger/blob/lxml/PackageManager.png)
+![PKG](https://raw.githubusercontent.com/xiviwo/ginger/lxml/PackageManager.png)
