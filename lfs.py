@@ -6,7 +6,9 @@
 #1.08 add generate-specs function
 #1.07 replace "make oldconfig" with "make localmodconfig"
 
-import urllib2,os,binascii,re,sys,platform,glob,time
+import urllib2
+import os,re,sys,glob,time
+import binascii,platform
 try:
 	from collections import OrderedDict
 except ImportError:
@@ -95,21 +97,21 @@ def containsAll(str, set):
 
 
 def NormName(name):
+	"""To normalize the package name, trim off space,unicode,&nbsp,tab,return,etc."""
 	namestrip= re.compile("[\x90-\xff]|\\b&nbsp;\\b|[\s\~\:\+\-\_\?'\$\(\)\/\n\t\r]+",re.MULTILINE)
 	return namestrip.sub("-",name).lower().strip("-")
 
 def shortname(name):
-
+	"""To match package short name without version number. """
 	pkgname =  NormName(name)
 	namematch = re.search("([a-zA-Z]+[a-zA-Z0-9]*(?:-[^-.\d]*[0-9]*[a-zA-Z]+[0-9]*)*)(?![.\d]+)",pkgname)
 	#"^([a-zA-Z0-9]+(-[0-9]*[a-zA-Z]+[0-9]*)*)"	
 	#"([a-zA-Z]+[a-zA-Z0-9]*(-[^.\d][0-9]*[a-zA-Z]+[0-9]*)*)"
-	#print version(name)
 	shortname = namematch.group(1)
 	return shortname
 
 def version(name):
-	
+	"""To match package version number. """
 	versionmatch = re.search("-([\w]*[0-9.]+[\w]*)",name.strip(),re.MULTILINE)
 	#no $, GCC-4.8.2 - Pass 1 will fail
 	#change [0-9.]* to [0-9.]+ as Tie-IxHash-1.23 will parse wrongly
@@ -122,6 +124,7 @@ def version(name):
 	return version
 
 def fullname(name):
+	"""To concat package name and version to make a full name. """
 	ver = version(name)
 	if ver:
 		return shortname(name) + "-" + version(name)
@@ -131,10 +134,12 @@ def fullname(name):
 
 
 def parselink(download_link):
-	packname=""
+	"""To match package file name(XXX.(tar).zip|bz|xz) in the download link """
 
+	packname=""
 	if download_link:
-		packmat = re.search("/([-.\w]*[^/]*\.*(tar)*\.*((zip)|(tar)|(bz2)|(xz)|(gz)|(tgz)|(pm))+$)",download_link)
+		packmat = re.search("/([-.\w]*[^/]*\.*(tar)*\.*((zip)|(tar)|(bz2)|(xz)|\
+		(gz)|(tgz)|(pm))+$)",download_link)
 	
 		try:
 			packname = packmat.group(1)
@@ -143,19 +148,21 @@ def parselink(download_link):
 	return packname
 
 def grep(pattern,files):
-
+	"""To mimic the linux command 'grep' """
 		for line in files:
 		
 			if re.search(pattern,line,re.IGNORECASE):
 				
 				return line
 def foldername(str):
+	"""To get the folder name from string """
 	if os.path.isdir(str):
 		return str
 	else:
 		 return os.path.dirname(str)
 
 def findfolder(line):
+	"""To match folder name from command line """
 	folders = []
 	foldermat = re.findall('[ ](/[^ {},]*)',line)
 	if foldermat:
@@ -182,6 +189,7 @@ def walk2(path,top="/",deeplevel=0):
 	return deeplevel
 
 def run_once(f):
+	"""Make sure one specific function run only once for each instance """
 	def wrapper(*args, **kwargs):
 		if not wrapper.has_run:
 			wrapper.has_run = True
@@ -193,7 +201,7 @@ def run_once(f):
 
 
 def matchgroupuser(lines,line,pre):
-
+	"""Match group|user adding or moding block from command line"""
 	if re.search('groupadd|usermod|useradd',line):
 			line = line.strip().strip("&&")
 			
@@ -211,6 +219,7 @@ def matchgroupuser(lines,line,pre):
 		return 0
 
 def matchBlock(start,end,lines,line,lst,cont=True,repl=True):
+	"""Match block from 'start' to 'end' """
 	if re.search(start,line,re.MULTILINE):
 		#InstallRegx(InstallSpaceFolder,SpaceFolder)
 		if repl : line =  InstallRegx(InstallSubRegex,make_dummy).sub(line)
@@ -248,6 +257,7 @@ class Singleton(type):
  
 
 class MultiRegex(object):
+	"""multiple regex match at the same time, performance boost. """
 	__metaclass__ = Singleton
 	flags = re.I #re.MULTILINE
 	regexes = ()
@@ -265,9 +275,9 @@ class MultiRegex(object):
 		
 	
 	def __init__(self,regex,func):
-		'''
+		"""
 		compile a disjunction of regexes, in order
-		'''
+		"""
 
 		regname =  str(id(regex))
 
@@ -287,7 +297,8 @@ class MultiRegex(object):
 			
 					regvalue = re.compile( "|".join(self.regexes) + ex, self.flags)
 				else:
-					regx = '|'.join("(?P<" + str('replace_line' if funcname == "make_dummy" else funcname) + str(i) + '>' + l + ")" for i,l in enumerate(zip(*regex)[0]))
+					regx = '|'.join("(?P<" + str('replace_line' if funcname == "make_dummy" else funcname) 
+									+ str(i) + '>' + l + ")" for i,l in enumerate(zip(*regex)[0]))
 					ex = "|" + regx if self.regexes  else regx
 					
 					regvalue = re.compile("|".join(self.regexes) +  ex , self.flags)
@@ -313,7 +324,7 @@ class MultiRegex(object):
 
 	def findmatch(self,s,*args):
 		for mo in self._regx.finditer(s):
-			#print self._regx.pattern
+			
 			print
 
 			for k,v in mo.groupdict().iteritems():
@@ -324,7 +335,7 @@ class MultiRegex(object):
 
 
 					if callable(func):
-						#print "calling func",func.__name__
+						
 						return func(self,mo,*args)
 						break
 					else:
@@ -334,7 +345,9 @@ class MultiRegex(object):
 		return ''
 	
 	def search(self,s,*args):
-
+		'''
+		Similar to regex search
+		'''
 		c=0
 		for mo in self._regx.finditer(s):
 
@@ -359,7 +372,9 @@ class MultiRegex(object):
 		return c > 0 
 	
 	def sub(self,s,*args):
-
+		'''
+		mimic regex substitle
+		'''
 		return self._regx.sub(self._sub, s)
     	
 	def _sub(self, mo,*args):
@@ -675,7 +690,17 @@ class BookIgnore(MultiRegex):
 
 
 
-class Package:
+class Package(object):
+	''' Basic class to house all the LFS package
+		no: package number/order from LFS book
+		name: package name 
+		cmds: package installation commands line from LFS book
+		downs: link to download package online
+		depends: package dependencies, very important part for current Linux|LFS  philosophy
+		page: the page where contains the packages installation instruction, one page might have several pages.
+		chapter: the chapters where the page coming from
+		book: LFS online book link. Now only support LFS and BLFS 
+	'''
 	def __init__(self,no,name,cmds,downs,depends,page,chapter,book):
 		self.name = name
 		self.no = no
@@ -724,6 +749,66 @@ class Package:
 		return depend
 
 	def specs(self):
+		''' Generate specs file for one specific package
+
+			Example: file-5.17.spec
+			%define dist LFS
+			%define srcdir %_builddir/%{name}-%{version} 
+			Summary:     The File package contains a utility for determining the type of a given file or files. 
+			Name:       file
+			Version:    5.17
+			Release:    %{?dist}7.5
+			License:    GPLv3+
+			Group:      Development/Tools
+
+			Source0:    ftp://ftp.astron.com/pub/file/file-5.17.tar.gz
+
+			URL:        ftp://ftp.astron.com/pub/file
+			%description
+			 The File package contains a utility for determining the type of a given file or files. 
+			%pre
+			%prep
+			rm -rf %{srcdir}
+			mkdir -pv %{srcdir} || :
+			case %SOURCE0 in 
+				*.zip)
+				unzip -x %SOURCE0 -d %{srcdir}
+				;;
+				*tar)
+				tar xf %SOURCE0 -C %{srcdir} 
+				;;
+				*)
+				tar xf %SOURCE0 -C %{srcdir} --strip-components 1
+				;;
+			esac
+
+			%build
+			cd %{srcdir}
+			./configure --prefix=/usr
+			make %{?_smp_mflags} 
+
+			%install
+			cd %{srcdir}
+			rm -rf ${RPM_BUILD_ROOT}
+
+
+			make install DESTDIR=${RPM_BUILD_ROOT} 
+
+
+			[ -d ${RPM_BUILD_ROOT}%{_infodir} ] && rm -f ${RPM_BUILD_ROOT}%{_infodir}/dir
+			%clean
+			rm -rf ${RPM_BUILD_ROOT}
+			rm -rf %{srcdir}
+			%post
+			/sbin/ldconfig
+			/usr/bin/install-info %{_infodir}/*.info %{_infodir}/dir || :
+			%preun
+			%files
+			%defattr(-,root,root,-)
+			%doc
+			/*
+			%changelog
+		'''
 		if not containsAny(self.shortname,SpecsSkipList):
 			pre = []
 			build = []
@@ -735,10 +820,6 @@ class Package:
 			specstxt = ""
 			if self.commands:
 				for cmd in self.commands:
-					print type(cmd)
-					print "---------------------"
-					print cmd
-					print "---------------------"
 					if type(cmd) is not str:
 						line = self.findchild(cmd)
 					else:
@@ -785,17 +866,6 @@ class Package:
 				#specstxt += '\n'.join('wget --no-check-certificate -nc ' + line  + ' -P %_sourcedir\n' for i,line in enumerate(self.downloads)) + "\n"
 				specstxt += untar
 
-				'''if self.shortname == "vim" :
-					specstxt += "%setup -q -n vim" + self.version.replace(".","")
-				elif self.shortname =="udev":
-					specstxt += "%setup -q -n systemd-%{version}"
-				elif self.no == "6071":
-					specstxt += "%setup -q -n linux-%{version}"
-				elif self.downloads:
-					specstxt += "%setup -q -n %{name}-%{version}"
-				else:
-					specstxt += ""
-'''
 				specstxt += '\n%build'+ "\n"
 				specstxt += 'cd %{srcdir}\n'
 				specstxt += ''.join(str(line)  for line in build)  + "\n"
@@ -840,6 +910,7 @@ class Package:
 			return None
 	@run_once
 	def writefunctions(self,scriptfolder):
+		''' to build the folder need for rpm build, run only once'''
 		print "run once--------"
 		if not os.path.exists(scriptfolder):
 			os.makedirs(scriptfolder)
@@ -850,6 +921,7 @@ class Package:
 			file.close
 	@run_once
 	def rpmbuildtree(self):
+		''' Build folder structure for rpmbuild, run only once '''
 		print "run once--------"
 		paths = ['~/rpmbuild/BUILD','~/rpmbuild/BUILDROOT','~/rpmbuild/RPMS','~/rpmbuild/SOURCES','~/rpmbuild/SPECS','~/rpmbuild/SRPMS' ]
 		for path in paths:
@@ -887,6 +959,47 @@ class Package:
 			self.commands = cmds
 	
 	def script(self):
+		''' Generate shell script file for provisioning package 
+		Example: 5201-file.sh
+		#/bin/bash
+		set +h
+		set -e
+
+		SOURCES=$LFS/sources
+		DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+		source ${DIR}/functions.sh
+		pkgname=file
+		version=5.17
+		export MAKEFLAGS='-j 4'
+		download()
+		{
+		:
+		}
+		unpack()
+		{
+		preparepack "$pkgname" "$version" file-5.17.tar.gz
+		cd ${SOURCES}/${pkgname}-${version} 
+
+		}
+		build()
+		{
+		./configure --prefix=/tools
+
+		make
+
+
+
+		make install
+
+		}
+		clean()
+		{
+		cd ${SOURCES}
+		rm -rf ${pkgname}-${version} 
+		rm -rf ${pkgname}-build
+		}
+		download;unpack;build;clean
+		'''
 		scriptstr =""
 		short = self.shortname
 		if  "libstdc" in short:
@@ -944,6 +1057,7 @@ class Package:
 
 	
 	def findchildj(self,tag):
+		''' '''
 		cmdline=""
 		if tag.string!=None:
 			tmpstr = tag.string
@@ -969,7 +1083,7 @@ class Package:
 		pass
 	
 	def modify_line(self,line):
-
+		''' do some skip/ regex / replace job(string manipulation) for command blocks'''
 
 	 	if self.book.name == "BLFS" :
 			ignorelist = blfsignorelist
@@ -1010,7 +1124,7 @@ class Package:
 						ignorelist = lfsignorelist
 
 				 	if  containsAny(line,ignorelist):
-						self.delete_log += "\n--------------------" + self.name + "-------------------------\n"
+						self.delete_log += "-"*20 + self.name + "-"*20
 						self.delete_log += "Delete line : " + str(i) + " : " + line + " from :\n"
 						self.delete_log += block + "\n"
 						
@@ -1022,6 +1136,7 @@ class Package:
 		return lst
 	#
 	def massreplaceline(self,string):
+		'''The actual function of mass regex '''
  		if "blfs" in self.book.link :
 			globalreplace = blfsreplace
 			globalregx = blfsregx
@@ -1079,7 +1194,16 @@ class Package:
 
 
 
-class Page:
+class Page(object):
+	''' Page class to simulate one page of LFS book
+		PageNo: page order from LFS book
+		pagename: page name 
+		pagelink: page link
+		chapter: the chapter page belongs to 
+		book: the book the chapter belongs to 
+		
+		use xpath to analyse html page 
+	'''
 	def __init__(self,pageNo,pagename,pagelink,chapter,book):
 		self.no= pageNo
 		self.name = pagename
@@ -1104,6 +1228,7 @@ class Page:
 		return self._summary
 	
 	def parsedownload(self,subsoup):
+		''' parse download link from page, http://www.aaa.com/bbb.tar.gz '''
 		download_link = []
 		short = shortname(self.name)
 		
@@ -1138,7 +1263,7 @@ class Page:
 			return download_link
 
 	def parsedependency(self,depsoup):
-
+		''' parse dependeies name from page with xpath  '''
 		ps=depsoup.xpath(".//p[contains(@class,'required') or contains(@class,'recommended')]")
 		noskip = 1 
 		if ps:
@@ -1193,7 +1318,7 @@ class Page:
 		self._packages.append(package)
 	
 	def parseexternal(self,link):
-
+		''' search the package on cpan.org and get the download link  '''
 		
 		shortname = re.search(r'/([^/]*)/$',link,re.IGNORECASE).group(1) #like LWP-Protocol-https
 		packlink=""
@@ -1222,7 +1347,7 @@ class Page:
 
 	
 	def parseperldownload(self,link):
-		
+		''' Decide what kind of download link it is , and take relative action '''
 		if link:#.attrib['href']:
 			#link = str(alink.attrib['href'].strip())
 			 
@@ -1241,6 +1366,7 @@ class Page:
 
 	
 	def parseperl(self,plist,i):
+		''' For perl package only, parse perl pacakge  '''
 		global counter
 		#link =  "www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html"
 		link = self.book.perl_modules_link
@@ -1258,6 +1384,10 @@ class Page:
 
 	
 	def perldepend(self,div,link,plist,i,lastdown):
+
+		'''
+			For perl package only, parse perl dependencies 
+		'''
 		'''
 		div : next div to parse
 		link: next link of div to parse ex: ['libwww-perl-6.05']->['HTML::Form']->['HTTP::Message']
@@ -1338,7 +1468,7 @@ class Page:
 		return self._soup
 
 	def parsecmds(self,lines,cmds):
-		
+		''' Parse  pacakge command block, cornerstone for this script '''
 		for line in lines:
 			if line is not None:
 				
@@ -1349,33 +1479,33 @@ class Page:
 				if containsAny(prev, ['doxygen','Doxygen','texlive','TeX Live','Sphinx']) and not containsAny(prev,['Install Doxygen']):
 					
 					pass
-				elif   containsAny(prev, ['documentation','manual']) and containsAny(prev, ['If you','API','alternate''optional','Sphinx','DocBook-utils','Additional','PDF','Postscript']) and  not containsAny(prev,['If you downloaded','Man and info reader programs','The Info documentation system']):
+				elif   containsAny(prev, ['documentation','manual']) and 
+						containsAny(prev, ['If you','API','alternate''optional','Sphinx','DocBook-utils','Additional','PDF','Postscript']) and  
+						not containsAny(prev,['If you downloaded','Man and info reader programs','The Info documentation system']):
 					
 					pass
 				elif line.xpath("../preceding-sibling::p//a[@title='BLFS Boot Scripts']"):
 					bootscript = self.book.search("BLFS")
-					#bootscript[0].overruncmds([''.join(str(l) for l in line.xpath(".//text()")) + "\n"])
-					#print bootscript[0].commands
-					#print bootscript[0].script()
+
 					
 					cmds.append("mkdir /etc\n")
 					cmds.append("mkdir  ${SOURCES}/" + bootscript[0].shortname + "\n")
 					cmds.append("cd ${SOURCES}/" + bootscript[0].shortname + "\n")
 					cmds.append("tar xf ../" + parselink(bootscript[0].downloads[0])+"  --strip-components 1\n")
-					#cmds.append("cd " + bootscript[0].shortname+"\n")
+
 					cmds.append(thisline)
 
 				else:
 					cmds.append(thisline)
 			else:
-				print line,'============================'
+				
 				cmds.append(line.xpath(".//text()") + "\n")
 
 			
 	@property
 	
 	def packages(self):
-		
+		''' instanctiate package class on demand, as it's very costy'''
 		print "lazy generating packages :" + shortname(self.name)
 		if not self._packages:
 			
@@ -1404,8 +1534,9 @@ class Page:
 					
 					packname = ''.join(str(l) for l in header.xpath(".//text()")) 
 
-					if string == 'xkeyboardconfig':
-						packname = 'xkeyboard-config' + "-" + version(self.name)
+					#if 'xkeyboardconfig' in string:
+					#	packname = 'xkeyboard-config' + "-" + version(self.name)
+					# Change in lfs 7.5
 					if string == "perl-modules":
 						
 						self.parseperl(plist,i)
@@ -1422,7 +1553,14 @@ class Page:
 		return self._packages
 						
 
-class Chapter:
+class Chapter(object):
+	'''
+	Chapter class to simulate chapter object from LFS book.
+	no: chapter number/order
+	name: chapter name
+	section: chapter section
+	book: which book chatper belongs to 
+	'''
 	def __init__(self,no,name,section,book):
 		self.no = no
 		self.name = self.normname(name)
@@ -1475,8 +1613,11 @@ mk-''' + self.name + " :  $(" + self.name + ")\n\n"
 
 	
 	
-class Book:
-	
+class Book(object):
+	''' Book class to simulate book object
+		link: link for online book, LFS or BLFS
+		baseonbook: For BLFS only, BLFS might base on SVN LFS, or stable LFS,etc
+	'''
 	
 	def __init__(self,link,baseonbook=None):
 		self._chapters= []
@@ -1515,7 +1656,9 @@ class Book:
 
 	@property
 	def udev_version(self):
-		
+		''' udev version is the same across one LFS edition, might as well decided 
+			as early as possible
+		'''
 		if not self._udev_version :
 			if self.name != "BLFS" :
 				boot = self
@@ -1586,7 +1729,7 @@ class Book:
 		return None
 
 	def search(self,name):
-		
+		''' Jump to specific pacakge by name,return the pacakge object '''
 		soup = self.booksoup.xpath('.//a[contains(translate(., "ABCDEFGHJIKLMNOPQRSTUVWXYZ", "abcdefghjiklmnopqrstuvwxyz"),"' + name.lower() + '")]/../../../h4//text()')
 		
 		chno = 0
