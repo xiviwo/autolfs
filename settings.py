@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
+#############################
+#Basic configuration for system,
+#change according to your need
 IP="192.168.122.13"
 GATEWAY="192.168.122.1"
 BROADCAST="192.168.122.255"
@@ -17,3 +20,7 @@ passwd = "ping"
 hostdev1="vdb1"
 hostdev2="vdb2"
 LFSHOME = "/home/lfs"
+
+#############################
+#Distribution Name
+DISTNAME = "ginger"

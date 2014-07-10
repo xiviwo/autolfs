@@ -5,10 +5,12 @@
 
 from lfs import Book,Chapter,Page,Package
 import time,glob,os
+from settings import *
+
+
 
 link = "www.linuxfromscratch.org/blfs/view/stable/index.html"
 
-DISTNAME = "ginger"
 LFS=""
 SOURCES=LFS + '/sources'
 
@@ -107,7 +109,8 @@ tab_    = '	'
 nl_     = ''
 
 define echo_message
-  @echo -e $(BOLD)--------------------------------------------------------------------------------
+  @echo -e $(BOLD)-------------------------------------------------------------\
+-------------------
   @echo -e $(BOLD)$(1) Package $(BLUE)$@$(BOLD)$(WHITE)
 endef
 
@@ -178,12 +181,20 @@ def main():
 			if packs:
 				for pack in packs:
 					
-					if not containsAny(pack.shortname,['about-devices','notes-on-building-software','conventions-used-in-this-book','locale-related-issues']):
+					if not containsAny(pack.shortname,
+						['about-devices','notes-on-building-software',
+						'conventions-used-in-this-book','locale-related-issues']):
+
 						chapterstr += pack.fullname + " "
 
 						pack.writescript(pack.fullname,scriptfolder)
-						if not containsAny(pack.shortname, ['configuring-for-adding-users','about-devices','the-bash-shell-startup-files','the-etc-shells-file','random-number-generation','compressing-man-and-info-pages','lsb']):
+						if not containsAny(pack.shortname, 
+							['configuring-for-adding-users','about-devices',
+							'the-bash-shell-startup-files','the-etc-shells-file',
+							'random-number-generation','compressing-man-and-info-pages','lsb']):
+
 							makestr += pack.makeblock("after-lfs-configuration-issues")
+
 						else:
 							makestr += pack.makeblock()
 						

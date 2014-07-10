@@ -149,11 +149,11 @@ def parselink(download_link):
 
 def grep(pattern,files):
 	"""To mimic the linux command 'grep' """
-		for line in files:
+	for line in files:
+
+		if re.search(pattern,line,re.IGNORECASE):
 		
-			if re.search(pattern,line,re.IGNORECASE):
-				
-				return line
+			return line
 def foldername(str):
 	"""To get the folder name from string """
 	if os.path.isdir(str):
@@ -650,22 +650,29 @@ def parseinstall(install,makefolders,postrun):
 			continue
 		else:
 			makefolders.extend(findfolder(line))
-			if matchBlock('cat >>\s*/.*(EOF|"EOF")','^EOF',lines,line,postrun,True,False): continue
-			if matchBlock('cat >\s*/.*(EOF|"EOF")','^EOF',lines,line,install): continue
-			if matchBlock('cat (>|>>) ~/','^EOF',lines,line,postrun) : continue
-			if matchBlock('^menuentry ','^}',lines,line,trash) : continue
+			if matchBlock('cat >>\s*/.*(EOF|"EOF")','^EOF',lines,line,postrun,True,False): 
+				continue
+			if matchBlock('cat >\s*/.*(EOF|"EOF")','^EOF',lines,line,install): 
+				continue
+			if matchBlock('cat (>|>>) ~/','^EOF',lines,line,postrun) : 
+				continue
+			if matchBlock('^menuentry ','^}',lines,line,trash) : 
+				continue
 			#if matchPostAction(line,postrun) : continue 
 			#if matchUserSettings(line,postrun) : continue 
 			#if matchChangeGroupUser(line,postrun): continue
-			if InstallRegx(PostrunRegex,move_line).search(line,postrun): continue
+			if InstallRegx(PostrunRegex,move_line).search(line,postrun): 
+				continue
 			line = InstallRegx(InstallSubRegex,make_dummy).sub(line)
 			line = InstallRegx(InstallSpaceFolder,SpaceFolder).sub(line)
 			line = InstallRegx(InstallMakeInstall,MakeInstall).sub(line)
 
 			if containsAny(line, ['bash udev-lfs-206-1/init-net-rules.sh']):
 				install.append("mkdir -pv ${RPM_BUILD_ROOT}/etc/udev/rules.d/\n")
-				install.append("cp -v /etc/udev/rules.d/70-persistent-net.rules ${RPM_BUILD_ROOT}/etc/udev/rules.d/\n")
-				install.append('sed -i \'s/\"00:0c:29:[^\\".]*\"/\"00:0c:29:*:*:*\"/\' ${RPM_BUILD_ROOT}/etc/udev/rules.d/70-persistent-net.rules\n')
+				install.append("cp -v /etc/udev/rules.d/70-persistent-net.rules \
+								${RPM_BUILD_ROOT}/etc/udev/rules.d/\n")
+				install.append('sed -i \'s/\"00:0c:29:[^\\".]*\"/\"00:0c:29:*:*:*\"/\' \
+                               ${RPM_BUILD_ROOT}/etc/udev/rules.d/70-persistent-net.rules\n')
 				continue
 
 		install.append(line)
@@ -738,7 +745,8 @@ class Package(object):
 	@touch $@
 '''
 
-		makestr += "\n\n" + packtgt + " : " + extra_depend + " " + self.dependency  + "\n" + packmakeblock
+		makestr += "\n\n" + packtgt + " : " + \
+				   extra_depend + " " + self.dependency  + "\n" + packmakeblock
 		return makestr.encode("utf-8")
 	#
 	def rpmrequire(self):
@@ -825,7 +833,8 @@ class Package(object):
 					else:
 						line = cmd.strip()
 			
-					if containsAll(line, ['install','make']) and not containsAny(line,['makeinfo']) :
+					if containsAll(line, ['install','make']) \
+						and not containsAny(line,['makeinfo']) :
 			
 						install.extend(self.lineadd(line))
 						on = 1
@@ -846,24 +855,33 @@ class Package(object):
 
 				specstxt +="%define dist " + self.book.name + "\n"
 				specstxt +="%define srcdir %_builddir/%{name}-%{version} \n"
-				specstxt += 'Summary:    ' + str(self.page.summary if self.page.summary else self.fullname) + '\n'
-				specstxt += 'Name:       ' + str(self.shortname if self.no != "6071" else "linux-API-header") + '\n'
-				specstxt += 'Version:    ' + str(self.version if self.version else "1.0")+ "\n"
+				specstxt += 'Summary:    ' + \
+							str(self.page.summary if self.page.summary else self.fullname) + '\n'
+				specstxt += 'Name:       ' + \
+							str(self.shortname if self.no != "6071" else "linux-API-header") + '\n'
+				specstxt += 'Version:    ' + \
+							str(self.version if self.version else "1.0")+ "\n"
 				specstxt += 'Release:    %{?dist}'+ self.book.version + "\n"
 				specstxt += 'License:    GPLv3+'+ "\n"
 				specstxt += 'Group:      Development/Tools'+ "\n"
-				specstxt +=  '\n'.join('Requires:  ' + d for d in self.rpmrequire() if self.dependency ) + "\n"
-				specstxt += '\n'.join('Source' + str(i) + ':    ' + line for i,line in enumerate(self.downloads)) + "\n"
-				specstxt += 'URL:        ' + str(self.downloads[0].rsplit('/',1)[0]  if self.downloads else "http://" + self.page.link ) + "\n"
+				specstxt += '\n'.join('Requires:  ' + d 
+							for d in self.rpmrequire() if self.dependency ) + "\n"
+				specstxt += '\n'.join('Source' + str(i) + ':    ' + line 
+							for i,line in enumerate(self.downloads)) + "\n"
+				specstxt += 'URL:        ' + \
+							str(self.downloads[0].rsplit('/',1)[0]  
+							if self.downloads else "http://" + self.page.link ) + "\n"
 
 				specstxt += '%description'+ "\n"
-				specstxt +=  str(self.page.summary if self.page.summary else self.fullname)  + "\n"
+				specstxt +=  str(self.page.summary 
+							 if self.page.summary else self.fullname)  + "\n"
 				specstxt += "%pre\n"
 				specstxt += '\n'.join(str(line) for line in pre)
 				specstxt += '%prep'+ "\n"
 				specstxt += 'export XORG_PREFIX="/opt"\n'
-				specstxt += 'export XORG_CONFIG="--prefix=$XORG_PREFIX  --sysconfdir=/etc --localstatedir=/var --disable-static"\n'
-				#specstxt += '\n'.join('wget --no-check-certificate -nc ' + line  + ' -P %_sourcedir\n' for i,line in enumerate(self.downloads)) + "\n"
+				specstxt += 'export XORG_CONFIG="--prefix=$XORG_PREFIX  \
+							--sysconfdir=/etc --localstatedir=/var --disable-static"\n'
+
 				specstxt += untar
 
 				specstxt += '\n%build'+ "\n"
@@ -923,7 +941,8 @@ class Package(object):
 	def rpmbuildtree(self):
 		''' Build folder structure for rpmbuild, run only once '''
 		print "run once--------"
-		paths = ['~/rpmbuild/BUILD','~/rpmbuild/BUILDROOT','~/rpmbuild/RPMS','~/rpmbuild/SOURCES','~/rpmbuild/SPECS','~/rpmbuild/SRPMS' ]
+		paths = ['~/rpmbuild/BUILD','~/rpmbuild/BUILDROOT','~/rpmbuild/RPMS',
+                '~/rpmbuild/SOURCES','~/rpmbuild/SPECS','~/rpmbuild/SRPMS' ]
 		for path in paths:
 			dirname = os.path.expanduser(path)
 			if not os.path.exists(dirname):
@@ -931,14 +950,16 @@ class Package(object):
 	def downpack(self,targetDir):
 		for link in self.downloads:
 	
-			os.system('wget --no-check-certificate -nc --timeout=60 --tries=5 ' + link + ' -P ' + targetDir )
+			os.system('wget --no-check-certificate -nc --timeout=60 --tries=5 ' 
+			           + link + ' -P ' + targetDir )
 
 	def writespecs(self):
 		action = run_once(self.rpmbuildtree)
 		txt = self.specs()
 		if txt :
 			action()
-			output=os.path.expanduser("~/rpmbuild/SPECS/") +  str(self.fullname if self.no != "6071" else "linux-API-header") + ".spec"
+			output=os.path.expanduser("~/rpmbuild/SPECS/") + \
+				   str(self.fullname if self.no != "6071" else "linux-API-header") + ".spec"
 			file = open(output, 'wb')
 			file.write(txt)
 			file.close
@@ -1008,9 +1029,11 @@ class Package(object):
 				short = "systemd"
 		
 		if containsAny(short,['nss','json','pulseaudio','libiodbc']):
-			scriptstr += scriptheader1 + "\npkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 1'\n" 
+			scriptstr += scriptheader1 + "\npkgname=" + short + "\nversion=" + \
+						 self.version + "\nexport MAKEFLAGS='-j 1'\n" 
 		else:
-			scriptstr += scriptheader1 + "\npkgname=" + short + "\nversion=" + self.version + "\nexport MAKEFLAGS='-j 4'\n" 
+			scriptstr += scriptheader1 + "\npkgname=" + short + "\nversion=" + \
+                         self.version + "\nexport MAKEFLAGS='-j 4'\n" 
 		scriptstr += "download()\n{\n"		
 		if self.downloads and not self.downloads[0].endswith(".patch"):
 			tmp = ""
@@ -1050,8 +1073,10 @@ class Package(object):
 		scriptstr += "\n}\n"
 
 		if self.downloads:	
-			scriptstr += "clean()\n{\ncd ${SOURCES}\nrm -rf ${pkgname}-${version} \nrm -rf ${pkgname}-build\n}\n"
-		scriptstr += str( "download;unpack;build;clean\n" if self.downloads else  "download;unpack;build\n" )
+			scriptstr += "clean()\n{\ncd ${SOURCES}\nrm -rf ${pkgname}-${version} \
+						  \nrm -rf ${pkgname}-build\n}\n"
+		scriptstr += str( "download;unpack;build;clean\n" 
+						   if self.downloads else  "download;unpack;build\n" )
 		return scriptstr
 
 
@@ -1152,7 +1177,7 @@ class Package(object):
 				
 				self.replace_log += "Replacing : " + laststr + " with : " + string  + "\n"
 				#
-				self.replace_log += "-------------------------------------------------\n"
+				self.replace_log += "-"*50
 
 		laststr = string 
 		string = BookRegex(globalregx,make_dummy).sub(string)
@@ -1160,7 +1185,7 @@ class Package(object):
 				self.replace_log += "\nOrigin    : " + laststr + "\n"
 				self.replace_log += "Replacing : " + laststr + " with : " + string  + "\n"
 
-				self.replace_log += "-------------------------------------------------\n"
+				self.replace_log += "-"*50
 
 		
 		return string
@@ -1220,7 +1245,8 @@ class Page(object):
 	@property
 	def summary(self):
 		if not self._summary:
-			summary = str(''.join(re.sub("[ \n]+"," ",''.join(i).encode('utf-8')) for i in self.pagesoup.xpath(".//div[@class='package']/p[1]//text()")))
+			summary = str(''.join(re.sub("[ \n]+"," ",''.join(i).encode('utf-8')) 
+ 						  for i in self.pagesoup.xpath(".//div[@class='package']/p[1]//text()")))
 			if summary :
 				self._summary = summary
 			else:
@@ -1255,7 +1281,9 @@ class Page(object):
 				for ul in uls:
 					for alink in ul.xpath(".//a[@class='ulink']"):
 						dlink = alink.attrib['href'].strip()
-						if str(dlink ).endswith('/') or "certdata" in str(dlink ) or str(dlink ).endswith('.html') :
+						if str(dlink ).endswith('/') \
+							or "certdata" in str(dlink ) \
+							or str(dlink ).endswith('.html') :
 							pass  
 						else:
 							download_link.append(dlink)
@@ -1351,16 +1379,19 @@ class Page(object):
 		if link:#.attrib['href']:
 			#link = str(alink.attrib['href'].strip())
 			 
-			if link.endswith('/'): #parse external link :http://search.cpan.org/~gaas/LWP-Protocol-https/
+			if link.endswith('/'): 
+				#parse external link :http://search.cpan.org/~gaas/LWP-Protocol-https/
 			
 				return str(self.parseexternal(link))
 				
 
-			elif   ".html" in link:# same page no need to parse,ex:# /www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
-							      #within BLFS, no need to parse
+			elif   ".html" in link:
+				# same page no need to parse,
+				#ex:# /www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
+				#within BLFS, no need to parse
 				return None
 
-			else:                               # otherwises, need to parse all 
+			else:# otherwises, need to parse all 
 
 				return link
 
@@ -1373,7 +1404,8 @@ class Page(object):
 		
 		soup = etree.HTML(open(link).read())#BeautifulSoup(open(link).read())
 
-		divs = soup.xpath(".//div[@class='package']/div[@class='itemizedlist']")#(findNextSibling(attrs={'class':'itemizedlist'})
+		divs = soup.xpath(".//div[@class='package']/div[@class='itemizedlist']")
+		#(findNextSibling(attrs={'class':'itemizedlist'})
 		for div in divs:
 			if div != None :
 				
@@ -1399,7 +1431,8 @@ class Page(object):
 		downloads=[]					
 
 		lis = div.xpath("./ul/li")
-		#encode-locale-1.03  html-form-6.03  http-cookies-6.01  http-negotiate-6.01  net-http-6.06  www-robotrules-6.02  http-daemon-6.01  file-listing-6.04
+		#encode-locale-1.03  html-form-6.03  http-cookies-6.01  http-negotiate-6.01 
+		# net-http-6.06  www-robotrules-6.02  http-daemon-6.01  file-listing-6.04
 		
 		for li in lis:
 			for a in li.xpath("./p/a"):
@@ -1409,11 +1442,12 @@ class Page(object):
 					continue
 
 
-			if link != None and ".html" in url: # /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
-						     # /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/postlfs/openssl.html
+			if link != None and ".html" in url: 
+				# /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
+				# /home/tomwu/www.linuxfromscratch.org/blfs/view/svn/postlfs/openssl.html
 				downloads = []
 	
-			else:        #http://www.cpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.64.tar.gz/ TITLE
+			else:#http://www.cpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.64.tar.gz/ TITLE
 				downloads = filter(None,[ self.parseperldownload(url) ])
 			
 
@@ -1433,13 +1467,15 @@ class Page(object):
 				i += 1
 				packno = packno = str(self.no) + str(i)
 
-				plist.append(Package(packno,packname,perlcmd,downloads,"",self,self.chapter,self.book))
+				plist.append(
+				Package(packno,packname,perlcmd,downloads,"",self,self.chapter,self.book))
 				counter =  i
 			elif downloads:
 				for down in downloads:
 					nextdown.append(down)
 		
-		if link is not None:# previous parents exists,['libwww-perl-6.05']->['HTML::Form']->['HTTP::Message']
+		if link is not None:
+			# previous parents exists,['libwww-perl-6.05']->['HTML::Form']->['HTTP::Message']
 
 			thisdown = lastdown.popleft() 
 			packname = fullname(parselink(thisdown).strip(".tar.gz"))
@@ -1447,7 +1483,8 @@ class Page(object):
 			i += 1
 			packno = packno = str(self.no) + str(i)
 
-			plist.append(Package(packno,packname,perlcmd,[thisdown],dependency,self,self.chapter,self.book))
+			plist.append(
+			Package(packno,packname,perlcmd,[thisdown],dependency,self,self.chapter,self.book))
 			counter = i
 
 		nextdiv = div.xpath("./ul/li/div[@class='itemizedlist']")# next div to parse
@@ -1476,12 +1513,17 @@ class Page(object):
 				thisline = ''.join(str(l) for l in line.xpath(".//text()")) + "\n"
 				#make line extend two line into one line
 				thisline =  re.compile(r'\s*\\\n\s*',re.MULTILINE).sub(' ',thisline)
-				if containsAny(prev, ['doxygen','Doxygen','texlive','TeX Live','Sphinx']) and not containsAny(prev,['Install Doxygen']):
+				if containsAny(prev, ['doxygen','Doxygen','texlive','TeX Live','Sphinx']) \
+				    and not containsAny(prev,['Install Doxygen']):
 					
 					pass
-				elif   containsAny(prev, ['documentation','manual']) and 
-						containsAny(prev, ['If you','API','alternate''optional','Sphinx','DocBook-utils','Additional','PDF','Postscript']) and  
-						not containsAny(prev,['If you downloaded','Man and info reader programs','The Info documentation system']):
+				elif containsAny(prev, ['documentation','manual']) and \
+					 containsAny(prev, ['If you','API','alternate''optional',
+										  'Sphinx','DocBook-utils','Additional',
+										  'PDF','Postscript']) and  \
+					 not containsAny(prev,['If you downloaded',
+                                          'Man and info reader programs',
+											'The Info documentation system']):
 					
 					pass
 				elif line.xpath("../preceding-sibling::p//a[@title='BLFS Boot Scripts']"):
@@ -1491,7 +1533,8 @@ class Page(object):
 					cmds.append("mkdir /etc\n")
 					cmds.append("mkdir  ${SOURCES}/" + bootscript[0].shortname + "\n")
 					cmds.append("cd ${SOURCES}/" + bootscript[0].shortname + "\n")
-					cmds.append("tar xf ../" + parselink(bootscript[0].downloads[0])+"  --strip-components 1\n")
+					cmds.append("tar xf ../" + parselink(bootscript[0].downloads[0])+ 
+														  "  --strip-components 1\n")
 
 					cmds.append(thisline)
 
@@ -1548,7 +1591,15 @@ class Page(object):
 						
 						if "blfs" in self.book.link:
 							depends = self.parsedependency(parent)
-						plist.append(Package(packno,packname,cmds,downs,depends,self,self.chapter,self.book))
+						plist.append(Package(
+											packno,
+											packname,
+											cmds,
+											downs,
+											depends,
+											self,
+											self.chapter,
+											self.book))
 			self._packages = plist
 		return self._packages
 						
@@ -1577,7 +1628,12 @@ class Chapter(object):
 				pages = pageul.xpath(tag)
 				for i,p in enumerate(pages):
 					 
-					plist.append(Page(str(self.no) + str(i+1).zfill(2),p.text,p.attrib['href'] ,self,self.book))
+					plist.append(
+								Page(str(self.no) + str(i+1).zfill(2),
+								p.text,
+								p.attrib['href'] ,
+								self,
+								self.book))
 			self._pages = plist
 
 	def addpage(self,page):
@@ -1591,7 +1647,8 @@ class Chapter(object):
 	def mkblock(self):
 		mkstr = "" 
 		if containsAny(self.name,['the-kde-core','kde-additional-packages']):
-			mkstr += "\n\n" + self.name + " : after-lfs-configuration-issues kde-pre-installation-configuration"
+			mkstr += "\n\n" + self.name + " : after-lfs-configuration-issues \
+											 kde-pre-installation-configuration"
 			
 		elif self.name not in "after-lfs-configuration-issues":
 			mkstr += "\n\n" + self.name + " : after-lfs-configuration-issues "
@@ -1671,7 +1728,10 @@ class Book(object):
 				for p in pack:
 					for cmd in p.commands:
 						
-						match = re.search('/udev-lfs((-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',cmd,re.IGNORECASE)
+						match = re.search(
+						'/udev-lfs((-([0-9.]+))+)[^/]*\.tar\.((bz2)|(xz)|(gz))$',
+						cmd,re.IGNORECASE)
+
 						if match:
 							self._udev_version = match.group(1).strip("-")
 							break
@@ -1730,7 +1790,9 @@ class Book(object):
 
 	def search(self,name):
 		''' Jump to specific pacakge by name,return the pacakge object '''
-		soup = self.booksoup.xpath('.//a[contains(translate(., "ABCDEFGHJIKLMNOPQRSTUVWXYZ", "abcdefghjiklmnopqrstuvwxyz"),"' + name.lower() + '")]/../../../h4//text()')
+		soup = self.booksoup.xpath('.//a[contains(translate(., \
+				"ABCDEFGHJIKLMNOPQRSTUVWXYZ", "abcdefghjiklmnopqrstuvwxyz"),"' \
+				 + name.lower() + '")]/../../../h4//text()')
 		
 		chno = 0
 		counter = 0
@@ -1787,7 +1849,9 @@ class Book(object):
 			try:
 				self._soup = etree.HTML(open(self.link).read())
 			except IOError:
-				os.system("wget --recursive  --no-clobber --html-extension  --convert-links  --restrict-file-names=windows  --domains www.linuxfromscratch.org   --no-parent " + self.link)
+				os.system("wget --recursive  --no-clobber --html-extension  \
+				--convert-links --restrict-file-names=windows  \
+			 	--domains www.linuxfromscratch.org   --no-parent " + self.link)
 				self._soup = etree.HTML(open(self.link).read())
 
 		return self._soup
