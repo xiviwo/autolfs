@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GnuTLS-3.2.11
+      GnuTLS-3.3.7
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnupg.html" title="GnuPG-2.0.22">Prev</a>
+          <a accesskey="p" href="gnupg.html" title="GnuPG-2.0.26">Prev</a>
           <p>
-            GnuPG-2.0.22
+            GnuPG-2.0.26
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gpgme.html" title="GPGME-1.4.3">Next</a>
+          <a accesskey="n" href="gpgme.html" title="GPGME-1.5.1">Next</a>
           <p>
-            GPGME-1.4.3
+            GPGME-1.5.1
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gnutls" name="gnutls"></a>GnuTLS-3.2.11
+        <a id="gnutls" name="gnutls"></a>GnuTLS-3.3.7
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -75,7 +75,7 @@
           OpenPGP certificate handling.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -86,30 +86,30 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/gnutls-3.2.11.tar.xz">
-                ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/gnutls-3.2.11.tar.xz</a>
+                "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3/gnutls-3.3.7.tar.xz">
+                ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3/gnutls-3.3.7.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 3fce0742dd7e273235a9d376dd895657
+                Download MD5 sum: a7a73cfa883cd106d70b15300552a5b5
               </p>
             </li>
             <li>
               <p>
-                Download size: 4.9 MB
+                Download size: 5.8 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 102 MB (additional 10 MB for
-                the tests and 4 MB for the API documentation rebuild)
+                Estimated disk space required: 104 MB (additional 8 MB for
+                the tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.9 SBU (additional 1.3 SBU for the
-                tests and less than 0.1 SBU for API documentation rebuild)
+                Estimated build time: 0.9 SBU (additional 1.8 SBU for the
+                tests)
               </p>
             </li>
           </ul>
@@ -131,25 +131,27 @@
           <a class="xref" href="cacerts.html" title=
           "Certificate Authority Certificates">Certificate Authority
           Certificates</a> and <a class="xref" href=
-          "../general/libtasn1.html" title="libtasn1-3.4">libtasn1-3.4</a>
+          "../general/libtasn1.html" title="libtasn1-4.1">libtasn1-4.1</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="ulink" href=
-          "http://ftp.gnu.org/gnu/autogen/">autogen</a>, <a class="xref"
-          href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.19">GTK-Doc-1.19</a>, <a class="xref" href=
-          "../general/guile.html" title="Guile-2.0.9">Guile-2.0.9</a>,
+          <a class="xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.20">GTK-Doc-1.20</a>, <a class="xref" href=
+          "../general/guile.html" title="Guile-2.0.11">Guile-2.0.11</a>,
           <a class="xref" href="../general/libidn.html" title=
-          "libidn-1.28">libidn-1.28</a>, <a class="xref" href="p11-kit.html"
-          title="p11-kit-0.20.2">p11-kit-0.20.2</a>, <a class="ulink" href=
+          "libidn-1.29">libidn-1.29</a>, <a class="xref" href="p11-kit.html"
+          title="p11-kit-0.20.6">p11-kit-0.20.6</a>, <a class="xref" href=
+          "../server/unbound.html" title="Unbound-1.4.22">Unbound-1.4.22</a>
+          (to build the DANE library), <a class="xref" href=
+          "../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a> (used during the test suite),
+          <a class="ulink" href=
+          "http://ftp.gnu.org/gnu/autogen/">autogen</a>, and <a class="ulink"
+          href=
           "http://sourceforge.net/projects/trousers/files/trousers/">Trousers</a>
-          (Trusted Platform Module support), <a class="xref" href=
-          "../server/unbound.html" title="Unbound-1.4.21">Unbound-1.4.21</a>
-          (to build the DANE library), and <a class="ulink" href=
-          "http://valgrind.org/">Valgrind</a> (used during the test suite)
+          (Trusted Platform Module support)
         </p>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -158,7 +160,7 @@
           </h3>
           <p>
             Note that if you do not install <a class="xref" href=
-            "../general/libtasn1.html" title="libtasn1-3.4">libtasn1-3.4</a>,
+            "../general/libtasn1.html" title="libtasn1-4.1">libtasn1-4.1</a>,
             an older version shipped in the <span class=
             "application">GnuTLS</span> tarball will be used instead.
           </p>
@@ -173,12 +175,19 @@
           Installation of GnuTLS
         </h2>
         <p>
+          First fix a bug in one of the libraries:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i -e '201 i#ifdef ENABLE_PKCS11' \
+       -e '213 i#endif'               \
+       lib/gnutls_privkey.c</kbd>
+</pre>
+        <p>
           Install <span class="application">GnuTLS</span> by running the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr    \
-            --disable-static \
+<kbd class="command">./configure --prefix=/usr \
             --with-default-trust-store-file=/etc/ssl/ca-bundle.crt &amp;&amp;
 make</kbd>
 </pre>
@@ -217,10 +226,6 @@ make</kbd>
           Certificates.
         </p>
         <p>
-          <em class="parameter"><code>--disable-static</code></em>: This
-          switch prevents installation of static versions of the libraries.
-        </p>
-        <p>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
           <span class="application">GTK-Doc</span> is installed and you wish
           to rebuild and install the API documentation.
@@ -235,19 +240,19 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">certtool, crywrap, danetool, gnutls-cli,
-              gnutls-cli-debug, gnutls-serv, ocsptool, p11tool, psktool and
+              gnutls-cli-debug, gnutls-serv, ocsptool, p11tool, psktool, and
               srptool</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libgnutls.so, libgnutls-openssl.so,
-              libgnutls-xssl.so, libgnutlsxx.so and
+              <span class="segbody">libgnutls.so, libgnutls-dane.so,
+              libgnutls-openssl.so, libgnutlsxx.so, and
               /usr/lib/guile/2.0/guile-gnutls-v-2.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/gnutls,
-              /usr/share/gtk-doc/html/gnutls and
+              /usr/share/gtk-doc/html/gnutls, and
               /usr/share/guile/site/gnutls</span>
             </div>
           </div>
@@ -288,7 +293,7 @@ make</kbd>
                     and proxies them to an unencrypted location. Only
                     installed if <a class="xref" href=
                     "../general/libidn.html" title=
-                    "libidn-1.28">libidn-1.28</a> is present.
+                    "libidn-1.29">libidn-1.29</a> is present.
                   </p>
                 </td>
               </tr>
@@ -434,21 +439,21 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 06:45:35 -0800
+        Last updated on 2014-09-10 06:19:10 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gnupg.html" title="GnuPG-2.0.22">Prev</a>
+          <a accesskey="p" href="gnupg.html" title="GnuPG-2.0.26">Prev</a>
           <p>
-            GnuPG-2.0.22
+            GnuPG-2.0.26
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gpgme.html" title="GPGME-1.4.3">Next</a>
+          <a accesskey="n" href="gpgme.html" title="GPGME-1.5.1">Next</a>
           <p>
-            GPGME-1.4.3
+            GPGME-1.5.1
           </p>
         </li>
         <li class="up">
@@ -457,7 +462,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

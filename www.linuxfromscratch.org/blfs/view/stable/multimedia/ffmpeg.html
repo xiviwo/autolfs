@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      FFmpeg-2.1.3
+      FFmpeg-2.3.3
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;41.&nbsp;Video Utilities
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ffmpeg" name="ffmpeg"></a>FFmpeg-2.1.3
+        <a id="ffmpeg" name="ffmpeg"></a>FFmpeg-2.3.3
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -66,7 +66,7 @@
           source.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -77,29 +77,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ffmpeg.org/releases/ffmpeg-2.1.3.tar.bz2">http://ffmpeg.org/releases/ffmpeg-2.1.3.tar.bz2</a>
+                "http://ffmpeg.org/releases/ffmpeg-2.3.3.tar.bz2">http://ffmpeg.org/releases/ffmpeg-2.3.3.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 711b795bbc7b527c0f4a1828f324fd5a
+                Download MD5 sum: 72361d3b8717b6db3ad2b9da8df7af5e
               </p>
             </li>
             <li>
               <p>
-                Download size: 6.4 MB
+                Download size: 7.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 107 MB (additional 710 MB for
-                docs and 1.5 GB for tests)
+                Estimated disk space required: 128 MB (additional 857 MB for
+                docs and 1871 MB to run the FATE tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 2.3 SBU (additional 0.6 SBU for docs
-                12.3 to run the tests, after test files are downloaded)
+                Estimated build time: 3.3 SBU (additional 0.9 SBU for docs
+                and 4.5 SBU to run the FATE tests, after sample files are
+                downloaded)
               </p>
             </li>
           </ul>
@@ -112,17 +113,16 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/yasm.html" title=
-          "yasm-1.2.0">yasm-1.2.0</a>, <a class="xref" href="libass.html"
-          title="libass-0.10.2">libass-0.10.2</a>, <a class="xref" href=
+          "yasm-1.3.0">yasm-1.3.0</a>, <a class="xref" href="libass.html"
+          title="libass-0.11.2">libass-0.11.2</a>, <a class="xref" href=
           "fdk-aac.html" title="fdk-aac-0.1.3">fdk-aac-0.1.3</a>, <a class=
           "xref" href="lame.html" title="LAME-3.99.5">LAME-3.99.5</a>,
-          <a class="xref" href="opus.html" title="Opus-1.1">Opus-1.1</a>,
           <a class="xref" href="libtheora.html" title=
           "libtheora-1.1.1">libtheora-1.1.1</a>, <a class="xref" href=
           "libvorbis.html" title="libvorbis-1.3.4">libvorbis-1.3.4</a>,
           <a class="xref" href="libvpx.html" title=
           "libvpx-v1.3.0">libvpx-1.3.0</a>, and <a class="xref" href=
-          "x264.html" title="x264-20140115-2245">x264-20140115-2245</a>
+          "x264.html" title="x264-20140818-2245">x264-20140818-2245</a>
         </p>
         <h4>
           Recommended for desktop use
@@ -131,11 +131,11 @@
           <a class="xref" href="../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a>, <a class="xref" href="alsa-lib.html" title=
-          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
+          "alsa-lib-1.0.28">alsa-lib-1.0.28</a>, <a class="xref" href=
           "sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>, <a class="xref" href=
-          "../x/x7driver.html#libva" title="libva-1.2.1">libva-1.2.1</a> and
+          "../x/x7driver.html#libva" title="libva-1.3.1">libva-1.3.1</a> and
           <a class="xref" href="../x/x7driver.html#libvdpau" title=
-          "libvdpau-0.7">libvdpau-0.7</a> (with the corresponding driver
+          "libvdpau-0.8">libvdpau-0.8</a> (with the corresponding driver
           package)
         </p>
         <h4>
@@ -144,19 +144,24 @@
         <p class="optional">
           <a class="xref" href="faac.html" title="FAAC-1.28">FAAC-1.28</a>,
           <a class="xref" href="../general/freetype2.html" title=
-          "FreeType-2.5.2">FreeType-2.5.2</a>, <a class="xref" href=
-          "../general/openjpeg.html" title=
-          "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a>, <a class="xref" href=
-          "pulseaudio.html" title="PulseAudio-4.0">PulseAudio-4.0</a>,
+          "FreeType-2.5.3">FreeType-2.5.3</a>, <a class="xref" href=
+          "../general/libwebp.html" title="libwebp-0.4.1">libwebp-0.4.1</a>,
+          <a class="xref" href="../general/openjpeg.html" title=
+          "OpenJPEG-1.5.2">OpenJPEG-1.5.2</a>, <a class="xref" href=
+          "pulseaudio.html" title="PulseAudio-5.0">PulseAudio-5.0</a>,
           <a class="xref" href="speex.html" title=
           "Speex-1.2rc1">Speex-1.2rc1</a>, <a class="xref" href="xvid.html"
-          title="XviD-1.3.2">XviD-1.3.2</a>, <a class="xref" href=
+          title="XviD-1.3.3">XviD-1.3.3</a>, <a class="xref" href=
           "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="xref" href=
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>, <a class="xref" href=
           "../general/fontconfig.html" title=
-          "Fontconfig-2.11.0">Fontconfig-2.11.0</a>, <a class="ulink" href=
-          "http://www.piksel.org/frei0r">frei0r</a>, <a class="xref" href=
-          "../postlfs/gnutls.html" title="GnuTLS-3.2.11">GnuTLS-3.2.11</a>,
+          "Fontconfig-2.11.1">Fontconfig-2.11.1</a>, <a class="xref" href=
+          "../postlfs/gnutls.html" title="GnuTLS-3.3.7">GnuTLS-3.3.7</a>,
+          <a class="xref" href="opus.html" title="Opus-1.1">Opus-1.1</a>,
+          <a class="ulink" href=
+          "https://files.dyne.org/frei0r/snapshots/">frei0r</a>, <a class=
+          "ulink" href=
+          "http://xhevc.com/en/hevc/decoder/download.jsp">HEVC/H.265</a>,
           <a class="ulink" href="http://www.ladspa.org/">LADSPA</a>,
           <a class="ulink" href="http://www.libssh.org/">libssh</a>,
           <a class="ulink" href=
@@ -193,10 +198,12 @@
           "http://sourceforge.net/projects/opencore-amr/files/vo-amrwbenc/">vo-amrwbenc</a>,
           <a class="ulink" href="http://xavs.sourceforge.net/">libxavs</a>
           (SVN checkout), <a class="ulink" href=
-          "http://kcat.strangesoft.net/openal-releases/">OpenAL</a>, and
+          "http://kcat.strangesoft.net/openal-releases/">OpenAL</a>,
           <a class="ulink" href=
           "http://www.nongnu.org/texi2html">texi2html</a> (to build HTML
-          documentation)
+          documentation), and <a class="ulink" href=
+          "http://www.videolan.org/developers/x265.html">x265 (H.265/MPEG-H
+          HEVC)</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -224,7 +231,6 @@
             --enable-libass      \
             --enable-libfdk-aac  \
             --enable-libmp3lame  \
-            --enable-libopus     \
             --enable-libtheora   \
             --enable-libvorbis   \
             --enable-libvpx      \
@@ -239,12 +245,16 @@ gcc tools/qt-faststart.c -o tools/qt-faststart</kbd>
           installed. If the HTML was built (check for any <code class=
           "filename">.html</code> files in the <code class=
           "filename">doc</code> directory) and you have <a class="xref" href=
-          "../pst/texlive.html" title="texlive-20130530">texlive-20130530</a>
+          "../pst/texlive.html" title="texlive-20140525">texlive-20140525</a>
           installed and wish to build PDF and Postscript versions of the
           documentation, issue the following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">pushd doc &amp;&amp;
+<kbd class=
+"command">sed -i '$s/$/\n\n@bye/' doc/{git-howto,nut,fate}.texi             &amp;&amp;
+sed -i '/machine:i386/ s/\\/@backslashchar{}/g' doc/platform.texi &amp;&amp;
+
+pushd doc &amp;&amp;
 for DOCNAME in `basename -s .html *.html`
 do
     texi2pdf -b $DOCNAME.texi &amp;&amp;
@@ -257,19 +267,41 @@ unset DOCNAME</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="../general/doxygen.html" title=
-          "Doxygen-1.8.6">Doxygen-1.8.6</a> installed and wish to create the
+          "Doxygen-1.8.8">Doxygen-1.8.8</a> installed and wish to create the
           API documentation (takes about 350 MB of space), issue the command
           <span class="command"><strong>doxygen doc/Doxyfile</strong></span>.
         </p>
         <p>
           To properly test the installation you must have <a class="xref"
-          href="../basicnet/rsync.html" title="rsync-3.1.0">rsync-3.1.0</a>
+          href="../basicnet/rsync.html" title="rsync-3.1.1">rsync-3.1.1</a>
           installed and follow the instructions for the <a class="ulink"
-          href="http://ffmpeg.org/FATE.html">FFmpeg Automated Testing
-          Environment</a> (FATE). First, about 736 MB of data files used to
-          run FATE are downloaded. Next, FATE is executed. Estimated values
-          in "Package Information" do not include the download SBU.
+          href="http://www.ffmpeg.org/fate.html">FFmpeg Automated Testing
+          Environment</a> (FATE). First, about 872 MB of sample files used to
+          run FATE are downloaded with the command:
         </p>
+        <pre class="userinput">
+<kbd class="command">make fate-rsync SAMPLES=fate-suite/</kbd>
+</pre>
+        <p>
+          The <code class="filename">fate-suite</code> directory is created
+          and the files are downloaded there. That command actually runs
+          <span class="command"><strong>rsync -vrltLW --timeout=60
+          --contimeout=60 rsync://fate-suite.ffmpeg.org/fate-suite/
+          fate-suite/</strong></span> command, thus you may want to compress
+          and keep this directory for testing again, in another system, or
+          when a new version of ffmpeg is launched. Then, you unpack the
+          sample files in the source directory, and run, again, the
+          <span class="command"><strong>make</strong></span> command above,
+          to sync with the repository. Now, the download size and time are
+          drastically reduced. Estimated values in "Package Information" do
+          not include the download SBU. Next, FATE is executed, with the
+          commands (you obtain a number of tests greater than 1900):
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">make fate SAMPLES=fate-suite/ | tee ../fate.log &amp;&amp;
+grep ^TEST ../fate.log | wc -l</kbd>
+</pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
@@ -295,9 +327,11 @@ install -v -m644    doc/*.txt \
           "systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">install -v -m755 -d /usr/share/doc/ffmpeg/api &amp;&amp;
-install -v -m644    doc/doxy/html/* \
-                    /usr/share/doc/ffmpeg/api</kbd>
+<kbd class=
+"command">install -v -m755 -d /usr/share/doc/ffmpeg/api                       &amp;&amp;
+cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg/api                    &amp;&amp;
+find /usr/share/doc/ffmpeg/api -type f -exec chmod -c 0644 "{}" ";" &amp;&amp;
+find /usr/share/doc/ffmpeg/api -type d -exec chmod -c 0755 "{}" ";"</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -305,11 +339,19 @@ install -v -m644    doc/doxy/html/* \
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed -i ...</strong></span>: This
-          command adds the <span class="application">ALSA</span> library to
-          the <span class="application">Flite</span> <code class=
+          <span class="command"><strong>sed -i ... configure</strong></span>:
+          This command adds the <span class="application">ALSA</span> library
+          to the <span class="application">Flite</span> <code class=
           "envar">LDFLAGS</code> variable and enables the discovery of
           <span class="application">Flite</span>.
+        </p>
+        <p>
+          <span class="command"><strong>sed -i ... texi</strong></span>: Fix
+          some .texi files for documentation builds.
+        </p>
+        <p>
+          <span class="command"><strong>find ... ";"</strong></span>: Fix
+          permissions of documentation files and directories.
         </p>
         <p>
           <code class="option">--enable-libfreetype</code>: Enables
@@ -356,11 +398,6 @@ install -v -m644    doc/doxy/html/* \
           <em class="parameter"><code>--enable-libmp3lame</code></em>:
           Enables MP3 audio encoding via <code class=
           "filename">libmp3lame</code>.
-        </p>
-        <p>
-          <em class="parameter"><code>--enable-libopus</code></em>: Enables
-          Opus encoding for low latency streaming via <code class=
-          "filename">libopus</code>.
         </p>
         <p>
           <em class="parameter"><code>--enable-libvorbis
@@ -667,7 +704,7 @@ install -v -m644    doc/doxy/html/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-25 13:04:58 -0800
+        Last updated on 2014-09-11 23:27:59 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -691,7 +728,7 @@ install -v -m644    doc/doxy/html/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

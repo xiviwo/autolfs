@@ -235,4 +235,7 @@ SpecsSkipList = [
 'about-raid'
 
 ]
+perl_pack_lists= "perl_pack_lists"
+mfile = "/port/mirrorfile"
+baselink="http://mirrors-usa.go-parts.com/blfs/"
 

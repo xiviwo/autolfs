@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Libdvdread-4.2.1
+      Libdvdread-5.0.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="libdvdcss.html" title=
-          "libdvdcss-1.2.13">Prev</a>
+          "libdvdcss-1.3.0">Prev</a>
           <p>
-            libdvdcss-1.2.13
+            libdvdcss-1.3.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="libdvdnav.html" title=
-          "Libdvdnav-4.2.1">Next</a>
+          "Libdvdnav-5.0.1">Next</a>
           <p>
-            Libdvdnav-4.2.1
+            Libdvdnav-5.0.1
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="libdvdread" name="libdvdread"></a>Libdvdread-4.2.1
+        <a id="libdvdread" name="libdvdread"></a>Libdvdread-5.0.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           provides a simple foundation for reading DVDs.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,28 +69,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://dvdnav.mplayerhq.hu/releases/libdvdread-4.2.1.tar.xz">
-                http://dvdnav.mplayerhq.hu/releases/libdvdread-4.2.1.tar.xz</a>
+                "http://download.videolan.org/pub/videolan/libdvdread/5.0.0/libdvdread-5.0.0.tar.bz2">
+                http://download.videolan.org/pub/videolan/libdvdread/5.0.0/libdvdread-5.0.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 68cf65b46478ff894be6e91d97dae41a
+                Download MD5 sum: 20b964a3fb290b8df45c6b25d37411de
               </p>
             </li>
             <li>
               <p>
-                Download size: 96 KB
+                Download size: 372 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 4.3 MB
+                Estimated disk space required: 4.9 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.1 SBU
+                Estimated build time: less than 0.1 SBU
               </p>
             </li>
           </ul>
@@ -109,7 +109,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./autogen.sh --prefix=/usr &amp;&amp;
+<kbd class="command">./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/libdvdread-5.0.0 &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -121,19 +123,6 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
-      </div>
-      <div class="commands" lang="en" xml:lang="en">
-        <h2 class="sect2">
-          Command Explanations
-        </h2>
-        <p>
-          <span class="command"><strong>./autogen.sh</strong></span>: This
-          package does not come with the normal <span class=
-          "command"><strong>configure</strong></span> script, so the
-          <span class="command"><strong>autogen.sh</strong></span> script is
-          used to generate and run <span class=
-          "command"><strong>configure</strong></span>.
-        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -181,23 +170,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 13:02:22 -0800
+        Last updated on 2014-09-15 22:13:43 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="libdvdcss.html" title=
-          "libdvdcss-1.2.13">Prev</a>
+          "libdvdcss-1.3.0">Prev</a>
           <p>
-            libdvdcss-1.2.13
+            libdvdcss-1.3.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="libdvdnav.html" title=
-          "Libdvdnav-4.2.1">Next</a>
+          "Libdvdnav-5.0.1">Next</a>
           <p>
-            Libdvdnav-4.2.1
+            Libdvdnav-5.0.1
           </p>
         </li>
         <li class="up">
@@ -206,7 +195,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

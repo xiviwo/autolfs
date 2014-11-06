@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libxcb.html" title="libxcb-1.10">Prev</a>
+          <a accesskey="p" href="libxcb.html" title="libxcb-1.11">Prev</a>
           <p>
-            libxcb-1.10
+            libxcb-1.11
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
           routines that are used within all X Window applications.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -95,20 +95,6 @@
           </ul>
         </div>
         <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/libXft-2.3.1-freetype_fix-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/libXft-2.3.1-freetype_fix-1.patch</a>
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
           Xorg Libraries Dependencies
         </h3>
         <h4>
@@ -116,22 +102,22 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/fontconfig.html" title=
-          "Fontconfig-2.11.0">Fontconfig-2.11.0</a> and <a class="xref" href=
-          "libxcb.html" title="libxcb-1.10">libxcb-1.10</a>
+          "Fontconfig-2.11.1">Fontconfig-2.11.1</a> and <a class="xref" href=
+          "libxcb.html" title="libxcb-1.11">libxcb-1.11</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../pst/xmlto.html" title=
-          "xmlto-0.0.25">xmlto-0.0.25</a> with one or more of the following:
+          "xmlto-0.0.26">xmlto-0.0.26</a> with one or more of the following:
           <a class="xref" href="../pst/fop.html" title="fop-1.1">fop-1.1</a>,
           <a class="xref" href="../basicnet/links.html" title=
           "Links-2.8">Links-2.8</a>, <a class="xref" href=
-          "../basicnet/lynx.html" title="Lynx-2.8.8">Lynx-2.8.8</a>, and
-          <a class="xref" href="../basicnet/w3m.html" title=
-          "W3m-0.5.3">w3m-0.5.3</a> (to generate additional PDF or text
-          documentation for the libXfont package).
+          "../basicnet/lynx.html" title=
+          "Lynx-2.8.8rel.2">Lynx-2.8.8rel.2</a>, and <a class="xref" href=
+          "../basicnet/w3m.html" title="W3m-0.5.3">w3m-0.5.3</a> (to generate
+          additional PDF or text documentation for the libXfont package).
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -148,11 +134,11 @@
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; lib-7.7.md5 &lt;&lt; "EOF"
-<code class="literal">2f14c31ab556fc91039f51a113b38aa2  xtrans-1.3.3.tar.bz2
+<code class="literal">a615e17d9fee6f097fc3b716eacb3dca  xtrans-1.3.4.tar.bz2
 c35d6ad95b06635a524579e88622fdb5  libX11-1.6.2.tar.bz2
-4376101e51bb2c6c44d9ab14344e85ad  libXext-1.3.2.tar.bz2
-e3c77ca27942ebc5eb2ca99f29363515  libFS-1.0.5.tar.bz2
-471b5ca9f5562ac0d6eac7a0bf650738  libICE-1.0.8.tar.bz2
+52df7c4c1f0badd9f82ab124fb32eb97  libXext-1.3.3.tar.bz2
+a8a0dbd2299b2568d8c919883f5c8501  libFS-1.0.6.tar.bz2
+addfb1e897ca8079531669c7c7711726  libICE-1.0.9.tar.bz2
 499a7773c65aba513609fe651853c5f3  libSM-1.2.2.tar.bz2
 7a773b16165e39e938650bcc9027c1d5  libXScrnSaver-1.2.2.tar.bz2
 03149823ae57bb02d0cec90d5b97d56c  libXt-1.1.4.tar.bz2
@@ -165,9 +151,9 @@ f7a218dcbf6f0848599c6c36fc65c51a  libXcomposite-0.4.4.tar.bz2
 1e7c17afbbce83e2215917047c57d1b3  libXcursor-1.1.14.tar.bz2
 0cf292de2a9fa2e9a939aefde68fd34f  libXdamage-1.1.4.tar.bz2
 ad2919764933e075bb0361ad5caa3d19  libfontenc-1.1.2.tar.bz2
-b21ee5739d5d2e5028b302fbf9fe630b  libXfont-1.4.7.tar.bz2
-78d64dece560c9e8699199f3faa521c0  libXft-2.3.1.tar.bz2
-f4df3532b1af1dcc905d804f55b30b4a  libXi-1.7.2.tar.bz2
+664629bfa7cdf8b984155019fd395dcb  libXfont-1.5.0.tar.bz2
+331b3a2a3a1a78b5b44cfbd43f86fcfe  libXft-2.3.2.tar.bz2
+9c4a69c34b19ec1e4212e849549544cb  libXi-1.7.4.tar.bz2
 9336dc46ae3bf5f81c247f7131461efd  libXinerama-1.1.3.tar.bz2
 210ed9499a3d9c96e3a221629b7d39b0  libXrandr-1.4.2.tar.bz2
 45ef29206a6b58254c81bea28ec6c95f  libXres-1.0.7.tar.bz2
@@ -220,7 +206,7 @@ md5sum -c ../lib-7.7.md5</kbd>
                   Use the <span class="command"><strong>sudo</strong></span>
                   command from the <a class="xref" href=
                   "../postlfs/sudo.html" title=
-                  "Sudo-1.8.9p5">Sudo-1.8.9p5</a> package.
+                  "Sudo-1.8.10p3">Sudo-1.8.10p3</a> package.
                 </p>
               </li>
               <li>
@@ -267,18 +253,8 @@ do
   tar -xf $package
   pushd $packagedir
   case $packagedir in
-    libFS-[0-9]* )
-      sed -e '/#include &lt;X11/ i\#include &lt;X11\/Xtrans\/Xtransint.h&gt;' \
-          -e 's/_FSTransReadv(svr-&gt;trans_conn/readv(svr-&gt;trans_conn-&gt;fd/' \
-          -i src/FSlibInt.c
-      ./configure $XORG_CONFIG
-    ;;
     libXfont-[0-9]* )
       ./configure $XORG_CONFIG --disable-devel-docs
-    ;;
-    libXft-[0-9]* )
-      patch -Np1 -i ../../libXft-2.3.1-freetype_fix-1.patch
-      ./configure $XORG_CONFIG
     ;;
     libXt-[0-9]* )
       ./configure $XORG_CONFIG \
@@ -315,7 +291,7 @@ done</kbd>
           <em class="parameter"><code>--disable-devel-docs</code></em>:
           Disable generation of text documentation in the libXfont package if
           <a class="xref" href="../pst/xmlto.html" title=
-          "xmlto-0.0.25">xmlto-0.0.25</a> is installed without a text
+          "xmlto-0.0.26">xmlto-0.0.26</a> is installed without a text
           browser. Omit this parameter (or the entire <span class=
           "command"><strong>case</strong></span> statement) if a text browser
           is installed.
@@ -362,6 +338,8 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody"><code class=
+              "envar">$XORG_PREFIX</code>/include/X11/fonts, <code class=
+              "envar">$XORG_PREFIX</code>/include/X11/Xtrans, <code class=
               "envar">$XORG_PREFIX</code>/share/doc/libFS, <code class=
               "envar">$XORG_PREFIX</code>/share/doc/libICE, <code class=
               "envar">$XORG_PREFIX</code>/share/doc/libSM, <code class=
@@ -885,15 +863,15 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 12:55:40 -0800
+        Last updated on 2014-09-10 06:19:10 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="libxcb.html" title="libxcb-1.10">Prev</a>
+          <a accesskey="p" href="libxcb.html" title="libxcb-1.11">Prev</a>
           <p>
-            libxcb-1.10
+            libxcb-1.11
           </p>
         </li>
         <li class="next">
@@ -909,7 +887,7 @@ ln -sv $XORG_PREFIX/include/X11 /usr/include/X11</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

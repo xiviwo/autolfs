@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      lxde-common-0.5.5
+      lxde-common-0.5.6
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;34.&nbsp;LXDE Desktop
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="lxde-common" name="lxde-common"></a>lxde-common-0.5.5
+        <a id="lxde-common" name="lxde-common"></a>lxde-common-0.5.6
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           set of default configuration for LXDE.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,18 +69,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/lxde/lxde-common-0.5.5.tar.gz">
-                http://downloads.sourceforge.net/lxde/lxde-common-0.5.5.tar.gz</a>
+                "http://downloads.sourceforge.net/lxde/lxde-common-0.5.6.tar.xz">
+                http://downloads.sourceforge.net/lxde/lxde-common-0.5.6.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: e51a6b2a815a89fda1f497b509465a97
+                Download MD5 sum: 259b4a2db50117e632e34912251cfcb9
               </p>
             </li>
             <li>
               <p>
-                Download size: 880 KB
+                Download size: 844 KB
               </p>
             </li>
             <li>
@@ -105,13 +105,13 @@
           <a class="xref" href="../postlfs/consolekit.html" title=
           "ConsoleKit-0.4.6">ConsoleKit-0.4.6</a>, <a class="xref" href=
           "lxde-icon-theme.html" title=
-          "lxde-icon-theme-0.5.0">lxde-icon-theme-0.5.0</a>, <a class="xref"
-          href="lxpanel.html" title="LXPanel-0.6.1">LXPanel-0.6.1</a>,
+          "lxde-icon-theme-0.5.1">lxde-icon-theme-0.5.1</a>, <a class="xref"
+          href="lxpanel.html" title="LXPanel-0.7.0">LXPanel-0.7.0</a>,
           <a class="xref" href="lxsession.html" title=
           "LXSession-0.4.9.2">LXSession-0.4.9.2</a>, <a class="xref" href=
           "../x/openbox.html" title="openbox-3.5.2">openbox-3.5.2</a>
           (runtime), and <a class="xref" href="pcmanfm.html" title=
-          "PCManFM-1.1.2">PCManFM-1.1.2</a>
+          "PCManFM-1.2.2">PCManFM-1.2.2</a>
         </p>
         <h4>
           Recommended
@@ -120,20 +120,21 @@
           <a class="xref" href="../general/desktop-file-utils.html" title=
           "desktop-file-utils-0.22">desktop-file-utils-0.22</a>, <a class=
           "xref" href="../general/hicolor-icon-theme.html" title=
-          "hicolor-icon-theme-0.12">hicolor-icon-theme-0.12</a>, and
+          "hicolor-icon-theme-0.13">hicolor-icon-theme-0.13</a>, and
           <a class="xref" href="../general/shared-mime-info.html" title=
-          "shared-mime-info-1.2">shared-mime-info-1.2</a>
+          "shared-mime-info-1.3">shared-mime-info-1.3</a>
         </p>
         <h4>
           Optional Runtime Dependencies
         </h4>
         <p class="optional">
-          Notification Daemon, such as <a class="xref" href=
-          "../gnome/notification-daemon.html" title=
+          <a class="xref" href="../general/dbus.html" title=
+          "D-Bus-1.8.8">D-Bus-1.8.8</a>, a notification daemon such as
+          <a class="xref" href="../gnome/notification-daemon.html" title=
           "notification-daemon-0.7.6">notification-daemon-0.7.6</a> or
           <a class="xref" href="../xfce/xfce4-notifyd.html" title=
-          "xfce4-notifyd-0.2.4">xfce4-notifyd-0.2.4</a> and Polkit
-          Authentication Agent, such as <a class="xref" href="lxpolkit.html"
+          "xfce4-notifyd-0.2.4">xfce4-notifyd-0.2.4</a>, and a polkit
+          authentication agent such as <a class="xref" href="lxpolkit.html"
           title="LXPolkit-0.1.0">LXPolkit-0.1.0</a> or <a class="xref" href=
           "../gnome/polkit-gnome.html" title=
           "polkit-gnome-0.105">polkit-gnome-0.105</a>
@@ -152,10 +153,7 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -e "s:@prefix@/share/lxde/pcmanfm:@sysconfdir@/xdg/pcmanfm/LXDE:" \
-    -i startlxde.in &amp;&amp;
-./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
+<kbd class="command">./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -166,7 +164,9 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-install -Dm644 lxde-logout.desktop /usr/share/applications/lxde-logout.desktop</kbd>
+ln -svfn profile/LXDE /etc/xdg/lxpanel/LXDE &amp;&amp;
+install -Dm644 lxde-logout.desktop \
+               /usr/share/applications/lxde-logout.desktop</kbd>
 </pre>
         <p>
           If you have installed recommended dependencies, run the following
@@ -200,9 +200,9 @@ startx</kbd>
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed -e ...</strong></span>: This sed
-          fixes the wrong path of the default <span class=
-          "application">PCManFM</span> configuration file.
+          <span class="command"><strong>ln -svfn profile/LXDE
+          ...</strong></span>: Fixes the wrong path of the default
+          <span class="application">LXPanel</span> profile.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -223,8 +223,7 @@ startx</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/xdg/lxsession/LXDE,
-              /etc/xdg/pcmanfm/LXDE, /usr/share/lxde and
-              /usr/share/lxpanel/profile/LXDE</span>
+              /etc/xdg/pcmanfm/LXDE and /usr/share/lxde</span>
             </div>
           </div>
         </div>
@@ -271,7 +270,7 @@ startx</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 04:20:28 -0800
+        Last updated on 2014-09-19 14:39:35 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -296,7 +295,7 @@ startx</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

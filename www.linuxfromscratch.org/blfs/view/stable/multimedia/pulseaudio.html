@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      PulseAudio-4.0
+      PulseAudio-5.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="pulseaudio" name="pulseaudio"></a>PulseAudio-4.0
+        <a id="pulseaudio" name="pulseaudio"></a>PulseAudio-5.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,7 +61,7 @@
           easily achieved using a sound server.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -72,13 +72,13 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://freedesktop.org/software/pulseaudio/releases/pulseaudio-4.0.tar.xz">
-                http://freedesktop.org/software/pulseaudio/releases/pulseaudio-4.0.tar.xz</a>
+                "http://freedesktop.org/software/pulseaudio/releases/pulseaudio-5.0.tar.xz">
+                http://freedesktop.org/software/pulseaudio/releases/pulseaudio-5.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 591f211db2790a7e4d222f2dc6858db3
+                Download MD5 sum: c43749838612f4860465e83ed62ca38e
               </p>
             </li>
             <li>
@@ -88,12 +88,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 105 MB
+                Estimated disk space required: 82 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 2.0 SBU
+                Estimated build time: 1.0 SBU
               </p>
             </li>
           </ul>
@@ -105,36 +105,25 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../general/intltool.html" title=
-          "Intltool-0.50.2">Intltool-0.50.2</a>, <a class="xref" href=
-          "../general/json-c.html" title="JSON-C-0.11">JSON-C-0.11</a>, and
-          <a class="xref" href="libsndfile.html" title=
-          "libsndfile-1.0.25">libsndfile-1.0.25</a>
+          <a class="xref" href="../general/json-c.html" title=
+          "JSON-C-0.12">JSON-C-0.12</a> and <a class="xref" href=
+          "libsndfile.html" title="libsndfile-1.0.25">libsndfile-1.0.25</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="alsa-lib.html" title=
-          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
-          "../general/dbus.html" title="D-Bus-1.8.0">D-Bus-1.8.0</a>,
-          <a class="xref" href="../postlfs/libcap.html" title=
-          "libcap-2.24">libcap-2.24</a>, <a class="xref" href=
-          "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="xref" href=
+          "alsa-lib-1.0.28">alsa-lib-1.0.28</a>, <a class="xref" href=
+          "../general/dbus.html" title="D-Bus-1.8.8">D-Bus-1.8.8</a>,
+          <a class="xref" href="../general/glib2.html" title=
+          "GLib-2.40.0">GLib-2.40.0</a>, <a class="xref" href=
+          "../postlfs/libcap.html" title="libcap-2.24 with PAM">libcap-2.24
+          with PAM</a>, <a class="xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>, <a class="xref" href=
           "speex.html" title="Speex-1.2rc1">Speex-1.2rc1</a> and <a class=
           "xref" href="../x/x7lib.html" title="Xorg Libraries">Xorg
           Libraries</a>
-        </p>
-        <h4>
-          Optional (Required if building GNOME)
-        </h4>
-        <p class="optional">
-          <a class="xref" href="../gnome/GConf.html" title=
-          "GConf-3.2.6">GConf-3.2.6</a>, <a class="xref" href=
-          "../general/glib2.html" title="GLib-2.38.2">GLib-2.38.2</a> and
-          <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.22">GTK+-2.24.22</a>
         </p>
         <h4>
           Optional
@@ -142,19 +131,26 @@
         <p class="optional">
           <a class="xref" href="../basicnet/avahi.html" title=
           "Avahi-0.6.31">Avahi-0.6.31</a>, <a class="xref" href=
-          "../general/bluez.html" title="BlueZ-4.101">BlueZ-4.101</a> and
-          <a class="xref" href="sbc.html" title="SBC-1.2">SBC-1.2</a>,
-          <a class="xref" href="../general/check.html" title=
-          "Check-0.9.12">Check-0.9.12</a>, <a class="ulink" href=
+          "../general/bluez.html" title="BlueZ-5.23">BlueZ-5.23</a>
+          (runtime), <a class="xref" href="../general/check.html" title=
+          "Check-0.9.14">Check-0.9.14</a>, <a class="xref" href=
+          "../postlfs/consolekit.html" title=
+          "ConsoleKit-0.4.6">ConsoleKit-0.4.6</a> (runtime), <a class="xref"
+          href="../gnome/GConf.html" title="GConf-3.2.6">GConf-3.2.6</a>,
+          <a class="xref" href="../x/gtk3.html" title=
+          "GTK+-3.12.2">GTK+-3.12.2</a>, <a class="xref" href=
+          "libsamplerate.html" title=
+          "libsamplerate-0.1.8">libsamplerate-0.1.8</a>, <a class="xref"
+          href="sbc.html" title="SBC-1.2">SBC-1.2</a> (Bluetooth support),
+          <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a>, <a class="ulink" href=
           "http://www.fftw.org/">FFTW</a>, <a class="ulink" href=
           "http://www.jackaudio.org/">JACK</a>, <a class="ulink" href=
-          "http://0pointer.de/lennart/projects/libasyncns/">libasyncns</a>,
-          <a class="xref" href="libsamplerate.html" title=
-          "libsamplerate-0.1.8">libsamplerate-0.1.8</a>, <a class="ulink"
-          href="http://www.lirc.org/">LIRC</a>, <a class="ulink" href=
-          "http://code.entropywave.com/projects/orc/">ORC</a>, <a class=
-          "ulink" href="http://tdb.samba.org/">TDB</a>, <a class="ulink"
-          href="http://valgrind.org/">Valgrind</a>, <a class="ulink" href=
+          "http://pkgs.fedoraproject.org/repo/pkgs/libasyncns/">libasyncns</a>,
+          <a class="ulink" href="http://www.lirc.org/">LIRC</a>, <a class=
+          "ulink" href="http://code.entropywave.com/projects/orc/">ORC</a>,
+          <a class="ulink" href="http://tdb.samba.org/">TDB</a>, <a class=
+          "ulink" href=
           "http://freedesktop.org/software/pulseaudio/webrtc-audio-processing/">
           WebRTC AudioProcessing</a> and <a class="ulink" href=
           "http://www.xen.org/">XEN</a>
@@ -169,27 +165,17 @@
           Installation of PulseAudio
         </h2>
         <p>
-          In order for <span class="application">PulseAudio</span> to
-          communicate properly with D-BUS, create a unique user. As the
-          <code class="systemitem">root</code> user, run:
-        </p>
-        <pre class="root">
-<kbd class="command">groupadd -g 58 pulse &amp;&amp;
-groupadd -g 59 pulse-access &amp;&amp;
-useradd -c "Pulseaudio User" -d /var/run/pulse -g pulse \
-        -s /bin/false -u 58 pulse &amp;&amp;
-usermod -a -G audio pulse</kbd>
-</pre>
-        <p>
           Install <span class="application">PulseAudio</span> by running the
           following commands:
         </p>
         <pre class="userinput">
 <kbd class=
 "command">find . -name "Makefile.in" | xargs sed -i "s|(libdir)/@PACKAGE@|(libdir)/pulse|" &amp;&amp;
-./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var \
+./configure --prefix=/usr         \
+            --sysconfdir=/etc     \
+            --localstatedir=/var  \
+            --disable-bluez4      \
+            --disable-rpath       \
             --with-module-dir=/usr/lib/pulse/modules &amp;&amp;
 make</kbd>
 </pre>
@@ -202,6 +188,15 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install</kbd>
+</pre>
+        <p>
+          While still as the <code class="systemitem">root</code> user,
+          remove the <span class="application">D-Bus</span> configuration
+          file for the system wide daemon to avoid creating unnecessary
+          system users and groups:
+        </p>
+        <pre class="root">
+<kbd class="command">rm /etc/dbus-1/system.d/pulseaudio-system.conf</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -216,13 +211,69 @@ make</kbd>
           <code class="filename">/usr/lib/pulseaudio</code>.
         </p>
         <p>
+          <em class="parameter"><code>--disable-bluez4</code></em>: This
+          switch disables support for <span class="application">BlueZ</span>
+          version 4 in favour of <span class="application">BlueZ</span>
+          version 5 since the latter also installs compatibility library for
+          the earlier version.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-rpath</code></em>: This
+          switch prevents linker from adding a hardcoded runtime path to the
+          installed programs and libraries.
+        </p>
+        <p>
           <em class=
           "parameter"><code>--with-module-dir=/usr/lib/pulse/modules</code></em>:
           This parameter ensures that <span class=
           "application">PulseAudio</span> modules are installed in
           <code class="filename">/usr/lib/pulse/modules</code> instead of
-          <code class="filename">/usr/lib/pulse-4.0/modules</code>.
+          <code class="filename">/usr/lib/pulse-5.0/modules</code>.
         </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring PulseAudio
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="pulseaudio-config" name="pulseaudio-config"></a>Config
+            Files
+          </h3>
+          <p>
+            There are system wide configuration files: <code class=
+            "filename">/etc/pulse/daemon.conf</code>, <code class=
+            "filename">/etc/pulse/client.conf</code>, <code class=
+            "filename">/etc/pulse/default.pa</code>, and user configuration
+            files with the same names in <code class=
+            "filename">~/.config/pulse</code>. User configuration files take
+            precedence over system wide ones.
+          </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Configuration Information
+          </h3>
+          <p>
+            The default configuration files allow to set up a working
+            installation, except that you need to remove a reference to
+            Console-Kit if it is not installed. For example, issue the
+            following command as the <code class="systemitem">root</code>
+            user:
+          </p>
+          <pre class="root">
+<kbd class="command">sed '/load-module module-console-kit/s/^/#/' \
+                    -i /etc/pulse/default.pa</kbd>
+</pre>
+          <p>
+            You may also have to configure the audio system. You may start
+            <span class="application">pulseaudio</span> in command line mode
+            using <span class="command"><strong>pulseaudio
+            -C</strong></span>. You can then list various informations and
+            change some settings. See <span class="command"><strong>man
+            pulse-cli-syntax</strong></span>.
+          </p>
+        </div>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -233,21 +284,21 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">esdcompat, pacat, pacmd, pactl, padsp,
-              pamon, paplay, parec, parecord, pasuspender, pax11publish,
-              pulseaudio, qpaeq, start-pulseaudio-kde and
-              start-pulseaudio-x11</span>
+              pamon (symlink), paplay (symlink), parec (symlink), parecord
+              (symlink), pasuspender, pax11publish, pulseaudio,
+              start-pulseaudio-kde and start-pulseaudio-x11</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libpulsecore-4.0.so,
+              <span class="segbody">libpulsecore-5.0.so,
               libpulse-mainloop-glib.so, libpulse-simple.so and
               libpulse.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/pulse, /usr/include/pulse,
-              /usr/lib/cmake/PulseAudio, /usr/lib/pulse, /usr/libexec/pulse
-              and /usr/share/pulseaudio</span>
+              /usr/lib/cmake/PulseAudio, /usr/lib/pulse, and
+              /usr/share/pulseaudio</span>
             </div>
           </div>
         </div>
@@ -443,21 +494,6 @@ make</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="qpaeq" name="qpaeq"></a><span class=
-                    "term"><span class=
-                    "command"><strong>qpaeq</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    is an equalizer interface for <span class=
-                    "application">PulseAudio</span> equalizer sinks.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="start-pulseaudio-kde" name=
                     "start-pulseaudio-kde"></a><span class=
                     "term"><span class="command"><strong>start-pulseaudio-kde</strong></span></span>
@@ -490,7 +526,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-03 16:39:21 -0800
+        Last updated on 2014-09-16 13:49:04 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -513,7 +549,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

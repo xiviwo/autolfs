@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -67,8 +67,8 @@ mkdir -v  /usr/libexec
 mkdir -pv /usr/{,local/}share/man/man{1..8}
 
 case $(uname -m) in
- x86_64) ln -sv lib /lib64     &amp;&amp; 
-         ln -sv lib /usr/lib64 &amp;&amp; 
+ x86_64) ln -sv lib /lib64
+         ln -sv lib /usr/lib64
          ln -sv lib /usr/local/lib64 ;;
 esac
 
@@ -103,15 +103,6 @@ mkdir -pv /var/{opt,cache,lib/{color,misc,locate},local}</kbd>
           The directory tree is based on the Filesystem Hierarchy Standard
           (FHS) (available at <a class="ulink" href=
           "http://www.pathname.com/fhs/">http://www.pathname.com/fhs/</a>).
-          In addition to the FHS, we create compatibility symlinks for the
-          <code class="filename">man</code>, <code class=
-          "filename">doc</code>, and <code class="filename">info</code>
-          directories since many packages still try to install their
-          documentation into <code class=
-          "filename">/usr/&lt;directory&gt;</code> or <code class=
-          "filename">/usr/local/&lt;directory&gt;</code> as opposed to
-          <code class="filename">/usr/share/&lt;directory&gt;</code> or
-          <code class="filename">/usr/local/share/&lt;directory&gt;</code>.
           The FHS also stipulates the existence of <code class=
           "filename">/usr/local/games</code> and <code class=
           "filename">/usr/share/games</code>. The FHS is not precise as to
@@ -144,7 +135,7 @@ mkdir -pv /var/{opt,cache,lib/{color,misc,locate},local}</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

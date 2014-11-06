@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      GCC-Java-4.9.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.6">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
+      </h4>
+      <h3>
+        Chapter&nbsp;13.&nbsp;Programming
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gcc-ada.html" title="GCC-Ada-4.9.1">Prev</a>
+          <p>
+            GCC-Ada-4.9.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gc.html" title="GC-7.4.2">Next</a>
+          <p>
+            GC-7.4.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="gcc-java" name="gcc-java"></a>GCC-Java-4.9.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to GCC-Java
+        </h2>
+        <p>
+          See the introduction to the Java language and system at <a class=
+          "xref" href="java.html" title="Java-1.7.0.65">Java-1.7.0.65</a>.
+          The GNU Compiler Collection (GCC) contains a Java compiler to
+          native code. Together with the <span class="application">ecj</span>
+          Java compiler from Eclipse (to bytecode), it provides a way to
+          build an acceptable JVM from source. However, since the release of
+          <span class="application">OpenJDK</span>, the development of
+          GCC-Java has almost stopped, and the built JVM is an old version.
+          One reason to build this system is that it can be used to bootstrap
+          <a class="xref" href="openjdk.html" title=
+          "OpenJDK-1.7.0.65/IcedTea-2.5.2">OpenJDK-1.7.0.65/IcedTea-2.5.2</a>,
+          without the need for downloading a Java binary.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.6
+          platform.
+        </p>
+        <div class="admon caution">
+          <img alt="[Caution]" src="../images/caution.png" />
+          <h3>
+            Caution
+          </h3>
+          <p>
+            Using the instructions on this page will have the effect that the
+            C and C++ compiler and libraries will be reinstalled, overwriting
+            the ones on your system. This may lead to some issues. Please
+            read the note and caution on the <a class="xref" href="gcc.html"
+            title="GCC-4.9.1">GCC-4.9.1</a> page.
+          </p>
+        </div>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2">http://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2">ftp://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: fddf71348546af523353bd43d34919c1
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 86 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 2.7 GB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 94 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Eclipse Java compiler: <a class="ulink" href=
+                "ftp://sourceware.org/pub/java/ecj-latest.jar">ftp://sourceware.org/pub/java/ecj-latest.jar</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                ANTLR binary, for building <span class=
+                "command"><strong>gjdoc</strong></span> (optional): <a class=
+                "ulink" href=
+                "http://www.antlr.org/download/antlr-4.2.2-complete.jar">http://www.antlr.org/download/antlr-4.2.2-complete.jar</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/gcc-4.9.1-upstream_fixes-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/gcc-4.9.1-upstream_fixes-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          GCC Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="zip.html" title="Zip-3.0">Zip-3.0</a>,
+          <a class="xref" href="unzip.html" title="UnZip-6.0">UnZip-6.0</a>,
+          and <a class="xref" href="which.html" title=
+          "Which-2.20 and Alternatives">Which-2.20</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="dejagnu.html" title=
+          "DejaGnu-1.5.1">DejaGnu-1.5.1</a>, for tests
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../x/gtk2.html" title=
+          "GTK+-2.24.24">GTK+-2.24.24</a> and <a class="ulink" href=
+          "https://download.gnome.org/sources/libart_lgpl/">Libart</a> for
+          building the AWT peer
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gcc-java">http://wiki.linuxfromscratch.org/blfs/wiki/gcc-java</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of GCC Java
+        </h2>
+        <p>
+          The instructions below assume that the C and C++ compilers have the
+          same version as the one you are installing, so that a
+          &ldquo;<span class="quote">bootstrap</span>&rdquo; is not
+          necessary. If you are upgrading the GCC version, then remove the
+          <code class="option">--disable-bootstrap</code> from the
+          <span class="command"><strong>./configure</strong></span> options
+          below.
+        </p>
+        <p>
+          As in LFS, fix a problem identified upstream:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's/if \((code.*))\)/if (\1 \&amp;\&amp; \!DEBUG_INSN_P (insn))/' gcc/sched-deps.c</kbd>
+</pre>
+        <p>
+          Install <span class="application">GCC Java</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's/\(install.*:\) install-.*recursive/\1/' libffi/Makefile.in         &amp;&amp;
+sed -i 's/\(install-data-am:\).*/\1/'             libffi/include/Makefile.in &amp;&amp;
+
+patch -Np1 -i ../gcc-4.9.1-upstream_fixes-1.patch &amp;&amp;
+
+cp ../ecj-latest.jar ./ecj.jar &amp;&amp;
+
+mkdir ../gcc-build &amp;&amp;
+cd    ../gcc-build &amp;&amp;
+
+../gcc-4.9.1/configure           \
+    --prefix=/usr                \
+    --libdir=/usr/lib            \
+    --enable-shared              \
+    --enable-threads=posix       \
+    --enable-__cxa_atexit        \
+    --enable-clocale=gnu         \
+    --disable-multilib           \
+    --with-system-zlib           \
+    --disable-bootstrap          \
+    --enable-java-home           \
+    --with-jvm-root-dir=/opt/gcj \
+    --with-antlr-jar=$(pwd)/../antlr-4.2.2-complete.jar \
+    --enable-languages=java &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          If you have installed additional packages such as <span class=
+          "application">Valgrind</span> and <span class=
+          "application">GDB</span>, the <span class="application">GCC</span>
+          part of the testsuite will run more tests than in LFS. Some of
+          those will report FAIL and others XPASS (pass when expected to
+          FAIL). To run the tests, issue:
+        </p>
+        <pre class="userinput">
+<kbd class="command">ulimit -s 32768 &amp;&amp;
+make -k check</kbd>
+</pre>
+        <p>
+          The tests are very long, and the results may be hard to find in the
+          logs, specially if you use job control with make. You can get a
+          summary of the tests with:
+        </p>
+        <pre class="userinput">
+<kbd class="command">../gcc-4.9.1/contrib/test_summary</kbd>
+</pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+
+mkdir -pv /usr/share/gdb/auto-load/usr/lib              &amp;&amp;
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &amp;&amp;
+
+chown -v -R root:root \
+    /usr/lib/gcc/*linux-gnu/4.9.1/include{,-fixed} &amp;&amp;
+
+gcj -o ecj ../ecj-latest.jar \
+    --main=org.eclipse.jdt.internal.compiler.batch.Main &amp;&amp;
+mv ecj /usr/bin &amp;&amp;
+ln -sfv ../../../usr/bin/ecj /opt/gcj/bin/javac</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          The two <span class="command"><strong>sed</strong></span> commands
+          prevent the installation of the <span class=
+          "application">libffi</span> library bundled with <span class=
+          "application">GCC</span>, since it is outdated compared to
+          <a class="xref" href="libffi.html" title=
+          "libffi-3.1">libffi-3.1</a>.
+        </p>
+        <p>
+          <span class="command"><strong>patch ...
+          gcc-4.9.1-upstream_fixes-1.patch</strong></span>: This patch
+          corrects bugs in the C++ compiler, which lead to segmentation
+          faults in some cases.
+        </p>
+        <p>
+          <span class="command"><strong>mkdir ../gcc-build; cd
+          ../gcc-build</strong></span>: The <span class=
+          "application">GCC</span> documentation recommends building the
+          package in a dedicated build directory.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-shared --enable-threads=posix
+          --enable-__cxa_atexit</code></em>: These parameters are required to
+          build the <span class="application">C++</span> libraries to
+          published standards.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-clocale=gnu</code></em>: This
+          parameter is a failsafe for incomplete locale data.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-multilib</code></em>: This
+          parameter ensures that files are created for the specific
+          architecture of your computer.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-system-zlib</code></em>: Uses
+          the system <span class="application">zlib</span> instead of the
+          bundled one.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-bootstrap</code></em>:
+          Prevents the C and C++ compilers to recompile themselves. You
+          should use this switch only if the installed C and C++ compilers
+          are the same version as the ones you install.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-java-home</code></em>: Creates
+          a directory layout similar to that of a JVM.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>--with-jvm-root-dir=/opt/gcj</code></em>:
+          Installs the JVM in the specified location.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-antlr-jar=...</code></em>:
+          Specifies the location of <span class="application">ANTLR</span>,
+          which is needed to build <span class=
+          "command"><strong>gjdoc</strong></span>. Remove if you have not
+          downloaded antlr.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-languages=java</code></em>:
+          This command identifies which language to build. Note it is
+          unavoidable that the <span class="application">C</span> and
+          <span class="application">C++</span> compilers be built too.
+        </p>
+        <p>
+          <code class="option">--enable-java-awt=gtk</code>: Allows to build
+          the Java AWT <span class="application">GTK+2</span> peer. Needed to
+          have a fully functional JVM.
+        </p>
+        <p>
+          <span class="command"><strong>ulimit -s 32768</strong></span>: This
+          command prevents several tests from running out of stack space.
+        </p>
+        <p>
+          <span class="command"><strong>make -k check</strong></span>: This
+          command runs the test suite without stopping if any errors are
+          encountered.
+        </p>
+        <p>
+          <span class=
+          "command"><strong>../gcc-4.9.1/contrib/test_summary</strong></span>:
+          This command will produce a summary of the test suite results. You
+          can append <span class="command"><strong>| grep -A7
+          Summ</strong></span> to the command to produce an even more
+          condensed version of the summary. You may also wish to redirect the
+          output to a file for review and comparison later on.
+        </p>
+        <p>
+          <span class="command"><strong>chown -v -R root:root
+          /usr/lib/gcc/*linux-gnu/...</strong></span>: If the package is
+          built by a user other than root, the ownership of the installed
+          <code class="filename">include</code> directory (and its content)
+          will be incorrect. This commands changes the ownership to the
+          <code class="systemitem">root</code> user and group.
+        </p>
+        <p>
+          <span class="command"><strong>gcj -o ecj ...</strong></span>:
+          compiles the eclipse compiler to native code, which is much faster
+          than bytecode. This compiler is then used as a <span class=
+          "command"><strong>javac</strong></span> replacement in the JVM.
+        </p>
+      </div>
+      <div class="configuration" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Configuring GCC-Java
+        </h2>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Configuration Information
+          </h3>
+          <p>
+            The configuration is the same as for <a class="xref" href=
+            "openjdk.html" title=
+            "OpenJDK-1.7.0.65/IcedTea-2.5.2">OpenJDK-1.7.0.65/IcedTea-2.5.2</a>,
+            replacing <code class="filename">/opt/jdk</code> with
+            <code class="filename">/opt/gcj</code>.
+          </p>
+        </div>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">aot-compile, ecj, gappletviewer,
+              gc-analyze, gcj, gcj-dbtool, gcjh, gij, gjar, gjarsigner,
+              gjavah, gjdoc, gkeytool, gnative2ascii, gorbd, grmic, grmid,
+              grmiregistry, gserialver, gtnameserv, jcf-dump, jv-convert,
+              rebuild-gcj-db. Symbolic links to these files are located in
+              <code class="filename">/opt/gcj/bin</code></span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libgcj_bc.so, libgcj.so, libgcj-tools.so
+              libgij.so, and numerous other run-time libraries and
+              executables in <code class="filename">/usr/lib/gcc</code> and
+              <code class="filename">/usr/libexec/gcc</code></span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class=
+              "segbody">/usr/include/c++/4.9.1/{gcj,gnu,java,javax,org,sun},
+              /usr/lib/gcj-4.9.1-15, /usr/lib/security, /opt/gcj/{bin,jre}
+              and /usr/share/java</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Some program and library names and descriptions are not listed
+          here, but can be found at <a class="ulink" href=
+          "http://www.linuxfromscratch.org/lfs/view/7.6/chapter06/gcc.html#contents-gcc">../../../../lfs/view/7.6/chapter06/gcc.html#contents-gcc</a>
+          as they were initially installed during the building of LFS.
+        </p>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="aot-compile" name="aot-compile"></a><span class=
+                    "term"><span class=
+                    "command"><strong>aot-compile</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    searches a directory for Java bytecode and uses
+                    <span class="command"><strong>gcj</strong></span> to
+                    compile it to native code.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ecj" name="ecj"></a><span class=
+                    "term"><span class="command"><strong>ecj</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the eclipse compiler.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gappletviewer" name=
+                    "gappletviewer"></a><span class="term"><span class=
+                    "command"><strong>gappletviewer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    loads and run a <span class="application">Java</span>
+                    applet.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gc-analyze" name="gc-analyze"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gc-analyze</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    analyzes garbage collector (GC) memory dumps from
+                    <span class="application">Java</span> code.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gcj" name="gcj"></a><span class=
+                    "term"><span class="command"><strong>gcj</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an ahead-of-time compiler for the <span class=
+                    "application">Java</span> language.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gcj-dbtool" name="gcj-dbtool"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gcj-dbtool</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a tool for creating and manipulating class file
+                    mapping databases.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gcjh" name="gcjh"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gcjh</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    generates header files from <span class=
+                    "application">Java</span> class files.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gij" name="gij"></a><span class=
+                    "term"><span class="command"><strong>gij</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the GNU interpreter for <span class=
+                    "application">Java</span> bytecode.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gjar" name="gjar"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gjar</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an (partial) implementation of the <span class=
+                    "command"><strong>jar</strong></span> utility that comes
+                    with Sun's JDK.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gjarsigner" name="gjarsigner"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gjarsigner</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a Java ARchive (JAR) file signing and verification
+                    tool.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gjavah" name="gjavah"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gjavah</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    generates header files from Java class files.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gjdoc" name="gjdoc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gjdoc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a documentation tool similar to <span class=
+                    "command"><strong>javadoc</strong></span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gkeytool" name="gkeytool"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gkeytool</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    manages private keys and public certificates in a
+                    <span class="application">Java</span> environment.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnative2ascii" name=
+                    "gnative2ascii"></a><span class="term"><span class=
+                    "command"><strong>gnative2ascii</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an encoding converter for <span class=
+                    "application">Java</span>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gorbd" name="gorbd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gorbd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is an object request broker daemon.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grmic-gcc" name="grmic-gcc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grmic</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    generates stubs for Remote Method Invocation.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grmid-gcc" name="grmid-gcc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grmid</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    RMI activation system daemon.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grmiregistry-gcc" name=
+                    "grmiregistry-gcc"></a><span class="term"><span class=
+                    "command"><strong>grmiregistry</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    starts a remote object registry on the current host.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gserialver" name="gserialver"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gserialver</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    prints the serialVersionUID of the specified class.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gtnameserv" name="gtnameserv"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gtnameserv</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    starts a naming service.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="jcf-dump" name="jcf-dump"></a><span class=
+                    "term"><span class=
+                    "command"><strong>jcf-dump</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    prints information about <span class=
+                    "application">Java</span> class files.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="jv-convert" name="jv-convert"></a><span class=
+                    "term"><span class=
+                    "command"><strong>jv-convert</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    converts files from one encoding to another.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rebuild-gcj-db" name=
+                    "rebuild-gcj-db"></a><span class="term"><span class=
+                    "command"><strong>rebuild-gcj-db</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Merge the per-solib databases made by <span class=
+                    "application">aot-compile</span> into one system-wide
+                    database.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2014-09-17 04:10:41 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gcc-ada.html" title="GCC-Ada-4.9.1">Prev</a>
+          <p>
+            GCC-Ada-4.9.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gc.html" title="GC-7.4.2">Next</a>
+          <p>
+            GC-7.4.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

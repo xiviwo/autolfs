@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      elfutils-0.158
+      elfutils-0.160
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="doxygen.html" title="Doxygen-1.8.6">Prev</a>
+          <a accesskey="p" href="doxygen.html" title="Doxygen-1.8.8">Prev</a>
           <p>
-            Doxygen-1.8.6
+            Doxygen-1.8.8
           </p>
         </li>
         <li class="next">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="elfutils" name="elfutils"></a>elfutils-0.158
+        <a id="elfutils" name="elfutils"></a>elfutils-0.160
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           Linkable Format) files.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -68,28 +68,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "https://fedorahosted.org/releases/e/l/elfutils/0.158/elfutils-0.158.tar.bz2">
-                https://fedorahosted.org/releases/e/l/elfutils/0.158/elfutils-0.158.tar.bz2</a>
+                "https://fedorahosted.org/releases/e/l/elfutils/0.160/elfutils-0.160.tar.bz2">
+                https://fedorahosted.org/releases/e/l/elfutils/0.160/elfutils-0.160.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 050a4909e452d01ab4747fd69d4036e0
+                Download MD5 sum: 7527f22dff8b1ac8c122cfc4d3d3bb1e
               </p>
             </li>
             <li>
               <p>
-                Download size: 4.8 MB
+                Download size: 5.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 91 MB
+                Estimated disk space required: 72 MB (additional 3 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.7 SBU
+                Estimated build time: 0.7 SBU (additional 0.2 SBU for the
+                tests)
               </p>
             </li>
           </ul>
@@ -111,6 +113,15 @@
 <kbd class=
 "command">./configure --prefix=/usr --program-prefix="eu-" &amp;&amp;
 make</kbd>
+</pre>
+        <p>
+          If you wish to run the test suite, first fix it to skip two failing
+          tests:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i '/srcdir/ iexit 77\n'         \
+       tests/run-backtrace-native.sh \
+       tests/run-backtrace-native-core.sh</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
@@ -150,7 +161,8 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libasm.{a,so}, libdw.{a,so}, libebl.a,
-              and libelf.{a,so}</span>
+              libelf.{a,so}, and some for different architectures under
+              /usr/lib/elfutils</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -161,15 +173,15 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 12:55:40 -0800
+        Last updated on 2014-09-10 06:19:10 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="doxygen.html" title="Doxygen-1.8.6">Prev</a>
+          <a accesskey="p" href="doxygen.html" title="Doxygen-1.8.8">Prev</a>
           <p>
-            Doxygen-1.8.6
+            Doxygen-1.8.8
           </p>
         </li>
         <li class="next">
@@ -184,7 +196,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

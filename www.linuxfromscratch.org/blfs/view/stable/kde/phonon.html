@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Phonon-4.7.1
+      Phonon-4.8.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;28.&nbsp;The KDE Core
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="phonon-backend-gstreamer.html" title=
-          "Phonon-backend-gstreamer-4.7.1">Next</a>
+          "Phonon-backend-gstreamer-4.8.0">Next</a>
           <p>
-            Phonon-backend-gstreamer-4.7.1
+            Phonon-backend-gstreamer-4.8.0
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="phonon" name="phonon"></a>Phonon-4.7.1
+        <a id="phonon" name="phonon"></a>Phonon-4.8.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           GStreamer or VLC backend.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -71,30 +71,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://download.kde.org/stable/phonon/4.7.1/phonon-4.7.1.tar.xz">
-                http://download.kde.org/stable/phonon/4.7.1/phonon-4.7.1.tar.xz</a>
+                "http://download.kde.org/stable/phonon/4.8.0/phonon-4.8.0.tar.xz">
+                http://download.kde.org/stable/phonon/4.8.0/phonon-4.8.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.kde.org/pub/kde/stable/phonon/4.7.1/phonon-4.7.1.tar.xz">
-                ftp://ftp.kde.org/pub/kde/stable/phonon/4.7.1/phonon-4.7.1.tar.xz</a>
+                "ftp://ftp.kde.org/pub/kde/stable/phonon/4.8.0/phonon-4.8.0.tar.xz">
+                ftp://ftp.kde.org/pub/kde/stable/phonon/4.8.0/phonon-4.8.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 0935e1c00440a03e3032860030398665
+                Download MD5 sum: 30af25af0bf28f3ce462f39b0a6e4081
               </p>
             </li>
             <li>
               <p>
-                Download size: 322 KB
+                Download size: 314 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 7.4 MB
+                Estimated disk space required: 10.5 MB
               </p>
             </li>
             <li>
@@ -113,16 +113,14 @@
         <p class="required">
           <a class="xref" href="automoc4.html" title=
           "Automoc4-0.9.88">automoc4-0.9.88</a> and <a class="xref" href=
-          "../general/glib2.html" title="GLib-2.38.2">GLib-2.38.2</a>
+          "../general/glib2.html" title="GLib-2.40.0">GLib-2.40.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../multimedia/pulseaudio.html" title=
-          "PulseAudio-4.0">PulseAudio-4.0</a>, <a class="xref" href=
-          "../x/qt5.html" title="Qt-5.2.1">Qt-5.2.1</a> and <a class="ulink"
-          href=
+          "PulseAudio-5.0">PulseAudio-5.0</a> and <a class="ulink" href=
           "http://projects.kde.org/projects/kdesupport/libqzeitgeist/">QZeitgeist</a>
         </p>
         <p class="usernotes">
@@ -136,10 +134,21 @@
         </h2>
         <p>
           Make sure that <a class="xref" href="../x/qt4.html" title=
-          "Qt-4.8.5">Qt-4.8.5</a> is compiled without the bundled
+          "Qt-4.8.6">Qt-4.8.6</a> is compiled without the bundled
           <span class="application">Phonon</span> library. This package
           provides a better implementation.
         </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If you have both Qt4 and Qt5 installed, be sure to run
+            <strong class="userinput"><code>source setqt4</code></strong>
+            before installing Phonon.
+          </p>
+        </div>
         <p>
           Install <span class="application">Phonon</span> by running the
           following commands:
@@ -148,10 +157,10 @@
 <kbd class="command">mkdir build &amp;&amp;
 cd    build &amp;&amp;
 
-cmake -DCMAKE_INSTALL_PREFIX=$QTDIR \
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_LIBDIR=lib \
-      -DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=TRUE \
+      -DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=FALSE \
       -DDBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces \
       -Wno-dev .. &amp;&amp;
 make</kbd>
@@ -174,7 +183,7 @@ make</kbd>
         </p>
         <p>
           <em class=
-          "parameter"><code>-DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=TRUE</code></em>:
+          "parameter"><code>-DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=FALSE</code></em>:
           This switch ensures that the plugins and mkspecs files get
           installed in the correct location.
         </p>
@@ -183,14 +192,6 @@ make</kbd>
           "parameter"><code>-DDBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces</code></em>:
           This switch sets the correct installation path for the <span class=
           "application">D-Bus</span> interfaces file.
-        </p>
-        <p>
-          <code class="option">-DPHONON_BUILD_PHONON4QT5=ON</code>: Use this
-          switch if you want to build <span class="application">Phonon</span>
-          against <span class="application">Qt5</span>. Note that both
-          <span class="application">Qt4</span> and <span class=
-          "application">Qt5</span> versions can be installed at the same time
-          without any conflicts.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -210,14 +211,14 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">$QTDIR/include/KDE/Phonon,
-              $QTDIR/include/phonon, and $QTDIR/share/phonon</span>
+              <span class="segbody">$KDE_PREFIX/include/KDE/Phonon,
+              $KDE_PREFIX/include/phonon, and $KDE_PREFIX/share/phonon</span>
             </div>
           </div>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-27 20:59:01 -0800
+        Last updated on 2014-09-10 12:10:00 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -231,9 +232,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="phonon-backend-gstreamer.html" title=
-          "Phonon-backend-gstreamer-4.7.1">Next</a>
+          "Phonon-backend-gstreamer-4.8.0">Next</a>
           <p>
-            Phonon-backend-gstreamer-4.7.1
+            Phonon-backend-gstreamer-4.8.0
           </p>
         </li>
         <li class="up">
@@ -242,7 +243,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

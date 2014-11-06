@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -23,15 +23,15 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="p11-kit.html" title=
-          "p11-kit-0.20.2">Prev</a>
+          "p11-kit-0.20.6">Prev</a>
           <p>
-            p11-kit-0.20.2
+            p11-kit-0.20.6
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="shadow.html" title="Shadow-4.1.5.1">Next</a>
+          <a accesskey="n" href="shadow.html" title="Shadow-4.2.1">Next</a>
           <p>
-            Shadow-4.1.5.1
+            Shadow-4.2.1
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           processes to communicate with privileged processes.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -103,9 +103,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a>, <a class="xref" href=
-          "../general/intltool.html" title=
-          "Intltool-0.50.2">Intltool-0.50.2</a> and <a class="xref" href=
+          "GLib-2.40.0">GLib-2.40.0</a>, and <a class="xref" href=
           "../general/JS.html" title="JS-17.0.0">JS-17.0.0</a>
         </p>
         <h4>
@@ -113,7 +111,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
         </p>
         <h4>
           Optional
@@ -123,7 +121,7 @@
           "docbook-xml-4.5">docbook-xml-4.5</a>, <a class="xref" href=
           "../pst/docbook-xsl.html" title=
           "docbook-xsl-1.78.1">docbook-xsl-1.78.1</a>, <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>,
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>,
           <a class="xref" href="../general/libxslt.html" title=
           "libxslt-1.1.28">libxslt-1.1.28</a> and <a class="xref" href=
           "linux-pam.html" title="Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>
@@ -172,11 +170,12 @@ useradd -c "PolicyKit Daemon Owner" -d /etc/polkit-1 -u 27 \
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --disable-static     \
-            --with-authfw=shadow &amp;&amp;
+<kbd class="command">./configure --prefix=/usr                \
+            --sysconfdir=/etc            \
+            --localstatedir=/var         \
+            --disable-static             \
+            --enable-libsystemd-login=no \
+            --with-authfw=shadow         &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -198,6 +197,14 @@ make</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <em class=
+          "parameter"><code>--enable-libsystemd-login=no</code></em>: This
+          parameter fixes building without <span class=
+          "application">systemd</span>, which is not part of LFS/BLFS. If you
+          use <span class="application">systemd</span>, replace "no" by
+          "yes".
+        </p>
         <p>
           <em class="parameter"><code>--with-authfw=shadow</code></em>: This
           parameter configures the package to use the <span class=
@@ -401,22 +408,22 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 09:38:44 -0800
+        Last updated on 2014-09-09 12:00:35 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="p11-kit.html" title=
-          "p11-kit-0.20.2">Prev</a>
+          "p11-kit-0.20.6">Prev</a>
           <p>
-            p11-kit-0.20.2
+            p11-kit-0.20.6
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="shadow.html" title="Shadow-4.1.5.1">Next</a>
+          <a accesskey="n" href="shadow.html" title="Shadow-4.2.1">Next</a>
           <p>
-            Shadow-4.1.5.1
+            Shadow-4.2.1
           </p>
         </li>
         <li class="up">
@@ -425,7 +432,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;26.&nbsp;Window Managers
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           desktop.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -104,20 +104,22 @@
           <a class="xref" href="installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a> and <a class="xref" href="pango.html" title=
-          "Pango-1.36.2">Pango-1.36.2</a> (compiled with support for libXft)
+          "Pango-1.36.7">Pango-1.36.7</a> (compiled with support for libXft)
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="imlib2.html" title=
-          "Imlib2-1.4.6">Imlib2-1.4.6</a> (to enable icons in the right click
-          menu), <a class="xref" href="../general/python-modules.html#pyxdg"
-          title="PyXDG-0.25">PyXDG-0.25</a>, <a class="xref" href=
+          <a class="xref" href="../general/dbus.html" title=
+          "D-Bus-1.8.8">D-Bus-1.8.8</a> (runtime), <a class="xref" href=
+          "imlib2.html" title="Imlib2-1.4.6">Imlib2-1.4.6</a> (to enable
+          icons in the right click menu), <a class="xref" href=
+          "../general/python-modules.html#pyxdg" title=
+          "PyXDG-0.25">PyXDG-0.25</a>, <a class="xref" href=
           "startup-notification.html" title=
           "startup-notification-0.12">startup-notification-0.12</a>, and
           <a class="xref" href="../general/librsvg.html" title=
-          "librsvg-2.40.1">librsvg-2.40.1</a>
+          "librsvg-2.40.3">librsvg-2.40.3</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -146,10 +148,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr                         \
-            --sysconfdir=/etc                     \
-            --docdir=/usr/share/doc/openbox-3.5.2 \
-            --disable-static                      &amp;&amp;
+<kbd class="command">./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static  \
+            --docdir=/usr/share/doc/openbox-3.5.2 &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -299,7 +301,7 @@ EOF</kbd>
             "http://ftp.de.debian.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz">
             Numlockx</a> and add that to your xinitrc. Another useful
             application is <a class="xref" href="../general/dbus.html" title=
-            "D-Bus-1.8.0">D-Bus-1.8.0</a>
+            "D-Bus-1.8.8">D-Bus-1.8.8</a>:
           </p>
           <pre class="user">
 <kbd class="command">cat &gt; ~/.xinitrc &lt;&lt; "EOF"
@@ -523,7 +525,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-03 16:39:21 -0800
+        Last updated on 2014-09-14 14:01:57 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -546,7 +548,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

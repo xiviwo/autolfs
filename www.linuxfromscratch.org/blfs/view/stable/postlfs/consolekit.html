@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -61,7 +61,7 @@
           associated with them.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -105,7 +105,6 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="acl.html" title="acl-2.2.52">acl-2.2.52</a>,
           <a class="xref" href="../general/dbus-glib.html" title=
           "dbus-glib-0.102">dbus-glib-0.102</a> and <a class="xref" href=
           "../x/x7lib.html" title="Xorg Libraries">Xorg Libraries</a>
@@ -135,7 +134,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../pst/xmlto.html" title=
-          "xmlto-0.0.25">xmlto-0.0.25</a>
+          "xmlto-0.0.26">xmlto-0.0.26</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -155,7 +154,8 @@
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --enable-udev-acl    \
-            --enable-pam-module  &amp;&amp;
+            --enable-pam-module  \
+            --with-systemdsystemunitdir=no &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -194,12 +194,8 @@ make</kbd>
           to build the API documentation.
         </p>
         <p>
-          <code class="option">--libexecdir=/usr/lib/ConsoleKit</code>: This
-          option creates a <code class="filename">ConsoleKit</code> directory
-          in <code class="filename">/usr/lib</code> instead of putting the
-          program's private executables into <code class=
-          "filename">/usr/libexec</code> in accordance with the old version
-          of the FHS used before LFS-7.5.
+          <code class="option">--with-systemdsystemunitdir=no</code>: Disable
+          attempting to build with systemd libraries.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -290,9 +286,34 @@ chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd>
             </div>
           </div>
         </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ck-list-sessions" name=
+                    "ck-list-sessions"></a><span class="term"><span class=
+                    "command"><strong>ck-list-sessions</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    list sessions with respective properties. Also good for
+                    debugging purposes.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-03 19:06:31 -0800
+        Last updated on 2014-09-14 14:01:57 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -317,7 +338,7 @@ chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

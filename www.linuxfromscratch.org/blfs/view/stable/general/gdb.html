@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GDB-7.7
+      GDB-7.8
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gc.html" title="GC-7.4.0">Prev</a>
+          <a accesskey="p" href="gc.html" title="GC-7.4.2">Prev</a>
           <p>
-            GC-7.4.0
+            GC-7.4.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="git.html" title="Git-1.9.0">Next</a>
+          <a accesskey="n" href="git.html" title="Git-2.1.0">Next</a>
           <p>
-            Git-1.9.0
+            Git-2.1.0
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gdb" name="gdb"></a>GDB-7.7
+        <a id="gdb" name="gdb"></a>GDB-7.8
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,7 +61,7 @@
           symbols and not stripped.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -72,33 +72,33 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnu.org/gnu/gdb/gdb-7.7.tar.bz2">http://ftp.gnu.org/gnu/gdb/gdb-7.7.tar.bz2</a>
+                "http://ftp.gnu.org/gnu/gdb/gdb-7.8.tar.xz">http://ftp.gnu.org/gnu/gdb/gdb-7.8.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnu.org/gnu/gdb/gdb-7.7.tar.bz2">ftp://ftp.gnu.org/gnu/gdb/gdb-7.7.tar.bz2</a>
+                "ftp://ftp.gnu.org/gnu/gdb/gdb-7.8.tar.xz">ftp://ftp.gnu.org/gnu/gdb/gdb-7.8.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 271a18f41858a7e98b28ae4eb91287c9
+                Download MD5 sum: bd958fe9019d7c7896f29f6724a764ed
               </p>
             </li>
             <li>
               <p>
-                Download size: 24 MB
+                Download size: 17 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 321 MB (559 MB with checks)
+                Estimated disk space required: 326 MB (405 MB with checks)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.8 SBU (6.3 SBU with checks)
+                Estimated build time: 2.2 SBU (56 SBU with checks)
               </p>
             </li>
           </ul>
@@ -112,8 +112,9 @@
         <p class="optional">
           <a class="xref" href="dejagnu.html" title=
           "DejaGnu-1.5.1">DejaGnu-1.5.1</a> (for tests), <a class="xref"
-          href="expat.html" title="Expat-2.1.0">expat-2.1.0</a> and <a class=
-          "xref" href="python2.html" title="Python-2.7.6">Python-2.7.6</a>
+          href="guile.html" title="Guile-2.0.11">Guile-2.0.11</a> and
+          <a class="xref" href="python2.html" title=
+          "Python-2.7.8">Python-2.7.8</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -135,7 +136,13 @@ make</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make -k
-          check</strong></span>.
+          check</strong></span>. There are many problems with the test suite.
+          Depends on installed compilers, there are differences if run
+          locally or remotely, a large number of timeouts (there is a
+          variable that can be set to increase time for timeout, but changing
+          it, apparently the total number of tests is not conserved), there
+          are failures associated with system readline 6.x, between others.
+          Unexpected failures are of the order of 2.5%.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -237,21 +244,21 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-23 13:25:47 -0800
+        Last updated on 2014-09-13 22:25:33 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gc.html" title="GC-7.4.0">Prev</a>
+          <a accesskey="p" href="gc.html" title="GC-7.4.2">Prev</a>
           <p>
-            GC-7.4.0
+            GC-7.4.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="git.html" title="Git-1.9.0">Next</a>
+          <a accesskey="n" href="git.html" title="Git-2.1.0">Next</a>
           <p>
-            Git-1.9.0
+            Git-2.1.0
           </p>
         </li>
         <li class="up">
@@ -260,7 +267,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

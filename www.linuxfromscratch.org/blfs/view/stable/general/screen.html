@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Screen-4.0.3
+      Screen-4.2.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;11.&nbsp;General Utilities
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="shared-mime-info.html" title=
-          "shared-mime-info-1.2">Next</a>
+          "shared-mime-info-1.3">Next</a>
           <p>
-            shared-mime-info-1.2
+            shared-mime-info-1.3
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="screen" name="screen"></a>Screen-4.0.3
+        <a id="screen" name="screen"></a>Screen-4.2.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -64,7 +64,7 @@
           sessions can be detached and resumed later on a different terminal.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -75,28 +75,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz">http://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz</a>
+                "http://ftp.gnu.org/gnu/screen/screen-4.2.1.tar.gz">http://ftp.gnu.org/gnu/screen/screen-4.2.1.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz">ftp://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz</a>
+                "ftp://ftp.gnu.org/gnu/screen/screen-4.2.1.tar.gz">ftp://ftp.gnu.org/gnu/screen/screen-4.2.1.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 8506fd205028a96c741e4037de6e3c42
+                Download MD5 sum: 419a0594e2b25039239af8b90eda7d92
               </p>
             </li>
             <li>
               <p>
-                Download size: 821 KB
+                Download size: 1.1 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 5.8 MB
+                Estimated disk space required: 8.2 MB
               </p>
             </li>
             <li>
@@ -133,7 +133,7 @@
 <kbd class="command">./configure --prefix=/usr                     \
             --infodir=/usr/share/info         \
             --mandir=/usr/share/man           \
-            --with-socket-dir=/var/run/screen \
+            --with-socket-dir=/run/screen     \
             --with-pty-group=5                \
             --with-sys-screenrc=/etc/screenrc &amp;&amp;
 
@@ -157,8 +157,8 @@ install -m 644 etc/etcscreenrc /etc/screenrc</kbd>
         </h2>
         <p>
           <em class=
-          "parameter"><code>--with-socket-dir=/var/run/screen</code></em>:
-          This option places the per-user sockets in a standard location.
+          "parameter"><code>--with-socket-dir=/run/screen</code></em>: This
+          option places the per-user sockets in a standard location.
         </p>
         <p>
           <em class=
@@ -220,7 +220,7 @@ install -m 644 etc/etcscreenrc /etc/screenrc</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Program:</strong>
-              <span class="segbody">screen</span>
+              <span class="segbody">screen (symlink) and screen-4.2.1</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -228,7 +228,7 @@ install -m 644 etc/etcscreenrc /etc/screenrc</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">/var/run/screen</span>
+              <span class="segbody">/usr/share/screen and /run/screen</span>
             </div>
           </div>
         </div>
@@ -259,7 +259,7 @@ install -m 644 etc/etcscreenrc /etc/screenrc</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-23 11:35:28 -0800
+        Last updated on 2014-09-20 21:51:52 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -273,9 +273,9 @@ install -m 644 etc/etcscreenrc /etc/screenrc</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="shared-mime-info.html" title=
-          "shared-mime-info-1.2">Next</a>
+          "shared-mime-info-1.3">Next</a>
           <p>
-            shared-mime-info-1.2
+            shared-mime-info-1.3
           </p>
         </li>
         <li class="up">
@@ -284,7 +284,7 @@ install -m 644 etc/etcscreenrc /etc/screenrc</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

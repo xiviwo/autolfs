@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="pulseaudio.html" title=
-          "PulseAudio-4.0">Prev</a>
+          "PulseAudio-5.0">Prev</a>
           <p>
-            PulseAudio-4.0
+            PulseAudio-5.0
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           like headphones or loudspeakers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -124,7 +124,8 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
+<kbd class=
+"command">./configure --prefix=/usr --disable-static --disable-tester &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -141,6 +142,11 @@ make</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <code class="option">--disable-tester</code> This disables the SBC
+          tester. Remove it if you have installed the optional <span class=
+          "application">libsndfile</span> package.
+        </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
@@ -192,16 +198,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-28 15:16:23 -0800
+        Last updated on 2014-09-16 13:49:04 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="pulseaudio.html" title=
-          "PulseAudio-4.0">Prev</a>
+          "PulseAudio-5.0">Prev</a>
           <p>
-            PulseAudio-4.0
+            PulseAudio-5.0
           </p>
         </li>
         <li class="next">
@@ -216,7 +222,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

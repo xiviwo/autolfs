@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;40.&nbsp;Audio Utilities
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           creating and analyzing compressed audio files.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -103,10 +103,11 @@
         </h4>
         <p class="optional">
           <a class="ulink" href="http://dmalloc.com/">Dmalloc</a>, <a class=
-          "ulink" href="http://perens.com/FreeSoftware/">Electric Fence</a>,
-          <a class="xref" href="libsndfile.html" title=
+          "ulink" href=
+          "http://linux.softpedia.com/get/Programming/Debuggers/Electric-Fence-3305.shtml/">
+          Electric Fence</a>, <a class="xref" href="libsndfile.html" title=
           "libsndfile-1.0.25">libsndfile-1.0.25</a> and <a class="xref" href=
-          "../general/nasm.html" title="NASM-2.11">NASM-2.11</a>
+          "../general/nasm.html" title="NASM-2.11.05">NASM-2.11.05</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -117,6 +118,13 @@
         <h2 class="sect2">
           Installation of LAME
         </h2>
+        <p>
+          First, if you are using i686, fix a compile problem inroduced by
+          <span class="application">gcc-4.9.0</span>:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i -e '/xmmintrin\.h/d' configure</kbd>
+</pre>
         <p>
           Install <span class="application">LAME</span> by running the
           following commands:
@@ -142,6 +150,15 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
+          <code class="option">sed -i -e '/xmmintrin\.h/d' configure</code> :
+          with gcc-4.9.0, 32-bit i686 builds fail in <code class=
+          "filename">xmm_quantize_sub.c</code> with an error message
+          <code class="literal">error: inlining failed in call to
+          always_inline '_mm_loadu_ps'</code>. This sed makes it appear as if
+          <code class="filename">xmmintrin.h</code> is not present. Do not
+          use this on other versions of gcc, or on x86_64.
+        </p>
+        <p>
           <code class="option">--enable-mp3rtp</code>: This switch enables
           building of the encode-to-RTP program.
         </p>
@@ -152,7 +169,8 @@ make</kbd>
         <p>
           <code class="option">--enable-nasm</code>: Enable the use of
           <a class="xref" href="../general/nasm.html" title=
-          "NASM-2.11">NASM-2.11</a> to compile optimized assembly routines.
+          "NASM-2.11.05">NASM-2.11.05</a> to compile optimized assembly
+          routines.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -231,7 +249,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 13:02:22 -0800
+        Last updated on 2014-09-11 23:27:59 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -256,7 +274,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

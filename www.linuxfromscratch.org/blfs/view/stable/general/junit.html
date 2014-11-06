@@ -12,26 +12,27 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="java.html" title="About Java">Prev</a>
+          <a accesskey="p" href="apache-ant.html" title=
+          "apache-ant-1.9.4">Prev</a>
           <p>
-            About Java
+            apache-ant-1.9.4
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="apache-ant.html" title=
-          "apache-ant-1.9.3">Next</a>
+          <a accesskey="n" href="openjdk.html" title=
+          "OpenJDK-1.7.0.65/IcedTea-2.5.2">Next</a>
           <p>
-            apache-ant-1.9.3
+            OpenJDK-1.7.0.65/IcedTea-2.5.2
           </p>
         </li>
         <li class="up">
@@ -40,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -61,7 +62,7 @@
           runners for running tests.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -106,13 +107,6 @@
             <li>
               <p>
                 Required file: <a class="ulink" href=
-                "http://anduin.linuxfromscratch.org/sources/other/junit-4.11.jar">
-                http://anduin.linuxfromscratch.org/sources/other/junit-4.11.jar</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                Required file: <a class="ulink" href=
                 "http://hamcrest.googlecode.com/files/hamcrest-1.3.tgz">http://hamcrest.googlecode.com/files/hamcrest-1.3.tgz</a>
               </p>
             </li>
@@ -126,7 +120,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="apache-ant.html" title=
-          "apache-ant-1.9.3">apache-ant-1.9.3</a> and <a class="xref" href=
+          "apache-ant-1.9.4">apache-ant-1.9.4</a> and <a class="xref" href=
           "unzip.html" title="UnZip-6.0">UnZip-6.0</a>
         </p>
         <p class="usernotes">
@@ -139,28 +133,10 @@
           Installation of JUnit
         </h2>
         <p>
-          To do a full build of JUnit from source, <a class="xref" href=
-          "apache-ant.html" title="apache-ant-1.9.3">apache-ant-1.9.3</a> is
-          required. However JUnit is useful in building Apache Ant. Copy the
-          JUnit-4.11 jar file to get started. Then come back to build from
-          source, if desired.
+          Place the required hamcrest jar files where needed and build the
+          package:
         </p>
-        <p>
-          Install the <span class="application">JUnit</span> jar file by
-          running the following commands as the <code class=
-          "systemitem">root</code> user:
-        </p>
-        <pre class="root">
-<kbd class="command">install -v -m755 -d /usr/share/java &amp;&amp;
-cp -v junit-4.11.jar /usr/share/java</kbd>
-</pre>
-        <p>
-          At this point, make sure Apache-Ant is installed and then continue
-          with the source build and installation. From the directory created
-          when extracting the JUnit sources, place the required hamcrest jar
-          files where needed and build the package:
-        </p>
-        <pre class="root">
+        <pre class="userinput">
 <kbd class=
 "command">tar -xf ../hamcrest-1.3.tgz                              &amp;&amp;
 cp -v hamcrest-1.3/hamcrest-core-1.3{,-sources}.jar lib/ &amp;&amp;
@@ -238,22 +214,23 @@ cp -v hamcrest-1.3/hamcrest-core*.jar /usr/share/java/junit-4.11</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-27 13:22:01 -0800
+        Last updated on 2014-09-18 22:41:15 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="java.html" title="About Java">Prev</a>
+          <a accesskey="p" href="apache-ant.html" title=
+          "apache-ant-1.9.4">Prev</a>
           <p>
-            About Java
+            apache-ant-1.9.4
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="apache-ant.html" title=
-          "apache-ant-1.9.3">Next</a>
+          <a accesskey="n" href="openjdk.html" title=
+          "OpenJDK-1.7.0.65/IcedTea-2.5.2">Next</a>
           <p>
-            apache-ant-1.9.3
+            OpenJDK-1.7.0.65/IcedTea-2.5.2
           </p>
         </li>
         <li class="up">
@@ -262,7 +239,7 @@ cp -v hamcrest-1.3/hamcrest-core*.jar /usr/share/java/junit-4.11</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

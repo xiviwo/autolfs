@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.33.&nbsp;Util-linux-2.24.1
+      5.33.&nbsp;Util-linux-2.25.1
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-tools-util-linux" name="ch-tools-util-linux"></a>5.33.
-        Util-linux-2.24.1
+        Util-linux-2.25.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -56,11 +56,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">0.6 SBU</span>
+              <span class="segbody">0.7 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">89 MB</span>
+              <span class="segbody">104 MB</span>
             </div>
           </div>
         </div>
@@ -74,6 +74,7 @@
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/tools                \
+            --without-python               \
             --disable-makeinstall-chown    \
             --without-systemdsystemunitdir \
             PKG_CONFIG=""</kbd>
@@ -83,6 +84,17 @@
             <strong>The meaning of the configure option:</strong>
           </p>
           <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--without-python</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                This switch disables using <span class=
+                "application">Python</span> if it is installed on the host
+                system. It avoids trying to build unneeded bindings.
+              </p>
+            </dd>
             <dt>
               <span class="term"><em class=
               "parameter"><code>--disable-makeinstall-chown</code></em></span>
@@ -158,7 +170,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

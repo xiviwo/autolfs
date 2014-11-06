@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Shadow-4.1.5.1
+      Shadow-4.2.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -29,9 +29,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="ssh-askpass.html" title=
-          "ssh-askpass-6.5p1">Next</a>
+          "ssh-askpass-6.6p1">Next</a>
           <p>
-            ssh-askpass-6.5p1
+            ssh-askpass-6.6p1
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="shadow" name="shadow"></a>Shadow-4.1.5.1
+        <a id="shadow" name="shadow"></a>Shadow-4.2.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -67,7 +67,7 @@
           "command"><strong>su</strong></span> to utilize PAM.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -78,28 +78,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://cdn.debian.net/debian/pool/main/s/shadow//shadow_4.1.5.1.orig.tar.gz">
-                http://cdn.debian.net/debian/pool/main/s/shadow//shadow_4.1.5.1.orig.tar.gz</a>
+                "http://pkg-shadow.alioth.debian.org/releases/shadow-4.2.1.tar.xz">
+                http://pkg-shadow.alioth.debian.org/releases/shadow-4.2.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: ae66de9953f840fb3a97f6148bc39a30
+                Download MD5 sum: 2bfafe7d4962682d31b5eba65dba4fc8
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.4 MB
+                Download size: 1.5 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 38 MB
+                Estimated disk space required: 53 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.3 SBU
+                Estimated build time: 0.2 SBU
               </p>
             </li>
           </ul>
@@ -162,10 +162,9 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \; &amp;&amp;
 sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
        -e 's@/var/spool/mail@/var/mail@' etc/login.defs &amp;&amp;
 
-sed -i -e 's@PATH=/sbin:/bin:/usr/sbin:/usr/bin@&amp;:/usr/local/sbin:/usr/local/bin@' \
-       -e 's@PATH=/bin:/usr/bin@&amp;:/usr/local/bin@' etc/login.defs &amp;&amp;
+sed -i 's/1000/999/' etc/useradd &amp;&amp;
 
-./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
+./configure --sysconfdir=/etc --with-group-name-max-length=32 &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -211,14 +210,14 @@ mv -v /usr/bin/passwd /bin</kbd>
           default to the <code class="filename">/var/mail</code> location.
         </p>
         <p>
-          <span class="command"><strong>sed -i -e
-          's@PATH=/sbin:/bin:/usr/sbin:/usr/bin@&amp;:/usr/local/sbin:/usr/local/bin@'
-          -e 's@PATH=/bin:/usr/bin@&amp;:/usr/local/bin@'
-          etc/login.defs</strong></span>: This sed expands PATH to
-          <code class="filename">/usr/local/bin</code> for normal and
-          <code class="systemitem">root</code> user and to <code class=
-          "filename">/usr/local/sbin</code> for <code class=
-          "systemitem">root</code> user only.
+          <span class="command"><strong>sed -i 's/1000/999/'
+          etc/useradd</strong></span>: Make a minor change to make the
+          default useradd consistent with the LFS groups file.
+        </p>
+        <p>
+          <code class="option">--with-group-name-max-length=32</code>: The
+          maximum user name is 32 characters. Make the maximum group name the
+          same.
         </p>
         <p>
           <span class="command"><strong>mv -v /usr/bin/passwd
@@ -334,19 +333,20 @@ mv -v /usr/bin/passwd /bin</kbd>
             <pre class="root">
 <kbd class=
 "command">install -v -m644 /etc/login.defs /etc/login.defs.orig &amp;&amp;
-for FUNCTION in FAIL_DELAY FAILLOG_ENAB \
-                LASTLOG_ENAB \
-                MAIL_CHECK_ENAB \
-                OBSCURE_CHECKS_ENAB \
-                PORTTIME_CHECKS_ENAB \
-                QUOTAS_ENAB \
-                CONSOLE MOTD_FILE \
-                FTMP_FILE NOLOGINS_FILE \
-                ENV_HZ PASS_MIN_LEN \
-                SU_WHEEL_ONLY \
-                CRACKLIB_DICTPATH \
-                PASS_CHANGE_TRIES \
-                PASS_ALWAYS_WARN \
+for FUNCTION in FAIL_DELAY               \
+                FAILLOG_ENAB             \
+                LASTLOG_ENAB             \
+                MAIL_CHECK_ENAB          \
+                OBSCURE_CHECKS_ENAB      \
+                PORTTIME_CHECKS_ENAB     \
+                QUOTAS_ENAB              \
+                CONSOLE MOTD_FILE        \
+                FTMP_FILE NOLOGINS_FILE  \
+                ENV_HZ PASS_MIN_LEN      \
+                SU_WHEEL_ONLY            \
+                CRACKLIB_DICTPATH        \
+                PASS_CHANGE_TRIES        \
+                PASS_ALWAYS_WARN         \
                 CHFN_AUTH ENCRYPT_METHOD \
                 ENVIRON_FILE
 do
@@ -359,7 +359,7 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp14012336" name="idp14012336"></a>Configuring
+                    <a id="idp25746848" name="idp25746848"></a>Configuring
                     the /etc/pam.d/ Files
                   </h5>
                 </div>
@@ -390,8 +390,8 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp27645760" name=
-                    "idp27645760"></a>'system-account'
+                    <a id="idp25559888" name=
+                    "idp25559888"></a>'system-account'
                   </h5>
                 </div>
               </div>
@@ -411,7 +411,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp13763088" name="idp13763088"></a>'system-auth'
+                    <a id="idp19829616" name="idp19829616"></a>'system-auth'
                   </h5>
                 </div>
               </div>
@@ -431,8 +431,8 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp13515904" name=
-                    "idp13515904"></a>'system-passwd' (with cracklib)
+                    <a id="idp14240704" name=
+                    "idp14240704"></a>'system-passwd' (with cracklib)
                   </h5>
                 </div>
               </div>
@@ -474,8 +474,8 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp17498608" name=
-                    "idp17498608"></a>'system-passwd' (without cracklib)
+                    <a id="idp22178608" name=
+                    "idp22178608"></a>'system-passwd' (without cracklib)
                   </h5>
                 </div>
               </div>
@@ -497,8 +497,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp13887792" name=
-                    "idp13887792"></a>'system-session'
+                    <a id="idp7022160" name="idp7022160"></a>'system-session'
                   </h5>
                 </div>
               </div>
@@ -518,7 +517,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp24222352" name="idp24222352"></a>'login'
+                    <a id="idp12078944" name="idp12078944"></a>'login'
                   </h5>
                 </div>
               </div>
@@ -578,7 +577,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp31782304" name="idp31782304"></a>'passwd'
+                    <a id="idp24404208" name="idp24404208"></a>'passwd'
                   </h5>
                 </div>
               </div>
@@ -598,7 +597,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp23307776" name="idp23307776"></a>'su'
+                    <a id="idp8999952" name="idp8999952"></a>'su'
                   </h5>
                 </div>
               </div>
@@ -629,7 +628,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp28175440" name="idp28175440"></a>'chage'
+                    <a id="idp19344896" name="idp19344896"></a>'chage'
                   </h5>
                 </div>
               </div>
@@ -658,10 +657,8 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp19963744" name="idp19963744"></a>'chfn',
-                    'chgpasswd', 'chgpasswd', 'chsh', 'groupadd', 'groupdel',
-                    'groupmems', 'groupmod', 'newusers', 'useradd', 'userdel'
-                    and 'usermod'
+                    <a id="idp10943776" name="idp10943776"></a>Other common
+                    programs
                   </h5>
                 </div>
               </div>
@@ -709,7 +706,7 @@ done</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp19091792" name="idp19091792"></a>Other
+                    <a id="idp21047792" name="idp21047792"></a>Other
                   </h5>
                 </div>
               </div>
@@ -800,11 +797,12 @@ EOF</kbd>
         <p>
           A list of the installed files, along with their short descriptions
           can be found at <a class="ulink" href=
-          "http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/shadow.html#contents-shadow">../../../../lfs/view/7.5/chapter06/shadow.html#contents-shadow</a>.
+          "http://www.linuxfromscratch.org/lfs/view/7.6/chapter06/shadow.html#contents-shadow">
+          http://www.linuxfromscratch.org/lfs/view/7.6/chapter06/shadow.html#contents-shadow</a>.
         </p>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 09:38:44 -0800
+        Last updated on 2014-09-10 06:19:10 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -817,9 +815,9 @@ EOF</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="ssh-askpass.html" title=
-          "ssh-askpass-6.5p1">Next</a>
+          "ssh-askpass-6.6p1">Next</a>
           <p>
-            ssh-askpass-6.5p1
+            ssh-askpass-6.6p1
           </p>
         </li>
         <li class="up">
@@ -828,7 +826,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

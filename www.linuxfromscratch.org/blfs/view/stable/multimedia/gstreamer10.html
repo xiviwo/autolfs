@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GStreamer-1.2.3
+      GStreamer-1.4.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="gst10-plugins-base.html" title=
-          "gst-plugins-base-1.2.3">Next</a>
+          "gst-plugins-base-1.4.1">Next</a>
           <p>
-            gst-plugins-base-1.2.3
+            gst-plugins-base-1.4.1
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gstreamer10" name="gstreamer10"></a>GStreamer-1.2.3
+        <a id="gstreamer10" name="gstreamer10"></a>GStreamer-1.4.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,11 +61,11 @@
           streaming and anything else that streams in real-time or otherwise.
           This package only provides base functionality and libraries. You
           may need at least <a class="xref" href="gst10-plugins-base.html"
-          title="gst-plugins-base-1.2.3">gst-plugins-base-1.2.3</a> and one
+          title="gst-plugins-base-1.4.1">gst-plugins-base-1.4.1</a> and one
           of Good, Bad, Ugly or Libav plugins.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <div class="admon note">
@@ -87,23 +87,23 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.2.3.tar.xz">
-                http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.2.3.tar.xz</a>
+                "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.4.1.tar.xz">
+                http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.4.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 8155b9c7574ccaa361cc504e8e0e72dc
+                Download MD5 sum: bd0938d680d657249b885162f310702d
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.1 MB
+                Download size: 3.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 82 MB (additional 20MB to run
+                Estimated disk space required: 77 MB (additional 19 MB to run
                 the test suite)
               </p>
             </li>
@@ -123,14 +123,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a>
+          "GLib-2.40.0">GLib-2.40.0</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
         </p>
         <h4>
           Optional
@@ -138,8 +138,9 @@
         <p class="optional">
           <a class="xref" href="../general/gsl.html" title=
           "Gsl-1.16">Gsl-1.16</a>, <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a> and
-          <a class="ulink" href="http://www.valgrind.org/">Valgrind</a>
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>,
+          and <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -156,7 +157,7 @@
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
-            --with-package-name="GStreamer 1.2.3 BLFS" \
+            --with-package-name="GStreamer 1.4.1 BLFS" \
             --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &amp;&amp;
 make</kbd>
 </pre>
@@ -170,18 +171,6 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
-      </div>
-      <div class="commands" lang="en" xml:lang="en">
-        <h2 class="sect2">
-          Command Explanations
-        </h2>
-        <p>
-          <code class="option">--libexecdir=/usr/lib</code>: This option puts
-          the internal support programs into <code class=
-          "filename">/usr/lib/gstreamer-1.0</code> instead of <code class=
-          "filename">/usr/libexec/gstreamer-1.0.</code> in accordance with
-          the old version of the FHS used before LFS-7.5.
-        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -203,9 +192,8 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/gstreamer-1.0,
-              /usr/lib/gstreamer-1.0, /usr/libexec/gstreamer-1.0,
-              /usr/share/gtk-doc/html/gstreamer-1.0 and
-              /usr/share/gtk-doc/html/gstreamer-{libs,plugins}-1.0</span>
+              /usr/lib/gstreamer-1.0, /usr/libexec/gstreamer-1.0, and
+              /usr/share/gtk-doc/html/gstreamer{,-{libs,plugins}}-1.0</span>
             </div>
           </div>
         </div>
@@ -348,7 +336,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-03 19:06:31 -0800
+        Last updated on 2014-09-10 09:45:01 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -362,9 +350,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="gst10-plugins-base.html" title=
-          "gst-plugins-base-1.2.3">Next</a>
+          "gst-plugins-base-1.4.1">Next</a>
           <p>
-            gst-plugins-base-1.2.3
+            gst-plugins-base-1.4.1
           </p>
         </li>
         <li class="up">
@@ -373,7 +361,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

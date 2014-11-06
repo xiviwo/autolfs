@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gst-plugins-bad-1.2.3
+      gst-plugins-bad-1.4.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gst10-plugins-good.html" title=
-          "gst-plugins-good-1.2.3">Prev</a>
+          "gst-plugins-good-1.4.1">Prev</a>
           <p>
-            gst-plugins-good-1.2.3
+            gst-plugins-good-1.4.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gst10-plugins-ugly.html" title=
-          "gst-plugins-ugly-1.2.3">Next</a>
+          "gst-plugins-ugly-1.4.1">Next</a>
           <p>
-            gst-plugins-ugly-1.2.3
+            gst-plugins-ugly-1.4.1
           </p>
         </li>
         <li class="up">
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="gst10-plugins-bad" name=
-        "gst10-plugins-bad"></a>gst-plugins-bad-1.2.3
+        "gst10-plugins-bad"></a>gst-plugins-bad-1.4.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,7 +62,7 @@
           set of tests, a real live maintainer, or some actual wide use.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <div class="admon note">
@@ -84,29 +84,29 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.2.3.tar.xz">
-                http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.2.3.tar.xz</a>
+                "http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.4.1.tar.xz">
+                http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.4.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: cfd6f303c8df2740b27cc63b945decef
+                Download MD5 sum: 20cb190b18dc63017326321cdb7c91e5
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.2 MB
+                Download size: 3.7 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 118 MB (additional 6 MB to run
+                Estimated disk space required: 139 MB (additional 7 MB to run
                 the test suite)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.1 SBU (additional 0.8 SBU to run the
+                Estimated build time: 1.6 SBU (additional 1.1 SBU to run the
                 test suite)
               </p>
             </li>
@@ -120,15 +120,15 @@
         </h4>
         <p class="required">
           <a class="xref" href="gst10-plugins-base.html" title=
-          "gst-plugins-base-1.2.3">gst-plugins-base-1.2.3</a>
+          "gst-plugins-base-1.4.1">gst-plugins-base-1.4.1</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="libdvdread.html" title=
-          "Libdvdread-4.2.1">libdvdread-4.2.1</a>, <a class="xref" href=
-          "libdvdnav.html" title="Libdvdnav-4.2.1">libdvdnav-4.2.1</a>, and
+          "Libdvdread-5.0.0">libdvdread-5.0.0</a>, <a class="xref" href=
+          "libdvdnav.html" title="Libdvdnav-5.0.1">libdvdnav-5.0.1</a>, and
           <a class="xref" href="soundtouch.html" title=
           "SoundTouch-1.8.0">SoundTouch-1.8.0</a>
         </p>
@@ -137,30 +137,35 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/bluez.html" title=
-          "BlueZ-4.101">BlueZ-4.101</a>, <a class="xref" href=
-          "../basicnet/curl.html" title="cURL-7.35.0">cURL-7.35.0</a>,
+          "BlueZ-5.23">BlueZ-5.23</a>, <a class="xref" href=
+          "../basicnet/curl.html" title="cURL-7.37.1">cURL-7.37.1</a>,
           <a class="xref" href="faac.html" title="FAAC-1.28">FAAC-1.28</a>,
           <a class="xref" href="faad2.html" title="FAAD2-2.7">FAAD2-2.7</a>,
           <a class="xref" href="../postlfs/gnutls.html" title=
-          "GnuTLS-3.2.11">GnuTLS-3.2.11</a>, <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>,
+          "GnuTLS-3.3.7">GnuTLS-3.3.7</a>, <a class="xref" href=
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>,
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.22">GTK+-2.24.22</a> or <a class="xref" href=
-          "../x/gtk3.html" title="GTK+-3.10.7">GTK+-3.10.7</a>, <a class=
-          "xref" href="libass.html" title="libass-0.10.2">libass-0.10.2</a>,
+          "GTK+-2.24.24">GTK+-2.24.24</a> or <a class="xref" href=
+          "../x/gtk3.html" title="GTK+-3.12.2">GTK+-3.12.2</a>, <a class=
+          "xref" href="libass.html" title="libass-0.11.2">libass-0.11.2</a>,
           <a class="xref" href="../general/libexif.html" title=
           "libexif-0.6.21">libexif-0.6.21</a>, <a class="xref" href=
+          "../general/libgcrypt.html" title=
+          "libgcrypt-1.6.2">libgcrypt-1.6.2</a>, <a class="xref" href=
           "libmpeg2.html" title="libmpeg2-0.5.1">libmpeg2-0.5.1</a>,
           <a class="xref" href="../x/x7driver.html#libvdpau" title=
-          "libvdpau-0.7">libvdpau-0.7</a>, <a class="xref" href=
-          "../x/mesalib.html" title="MesaLib-10.0.3">MesaLib-10.0.3</a>,
+          "libvdpau-0.8">libvdpau-0.8</a>, <a class="xref" href=
+          "../x/mesalib.html" title="MesaLib-10.2.7">MesaLib-10.2.7</a>,
           <a class="xref" href="mpg123.html" title=
-          "Mpg123-1.18.0">mpg123-1.18.0</a>, <a class="xref" href=
+          "Mpg123-1.20.1">mpg123-1.20.1</a>, <a class="xref" href=
           "../basicnet/neon.html" title="neon-0.30.0">neon-0.30.0</a>,
           <a class="xref" href="../general/openjpeg.html" title=
-          "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a>, <a class="xref" href=
+          "OpenJPEG-1.5.2">OpenJPEG-1.5.2</a>, <a class="xref" href=
           "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="xref" href=
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>, <a class="xref" href=
+          "sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>, <a class="xref" href=
+          "../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a>, <a class="xref" href=
           "../x/x7lib.html" title="Xorg Libraries">Xorg Libraries</a>,
           <a class="ulink" href="http://celt-codec.org/">Celt</a>, <a class=
           "ulink" href="http://www.speech.cs.cmu.edu/flite/">Flite</a>,
@@ -187,9 +192,8 @@
           AAC</a>, <a class="ulink" href=
           "http://sourceforge.net/projects/opencore-amr/files/vo-amrwbenc/">VO
           AMRWB</a>, <a class="ulink" href=
-          "http://wayland.freedesktop.org/">Wayland</a>, <a class="ulink"
-          href="http://sourceforge.net/projects/zbar/">ZBAR</a>, and
-          <a class="ulink" href="http://www.valgrind.org/">Valgrind</a>
+          "http://wayland.freedesktop.org/">Wayland</a>, and <a class="ulink"
+          href="http://sourceforge.net/projects/zbar/">ZBAR</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -200,20 +204,31 @@
         <h2 class="sect2">
           Installation of GStreamer Bad Plug-ins
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If you need a plugin for a given dependency, that dependency
+            needs to be installed before this application.
+          </p>
+        </div>
         <p>
           Install <span class="application">GStreamer Bad Plug-ins</span> by
           running the following commands:
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
-            --with-package-name="GStreamer Bad Plugins 1.2.3 BLFS" \
+            --with-package-name="GStreamer Bad Plugins 1.4.1 BLFS" \
             --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &amp;&amp;
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make -k
-          check</strong></span>. Two tests are known to fail. A third test
-          fails for unknown reasons.
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>. One test (camerabin) needs hardware with a
+          camera. A couple of tests need a terminal emulator in a graphical
+          session.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -234,8 +249,9 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libgstbasecamerabinsrc-1.0.so,
-              libgstcodecparsers-1.0.so, libgstegl-1.0.so,
+              <span class="segbody">libgstbadbase-1.0.so,
+              libgstbadvideo-1.0.so, libgstbasecamerabinsrc-1.0.so,
+              libgstcodecparsers-1.0.so, libgstgl-1.0.so,
               libgstinsertbin-1.0.so, libgstmpegts-1.0.so,
               libgstphotography-1.0.so, libgsturidownloader-1.0.so and
               several plugins under /usr/lib/gstreamer-1.0</span>
@@ -243,32 +259,32 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class=
-              "segbody">/usr/include/gstreamer-1.0/gst/{basecamerabinsrc,egl,codecparsers},
-              /usr/include/gstreamer-1.0/gst/{insertbin,interfaces},
-              /usr/include/gstreamer-1.0/gst/{mpegts,uridownloader} and
-              /usr/share/gtk-doc/html/gst-plugins-bad-libs-1.0</span>
+              "segbody">/usr/include/gstreamer-1.0/gst/{basecamerabinsrc,codecparsers,gl},
+              /usr/include/gstreamer-1.0/gst/{insertbin,interfaces,mpegts},
+              /usr/include/gstreamer-1.0/gst/uridownloader, and
+              /usr/share/gtk-doc/html/gst-plugins-bad-{libs,plugins}-1.0</span>
             </div>
           </div>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 11:59:37 -0800
+        Last updated on 2014-09-13 17:48:40 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="gst10-plugins-good.html" title=
-          "gst-plugins-good-1.2.3">Prev</a>
+          "gst-plugins-good-1.4.1">Prev</a>
           <p>
-            gst-plugins-good-1.2.3
+            gst-plugins-good-1.4.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gst10-plugins-ugly.html" title=
-          "gst-plugins-ugly-1.2.3">Next</a>
+          "gst-plugins-ugly-1.4.1">Next</a>
           <p>
-            gst-plugins-ugly-1.2.3
+            gst-plugins-ugly-1.4.1
           </p>
         </li>
         <li class="up">
@@ -277,7 +293,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

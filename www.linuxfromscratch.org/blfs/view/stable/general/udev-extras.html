@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Udev Extras (from systemd)
+      Udev Extras (from eudev)
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
@@ -23,15 +23,15 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="sysstat.html" title=
-          "Sysstat-10.2.1">Prev</a>
+          "Sysstat-11.1.1">Prev</a>
           <p>
-            Sysstat-10.2.1
+            Sysstat-11.1.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="udisks.html" title="UDisks-1.0.4">Next</a>
+          <a accesskey="n" href="udisks.html" title="UDisks-1.0.5">Next</a>
           <p>
-            UDisks-1.0.4
+            UDisks-1.0.5
           </p>
         </li>
         <li class="up">
@@ -40,75 +40,69 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="udev-extras" name="udev-extras"></a>Udev Extras (from systemd)
+        <a id="udev-extras" name="udev-extras"></a>Udev Extras (from eudev)
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
           Introduction to Udev Extras
         </h2>
         <p>
-          In 2012, the <span class="application">Udev</span> code
-          distribution was merged with <span class=
-          "application">systemd</span>. <span class=
-          "application">Systemd</span> is a set of programs that replace the
-          <span class="application">SysVInit</span> package used by LFS and
-          is much more complex. It is not compatible with the LFS bootscripts
-          and has many problems and few advantages for most LFS users.
+          <span class="application">Eudev</span> was indeed installed in LFS
+          and there is no reason to reinstall it unless the user is going to
+          install a package such as <span class="application">UPower</span>
+          that needs libgudev. These instructions enable building libgudev
+          and also optionally create gir data for <span class=
+          "application">Eudev</span>.
         </p>
         <p>
-          The procedures below extract libraries and programs from the
-          systemd sources that could not be built in LFS due to library
-          dependency issues.
+          Unlike other packages in BLFS, there is no set version of
+          <span class="application">Eudev</span> in this page's title and no
+          set version specified for download. Version updates to <span class=
+          "application">Eudev</span> makes it possible that the user's system
+          may have an <span class="application">Eudev</span> version
+          different from the one in the current LFS book. Therefore, users
+          should use the version of <span class="application">Eudev</span>
+          their computer currently uses. With few exceptions, the BLFS team
+          has no experience updating (or reverting to an older version) the
+          <span class="application">Eudev</span> package &ldquo;<span class=
+          "quote">on the fly</span>&rdquo;.
         </p>
         <p>
-          Unlike any other package in the BLFS book, there is no set version
-          of <span class="application">systemd</span> specified to download.
-          Several version updates to LFS and BLFS means there are probably
-          many different versions of <span class="application">Udev</span> on
-          the platforms that BLFS is being built upon. Therefore, you should
-          download and use the version of <span class=
-          "application">systemd</span> your computer currently uses. The BLFS
-          team has no experience updating (or reverting to an older version)
-          the <span class="application">Udev</span> programs
-          &ldquo;<span class="quote">on the fly.</span>&rdquo; To discover
-          the version of <span class="application">Udev</span> your computer
-          currently uses, issue <span class="command"><strong>/sbin/udevadm
-          --version</strong></span>.
-        </p>
-        <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
           Package Information
         </h3>
+        <div class="admon caution">
+          <img alt="[Caution]" src="../images/caution.png" />
+          <h3>
+            Caution
+          </h3>
+          <p>
+            If you are using a version of BLFS different from your currently
+            installed base LFS system, you should use the Eudev source from
+            your LFS build. Newer versions of Eudev may occasionally be
+            incompatible with former ones, either because they require some
+            new options to be enabled in the kernel or because they change
+            the way rules are parsed. For in-system updates to Eudev, you may
+            want to consult <a class="ulink" href=
+            "http:wiki.gentoo.org/wiki/Udev/upgrade">the Gentoo page</a>
+            about upgrading Udev.
+          </p>
+        </div>
         <div class="itemizedlist">
           <ul class="compact">
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.freedesktop.org/wiki/Software/systemd/">http://www.freedesktop.org/wiki/Software/systemd/</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                Download size: ~1.3 MB
-              </p>
-            </li>
-            <li>
-              <p>
-                Estimated disk space required: ~16 MB
-              </p>
-            </li>
-            <li>
-              <p>
-                Estimated build time: ~0.1 SBU
+                "http://dev.gentoo.org/~blueness/eudev">http://dev.gentoo.org/~blueness/eudev</a>
               </p>
             </li>
           </ul>
@@ -120,23 +114,22 @@
           Required
         </h4>
         <p class="required">
-          <a class="ulink" href=
-          "http://anduin.linuxfromscratch.org/sources/other/">http://anduin.linuxfromscratch.org/sources/other/</a>
-          (match the udev-lfs-???.tar.bz2 tarball version to the systemd
-          version used in LFS). <a class="xref" href="glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a> (for the gudev library), <a class=
-          "xref" href="gperf.html" title="Gperf-3.0.4">Gperf-3.0.4</a> (for
-          keymap), and <a class="xref" href="gobject-introspection.html"
-          title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
-          (for gir-data, needed for Gnome)
+          <a class="xref" href="glib2.html" title=
+          "GLib-2.40.0">GLib-2.40.0</a>
         </p>
         <h4>
-          Optional
+          Optional Dependencies
         </h4>
         <p class="optional">
-          <a class="xref" href="../postlfs/acl.html" title=
-          "acl-2.2.52">acl-2.2.52</a>
+          <a class="xref" href="gobject-introspection.html" title=
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
+          (for gir-data, needed for Gnome), <a class="xref" href=
+          "../pst/docbook-xsl.html" title=
+          "docbook-xsl-1.78.1">docbook-xsl-1.78.1</a> and <a class="xref"
+          href="libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a> (to
+          build man pages, which are not shipped with the package), and
+          <a class="xref" href="gtk-doc.html" title=
+          "GTK-Doc-1.20">GTK-Doc-1.20</a> (to rebuild the documentation)
         </p>
         <h4>
           Optional Runtime Dependencies
@@ -156,137 +149,69 @@
           Installation of Udev Extras
         </h2>
         <p>
-          First, put the custom LFS files in place:
+          First, re-build eudev:
         </p>
         <pre class="userinput">
-<kbd class="command">UDEV=&lt;version&gt;
-tar -xf ../udev-lfs-$UDEV.tar.bz2</kbd>
-</pre>
-        <div class="admon note">
-          <img alt="[Note]" src="../images/note.png" />
-          <h3>
-            Note
-          </h3>
-          <p>
-            For udev-lfs-197-2.tar.bz2, there is a minor error in the
-            Makefile. For that version, run:
-          </p>
-          <pre class="userinput">
 <kbd class=
-"command">sed -i -e '/samsung-9/d' udev-lfs-197-2/makefile-incl.keymap</kbd>
+"command">sed -r -i 's|/usr(/bin/test)|\1|'         test/udev-test.pl  &amp;&amp;
+
+./configure --prefix=/usr           \
+            --bindir=/sbin          \
+            --sbindir=/sbin         \
+            --libdir=/usr/lib       \
+            --sysconfdir=/etc       \
+            --libexecdir=/lib       \
+            --with-rootprefix=      \
+            --with-rootlibdir=/lib  \
+            --enable-split-usr      \
+            --enable-libkmod        \
+            --enable-rule_generator \
+            --enable-keymap         \
+            --disable-introspection \
+            --disable-gtk-doc-html  \
+            --with-firmware-path=/lib/firmware &amp;&amp;
+
+make</kbd>
 </pre>
-        </div>
-        <div class="sect3" lang="en" xml:lang="en">
-          <h3 class="sect3">
-            keymap
-          </h3>
-          <div class="admon note">
-            <img alt="[Note]" src="../images/note.png" />
-            <h3>
-              Note
-            </h3>
-            <p>
-              Starting with systemd-206, the keymap capabilities are built
-              into the udev procedures initial installation in LFS. These
-              procedures only apply to udev versions before 206.
-            </p>
-          </div>
-          <p>
-            Support for special keys for many laptops is provided by the
-            <span class="command"><strong>keymap</strong></span> program and
-            supporting files. If the <span class=
-            "command"><strong>keymap</strong></span> capability is desired,
-            use:
-          </p>
-          <pre class="userinput">
-<kbd class="command">make -f udev-lfs-$UDEV/Makefile.lfs keymap</kbd>
+        <p>
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
+        </p>
+        <p>
+          Now re-install as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
 </pre>
-          <p>
-            To install <span class="command"><strong>keymap</strong></span>
-            and its associated files, issue the following command as the
-            <code class="systemitem">root</code> user:
-          </p>
-          <pre class="root">
-<kbd class="command">make -f udev-lfs-$UDEV/Makefile.lfs install-keymap</kbd>
-</pre>
-        </div>
-        <div class="sect3" lang="en" xml:lang="en">
-          <h3 class="sect3">
-            gudev
-          </h3>
-          <p>
-            To build the <span class="application">libgudev-1.0</span>
-            library and interface files, run:
-          </p>
-          <pre class="userinput">
-<kbd class="command">make -f udev-lfs-$UDEV/Makefile.lfs gudev</kbd>
-</pre>
-          <p>
-            Install the <code class="filename">gudev</code> library, run, as
-            the <code class="systemitem">root</code> user:
-          </p>
-          <pre class="root">
-<kbd class="command">make -f udev-lfs-$UDEV/Makefile.lfs install-gudev</kbd>
-</pre>
-        </div>
-        <div class="sect3" lang="en" xml:lang="en">
-          <h3 class="sect3">
-            GObject Files
-          </h3>
-          <p>
-            To build the <span class=
-            "application">gobject-introspection</span> interface (gir) files
-            for the <code class="filename">libgudev-1.0</code> library, run:
-          </p>
-          <pre class="userinput">
-<kbd class="command">make -f udev-lfs-$UDEV/Makefile.lfs gir-data</kbd>
-</pre>
-          <p>
-            Install the gir data, as the <code class="systemitem">root</code>
-            user:
-          </p>
-          <pre class="root">
-<kbd class=
-"command">make -f udev-lfs-$UDEV/Makefile.lfs install-gir-data</kbd>
-</pre>
-          <div class="admon caution">
-            <img alt="[Caution]" src="../images/caution.png" />
-            <h3>
-              Caution
-            </h3>
-            <p>
-              There is a shortcut to build and install all of the
-              <span class="application">udev</span> components at once using
-              the <span class="emphasis"><em>all</em></span> and <span class=
-              "emphasis"><em>install-all</em></span> <code class=
-              "filename">Makefile.lfs</code> targets. The installation of
-              this target will overwrite the base LFS udev files and has not
-              been thoroughly tested at the time of this writing. If using
-              this procedure, the udev daemon should be stopped before
-              overwriting the existing <code class="filename">udevd</code>
-              and udev libraries.
-            </p>
-          </div>
-        </div>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>--disable-introspection</code></em>:
+          This prevents the gir-data instructions from running. Remove this
+          option if the optional <a class="xref" href=
+          "gobject-introspection.html" title=
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
+          package is installed.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-gtk-doc-html</code></em>:
+          This prevents the building of the html data. Remove this option if
+          the optional <a class="xref" href="gtk-doc.html" title=
+          "GTK-Doc-1.20">GTK-Doc-1.20</a> package is installed.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
           Contents
         </h2>
-        <p>
-          A list of the installed files, along with their short descriptions
-          can be found at <a class="ulink" href=
-          "http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/udev.html#contents-udev">../../../../lfs/view/7.5/chapter06/udev.html#contents-udev</a>.
-        </p>
-        <p>
-          The following is some additional content information.
-        </p>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">findkeyboards, keyboard-force-release.sh,
-              and keymap</span>
+              <span class="segbody">None</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
@@ -294,9 +219,9 @@ tar -xf ../udev-lfs-$UDEV.tar.bz2</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/lib/udev/keymaps/force-release,
-              /usr/include/gudev-1.0/gudev, /usr/lib/girepository-1.0,
-              /usr/share/gir-1.0, and /usr/share/gtk-doc/html/gudev</span>
+              <span class="segbody">/usr/include/gudev-1.0/gudev,
+              /usr/lib/girepository-1.0, /usr/share/gir-1.0, and
+              /usr/share/gtk-doc/html/gudev (optional)</span>
             </div>
           </div>
         </div>
@@ -307,20 +232,6 @@ tar -xf ../udev-lfs-$UDEV.tar.bz2</kbd>
           <table border="0">
             <col align="left" valign="top" />
             <tbody>
-              <tr>
-                <td>
-                  <p>
-                    <a id="keymap-systemd" name=
-                    "keymap-systemd"></a><span class="term"><span class=
-                    "command"><strong>keymap</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    configures computer model specific key mappings.
-                  </p>
-                </td>
-              </tr>
               <tr>
                 <td>
                   <p>
@@ -340,22 +251,22 @@ tar -xf ../udev-lfs-$UDEV.tar.bz2</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-19 02:11:12 -0800
+        Last updated on 2014-09-09 12:00:35 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="sysstat.html" title=
-          "Sysstat-10.2.1">Prev</a>
+          "Sysstat-11.1.1">Prev</a>
           <p>
-            Sysstat-10.2.1
+            Sysstat-11.1.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="udisks.html" title="UDisks-1.0.4">Next</a>
+          <a accesskey="n" href="udisks.html" title="UDisks-1.0.5">Next</a>
           <p>
-            UDisks-1.0.4
+            UDisks-1.0.5
           </p>
         </li>
         <li class="up">
@@ -364,7 +275,7 @@ tar -xf ../udev-lfs-$UDEV.tar.bz2</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

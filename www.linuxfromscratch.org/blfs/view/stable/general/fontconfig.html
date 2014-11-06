@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Fontconfig-2.11.0
+      Fontconfig-2.11.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="freetype2.html" title=
-          "FreeType-2.5.2">Prev</a>
+          "FreeType-2.5.3">Prev</a>
           <p>
-            FreeType-2.5.2
+            FreeType-2.5.3
           </p>
         </li>
         <li class="next">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="fontconfig" name="fontconfig"></a>Fontconfig-2.11.0
+        <a id="fontconfig" name="fontconfig"></a>Fontconfig-2.11.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           font access.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -70,13 +70,13 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.0.tar.bz2">
-                http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.0.tar.bz2</a>
+                "http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.1.tar.bz2">
+                http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.1.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 000bd4baf7aefa828e03414d0c8c7dc5
+                Download MD5 sum: 824d000eb737af6e16c826dd3b2d6c90
               </p>
             </li>
             <li>
@@ -86,7 +86,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 13 MB (plus 4.2 MB installed)
+                Estimated disk space required: 17 MB
               </p>
             </li>
             <li>
@@ -104,16 +104,15 @@
         </h4>
         <p class="required">
           <a class="xref" href="freetype2.html" title=
-          "FreeType-2.5.2">FreeType-2.5.2</a> and either <a class="xref"
-          href="expat.html" title="Expat-2.1.0">expat-2.1.0</a> or <a class=
-          "xref" href="libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
+          "FreeType-2.5.3">FreeType-2.5.3</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../pst/docbook-utils.html" title=
-          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>
+          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a> and <a class="xref"
+          href="libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
         </p>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -129,7 +128,7 @@
             "perl-modules.html#perl-sgmlspm" title=
             "SGMLSpm-1.1">SGMLSpm-1.1</a> and <a class="xref" href=
             "../pst/texlive.html" title=
-            "texlive-20130530">texlive-20130530</a> installed also, or the
+            "texlive-20140525">texlive-20140525</a> installed also, or the
             <span class="application">Fontconfig</span> build will fail.
           </p>
         </div>
@@ -150,9 +149,8 @@
 <kbd class="command">./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
-            --docdir=/usr/share/doc/fontconfig-2.11.0 \
             --disable-docs       \
-            --disable-static     &amp;&amp;
+            --docdir=/usr/share/doc/fontconfig-2.11.1 &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -175,14 +173,14 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">install -v -dm755 \
-        /usr/share/{man/man{3,5},doc/fontconfig-2.11.0/fontconfig-devel} &amp;&amp;
+        /usr/share/{man/man{3,5},doc/fontconfig-2.11.1/fontconfig-devel} &amp;&amp;
 install -v -m644 fc-*/*.1          /usr/share/man/man1 &amp;&amp;
 install -v -m644 doc/*.3           /usr/share/man/man3 &amp;&amp;
 install -v -m644 doc/fonts-conf.5  /usr/share/man/man5 &amp;&amp;
 install -v -m644 doc/fontconfig-devel/* \
-        /usr/share/doc/fontconfig-2.11.0/fontconfig-devel &amp;&amp;
+        /usr/share/doc/fontconfig-2.11.1/fontconfig-devel &amp;&amp;
 install -v -m644 doc/*.{pdf,sgml,txt,html} \
-       /usr/share/doc/fontconfig-2.11.0</kbd>
+       /usr/share/doc/fontconfig-2.11.1</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -193,10 +191,6 @@ install -v -m644 doc/*.{pdf,sgml,txt,html} \
           <code class="option">--disable-docs</code>: This switch avoids
           building the documentation (the release tarball includes
           pre-generated documentation).
-        </p>
-        <p>
-          <em class="parameter"><code>--disable-static</code></em>: This
-          switch prevents installation of static versions of the libraries.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -258,7 +252,7 @@ install -v -m644 doc/*.{pdf,sgml,txt,html} \
             More information about configuring <span class=
             "application">Fontconfig</span> can be found in the user's manual
             in <a class="ulink" href=
-            "file:///usr/share/doc/fontconfig-2.11.0/fontconfig-user.html">file:///usr/share/doc/fontconfig-2.11.0/fontconfig-user.html</a>
+            "file:///usr/share/doc/fontconfig-2.11.1/fontconfig-user.html">file:///usr/share/doc/fontconfig-2.11.1/fontconfig-user.html</a>
           </p>
         </div>
       </div>
@@ -280,7 +274,7 @@ install -v -m644 doc/*.{pdf,sgml,txt,html} \
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/fonts, /usr/include/fontconfig,
-              /usr/share/doc/fontconfig-2.11.0, /usr/share/fontconfig,
+              /usr/share/doc/fontconfig-2.11.1, /usr/share/fontconfig,
               /usr/share/xml/fontconfig and /var/cache/fontconfig</span>
             </div>
           </div>
@@ -429,16 +423,16 @@ install -v -m644 doc/*.{pdf,sgml,txt,html} \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-17 15:16:31 -0800
+        Last updated on 2014-09-10 06:19:10 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="freetype2.html" title=
-          "FreeType-2.5.2">Prev</a>
+          "FreeType-2.5.3">Prev</a>
           <p>
-            FreeType-2.5.2
+            FreeType-2.5.3
           </p>
         </li>
         <li class="next">
@@ -454,7 +448,7 @@ install -v -m644 doc/*.{pdf,sgml,txt,html} \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

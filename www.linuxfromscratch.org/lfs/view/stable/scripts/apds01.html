@@ -12,20 +12,20 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="scripts.html" title=
-          "Boot and sysconfig scripts version-20130821">Prev</a>
+          "Boot and sysconfig scripts version-20140815">Prev</a>
           <p>
-            Boot and sysconfig scripts version-20130821
+            Boot and sysconfig scripts version-20140815
           </p>
         </li>
         <li class="next">
@@ -37,12 +37,12 @@
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -275,13 +275,13 @@ fi
 
 # Copy the boot log on initial boot only
 if [ "${previous}" == "N" -a  "${runlevel}" != "S" ]; then
-   cat /run/var/bootlog &gt;&gt; /var/log/boot.log
+   cat $BOOTLOG &gt;&gt; /var/log/boot.log
       
    # Mark the end of boot
    echo "--------" &gt;&gt; /var/log/boot.log
    
    # Remove the temporary file
-   rm -f /run/var/bootlog 2&gt; /dev/null
+   rm -f $BOOTLOG 2&gt; /dev/null
 fi
 
 # End rc
@@ -291,9 +291,9 @@ fi
       <ul>
         <li class="prev">
           <a accesskey="p" href="scripts.html" title=
-          "Boot and sysconfig scripts version-20130821">Prev</a>
+          "Boot and sysconfig scripts version-20140815">Prev</a>
           <p>
-            Boot and sysconfig scripts version-20130821
+            Boot and sysconfig scripts version-20140815
           </p>
         </li>
         <li class="next">
@@ -305,12 +305,12 @@ fi
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

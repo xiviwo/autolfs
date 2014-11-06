@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.22.&nbsp;Shadow-4.1.5.1
+      6.25.&nbsp;Shadow-4.2.1
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="ncurses.html" title="Ncurses-5.9">Prev</a>
+          <a accesskey="p" href="sed.html" title="Sed-4.2.2">Prev</a>
           <p>
-            Ncurses-5.9
+            Sed-4.2.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="psmisc.html" title="Psmisc-22.20">Next</a>
+          <a accesskey="n" href="psmisc.html" title="Psmisc-22.21">Next</a>
           <p>
-            Psmisc-22.20
+            Psmisc-22.21
           </p>
         </li>
         <li class="up">
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-shadow" name="ch-system-shadow"></a>6.22.
-        Shadow-4.1.5.1
+        <a id="ch-system-shadow" name="ch-system-shadow"></a>6.25.
+        Shadow-4.2.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -68,7 +68,7 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.22.1. Installation of Shadow
+          6.25.1. Installation of Shadow
         </h2>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -78,8 +78,8 @@
           <p>
             If you would like to enforce the use of strong passwords, refer
             to <a class="ulink" href=
-            "http://www.linuxfromscratch.org/blfs/view/svn/postlfs/cracklib.html">
-            http://www.linuxfromscratch.org/blfs/view/svn/postlfs/cracklib.html</a>
+            "http://www.linuxfromscratch.org/blfs/view/7.6/postlfs/cracklib.html">
+            http://www.linuxfromscratch.org/blfs/view/7.6/postlfs/cracklib.html</a>
             for installing CrackLib prior to building Shadow. Then add
             <em class="parameter"><code>--with-libcrack</code></em> to the
             <span class="command"><strong>configure</strong></span> command
@@ -126,11 +126,36 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;</kbd>
 </pre>
         </div>
         <p>
+          Make a minor change to make the default useradd consistent with the
+          LFS groups file:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i 's/1000/999/' etc/useradd</kbd>
+</pre>
+        <p>
           Prepare Shadow for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --sysconfdir=/etc</kbd>
+<kbd class=
+"command">./configure --sysconfdir=/etc --with-group-name-max-length=32</kbd>
 </pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>The meaning of the configure option:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--with-group-name-max-length=32</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                The maximum user name is 32 characters. Make the maximum
+                group name the same.
+              </p>
+            </dd>
+          </dl>
+        </div>
         <p>
           Compile the package:
         </p>
@@ -155,7 +180,7 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;</kbd>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="conf-shadow" name="conf-shadow"></a>6.22.2. Configuring
+          <a id="conf-shadow" name="conf-shadow"></a>6.25.2. Configuring
           Shadow
         </h2>
         <p>
@@ -251,7 +276,7 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;</kbd>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.22.3. Setting the root password
+          6.25.3. Setting the root password
         </h2>
         <p>
           Choose a password for user <span class=
@@ -263,7 +288,7 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;</kbd>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-shadow" name="contents-shadow"></a>6.22.4. Contents
+          <a id="contents-shadow" name="contents-shadow"></a>6.25.4. Contents
           of Shadow
         </h2>
         <div class="segmentedlist">
@@ -775,15 +800,15 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="ncurses.html" title="Ncurses-5.9">Prev</a>
+          <a accesskey="p" href="sed.html" title="Sed-4.2.2">Prev</a>
           <p>
-            Ncurses-5.9
+            Sed-4.2.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="psmisc.html" title="Psmisc-22.20">Next</a>
+          <a accesskey="n" href="psmisc.html" title="Psmisc-22.21">Next</a>
           <p>
-            Psmisc-22.20
+            Psmisc-22.21
           </p>
         </li>
         <li class="up">
@@ -792,7 +817,7 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

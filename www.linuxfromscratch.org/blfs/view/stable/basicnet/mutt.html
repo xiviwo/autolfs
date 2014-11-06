@@ -5,34 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Mutt-1.5.22
+      Mutt-1.5.23
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;19.&nbsp;Mail/News Clients
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="fetchmail.html" title=
-          "Fetchmail-6.3.26">Prev</a>
+          <a accesskey="p" href="mailx.html" title="mailx-12.4">Prev</a>
           <p>
-            Fetchmail-6.3.26
+            mailx-12.4
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="re-alpine.html" title=
-          "Re-alpine-2.03">Next</a>
+          <a accesskey="n" href="procmail.html" title=
+          "Procmail-3.22">Next</a>
           <p>
-            Re-alpine-2.03
+            Procmail-3.22
           </p>
         </li>
         <li class="up">
@@ -41,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mutt" name="mutt"></a>Mutt-1.5.22
+        <a id="mutt" name="mutt"></a>Mutt-1.5.23
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +58,7 @@
           saving, and deleting your email.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,19 +68,13 @@
           <ul class="compact">
             <li>
               <p>
-                Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/mutt/mutt-1.5.22.tar.gz">http://downloads.sourceforge.net/mutt/mutt-1.5.22.tar.gz</a>
-              </p>
-            </li>
-            <li>
-              <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.mutt.org/mutt/devel/mutt-1.5.22.tar.gz">ftp://ftp.mutt.org/mutt/devel/mutt-1.5.22.tar.gz</a>
+                "ftp://ftp.mutt.org/mutt/mutt-1.5.23.tar.gz">ftp://ftp.mutt.org/mutt/mutt-1.5.23.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 48267aba1bc53db636777f4a1ec87cb6
+                Download MD5 sum: 11f5b6a3eeba1afa1257fe93c9f26bff
               </p>
             </li>
             <li>
@@ -91,13 +84,15 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 36 MB
+                Estimated disk space required: 36 MB (plus a further 8MB for
+                the PDF manual)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.5 SBU (plus a further 0.3SBU to
-                regenerate the html if the required dependencies are present)
+                Estimated build time: 0.7 SBU (plus a further 0.2SBU to
+                regenerate the html if the required dependencies are present,
+                and 0.2 SBU to build the PDF manual)
               </p>
             </li>
           </ul>
@@ -109,30 +104,32 @@
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../postlfs/gnupg.html" title=
-          "GnuPG-2.0.22">GnuPG-2.0.22</a>, <a class="xref" href=
-          "../postlfs/openssl.html" title="OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
-          or <a class="xref" href="../postlfs/gnutls.html" title=
-          "GnuTLS-3.2.11">GnuTLS-3.2.11</a>, an <a class="xref" href=
-          "../server/mail.html" title=
-          "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a> (that provides
-          a <span class="command"><strong>sendmail</strong></span> command),
           <a class="xref" href="../general/aspell.html" title=
           "Aspell-0.60.6.1">Aspell-0.60.6.1</a>, <a class="xref" href=
-          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.12.1">MIT
-          Kerberos V5-1.12.1</a>, <a class="xref" href=
           "../postlfs/cyrus-sasl.html" title="Cyrus SASL-2.1.26">Cyrus
-          SASL-2.1.26</a>, <a class="xref" href="../general/slang.html"
-          title="S-Lang-2.2.4">S-Lang-2.2.4</a>, <a class="xref" href=
-          "../general/libidn.html" title="libidn-1.28">libidn-1.28</a>,
-          <a class="xref" href="../pst/texlive.html" title=
-          "texlive-20130530">texlive-20130530</a> <a class="xref" href=
-          "../server/db.html" title="Berkeley DB-6.0.20">Berkeley
-          DB-6.0.20</a> or <a class="ulink" href=
-          "http://qdbm.sourceforge.net/">QDBM</a> or <a class="ulink" href=
-          "http://tokyocabinet.sourceforge.net/index.html">Tokyo Cabinet</a>,
-          and <a class="xref" href="../general/gdb.html" title=
-          "GDB-7.7">GDB-7.7</a>
+          SASL-2.1.26</a>, <a class="xref" href="../general/gdb.html" title=
+          "GDB-7.8">GDB-7.8</a>, <a class="xref" href="../postlfs/gnupg.html"
+          title="GnuPG-2.0.26">GnuPG-2.0.26</a>, <a class="xref" href=
+          "../postlfs/gpgme.html" title="GPGME-1.5.1">GPGME-1.5.1</a>,
+          <a class="ulink" href=
+          "http://www.citi.umich.edu/projects/nfsv4/linux/">libgssapi</a>,
+          <a class="xref" href="../general/libidn.html" title=
+          "libidn-1.29">libidn-1.29</a>, <a class="xref" href=
+          "../postlfs/mitkrb.html" title="MIT Kerberos V5-1.12.2">MIT
+          Kerberos V5-1.12.2</a>, <a class="ulink" href=
+          "http://mixmaster.sourceforge.net/">Mixmaster</a>, an <a class=
+          "xref" href="../server/mail.html" title=
+          "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a> (that provides
+          a <span class="command"><strong>sendmail</strong></span> command),
+          <a class="xref" href="../general/slang.html" title=
+          "S-Lang-2.2.4">S-Lang-2.2.4</a>, <a class="xref" href=
+          "../postlfs/openssl.html" title="OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>
+          or <a class="xref" href="../postlfs/gnutls.html" title=
+          "GnuTLS-3.3.7">GnuTLS-3.3.7</a>, <a class="xref" href=
+          "../server/db.html" title="Berkeley DB-6.1.19">Berkeley
+          DB-6.1.19</a> or <a class="ulink" href=
+          "http://fallabs.com/qdbm/">QDBM</a> or <a class="ulink" href=
+          "http://fallabs.com/tokyocabinet/">Tokyo Cabinet</a>
         </p>
         <h4>
           Optional (To Regenerate HTML Documentation)
@@ -140,16 +137,19 @@
         <p class="optional">
           <a class="xref" href="../general/libxslt.html" title=
           "libxslt-1.1.28">libxslt-1.1.28</a> and either <a class="xref"
-          href="lynx.html" title="Lynx-2.8.8">Lynx-2.8.8</a>, <a class="xref"
-          href="w3m.html" title="W3m-0.5.3">w3m-0.5.3</a> or <a class="ulink"
-          href="http://elinks.or.cz/">ELinks</a>
+          href="lynx.html" title="Lynx-2.8.8rel.2">Lynx-2.8.8rel.2</a>,
+          <a class="xref" href="w3m.html" title="W3m-0.5.3">w3m-0.5.3</a>, or
+          <a class="ulink" href="http://elinks.or.cz/">ELinks</a>
         </p>
         <h4>
           Optional (To Generate PDF Manual)
         </h4>
         <p class="optional">
           <a class="xref" href="../pst/docbook-dsssl.html" title=
-          "docbook-dsssl-1.79">docbook-dsssl-1.79</a>
+          "docbook-dsssl-1.79">docbook-dsssl-1.79</a>, <a class="xref" href=
+          "../pst/openjade.html" title="OpenJade-1.3.2">OpenJade-1.3.2</a>,
+          and <a class="xref" href="../pst/texlive.html" title=
+          "texlive-20140525">texlive-20140525</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -200,18 +200,22 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --sysconfdir=/etc \
-            --with-docdir=/usr/share/doc/mutt-1.5.22 \
-            --enable-pop --enable-imap \
-            --enable-hcache --without-qdbm \
-            --without-tokyocabinet \
-            --with-gdbm --without-bdb &amp;&amp;
+<kbd class="command">./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --with-docdir=/usr/share/doc/mutt-1.5.23 \
+            --enable-pop      \
+            --enable-imap     \
+            --enable-hcache   \
+            --without-qdbm    \
+            --with-gdbm       \
+            --without-bdb     \
+            --without-tokyocabinet &amp;&amp;
 make</kbd>
 </pre>
         <p>
           To generate the PDF manual with <a class="xref" href=
           "../pst/texlive.html" title=
-          "texlive-20130530">texlive-20130530</a>, run the following command:
+          "texlive-20140525">texlive-20140525</a>, run the following command:
         </p>
         <pre class="userinput">
 <kbd class="command">make -C doc manual.pdf</kbd>
@@ -232,7 +236,7 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">install -v -m644 doc/manual.{pdf,tex} \
-    /usr/share/doc/mutt-1.5.22</kbd>
+    /usr/share/doc/mutt-1.5.23</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -278,7 +282,7 @@ make</kbd>
         <p>
           <code class="option">--with-ssl</code>: This parameter adds SSL/TLS
           support from <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a> in POP3/IMAP/SMTP if they are
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a> in POP3/IMAP/SMTP if they are
           enabled.
         </p>
         <p>
@@ -326,7 +330,7 @@ make</kbd>
           </p>
           <pre class="userinput">
 <kbd class=
-"command">cat /usr/share/doc/mutt-1.5.22/samples/gpg.rc &gt;&gt; ~/.muttrc</kbd>
+"command">cat /usr/share/doc/mutt-1.5.23/samples/gpg.rc &gt;&gt; ~/.muttrc</kbd>
 </pre>
         </div>
       </div>
@@ -347,7 +351,7 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/share/doc/mutt-1.5.22</span>
+              <span class="segbody">/usr/share/doc/mutt-1.5.23</span>
             </div>
           </div>
         </div>
@@ -429,7 +433,7 @@ make</kbd>
                   <p>
                     prepares a command line for the <a class="xref" href=
                     "../postlfs/gnupg.html" title=
-                    "GnuPG-2.0.22">GnuPG-2.0.22</a> utilities.
+                    "GnuPG-2.0.26">GnuPG-2.0.26</a> utilities.
                   </p>
                 </td>
               </tr>
@@ -446,7 +450,7 @@ make</kbd>
                     is a key ring dumper for <a class="ulink" href=
                     "http://www.pgp.com/">PGP</a>. It is not needed for
                     <a class="xref" href="../postlfs/gnupg.html" title=
-                    "GnuPG-2.0.22">GnuPG-2.0.22</a>.
+                    "GnuPG-2.0.26">GnuPG-2.0.26</a>.
                   </p>
                 </td>
               </tr>
@@ -469,23 +473,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-25 03:54:44 -0800
+        Last updated on 2014-09-20 19:22:09 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="fetchmail.html" title=
-          "Fetchmail-6.3.26">Prev</a>
+          <a accesskey="p" href="mailx.html" title="mailx-12.4">Prev</a>
           <p>
-            Fetchmail-6.3.26
+            mailx-12.4
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="re-alpine.html" title=
-          "Re-alpine-2.03">Next</a>
+          <a accesskey="n" href="procmail.html" title=
+          "Procmail-3.22">Next</a>
           <p>
-            Re-alpine-2.03
+            Procmail-3.22
           </p>
         </li>
         <li class="up">
@@ -494,7 +497,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

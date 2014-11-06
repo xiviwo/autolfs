@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;42.&nbsp;CD/DVD-Writing Utilities
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libburn.html" title="libburn-1.3.4">Next</a>
+          <a accesskey="n" href="libburn.html" title="libburn-1.3.8">Next</a>
           <p>
-            libburn-1.3.4
+            libburn-1.3.8
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -78,7 +78,7 @@
           "http://www.mcmurchy.com/rmlcopydvd/">RMLCopyDVD</a> package.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -122,8 +122,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/k3b-2.0.2-ffmpeg2-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/k3b-2.0.2-ffmpeg2-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/k3b-2.0.2-ffmpeg2-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/k3b-2.0.2-ffmpeg2-1.patch</a>
               </p>
             </li>
           </ul>
@@ -136,36 +136,34 @@
         </h4>
         <p class="required">
           <a class="xref" href="../kde/kde-runtime.html" title=
-          "Kde-runtime-4.12.2">kde-runtime-4.12.2</a>, <a class="xref" href=
-          "../kde/libkcddb.html" title="libkcddb-4.12.2">libkcddb-4.12.2</a>,
+          "Kde-runtime-4.14.1">kde-runtime-4.14.1</a>, <a class="xref" href=
+          "../kde/libkcddb.html" title="libkcddb-4.14.1">libkcddb-4.14.1</a>,
           and <a class="xref" href="libsamplerate.html" title=
           "libsamplerate-0.1.8">libsamplerate-0.1.8</a>
         </p>
         <p>
           There are programs from three packages that <span class=
           "application">K3b</span> will look for at runtime: <a class="ulink"
-          href=
-          "http://cdrecord.berlios.de/private/cdrecord.html">Cdrtools</a>
-          (required to burn CD-ROM media), <a class="xref" href=
-          "dvd-rw-tools.html" title="dvd+rw-tools-7.1">dvd+rw-tools-7.1</a>
-          (required to burn or format DVD media), and <a class="xref" href=
-          "cdrdao.html" title="Cdrdao-1.2.3">Cdrdao-1.2.3</a> (required to
-          burn CD-ROM media in DAO (Disk At Once) mode). If you don't need
-          the capability provided by any of the three packages, you don't
-          have to install it. However, a warning message will be generated
-          every time you run the <span class=
-          "command"><strong>k3b</strong></span> program if any are not
-          installed.
+          href="http://freecode.com/projects/cdrecord">Cdrtools</a> (required
+          to burn CD-ROM media), <a class="xref" href="dvd-rw-tools.html"
+          title="dvd+rw-tools-7.1">dvd+rw-tools-7.1</a> (required to burn or
+          format DVD media), and <a class="xref" href="cdrdao.html" title=
+          "Cdrdao-1.2.3">Cdrdao-1.2.3</a> (required to burn CD-ROM media in
+          DAO (Disk At Once) mode). If you don't need the capability provided
+          by any of the three packages, you don't have to install it.
+          However, a warning message will be generated every time you run the
+          <span class="command"><strong>k3b</strong></span> program if any
+          are not installed.
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="ffmpeg.html" title=
-          "FFmpeg-2.1.3">FFmpeg-2.1.3</a>, <a class="xref" href=
-          "libdvdread.html" title="Libdvdread-4.2.1">libdvdread-4.2.1</a>,
+          "FFmpeg-2.3.3">FFmpeg-2.3.3</a>, <a class="xref" href=
+          "libdvdread.html" title="Libdvdread-5.0.0">libdvdread-5.0.0</a>,
           <a class="xref" href="../general/libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, and <a class="xref"
+          "libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a>, and <a class="xref"
           href="taglib.html" title="Taglib-1.9.1">taglib-1.9.1</a>
         </p>
         <h4>
@@ -283,7 +281,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-28 15:16:23 -0800
+        Last updated on 2014-09-18 22:41:15 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -296,9 +294,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libburn.html" title="libburn-1.3.4">Next</a>
+          <a accesskey="n" href="libburn.html" title="libburn-1.3.8">Next</a>
           <p>
-            libburn-1.3.4
+            libburn-1.3.8
           </p>
         </li>
         <li class="up">
@@ -307,7 +305,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

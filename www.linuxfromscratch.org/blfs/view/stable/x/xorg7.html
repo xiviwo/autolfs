@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="util-macros.html" title=
-          "util-macros-1.18.0">Next</a>
+          "util-macros-1.19.0">Next</a>
           <p>
-            util-macros-1.18.0
+            util-macros-1.19.0
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -117,8 +117,8 @@
         Additionally, because of the large number of repetitive commands, you
         are encouraged to partially automate the build. Instructions have
         been given that utilize the <a class="xref" href=
-        "../postlfs/sudo.html" title="Sudo-1.8.9p5">Sudo-1.8.9p5</a> package.
-        It is recommended that you use the <em class=
+        "../postlfs/sudo.html" title="Sudo-1.8.10p3">Sudo-1.8.10p3</a>
+        package. It is recommended that you use the <em class=
         "parameter"><code>:NOPASSWD</code></em> configuration option for the
         user that will be building the xorg packages.
       </p>
@@ -127,6 +127,18 @@
           <a id="xorg-env" name="xorg-env"></a>Setting up the Xorg Build
           Environment
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            The following instructions assume that the shell startup files
+            have been set up as described in <a class="xref" href=
+            "../postlfs/profile.html" title=
+            "The Bash Shell Startup Files">The Bash Shell Startup Files</a>.
+          </p>
+        </div>
         <p>
           First, you'll need to create a working directory:
         </p>
@@ -177,18 +189,26 @@ cd xc</kbd>
         <pre class="userinput">
 <kbd class="command">cat &gt; /etc/profile.d/xorg.sh &lt;&lt; "EOF"
 XORG_PREFIX="<em class="replaceable"><code>&lt;PREFIX&gt;</code></em>"
-XORG_CONFIG="--prefix=$XORG_PREFIX \
-             --sysconfdir=/etc \
-             --localstatedir=/var \
-             --disable-static"
+XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 export XORG_PREFIX XORG_CONFIG
 EOF
 chmod 644 /etc/profile.d/xorg.sh</kbd>
 </pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If you've decided to use the standard <code class=
+            "filename">/usr</code> prefix, you can omit the remainder of this
+            page and continue at <a class="xref" href="util-macros.html"
+            title="util-macros-1.19.0">util-macros-1.19.0</a>.
+          </p>
+        </div>
         <p>
-          If you've decided to use the standard <code class=
-          "filename">/usr</code> prefix, you can omit the remainder of this
-          page. Otherwise, be sure to add <code class=
+          If you've decided to <span class="emphasis"><em>not</em></span> use
+          the standard prefix, be sure to add <code class=
           "filename">$XORG_PREFIX/bin</code> to your <code class=
           "envar">PATH</code> environment variable, and <code class=
           "filename">$XORG_PREFIX/lib/pkgconfig</code> and <code class=
@@ -258,7 +278,7 @@ ln -s lib $XORG_PREFIX/lib64</kbd>
 </pre>
       </div>
       <p class="updated">
-        Last updated on 2013-12-26 23:01:51 -0800
+        Last updated on 2014-08-17 11:21:21 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -272,9 +292,9 @@ ln -s lib $XORG_PREFIX/lib64</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="util-macros.html" title=
-          "util-macros-1.18.0">Next</a>
+          "util-macros-1.19.0">Next</a>
           <p>
-            util-macros-1.18.0
+            util-macros-1.19.0
           </p>
         </li>
         <li class="up">
@@ -283,7 +303,7 @@ ln -s lib $XORG_PREFIX/lib64</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      parted-3.1
+      parted-3.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;File Systems and Disk Management
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gptfdisk.html" title=
-          "gptfdisk-0.8.8">Prev</a>
+          "gptfdisk-0.8.10">Prev</a>
           <p>
-            gptfdisk-0.8.8
+            gptfdisk-0.8.10
           </p>
         </li>
         <li class="next">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="parted" name="parted"></a>parted-3.1
+        <a id="parted" name="parted"></a>parted-3.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           partitioning and partition resizing tool.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,27 +69,45 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnu.org/gnu/parted/parted-3.1.tar.xz">http://ftp.gnu.org/gnu/parted/parted-3.1.tar.xz</a>
+                "http://ftp.gnu.org/gnu/parted/parted-3.2.tar.xz">http://ftp.gnu.org/gnu/parted/parted-3.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 5d89d64d94bcfefa9ce8f59f4b81bdcb
+                Download MD5 sum: 0247b6a7b314f8edeb618159fa95f9cb
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.5 MB
+                Download size: 1.6 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 38 MB
+                Estimated disk space required: 27 MB (additional 2 MB for the
+                tests and additional 1 MB for optional PDF and Postscript
+                documentation)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.5 SBU
+                Estimated build time: 0.4 SBU (additional 0.6 SBU for the
+                tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Optional, to fix build without device mapper support:
+                <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/parted-3.2-devmapper-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/parted-3.2-devmapper-1.patch</a>
               </p>
             </li>
           </ul>
@@ -102,8 +120,15 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="lvm2.html" title=
-          "LVM2-2.02.105">LVM2-2.02.105</a> (device-mapper, required if
+          "LVM2-2.02.111">LVM2-2.02.111</a> (device-mapper, required if
           building <span class="application">udisks</span>)
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../general/pth.html" title=
+          "Pth-2.0.7">Pth-2.0.7</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -114,6 +139,13 @@
         <h2 class="sect2">
           Installation of parted
         </h2>
+        <p>
+          If you want to build without device mapper support, a fix is
+          necessary:
+        </p>
+        <pre class="userinput">
+<kbd class="command">patch -Np1 -i ../parted-3.2-devmapper-1.patch</kbd>
+</pre>
         <p>
           Install <span class="application">Parted</span> by running the
           following commands:
@@ -128,7 +160,7 @@ makeinfo --plaintext -o doc/parted.txt doc/parted.texi</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="../pst/texlive.html" title=
-          "texlive-20130530">texlive-20130530</a> installed and wish to
+          "texlive-20140525">texlive-20140525</a> installed and wish to
           create PDF and Postcript documentation issue the following
           commands:
         </p>
@@ -137,6 +169,13 @@ makeinfo --plaintext -o doc/parted.txt doc/parted.texi</kbd>
 "command">texi2pdf             -o doc/parted.pdf doc/parted.texi &amp;&amp;
 texi2dvi             -o doc/parted.dvi doc/parted.texi &amp;&amp;
 dvips                -o doc/parted.ps  doc/parted.dvi</kbd>
+</pre>
+        <p>
+          If you wish to run the test suite, first remove a test that
+          normally fails in BLFS, because it needs a locale C.UTF-8:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i '/t0251-gpt-unicode.sh/d' tests/Makefile</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
@@ -148,11 +187,11 @@ dvips                -o doc/parted.ps  doc/parted.dvi</kbd>
         </p>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
-install -v -m755 -d /usr/share/doc/parted-3.1/html &amp;&amp;
+install -v -m755 -d /usr/share/doc/parted-3.2/html &amp;&amp;
 install -v -m644    doc/html/* \
-                    /usr/share/doc/parted-3.1/html &amp;&amp;
+                    /usr/share/doc/parted-3.2/html &amp;&amp;
 install -v -m644    doc/{FAT,API,parted.{txt,html}} \
-                    /usr/share/doc/parted-3.1</kbd>
+                    /usr/share/doc/parted-3.2</kbd>
 </pre>
         <p>
           Install the optional PDF and Postscript documentation by issuing
@@ -162,7 +201,7 @@ install -v -m644    doc/{FAT,API,parted.{txt,html}} \
         <pre class="root">
 <kbd class=
 "command">install -v -m644 doc/FAT doc/API doc/parted.{pdf,ps,dvi} \
-                    /usr/share/doc/parted-3.1</kbd>
+                    /usr/share/doc/parted-3.2</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -190,12 +229,14 @@ install -v -m644    doc/{FAT,API,parted.{txt,html}} \
               <span class="segbody">parted and partprobe</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libparted.so</span>
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libparted.so and
+              libparted-fs-resize.so</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">/usr/include/parted</span>
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/parted and
+              /usr/share/doc/parted-3.2</span>
             </div>
           </div>
         </div>
@@ -253,16 +294,16 @@ install -v -m644    doc/{FAT,API,parted.{txt,html}} \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 18:30:29 -0800
+        Last updated on 2014-09-17 11:48:47 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="gptfdisk.html" title=
-          "gptfdisk-0.8.8">Prev</a>
+          "gptfdisk-0.8.10">Prev</a>
           <p>
-            gptfdisk-0.8.8
+            gptfdisk-0.8.10
           </p>
         </li>
         <li class="next">
@@ -278,7 +319,7 @@ install -v -m644    doc/{FAT,API,parted.{txt,html}} \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

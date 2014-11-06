@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gdk-pixbuf-2.30.4
+      gdk-pixbuf-2.30.8
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gdk-pixbuf" name="gdk-pixbuf"></a>gdk-pixbuf-2.30.4
+        <a id="gdk-pixbuf" name="gdk-pixbuf"></a>gdk-pixbuf-2.30.8
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -63,7 +63,7 @@
           3</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -74,20 +74,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.4.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.4.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.8.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.8.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.4.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.4.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.8.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.30/gdk-pixbuf-2.30.8.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: f20c0a5aa827332869c85c47d88394ce
+                Download MD5 sum: 4fed0d54432f1b69fc6e66e608bd5542
               </p>
             </li>
             <li>
@@ -98,13 +98,14 @@
             <li>
               <p>
                 Estimated disk space required: 25 MB (additional 1 MB for the
-                tests)
+                tests and 1 MB to rebuild and install the API documentation)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.3 SBU (additional 0.3 SBU to run the
-                test suite)
+                Estimated build time: 0.2 SBU (additional 0.2 SBU to run the
+                test suite and less than 0.1 SBU to rebuild and install the
+                API documentation)
               </p>
             </li>
           </ul>
@@ -117,12 +118,12 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a>, <a class="xref" href=
+          "GLib-2.40.0">GLib-2.40.0</a>, <a class="xref" href=
           "../general/libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
-          href="../general/libpng.html" title="libpng-1.6.9">libpng-1.6.9</a>
-          and <a class="xref" href="../general/libtiff.html" title=
-          "LibTIFF-4.0.3">LibTIFF-4.0.3</a>
+          "libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a>, <a class="xref"
+          href="../general/libpng.html" title=
+          "libpng-1.6.13">libpng-1.6.13</a> and <a class="xref" href=
+          "../general/libtiff.html" title="LibTIFF-4.0.3">LibTIFF-4.0.3</a>
         </p>
         <h4>
           Recommended
@@ -138,7 +139,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
         </p>
         <h4>
           Optional
@@ -146,7 +147,7 @@
         <p class="optional">
           <a class="xref" href="../general/jasper.html" title=
           "JasPer-1.900.1">JasPer-1.900.1</a> and <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -229,7 +230,8 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libgdk_pixbuf-2.0.so,
-              libgdk_pixbuf_xlib-2.0.so, and several under
+              libgdk_pixbuf_xlib-2.0.so, and several loaders for specific
+              image formats under
               /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders</span>
             </div>
             <div class="seg">
@@ -313,7 +315,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-19 12:41:42 -0800
+        Last updated on 2014-09-10 09:45:01 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -337,7 +339,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

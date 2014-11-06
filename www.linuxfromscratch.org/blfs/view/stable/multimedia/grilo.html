@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Grilo-0.2.8
+      Grilo-0.2.11
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -29,9 +29,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="grilo-plugins.html" title=
-          "Grilo-Plugins-0.2.10">Next</a>
+          "Grilo-Plugins-0.2.13">Next</a>
           <p>
-            Grilo-Plugins-0.2.10
+            Grilo-Plugins-0.2.13
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="grilo" name="grilo"></a>Grilo-0.2.8
+        <a id="grilo" name="grilo"></a>Grilo-0.2.11
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           application developers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,30 +69,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/grilo/0.2/grilo-0.2.8.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/grilo/0.2/grilo-0.2.8.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/grilo/0.2/grilo-0.2.11.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/grilo/0.2/grilo-0.2.11.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.2/grilo-0.2.8.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.2/grilo-0.2.8.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.2/grilo-0.2.11.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.2/grilo-0.2.11.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: ded2f82fd2fc5291762134d0cfc70307
+                Download MD5 sum: 65ac9100dab7f93c4df41cfad58dccba
               </p>
             </li>
             <li>
               <p>
-                Download size: 588 KB
+                Download size: 600 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 26 MB
+                Estimated disk space required: 14 MB
               </p>
             </li>
             <li>
@@ -110,28 +110,34 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.10.7">GTK+-3.10.7</a>
+          "GTK+-3.12.2">GTK+-3.12.2</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../basicnet/libsoup.html" title=
-          "libsoup-2.44.2">libsoup-2.44.2</a>, <a class="xref" href=
+          "libsoup-2.46.0">libsoup-2.46.0</a>, <a class="xref" href=
           "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a> and
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>,
           <a class="xref" href="grilo-plugins.html" title=
-          "Grilo-Plugins-0.2.10">Grilo-Plugins-0.2.10</a> (runtime)
+          "Grilo-Plugins-0.2.13">Grilo-Plugins-0.2.13</a> (runtime), and
+          <a class="xref" href="../general/vala.html" title=
+          "Vala-0.24.0">Vala-0.24.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../pst/docbook-utils.html" title=
-          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, <a class="ulink"
-          href="http://sourceforge.net/projects/liboauth/files/">liboauth</a>
-          (to configure flickr personal accounts), and <a class="xref" href=
-          "../general/vala.html" title="Vala-0.22.1">Vala-0.22.1</a>
+          <a class="xref" href="../basicnet/avahi.html" title=
+          "Avahi-0.6.31">Avahi-0.6.31</a> (if installed at build time, make
+          sure avahi-daemon is running as a system daemon, started by
+          bootscript/systemd unit), <a class="xref" href=
+          "../pst/docbook-utils.html" title=
+          "DocBook-utils-0.6.14">DocBook-utils-0.6.14</a>, and <a class=
+          "ulink" href=
+          "http://sourceforge.net/projects/liboauth/files/">liboauth</a> (to
+          configure flickr personal accounts)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -183,8 +189,8 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">grilo-simple-playlist, grilo-test-ui-0.2,
-              and grl-inspect-0.2</span>
+              <span class="segbody">grilo-test-ui-0.2, grl-inspect-0.2 and
+              grl-launch-0.2</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -237,6 +243,21 @@ make</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="grl-launch" name="grl-launch"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grl-launch-0.2</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a tool to run <span class="application">Grilo</span>
+                    operations from command line.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="libgrilo" name="libgrilo"></a><span class=
                     "term"><code class="filename">libgrilo.so</code></span>
                   </p>
@@ -278,7 +299,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 07:06:53 -0800
+        Last updated on 2014-09-18 14:33:53 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -291,9 +312,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="grilo-plugins.html" title=
-          "Grilo-Plugins-0.2.10">Next</a>
+          "Grilo-Plugins-0.2.13">Next</a>
           <p>
-            Grilo-Plugins-0.2.10
+            Grilo-Plugins-0.2.13
           </p>
         </li>
         <li class="up">
@@ -302,7 +323,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

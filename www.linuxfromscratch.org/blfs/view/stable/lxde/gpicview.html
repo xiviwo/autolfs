@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;35.&nbsp;LXDE Applications
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="lxappearance-obconf.html" title=
-          "lxappearance-obconf-0.2.1">Next</a>
+          "lxappearance-obconf-0.2.2">Next</a>
           <p>
-            lxappearance-obconf-0.2.1
+            lxappearance-obconf-0.2.2
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           lightweight image viewer.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -103,7 +103,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.22">GTK+-2.24.22</a>
+          "GTK+-2.24.24">GTK+-2.24.24</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -129,15 +129,25 @@ make</kbd>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make install</kbd>
+<kbd class="command">make install &amp;&amp;
+sed -i 's/Utility;//' /usr/share/applications/gpicview.desktop</kbd>
 </pre>
         <p>
           If you have <a class="xref" href="../xsoft/xdg-utils.html" title=
-          "xdg-utils-1.1.0-rc1">xdg-utils-1.1.0-rc1</a> installed, as the
+          "xdg-utils-1.1.0-rc2">xdg-utils-1.1.0-rc2</a> installed, as the
           <code class="systemitem">root</code> user, you should run the
           <span class="command"><strong>xdg-icon-resource forceupdate --theme
           hicolor</strong></span> command, for the installed icon to be
           displayed in the menu item.
+        </p>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i ...</strong></span>: Fixes
+          submenu for <span class="application">GPicView</span>.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -186,7 +196,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 04:20:28 -0800
+        Last updated on 2014-09-17 15:52:31 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -200,9 +210,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="lxappearance-obconf.html" title=
-          "lxappearance-obconf-0.2.1">Next</a>
+          "lxappearance-obconf-0.2.2">Next</a>
           <p>
-            lxappearance-obconf-0.2.1
+            lxappearance-obconf-0.2.2
           </p>
         </li>
         <li class="up">
@@ -211,7 +221,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

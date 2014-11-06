@@ -5,33 +5,34 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      libsigc++-2.3.1
+      libsigc++-2.3.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="liblinear.html" title=
-          "liblinear-1.94">Prev</a>
+          <a accesskey="p" href="libpaper.html" title=
+          "libpaper-1.1.24+nmu3">Prev</a>
           <p>
-            liblinear-1.94
+            libpaper-1.1.24+nmu3
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libtasn1.html" title="libtasn1-3.4">Next</a>
+          <a accesskey="n" href="libsigsegv.html" title=
+          "libsigsegv-2.10">Next</a>
           <p>
-            libtasn1-3.4
+            libsigsegv-2.10
           </p>
         </li>
         <li class="up">
@@ -40,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="libsigc" name="libsigc"></a>libsigc++-2.3.1
+        <a id="libsigc" name="libsigc"></a>libsigc++-2.3.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +58,7 @@
           typesafe callback system for standard C++.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -68,35 +69,37 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.3/libsigc++-2.3.1.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.3/libsigc++-2.3.1.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.3/libsigc++-2.3.2.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.3/libsigc++-2.3.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.3/libsigc++-2.3.1.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.3/libsigc++-2.3.1.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.3/libsigc++-2.3.2.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.3/libsigc++-2.3.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 06a0569e8ba161d3428e7daa838682f8
+                Download MD5 sum: e75fbd6f5cc34d058a9dabec96245dc8
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.4 MB
+                Download size: 3.5 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 31 MB
+                Estimated disk space required: 34 MB (additional 12 MB for
+                the tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: less than 0.1 SBU
+                Estimated build time: less than 0.1 SBU (additional 0.1 SBU
+                for the tests)
               </p>
             </li>
           </ul>
@@ -115,7 +118,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
+<kbd class=
+"command">sed -i '/type_traits.h/i\#include &lt;sigc++/visit_each.h&gt;' \
+ sigc++/macros/limit_reference.h.m4 &amp;&amp;
+./configure --prefix=/usr &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -128,6 +134,18 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>sed -i '/type_traits.h/i\#include
+          &lt;sigc++/visit_each.h&gt;'
+          sigc++/macros/limit_reference.h.m4</strong></span>: This sed fixes
+          a bug which prevents <span class="application">inkscape</span>
+          compiling.
+        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -144,7 +162,7 @@ make</kbd>
               <span class="segbody">libsigc-2.0.so</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Directory:</strong>
+              <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/sigc++-2.0,
               /usr/lib/sigc++-2.0, /usr/share/devhelp/books/libsigc++-2.0 and
               /usr/share/doc/libsigc++-2.0</span>
@@ -178,22 +196,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 07:06:53 -0800
+        Last updated on 2014-09-14 13:18:45 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="liblinear.html" title=
-          "liblinear-1.94">Prev</a>
+          <a accesskey="p" href="libpaper.html" title=
+          "libpaper-1.1.24+nmu3">Prev</a>
           <p>
-            liblinear-1.94
+            libpaper-1.1.24+nmu3
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libtasn1.html" title="libtasn1-3.4">Next</a>
+          <a accesskey="n" href="libsigsegv.html" title=
+          "libsigsegv-2.10">Next</a>
           <p>
-            libtasn1-3.4
+            libsigsegv-2.10
           </p>
         </li>
         <li class="up">
@@ -202,7 +221,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

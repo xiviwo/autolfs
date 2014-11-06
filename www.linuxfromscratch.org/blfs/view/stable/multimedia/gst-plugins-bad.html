@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -68,7 +68,7 @@
           "gst-ffmpeg-0.10.13">gst-ffmpeg-0.10.13</a> packages.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <div class="admon note">
@@ -133,30 +133,41 @@
         <p class="recommended">
           <a class="xref" href="faac.html" title="FAAC-1.28">FAAC-1.28</a>,
           <a class="xref" href="../general/libpng.html" title=
-          "libpng-1.6.9">libpng-1.6.9</a>, <a class="xref" href="libvpx.html"
-          title="libvpx-v1.3.0">libvpx-1.3.0</a>, <a class="xref" href=
-          "../postlfs/openssl.html" title="OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
-          and <a class="xref" href="xvid.html" title=
-          "XviD-1.3.2">XviD-1.3.2</a>
+          "libpng-1.6.13">libpng-1.6.13</a>, <a class="xref" href=
+          "libvpx.html" title="libvpx-v1.3.0">libvpx-1.3.0</a>, <a class=
+          "xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a> and <a class="xref" href=
+          "xvid.html" title="XviD-1.3.3">XviD-1.3.3</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="ulink" href="http://www.celt-codec.org/">celt</a>,
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.35.0">cURL-7.35.0</a>, <a class="ulink" href=
-          "http://diracvideo.org/">Dirac</a>, <a class="ulink" href=
-          "http://www.directfb.org/">DirectFB</a>, <a class="xref" href=
-          "faad2.html" title="FAAD2-2.7">FAAD2-2.7</a>, <a class="ulink"
-          href="http://www.speech.cs.cmu.edu/flite/">Flite</a>, <a class=
-          "ulink" href="http://code.google.com/p/game-music-emu/">Game Music
-          Emu</a>, <a class="ulink" href=
-          "http://libgsm.sourcearchive.com/">GSM</a>, <a class="xref" href=
+          "cURL-7.37.1">cURL-7.37.1</a>, <a class="xref" href="faad2.html"
+          title="FAAD2-2.7">FAAD2-2.7</a>, <a class="xref" href=
           "../general/jasper.html" title="JasPer-1.900.1">JasPer-1.900.1</a>,
-          <a class="ulink" href="http://www.ladspa.org/">LADSPA</a>,
           <a class="xref" href="libass.html" title=
-          "libass-0.10.2">libass-0.10.2</a>, <a class="ulink" href=
+          "libass-0.11.2">libass-0.11.2</a>, <a class="xref" href=
+          "libmusicbrainz.html" title=
+          "libmusicbrainz-2.1.5">libmusicbrainz-2.1.5</a>, <a class="xref"
+          href="../general/librsvg.html" title=
+          "librsvg-2.40.3">librsvg-2.40.3</a>, <a class="xref" href=
+          "libsndfile.html" title="libsndfile-1.0.25">libsndfile-1.0.25</a>,
+          <a class="xref" href="../x/x7driver.html#libvdpau" title=
+          "libvdpau-0.8">libvdpau-0.8</a>, <a class="xref" href=
+          "../basicnet/neon.html" title="neon-0.30.0">neon-0.30.0</a>,
+          <a class="xref" href="sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>,
+          <a class="xref" href="soundtouch.html" title=
+          "SoundTouch-1.8.0">SoundTouch-1.8.0</a> <a class="ulink" href=
+          "http://www.celt-codec.org/">celt</a>, <a class="ulink" href=
+          "http://diracvideo.org/">Dirac</a>, <a class="ulink" href=
+          "http://www.directfb.org/">DirectFB</a>, <a class="ulink" href=
+          "http://www.speech.cs.cmu.edu/flite/">Flite</a>, <a class="ulink"
+          href="http://code.google.com/p/game-music-emu/">Game Music Emu</a>,
+          <a class="ulink" href="http://libgsm.sourcearchive.com/">GSM</a>,
+          <a class="ulink" href="http://www.ladspa.org/">LADSPA</a>,
+          <a class="ulink" href=
           "http://libcdaudio.sourceforge.net/">libcdaudio</a>, <a class=
           "ulink" href=
           "http://sourceforge.net/projects/libdc1394">libdc1394</a>,
@@ -172,27 +183,18 @@
           "ulink" href=
           "http://sourceforge.net/projects/modplug-xmms/">libmodplug</a>,
           <a class="ulink" href="http://www.musepack.net/">libmpcdec</a>,
-          <a class="xref" href="libmusicbrainz.html" title=
-          "libmusicbrainz-2.1.5">libmusicbrainz-2.1.5</a>, <a class="ulink"
-          href="http://code.google.com/p/musicip-libofa/">libofa</a>,
-          <a class="xref" href="../general/librsvg.html" title=
-          "librsvg-2.40.1">librsvg-2.40.1</a>, <a class="xref" href=
-          "libsndfile.html" title="libsndfile-1.0.25">libsndfile-1.0.25</a>,
-          <a class="xref" href="../x/x7driver.html#libvdpau" title=
-          "libvdpau-0.7">libvdpau-0.7</a>, <a class="ulink" href=
-          "http://mjpeg.sourceforge.net/">MJPEG Tools</a>, <a class="xref"
-          href="../basicnet/neon.html" title="neon-0.30.0">neon-0.30.0</a>,
+          <a class="ulink" href=
+          "http://code.google.com/p/musicip-libofa/">libofa</a>, <a class=
+          "ulink" href="http://mjpeg.sourceforge.net/">MJPEG Tools</a>,
           <a class="ulink" href=
           "http://kcat.strangesoft.net/openal.html">OpenAL</a>, <a class=
           "ulink" href="http://code.entropywave.com/projects/orc/">ORC</a>,
           <a class="ulink" href="http://rtmpdump.mplayerhq.hu/">rtmpdump</a>,
           <a class="ulink" href="http://diracvideo.org/">Schroedinger</a>,
-          <a class="xref" href="sdl.html" title="SDL-1.2.15">SDL-1.2.15</a>,
+          <a class="ulink" href="http://www.soft-switch.org/">SpanDSP</a>,
           <a class="ulink" href=
-          "http://www.surina.net/soundtouch/">SoundTouch</a>, <a class=
-          "ulink" href="http://www.soft-switch.org/">SpanDSP</a>, <a class=
-          "ulink" href="http://sourceforge.net/projects/opencore-amr/">VO
-          AACENC</a>, <a class="ulink" href=
+          "http://sourceforge.net/projects/opencore-amr/">VO AACENC</a>,
+          <a class="ulink" href=
           "http://sourceforge.net/projects/opencore-amr/">VO AMRWBENC</a>,
           <a class="ulink" href=
           "http://wildmidi.sourceforge.net/">WildMidi</a>, <a class="ulink"
@@ -203,7 +205,8 @@
           Optional, for the unit regression tests
         </h4>
         <p>
-          <a class="ulink" href="http://www.valgrind.org/">Valgrind</a>
+          <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -214,6 +217,16 @@
         <h2 class="sect2">
           Installation of GStreamer Bad Plug-ins
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            If you need a plugin for a given dependency, that dependency
+            needs to be installed before this application.
+          </p>
+        </div>
         <p>
           Install <span class="application">Gstreamer Bad Plug-ins</span> by
           running the following commands:
@@ -279,7 +292,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 11:59:37 -0800
+        Last updated on 2014-09-22 11:20:08 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -304,7 +317,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

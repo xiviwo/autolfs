@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -106,16 +106,11 @@
           <ul>
             <li class="listitem">
               <p>
-                If one of the toolchain packages (Glibc, GCC or Binutils)
-                needs to be upgraded to a newer minor version, it is safer to
-                rebuild LFS. Though you <span class=
-                "emphasis"><em>may</em></span> be able to get by rebuilding
-                all the packages in their dependency order, we do not
-                recommend it. For example, if glibc-2.2.x needs to be updated
-                to glibc-2.3.x, it is safer to rebuild. For micro version
-                updates, a simple reinstallation usually works, but is not
-                guaranteed. For example, upgrading from glibc-2.3.4 to
-                glibc-2.3.5 will not usually cause any problems.
+                If Glibc needs to be upgraded to a newer version, (e.g. from
+                glibc-2.19 to glibc-2.20, it is safer to rebuild LFS. Though
+                you <span class="emphasis"><em>may</em></span> be able to
+                rebuild all the packages in their dependency order, we do not
+                recommend it.
               </p>
             </li>
             <li class="listitem">
@@ -407,7 +402,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

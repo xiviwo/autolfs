@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "application/xhtml+xml; charset=iso-8859-1" />
+    <title>
+      GCC-Ada-4.9.1
+    </title>
+    <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-7.6">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
+      </h4>
+      <h3>
+        Chapter&nbsp;13.&nbsp;Programming
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gcc.html" title="GCC-4.9.1">Prev</a>
+          <p>
+            GCC-4.9.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gcc-java.html" title=
+          "GCC-Java-4.9.1">Next</a>
+          <p>
+            GCC-Java-4.9.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="en" xml:lang="en">
+      <h1 class="sect1">
+        <a id="gcc-ada" name="gcc-ada"></a>GCC-Ada-4.9.1
+      </h1>
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to the GCC Ada compiler
+        </h2>
+        <p>
+          Ada is a modern programming language designed for large, long-lived
+          applications &mdash; and embedded systems in particular &mdash;
+          where reliability and efficiency are essential. It has a set of
+          unique technical features that make it highly effective for use in
+          large, complex and safety-critical projects.
+        </p>
+        <p>
+          The compiler and associated tools on this page are known as the
+          <span class="application">GNAT</span> technology, developed by the
+          Adacore company, using the <span class="application">GCC</span>
+          backend. Since parts of the Ada compiler are written in Ada, there
+          is a circular dependency on an Ada compiler. The instructions below
+          first install a binary compiler.
+        </p>
+        <p>
+          This package is known to build and work properly using an LFS-7.6
+          platform.
+        </p>
+        <div class="admon caution">
+          <img alt="[Caution]" src="../images/caution.png" />
+          <h3>
+            Caution
+          </h3>
+          <p>
+            Using the instructions on this page will have the effect that the
+            C and C++ compiler and libraries will be reinstalled, overwriting
+            the ones on your system. This may lead to some issues. Please
+            read the notes and caution on the <a class="xref" href="gcc.html"
+            title="GCC-4.9.1">GCC-4.9.1</a> page.
+          </p>
+        </div>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "http://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2">http://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2">ftp://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: fddf71348546af523353bd43d34919c1
+              </p>
+            </li>
+            <li>
+              <p>
+                Download size: 86 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 4.8 GB (0.7 GB added if GNAT
+                install dir is not removed)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated build time: 133 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            You will need to install <span class="application">GNAT</span>
+            temporarily to satisfy the circular dependency. You may point
+            your browser to the <a class="ulink" href=
+            "https://libre.adacore.com/download/">AdaCore download page</a>,
+            choose your platform and 2014, then select the file to download.
+            Alternatively, direct links to the 64 bit and 32 bit linux
+            versions are given below.
+          </p>
+        </div>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                GNAT 64 bit binary: <a class="ulink" href=
+                "http://mirrors.cdn.adacore.com/art/7427735035ecc98968ebfcee17494161b0de28ef">
+                http://mirrors.cdn.adacore.com/art/7427735035ecc98968ebfcee17494161b0de28ef</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                GNAT 64 bit MD5 sum: c0863ed75109b5aa737becfd5a6ec038
+              </p>
+            </li>
+            <li>
+              <p>
+                GNAT 64 bit size: 225 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                GNAT 32 bit binary: <a class="ulink" href=
+                "http://mirrors.cdn.adacore.com/art/3fc05fc61cbc7ab4f291ed19ea4cb269fffd17bd">
+                http://mirrors.cdn.adacore.com/art/3fc05fc61cbc7ab4f291ed19ea4cb269fffd17bd</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                GNAT 32 bit MD5 sum: 69423c7ad8d9759377d4fff71a78992d
+              </p>
+            </li>
+            <li>
+              <p>
+                GNAT 32 bit size: 222 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/gcc-4.9.1-upstream_fixes-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/gcc-4.9.1-upstream_fixes-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          GCC Ada Dependencies
+        </h3>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="dejagnu.html" title=
+          "DejaGnu-1.5.1">DejaGnu-1.5.1</a>, for tests
+        </p>
+        <p class="usernotes">
+          User Notes: <a class="ulink" href=
+          "http://wiki.linuxfromscratch.org/blfs/wiki/gcc-ada">http://wiki.linuxfromscratch.org/blfs/wiki/gcc-ada</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of the GNAT binary
+        </h2>
+        <p>
+          Before unpacking and changing into the GCC source directory, first
+          unpack the <span class="application">GNAT</span> tarball, and
+          change to the GNAT directory. Then, install the <span class=
+          "application">GNAT</span> binary by running the following command
+          as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make ins-all prefix=/opt/gnat</kbd>
+</pre>
+        <p>
+          The <span class="application">GNAT</span> compiler can be invoked
+          by executing the <span class="command"><strong>gcc</strong></span>
+          binary installed in <code class="filename">/opt/gnat/bin</code>.
+        </p>
+        <p>
+          You may now remove the <span class="application">GNAT</span> source
+          directory if desired.
+        </p>
+        <p>
+          Prepare to compile <span class="application">GCC</span> by placing
+          the <span class="application">GNAT</span> version of <span class=
+          "command"><strong>gcc</strong></span> at the beginning of the
+          <code class="envar">PATH</code> variable by using the following
+          commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">PATH_HOLD=$PATH &amp;&amp;
+export PATH=/opt/gnat/bin:$PATH_HOLD</kbd>
+</pre>
+        <p>
+          Doing so has the drawback that the <span class=
+          "application">GCC</span> and <span class=
+          "application">Binutils</span> executables are taken from the just
+          installed <span class="application">GNAT</span> package, but the
+          versions of those executables are outdated compared to those
+          installed in LFS. This is not important for the <span class=
+          "application">GCC</span> compilers, since they recompile themselves
+          during the bootstrap process. On the other hand, the outdated
+          <span class="command"><strong>ld</strong></span> and <span class=
+          "command"><strong>as</strong></span> tools are used all along. In
+          order to use the LFS tools, issue as the <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">find /opt/gnat -name ld -exec mv -v {} {}.old \;
+find /opt/gnat -name as -exec mv -v {} {}.old \;</kbd>
+</pre>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of GCC Ada
+        </h2>
+        <p>
+          As in LFS, fix a problem identified upstream:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's/if \((code.*))\)/if (\1 \&amp;\&amp; \!DEBUG_INSN_P (insn))/' gcc/sched-deps.c</kbd>
+</pre>
+        <p>
+          Install <span class="application">GCC Ada</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../gcc-4.9.1-upstream_fixes-1.patch &amp;&amp;
+mkdir ../gcc-build &amp;&amp;
+cd    ../gcc-build &amp;&amp;
+
+../gcc-4.9.1/configure          \
+    --prefix=/usr               \
+    --libdir=/usr/lib           \
+    --enable-shared             \
+    --enable-threads=posix      \
+    --enable-__cxa_atexit       \
+    --enable-clocale=gnu        \
+    --disable-multilib          \
+    --with-system-zlib          \
+    --enable-languages=ada &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          If you have installed additional packages such as <span class=
+          "application">Valgrind</span> and <span class=
+          "application">GDB</span>, the <span class="application">GCC</span>
+          part of the testsuite will run more tests than in LFS. Some of
+          those will report FAIL and others XPASS (pass when expected to
+          FAIL). To run the tests, issue:
+        </p>
+        <pre class="userinput">
+<kbd class="command">ulimit -s 32768 &amp;&amp;
+make -k check</kbd>
+</pre>
+        <p>
+          The tests are very long, and the results may be hard to find in the
+          logs, specially if you use parallel jobs with make. You can get a
+          summary of the tests with:
+        </p>
+        <pre class="userinput">
+<kbd class="command">../gcc-4.9.1/contrib/test_summary</kbd>
+</pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install &amp;&amp;
+
+mkdir -pv /usr/share/gdb/auto-load/usr/lib              &amp;&amp;
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &amp;&amp;
+
+chown -v -R root:root \
+    /usr/lib/gcc/*linux-gnu/4.9.1/include{,-fixed} \
+    /usr/lib/gcc/*linux-gnu/4.9.1/ada{lib,include}</kbd>
+</pre>
+        <p>
+          You should now remove the <span class="application">GNAT</span>
+          installation and perform other cleanups:
+        </p>
+        <pre class="userinput">
+<kbd class="command">rm -rf /opt/gnat &amp;&amp;
+export PATH=$PATH_HOLD &amp;&amp;
+unset PATH_HOLD</kbd>
+</pre>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <span class="command"><strong>patch ...
+          gcc-4.9.1-upstream_fixes-1.patch</strong></span>: This patch
+          corrects bugs in the C++ compiler, which lead to segmentation
+          faults in some cases.
+        </p>
+        <p>
+          <span class="command"><strong>mkdir ../gcc-build; cd
+          ../gcc-build</strong></span>: The <span class=
+          "application">GCC</span> documentation recommends building the
+          package in a dedicated build directory.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-shared --enable-threads=posix
+          --enable-__cxa_atexit</code></em>: These parameters are required to
+          build the <span class="application">C++</span> libraries to
+          published standards.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-clocale=gnu</code></em>: This
+          parameter is a failsafe for incomplete locale data.
+        </p>
+        <p>
+          <em class="parameter"><code>--disable-multilib</code></em>: This
+          parameter ensures that files are created for the specific
+          architecture of your computer.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-system-zlib</code></em>: Uses
+          the system <span class="application">zlib</span> instead of the
+          bundled one. <span class="application">zlib</span> is used for
+          compressing and uncompressing <span class=
+          "application">GCC</span>'s intermediate language in LTO (Link Time
+          Optimization) object files.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-languages=ada</code></em>:
+          Instructs the build system to build the Ada tools and compiler. It
+          is unavoidable that the <span class="application">C</span> and
+          <span class="application">C++</span> compilers be built too.
+        </p>
+        <p>
+          <span class="command"><strong>ulimit -s 32768</strong></span>: This
+          command prevents several tests from running out of stack space.
+        </p>
+        <p>
+          <span class="command"><strong>make -k check</strong></span>: This
+          command runs the test suite without stopping if any errors are
+          encountered.
+        </p>
+        <p>
+          <span class=
+          "command"><strong>../gcc-4.9.1/contrib/test_summary</strong></span>:
+          This command will produce a summary of the test suite results. You
+          can append <span class="command"><strong>| grep -A7
+          Summ</strong></span> to the command to produce an even more
+          condensed version of the summary. You may also wish to redirect the
+          output to a file for review and comparison later on.
+        </p>
+        <p>
+          <span class="command"><strong>chown -v -R root:root
+          /usr/lib/gcc/*linux-gnu/...</strong></span>: If the package is
+          built by a user other than root, the ownership of the installed
+          <code class="filename">include</code> and <code class=
+          "filename">adalib</code> directories (and their contents) will be
+          incorrect. These commands change the ownership to the <code class=
+          "systemitem">root</code> user and group.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">gnat, gnatbind, gnatchop, gnatclean,
+              gnatfind, gnatkr, gnatlink, gnatls, gnatmake, gnatname,
+              gnatprep, gnatxref, and a run-time executable, gnat1, in
+              <code class=
+              "filename">/usr/libexec/&lt;arch-triplet&gt;/4.9.1</code></span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libgnat.{so,a}, libgnarl.{so,a} in
+              <code class=
+              "filename">/usr/lib/gcc/&lt;arch-triplet&gt;/4.9.1/adalib</code></span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class=
+              "segbody">/usr/lib/gcc/&lt;arch-triplet&gt;/4.9.1/ada{include,lib}</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Only the Ada specific files are listed here. Others can be found at
+          <a class="ulink" href=
+          "http://www.linuxfromscratch.org/lfs/view/7.6/chapter06/gcc.html#contents-gcc">../../../../lfs/view/7.6/chapter06/gcc.html#contents-gcc</a>
+          as they were initially installed during the building of LFS.
+        </p>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0">
+            <col align="left" valign="top" />
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnat" name="gnat"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnat</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a wrapper that accepts a number of commands and calls
+                    the corresponding tool from the list below.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatbind" name="gnatbind"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatbind</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to bind compiled objects.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatchop" name="gnatchop"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatchop</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is useful for renaming files to meet the standard
+                    <span class="application">Ada</span> default file naming
+                    conventions.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatclean" name="gnatclean"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatclean</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to remove files associated with a <span class=
+                    "application">GNAT</span> project.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatfind" name="gnatfind"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatfind</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is intended for locating definition and/or references to
+                    specified entities in a <span class=
+                    "application">GNAT</span> project.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatkr" name="gnatkr"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatkr</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to determine the crunched name for a given file,
+                    when crunched to a specified maximum length.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatlink" name="gnatlink"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatlink</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is used to link programs and build an executable file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatls" name="gnatls"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatls</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the compiled unit browser.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatmake" name="gnatmake"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatmake</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the <span class="application">Ada</span> compiler,
+                    which performs compilaton, binding and linking.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatname" name="gnatname"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatname</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    will list the files associated with a <span class=
+                    "application">GNAT</span> project.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatprep" name="gnatprep"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatprep</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the <span class="application">GNAT</span> external
+                    preprocessor.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnatxref" name="gnatxref"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnatxref</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is similar to <span class=
+                    "command"><strong>gnatfind</strong></span>, but generates
+                    a full report of all cross-references.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="updated">
+        Last updated on 2014-09-17 04:10:41 -0700
+      </p>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gcc.html" title="GCC-4.9.1">Prev</a>
+          <p>
+            GCC-4.9.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gcc-java.html" title=
+          "GCC-Java-4.9.1">Next</a>
+          <p>
+            GCC-Java-4.9.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="prog.html" title=
+          "Chapter&nbsp;13.&nbsp;Programming">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

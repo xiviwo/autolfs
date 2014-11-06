@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      XviD-1.3.2
+      XviD-1.3.3
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="xine-lib.html" title=
-          "xine-lib-1.2.4">Prev</a>
+          "xine-lib-1.2.6">Prev</a>
           <p>
-            xine-lib-1.2.4
+            xine-lib-1.2.6
           </p>
         </li>
         <li class="next">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="xvid" name="xvid"></a>XviD-1.3.2
+        <a id="xvid" name="xvid"></a>XviD-1.3.3
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           CODEC.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,12 +69,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.xvid.org/downloads/xvidcore-1.3.2.tar.gz">http://downloads.xvid.org/downloads/xvidcore-1.3.2.tar.gz</a>
+                "http://downloads.xvid.org/downloads/xvidcore-1.3.3.tar.gz">http://downloads.xvid.org/downloads/xvidcore-1.3.3.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 87c8cf7b69ebed93c2d82ea5709d098a
+                Download MD5 sum: 8ecddfe488cb3a82d792fc7efbf51d62
               </p>
             </li>
             <li>
@@ -84,12 +84,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 9 MB
+                Estimated disk space required: 8.1 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: 0.1 SBU
               </p>
             </li>
           </ul>
@@ -102,7 +102,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/yasm.html" title=
-          "yasm-1.2.0">yasm-1.2.0</a>
+          "yasm-1.3.0">yasm-1.3.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -121,7 +121,7 @@
           <p>
             This package tarball expands to <code class=
             "filename">xvidcore</code>, not the expected <code class=
-            "filename">xvidcore-1.3.2</code>.
+            "filename">xvidcore-1.3.3</code>.
           </p>
         </div>
         <p>
@@ -130,6 +130,7 @@
         </p>
         <pre class="userinput">
 <kbd class="command">cd build/generic &amp;&amp;
+sed -i 's/^LN_S=@LN_S@/&amp; -f -v/' platform.inc.in &amp;&amp;
 ./configure --prefix=/usr &amp;&amp;
 make</kbd>
 </pre>
@@ -144,13 +145,11 @@ make</kbd>
 make install &amp;&amp;
 
 chmod -v 755 /usr/lib/libxvidcore.so.4.3 &amp;&amp;
-ln -v -sf libxvidcore.so.4.3 /usr/lib/libxvidcore.so.4 &amp;&amp;
-ln -v -sf libxvidcore.so.4   /usr/lib/libxvidcore.so   &amp;&amp;
 
-install -v -m755 -d /usr/share/doc/xvidcore-1.3.2/examples &amp;&amp;
-install -v -m644 ../../doc/* /usr/share/doc/xvidcore-1.3.2 &amp;&amp;
+install -v -m755 -d /usr/share/doc/xvidcore-1.3.3/examples &amp;&amp;
+install -v -m644 ../../doc/* /usr/share/doc/xvidcore-1.3.3 &amp;&amp;
 install -v -m644 ../../examples/* \
-    /usr/share/doc/xvidcore-1.3.2/examples</kbd>
+    /usr/share/doc/xvidcore-1.3.3/examples</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -158,20 +157,15 @@ install -v -m644 ../../examples/* \
           Command Explanations
         </h2>
         <p>
+          <span class="command"><strong>sed -i 's/^LN_S=@LN_S@/&amp; -f -v/'
+          platform.inc.in</strong></span>: Fix error during <span class=
+          "command"><strong>make install</strong></span> if reintalling or
+          upgrading.
+        </p>
+        <p>
           <span class="command"><strong>sed -i '/libdir.*STATIC_LIB/ s/^/#/'
           Makefile</strong></span>: This command disables installing the
           static library.
-        </p>
-        <p>
-          <span class="command"><strong>ln -v -sf libxvidcore.so.4
-          /usr/lib/libxvidcore.so</strong></span>: This command makes
-          applications linked against <code class="filename">.so</code>
-          names, link to <code class="filename">.so.<em class=
-          "replaceable"><code>&lt;MAJOR&gt;</code></em></code>. This ensures
-          better binary compatibility, as <span class=
-          "application">XviD</span> developers take care not changing the
-          <em class="replaceable"><code>&lt;MAJOR&gt;</code></em> number
-          until there is an incompatible ABI change.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -190,7 +184,7 @@ install -v -m644 ../../examples/* \
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">/usr/share/doc/xvidcore-1.3.2</span>
+              <span class="segbody">/usr/share/doc/xvidcore-1.3.3</span>
             </div>
           </div>
         </div>
@@ -221,16 +215,16 @@ install -v -m644 ../../examples/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-25 03:54:44 -0800
+        Last updated on 2014-09-11 23:27:59 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="xine-lib.html" title=
-          "xine-lib-1.2.4">Prev</a>
+          "xine-lib-1.2.6">Prev</a>
           <p>
-            xine-lib-1.2.4
+            xine-lib-1.2.6
           </p>
         </li>
         <li class="next">
@@ -246,7 +240,7 @@ install -v -m644 ../../examples/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

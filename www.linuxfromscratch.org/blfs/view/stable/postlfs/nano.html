@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Nano-2.3.2
+      Nano-2.3.6
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Editors
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="nano" name="nano"></a>Nano-2.3.2
+        <a id="nano" name="nano"></a>Nano-2.3.6
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           "application">Pine</span> package.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,33 +69,33 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnu.org/gnu/nano/nano-2.3.2.tar.gz">http://ftp.gnu.org/gnu/nano/nano-2.3.2.tar.gz</a>
+                "http://ftp.gnu.org/gnu/nano/nano-2.3.6.tar.gz">http://ftp.gnu.org/gnu/nano/nano-2.3.6.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnu.org/gnu/nano/nano-2.3.2.tar.gz">ftp://ftp.gnu.org/gnu/nano/nano-2.3.2.tar.gz</a>
+                "ftp://ftp.gnu.org/gnu/nano/nano-2.3.6.tar.gz">ftp://ftp.gnu.org/gnu/nano/nano-2.3.6.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 6451aeae836471cadea8567c44a46c99
+                Download MD5 sum: df3d201aecb3155a80633990cc467831
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.7 MB
+                Download size: 1.8 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 12 MB
+                Estimated disk space required: 11 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: 0.1 SBU
               </p>
             </li>
           </ul>
@@ -124,9 +124,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr \
+<kbd class="command">./configure --prefix=/usr     \
             --sysconfdir=/etc \
-            --enable-utf8 &amp;&amp;
+            --enable-utf8     \
+            --docdir=/usr/share/doc/nano-2.3.6 &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -138,8 +139,7 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 install -v -m644 doc/nanorc.sample /etc &amp;&amp;
-install -v -m755 -d /usr/share/doc/nano-2.3.2 &amp;&amp;
-install -v -m644 doc/{,man/,texinfo/}*.html /usr/share/doc/nano-2.3.2</kbd>
+install -v -m644 doc/texinfo/nano.html /usr/share/doc/nano-2.3.6</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -147,12 +147,12 @@ install -v -m644 doc/{,man/,texinfo/}*.html /usr/share/doc/nano-2.3.2</kbd>
           Command Explanations
         </h2>
         <p>
-          <code class="option">--enable-utf8</code>: This switch enables
-          unicode support in <span class="application">Nano</span>.
+          <em class="parameter"><code>--enable-utf8</code></em>: This switch
+          enables unicode support in <span class="application">Nano</span>.
         </p>
         <p>
-          <em class="parameter"><code>--with-slang=/usr</code></em>: This
-          forces <span class="application">Nano</span> to use <span class=
+          <code class="option">--with-slang</code>: This forces <span class=
+          "application">Nano</span> to use <span class=
           "application">S-Lang</span>. Use this if installed.
         </p>
       </div>
@@ -206,7 +206,7 @@ set suspend</code>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">nano and rnano</span>
+              <span class="segbody">nano and rnano (symlink)</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -215,7 +215,7 @@ set suspend</code>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/share/nano and
-              /usr/share/doc/nano-2.3.2</span>
+              /usr/share/doc/nano-2.3.6</span>
             </div>
           </div>
         </div>
@@ -262,7 +262,7 @@ set suspend</code>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 09:38:44 -0800
+        Last updated on 2014-09-19 13:27:36 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -285,7 +285,7 @@ set suspend</code>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

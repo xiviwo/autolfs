@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      MIT Kerberos V5-1.12.1
+      MIT Kerberos V5-1.12.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mitkrb" name="mitkrb"></a>MIT Kerberos V5-1.12.1
+        <a id="mitkrb" name="mitkrb"></a>MIT Kerberos V5-1.12.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,7 +61,7 @@
           over internal networks or the Internet.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -72,23 +72,23 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://web.mit.edu/kerberos/www/dist/krb5/1.12/krb5-1.12.1-signed.tar">
-                http://web.mit.edu/kerberos/www/dist/krb5/1.12/krb5-1.12.1-signed.tar</a>
+                "http://web.mit.edu/kerberos/www/dist/krb5/1.12/krb5-1.12.2-signed.tar">
+                http://web.mit.edu/kerberos/www/dist/krb5/1.12/krb5-1.12.2-signed.tar</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 524b1067b619cb5bf780759b6884c3f5
+                Download MD5 sum: 357f1312b7720a0a591e22db0f7829fe
               </p>
             </li>
             <li>
               <p>
-                Download size: 11.4 MB
+                Download size: 12 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 165 MB (Additional 25 MB if
+                Estimated disk space required: 120 MB (Additional 25 MB if
                 running the testsuite)
               </p>
             </li>
@@ -96,20 +96,6 @@
               <p>
                 Estimated build time: 1.0 SBU (additional 4.4 SBU if running
                 the testsuite)
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/mitkrb-1.12.1-db2_fix-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/mitkrb-1.12.1-db2_fix-1.patch</a>
               </p>
             </li>
           </ul>
@@ -124,12 +110,12 @@
           <a class="xref" href="../general/dejagnu.html" title=
           "DejaGnu-1.5.1">DejaGnu-1.5.1</a> (for full test coverage),
           <a class="xref" href="gnupg.html" title=
-          "GnuPG-2.0.22">GnuPG-2.0.22</a> (to authenticate the package),
+          "GnuPG-2.0.26">GnuPG-2.0.26</a> (to authenticate the package),
           <a class="xref" href="../general/keyutils.html" title=
-          "keyutils-1.5.8">keyutils-1.5.8</a>, <a class="xref" href=
+          "keyutils-1.5.9">keyutils-1.5.9</a>, <a class="xref" href=
           "../server/openldap.html" title=
           "OpenLDAP-2.4.39">OpenLDAP-2.4.39</a>, <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.6">Python-2.7.6</a>
+          "../general/python2.html" title="Python-2.7.8">Python-2.7.8</a>
           (used during the testsuite) and <a class="xref" href=
           "../basicnet/rpcbind.html" title="rpcbind-0.2.1">rpcbind-0.2.1</a>
           (used during the testsuite)
@@ -165,27 +151,29 @@
         </p>
         <p>
           After unpacking the distribution tarball and if you have <a class=
-          "xref" href="gnupg.html" title="GnuPG-2.0.22">GnuPG-2.0.22</a>
+          "xref" href="gnupg.html" title="GnuPG-2.0.26">GnuPG-2.0.26</a>
           installed, you can authenticate the package. First, check the
           contents of the file <code class=
-          "filename">krb5-1.12.1.tar.gz.asc</code>.
+          "filename">krb5-1.12.2.tar.gz.asc</code>.
         </p>
         <pre class="userinput">
 <kbd class=
-"command">gpg --verify krb5-1.12.1.tar.gz.asc krb5-1.12.1.tar.gz</kbd>
+"command">gpg2 --verify krb5-1.12.2.tar.gz.asc krb5-1.12.2.tar.gz</kbd>
 </pre>
         <p>
           You will probably see output similar to:
         </p>
         <pre class="screen">
-gpg: Signature made Wed Aug  8 22:29:58 2012 GMT using RSA key ID F376813D
-gpg: Can't check signature: public key not found
+<code class=
+"literal">gpg: Signature made Mon Aug 11 22:53:10 2014 GMT using RSA key ID 749D7889
+gpg: Can't check signature: No public key</code>
 </pre>
         <p>
           You can import the public key with:
         </p>
         <pre class="userinput">
-<kbd class="command">gpg --keyserver pgp.mit.edu --recv-keys 0xF376813D</kbd>
+<kbd class=
+"command">gpg2 --pgp2 --keyserver pgp.mit.edu --recv-keys 0x749D7889</kbd>
 </pre>
         <p>
           Now re-verify the package with the first command above. You should
@@ -199,14 +187,10 @@ gpg: Can't check signature: public key not found
           the following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../mitkrb-1.12.1-db2_fix-1.patch &amp;&amp;
-cd src &amp;&amp;
+<kbd class="command">cd src &amp;&amp;
 sed -e "s@python2.5/Python.h@&amp; python2.7/Python.h@g" \
     -e "s@-lpython2.5]@&amp;,\n  AC_CHECK_LIB(python2.7,main,[PYTHON_LIB=-lpython2.7])@g" \
     -i configure.in &amp;&amp;
-sed -e "s@interp-&gt;result@Tcl_GetStringResult(interp)@g" \
-    -i kadmin/testing/util/tcl_kadm5.c &amp;&amp;
 sed -e 's@\^u}@^u cols 300}@' \
     -i tests/dejagnu/config/default.exp &amp;&amp;
 autoconf &amp;&amp;
@@ -215,13 +199,14 @@ autoconf &amp;&amp;
             --localstatedir=/var/lib \
             --with-system-et         \
             --with-system-ss         \
+            --with-system-verto=no   \
             --enable-dns-for-realm &amp;&amp;
 make</kbd>
 </pre>
         <p>
           To test the build, issue: <span class="command"><strong>make
           check</strong></span>. You need at least <a class="xref" href=
-          "../general/tcl.html" title="Tcl-8.6.1">Tcl-8.6.1</a>, which is
+          "../general/tcl.html" title="Tcl-8.6.2">Tcl-8.6.2</a>, which is
           used to drive the testsuite. Furthermore, <a class="xref" href=
           "../general/dejagnu.html" title="DejaGnu-1.5.1">DejaGnu-1.5.1</a>
           must be available for some of the tests to run. If you have a
@@ -238,7 +223,7 @@ make</kbd>
 
 for LIBRARY in gssapi_krb5 gssrpc k5crypto kadm5clnt kadm5srv \
                kdb5 kdb_ldap krad krb5 krb5support verto ; do
-    [ -e  /usr/lib/lib$LIBRARY.so ] &amp;&amp; chmod -v 755 /usr/lib/lib$LIBRARY.so
+    chmod -v 755 /usr/lib/lib$LIBRARY.so
 done &amp;&amp;
 
 mv -v /usr/lib/libkrb5.so.3*        /lib &amp;&amp;
@@ -252,8 +237,8 @@ ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &amp;&amp;
 mv -v /usr/bin/ksu /bin &amp;&amp;
 chmod -v 755 /bin/ksu   &amp;&amp;
 
-install -v -dm755 /usr/share/doc/krb5-1.12.1 &amp;&amp;
-cp -vfr ../doc/*  /usr/share/doc/krb5-1.12.1 &amp;&amp;
+install -v -dm755 /usr/share/doc/krb5-1.12.2 &amp;&amp;
+cp -vfr ../doc/*  /usr/share/doc/krb5-1.12.2 &amp;&amp;
 
 unset LIBRARY</kbd>
 </pre>
@@ -266,10 +251,9 @@ unset LIBRARY</kbd>
           <span class="command"><strong>sed -e ...</strong></span>: The first
           <span class="command"><strong>sed</strong></span> fixes
           <span class="application">Python</span> detection. The second one
-          fixes building with <span class="application">Tcl</span> 8.6. The
-          third one increases the width of the virtual terminal used for some
-          tests, to prevent some spurious characters to be echoed, which is
-          taken as a failure.
+          increases the width of the virtual terminal used for some tests, to
+          prevent some spurious characters to be echoed, which is taken as a
+          failure.
         </p>
         <p>
           <em class="parameter"><code>--localstatedir=/var/lib</code></em>:
@@ -286,6 +270,14 @@ unset LIBRARY</kbd>
           <em class="parameter"><code>--with-system-ss</code></em>: This
           switch causes the build to use the system-installed versions of the
           subsystem command-line interface software.
+        </p>
+        <p>
+          <em class="parameter"><code>--with-system-verto=no</code></em>:
+          This switch fixes a bug in the package: it does not recognize its
+          own verto library installed previously. This is not a problem, if
+          reinstalling the same version, but if you are updating, the old
+          library is used as system's one, instead of installing the new
+          version.
         </p>
         <p>
           <em class="parameter"><code>--enable-dns-for-realm</code></em>:
@@ -326,7 +318,7 @@ unset LIBRARY</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp24516320" name="idp24516320"></a>Kerberos
+                    <a id="idp6049744" name="idp6049744"></a>Kerberos
                     Configuration
                   </h5>
                 </div>
@@ -507,7 +499,7 @@ EOF</kbd>
               <div>
                 <div>
                   <h5 class="title">
-                    <a id="idp30505680" name="idp30505680"></a>Additional
+                    <a id="idp23127616" name="idp23127616"></a>Additional
                     Information
                   </h5>
                 </div>
@@ -516,7 +508,7 @@ EOF</kbd>
             <p>
               For additional information consult the <a class="ulink" href=
               "http://web.mit.edu/kerberos/www/krb5-1.12/#documentation">documentation
-              for krb5-1.12.1</a> on which the above instructions are based.
+              for krb5-1.12.2</a> on which the above instructions are based.
             </p>
           </div>
         </div>
@@ -529,7 +521,7 @@ EOF</kbd>
             services at boot, install the <code class=
             "filename">/etc/rc.d/init.d/krb5</code> init script included in
             the <a class="xref" href="../introduction/bootscripts.html"
-            title="BLFS Boot Scripts">blfs-bootscripts-20140301</a> package
+            title="BLFS Boot Scripts">blfs-bootscripts-20140919</a> package
             using the following command:
           </p>
           <pre class="root">
@@ -555,16 +547,18 @@ EOF</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libgssapi_krb5.so, libgssrpc.so,
-              libk5crypto.so, libkadm5clnt.so, libkadm5srv.so, libkdb5.so,
-              libkdb_ldap.so (optional), libkrad.so, libkrb5.so,
-              libkrb5support.so, and libverto.so</span>
+              libk5crypto.so, libkadm5clnt_mit.so, libkadm5clnt.so,
+              libkadm5srv_mit.so, libkadm5srv.so, libkdb_ldap.so (optional),
+              libkdb5.so, libkrad.so, libkrb5.so, libkrb5support.so,
+              libverto.so, and some plugins under the /usr/lib/krb5
+              tree</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/gssapi, /usr/include/gssrpc,
               /usr/include/kadm5, /usr/include/krb5, /usr/lib/krb5,
-              /usr/share/doc/krb5-1.12.1, /usr/share/examples/krb5 and
-              /var/lib/krb5kdc</span>
+              /usr/share/doc/krb5-1.12.2, /usr/share/examples/krb5,
+              /usr/share/gnats/, and /var/lib/krb5kdc</span>
             </div>
           </div>
         </div>
@@ -940,7 +934,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-04 06:20:07 -0800
+        Last updated on 2014-09-19 13:27:36 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -964,7 +958,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

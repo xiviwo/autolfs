@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="at-spi2-atk.html" title=
-          "at-spi2-atk-2.10.2">Prev</a>
+          "at-spi2-atk-2.12.1">Prev</a>
           <p>
-            at-spi2-atk-2.10.2
+            at-spi2-atk-2.12.1
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -72,7 +72,7 @@
           transformation</a> (scale, rotation, shear, etc.).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -116,17 +116,17 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/libpng.html" title=
-          "libpng-1.6.9">libpng-1.6.9</a>, <a class="xref" href=
-          "../general/glib2.html" title="GLib-2.38.2">GLib-2.38.2</a> and
+          "libpng-1.6.13">libpng-1.6.13</a>, <a class="xref" href=
+          "../general/glib2.html" title="GLib-2.40.0">GLib-2.40.0</a> and
           <a class="xref" href="../general/pixman.html" title=
-          "Pixman-0.32.4">Pixman-0.32.4</a>
+          "Pixman-0.32.6">Pixman-0.32.6</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../general/fontconfig.html" title=
-          "Fontconfig-2.11.0">Fontconfig-2.11.0</a> and <a class="xref" href=
+          "Fontconfig-2.11.1">Fontconfig-2.11.1</a> and <a class="xref" href=
           "x7lib.html" title="Xorg Libraries">Xorg Libraries</a>
         </p>
         <h4>
@@ -134,17 +134,18 @@
         </h4>
         <p class="optional">
           <a class="xref" href="cogl.html" title=
-          "Cogl-1.16.2">Cogl-1.16.2</a>, <a class="ulink" href=
+          "Cogl-1.18.2">Cogl-1.18.2</a>, <a class="ulink" href=
           "http://www.directfb.org/">DirectFB</a>, <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>,
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>,
           <a class="xref" href="libdrm.html" title=
-          "libdrm-2.4.52">libdrm-2.4.52</a>, <a class="xref" href=
-          "../general/LZO.html" title="LZO-2.06">LZO-2.06</a>, <a class=
+          "libdrm-2.4.56">libdrm-2.4.56</a>, <a class="xref" href=
+          "../general/lzo.html" title="LZO-2.08">LZO-2.08</a>, <a class=
           "xref" href="mesalib.html" title=
-          "MesaLib-10.0.3">MesaLib-10.0.3</a>, <a class="xref" href=
-          "qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>, <a class="ulink" href=
-          "http://code.google.com/p/skia/">Skia</a> and <a class="ulink"
-          href="http://www.valgrind.org">Valgrind</a>
+          "MesaLib-10.2.7">MesaLib-10.2.7</a>, <a class="xref" href=
+          "qt4.html" title="Qt-4.8.6">Qt-4.8.6</a>, <a class="ulink" href=
+          "http://code.google.com/p/skia/">Skia</a>, and <a class="xref"
+          href="../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -160,7 +161,10 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
+<kbd class="command">CFLAGS="$CFLAGS -ffat-lto-objects" \
+./configure --prefix=/usr    \
+            --disable-static \
+            --enable-tee &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -178,6 +182,16 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
+          <span class="command"><strong>CFLAGS="$CFLAGS
+          -ffat-lto-objects"</strong></span>: Fixes building with GCC 4.9.
+        </p>
+        <p>
+          <em class="parameter"><code>--enable-tee</code></em>: This switch
+          enables experimental tee surface backend which is required if using
+          system-installed <span class="application">Cairo</span> with
+          Mozilla applications.
+        </p>
+        <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
         </p>
@@ -191,12 +205,6 @@ make</kbd>
           "application">OpenGL</span> surface which is required for
           <span class="application">Wayland</span> compositor and some other
           packages that are not part of BLFS.
-        </p>
-        <p>
-          <code class="option">--enable-tee</code>: This switch enables
-          experimental tee surface backend which is required if using
-          system-installed <span class="application">Cairo</span> with
-          Mozilla applications.
         </p>
         <p>
           <code class="option">--enable-gtk-doc</code>: Use this parameter if
@@ -275,7 +283,7 @@ make</kbd>
                     contains functions that integrate <span class=
                     "application">Cairo</span> with <a class="xref" href=
                     "../general/glib2.html" title=
-                    "GLib-2.38.2">GLib-2.38.2</a>'s GObject type system.
+                    "GLib-2.40.0">GLib-2.40.0</a>'s GObject type system.
                   </p>
                 </td>
               </tr>
@@ -301,16 +309,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 09:38:44 -0800
+        Last updated on 2014-09-10 09:45:01 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="at-spi2-atk.html" title=
-          "at-spi2-atk-2.10.2">Prev</a>
+          "at-spi2-atk-2.12.1">Prev</a>
           <p>
-            at-spi2-atk-2.10.2
+            at-spi2-atk-2.12.1
           </p>
         </li>
         <li class="next">
@@ -326,7 +334,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

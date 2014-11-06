@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
@@ -30,19 +30,19 @@
         </li>
         <li class="next">
           <a accesskey="n" href="apds03.html" title=
-          "/etc/rc.d/init.d/functions">Next</a>
+          "/etc/rc.d/init.d/mountvirtfs">Next</a>
           <p>
-            /etc/rc.d/init.d/functions
+            /etc/rc.d/init.d/mountvirtfs
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -125,7 +125,7 @@ SUCCESS_SUFFIX="${BRACKET}[${SUCCESS}  OK  ${BRACKET}]${NORMAL}"
 FAILURE_SUFFIX="${BRACKET}[${FAILURE} FAIL ${BRACKET}]${NORMAL}"
 WARNING_SUFFIX="${BRACKET}[${WARNING} WARN ${BRACKET}]${NORMAL}"
 
-BOOTLOG=/run/var/bootlog
+BOOTLOG=/run/bootlog
 KILLDELAY=3
 
 # Set any user specified environment variables e.g. HEADLESS
@@ -417,7 +417,7 @@ killproc()
         fi
 
     # For signals that do not expect a program to exit, simply
-    # let kill do it's job, and evaluate kills return for value
+    # let kill do its job, and evaluate kill's return for value
 
     else # check_sig_type - signal is not used to terminate program
         for pid in ${pidlist}; do
@@ -854,19 +854,19 @@ is_true()
         </li>
         <li class="next">
           <a accesskey="n" href="apds03.html" title=
-          "/etc/rc.d/init.d/functions">Next</a>
+          "/etc/rc.d/init.d/mountvirtfs">Next</a>
           <p>
-            /etc/rc.d/init.d/functions
+            /etc/rc.d/init.d/mountvirtfs
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

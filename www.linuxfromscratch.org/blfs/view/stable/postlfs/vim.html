@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Editors
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="nano.html" title="Nano-2.3.2">Prev</a>
+          <a accesskey="p" href="nano.html" title="Nano-2.3.6">Prev</a>
           <p>
-            Nano-2.3.2
+            Nano-2.3.6
           </p>
         </li>
         <li class="next">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -68,7 +68,7 @@
           "application">X</span> support is automatically detected.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -105,19 +105,6 @@
           </ul>
         </div>
         <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Translated Vim messages: <a class="ulink" href=
-                "ftp://ftp.vim.org/pub/vim/extra/vim-7.2-lang.tar.gz">ftp://ftp.vim.org/pub/vim/extra/vim-7.2-lang.tar.gz</a>
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
           Vim Dependencies
         </h3>
         <h4>
@@ -126,20 +113,20 @@
         <p class="recommended">
           <a class="xref" href="../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
-          System</a>
+          System</a> and <a class="xref" href="../x/gtk2.html" title=
+          "GTK+-2.24.24">GTK+-2.24.24</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.22">GTK+-2.24.22</a> or <a class="ulink" href=
+          <a class="ulink" href=
           "http://sourceforge.net/projects/lesstif/">LessTif</a>, <a class=
           "xref" href="../general/python2.html" title=
-          "Python-2.7.6">Python-2.7.6</a>, <a class="xref" href=
-          "../general/tcl.html" title="Tcl-8.6.1">Tcl-8.6.1</a>, <a class=
+          "Python-2.7.8">Python-2.7.8</a>, <a class="xref" href=
+          "../general/tcl.html" title="Tcl-8.6.2">Tcl-8.6.2</a>, <a class=
           "xref" href="../general/ruby.html" title=
-          "Ruby-2.1.0">Ruby-2.1.0</a>, and <a class="xref" href=
+          "Ruby-2.1.2">Ruby-2.1.2</a>, and <a class="xref" href=
           "../general/gpm.html" title="GPM-1.20.7">GPM-1.20.7</a>
         </p>
         <p class="usernotes">
@@ -170,13 +157,6 @@
           </p>
         </div>
         <p>
-          If desired, unpack the translated messages archive:
-        </p>
-        <pre class="userinput">
-<kbd class=
-"command">tar -xf ../vim-7.2-lang.tar.gz --strip-components=1</kbd>
-</pre>
-        <p>
           Install <span class="application">Vim</span> by running the
           following commands:
         </p>
@@ -184,7 +164,7 @@
 <kbd class=
 "command">echo '#define SYS_VIMRC_FILE  "/etc/vimrc"' &gt;&gt;  src/feature.h &amp;&amp;
 echo '#define SYS_GVIMRC_FILE "/etc/gvimrc"' &gt;&gt; src/feature.h &amp;&amp;
-./configure --prefix=/usr --with-features=huge &amp;&amp;
+./configure --prefix=/usr --with-features=huge                &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -221,7 +201,7 @@ make</kbd>
         <p>
           If you wish to update the runtime files, issue the following
           command (requires <a class="xref" href="../basicnet/rsync.html"
-          title="rsync-3.1.0">rsync-3.1.0</a>):
+          title="rsync-3.1.1">rsync-3.1.1</a>):
         </p>
         <pre class="userinput">
 <kbd class=
@@ -245,7 +225,8 @@ vim -c ":helptags /usr/share/doc/vim-7.4" -c ":q"</kbd>
         <p>
           <em class="parameter"><code>--with-features=huge</code></em>: This
           switch enables all the additional features available in
-          <span class="application">Vim</span>.
+          <span class="application">Vim</span>, including support for
+          multibyte characters.
         </p>
         <p>
           <code class="option">--enable-gui=no</code>: This will prevent
@@ -280,6 +261,33 @@ vim -c ":helptags /usr/share/doc/vim-7.4" -c ":q"</kbd>
             <code class="filename">/etc/vimrc</code> and <code class=
             "filename">~/.vimrc</code>
           </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="vim-desktop" name="vim-desktop"></a>Desktop File
+          </h3>
+          <p>
+            If desired, create a menu entry for graphical vim, <code class=
+            "filename">gvim.desktop</code>, as the <code class=
+            "systemitem">root</code> user
+          </p>
+          <pre class="root">
+<kbd class=
+"command">cat &gt; /usr/share/applications/gvim.desktop &lt;&lt; "EOF"
+<code class="literal">[Desktop Entry]
+Name=GVim Text Editor
+Comment=Edit text files
+Comment[pt_BR]=Edite arquivos de texto
+TryExec=gvim
+Exec=gvim -f %F
+Terminal=false
+Type=Application
+Icon=gvim.png
+Categories=Utility;TextEditor;
+StartupNotify=true
+MimeType=text/plain;</code>
+EOF</kbd>
+</pre>
         </div>
         <div class="sect3" lang="en" xml:lang="en">
           <h3 class="sect3">
@@ -337,7 +345,7 @@ vim -c ":helptags /usr/share/doc/vim-7.4" -c ":q"</kbd>
         <p>
           A list of the reinstalled files, along with their short
           descriptions can be found in the <a class="ulink" href=
-          "http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/vim.html#contents-vim">LFS Vim
+          "http://www.linuxfromscratch.org/lfs/view/7.6/chapter06/vim.html#contents-vim">LFS Vim
           Installation Instructions</a>
         </p>
         <div class="segmentedlist">
@@ -445,15 +453,15 @@ vim -c ":helptags /usr/share/doc/vim-7.4" -c ":q"</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 06:45:35 -0800
+        Last updated on 2014-09-17 15:52:31 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="nano.html" title="Nano-2.3.2">Prev</a>
+          <a accesskey="p" href="nano.html" title="Nano-2.3.6">Prev</a>
           <p>
-            Nano-2.3.2
+            Nano-2.3.6
           </p>
         </li>
         <li class="next">
@@ -468,7 +476,7 @@ vim -c ":helptags /usr/share/doc/vim-7.4" -c ":q"</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

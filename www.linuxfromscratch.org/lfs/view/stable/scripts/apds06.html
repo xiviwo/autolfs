@@ -5,59 +5,59 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      D.6.&nbsp;/etc/rc.d/init.d/udev
+      D.6.&nbsp;/etc/rc.d/init.d/swap
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds05.html" title=
-          "/etc/rc.d/init.d/modules">Prev</a>
+          "/etc/rc.d/init.d/udev">Prev</a>
           <p>
-            /etc/rc.d/init.d/modules
+            /etc/rc.d/init.d/udev
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds07.html" title=
-          "/etc/rc.d/init.d/swap">Next</a>
+          "/etc/rc.d/init.d/setclock">Next</a>
           <p>
-            /etc/rc.d/init.d/swap
+            /etc/rc.d/init.d/setclock
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="udev" name="udev"></a>D.6. /etc/rc.d/init.d/udev
+        <a id="swap" name="swap"></a>D.6. /etc/rc.d/init.d/swap
       </h1>
       <pre class="screen">
 #!/bin/sh
 ########################################################################
-# Begin udev
+# Begin swap
 #
-# Description : Udev cold-plugging script
+# Description : Swap Control Script
 #
-# Authors     : Zack Winkles, Alexander E. Patrakov
+# Authors     : Gerard Beekmans - gerard@linuxfromscratch.org
 #               DJ Lucas - dj@linuxfromscratch.org
 # Update      : Bruce Dubbs - bdubbs@linuxfromscratch.org
 #
@@ -66,16 +66,16 @@
 ########################################################################
 
 ### BEGIN INIT INFO
-# Provides:            udev $time
-# Required-Start:
+# Provides:            swap
+# Required-Start:      udev
 # Should-Start:        modules
-# Required-Stop:
+# Required-Stop:       localnet
 # Should-Stop:
 # Default-Start:       S
-# Default-Stop:
-# Short-Description:   Populates /dev with device nodes.
-# Description:         Mounts a tempfs on /dev and starts the udevd daemon.
-#                      Device nodes are created as defined by udev.
+# Default-Stop:        0 6
+# Short-Description:   Mounts and unmounts swap partitions.
+# Description:         Mounts and unmounts swap partitions defined in
+#                      /etc/fstab.
 # X-LFS-Provided-By:   LFS
 ### END INIT INFO
 
@@ -83,80 +83,63 @@
 
 case "${1}" in
    start)
-      log_info_msg "Populating /dev with device nodes... "
-      if ! grep -q '[[:space:]]sysfs' /proc/mounts; then
-         log_failure_msg2
-         msg="FAILURE:\n\nUnable to create "
-         msg="${msg}devices without a SysFS filesystem\n\n"
-         msg="${msg}After you press Enter, this system "
-         msg="${msg}will be halted and powered off.\n\n"
-         log_info_msg "$msg"
-         log_info_msg "Press Enter to continue..."
-         wait_for_user
-         /etc/rc.d/init.d/halt stop
-      fi
+      log_info_msg "Activating all swap files/partitions..."
+      swapon -a
+      evaluate_retval
+      ;;
 
-      # Udev handles uevents itself, so we don't need to have
-      # the kernel call out to any binary in response to them
-      echo &gt; /proc/sys/kernel/hotplug
+   stop)
+      log_info_msg "Deactivating all swap files/partitions..."
+      swapoff -a
+      evaluate_retval
+      ;;
 
-      # Start the udev daemon to continually watch for, and act on,
-      # uevents
-      /lib/udev/udevd --daemon
+   restart)
+      ${0} stop
+      sleep 1
+      ${0} start
+      ;;
 
-      # Now traverse /sys in order to "coldplug" devices that have
-      # already been discovered
-      /sbin/udevadm trigger --action=add    --type=subsystems
-      /sbin/udevadm trigger --action=add    --type=devices
-      /sbin/udevadm trigger --action=change --type=devices
-
-      # Now wait for udevd to process the uevents we triggered
-      if ! is_true "$OMIT_UDEV_SETTLE"; then
-         /sbin/udevadm settle
-      fi
-
-      # If any LVM based partitions are on the system, ensure they
-      # are activated so they can be used.
-      if [ -x /sbin/vgchange ]; then /sbin/vgchange -a y &gt;/dev/null; fi 
-
-      log_success_msg2 
+   status)
+      log_success_msg "Retrieving swap status." 
+      swapon -s
       ;;
 
    *)
-      echo "Usage ${0} {start}"
+      echo "Usage: ${0} {start|stop|restart|status}"
       exit 1
       ;;
 esac
 
 exit 0
 
-# End udev
+# End swap
 </pre>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds05.html" title=
-          "/etc/rc.d/init.d/modules">Prev</a>
+          "/etc/rc.d/init.d/udev">Prev</a>
           <p>
-            /etc/rc.d/init.d/modules
+            /etc/rc.d/init.d/udev
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds07.html" title=
-          "/etc/rc.d/init.d/swap">Next</a>
+          "/etc/rc.d/init.d/setclock">Next</a>
           <p>
-            /etc/rc.d/init.d/swap
+            /etc/rc.d/init.d/setclock
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

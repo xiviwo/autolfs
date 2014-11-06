@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      OpenSSL-1.0.1f
+      OpenSSL-1.0.1i
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="openssh.html" title="OpenSSH-6.5p1">Prev</a>
+          <a accesskey="p" href="openssh.html" title="OpenSSH-6.6p1">Prev</a>
           <p>
-            OpenSSH-6.5p1
+            OpenSSH-6.6p1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="p11-kit.html" title=
-          "p11-kit-0.20.2">Next</a>
+          "p11-kit-0.20.6">Next</a>
           <p>
-            p11-kit-0.20.2
+            p11-kit-0.20.6
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="openssl" name="openssl"></a>OpenSSL-1.0.1f
+        <a id="openssl" name="openssl"></a>OpenSSL-1.0.1i
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,18 +59,8 @@
           as <span class="application">OpenSSH</span>, email applications and
           web browsers (for accessing HTTPS sites).
         </p>
-        <div class="admon warning">
-          <img alt="[Warning]" src="../images/warning.png" />
-          <h3>
-            Warning
-          </h3>
-          <p>
-            This version of openssl has a serious security issue.  Use the
-            instructions at <a href="http://www.linuxfromscratch.org/blfs/view/svn/postlfs/openssl.html">http://www.linuxfromscratch.org/blfs/view/svn/postlfs/openssl.html</a> instead.</p>
-          </p>
-        </div>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -81,33 +71,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.openssl.org/source/openssl-1.0.1f.tar.gz">http://www.openssl.org/source/openssl-1.0.1f.tar.gz</a>
+                "http://www.openssl.org/source/openssl-1.0.1i.tar.gz">http://www.openssl.org/source/openssl-1.0.1i.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.openssl.org/source/openssl-1.0.1f.tar.gz">ftp://ftp.openssl.org/source/openssl-1.0.1f.tar.gz</a>
+                "ftp://ftp.openssl.org/source/openssl-1.0.1i.tar.gz">ftp://ftp.openssl.org/source/openssl-1.0.1i.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: f26b09c028a0541cab33da697d522b25
+                Download MD5 sum: c8dc151a671b9b92ff3e4c118b174972
               </p>
             </li>
             <li>
               <p>
-                Download size: 4.4 MB
+                Download size: 4.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 52 MB
+                Estimated disk space required: 55 MB (additional 1 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.4 SBU
+                Estimated build time: 1.1 SBU (additional 0.4 SBU for the
+                tests)
               </p>
             </li>
           </ul>
@@ -120,15 +112,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/openssl-1.0.1f-fix_parallel_build-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/openssl-1.0.1f-fix_parallel_build-1.patch</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/openssl-1.0.1f-fix_pod_syntax-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/openssl-1.0.1f-fix_pod_syntax-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/openssl-1.0.1i-fix_parallel_build-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/openssl-1.0.1i-fix_parallel_build-1.patch</a>
               </p>
             </li>
           </ul>
@@ -141,7 +126,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="mitkrb.html" title=
-          "MIT Kerberos V5-1.12.1">MIT Kerberos V5-1.12.1</a>
+          "MIT Kerberos V5-1.12.2">MIT Kerberos V5-1.12.2</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -158,8 +143,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../openssl-1.0.1f-fix_parallel_build-1.patch &amp;&amp;
-patch -Np1 -i ../openssl-1.0.1f-fix_pod_syntax-1.patch &amp;&amp;
+"command">patch -Np1 -i ../openssl-1.0.1i-fix_parallel_build-1.patch &amp;&amp;
 
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
@@ -185,8 +169,8 @@ make</kbd>
         <pre class="root">
 <kbd class=
 "command">make MANDIR=/usr/share/man MANSUFFIX=ssl install &amp;&amp;
-install -dv -m755 /usr/share/doc/openssl-1.0.1f  &amp;&amp;
-cp -vfr doc/*     /usr/share/doc/openssl-1.0.1f</kbd>
+install -dv -m755 /usr/share/doc/openssl-1.0.1i  &amp;&amp;
+cp -vfr doc/*     /usr/share/doc/openssl-1.0.1i</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -240,9 +224,9 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1f</kbd>
             Most users will want to install Certificate Authority
             Certificates for validation of downloaded certificates. For
             example, these certificates can be used by <a class="xref" href=
-            "../general/git.html" title="Git-1.9.0">git-1.9.0</a>, <a class=
+            "../general/git.html" title="Git-2.1.0">git-2.1.0</a>, <a class=
             "xref" href="../basicnet/curl.html" title=
-            "cURL-7.35.0">cURL-7.35.0</a> or <a class="xref" href=
+            "cURL-7.37.1">cURL-7.37.1</a> or <a class="xref" href=
             "../basicnet/wget.html" title="Wget-1.15">Wget-1.15</a> when
             accessing secure (https protocol) sites. To do this, follow the
             instructions from the <a class="xref" href="cacerts.html" title=
@@ -273,12 +257,13 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1f</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libcrypto.{so,a} and libssl.{so,a}</span>
+              <span class="segbody">libcrypto.{so,a}, libssl.{so,a} and
+              several under /usr/lib/engines/</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/ssl, /usr/include/openssl,
-              /usr/lib/engines and /usr/share/doc/openssl-1.0.1f</span>
+              /usr/lib/engines and /usr/share/doc/openssl-1.0.1i</span>
             </div>
           </div>
         </div>
@@ -366,22 +351,22 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1f</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-17 12:00:29 -0800
+        Last updated on 2014-09-08 23:39:08 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="openssh.html" title="OpenSSH-6.5p1">Prev</a>
+          <a accesskey="p" href="openssh.html" title="OpenSSH-6.6p1">Prev</a>
           <p>
-            OpenSSH-6.5p1
+            OpenSSH-6.6p1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="p11-kit.html" title=
-          "p11-kit-0.20.2">Next</a>
+          "p11-kit-0.20.6">Next</a>
           <p>
-            p11-kit-0.20.2
+            p11-kit-0.20.6
           </p>
         </li>
         <li class="up">
@@ -390,7 +375,7 @@ cp -vfr doc/*     /usr/share/doc/openssl-1.0.1f</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

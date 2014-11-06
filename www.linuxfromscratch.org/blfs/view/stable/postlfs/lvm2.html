@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      LVM2-2.02.105
+      LVM2-2.02.111
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;File Systems and Disk Management
@@ -29,9 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="raid.html" title="About RAID">Next</a>
+          <a accesskey="n" href="aboutlvm.html" title=
+          "About Logical Volume Management (LVM)">Next</a>
           <p>
-            About RAID
+            About Logical Volume Management (LVM)
           </p>
         </li>
         <li class="up">
@@ -40,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="lvm2" name="lvm2"></a>LVM2-2.02.105
+        <a id="lvm2" name="lvm2"></a>LVM2-2.02.111
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +60,7 @@
           dynamic growing or shrinking of logical partitions.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -70,28 +71,28 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.105.tgz">ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.105.tgz</a>
+                "ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.111.tgz">ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.111.tgz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: b5b3540661fc70bf329b526c1cfbcf3a
+                Download MD5 sum: 02487ab2a9e02d1ee76fe217183df28a
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.4 MB
+                Download size: 1.5 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 24 MB (additional 2 MB to run
+                Estimated disk space required: 27 MB (additional 8 MB to run
                 the test suite)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.3 SBU (additional 3.6 SBU to run the
+                Estimated build time: 0.4 SBU (additional 5.4 SBU to run the
                 test suite)
               </p>
             </li>
@@ -104,9 +105,10 @@
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="mdadm.html" title="mdadm-3.3">mdadm-3.3</a>
-          (for checks) and <a class="xref" href="xfsprogs.html" title=
-          "xfsprogs-3.1.11">xfsprogs-3.1.11</a> (for checks)
+          <a class="xref" href="mdadm.html" title=
+          "mdadm-3.3.2">mdadm-3.3.2</a> (for checks) and <a class="xref"
+          href="xfsprogs.html" title="xfsprogs-3.2.1">xfsprogs-3.2.1</a> (for
+          checks)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -157,7 +159,7 @@
             --enable-applib     \
             --enable-cmdlib     \
             --enable-pkgconfig  \
-            --enable-udev_sync &amp;&amp;
+            --enable-udev_sync  &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -215,7 +217,7 @@ make</kbd>
               <span class="segbody">blkdeactivate, dmeventd (optional),
               dmsetup, fsadm, lvm, lvmconf, lvmdump, vgimportclone. There are
               also numerous symbolic links to lvm that implement specific
-              functionality.</span>
+              functionality</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -223,8 +225,8 @@ make</kbd>
               liblvm2cmd.so; optional: libdevmapper-event.so,
               libdevmapper-event-lvm2.so, libdevmapper-event-lvm2mirror.so,
               libdevmapper-event-lvm2snapshot.so,
-              libdevmapper-event-lvm2raid.so, libdevmapper-event-lvm2thin.so
-              and some under /lib/device-mapper</span>
+              libdevmapper-event-lvm2raid.so, and
+              libdevmapper-event-lvm2thin.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -379,7 +381,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 04:49:29 -0800
+        Last updated on 2014-09-10 06:19:10 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -392,9 +394,10 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="raid.html" title="About RAID">Next</a>
+          <a accesskey="n" href="aboutlvm.html" title=
+          "About Logical Volume Management (LVM)">Next</a>
           <p>
-            About RAID
+            About Logical Volume Management (LVM)
           </p>
         </li>
         <li class="up">
@@ -403,7 +406,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

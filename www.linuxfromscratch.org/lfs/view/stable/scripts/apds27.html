@@ -5,60 +5,61 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      D.27.&nbsp;/lib/services/ipv4-static
+      D.27.&nbsp;/lib/services/ipv4-static-route
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="apds26.html" title="/sbin/ifdown">Prev</a>
+          <a accesskey="p" href="apds26.html" title=
+          "/lib/services/ipv4-static">Prev</a>
           <p>
-            /sbin/ifdown
+            /lib/services/ipv4-static
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="apds28.html" title=
-          "/lib/services/ipv4-static-route">Next</a>
+          <a accesskey="n" href="eudev-rules.html" title=
+          "Udev configuration rules">Next</a>
           <p>
-            /lib/services/ipv4-static-route
+            Udev configuration rules
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ipv4static" name="ipv4static"></a>D.27.
-        /lib/services/ipv4-static
+        <a id="ipv4route" name="ipv4route"></a>D.27.
+        /lib/services/ipv4-static-route
       </h1>
       <pre class="screen">
 #!/bin/sh
 ########################################################################
-# Begin /lib/services/ipv4-static
+# Begin /lib/services/ipv4-static-route
 #
-# Description : IPV4 Static Boot Script
+# Description : IPV4 Static Route Script
 #
-# Authors     : Nathan Coulson - nathan@linuxfromscratch.org
-#               Kevin P. Fleming - kpfleming@linuxfromscratch.org
+# Authors     : Kevin P. Fleming - kpfleming@linuxfromscratch.org
+#               DJ Lucas - dj@linuxfromscratch.org
 # Update      : Bruce Dubbs - bdubbs@linuxfromscratch.org
 #
 # Version     : LFS 7.0
@@ -68,97 +69,113 @@
 . /lib/lsb/init-functions
 . ${IFCONFIG}
 
-if [ -z "${IP}" ]; then
-   log_failure_msg "\nIP variable missing from ${IFCONFIG}, cannot continue."
+case "${TYPE}" in
+   ("" | "network")
+      need_ip=1
+      need_gateway=1
+   ;;
+
+   ("default")
+      need_gateway=1
+      args="${args} default"
+      desc="default"
+   ;;
+
+   ("host")
+      need_ip=1
+   ;;
+
+   ("unreachable")
+      need_ip=1
+      args="${args} unreachable"
+      desc="unreachable "
+   ;;
+
+   (*)
+      log_failure_msg "Unknown route type (${TYPE}) in ${IFCONFIG}, cannot continue."
+      exit 1
+   ;;
+esac
+
+if [ -n "${GATEWAY}" ]; then
+   MSG="The GATEWAY variable cannot be set in ${IFCONFIG} for static routes.\n"
+   log_failure_msg "$MSG Use STATIC_GATEWAY only, cannot continue"
    exit 1
 fi
 
-if [ -z "${PREFIX}" -a -z "${PEER}" ]; then
-   log_warning_msg "\nPREFIX variable missing from ${IFCONFIG}, assuming 24."
-   PREFIX=24
+if [ -n "${need_ip}" ]; then
+   if [ -z "${IP}" ]; then
+      log_failure_msg "IP variable missing from ${IFCONFIG}, cannot continue."
+      exit 1
+   fi
+
+   if [ -z "${PREFIX}" ]; then
+      log_failure_msg "PREFIX variable missing from ${IFCONFIG}, cannot continue." 
+      exit 1
+   fi
+   
    args="${args} ${IP}/${PREFIX}"
-
-elif [ -n "${PREFIX}" -a -n "${PEER}" ]; then
-   log_failure_msg "\nPREFIX and PEER both specified in ${IFCONFIG}, cannot continue."
-   exit 1
-
-elif [ -n "${PREFIX}" ]; then
-   args="${args} ${IP}/${PREFIX}"
-
-elif [ -n "${PEER}" ]; then
-   args="${args} ${IP} peer ${PEER}"
+   desc="${desc}${IP}/${PREFIX}"
 fi
 
-if [ -n "${BROADCAST}" ]; then
-   args="${args} broadcast ${BROADCAST}"
+if [ -n "${need_gateway}" ]; then
+   if [ -z "${STATIC_GATEWAY}" ]; then
+      log_failure_msg "STATIC_GATEWAY variable missing from ${IFCONFIG}, cannot continue."
+      exit 1
+   fi
+   args="${args} via ${STATIC_GATEWAY}"
+fi
+
+if [ -n "${SOURCE}" ]; then
+        args="${args} src ${SOURCE}"
 fi
 
 case "${2}" in
    up)
-      if [ "$(ip addr show ${1} 2&gt;/dev/null | grep ${IP}/)" = "" ]; then
-         
-         # Cosmetic output not needed for multiple services
-         if ! $(echo ${SERVICE} | grep -q " "); then 
-           log_info_msg2 "\n" # Terminate the previous message
-         fi
-         
-         log_info_msg "Adding IPv4 address ${IP} to the ${1} interface..."
-         ip addr add ${args} dev ${1}
-         evaluate_retval
-      else
-         log_warning_msg "Cannot add IPv4 address ${IP} to ${1}.  Already present."
-      fi
+      log_info_msg "Adding '${desc}' route to the ${1} interface..."
+      ip route add ${args} dev ${1}
+      evaluate_retval
    ;;
-
+   
    down)
-      if [ "$(ip addr show ${1} 2&gt;/dev/null | grep ${IP}/)" != "" ]; then
-         log_info_msg "Removing IPv4 address ${IP} from the ${1} interface..."
-         ip addr del ${args} dev ${1}
-         evaluate_retval
-      fi
-
-      if [ -n "${GATEWAY}" ]; then
-         # Only remove the gateway if there are no remaining ipv4 addresses
-         if [ "$(ip addr show ${1} 2&gt;/dev/null | grep 'inet ')" != "" ]; then
-            log_info_msg "Removing default gateway..."
-            ip route del default
-            evaluate_retval
-         fi
-      fi
+      log_info_msg "Removing '${desc}' route from the ${1} interface..."
+      ip route del ${args} dev ${1}
+      evaluate_retval
    ;;
-
+   
    *)
       echo "Usage: ${0} [interface] {up|down}"
       exit 1
    ;;
 esac
 
-# End /lib/services/ipv4-static
+# End /lib/services/ipv4-static-route
 </pre>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="apds26.html" title="/sbin/ifdown">Prev</a>
+          <a accesskey="p" href="apds26.html" title=
+          "/lib/services/ipv4-static">Prev</a>
           <p>
-            /sbin/ifdown
+            /lib/services/ipv4-static
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="apds28.html" title=
-          "/lib/services/ipv4-static-route">Next</a>
+          <a accesskey="n" href="eudev-rules.html" title=
+          "Udev configuration rules">Next</a>
           <p>
-            /lib/services/ipv4-static-route
+            Udev configuration rules
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

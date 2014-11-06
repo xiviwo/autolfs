@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      GLibmm-2.38.1
+      GLibmm-2.40.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glib2.html" title="GLib-2.38.2">Prev</a>
+          <a accesskey="p" href="glib2.html" title="GLib-2.40.0">Prev</a>
           <p>
-            GLib-2.38.2
+            GLib-2.40.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gmime.html" title="GMime-2.6.19">Next</a>
+          <a accesskey="n" href="gmime.html" title="GMime-2.6.20">Next</a>
           <p>
-            GMime-2.6.19
+            GMime-2.6.20
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="glibmm" name="glibmm"></a>GLibmm-2.38.1
+        <a id="glibmm" name="glibmm"></a>GLibmm-2.40.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -56,7 +56,7 @@
           bindings for <span class="application">GLib</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -67,36 +67,36 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/glibmm/2.38/glibmm-2.38.1.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/glibmm/2.38/glibmm-2.38.1.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/glibmm/2.40/glibmm-2.40.0.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/glibmm/2.40/glibmm-2.40.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.38/glibmm-2.38.1.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.38/glibmm-2.38.1.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.40/glibmm-2.40.0.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.40/glibmm-2.40.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 50d86a77398cd473ff13c4c9382e39bd
+                Download MD5 sum: f62754f4f5c9030f8ff43c7ed20556c2
               </p>
             </li>
             <li>
               <p>
-                Download size: 5.5 MB
+                Download size: 5.4 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 151 MB (additional 18 MB to
+                Estimated disk space required: 153 MB (additional 18 MB to
                 run the test suite)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.0 SBU (additional 0.4 SBU to run the
+                Estimated build time: 1.0 SBU (additional 0.3 SBU to run the
                 test suite)
               </p>
             </li>
@@ -110,8 +110,18 @@
         </h4>
         <p class="required">
           <a class="xref" href="glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a> and <a class="xref" href=
-          "libsigc.html" title="libsigc++-2.3.1">libsigc++-2.3.1</a>
+          "GLib-2.40.0">GLib-2.40.0</a>, <a class="xref" href=
+          "../postlfs/gnutls.html" title="GnuTLS-3.3.7">GnuTLS-3.3.7</a> (for
+          the tests), and <a class="xref" href="libsigc.html" title=
+          "libsigc++-2.3.2">libsigc++-2.3.2</a>
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="doxygen.html" title=
+          "Doxygen-1.8.8">Doxygen-1.8.8</a> and <a class="xref" href=
+          "libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -206,21 +216,21 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 07:06:53 -0800
+        Last updated on 2014-09-14 13:18:45 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="glib2.html" title="GLib-2.38.2">Prev</a>
+          <a accesskey="p" href="glib2.html" title="GLib-2.40.0">Prev</a>
           <p>
-            GLib-2.38.2
+            GLib-2.40.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gmime.html" title="GMime-2.6.19">Next</a>
+          <a accesskey="n" href="gmime.html" title="GMime-2.6.20">Next</a>
           <p>
-            GMime-2.6.19
+            GMime-2.6.20
           </p>
         </li>
         <li class="up">
@@ -229,7 +239,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

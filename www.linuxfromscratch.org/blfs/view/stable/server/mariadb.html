@@ -5,32 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      MariaDB-10.0.8
+      MariaDB-10.0.13
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;22.&nbsp;Databases
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="db.html" title="Berkeley DB-6.0.20">Prev</a>
+          <a accesskey="p" href="db.html" title="Berkeley DB-6.1.19">Prev</a>
           <p>
-            Berkeley DB-6.0.20
+            Berkeley DB-6.1.19
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="mysql.html" title="MySQL-5.6.16">Next</a>
+          <a accesskey="n" href="postgresql.html" title=
+          "PostgreSQL-9.3.5">Next</a>
           <p>
-            MySQL-5.6.16
+            PostgreSQL-9.3.5
           </p>
         </li>
         <li class="up">
@@ -39,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mariadb" name="mariadb"></a>MariaDB-10.0.8
+        <a id="mariadb" name="mariadb"></a>MariaDB-10.0.13
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +58,7 @@
           "application">MySQL</span> relational database management system.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -68,38 +69,50 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://tweedo.com/mirror/mariadb/mariadb-10.0.8/kvm-tarbake-jaunty-x86/mariadb-10.0.8.tar.gz">
-                http://tweedo.com/mirror/mariadb/mariadb-10.0.8/kvm-tarbake-jaunty-x86/mariadb-10.0.8.tar.gz</a>
+                "https://downloads.mariadb.org/interstitial/mariadb-10.0.13/source/mariadb-10.0.13.tar.gz">
+                https://downloads.mariadb.org/interstitial/mariadb-10.0.13/source/mariadb-10.0.13.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.0.8/kvm-tarbake-jaunty-x86/mariadb-10.0.8.tar.gz">
-                ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.0.8/kvm-tarbake-jaunty-x86/mariadb-10.0.8.tar.gz</a>
+                "ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.0.13/source/mariadb-10.0.13.tar.gz">
+                ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.0.13/source/mariadb-10.0.13.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 2b925d0beae8101f1f3f98102da91bf7
+                Download MD5 sum: 7b2e88864b51d7d0607dc37abb8a0adb
               </p>
             </li>
             <li>
               <p>
-                Download size: 50 MB
+                Download size: 49 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 1.2 GB
+                Estimated disk space required: 1.4 GB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 5.6 SBU
+                Estimated build time: 9.4 SBU (additional 0.4 SBU for the
+                tests)
               </p>
             </li>
           </ul>
+        </div>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            The installed size of MariaDB is 297 MB, but this can be reduced
+            by about 160 MB, if desired, by removing the
+            /usr/share/mysql/test directory after installation.
+          </p>
         </div>
         <h3>
           MariaDB Dependencies
@@ -109,8 +122,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/cmake.html" title=
-          "CMake-2.8.12.2">CMake-2.8.12.2</a> and <a class="xref" href=
-          "../postlfs/openssl.html" title="OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
+          "CMake-3.0.1">CMake-3.0.1</a> and <a class="xref" href=
+          "../postlfs/openssl.html" title="OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>
         </p>
         <h4>
           Recommended
@@ -124,10 +137,22 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/boost.html" title=
-          "Boost-1.55.0">Boost-1.55.0</a>, <a class="xref" href=
+          "Boost-1.56.0">Boost-1.56.0</a>, <a class="xref" href=
           "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>,
-          and <a class="ulink" href=
-          "http://packages.debian.org/source/sid/libaio">libaio</a>
+          <a class="xref" href="../postlfs/linux-pam.html" title=
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>, <a class="xref" href=
+          "../general/pcre.html" title="PCRE-8.35">PCRE-8.35</a>, <a class=
+          "xref" href="../general/unixodbc.html" title=
+          "unixODBC-2.3.2">unixODBC-2.3.2</a>, <a class="xref" href=
+          "../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a>, <a class="ulink" href=
+          "http://packages.debian.org/source/sid/libaio">libaio</a>,
+          <a class="ulink" href=
+          "http://sourceforge.net/projects/judy/">Judy</a>, <a class="ulink"
+          href="http://sphinxsearch.com/downloads/">Sphinx</a>, and <a class=
+          "ulink" href=
+          "http://www.tokutek.com/products/mysql-download-for-mysql-mariadb/">
+          TokuDB</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -138,19 +163,15 @@
         <h2 class="sect2">
           Installation of MariaDB
         </h2>
-        <div class="admon note">
-          <img alt="[Note]" src="../images/note.png" />
+        <div class="admon warning">
+          <img alt="[Warning]" src="../images/warning.png" />
           <h3>
-            Note
+            Warning
           </h3>
           <p>
-            This version of <span class="application">MariaDB</span> is a
-            development release. The BLFS staff has determined that it
-            provides a stable program and includes backported features from
-            <span class="application">MySQL</span> 5.6 and entirely new
-            features not found anywhere else. To find the current stable
-            release, please refer to the <a class="ulink" href=
-            "https://mariadb.org/">MariaDB home page</a>.
+            MariaDB and MySQL cannot be installed on the same system without
+            extensive changes to the build configuration of one of the two
+            applications.
           </p>
         </div>
         <p>
@@ -187,6 +208,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DMYSQL_DATADIR=/srv/mysql \
       -DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock \
       -DWITH_EXTRA_CHARSETS=complex \
+      -DWITH_EMBEDDED_SERVER=ON \
       -DTOKUDB_OK=0 \
       .. &amp;&amp;
 make</kbd>
@@ -212,6 +234,12 @@ make</kbd>
           fixes a bug in the code.
         </p>
         <p>
+          <em class="parameter"><code>-DWITH_EMBEDDED_SERVER=ON</code></em>:
+          This switch enables compiling the embedded server library needed by
+          certain applications, such as <span class=
+          "application">Amarok</span>..
+        </p>
+        <p>
           <em class=
           "parameter"><code>-DWITH_EXTRA_CHARSETS=complex</code></em>: This
           switch enables support for the complex character sets.
@@ -220,11 +248,6 @@ make</kbd>
           <code class="option">-DWITHOUT_SERVER=ON
           -DWITH_UNIT_TESTS=OFF</code>: Use these switches if you don't want
           the server and would like to build the client only.
-        </p>
-        <p>
-          <code class="option">-DWITH_EMBEDDED_SERVER=ON</code>: This switch
-          enables compiling the embedded server library needed by certain
-          applications, such as <span class="application">Amarok</span>.
         </p>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -359,13 +382,10 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
           <p>
             A default installation does not set up a password for the
             administrator, so use the following command as the <code class=
-            "systemitem">root</code> user to set one. Replace <em class=
-            "replaceable"><code>&lt;new-password&gt;</code></em> with your
-            own.
+            "systemitem">root</code> user to set one.
           </p>
           <pre class="root">
-<kbd class="command">mysqladmin -u root password <em class=
-"replaceable"><code>&lt;new-password&gt;</code></em></kbd>
+<kbd class="command">mysqladmin -u root password</kbd>
 </pre>
           <p>
             Configuration of the server is now finished. Shut the server down
@@ -384,7 +404,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
             Install the <code class="filename">/etc/rc.d/init.d/mysql</code>
             init script included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package as the
+            "BLFS Boot Scripts">blfs-bootscripts-20140919</a> package as the
             <code class="systemitem">root</code> user to start the
             <span class="application">MariaDB</span> server during system
             boot-up.
@@ -403,24 +423,26 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">aria_chk, aria_dump_log, aria_ftdump,
-              aria_pack, aria_read_log, innochecksum, msql2mysql, myisamchk,
-              myisam_ftdump, myisamlog, myisampack, my_print_defaults, mysql,
+              aria_pack, aria_read_log, innochecksum, msql2mysql,
+              my_print_defaults, myisam_ftdump, myisamchk, myisamlog,
+              myisampack, mysql, mysql_client_test,
+              mysql_client_test_embedded, mysql_config,
+              mysql_convert_table_format, mysql_embedded, mysql_find_rows,
+              mysql_fix_extensions, mysql_install_db, mysql_plugin,
+              mysql_secure_installation, mysql_setpermission,
+              mysql_tzinfo_to_sql, mysql_upgrade, mysql_waitpid, mysql_zap,
               mysqlaccess, mysqladmin, mysqlbinlog, mysqlbug, mysqlcheck,
-              mysql_client_test, mysql_client_test_embedded, mysql_config,
-              mysql_convert_table_format, mysqld, mysqld_multi, mysqld_safe,
-              mysqldump, mysqldumpslow, mysql_embedded, mysql_find_rows,
-              mysql_fix_extensions, mysqlhotcopy, mysqlimport,
-              mysql_install_db, mysql_plugin, mysql_secure_installation,
-              mysql_setpermission, mysqlshow, mysqlslap, mysqltest,
-              mysqltest_embedded, mysql_tzinfo_to_sql, mysql_upgrade,
-              mysql_waitpid, mysql_zap, mytop, perror, replace, resolveip,
-              resolve_stack_dump, and tokuftdump</span>
+              mysqld, mysqld_multi, mysqld_safe, mysqldump, mysqldumpslow,
+              mysqlhotcopy, mysqlimport, mysqlshow, mysqlslap, mysqltest,
+              mysqltest_embedded, mytop, perror, replace, resolve_stack_dump,
+              and resolveip</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libmysqlclient.{so,a},
-              libmysqlclient_r.{so,a}, libmysqld.{so,a}, and
-              libmysqlservices.a</span>
+              libmysqlclient_r.{so,a} (symbolic links to
+              libmysqlclient.{so,a}), libmysqld.{so,a}, libmysqlservices.a,
+              and several under /usr/lib/mysql/plugin/</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -446,21 +468,22 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
         </p>
       </div>
       <p class="updated">
-        Last updated on 2014-02-21 02:34:59 -0800
+        Last updated on 2014-09-15 22:13:43 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="db.html" title="Berkeley DB-6.0.20">Prev</a>
+          <a accesskey="p" href="db.html" title="Berkeley DB-6.1.19">Prev</a>
           <p>
-            Berkeley DB-6.0.20
+            Berkeley DB-6.1.19
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="mysql.html" title="MySQL-5.6.16">Next</a>
+          <a accesskey="n" href="postgresql.html" title=
+          "PostgreSQL-9.3.5">Next</a>
           <p>
-            MySQL-5.6.16
+            PostgreSQL-9.3.5
           </p>
         </li>
         <li class="up">
@@ -469,7 +492,7 @@ mysqld_safe --user=mysql 2&gt;&amp;1 &gt;/dev/null &amp;</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

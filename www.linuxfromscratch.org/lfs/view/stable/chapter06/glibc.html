@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.9.&nbsp;Glibc-2.19
+      6.9.&nbsp;Glibc-2.20
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="man-pages.html" title=
-          "Man-pages-3.59">Prev</a>
+          "Man-pages-3.72">Prev</a>
           <p>
-            Man-pages-3.59
+            Man-pages-3.72
           </p>
         </li>
         <li class="next">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-glibc" name="ch-system-glibc"></a>6.9. Glibc-2.19
+        <a id="ch-system-glibc" name="ch-system-glibc"></a>6.9. Glibc-2.20
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -60,11 +60,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">17.1 SBU</span>
+              <span class="segbody">18.9 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">922 MB</span>
+              <span class="segbody">983 MB</span>
             </div>
           </div>
         </div>
@@ -93,19 +93,13 @@
           </p>
         </div>
         <p>
-          First fix a minor problem when installing the tzselect script:
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i 's/\\$$(pwd)/`pwd`/' timezone/Makefile</kbd>
-</pre>
-        <p>
           Some of the Glibc programs use non-FHS compilant <code class=
           "filename">/var/db</code> directory to store their runtime data.
           Apply the following patch to make such programs store their runtime
           data in the FHS-compliant locations:
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../glibc-2.19-fhs-1.patch</kbd>
+<kbd class="command">patch -Np1 -i ../glibc-2.20-fhs-1.patch</kbd>
 </pre>
         <p>
           The Glibc build system is self-contained and will install
@@ -127,7 +121,7 @@ cd ../glibc-build</kbd>
           Prepare Glibc for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">../glibc-2.19/configure    \
+<kbd class="command">../glibc-2.20/configure    \
     --prefix=/usr          \
     --disable-profile      \
     --enable-kernel=2.6.32 \
@@ -172,63 +166,19 @@ cd ../glibc-build</kbd>
           of the test failures listed below. Now test the build results:
         </p>
         <pre class="userinput">
-<kbd class="command">make -k check 2&gt;&amp;1 | tee glibc-check-log
-grep Error glibc-check-log</kbd>
+<kbd class="command">make check</kbd>
 </pre>
         <p>
-          You will probably see an expected (ignored) failure in the
-          <span class="emphasis"><em>posix/annexc</em></span> and
-          <span class="emphasis"><em>conform/run-conformtest</em></span>
-          tests. In addition the Glibc test suite is somewhat dependent on
-          the host system. This is a list of the most common issues:
+          You will probably see some test failures. The Glibc test suite is
+          somewhat dependent on the host system. This is a list of the most
+          common issues seen for this version of LFS:
         </p>
         <div class="itemizedlist">
           <ul>
             <li class="listitem">
               <p>
-                The <span class="emphasis"><em>nptl/tst-clock2</em></span>,
-                <span class="emphasis"><em>nptl/tst-attr3</em></span>,
-                <span class="emphasis"><em>tst/tst-cputimer1</em></span>, and
-                <span class="emphasis"><em>rt/tst-cpuclock2</em></span> tests
-                have been known to fail. The reason is not completely
-                understood, but indications are that minor timing issues can
-                trigger these failures.
-              </p>
-            </li>
-            <li class="listitem">
-              <p>
-                The math tests sometimes fail when running on systems where
-                the CPU is not a relatively new genuine Intel or authentic
-                AMD processor.
-              </p>
-            </li>
-            <li class="listitem">
-              <p>
-                When running on older and slower hardware or on systems under
-                load, some tests can fail because of test timeouts being
-                exceeded. Modifying the make check command to set a
-                TIMEOUTFACTOR is reported to help eliminate these errors
-                (e.g. <span class="command"><strong>TIMEOUTFACTOR=16 make -k
-                check</strong></span>).
-              </p>
-            </li>
-            <li class="listitem">
-              <p>
                 posix/tst-getaddrinfo4 will always fail due to not having a
                 network connection when the test is run.
-              </p>
-            </li>
-            <li class="listitem">
-              <p>
-                libio/tst-ftell-partial-wide.out fails because it needs a
-                locale that has not yet been generated.
-              </p>
-            </li>
-            <li class="listitem">
-              <p>
-                Other tests known to fail on some architectures are
-                posix/bug-regex32, misc/tst-writev, elf/check-textrel,
-                nptl/tst-getpid2, nptl/tst-robust8, and stdio-common/bug22.
               </p>
             </li>
           </ul>
@@ -252,7 +202,7 @@ grep Error glibc-check-log</kbd>
           <span class="command"><strong>nscd</strong></span>:
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v ../glibc-2.19/nscd/nscd.conf /etc/nscd.conf
+<kbd class="command">cp -v ../glibc-2.20/nscd/nscd.conf /etc/nscd.conf
 mkdir -pv /var/cache/nscd</kbd>
 </pre>
         <p>
@@ -304,7 +254,7 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
         </p>
         <p>
           Alternatively, install all locales listed in the <code class=
-          "filename">glibc-2.19/localedata/SUPPORTED</code> file (it includes
+          "filename">glibc-2.20/localedata/SUPPORTED</code> file (it includes
           every locale listed above and many more) at once with the following
           time-consuming command:
         </p>
@@ -315,7 +265,7 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
           Then use the <span class=
           "command"><strong>localedef</strong></span> command to create and
           install locales not listed in the <code class=
-          "filename">glibc-2.19/localedata/SUPPORTED</code> file in the
+          "filename">glibc-2.20/localedata/SUPPORTED</code> file in the
           unlikely case you need them.
         </p>
       </div>
@@ -356,7 +306,7 @@ EOF</kbd>
           Install timezone data:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xf ../tzdata2013i.tar.gz
+<kbd class="command">tar -xf ../tzdata2014g.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
@@ -368,7 +318,7 @@ for tz in etcetera southamerica northamerica europe africa antarctica  \
     zic -L leapseconds -d $ZONEINFO/right -y "sh yearistype.sh" ${tz}
 done
 
-cp -v zone.tab iso3166.tab $ZONEINFO
+cp -v zone.tab zone1970.tab iso3166.tab $ZONEINFO
 zic -d $ZONEINFO -p America/New_York
 unset ZONEINFO</kbd>
 </pre>
@@ -514,7 +464,7 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">ld.so, libBrokenLocale.{a,so},
+              <span class="segbody">ld-2.20.so, libBrokenLocale.{a,so},
               libSegFault.so, libanl.{a,so}, libc.{a,so}, libc_nonshared.a,
               libcidn.so, libcrypt.{a,so}, libdl.{a,so}, libg.a, libieee.a,
               libm.{a,so}, libmcheck.a, libmemusage.so, libnsl.{a,so},
@@ -900,7 +850,7 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
                 <td>
                   <p>
                     <a id="ld.so" name="ld.so"></a><span class=
-                    "term"><code class="filename">ld.so</code></span>
+                    "term"><code class="filename">ld-2.20.so</code></span>
                   </p>
                 </td>
                 <td>
@@ -922,7 +872,7 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
                     Used internally by Glibc as a gross hack to get broken
                     programs (e.g., some Motif applications) running. See
                     comments in <code class=
-                    "filename">glibc-2.19/locale/broken_cur_max.c</code> for
+                    "filename">glibc-2.20/locale/broken_cur_max.c</code> for
                     more information
                   </p>
                 </td>
@@ -1214,9 +1164,9 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="man-pages.html" title=
-          "Man-pages-3.59">Prev</a>
+          "Man-pages-3.72">Prev</a>
           <p>
-            Man-pages-3.59
+            Man-pages-3.72
           </p>
         </li>
         <li class="next">
@@ -1232,7 +1182,7 @@ mkdir -pv /etc/ld.so.conf.d</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

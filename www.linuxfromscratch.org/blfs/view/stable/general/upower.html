@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           system message bus.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -105,13 +105,11 @@
         <p class="required">
           <a class="xref" href="dbus-glib.html" title=
           "dbus-glib-0.102">dbus-glib-0.102</a>, <a class="xref" href=
-          "intltool.html" title="Intltool-0.50.2">Intltool-0.50.2</a>,
-          <a class="xref" href="libusb.html" title=
-          "libusb-1.0.18">libusb-1.0.18</a>, <a class="xref" href=
-          "../postlfs/polkit.html" title="Polkit-0.112">Polkit-0.112</a>, and
-          <a class="xref" href="udev-extras.html" title=
-          "Udev Extras (from systemd)">udev-extras (from systemd)</a> (for
-          GUdev)
+          "libusb.html" title="libusb-1.0.19">libusb-1.0.19</a>, <a class=
+          "xref" href="../postlfs/polkit.html" title=
+          "Polkit-0.112">Polkit-0.112</a>, and <a class="xref" href=
+          "udev-extras.html" title="Udev Extras (from eudev)">udev-extras
+          (from eudev)</a> (for GUdev)
         </p>
         <h4>
           Recommended (runtime)
@@ -125,15 +123,15 @@
         </h4>
         <p class="optional">
           <a class="xref" href="gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="gtk-doc.html" title=
-          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="xref" href=
-          "python3.html" title="Python-3.3.4">Python-3.3.4</a> (used only in
+          "GTK-Doc-1.20">GTK-Doc-1.20</a> and <a class="xref" href=
+          "python3.html" title="Python-3.4.1">Python-3.4.1</a> (used only in
           the testsuite).
         </p>
         <p class="usernotes">
@@ -160,7 +158,8 @@ make</kbd>
         <p>
           To test the results, issue: <span class="command"><strong>make
           check</strong></span>. Some checks may not pass due to missing
-          files.
+          files. Test suite should be run from a local GUI session started
+          with dbus-launch.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -195,13 +194,12 @@ make</kbd>
         <p>
           To use the command <span class="command"><strong>upower
           -w</strong></span> for information about processor wakeups (this
-          command is used by <a class="xref" href=
-          "../gnome/gnome-power-manager.html" title=
-          "gnome-power-manager-3.10.1">gnome-power-manager-3.10.1</a>) you
-          need to enable CONFIG_TIMER_STATS. This is achieved in <span class=
-          "command"><strong>make menuconfig</strong></span> by going to the
-          'kernel-hacking' menu and selecting 'Collect kernel timers
-          statistics'.
+          command is used by <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/">gnome-power-manager</a>)
+          you need to enable CONFIG_TIMER_STATS. This is achieved in
+          <span class="command"><strong>make menuconfig</strong></span> by
+          going to the 'kernel-hacking' menu and selecting 'Collect kernel
+          timers statistics'.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -283,7 +281,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 03:30:41 -0800
+        Last updated on 2014-09-20 21:51:52 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -306,7 +304,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

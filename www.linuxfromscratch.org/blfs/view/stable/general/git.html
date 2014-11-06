@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Git-1.9.0
+      Git-2.1.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gdb.html" title="GDB-7.7">Prev</a>
+          <a accesskey="p" href="gdb.html" title="GDB-7.8">Prev</a>
           <p>
-            GDB-7.7
+            GDB-7.8
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="guile.html" title="Guile-2.0.9">Next</a>
+          <a accesskey="n" href="guile.html" title="Guile-2.0.11">Next</a>
           <p>
-            Guile-2.0.9
+            Guile-2.0.11
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="git" name="git"></a>Git-1.9.0
+        <a id="git" name="git"></a>Git-2.1.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -62,14 +62,14 @@
           "application">Git</span> is used for version control of files, much
           like tools such as <span class="application">Mercurial</span>,
           <span class="application">Bazaar</span>, <a class="xref" href=
-          "subversion.html" title="Subversion-1.8.5">Subversion-1.8.5</a>,
+          "subversion.html" title="Subversion-1.8.10">Subversion-1.8.10</a>,
           <a class="xref" href="cvs.html" title=
           "CVS-1.11.23">CVS-1.11.23</a>, <span class=
           "application">Perforce</span>, and <span class="application">Team
           Foundation Server</span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -80,31 +80,37 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "https://www.kernel.org/pub/software/scm/git/git-1.9.0.tar.xz">
-                https://www.kernel.org/pub/software/scm/git/git-1.9.0.tar.xz</a>
+                "https://www.kernel.org/pub/software/scm/git/git-2.1.0.tar.xz">
+                https://www.kernel.org/pub/software/scm/git/git-2.1.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 7debe72e09d6c725fd291d4d68c5f638
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.kernel.org/pub/software/scm/git/git-2.1.0.tar.xz">ftp://ftp.kernel.org/pub/software/scm/git/git-2.1.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download size: 3.3 MB
+                Download MD5 sum: 47b1f55d9a16be112f7ae2c778a9b30c
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 218 MB (additional 13 MB with
-                downloaded docs or man pages, or 23 MB building docs and man
+                Download size: 3.4 MB
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimated disk space required: 208 MB (additional 14 MB for
+                downloaded docs and man pages, or 27 MB building docs and man
                 pages)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.7 SBU (additional 7.7 SBU for tests
-                or 2.6 SBU for docs and man creation)
+                Estimated build time: 0.7 SBU (additional 9.6 SBU for tests
+                or 2.8 SBU for docs and man build)
               </p>
             </li>
           </ul>
@@ -117,18 +123,19 @@
             <li>
               <p>
                 <a class="ulink" href=
-                "https://www.kernel.org/pub/software/scm/git/git-manpages-1.9.0.tar.xz">
-                https://www.kernel.org/pub/software/scm/git/git-manpages-1.9.0.tar.xz</a>
-                (only needed if you've not installed asciidoc and xmlto)
+                "https://www.kernel.org/pub/software/scm/git/git-manpages-2.1.0.tar.xz">
+                https://www.kernel.org/pub/software/scm/git/git-manpages-2.1.0.tar.xz</a>
+                (if you prefer the original, not needed if you've installed
+                asciidoc and xmlto and prefer to build them).
               </p>
             </li>
             <li>
               <p>
                 <a class="ulink" href=
-                "https://www.kernel.org/pub/software/scm/git/git-htmldocs-1.9.0.tar.xz">
-                https://www.kernel.org/pub/software/scm/git/git-htmldocs-1.9.0.tar.xz</a>
-                and other docs (only needed if you've not installed
-                asciidoc).
+                "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.1.0.tar.xz">
+                https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.1.0.tar.xz</a>
+                and other docs (if you prefer the original, not needed if
+                you've installed asciidoc and prefer to build them).
               </p>
             </li>
           </ul>
@@ -141,22 +148,21 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.35.0">cURL-7.35.0</a> (needed to use <span class=
+          "cURL-7.37.1">cURL-7.37.1</a> (needed to use <span class=
           "application">Git</span> over http, https, ftp or ftps), <a class=
-          "xref" href="expat.html" title="Expat-2.1.0">expat-2.1.0</a>,
-          <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a> and <a class="xref" href=
-          "python2.html" title="Python-2.7.6">Python-2.7.6</a>
+          "xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>, and <a class="xref" href=
+          "python2.html" title="Python-2.7.8">Python-2.7.8</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="pcre.html" title="PCRE-8.34">PCRE-8.34</a>,
+          <a class="xref" href="pcre.html" title="PCRE-8.35">PCRE-8.35</a>,
           <a class="xref" href="subversion.html" title=
-          "Subversion-1.8.5">Subversion-1.8.5</a> with Perl bindings (for
+          "Subversion-1.8.10">Subversion-1.8.10</a> with Perl bindings (for
           <span class="command"><strong>git svn</strong></span>), and
-          <a class="xref" href="tk.html" title="Tk-8.6.1">Tk-8.6.1</a> (gitk,
+          <a class="xref" href="tk.html" title="Tk-8.6.2">Tk-8.6.2</a> (gitk,
           a simple <span class="application">Git</span> repository viewer,
           uses <span class="application">Tk</span> at runtime)
         </p>
@@ -164,10 +170,9 @@
           Optional (to create the man pages and html docs)
         </h4>
         <p>
-          <a class="ulink" href=
-          "http://www.methods.co.nz/asciidoc/">AsciiDoc</a> and <a class=
-          "xref" href="../pst/xmlto.html" title=
-          "xmlto-0.0.25">xmlto-0.0.25</a>
+          <a class="xref" href="../pst/xmlto.html" title=
+          "xmlto-0.0.26">xmlto-0.0.26</a> and <a class="ulink" href=
+          "http://www.methods.co.nz/asciidoc/">AsciiDoc</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -188,6 +193,11 @@
 make</kbd>
 </pre>
         <p>
+          You can build the man pages and/or html docs, or use downloaded
+          ones. If you choose to build them, use next two following
+          instructions.
+        </p>
+        <p>
           If you have installed <a class="ulink" href=
           "http://www.methods.co.nz/asciidoc/">AsciiDoc</a> you can create
           the html version of the man pages and other docs:
@@ -199,14 +209,18 @@ make</kbd>
           If you have installed <a class="ulink" href=
           "http://www.methods.co.nz/asciidoc/">AsciiDoc</a> and <a class=
           "xref" href="../pst/xmlto.html" title=
-          "xmlto-0.0.25">xmlto-0.0.25</a> you can create the man pages:
+          "xmlto-0.0.26">xmlto-0.0.26</a> you can create the man pages:
         </p>
         <pre class="userinput">
 <kbd class="command">make man</kbd>
 </pre>
         <p>
-          To check the results, issue: <span class="command"><strong>make
-          test</strong></span>.
+          The test suite can be run in parallel mode. Many tests cannot find
+          <span class="application">GnuPG2</span>, if the compatibility
+          symlinks, recommended in <a class="xref" href=
+          "../postlfs/gnupg.html" title="GnuPG-2.0.26">GnuPG-2.0.26</a>, are
+          not installed. To run the test suite, issue: <span class=
+          "command"><strong>make test</strong></span>.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -214,60 +228,62 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install</kbd>
 </pre>
+        <h3>
+          If you created the man pages and/or html docs
+        </h3>
         <p>
-          If you created the man pages, install them as the <code class=
-          "systemitem">root</code> user:
+          Install the man pages as <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
 <kbd class="command">make install-man</kbd>
 </pre>
         <p>
-          If you created the html docs, install them as the <code class=
+          Install the html docs as <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make htmldir=/usr/share/doc/git-2.1.0 install-html</kbd>
+</pre>
+        <h3>
+          If you downloaded the man pages and/or html docs
+        </h3>
+        <p>
+          If you downloaded the man pages untar them as the <code class=
           "systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class=
-"command">make htmldir=/usr/share/doc/git-1.9.0 install-html              &amp;&amp;
-mkdir -p /usr/share/doc/git-1.9.0/man-pages/{html,text}         &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/{git*.txt,man-pages/text}     &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/{git*.,index.,man-pages/}html &amp;&amp;
-mkdir    /usr/share/doc/git-1.9.0/technical/{html,text}         &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/technical/{*.txt,text}        &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/technical/{*.,}html           &amp;&amp;
-mkdir    /usr/share/doc/git-1.9.0/howto/{html,text}             &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/howto/{*.txt,text}            &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
-</pre>
-        <p>
-          Alternatively, If you downloaded the man pages untar them as the
-          <code class="systemitem">root</code> user:
-        </p>
-        <pre class="root">
-<kbd class=
-"command">tar -xf ../git-manpages-1.9.0.tar.xz -C /usr/share/man --no-same-owner --no-overwrite-dir</kbd>
+<kbd class="command">tar -xf ../git-manpages-2.1.0.tar.xz \
+    -C /usr/share/man --no-same-owner --no-overwrite-dir</kbd>
 </pre>
         <p>
           If you downloaded the html docs untar them as the <code class=
           "systemitem">root</code> user:
         </p>
         <pre class="root">
+<kbd class="command">tar -xf  ../git-htmldocs-2.1.0.tar.xz \
+    -C   /usr/share/doc/git-2.1.0 --no-same-owner --no-overwrite-dir &amp;&amp;
+
+find /usr/share/doc/git-2.1.0 -type d -exec chmod 755 {} \;     &amp;&amp;
+find /usr/share/doc/git-2.1.0 -type f -exec chmod 644 {} \;</kbd>
+</pre>
+        <h3>
+          Reorganize man pages and/or html docs (both methods)
+        </h3>
+        <p>
+          For both methods, reorganize the files, as <code class=
+          "systemitem">root</code> user:
+        </p>
+        <pre class="root">
 <kbd class=
-"command">mkdir -p /usr/share/doc/git-1.9.0/man-pages/{html,text}         &amp;&amp;
+"command">mkdir -p /usr/share/doc/git-2.1.0/man-pages/{html,text}         &amp;&amp;
 
-tar -xf  ../git-htmldocs-1.9.0.tar.xz \
-    -C   /usr/share/doc/git-1.9.0 --no-same-owner --no-overwrite-dir &amp;&amp;
-
-find /usr/share/doc/git-1.9.0 -type d -exec chmod 755 {} \;     &amp;&amp;
-find /usr/share/doc/git-1.9.0 -type f -exec chmod 644 {} \;     &amp;&amp;
-
-mv       /usr/share/doc/git-1.9.0/{git*.txt,man-pages/text}     &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/{git*.,index.,man-pages/}html &amp;&amp;
-mkdir    /usr/share/doc/git-1.9.0/technical/{html,text}         &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/technical/{*.txt,text}        &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/technical/{*.,}html           &amp;&amp;
-mkdir    /usr/share/doc/git-1.9.0/howto/{html,text}             &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/howto/{*.txt,text}            &amp;&amp;
-mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
+mv       /usr/share/doc/git-2.1.0/{git*.txt,man-pages/text}     &amp;&amp;
+mv       /usr/share/doc/git-2.1.0/{git*.,index.,man-pages/}html &amp;&amp;
+mkdir    /usr/share/doc/git-2.1.0/technical/{html,text}         &amp;&amp;
+mv       /usr/share/doc/git-2.1.0/technical/{*.txt,text}        &amp;&amp;
+mv       /usr/share/doc/git-2.1.0/technical/{*.,}html           &amp;&amp;
+mkdir    /usr/share/doc/git-2.1.0/howto/{html,text}             &amp;&amp;
+mv       /usr/share/doc/git-2.1.0/howto/{*.txt,text}            &amp;&amp;
+mv       /usr/share/doc/git-2.1.0/howto/{*.,}html</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -290,9 +306,9 @@ mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
           <span class="application">PCRE</span> is installed.
         </p>
         <p>
-          <span class="command"><strong>tar -xf ../git-manpages-1.9.0.tar.gz
+          <span class="command"><strong>tar -xf ../git-manpages-2.1.0.tar.gz
           -C /usr/share/man --no-same-owner</strong></span>: This untars
-          <code class="filename">git-manpages-1.9.0.tar.gz</code>. The
+          <code class="filename">git-manpages-2.1.0.tar.gz</code>. The
           <code class="option">-C</code> option makes tar change directory to
           <code class="filename">/usr/share/man</code> before it starts to
           decompress the docs. The <code class=
@@ -302,7 +318,7 @@ mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
           (potentially) be a security risk.
         </p>
         <p>
-          <span class="command"><strong>mv /usr/share/doc/git-1.9.0
+          <span class="command"><strong>mv /usr/share/doc/git-2.1.0
           ...</strong></span>: These commands move some of the files into
           subfolders to make it easier to sort through the docs and find what
           you're looking for.
@@ -311,13 +327,6 @@ mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
           <span class="command"><strong>find ... chmod ...</strong></span>:
           These commands correct the permissions in the shipped documentation
           tar file.
-        </p>
-        <p>
-          <code class="option">--libexecdir=/usr/lib</code>: This option puts
-          the <code class="filename">git-core</code> directory in
-          <code class="filename">/usr/lib</code> instead of <code class=
-          "filename">/usr/libexec</code> in accordance with the old version
-          of the FHS used before LFS-7.5.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -353,7 +362,7 @@ mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/libexec/git-core,
-              /usr/share/doc/git-1.9.0, /usr/share/git-core,
+              /usr/share/doc/git-2.1.0, /usr/share/git-core,
               /usr/share/git-gui, /usr/share/gitk, /usr/share/gitweb,
               /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/Git and
               /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/auto/Git</span>
@@ -408,7 +417,7 @@ mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
                   <p>
                     is a graphical <span class="application">Git</span>
                     repository browser (needs <a class="xref" href="tk.html"
-                    title="Tk-8.6.1">Tk-8.6.1</a>).
+                    title="Tk-8.6.2">Tk-8.6.2</a>).
                   </p>
                 </td>
               </tr>
@@ -480,21 +489,21 @@ mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-03 19:06:31 -0800
+        Last updated on 2014-09-09 14:11:38 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gdb.html" title="GDB-7.7">Prev</a>
+          <a accesskey="p" href="gdb.html" title="GDB-7.8">Prev</a>
           <p>
-            GDB-7.7
+            GDB-7.8
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="guile.html" title="Guile-2.0.9">Next</a>
+          <a accesskey="n" href="guile.html" title="Guile-2.0.11">Next</a>
           <p>
-            Guile-2.0.9
+            Guile-2.0.11
           </p>
         </li>
         <li class="up">
@@ -503,7 +512,7 @@ mv       /usr/share/doc/git-1.9.0/howto/{*.,}html</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

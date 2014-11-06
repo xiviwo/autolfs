@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      NFS-Utils-1.2.9
+      NFS-Utils-1.3.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;15.&nbsp;Networking Programs
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="nfs-utils" name="nfs-utils"></a>NFS-Utils-1.2.9
+        <a id="nfs-utils" name="nfs-utils"></a>NFS-Utils-1.3.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           over the network.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -71,18 +71,18 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/nfs/nfs-utils-1.2.9.tar.bz2">
-                http://downloads.sourceforge.net/nfs/nfs-utils-1.2.9.tar.bz2</a>
+                "http://downloads.sourceforge.net/nfs/nfs-utils-1.3.0.tar.bz2">
+                http://downloads.sourceforge.net/nfs/nfs-utils-1.3.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 18869d16db3f49c053f8c68eba3fe2e0
+                Download MD5 sum: 3ac3726eda563946d1f44ac3e5b61d56
               </p>
             </li>
             <li>
               <p>
-                Download size: 756 KB
+                Download size: 763 KB
               </p>
             </li>
             <li>
@@ -98,6 +98,20 @@
           </ul>
         </div>
         <h3>
+          Additional Download
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/nfs-utils-1.3.0-gcc_4_9-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/nfs-utils-1.3.0-gcc_4_9-1.patch</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
           NFS Utilities Dependencies
         </h3>
         <h4>
@@ -105,7 +119,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="libtirpc.html" title=
-          "libtirpc-0.2.4">libtirpc-0.2.4</a>
+          "libtirpc-0.2.5">libtirpc-0.2.5</a>
         </p>
         <h4>
           Optional
@@ -113,19 +127,18 @@
         <p class="optional">
           <a class="xref" href="libevent.html" title=
           "libevent-2.0.21">libevent-2.0.21</a>, <a class="xref" href=
-          "../server/sqlite.html" title="SQLite-3.8.3.1">SQLite-3.8.3.1</a>
-          and <a class="ulink" href=
+          "../server/sqlite.html" title="SQLite-3.8.6">SQLite-3.8.6</a> and
+          <a class="ulink" href=
           "http://www.citi.umich.edu/projects/nfsv4/linux/">libnfsidmap</a>
           (for NFSv4 support), <a class="xref" href="../postlfs/mitkrb.html"
-          title="MIT Kerberos V5-1.12.1">MIT Kerberos V5-1.12.1</a> or
+          title="MIT Kerberos V5-1.12.2">MIT Kerberos V5-1.12.2</a> or
           <a class="ulink" href=
           "http://www.citi.umich.edu/projects/nfsv4/linux/">libgssapi</a>,
           and <a class="ulink" href=
           "http://www.citi.umich.edu/projects/nfsv4/linux/">librpcsecgss</a>
-          (for GSS and RPC security support) <a class="ulink" href=
-          "http://www.citi.umich.edu/projects/nfsv4/linux/">SPKM-3</a> (for
-          SPKM-3 support), and <a class="xref" href="../postlfs/libcap.html"
-          title="libcap-2.24">libcap-2.24</a>
+          (for GSS and RPC security support) and <a class="xref" href=
+          "../postlfs/libcap.html" title="libcap-2.24 with PAM">libcap-2.24
+          with PAM</a>
         </p>
         <h4>
           Required (runtime)
@@ -202,7 +215,9 @@ useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup \
           the following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr          \
+<kbd class=
+"command">patch -Np1 -i ../nfs-utils-1.3.0-gcc_4_9-1.patch &amp;&amp;
+./configure --prefix=/usr          \
             --sysconfdir=/etc      \
             --without-tcp-wrappers \
             --disable-nfsv4        \
@@ -217,7 +232,8 @@ make</kbd>
           <span class="command"><strong>./configure</strong></span> command.
         </p>
         <p>
-          This package does not come with a working test suite.
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -284,7 +300,7 @@ make</kbd>
               "filename">/etc/rc.d/init.d/nfs-server</code> init script
               included in the <a class="xref" href=
               "../introduction/bootscripts.html" title=
-              "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package to
+              "BLFS Boot Scripts">blfs-bootscripts-20140919</a> package to
               start the server at boot.
             </p>
             <pre class="root">
@@ -330,10 +346,34 @@ EOF</kbd>
           </p>
           <pre class="root">
 <kbd class="command"><em class=
-"replaceable"><code>&lt;server-name&gt;</code></em>:/home  /home nfs   rw,_netdev,rsize=8192,wsize=8192 0 0
+"replaceable"><code>&lt;server-name&gt;</code></em>:/home  /home nfs   rw,_netdev 0 0
 <em class=
-"replaceable"><code>&lt;server-name&gt;</code></em>:/usr   /usr  nfs   ro,_netdev,rsize=8192            0 0</kbd>
+"replaceable"><code>&lt;server-name&gt;</code></em>:/usr   /usr  nfs   ro,_netdev 0 0</kbd>
 </pre>
+          <p>
+            The options which can be used are specified in <span class=
+            "command"><strong>man 5 nfs</strong></span>. If both the client
+            and server are running recent versions of linux, most of the
+            options will be negotiated. You can specify either <code class=
+            "literal">rw</code> or <code class="literal">ro</code>,
+            <code class="literal">_netdev</code> if the filesystem is to be
+            automatically mounted at boot, or <code class=
+            "literal">noauto</code> (and perhaps <code class=
+            "literal">user</code>) for other filesystems.
+          </p>
+          <p>
+            If the fileserver is not running a recent version of linux, you
+            may need to specifiy other options.
+          </p>
+          <p>
+            If you are using systemd, you may need to enable autofs v4 in
+            your kernel, and add the option <code class=
+            "literal">comment=systemd.automount</code>. Some machines need
+            this, because systemd tries to mount the external fs's before the
+            network is up, others do not need it. An alternative is for
+            <code class="systemitem">root</code> to run <span class=
+            "command"><strong>mount -a</strong></span>.
+          </p>
           <div class="sect4" lang="en" xml:lang="en">
             <div class="titlepage">
               <div>
@@ -360,7 +400,7 @@ EOF</kbd>
               "filename">/etc/rc.d/init.d/nfs-client</code> init script
               included in the <a class="xref" href=
               "../introduction/bootscripts.html" title=
-              "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package to
+              "BLFS Boot Scripts">blfs-bootscripts-20140919</a> package to
               start the client services at boot.
             </p>
             <pre class="root">
@@ -631,7 +671,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 18:25:11 -0800
+        Last updated on 2014-09-09 14:11:38 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -656,7 +696,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

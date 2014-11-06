@@ -12,36 +12,36 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter07/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
+        Chapter&nbsp;7.&nbsp;System Configuration and Bootscripts
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="chapter07.html" title=
-          "Setting Up System Bootscripts">Prev</a>
+          "System Configuration and Bootscripts">Prev</a>
           <p>
-            Setting Up System Bootscripts
+            System Configuration and Bootscripts
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="network.html" title=
-          "General Network Configuration">Next</a>
+          <a accesskey="n" href="bootscripts.html" title=
+          "LFS-Bootscripts-20140815">Next</a>
           <p>
-            General Network Configuration
+            LFS-Bootscripts-20140815
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="chapter07.html" title=
-          "Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts">Up</a>
+          "Chapter&nbsp;7.&nbsp;System Configuration and Bootscripts">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -51,169 +51,126 @@
         "ch-scripts-introduction"></a>7.1. Introduction
       </h1>
       <p>
-        This chapter discusses configuration files and boot scripts. First,
-        the general configuration files needed to set up networking are
-        presented.
+        Booting a Linux system involves several tasks. The process must mount
+        both virtual and real file systems, initialize devices, activate
+        swap, check file systems for integrity, mount any swap partitions or
+        files, set the system clock, bring up networking, start any daemons
+        required by the system, and accomplish any other custom tasks needed
+        by the user. This process must be organized to ensure the tasks are
+        performed in the correct order but, at the same time, be executed as
+        fast as possible.
       </p>
-      <div class="itemizedlist">
-        <ul>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="network.html" title=
-              "7.2.&nbsp;General Network Configuration">Section&nbsp;7.2,
-              &ldquo;General Network Configuration.&rdquo;</a>
-            </p>
-          </li>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="hosts.html" title=
-              "7.3.&nbsp;Customizing the /etc/hosts File">Section&nbsp;7.3,
-              &ldquo;Customizing the /etc/hosts File.&rdquo;</a>
-            </p>
-          </li>
-        </ul>
-      </div>
-      <p>
-        Second, issues that affect the proper setup of devices are discussed.
-      </p>
-      <div class="itemizedlist">
-        <ul>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="udev.html" title=
-              "7.4.&nbsp;Device and Module Handling on an LFS System">Section&nbsp;7.4,
-              &ldquo;Device and Module Handling on an LFS System.&rdquo;</a>
-            </p>
-          </li>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="symlinks.html" title=
-              "7.5.&nbsp;Creating Custom Symlinks to Devices">Section&nbsp;7.5,
-              &ldquo;Creating Custom Symlinks to Devices.&rdquo;</a>
-            </p>
-          </li>
-        </ul>
-      </div>
-      <p>
-        The next sections detail how to install and configure the LFS system
-        scripts needed during the boot process. Most of these scripts will
-        work without modification, but a few require additional configuration
-        files because they deal with hardware-dependent information.
-      </p>
-      <p>
-        System-V style init scripts are employed in this book because they
-        are widely used and relatively simple. For additional options, a hint
-        detailing the BSD style init setup is available at <a class="ulink"
-        href=
-        "http://www.linuxfromscratch.org/hints/downloads/files/bsd-init.txt">http://www.linuxfromscratch.org/hints/downloads/files/bsd-init.txt</a>.
-        Searching the LFS mailing lists for <span class=
-        "quote">&ldquo;<span class="quote">depinit</span>&rdquo;</span>,
-        <span class="quote">&ldquo;<span class=
-        "quote">upstart</span>&rdquo;</span>, or <span class=
-        "quote">&ldquo;<span class="quote">systemd</span>&rdquo;</span> will
-        also offer additional information.
-      </p>
-      <p>
-        If using an alternative style of init scripts, skip these sections.
-      </p>
-      <p>
-        A listing of the boot scripts are found in <a class="xref" href=
-        "../scripts/scripts.html" title=
-        "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">Appendix
-        D</a>.
-      </p>
-      <div class="itemizedlist">
-        <ul>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="bootscripts.html" title=
-              "7.6.&nbsp;LFS-Bootscripts-20130821">Section&nbsp;7.6,
-              &ldquo;LFS-Bootscripts-20130821.&rdquo;</a>
-            </p>
-          </li>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="usage.html" title=
-              "7.7.&nbsp;How Do These Bootscripts Work?">Section&nbsp;7.7,
-              &ldquo;How Do These Bootscripts Work?.&rdquo;</a>
-            </p>
-          </li>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="hostname.html" title=
-              "7.8.&nbsp;Configuring the system hostname">Section&nbsp;7.8,
-              &ldquo;Configuring the system hostname.&rdquo;</a>
-            </p>
-          </li>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="setclock.html" title=
-              "7.9.&nbsp;Configuring the setclock Script">Section&nbsp;7.9,
-              &ldquo;Configuring the setclock Script.&rdquo;</a>
-            </p>
-          </li>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="console.html" title=
-              "7.10.&nbsp;Configuring the Linux Console">Section&nbsp;7.10,
-              &ldquo;Configuring the Linux Console.&rdquo;</a>
-            </p>
-          </li>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="sysklogd.html" title=
-              "7.11.&nbsp;Configuring the sysklogd Script">Section&nbsp;7.11,
-              &ldquo;Configuring the sysklogd Script.&rdquo;</a>
-            </p>
-          </li>
-        </ul>
-      </div>
-      <p>
-        Finally, there is a brief introduction to the scripts and
-        configuration files used when the user logs into the system.
-      </p>
-      <div class="itemizedlist">
-        <ul>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="profile.html" title=
-              "7.13.&nbsp;The Bash Shell Startup Files">Section&nbsp;7.13,
-              &ldquo;The Bash Shell Startup Files.&rdquo;</a>
-            </p>
-          </li>
-          <li class="listitem">
-            <p>
-              <a class="xref" href="inputrc.html" title=
-              "7.14.&nbsp;Creating the /etc/inputrc File">Section&nbsp;7.14,
-              &ldquo;Creating the /etc/inputrc File.&rdquo;</a>
-            </p>
-          </li>
-        </ul>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          <a id="sysv-desc" name="sysv-desc"></a>7.1.1. System V
+        </h2>
+        <p>
+          System V is the classic boot process that has been used in Unix and
+          Unix-like systems such as Linux since about 1983. It consists of a
+          small program, <span class="command"><strong>init</strong></span>,
+          that sets up basic programs such as <span class=
+          "command"><strong>login</strong></span> (via getty) and runs a
+          script. This script, usually named <span class=
+          "command"><strong>rc</strong></span>, controls the execution of a
+          set of additional scripts that perform the tasks required to
+          initialize the system.
+        </p>
+        <p>
+          The <span class="command"><strong>init</strong></span> program is
+          controlled by the <code class="filename">/etc/inittab</code> file
+          and is organized into run levels that can be run by the user:
+        </p>
+        <div class="literallayout">
+          <p>
+            <br />
+            0&nbsp;&mdash;&nbsp;halt<br />
+            1&nbsp;&mdash;&nbsp;Single&nbsp;user&nbsp;mode<br />
+            2&nbsp;&mdash;&nbsp;Multiuser,&nbsp;without&nbsp;networking<br />
+            3&nbsp;&mdash;&nbsp;Full&nbsp;multiuser&nbsp;mode<br />
+            4&nbsp;&mdash;&nbsp;User&nbsp;definable<br />
+            5&nbsp;&mdash;&nbsp;Full&nbsp;multiuser&nbsp;mode&nbsp;with&nbsp;display&nbsp;manager<br />
+
+            6&nbsp;&mdash;&nbsp;reboot<br />
+          </p>
+        </div>
+        <p>
+          The usual default run level is 3 or 5.
+        </p>
+        <h3>
+          Advantages
+        </h3>
+        <div class="itemizedlist">
+          <ul>
+            <li class="listitem">
+              <p>
+                Established, well understood system.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Easy to customize.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Disadvantages
+        </h3>
+        <div class="itemizedlist">
+          <ul>
+            <li class="listitem">
+              <p>
+                Slower to boot. A medium speed base LFS system takes 8-12
+                seconds where the boot time is measured from the first kernel
+                message to the login prompt. Network connectivity is
+                typically established about 2 seconds after the login prompt.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Serial processing of boot tasks. This is related to the
+                previous point. A delay in any process such as a file system
+                check, will delay the entire boot process.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Does not directly support advanced features like control
+                groups (cgroups), and per-user fair share scheduling.
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Adding scripts requires manual, static sequencing decisions.
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="chapter07.html" title=
-          "Setting Up System Bootscripts">Prev</a>
+          "System Configuration and Bootscripts">Prev</a>
           <p>
-            Setting Up System Bootscripts
+            System Configuration and Bootscripts
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="network.html" title=
-          "General Network Configuration">Next</a>
+          <a accesskey="n" href="bootscripts.html" title=
+          "LFS-Bootscripts-20140815">Next</a>
           <p>
-            General Network Configuration
+            LFS-Bootscripts-20140815
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="chapter07.html" title=
-          "Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts">Up</a>
+          "Chapter&nbsp;7.&nbsp;System Configuration and Bootscripts">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

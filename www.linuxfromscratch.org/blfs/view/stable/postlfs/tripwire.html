@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="sudo.html" title="Sudo-1.8.9p5">Prev</a>
+          <a accesskey="p" href="sudo.html" title="Sudo-1.8.10p3">Prev</a>
           <p>
-            Sudo-1.8.9p5
+            Sudo-1.8.10p3
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           system.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -104,7 +104,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>
         </p>
         <h4>
           Optional
@@ -133,6 +133,8 @@ sed -i -e 's/!Equal/!this-&gt;Equal/' src/cryptlib/algebra.h                &amp
 sed -i -e '/stdtwadmin.h/i#include &lt;unistd.h&gt;' src/twadmin/twadmincl.cpp &amp;&amp;
 sed -i -e '/TWMAN/ s|${prefix}|/usr/share|' \
        -e '/TWDOCS/s|${prefix}|/usr/share|' install/install.cfg          &amp;&amp;
+sed -i -e 's/eArchiveOpen e\([^)]*)\)/throw ( eArchiveOpen\1 )/' \
+       -e '/throw e;/d' src/core/archive.cpp                             &amp;&amp;
 
 ./configure --prefix=/usr --sysconfdir=/etc/tripwire                     &amp;&amp;
 make</kbd>
@@ -182,12 +184,45 @@ cp -v policy/*.txt /usr/share/doc/tripwire</kbd>
           with gcc-4.7.
         </p>
         <p>
+          <span class="command"><strong>sed ...
+          install/install.cfg</strong></span>: Fix the location of the man
+          and doc directories.
+        </p>
+        <p>
+          <span class="command"><strong>sed ...
+          src/core/archive.cpp</strong></span>: Fix compilation with gcc-4.9.
+        </p>
+        <p>
           <span class="command"><strong>make install</strong></span>: This
           command creates the <span class="application">Tripwire</span>
           security keys as well as installing the binaries. There are two
           keys: a site key and a local key which are stored in <code class=
           "filename">/etc/tripwire/</code>.
         </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            During <span class="command"><strong>make
+            install</strong></span>, several questions are asked, including
+            passwords. If you want to make a script, you have to apply a
+            <span class="application">sed</span> before running <span class=
+            "command"><strong>make install</strong></span>:
+          </p>
+          <p>
+            <span class="command"><strong>sed -i -e
+            's@install/install.sh@&amp; -n -s<em class=
+            "replaceable"><code>&lt;site-password&gt;</code></em>
+            -l<em class="replaceable"><code>&lt;local-password&gt;</code></em>@'
+            Makefile</strong></span>
+          </p>
+          <p>
+            Of course, you should do this with dummy passwords and change
+            them later.
+          </p>
+        </div>
         <p>
           <span class="command"><strong>cp -v policy/*.txt
           /usr/doc/tripwire</strong></span>: This command installs the
@@ -221,9 +256,7 @@ cp -v policy/*.txt /usr/share/doc/tripwire</kbd>
           <p>
             Policy files should be tailored to each individual distribution
             and/or installation. Some example policy files can be found in
-            <code class="filename">/usr/doc/tripwire/</code> (Note that
-            <code class="filename">/usr/doc/</code> is a symbolic link on LFS
-            systems to <code class="filename">/usr/share/doc/</code>).
+            <code class="filename">/usr/share/doc/tripwire/</code>.
           </p>
           <p>
             If desired, copy the policy file you'd like to try into
@@ -231,7 +264,7 @@ cp -v policy/*.txt /usr/share/doc/tripwire</kbd>
             default policy file, <code class="filename">twpol.txt</code>. It
             is, however, recommended that you edit your policy file. Get
             ideas from the examples above and read <code class=
-            "filename">/usr/doc/tripwire/policyguide.txt</code> for
+            "filename">/usr/share/doc/tripwire/policyguide.txt</code> for
             additional information. <code class="filename">twpol.txt</code>
             is a good policy file for learning about <span class=
             "application">Tripwire</span> as it will note any changes to the
@@ -432,15 +465,15 @@ tripwire --init</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 18:30:29 -0800
+        Last updated on 2014-09-19 13:27:36 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="sudo.html" title="Sudo-1.8.9p5">Prev</a>
+          <a accesskey="p" href="sudo.html" title="Sudo-1.8.10p3">Prev</a>
           <p>
-            Sudo-1.8.9p5
+            Sudo-1.8.10p3
           </p>
         </li>
         <li class="next">
@@ -456,7 +489,7 @@ tripwire --init</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

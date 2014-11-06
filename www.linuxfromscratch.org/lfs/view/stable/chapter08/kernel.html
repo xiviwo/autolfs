@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      8.3.&nbsp;Linux-3.13.3
+      8.3.&nbsp;Linux-3.16.2
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter08/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;8.&nbsp;Making the LFS System Bootable
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-bootable-kernel" name="ch-bootable-kernel"></a>8.3.
-        Linux-3.13.3
+        Linux-3.16.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -98,8 +98,8 @@
           http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt</a>.
           BLFS has some information regarding particular kernel configuration
           requirements of packages outside of LFS at <a class="ulink" href=
-          "http://www.linuxfromscratch.org/blfs/view/svn/longindex.html#kernel-config-index">
-          http://www.linuxfromscratch.org/blfs/view/svn/longindex.html#kernel-config-index</a>.
+          "http://www.linuxfromscratch.org/blfs/view/7.6/longindex.html#kernel-config-index">
+          http://www.linuxfromscratch.org/blfs/view/7.6/longindex.html#kernel-config-index</a>.
           Additional information about configuring and building the kernel
           can be found at <a class="ulink" href=
           "http://www.kroah.com/lkn/">http://www.kroah.com/lkn/</a>
@@ -117,14 +117,51 @@
             account.
           </p>
           <p>
-            Due to recent changes in <span class="application">udev</span>,
-            be sure to select:
+            Be sure to configure the following features as shown:
           </p>
           <pre class="screen">
 Device Drivers  ---&gt;
   Generic Driver Options  ---&gt;
-     Maintain a devtmpfs filesystem to mount at /dev
+    [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
+    [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
 </pre>
+        </div>
+        <p>
+          There are several other options that may be desired depending on
+          the requirements for the system. For a list of options needed for
+          BLFS packages, see the <a class="ulink" href=
+          "http://www.linuxfromscratch.org/blfs/view/7.6/longindex.html#kernel-config-index">
+          BLFS Index of Kernel Settings</a>
+          (http://www.linuxfromscratch.org/blfs/view/7.6/longindex.html#kernel-config-index).
+        </p>
+        <div class="variablelist">
+          <p class="title">
+            <strong>The rationale for the above configuration items:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class="parameter"><code>Support for
+              uevent helper</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                Having this opion set may interfere with device management
+                when using Udev/Eudev.
+              </p>
+            </dd>
+            <dt>
+              <span class="term"><em class="parameter"><code>Maintain a
+              devtmpfs</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                This will create automated device nodes which are populated
+                by the kernel, even without Udev running. Udev then runs on
+                top of this, managing permissions and adding symlinks. This
+                configuration item is required for all users of Udev/Eudev.
+              </p>
+            </dd>
+          </dl>
         </div>
         <pre class="userinput">
 <kbd class="command">make LANG=<em class=
@@ -167,7 +204,7 @@ Device Drivers  ---&gt;
           If desired, skip kernel configuration by copying the kernel config
           file, <code class="filename">.config</code>, from the host system
           (assuming it is available) to the unpacked <code class=
-          "filename">linux-3.13.3</code> directory. However, we do not
+          "filename">linux-3.16.2</code> directory. However, we do not
           recommend this option. It is often better to explore all the
           configuration menus and create the kernel configuration from
           scratch.
@@ -183,11 +220,11 @@ Device Drivers  ---&gt;
           "filename">/etc/modprobe.d</code> may be required. Information
           pertaining to modules and kernel configuration is located in
           <a class="xref" href="../chapter07/udev.html" title=
-          "7.4.&nbsp;Device and Module Handling on an LFS System">Section&nbsp;7.4,
-          &ldquo;Device and Module Handling on an LFS System&rdquo;</a> and
-          in the kernel documentation in the <code class=
-          "filename">linux-3.13.3/Documentation</code> directory. Also,
-          <code class="filename">modprobe.conf(5)</code> may be of interest.
+          "7.3.&nbsp;Overview of Device and Module Handling">Section&nbsp;7.3,
+          &ldquo;Overview of Device and Module Handling&rdquo;</a> and in the
+          kernel documentation in the <code class=
+          "filename">linux-3.16.2/Documentation</code> directory. Also,
+          <code class="filename">modprobe.d(5)</code> may be of interest.
         </p>
         <p>
           Install the modules, if the kernel configuration uses them:
@@ -210,7 +247,7 @@ Device Drivers  ---&gt;
         </p>
         <pre class="userinput">
 <kbd class=
-"command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.13.3-lfs-7.5</kbd>
+"command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.16.2-lfs-7.6</kbd>
 </pre>
         <p>
           <code class="filename">System.map</code> is a symbol file for the
@@ -221,7 +258,7 @@ Device Drivers  ---&gt;
           file:
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v System.map /boot/System.map-3.13.3</kbd>
+<kbd class="command">cp -v System.map /boot/System.map-3.16.2</kbd>
 </pre>
         <p>
           The kernel configuration file <code class="filename">.config</code>
@@ -231,14 +268,14 @@ Device Drivers  ---&gt;
           is a good idea to keep this file for future reference:
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v .config /boot/config-3.13.3</kbd>
+<kbd class="command">cp -v .config /boot/config-3.16.2</kbd>
 </pre>
         <p>
           Install the documentation for the Linux kernel:
         </p>
         <pre class="userinput">
-<kbd class="command">install -d /usr/share/doc/linux-3.13.3
-cp -r Documentation/* /usr/share/doc/linux-3.13.3</kbd>
+<kbd class="command">install -d /usr/share/doc/linux-3.16.2
+cp -r Documentation/* /usr/share/doc/linux-3.16.2</kbd>
 </pre>
         <p>
           It is important to note that the files in the kernel source
@@ -257,7 +294,7 @@ cp -r Documentation/* /usr/share/doc/linux-3.13.3</kbd>
         <p>
           If the kernel source tree is going to be retained, run <span class=
           "command"><strong>chown -R 0:0</strong></span> on the <code class=
-          "filename">linux-3.13.3</code> directory to ensure all files are
+          "filename">linux-3.16.2</code> directory to ensure all files are
           owned by user <span class="emphasis"><em>root</em></span>.
         </p>
         <div class="admon warning">
@@ -286,8 +323,8 @@ cp -r Documentation/* /usr/share/doc/linux-3.13.3</kbd>
             which Glibc was compiled, that is, the sanitised headers
             installed in <a class="xref" href=
             "../chapter06/linux-headers.html" title=
-            "6.7.&nbsp;Linux-3.13.3 API Headers">Section&nbsp;6.7,
-            &ldquo;Linux-3.13.3 API Headers&rdquo;</a>. Therefore, they
+            "6.7.&nbsp;Linux-3.16.2 API Headers">Section&nbsp;6.7,
+            &ldquo;Linux-3.16.2 API Headers&rdquo;</a>. Therefore, they
             should <span class="emphasis"><em>never</em></span> be replaced
             by either the raw kernel headers or any other kernel sanitized
             headers.
@@ -337,13 +374,13 @@ EOF</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed files:</strong> <span class=
-              "segbody">config-3.13.3, vmlinuz-3.13.3-lfs-7.5, and
-              System.map-3.13.3</span>
+              "segbody">config-3.16.2, vmlinuz-3.16.2-lfs-7.6, and
+              System.map-3.16.2</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
               <span class="segbody">/lib/modules,
-              /usr/share/doc/linux-3.13.3</span>
+              /usr/share/doc/linux-3.16.2</span>
             </div>
           </div>
         </div>
@@ -361,7 +398,7 @@ EOF</kbd>
                 <td>
                   <p>
                     <a id="config" name="config"></a><span class=
-                    "term"><code class="filename">config-3.13.3</code></span>
+                    "term"><code class="filename">config-3.16.2</code></span>
                   </p>
                 </td>
                 <td>
@@ -375,7 +412,7 @@ EOF</kbd>
                   <p>
                     <a id="lfskernel" name="lfskernel"></a><span class=
                     "term"><code class=
-                    "filename">vmlinuz-3.13.3-lfs-7.5</code></span>
+                    "filename">vmlinuz-3.16.2-lfs-7.6</code></span>
                   </p>
                 </td>
                 <td>
@@ -396,7 +433,7 @@ EOF</kbd>
                   <p>
                     <a id="System.map" name="System.map"></a><span class=
                     "term"><code class=
-                    "filename">System.map-3.13.3</code></span>
+                    "filename">System.map-3.16.2</code></span>
                   </p>
                 </td>
                 <td>
@@ -434,7 +471,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

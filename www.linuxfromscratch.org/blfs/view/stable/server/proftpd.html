@@ -5,26 +5,26 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      ProFTPD-1.3.4d
+      ProFTPD-1.3.5
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;20.&nbsp;Major Servers
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="bind.html" title="BIND-9.9.5">Prev</a>
+          <a accesskey="p" href="bind.html" title="BIND-9.10.0-P2">Prev</a>
           <p>
-            BIND-9.9.5
+            BIND-9.10.0-P2
           </p>
         </li>
         <li class="next">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="proftpd" name="proftpd"></a>ProFTPD-1.3.4d
+        <a id="proftpd" name="proftpd"></a>ProFTPD-1.3.5
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           serving large file archives over a network.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -68,22 +68,22 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.4d.tar.gz">ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.4d.tar.gz</a>
+                "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.5.tar.gz">ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.5.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 13c6fd7ce320886adc371c81a3e23f07
+                Download MD5 sum: aff1bff40e675244d72c4667f203e5bb
               </p>
             </li>
             <li>
               <p>
-                Download size: 7.4 MB
+                Download size: 7.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 33 MB
+                Estimated disk space required: 34 MB
               </p>
             </li>
             <li>
@@ -100,21 +100,19 @@
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../postlfs/acl.html" title=
-          "acl-2.2.52">acl-2.2.52</a>, <a class="xref" href=
-          "../postlfs/libcap.html" title="libcap-2.24">libcap-2.24</a>,
-          <a class="xref" href="../postlfs/linux-pam.html" title=
+          <a class="xref" href="../postlfs/libcap.html" title=
+          "libcap-2.24 with PAM">libcap-2.24 with PAM</a>, <a class="xref"
+          href="../postlfs/linux-pam.html" title=
           "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>, <a class="xref" href=
-          "mariadb.html" title="MariaDB-10.0.8">MariaDB-10.0.8</a> or
-          <a class="xref" href="mysql.html" title=
-          "MySQL-5.6.16">MySQL-5.6.16</a>, <a class="xref" href=
-          "../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="xref" href=
-          "../general/pcre.html" title="PCRE-8.34">PCRE-8.34</a>, <a class=
+          "mariadb.html" title="MariaDB-10.0.13">MariaDB-10.0.13</a> or
+          <a class="ulink" href="http://www.mysql.com/">MySQL</a>, <a class=
+          "xref" href="../postlfs/openssl.html" title=
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>, <a class="xref" href=
+          "../general/pcre.html" title="PCRE-8.35">PCRE-8.35</a>, <a class=
           "xref" href="postgresql.html" title=
-          "PostgreSQL-9.3.3">PostgreSQL-9.3.3</a> and to run tests <a class=
+          "PostgreSQL-9.3.5">PostgreSQL-9.3.5</a> and to run tests: <a class=
           "xref" href="../general/check.html" title=
-          "Check-0.9.12">Check-0.9.12</a> and <a class="ulink" href=
+          "Check-0.9.14">Check-0.9.14</a> and <a class="ulink" href=
           "http://search.cpan.org/~clemburg/Test-Unit-0.14/">Test::Unit-0.14</a>
         </p>
         <p class="usernotes">
@@ -152,11 +150,15 @@ make</kbd>
 </pre>
         <p>
           The tests for this package require a very old (2001) version of the
-          Perl Module Test::Unit. Using the lastest version of this
-          Test::Unit results in many failures (34/1089) although the program
-          appears to run well. The tests take a long time (38 minutes, not
-          CPU dependent) and are not recommended. To test the results anyway,
-          issue: <span class="command"><strong>make check</strong></span>.
+          Perl Module Test::Unit. Even when using that version of Test::Unit,
+          there are many failures (41/1397) although the program appears to
+          run well. The tests take a long time (45 minutes, not CPU
+          dependent) and are not recommended. To test the results anyway, add
+          the switch: <em class="parameter"><code>--enable-tests</code></em>
+          to the <span class="command"><strong>configure</strong></span>, and
+          issue: <span class="command"><strong>make check</strong></span>. If
+          the tests are run with root privileges, more tests are run, but
+          there are more failures.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -269,6 +271,11 @@ MaxInstances                    30
 User                            proftpd
 Group                           proftpd
 
+# To cause every FTP user to be "jailed" (chrooted) into their home
+# directory, uncomment this line.
+#DefaultRoot ~
+
+
 # Normally, files should be overwritable.
 &lt;Directory /*&gt;
   AllowOverwrite                on
@@ -305,7 +312,7 @@ EOF</kbd>
             Install the <code class=
             "filename">/etc/rc.d/init.d/proftpd</code> init script included
             in the <a class="xref" href="../introduction/bootscripts.html"
-            title="BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
+            title="BLFS Boot Scripts">blfs-bootscripts-20140919</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-proftpd</kbd>
@@ -493,15 +500,15 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-21 02:34:59 -0800
+        Last updated on 2014-09-21 12:24:38 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="bind.html" title="BIND-9.9.5">Prev</a>
+          <a accesskey="p" href="bind.html" title="BIND-9.10.0-P2">Prev</a>
           <p>
-            BIND-9.9.5
+            BIND-9.10.0-P2
           </p>
         </li>
         <li class="next">
@@ -516,7 +523,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

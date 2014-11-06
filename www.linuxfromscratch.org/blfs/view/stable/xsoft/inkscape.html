@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Inkscape-0.48.4
+      Inkscape-0.48.5
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;38.&nbsp;Other X-based Programs
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="icedtea-web.html" title=
-          "IcedTea-Web-1.4.2">Prev</a>
+          "IcedTea-Web-1.5.1">Prev</a>
           <p>
-            IcedTea-Web-1.4.2
+            IcedTea-Web-1.5.1
           </p>
         </li>
         <li class="next">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="inkscape" name="inkscape"></a>Inkscape-0.48.4
+        <a id="inkscape" name="inkscape"></a>Inkscape-0.48.5
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           viewing and changing SVG images.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,13 +69,13 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/inkscape/inkscape-0.48.4.tar.bz2">
-                http://downloads.sourceforge.net/inkscape/inkscape-0.48.4.tar.bz2</a>
+                "http://downloads.sourceforge.net/inkscape/inkscape-0.48.5.tar.bz2">
+                http://downloads.sourceforge.net/inkscape/inkscape-0.48.5.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 47bd8546e42ba396624eef9eb66b9b6c
+                Download MD5 sum: 431cda5cd40cd4fdf2b89db1bdcce61f
               </p>
             </li>
             <li>
@@ -85,12 +85,12 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 2.0 GB
+                Estimated disk space required: 1.4 GB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 18 SBU
+                Estimated build time: 12 SBU
               </p>
             </li>
           </ul>
@@ -103,15 +103,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/inkscape-0.48.4-gc-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/inkscape-0.48.4-gc-1.patch</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/inkscape-0.48.4-freetype-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/inkscape-0.48.4-freetype-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/inkscape-0.48.5-gc-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/inkscape-0.48.5-gc-1.patch</a>
               </p>
             </li>
           </ul>
@@ -124,11 +117,12 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/boost.html" title=
-          "Boost-1.55.0">Boost-1.55.0</a>, <a class="xref" href=
-          "../general/gc.html" title="GC-7.4.0">GC-7.4.0</a>, <a class="xref"
-          href="../general/gsl.html" title="Gsl-1.16">Gsl-1.16</a> and
-          <a class="xref" href="../x/gtkmm2.html" title=
-          "Gtkmm-2.24.4">Gtkmm-2.24.4</a>
+          "Boost-1.56.0">Boost-1.56.0</a>, <a class="xref" href=
+          "../general/gc.html" title="GC-7.4.2">GC-7.4.2</a>, <a class="xref"
+          href="../general/gsl.html" title="Gsl-1.16">Gsl-1.16</a>, <a class=
+          "xref" href="../x/gtkmm2.html" title=
+          "Gtkmm-2.24.4">Gtkmm-2.24.4</a> and <a class="xref" href=
+          "../general/libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
         </p>
         <h4>
           Recommended
@@ -143,21 +137,19 @@
         <p class="optional">
           <a class="xref" href="../general/aspell.html" title=
           "Aspell-0.60.6.1">Aspell-0.60.6.1</a>, <a class="xref" href=
-          "../general/doxygen.html" title="Doxygen-1.8.6">Doxygen-1.8.6</a>,
+          "../general/doxygen.html" title="Doxygen-1.8.8">Doxygen-1.8.8</a>,
           <a class="xref" href="../general/imagemagick.html" title=
-          "ImageMagick-6.8.8-6">ImageMagick-6.8.8-6</a>, <a class="ulink"
+          "ImageMagick-6.8.9-7">ImageMagick-6.8.9-7</a>, <a class="ulink"
           href="http://libwpg.sourceforge.net/">libwpg</a>, <a class="xref"
           href="../general/poppler.html" title=
-          "Poppler-0.24.5">Poppler-0.24.5</a> and <a class="xref" href=
+          "Poppler-0.26.4">Poppler-0.26.4</a> and <a class="xref" href=
           "../general/popt.html" title="Popt-1.16">popt-1.16</a>
         </p>
         <h4>
           Optional Runtime Dependencies (for some of the Inkscape extensions)
         </h4>
         <p class="optional">
-          <a class="xref" href="../general/perl-modules.html#perl-xml-parser"
-          title="XML::Parser-2.41">XML::Parser-2.41</a>, <a class="ulink"
-          href=
+          <a class="ulink" href=
           "http://search.cpan.org/~tjmather/XML-XQL-0.68/lib/XML/XQL.pm">XML::XQL</a>
           and <a class="ulink" href=
           "http://cheeseshop.python.org/pypi/lxml/">python-lxml</a>
@@ -176,17 +168,11 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../inkscape-0.48.4-gc-1.patch                                    &amp;&amp;
-patch -Np1 -i ../inkscape-0.48.4-freetype-1.patch                              &amp;&amp;
-sed -e "s@commands_toolbox,@commands_toolbox@" -i src/widgets/desktop-widget.h &amp;&amp;
-./configure --prefix=/usr                                                      &amp;&amp;
+<kbd class="command">patch -Np1 -i ../inkscape-0.48.5-gc-1.patch &amp;&amp;
+
+./configure --prefix=/usr  &amp;&amp;
 make</kbd>
 </pre>
-        <p>
-          To test the results, issue: <span class="command"><strong>make
-          check</strong></span>.
-        </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
@@ -209,9 +195,9 @@ make</kbd>
             <code class=
             "filename">/usr/share/applications/mimeinfo.cache</code>. To
             perform the update you must have <a class="xref" href=
-            "../x/gtk2.html" title="GTK+-2.24.22">GTK+-2.24.22</a> or
+            "../x/gtk2.html" title="GTK+-2.24.24">GTK+-2.24.24</a> or
             <a class="xref" href="../x/gtk3.html" title=
-            "GTK+-3.10.7">GTK+-3.10.7</a> installed (for the icon cache) and
+            "GTK+-3.12.2">GTK+-3.12.2</a> installed (for the icon cache) and
             <a class="xref" href="../general/desktop-file-utils.html" title=
             "desktop-file-utils-0.22">desktop-file-utils-0.22</a> (for the
             desktop cache) and issue the following commands as the
@@ -222,17 +208,6 @@ make</kbd>
 update-desktop-database</kbd>
 </pre>
         </div>
-      </div>
-      <div class="commands" lang="en" xml:lang="en">
-        <h2 class="sect2">
-          Command Explanations
-        </h2>
-        <p>
-          <span class="command"><strong>sed -e
-          "s@commands_toolbox,@commands_toolbox@" ...</strong></span>: This
-          <span class="command"><strong>sed</strong></span> fixes building
-          with GCC 4.8.
-        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -294,16 +269,16 @@ update-desktop-database</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-23 15:41:45 -0800
+        Last updated on 2014-09-14 13:18:45 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="icedtea-web.html" title=
-          "IcedTea-Web-1.4.2">Prev</a>
+          "IcedTea-Web-1.5.1">Prev</a>
           <p>
-            IcedTea-Web-1.4.2
+            IcedTea-Web-1.5.1
           </p>
         </li>
         <li class="next">
@@ -318,7 +293,7 @@ update-desktop-database</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

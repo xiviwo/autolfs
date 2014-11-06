@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Gvfs-1.18.3
+      Gvfs-1.20.3
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
@@ -23,15 +23,15 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gnome-keyring.html" title=
-          "gnome-keyring-3.10.1">Prev</a>
+          "gnome-keyring-3.12.2">Prev</a>
           <p>
-            gnome-keyring-3.10.1
+            gnome-keyring-3.12.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gjs.html" title="Gjs-1.38.1">Next</a>
+          <a accesskey="n" href="gjs.html" title="Gjs-1.40.1">Next</a>
           <p>
-            Gjs-1.38.1
+            Gjs-1.40.1
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gvfs" name="gvfs"></a>Gvfs-1.18.3
+        <a id="gvfs" name="gvfs"></a>Gvfs-1.20.3
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           GLib's GIO library.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,20 +69,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gvfs/1.18/gvfs-1.18.3.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gvfs/1.18/gvfs-1.18.3.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gvfs/1.20/gvfs-1.20.3.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gvfs/1.20/gvfs-1.20.3.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.18/gvfs-1.18.3.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.18/gvfs-1.18.3.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.20/gvfs-1.20.3.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.20/gvfs-1.20.3.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 3620baa478f1748bd32d2f47bcbe30d0
+                Download MD5 sum: 710f68730d6ad6708f0f1d47976bff58
               </p>
             </li>
             <li>
@@ -92,12 +92,14 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 110 MB
+                Estimated disk space required: 56 MB (additional 1 MB for the
+                tests)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.6 SBU
+                Estimated build time: 0.7 SBU (additional 0.1 SBU for the
+                tests)
               </p>
             </li>
           </ul>
@@ -110,52 +112,58 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/dbus.html" title=
-          "D-Bus-1.8.0">D-Bus-1.8.0</a>, <a class="xref" href=
-          "../general/glib2.html" title="GLib-2.38.2">GLib-2.38.2</a>, and
-          <a class="xref" href="../general/intltool.html" title=
-          "Intltool-0.50.2">Intltool-0.50.2</a>
+          "D-Bus-1.8.8">D-Bus-1.8.8</a> and <a class="xref" href=
+          "../general/glib2.html" title="GLib-2.40.0">GLib-2.40.0</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.10.7">GTK+-3.10.7</a>, <a class="xref" href=
-          "libsecret.html" title="libsecret-0.16">libsecret-0.16</a>,
+          "GTK+-3.12.2">GTK+-3.12.2</a>, <a class="xref" href=
+          "libsecret.html" title="libsecret-0.18">libsecret-0.18</a>,
           <a class="xref" href="../basicnet/libsoup.html" title=
-          "libsoup-2.44.2">libsoup-2.44.2</a>, <a class="xref" href=
+          "libsoup-2.46.0">libsoup-2.46.0</a>, <a class="xref" href=
           "../general/udev-extras.html" title=
-          "Udev Extras (from systemd)">udev-extras (from systemd)</a> (for
+          "Udev Extras (from eudev)">udev-extras (from eudev)</a> (for
           GUdev), and <a class="xref" href="../general/udisks2.html" title=
-          "UDisks-2.1.2">UDisks-2.1.2</a>
+          "UDisks-2.1.3">UDisks-2.1.3</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../basicnet/avahi.html" title=
-          "Avahi-0.6.31">Avahi-0.6.31</a>, <a class="xref" href=
-          "../general/bluez.html" title="BlueZ-4.101">BlueZ-4.101</a> and
-          <a class="xref" href="../general/dbus-glib.html" title=
+          <a class="xref" href="../server/apache.html" title=
+          "Apache-2.4.10">Apache-2.4.10</a>, <a class="xref" href=
+          "../basicnet/avahi.html" title="Avahi-0.6.31">Avahi-0.6.31</a>,
+          <a class="xref" href="../general/bluez.html" title=
+          "BlueZ-5.23">BlueZ-5.23</a>, <a class="xref" href=
+          "../general/dbus-glib.html" title=
           "dbus-glib-0.102">dbus-glib-0.102</a>, <a class="xref" href=
           "../postlfs/fuse.html" title="Fuse-2.9.3">Fuse-2.9.3</a>, <a class=
-          "ulink" href=
-          "http://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts">GNOME
-          Online Accounts</a>, <a class="xref" href="../general/gtk-doc.html"
-          title="GTK-Doc-1.19">GTK-Doc-1.19</a>, <a class="xref" href=
+          "xref" href="../general/gtk-doc.html" title=
+          "GTK-Doc-1.20">GTK-Doc-1.20</a>, <a class="xref" href=
           "../general/libarchive.html" title=
-          "libarchive-3.1.2">libarchive-3.1.2</a>, <a class="ulink" href=
+          "libarchive-3.1.2">libarchive-3.1.2</a>, <a class="xref" href=
+          "../general/libgcrypt.html" title=
+          "libgcrypt-1.6.2">libgcrypt-1.6.2</a>, <a class="xref" href=
+          "../general/libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>,
+          <a class="xref" href="../general/libxslt.html" title=
+          "libxslt-1.1.28">libxslt-1.1.28</a>, <a class="xref" href=
+          "../postlfs/openssh.html" title="OpenSSH-6.6p1">OpenSSH-6.6p1</a>,
+          <a class="xref" href="../basicnet/samba.html" title=
+          "Samba-4.1.11">Samba-4.1.11</a>, <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts">GNOME
+          Online Accounts</a>, <a class="ulink" href=
           "http://www.videolan.org/developers/libbluray.html">libbluray</a>,
           <a class="ulink" href=
           "http://www.gnu.org/software/libcdio/">libcdio-paranoia</a>,
-          <a class="xref" href="../general/libgcrypt.html" title=
-          "libgcrypt-1.6.1">libgcrypt-1.6.1</a>, <a class="ulink" href=
-          "http://www.gphoto.org/">libgphoto2</a>, <a class="ulink" href=
+          <a class="ulink" href="http://www.gphoto.org/">libgphoto2</a>,
+          <a class="ulink" href=
           "http://www.libimobiledevice.org/">libimobiledevice</a>, <a class=
           "ulink" href="http://sourceforge.net/projects/libmtp/">libmtp</a>,
-          <a class="xref" href="../postlfs/openssh.html" title=
-          "OpenSSH-6.5p1">OpenSSH-6.5p1</a>, and <a class="xref" href=
-          "../basicnet/samba.html" title="Samba-4.1.4">Samba-4.1.4</a>
+          and <a class="ulink" href=
+          "http://twistedmatrix.com/trac/">Twisted</a>,
         </p>
         <h4>
           Optional (Runtime)
@@ -184,7 +192,9 @@
 make</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          To test the results, issue: <span class="command"><strong>make -k
+          check</strong></span>. Some tests may fail, normally for a missing
+          optional dependency.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -236,16 +246,22 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">gvfs-cat, gvfs-copy, gvfs-info,
-              gvfs-less, gvfs-ls, gvfs-mime, gvfs-mkdir, gvfs-monitor-dir,
-              gvfs-monitor-file, gvfs-mount, gvfs-move, gvfs-open,
-              gvfs-rename, gvfs-rm, gvfs-save, gvfs-set-attribute,
-              gvfs-trash, gvfs-tree, gvfsd, gvfsd-fuse, and
-              gvfsd-metadata</span>
+              <span class="segbody">gvfs-cat, gvfs-copy,
+              gvfs-goa-volume-monitor, gvfs-info, gvfs-less, gvfs-ls,
+              gvfs-mime, gvfs-mkdir, gvfs-monitor-dir, gvfs-monitor-file,
+              gvfs-mount, gvfs-move, gvfs-open, gvfs-rename, gvfs-rm,
+              gvfs-save, gvfs-set-attribute, gvfs-trash, gvfs-tree,
+              gvfs-udisks2-volume-monitor, gvfsd, gvfsd-afp,
+              gvfsd-afp-browse, gvfsd-archive, gvfsd-burn, gvfsd-computer,
+              gvfsd-dav, gvfsd-dnssd, gvfsd-ftp, gvfsd-fuse, gvfsd-http,
+              gvfsd-localtest, gvfsd-metadata, gvfsd-network, gvfsd-obexftp,
+              gvfsd-recent, gvfsd-sftp, gvfsd-smb, gvfsd-smb-browse, and
+              gvfsd-trash</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libgvfscommon.so</span>
+              <span class="segbody">libgvfscommon.so, libgvfsdaemon.so, and
+              two under /usr/lib/gio/modules/</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -594,22 +610,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 04:20:28 -0800
+        Last updated on 2014-09-17 04:20:33 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="gnome-keyring.html" title=
-          "gnome-keyring-3.10.1">Prev</a>
+          "gnome-keyring-3.12.2">Prev</a>
           <p>
-            gnome-keyring-3.10.1
+            gnome-keyring-3.12.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gjs.html" title="Gjs-1.38.1">Next</a>
+          <a accesskey="n" href="gjs.html" title="Gjs-1.40.1">Next</a>
           <p>
-            Gjs-1.38.1
+            Gjs-1.40.1
           </p>
         </li>
         <li class="up">
@@ -618,7 +634,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

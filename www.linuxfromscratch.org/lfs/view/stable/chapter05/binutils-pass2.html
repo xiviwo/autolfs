@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="gcc-libstdc++.html" title=
-          "Libstdc++-4.8.2">Prev</a>
+          "Libstdc++-4.9.1">Prev</a>
           <p>
-            Libstdc++-4.8.2
+            Libstdc++-4.9.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gcc-pass2.html" title=
-          "GCC-4.8.2 - Pass 2">Next</a>
+          "GCC-4.9.1 - Pass 2">Next</a>
           <p>
-            GCC-4.8.2 - Pass 2
+            GCC-4.9.1 - Pass 2
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -63,7 +63,7 @@
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">417 MB</span>
+              <span class="segbody">448 MB</span>
             </div>
           </div>
         </div>
@@ -89,6 +89,7 @@ RANLIB=$LFS_TGT-ranlib         \
 ../binutils-2.24/configure     \
     --prefix=/tools            \
     --disable-nls              \
+    --disable-werror           \
     --with-lib-path=/tools/lib \
     --with-sysroot</kbd>
 </pre>
@@ -205,16 +206,16 @@ cp -v ld/ld-new /tools/bin</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="gcc-libstdc++.html" title=
-          "Libstdc++-4.8.2">Prev</a>
+          "Libstdc++-4.9.1">Prev</a>
           <p>
-            Libstdc++-4.8.2
+            Libstdc++-4.9.1
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gcc-pass2.html" title=
-          "GCC-4.8.2 - Pass 2">Next</a>
+          "GCC-4.9.1 - Pass 2">Next</a>
           <p>
-            GCC-4.8.2 - Pass 2
+            GCC-4.9.1 - Pass 2
           </p>
         </li>
         <li class="up">
@@ -223,7 +224,7 @@ cp -v ld/ld-new /tools/bin</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

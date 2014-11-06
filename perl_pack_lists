@@ -1,27 +1,4 @@
- http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/ExtUtils-Depends-0.306.tar.gz
- http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/ExtUtils-PkgConfig-1.15.tar.gz
- http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/ExtUtils-Depends-0.306.tar.gz
- http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/ExtUtils-Depends-0.306.tar.gz
- http://search.cpan.org/CPAN/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
- http://search.cpan.org/CPAN/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Encode-Locale-1.03.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Encode-Locale-1.03.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
- http://search.cpan.org/CPAN/authors/id/S/SU/SULLR/IO-Socket-SSL-1.960.tar.gz
- http://search.cpan.org/CPAN/authors/id/M/MI/MIKEM/Net-SSLeay-1.55.tar.gz
- http://search.cpan.org/CPAN/authors/id/S/SU/SULLR/IO-Socket-SSL-1.960.tar.gz
- http://search.cpan.org/CPAN/authors/id/M/MI/MIKEM/Net-SSLeay-1.55.tar.gz
- http://search.cpan.org/CPAN/authors/id/M/MI/MIKEM/Net-SSLeay-1.55.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-HMAC-1.03.tar.gz
- http://search.cpan.org/CPAN/authors/id/U/UM/UMEMOTO/Socket6-0.23.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-HMAC-1.03.tar.gz
- http://search.cpan.org/CPAN/authors/id/U/UM/UMEMOTO/Socket6-0.23.tar.gz
- http://search.cpan.org/CPAN/authors/id/U/UM/UMEMOTO/Socket6-0.23.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-SAX-0.99.tar.gz
- http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-SAX-0.99.tar.gz
+
 http://search.cpan.org/CPAN/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.11.tar.gz
 http://search.cpan.org/CPAN/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.11.tar.gz
 http://search.cpan.org/CPAN/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.11.tar.gz
@@ -61,3 +38,52 @@ http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0107.tar.gz
 http://search.cpan.org/CPAN/authors/id/C/CH/CHORNY/Tie-IxHash-1.23.tar.gz
 http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-SAX-Base-1.08.tar.gz
 http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-SAX-Base-1.08.tar.gz
+http://search.cpan.org/CPAN/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
+http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Encode-Locale-1.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SU/SULLR/IO-Socket-SSL-2.002.tar.gz
+http://search.cpan.org/CPAN/authors/id/M/MI/MIKEM/Net-SSLeay-1.66.tar.gz
+http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-HMAC-1.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/U/UM/UMEMOTO/Socket6-0.25.tar.gz
+http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/XML-SAX-0.99.tar.gz
+http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Business-ISBN-Data-20140910.002.tar.gz
+http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Tie-Cycle-1.21.tar.gz
+http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/File-Find-Rule-0.33.tar.gz
+http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Number-Compare-0.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Text-Glob-0.09.tar.gz
+http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/Test-Script-1.07.tar.gz
+http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/Probe-Perl-0.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/Probe-Perl-0.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/Probe-Perl-0.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/R/RE/REHSACK/Config-AutoConf-0.305.tar.gz
+http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.25.tar.gz
+http://search.cpan.org/CPAN/authors/id/N/NE/NEZUMI/MIME-Charset-1.011.1.tar.gz
+http://search.cpan.org/CPAN/authors/id/N/NE/NEZUMI/Encode-JISX0213-0.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/N/NE/NEZUMI/Encode-ISO2022-0.04.tar.gz
+http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/File-Slurp-Tiny-0.003.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz

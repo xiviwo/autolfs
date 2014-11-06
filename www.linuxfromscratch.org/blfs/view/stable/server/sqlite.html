@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      SQLite-3.8.3.1
+      SQLite-3.8.6
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;22.&nbsp;Databases
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="postgresql.html" title=
-          "PostgreSQL-9.3.3">Prev</a>
+          "PostgreSQL-9.3.5">Prev</a>
           <p>
-            PostgreSQL-9.3.3
+            PostgreSQL-9.3.5
           </p>
         </li>
         <li class="next">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="sqlite" name="sqlite"></a>SQLite-3.8.3.1
+        <a id="sqlite" name="sqlite"></a>SQLite-3.8.6
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           zero-configuration, transactional SQL database engine.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -70,12 +70,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://sqlite.org/2014/sqlite-autoconf-3080301.tar.gz">http://sqlite.org/2014/sqlite-autoconf-3080301.tar.gz</a>
+                "http://sqlite.org/2014/sqlite-autoconf-3080600.tar.gz">http://sqlite.org/2014/sqlite-autoconf-3080600.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 509ff98d8dc9729b618b7e96612079c6
+                Download MD5 sum: f7e4a156b583abeba349629e2364224b
               </p>
             </li>
             <li>
@@ -85,8 +85,8 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 41 MB (includes optional
-                documentation)
+                Estimated disk space required: 16 MB (additional 24 MB for
+                the Optional Documentation)
               </p>
             </li>
             <li>
@@ -107,17 +107,17 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://sqlite.org/2014/sqlite-doc-3080301.zip">http://sqlite.org/2014/sqlite-doc-3080301.zip</a>
+                "http://sqlite.org/2014/sqlite-doc-3080600.zip">http://sqlite.org/2014/sqlite-doc-3080600.zip</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 2156b06ba0a4d290bc146de4fd5e7f5c
+                Download MD5 sum: e65b1a9569d3e3129538942255db0af1
               </p>
             </li>
             <li>
               <p>
-                Download size: 4.4 MB
+                Download size: 4.6 MB
               </p>
             </li>
           </ul>
@@ -130,7 +130,7 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/unzip.html" title=
-          "UnZip-6.0">UnZip-6.0</a> (required to unzip the documentation).
+          "UnZip-6.0">UnZip-6.0</a> (required to unzip the documentation)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -146,7 +146,7 @@
           command to install the documentation into the source tree:
         </p>
         <pre class="userinput">
-<kbd class="command">unzip -q ../sqlite-doc-3080301.zip</kbd>
+<kbd class="command">unzip -q ../sqlite-doc-3080600.zip</kbd>
 </pre>
         <p>
           Install <span class="application">SQLite</span> by running the
@@ -176,8 +176,8 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class=
-"command">install -v -m755 -d /usr/share/doc/sqlite-3.8.3.1 &amp;&amp;
-cp -v -R sqlite-doc-3080301/* /usr/share/doc/sqlite-3.8.3.1</kbd>
+"command">install -v -m755 -d /usr/share/doc/sqlite-3.8.6 &amp;&amp;
+cp -v -R sqlite-doc-3080600/* /usr/share/doc/sqlite-3.8.6</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -219,7 +219,7 @@ cp -v -R sqlite-doc-3080301/* /usr/share/doc/sqlite-3.8.3.1</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">/usr/share/doc/sqlite-3.8.3.1</span>
+              <span class="segbody">/usr/share/doc/sqlite-3.8.6</span>
             </div>
           </div>
         </div>
@@ -265,16 +265,16 @@ cp -v -R sqlite-doc-3080301/* /usr/share/doc/sqlite-3.8.3.1</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-17 14:31:12 -0800
+        Last updated on 2014-09-15 12:23:10 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="postgresql.html" title=
-          "PostgreSQL-9.3.3">Prev</a>
+          "PostgreSQL-9.3.5">Prev</a>
           <p>
-            PostgreSQL-9.3.3
+            PostgreSQL-9.3.5
           </p>
         </li>
         <li class="next">
@@ -290,7 +290,7 @@ cp -v -R sqlite-doc-3080301/* /usr/share/doc/sqlite-3.8.3.1</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

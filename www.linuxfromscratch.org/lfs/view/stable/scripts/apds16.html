@@ -5,59 +5,61 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      D.16.&nbsp;/etc/rc.d/init.d/sysklogd
+      D.16.&nbsp;/etc/rc.d/init.d/network
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds15.html" title=
-          "/etc/rc.d/init.d/sysctl">Prev</a>
+          "/etc/rc.d/init.d/sysklogd">Prev</a>
           <p>
-            /etc/rc.d/init.d/sysctl
+            /etc/rc.d/init.d/sysklogd
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds17.html" title=
-          "/etc/rc.d/init.d/network">Next</a>
+          "/etc/rc.d/init.d/sendsignals">Next</a>
           <p>
-            /etc/rc.d/init.d/network
+            /etc/rc.d/init.d/sendsignals
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="sysklogd" name="sysklogd"></a>D.16. /etc/rc.d/init.d/sysklogd
+        <a id="network" name="network"></a>D.16. /etc/rc.d/init.d/network
       </h1>
       <pre class="screen">
 #!/bin/sh
 ########################################################################
-# Begin sysklogd
+# Begin network
 #
-# Description : Sysklogd loader
+# Description : Network Control Script
 #
 # Authors     : Gerard Beekmans - gerard@linuxfromscratch.org
+#               Nathan Coulson - nathan@linuxfromscratch.org
+#               Kevin P. Fleming - kpfleming@linuxfromscratch.org
 #               DJ Lucas - dj@linuxfromscratch.org
 # Update      : Bruce Dubbs - bdubbs@linuxfromscratch.org
 #
@@ -66,48 +68,56 @@
 ########################################################################
 
 ### BEGIN INIT INFO
-# Provides:            $syslog
-# Required-Start:      localnet
-# Should-Start:
-# Required-Stop:       $local_fs sendsignals
-# Should-Stop:
-# Default-Start:       2 3 4 5
-# Default-Stop:        0 1 6
-# Short-Description:   Starts kernel and system log daemons.
-# Description:         Starts kernel and system log daemons.
-#                      /etc/fstab.
+# Provides:            $network
+# Required-Start:      $local_fs swap localnet
+# Should-Start:        $syslog
+# Required-Stop:       $local_fs swap localnet
+# Should-Stop:         $syslog
+# Default-Start:       3 4 5
+# Default-Stop:        0 1 2 6
+# Short-Description:   Starts and configures network interfaces.
+# Description:         Starts and configures network interfaces.
 # X-LFS-Provided-By:   LFS
 ### END INIT INFO
 
-. /lib/lsb/init-functions
-
 case "${1}" in
    start)
-      log_info_msg "Starting system log daemon..."
-      parms=${SYSKLOGD_PARMS-'-m 0'}
-      start_daemon /sbin/syslogd $parms
-      evaluate_retval
+      # Start all network interfaces
+      for file in /etc/sysconfig/ifconfig.*
+      do
+         interface=${file##*/ifconfig.}
 
-      log_info_msg "Starting kernel log daemon..."
-      start_daemon /sbin/klogd
-      evaluate_retval
+         # Skip if $file is * (because nothing was found)
+         if [ "${interface}" = "*" ]
+         then
+            continue
+         fi
+
+         /sbin/ifup ${interface}
+      done
       ;;
 
    stop)
-      log_info_msg "Stopping kernel log daemon..."
-      killproc /sbin/klogd
-      evaluate_retval
+      # Reverse list
+      net_files=""
+      for file in  /etc/sysconfig/ifconfig.*
+      do
+         net_files="${file} ${net_files}"
+      done
 
-      log_info_msg "Stopping system log daemon..."
-      killproc /sbin/syslogd
-      evaluate_retval
-      ;;
+      # Stop all network interfaces
+      for file in ${net_files}
+      do
+         interface=${file##*/ifconfig.}
 
-   reload)
-      log_info_msg "Reloading system log daemon config file..."
-      pid=`pidofproc syslogd`
-      kill -HUP "${pid}"
-      evaluate_retval
+         # Skip if $file is * (because nothing was found)
+         if [ "${interface}" = "*" ]
+         then
+            continue
+         fi
+
+         /sbin/ifdown ${interface}
+      done
       ;;
 
    restart)
@@ -116,46 +126,41 @@ case "${1}" in
       ${0} start
       ;;
 
-   status)
-      statusproc /sbin/syslogd
-      statusproc klogd
-      ;;
-
    *)
-      echo "Usage: ${0} {start|stop|reload|restart|status}"
+      echo "Usage: ${0} {start|stop|restart}"
       exit 1
       ;;
 esac
 
 exit 0
 
-# End sysklogd
+# End network
 </pre>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds15.html" title=
-          "/etc/rc.d/init.d/sysctl">Prev</a>
+          "/etc/rc.d/init.d/sysklogd">Prev</a>
           <p>
-            /etc/rc.d/init.d/sysctl
+            /etc/rc.d/init.d/sysklogd
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds17.html" title=
-          "/etc/rc.d/init.d/network">Next</a>
+          "/etc/rc.d/init.d/sendsignals">Next</a>
           <p>
-            /etc/rc.d/init.d/network
+            /etc/rc.d/init.d/sendsignals
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

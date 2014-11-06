@@ -3,7 +3,10 @@
 # Usage: gen_rpm.py lfs/blfs
 #1.0
 
-from lfs import Book,Chapter,Page,Package
+from book import Book
+from chapter import Chapter
+from page import Page
+from package import Package
 import os,sys
 
 book = ['lfs','blfs']

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
@@ -29,9 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="mc.html" title="MC-4.8.11">Next</a>
+          <a accesskey="n" href="logrotate.html" title=
+          "Logrotate-3.8.7">Next</a>
           <p>
-            MC-4.8.11
+            Logrotate-3.8.7
           </p>
         </li>
         <li class="up">
@@ -40,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -60,7 +61,7 @@
           fans).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -73,13 +74,6 @@
                 Download (HTTP): <a class="ulink" href=
                 "http://dl.lm-sensors.org/lm-sensors/releases/lm_sensors-3.3.5.tar.bz2">
                 http://dl.lm-sensors.org/lm-sensors/releases/lm_sensors-3.3.5.tar.bz2</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                Download (FTP): <a class="ulink" href=
-                "ftp://ftp.netroedge.com/pub/lm-sensors/lm_sensors-3.3.5.tar.bz2">
-                ftp://ftp.netroedge.com/pub/lm-sensors/lm_sensors-3.3.5.tar.bz2</a>
               </p>
             </li>
             <li>
@@ -100,6 +94,20 @@
             <li>
               <p>
                 Estimated build time: less than 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Additional Downloads
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li>
+              <p>
+                Required patch: <a class="ulink" href=
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/lm_sensors-3.3.5-upstream_fixes-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/lm_sensors-3.3.5-upstream_fixes-1.patch</a>
               </p>
             </li>
           </ul>
@@ -153,8 +161,6 @@ Device Drivers  ---&gt;
       &lt;M&gt; (configure all of them as modules)
     I2C Hardware Bus support  ---&gt;
       &lt;M&gt; (configure all of them as modules)
-    I2C Hardware Bus support  ---&gt;
-      &lt;M&gt; (configure all of them as modules)
   [*] Hardware Monitoring support  ---&gt;
     &lt;M&gt; (configure all of them as modules)</code>
 </pre>
@@ -174,7 +180,9 @@ Device Drivers  ---&gt;
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">make PREFIX=/usr        \
+<kbd class=
+"command">patch -Np1 -i ../lm_sensors-3.3.5-upstream_fixes-1.patch &amp;&amp;
+make PREFIX=/usr        \
      BUILD_STATIC_LIB=0 \
      MANDIR=/usr/share/man</kbd>
 </pre>
@@ -411,7 +419,7 @@ cp -rv              README INSTALL doc/* \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 18:25:11 -0800
+        Last updated on 2014-09-09 14:11:38 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -424,9 +432,10 @@ cp -rv              README INSTALL doc/* \
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="mc.html" title="MC-4.8.11">Next</a>
+          <a accesskey="n" href="logrotate.html" title=
+          "Logrotate-3.8.7">Next</a>
           <p>
-            MC-4.8.11
+            Logrotate-3.8.7
           </p>
         </li>
         <li class="up">
@@ -435,7 +444,7 @@ cp -rv              README INSTALL doc/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

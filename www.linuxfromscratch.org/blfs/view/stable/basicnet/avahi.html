@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;16.&nbsp;Networking Utilities
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="bind-utils.html" title=
-          "BIND Utilities-9.9.5">Next</a>
+          "BIND Utilities-9.10.0-P2">Next</a>
           <p>
-            BIND Utilities-9.9.5
+            BIND Utilities-9.10.0-P2
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           which facilitates service discovery on a local network.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,7 +69,8 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://avahi.org/download/avahi-0.6.31.tar.gz">http://avahi.org/download/avahi-0.6.31.tar.gz</a>
+                "http://pkgs.fedoraproject.org/repo/pkgs/avahi/avahi-0.6.31.tar.gz/2f22745b8f7368ad5a0a3fddac343f2d/avahi-0.6.31.tar.gz">
+                http://pkgs.fedoraproject.org/repo/pkgs/avahi/avahi-0.6.31.tar.gz/2f22745b8f7368ad5a0a3fddac343f2d/avahi-0.6.31.tar.gz</a>
               </p>
             </li>
             <li>
@@ -102,21 +103,17 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a> and <a class="xref" href=
-          "../general/intltool.html" title=
-          "Intltool-0.50.2">Intltool-0.50.2</a>
+          "GLib-2.40.0">GLib-2.40.0</a>
         </p>
         <h4>
           Recommended
         </h4>
-        <p class="optional">
-          <a class="xref" href="../general/python-modules.html#dbus-python"
-          title="D-Bus Python">D-Bus Python-1.2.0</a>, <a class="xref" href=
-          "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>,
+        <p class="recommended">
+          <a class="xref" href="../general/gobject-introspection.html" title=
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>,
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.22">GTK+-2.24.22</a>, <a class="xref" href=
-          "../x/gtk3.html" title="GTK+-3.10.7">GTK+-3.10.7</a>, <a class=
+          "GTK+-2.24.24">GTK+-2.24.24</a>, <a class="xref" href=
+          "../x/gtk3.html" title="GTK+-3.12.2">GTK+-3.12.2</a>, <a class=
           "xref" href="../general/libdaemon.html" title=
           "libdaemon-0.14">libdaemon-0.14</a> and <a class="xref" href=
           "../x/libglade.html" title="libglade-2.6.4">libglade-2.6.4</a>
@@ -125,7 +122,11 @@
           Optional
         </h4>
         <p class="optional">
-          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
+          <a class="xref" href="../general/python-modules.html#dbus-python"
+          title="D-Bus Python">D-Bus Python-1.2.0</a>, <a class="xref" href=
+          "../general/python-modules.html#pygtk" title=
+          "PyGTK-2.24.0">PyGTK-2.24.0</a> and <a class="xref" href=
+          "../x/qt4.html" title="Qt-4.8.6">Qt-4.8.6</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -174,7 +175,8 @@ sed -i -e 's/-DG_DISABLE_DEPRECATED=1//' \
             --disable-qt3        \
             --disable-qt4        \
             --enable-core-docs   \
-            --with-distro=none &amp;&amp;
+            --with-distro=none   \
+            --with-systemdsystemunitdir=no &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -204,39 +206,46 @@ make</kbd>
           switch prevents installation of static versions of the libraries.
         </p>
         <p>
-          <code class="option">--disable-mono</code>: This parameter disables
-          the <span class="application">Mono</span> bindings.
+          <em class="parameter"><code>--disable-mono</code></em>: This
+          parameter disables the <span class="application">Mono</span>
+          bindings.
         </p>
         <p>
-          <code class="option">--disable-monodoc</code>: This parameter
-          disables documentation for the <span class=
+          <em class="parameter"><code>--disable-monodoc</code></em>: This
+          parameter disables documentation for the <span class=
           "application">Mono</span> bindings.
         </p>
         <p>
-          <code class="option">--disable-python</code>: This parameter
-          disables the scripts that depend on <span class=
+          <em class="parameter"><code>--disable-python</code></em>: This
+          parameter disables the scripts that depend on <span class=
           "application">Python</span>. It also allows a regular install to
           complete successfully.
         </p>
         <p>
-          <code class="option">--disable-qt3</code>: This parameter disables
-          the building of <span class="application">Qt3</span> mainloop
-          integration.
+          <em class="parameter"><code>--disable-qt3</code></em>: This
+          parameter disables the building of <span class=
+          "application">Qt3</span> mainloop integration.
         </p>
         <p>
-          <code class="option">--disable-qt4</code>: This parameter disables
-          the building of <span class="application">Qt4Core</span> mainloop
-          integration. Omit this if you have installed <span class=
-          "application">Qt4</span>.
+          <em class="parameter"><code>--disable-qt4</code></em>: This
+          parameter disables the building of <span class=
+          "application">Qt4Core</span> mainloop integration. Omit this if you
+          have installed <span class="application">Qt4</span>.
         </p>
         <p>
-          <code class="option">--enable-core-docs</code>: This parameter
-          enables the building of documentation.
+          <em class="parameter"><code>--enable-core-docs</code></em>: This
+          parameter enables the building of documentation.
         </p>
         <p>
           <em class="parameter"><code>--with-distro=none</code></em>: There
           is an obsolete boot script in the distribution for LFS. This option
           disables it.
+        </p>
+        <p>
+          <em class=
+          "parameter"><code>--with-systemdsystemunitdir=no</code></em>:
+          Without it, the daemon fails to start in BLFS, which does not
+          support <span class="application">systemd</span>.
         </p>
         <p>
           <code class="option">--disable-dbus</code>: This parameter disables
@@ -253,7 +262,7 @@ make</kbd>
         <p>
           <code class="option">--disable-libdaemon</code>: This parameter
           disables the use of <span class="application">libdaemon</span>. If
-          you remove this option, <span class=
+          you use this option, <span class=
           "command"><strong>avahi-daemon</strong></span> won't be built.
         </p>
         <p>
@@ -285,7 +294,7 @@ make</kbd>
             rebooted, install the <code class=
             "filename">/etc/rc.d/init.d/avahi</code> bootscript from the
             <a class="xref" href="../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20140919</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-avahi</kbd>
@@ -600,7 +609,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 13:24:55 -0800
+        Last updated on 2014-09-19 14:39:35 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -614,9 +623,9 @@ make</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="bind-utils.html" title=
-          "BIND Utilities-9.9.5">Next</a>
+          "BIND Utilities-9.10.0-P2">Next</a>
           <p>
-            BIND Utilities-9.9.5
+            BIND Utilities-9.10.0-P2
           </p>
         </li>
         <li class="up">
@@ -625,7 +634,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

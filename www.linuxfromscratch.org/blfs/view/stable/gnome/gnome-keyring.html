@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      gnome-keyring-3.10.1
+      gnome-keyring-3.12.2
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gcr.html" title="Gcr-3.10.1">Prev</a>
+          <a accesskey="p" href="gcr.html" title="Gcr-3.12.2">Prev</a>
           <p>
-            Gcr-3.10.1
+            Gcr-3.12.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gvfs.html" title="Gvfs-1.18.3">Next</a>
+          <a accesskey="n" href="gvfs.html" title="Gvfs-1.20.3">Next</a>
           <p>
-            Gvfs-1.18.3
+            Gvfs-1.20.3
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gnome-keyring" name="gnome-keyring"></a>gnome-keyring-3.10.1
+        <a id="gnome-keyring" name="gnome-keyring"></a>gnome-keyring-3.12.2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -56,7 +56,7 @@
           a daemon that keeps passwords and other secrets for users.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -67,35 +67,35 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.10/gnome-keyring-3.10.1.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.10/gnome-keyring-3.10.1.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.12/gnome-keyring-3.12.2.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.12/gnome-keyring-3.12.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.10/gnome-keyring-3.10.1.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.10/gnome-keyring-3.10.1.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.12/gnome-keyring-3.12.2.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.12/gnome-keyring-3.12.2.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: a0fedbeb11a654975abed45865d3f82d
+                Download MD5 sum: 63db70619f58e9cbd70c0b7d2285f26f
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.1 MB
+                Download size: 1.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 140 MB
+                Estimated disk space required: 92 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.6 SBU
+                Estimated build time: 0.7 SBU (additional 0.2 SBU for tests)
               </p>
             </li>
           </ul>
@@ -108,23 +108,28 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/dbus.html" title=
-          "D-Bus-1.8.0">D-Bus-1.8.0</a> and <a class="xref" href="gcr.html"
-          title="Gcr-3.10.1">Gcr-3.10.1</a>
+          "D-Bus-1.8.8">D-Bus-1.8.8</a> and <a class="xref" href="gcr.html"
+          title="Gcr-3.12.2">Gcr-3.12.2</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../postlfs/linux-pam.html" title=
-          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>
+          "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a> and <a class="xref" href=
+          "../general/libxslt.html" title="libxslt-1.1.28">libxslt-1.1.28</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="ulink" href=
-          "http://people.redhat.com/sgrubb/libcap-ng/">libcap-ng</a> and
-          <a class="ulink" href="http://www.valgrind.org">Valgrind</a>
+          "http://people.redhat.com/sgrubb/libcap-ng/">libcap-ng</a>,
+          <a class="xref" href="../postlfs/gnupg.html" title=
+          "GnuPG-2.0.26">GnuPG-2.0.26</a>, <a class="xref" href=
+          "../postlfs/openssh.html" title="OpenSSH-6.6p1">OpenSSH-6.6p1</a>
+          and <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -146,8 +151,9 @@
 make</kbd>
 </pre>
         <p>
-          To test the results, issue <span class="command"><strong>make
-          check</strong></span>.
+          A session bus address is necessary to run the tests. To test the
+          results, issue: <span class="command"><strong>make -k
+          check</strong></span>. Some tests fail for unknown reasons.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -174,13 +180,14 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">gnome-keyring, gnome-keyring-3, and
-              gnome-keyring-daemon</span>
+              <span class="segbody">gnome-keyring (symlink), gnome-keyring-3,
+              and gnome-keyring-daemon</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">gnome-keyring-pkcs11.so and
-              pam_gnome_keyring.so</span>
+              <span class="segbody">gnome-keyring-pkcs11.so,
+              pam_gnome_keyring.so, and several under
+              /usr/lib/gnome-keyring/devel</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
@@ -214,21 +221,21 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 07:06:53 -0800
+        Last updated on 2014-09-19 13:13:19 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gcr.html" title="Gcr-3.10.1">Prev</a>
+          <a accesskey="p" href="gcr.html" title="Gcr-3.12.2">Prev</a>
           <p>
-            Gcr-3.10.1
+            Gcr-3.12.2
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gvfs.html" title="Gvfs-1.18.3">Next</a>
+          <a accesskey="n" href="gvfs.html" title="Gvfs-1.20.3">Next</a>
           <p>
-            Gvfs-1.18.3
+            Gvfs-1.20.3
           </p>
         </li>
         <li class="up">
@@ -237,7 +244,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

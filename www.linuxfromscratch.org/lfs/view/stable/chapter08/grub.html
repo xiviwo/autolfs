@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter08/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;8.&nbsp;Making the LFS System Bootable
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="kernel.html" title="Linux-3.13.3">Prev</a>
+          <a accesskey="p" href="kernel.html" title="Linux-3.16.2">Prev</a>
           <p>
-            Linux-3.13.3
+            Linux-3.16.2
           </p>
         </li>
         <li class="next">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -74,7 +74,7 @@
           the procedure below to work, you need to jump ahead to BLFS and
           install <strong class="userinput"><code>xorriso</code></strong>
           from the <a class="ulink" href=
-          "http://www.linuxfromscratch.org/blfs/view/svn/multimedia/libisoburn.html">
+          "http://www.linuxfromscratch.org/blfs/view/7.6/multimedia/libisoburn.html">
           libisoburn</a> package.
         </p>
         <pre class="userinput">
@@ -162,7 +162,8 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</kbd>
       </div>
       <div class="sect2" lang="en" xml:lang="en">
         <h2 class="sect2">
-          8.4.4. Creating the Configuration File
+          <a id="grub-cfg" name="grub-cfg"></a>8.4.4. Creating the GRUB
+          Configuration File
         </h2>
         <p>
           Generate <code class="filename">/boot/grub/grub.cfg</code>:
@@ -176,8 +177,8 @@ set timeout=5
 insmod ext2
 set root=(hd0,2)
 
-menuentry "GNU/Linux, Linux 3.13.3-lfs-7.5" {
-        linux   /boot/vmlinuz-3.13.3-lfs-7.5 root=/dev/sda2 ro
+menuentry "GNU/Linux, Linux 3.16.2-lfs-7.6" {
+        linux   /boot/vmlinuz-3.16.2-lfs-7.6 root=/dev/sda2 ro
 }</code>
 EOF</kbd>
 </pre>
@@ -224,9 +225,9 @@ EOF</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="kernel.html" title="Linux-3.13.3">Prev</a>
+          <a accesskey="p" href="kernel.html" title="Linux-3.16.2">Prev</a>
           <p>
-            Linux-3.13.3
+            Linux-3.16.2
           </p>
         </li>
         <li class="next">
@@ -242,7 +243,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gnupg.html" title="GnuPG-2.0.22">Next</a>
+          <a accesskey="n" href="gnupg.html" title="GnuPG-2.0.26">Next</a>
           <p>
-            GnuPG-2.0.22
+            GnuPG-2.0.26
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
           security layer is inserted between the protocol and the connection.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -107,8 +107,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/cyrus-sasl-2.1.26-fixes-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/cyrus-sasl-2.1.26-fixes-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/cyrus-sasl-2.1.26-fixes-3.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/cyrus-sasl-2.1.26-fixes-3.patch</a>
               </p>
             </li>
           </ul>
@@ -121,14 +121,14 @@
         </h4>
         <p class="required">
           <a class="xref" href="openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="../server/db.html" title=
-          "Berkeley DB-6.0.20">Berkeley DB-6.0.20</a>
+          "Berkeley DB-6.1.19">Berkeley DB-6.1.19</a>
         </p>
         <h4>
           Optional
@@ -136,17 +136,17 @@
         <p class="optional">
           <a class="xref" href="linux-pam.html" title=
           "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>, <a class="xref" href=
-          "mitkrb.html" title="MIT Kerberos V5-1.12.1">MIT Kerberos
-          V5-1.12.1</a>, <a class="xref" href="../server/mariadb.html" title=
-          "MariaDB-10.0.8">MariaDB-10.0.8</a> or <a class="xref" href=
-          "../server/mysql.html" title="MySQL-5.6.16">MySQL-5.6.16</a>,
-          <a class="xref" href="../general/openjdk.html" title=
-          "OpenJDK-1.7.0.51/IcedTea-2.4.5">OpenJDK-1.7.0.51/IcedTea-2.4.5</a>,
+          "mitkrb.html" title="MIT Kerberos V5-1.12.2">MIT Kerberos
+          V5-1.12.2</a>, <a class="xref" href="../server/mariadb.html" title=
+          "MariaDB-10.0.13">MariaDB-10.0.13</a> or <a class="ulink" href=
+          "http://www.mysql.com/">MySQL</a>, <a class="xref" href=
+          "../general/openjdk.html" title=
+          "OpenJDK-1.7.0.65/IcedTea-2.5.2">OpenJDK-1.7.0.65/IcedTea-2.5.2</a>,
           <a class="xref" href="../server/openldap.html" title=
           "OpenLDAP-2.4.39">OpenLDAP-2.4.39</a>, <a class="xref" href=
           "../server/postgresql.html" title=
-          "PostgreSQL-9.3.3">PostgreSQL-9.3.3</a>, <a class="xref" href=
-          "../server/sqlite.html" title="SQLite-3.8.3.1">SQLite-3.8.3.1</a>,
+          "PostgreSQL-9.3.5">PostgreSQL-9.3.5</a>, <a class="xref" href=
+          "../server/sqlite.html" title="SQLite-3.8.6">SQLite-3.8.6</a>,
           <a class="ulink" href="ftp://ftp.pdc.kth.se/pub/krb/src/">krb4</a>
           and <a class="ulink" href="http://dmalloc.com/">Dmalloc</a>
         </p>
@@ -159,32 +159,20 @@
         <h2 class="sect2">
           Installation of Cyrus SASL
         </h2>
-        <div class="admon note">
-          <img alt="[Note]" src="../images/note.png" />
-          <h3>
-            Note
-          </h3>
-          <p>
-            This package does not support parallel build.
-          </p>
-        </div>
         <p>
           Install <span class="application">Cyrus SASL</span> by running the
           following commands:
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../cyrus-sasl-2.1.26-fixes-1.patch &amp;&amp;
+"command">patch -Np1 -i ../cyrus-sasl-2.1.26-fixes-3.patch &amp;&amp;
 autoreconf -fi &amp;&amp;
-pushd saslauthd
-autoreconf -fi &amp;&amp;
-popd
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --enable-auth-sasldb \
             --with-dbpath=/var/lib/sasl/sasldb2 \
             --with-saslauthd=/var/run/saslauthd &amp;&amp;
-make -j1</kbd>
+make</kbd>
 </pre>
         <p>
           This package does not come with a test suite. If you are planning
@@ -326,7 +314,7 @@ install -v -dm700 /var/lib/sasl</kbd>
             startup, install the <code class=
             "filename">/etc/rc.d/init.d/saslauthd</code> init script included
             in the <a class="xref" href="../introduction/bootscripts.html"
-            title="BLFS Boot Scripts">blfs-bootscripts-20140301</a> package
+            title="BLFS Boot Scripts">blfs-bootscripts-20140919</a> package
             using the following command:
           </p>
           <pre class="root">
@@ -468,7 +456,7 @@ install -v -dm700 /var/lib/sasl</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-25 04:04:57 -0800
+        Last updated on 2014-09-17 11:48:47 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -481,9 +469,9 @@ install -v -dm700 /var/lib/sasl</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gnupg.html" title="GnuPG-2.0.22">Next</a>
+          <a accesskey="n" href="gnupg.html" title="GnuPG-2.0.26">Next</a>
           <p>
-            GnuPG-2.0.22
+            GnuPG-2.0.26
           </p>
         </li>
         <li class="up">
@@ -492,7 +480,7 @@ install -v -dm700 /var/lib/sasl</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

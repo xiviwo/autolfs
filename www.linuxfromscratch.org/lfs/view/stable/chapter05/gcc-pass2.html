@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.10.&nbsp;GCC-4.8.2 - Pass 2
+      5.10.&nbsp;GCC-4.9.1 - Pass 2
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="tcl.html" title="Tcl-8.6.1">Next</a>
+          <a accesskey="n" href="tcl.html" title="Tcl-8.6.2">Next</a>
           <p>
-            Tcl-8.6.1
+            Tcl-8.6.2
           </p>
         </li>
         <li class="up">
@@ -40,14 +40,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-tools-gcc-pass2" name="ch-tools-gcc-pass2"></a>5.10.
-        GCC-4.8.2 - Pass 2
+        GCC-4.9.1 - Pass 2
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -58,11 +58,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">7.1 SBU</span>
+              <span class="segbody">9.8 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">1.8 GB</span>
+              <span class="segbody">2.2 GB</span>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
         <p>
           Our first build of GCC has installed a couple of internal system
           headers. Normally one of them, <code class=
-          "filename">limits.h</code> will in turn include the corresponding
+          "filename">limits.h</code>, will in turn include the corresponding
           system <code class="filename">limits.h</code> header, in this case,
           <code class="filename">/tools/include/limits.h</code>. However, at
           the time of the first build of gcc <code class=
@@ -89,20 +89,6 @@
         <pre class="userinput">
 <kbd class="command">cat gcc/limitx.h gcc/glimits.h gcc/limity.h &gt; \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h</kbd>
-</pre>
-        <p>
-          For x86 machines, a bootstrap build of GCC uses the <code class=
-          "option">-fomit-frame-pointer</code> compiler flag. Non-bootstrap
-          builds omit this flag by default, and the goal should be to produce
-          a compiler that is exactly the same as if it were bootstrapped.
-          Apply the following <span class=
-          "command"><strong>sed</strong></span> command to force the build to
-          use the flag:
-        </p>
-        <pre class="userinput">
-<kbd class="command">case `uname -m` in
-  i?86) sed -i 's/^T_CFLAGS =$/&amp; -fomit-frame-pointer/' gcc/Makefile.in ;;
-esac</kbd>
 </pre>
         <p>
           Once again, change the location of GCC's default dynamic linker to
@@ -129,12 +115,19 @@ done</kbd>
           directory names:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -Jxf ../mpfr-3.1.2.tar.xz
+<kbd class="command">tar -xf ../mpfr-3.1.2.tar.xz
 mv -v mpfr-3.1.2 mpfr
-tar -Jxf ../gmp-5.1.3.tar.xz
-mv -v gmp-5.1.3 gmp
-tar -zxf ../mpc-1.0.2.tar.gz
+tar -xf ../gmp-6.0.0a.tar.xz
+mv -v gmp-6.0.0 gmp
+tar -xf ../mpc-1.0.2.tar.gz
 mv -v mpc-1.0.2 mpc</kbd>
+</pre>
+        <p>
+          As in the first build of GCC, fix a problem identified upstream:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's/if \((code.*))\)/if (\1 \&amp;\&amp; \!DEBUG_INSN_P (insn))/' gcc/sched-deps.c</kbd>
 </pre>
         <p>
           Create a separate build directory again:
@@ -155,69 +148,21 @@ cd ../gcc-build</kbd>
 CXX=$LFS_TGT-g++                                     \
 AR=$LFS_TGT-ar                                       \
 RANLIB=$LFS_TGT-ranlib                               \
-../gcc-4.8.2/configure                               \
+../gcc-4.9.1/configure                               \
     --prefix=/tools                                  \
     --with-local-prefix=/tools                       \
     --with-native-system-header-dir=/tools/include   \
-    --enable-clocale=gnu                             \
-    --enable-shared                                  \
-    --enable-threads=posix                           \
-    --enable-__cxa_atexit                            \
     --enable-languages=c,c++                         \
     --disable-libstdcxx-pch                          \
     --disable-multilib                               \
     --disable-bootstrap                              \
-    --disable-libgomp                                \
-    --with-mpfr-include=$(pwd)/../gcc-4.8.2/mpfr/src \
-    --with-mpfr-lib=$(pwd)/mpfr/src/.libs</kbd>
+    --disable-libgomp</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
             <strong>The meaning of the new configure options:</strong>
           </p>
           <dl class="variablelist">
-            <dt>
-              <span class="term"><em class=
-              "parameter"><code>--enable-clocale=gnu</code></em></span>
-            </dt>
-            <dd>
-              <p>
-                This option ensures the correct locale model is selected for
-                the C++ libraries under all circumstances. If the configure
-                script finds the <span class="emphasis"><em>de_DE</em></span>
-                locale installed, it will select the correct gnu locale
-                model. However, if the <span class=
-                "emphasis"><em>de_DE</em></span> locale is not installed,
-                there is the risk of building Application Binary Interface
-                (ABI)-incompatible C++ libraries because the incorrect
-                generic locale model may be selected.
-              </p>
-            </dd>
-            <dt>
-              <span class="term"><em class=
-              "parameter"><code>--enable-threads=posix</code></em></span>
-            </dt>
-            <dd>
-              <p>
-                This enables C++ exception handling for multi-threaded code.
-              </p>
-            </dd>
-            <dt>
-              <span class="term"><em class=
-              "parameter"><code>--enable-__cxa_atexit</code></em></span>
-            </dt>
-            <dd>
-              <p>
-                This option allows use of <code class=
-                "function">__cxa_atexit</code>, rather than <code class=
-                "function">atexit</code>, to register C++ destructors for
-                local statics and global objects. This option is essential
-                for fully standards-compliant handling of destructors. It
-                also affects the C++ ABI, and therefore results in C++ shared
-                libraries and C++ programs that are interoperable with other
-                Linux distributions.
-              </p>
-            </dd>
             <dt>
               <span class="term"><em class=
               "parameter"><code>--enable-languages=c,c++</code></em></span>
@@ -358,9 +303,9 @@ readelf -l a.out | grep ': /tools'</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="tcl.html" title="Tcl-8.6.1">Next</a>
+          <a accesskey="n" href="tcl.html" title="Tcl-8.6.2">Next</a>
           <p>
-            Tcl-8.6.1
+            Tcl-8.6.2
           </p>
         </li>
         <li class="up">
@@ -369,7 +314,7 @@ readelf -l a.out | grep ': /tools'</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

@@ -5,154 +5,200 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      D.11.&nbsp;/etc/rc.d/init.d/udev_retry
+      D.11.&nbsp;/etc/rc.d/init.d/cleanfs
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds10.html" title=
-          "/etc/rc.d/init.d/mountfs">Prev</a>
+          "/etc/rc.d/init.d/udev_retry">Prev</a>
           <p>
-            /etc/rc.d/init.d/mountfs
+            /etc/rc.d/init.d/udev_retry
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds12.html" title=
-          "/etc/rc.d/init.d/cleanfs">Next</a>
+          "/etc/rc.d/init.d/console">Next</a>
           <p>
-            /etc/rc.d/init.d/cleanfs
+            /etc/rc.d/init.d/console
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="udev_retry" name="udev_retry"></a>D.11.
-        /etc/rc.d/init.d/udev_retry
+        <a id="cleanfs" name="cleanfs"></a>D.11. /etc/rc.d/init.d/cleanfs
       </h1>
       <pre class="screen">
 #!/bin/sh
 ########################################################################
-# Begin udev_retry
+# Begin cleanfs
 #
-# Description : Udev cold-plugging script (retry)
+# Description : Clean file system
 #
-# Authors     : Alexander E. Patrakov
+# Authors     : Gerard Beekmans - gerard@linuxfromscratch.org
 #               DJ Lucas - dj@linuxfromscratch.org
 # Update      : Bruce Dubbs - bdubbs@linuxfromscratch.org
-#               Bryan Kadzban - 
 #
 # Version     : LFS 7.0
 #
 ########################################################################
 
 ### BEGIN INIT INFO
-# Provides:            udev_retry
-# Required-Start:      udev
-# Should-Start:        $local_fs
+# Provides:            cleanfs
+# Required-Start:      $local_fs
+# Should-Start:
 # Required-Stop:
 # Should-Stop:
 # Default-Start:       S
 # Default-Stop:
-# Short-Description:   Replays failed uevents and creates additional devices.
-# Description:         Replays any failed uevents that were skipped due to
-#                      slow hardware initialization, and creates those needed
-#                      device nodes
+# Short-Description:   Cleans temporary directories early in the boot process.
+# Description:         Cleans temporary directories /var/run, /var/lock, and
+#                      optionally, /tmp.  cleanfs also creates /var/run/utmp 
+#                      and any files defined in /etc/sysconfig/createfiles.
 # X-LFS-Provided-By:   LFS
 ### END INIT INFO
 
 . /lib/lsb/init-functions
 
+# Function to create files/directory on boot.
+create_files() 
+{
+   # Input to file descriptor 9 and output to stdin (redirection)
+   exec 9&gt;&amp;0 &lt; /etc/sysconfig/createfiles
+
+   while read name type perm usr grp dtype maj min junk
+   do
+      # Ignore comments and blank lines.
+      case "${name}" in
+         ""|\#*) continue ;;
+      esac
+
+      # Ignore existing files.
+      if [ ! -e "${name}" ]; then
+         # Create stuff based on its type.
+         case "${type}" in
+            dir)
+               mkdir "${name}"
+               ;;
+            file)
+               :&gt; "${name}"
+               ;;
+            dev)
+               case "${dtype}" in
+                  char)
+                     mknod "${name}" c ${maj} ${min}
+                     ;;
+                  block)
+                     mknod "${name}" b ${maj} ${min}
+                     ;;
+                  pipe)
+                     mknod "${name}" p
+                     ;;
+                  *) 
+                     log_warning_msg "\nUnknown device type: ${dtype}" 
+                     ;;
+               esac
+               ;;
+            *)
+               log_warning_msg "\nUnknown type: ${type}" 
+               continue
+               ;;
+         esac
+
+         # Set up the permissions, too.
+         chown ${usr}:${grp} "${name}"
+         chmod ${perm} "${name}"
+      fi
+   done
+
+   # Close file descriptor 9 (end redirection)
+   exec 0&gt;&amp;9 9&gt;&amp;-
+   return 0
+}
+
 case "${1}" in
    start)
-      log_info_msg "Retrying failed uevents, if any..."
+      log_info_msg "Cleaning file systems:" 
 
-      # As of udev-186, the --run option is no longer valid
-      #rundir=$(/sbin/udevadm info --run)
-      rundir=/run/udev
-      # From Debian: "copy the rules generated before / was mounted
-      # read-write":
-    
-      for file in ${rundir}/tmp-rules--*; do
-         dest=${file##*tmp-rules--}
-         [ "$dest" = '*' ] &amp;&amp; break
-         cat $file &gt;&gt; /etc/udev/rules.d/$dest
-         rm -f $file
-      done
-
-      # Re-trigger the uevents that may have failed, 
-      # in hope they will succeed now
-      /bin/sed -e 's/#.*$//' /etc/sysconfig/udev_retry | /bin/grep -v '^$' | \
-      while read line ; do
-         for subsystem in $line ; do
-            /sbin/udevadm trigger --subsystem-match=$subsystem --action=add
-         done
-      done
-
-      # Now wait for udevd to process the uevents we triggered
-      if ! is_true "$OMIT_UDEV_RETRY_SETTLE"; then
-         /sbin/udevadm settle
+      if [ "${SKIPTMPCLEAN}" = "" ]; then
+         log_info_msg2 " /tmp" 
+         cd /tmp &amp;&amp;
+         find . -xdev -mindepth 1 ! -name lost+found -delete || failed=1
       fi
 
-      evaluate_retval
-      ;;
+      &gt; /var/run/utmp
 
+      if grep -q '^utmp:' /etc/group ; then
+         chmod 664 /var/run/utmp
+         chgrp utmp /var/run/utmp
+      fi
+
+      (exit ${failed})
+      evaluate_retval
+
+      if egrep -qv '^(#|$)' /etc/sysconfig/createfiles 2&gt;/dev/null; then
+         log_info_msg "Creating files and directories... "
+         create_files      # Always returns 0
+         evaluate_retval
+      fi
+
+      exit $failed
+      ;;
    *)
-      echo "Usage ${0} {start}"
+      echo "Usage: ${0} {start}"
       exit 1
       ;;
 esac
 
-exit 0
-
-# End udev_retry
+# End cleanfs
 </pre>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds10.html" title=
-          "/etc/rc.d/init.d/mountfs">Prev</a>
+          "/etc/rc.d/init.d/udev_retry">Prev</a>
           <p>
-            /etc/rc.d/init.d/mountfs
+            /etc/rc.d/init.d/udev_retry
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds12.html" title=
-          "/etc/rc.d/init.d/cleanfs">Next</a>
+          "/etc/rc.d/init.d/console">Next</a>
           <p>
-            /etc/rc.d/init.d/cleanfs
+            /etc/rc.d/init.d/console
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

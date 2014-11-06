@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      xfsprogs-3.1.11
+      xfsprogs-3.2.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;File Systems and Disk Management
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="xfsprogs" name="xfsprogs"></a>xfsprogs-3.1.11
+        <a id="xfsprogs" name="xfsprogs"></a>xfsprogs-3.2.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           administration and debugging tools for the XFS file system.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -67,26 +67,19 @@
           <ul class="compact">
             <li>
               <p>
-                Download (HTTP): <a class="ulink" href=
-                "http://anduin.linuxfromscratch.org/sources/BLFS/svn/x/xfsprogs-3.1.11.tar.gz">
-                http://anduin.linuxfromscratch.org/sources/BLFS/svn/x/xfsprogs-3.1.11.tar.gz</a>
-              </p>
-            </li>
-            <li>
-              <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-3.1.11.tar.gz">
-                ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-3.1.11.tar.gz</a>
+                "ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-3.2.1.tar.gz">
+                ftp://oss.sgi.com/projects/xfs/cmd_tars/xfsprogs-3.2.1.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: de9f1f45026c2f4e0776058d429ff4b6
+                Download MD5 sum: 5c6905932029c8f9207fe5a0a8aac24b
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.3 MB
+                Download size: 1.5 MB
               </p>
             </li>
             <li>
@@ -96,7 +89,7 @@
             </li>
             <li>
               <p>
-                Estimated build time: 0.5 SBU
+                Estimated build time: 0.6 SBU
               </p>
             </li>
           </ul>
@@ -129,8 +122,9 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">make DEBUG=-DNDEBUG INSTALL_USER=root INSTALL_GROUP=root \
+<kbd class="command">make DEBUG=-DNDEBUG     \
+     INSTALL_USER=root  \
+     INSTALL_GROUP=root \
      LOCAL_CONFIGURE_OPTIONS="--enable-readline"</kbd>
 </pre>
         <p>
@@ -140,7 +134,8 @@
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make install install-dev &amp;&amp;
+<kbd class="command">make install     &amp;&amp;
+make install-dev &amp;&amp;
 rm -rfv /lib/libhandle.{a,la,so} &amp;&amp;
 ln -sfv ../../lib/libhandle.so.1 /usr/lib/libhandle.so &amp;&amp;
 sed -i "s@libdir='/lib@libdir='/usr/lib@g" /usr/lib/libhandle.la</kbd>
@@ -185,9 +180,10 @@ sed -i "s@libdir='/lib@libdir='/usr/lib@g" /usr/lib/libhandle.la</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">fsck.xfs, mkfs.xfs, xfs_admin, xfs_bmap,
-              xfs_check, xfs_copy, xfs_db, xfs_freeze, xfs_growfs, xfs_info,
-              xfs_io, xfs_logprint, xfs_mdrestore, xfs_metadump, xfs_mkfile,
-              xfs_ncheck, xfs_quota, xfs_repair, and xfs_rtcp</span>
+              xfs_copy, xfs_db, xfs_estimate, xfs_freeze, xfs_fsr,
+              xfs_growfs, xfs_info, xfs_io, xfs_logprint, xfs_mdrestore,
+              xfs_metadump, xfs_mkfile, xfs_ncheck, xfs_quota, xfs_repair,
+              and xfs_rtcp</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -267,20 +263,6 @@ sed -i "s@libdir='/lib@libdir='/usr/lib@g" /usr/lib/libhandle.la</kbd>
               <tr>
                 <td>
                   <p>
-                    <a id="xfs_check" name="xfs_check"></a><span class=
-                    "term"><span class=
-                    "command"><strong>xfs_check</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    checks XFS file system consistency.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
                     <a id="xfs_copy" name="xfs_copy"></a><span class=
                     "term"><span class=
                     "command"><strong>xfs_copy</strong></span></span>
@@ -290,6 +272,22 @@ sed -i "s@libdir='/lib@libdir='/usr/lib@g" /usr/lib/libhandle.la</kbd>
                   <p>
                     copies the contents of an XFS file system to one or more
                     targets in parallel.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfs_estimate" name="xfs_estimate"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xfs_estimate</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    for each directory argument, estimates the space that
+                    directory would take if it were copied to an XFS
+                    filesystem (does not cross mount points).
                   </p>
                 </td>
               </tr>
@@ -318,6 +316,24 @@ sed -i "s@libdir='/lib@libdir='/usr/lib@g" /usr/lib/libhandle.la</kbd>
                 <td>
                   <p>
                     suspends access to an XFS file system.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xfs_fsr" name="xfs_fsr"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xfs_fsr</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    applicable only to XFS filesystems, improves the
+                    organization of mounted filesystems, the reorganization
+                    algorithm operates on one file at a time, compacting or
+                    othewise improving the layout of the file extents
+                    (contiguous blocks of file data).
                   </p>
                 </td>
               </tr>
@@ -504,7 +520,7 @@ sed -i "s@libdir='/lib@libdir='/usr/lib@g" /usr/lib/libhandle.la</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 18:30:29 -0800
+        Last updated on 2014-09-17 11:48:47 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -528,7 +544,7 @@ sed -i "s@libdir='/lib@libdir='/usr/lib@g" /usr/lib/libhandle.la</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

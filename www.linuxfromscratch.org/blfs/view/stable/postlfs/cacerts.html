@@ -12,19 +12,20 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="attr.html" title="attr-2.4.47">Prev</a>
+          <a accesskey="p" href="vulnerabilities.html" title=
+          "Vulnerabilities">Prev</a>
           <p>
-            attr-2.4.47
+            Vulnerabilities
           </p>
         </li>
         <li class="next">
@@ -40,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -54,13 +55,13 @@
         signed by a trusted agent called a Certificate Authority (CA). The
         certificates loaded by this section are from the list on the Mozilla
         version control system and formats it into a form used by <a class=
-        "xref" href="openssl.html" title="OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>.
+        "xref" href="openssl.html" title="OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>.
         The certificates can also be used by other applications either
         directly of indirectly through <span class=
         "application">openssl</span>.
       </p>
       <p>
-        This package is known to build and work properly using an LFS-7.5
+        This package is known to build and work properly using an LFS-7.6
         platform.
       </p>
       <div class="package" lang="en" xml:lang="en">
@@ -75,8 +76,8 @@
             <li>
               <p>
                 CA Certificate Download: <a class="ulink" href=
-                "http://mxr.mozilla.org/mozilla/source/security/nss/lib/ckfw/builtins/certdata.txt?raw=1">
-                http://mxr.mozilla.org/mozilla/source/security/nss/lib/ckfw/builtins/certdata.txt?raw=1</a>
+                "http://anduin.linuxfromscratch.org/sources/other/certdata.txt">
+                http://anduin.linuxfromscratch.org/sources/other/certdata.txt</a>
               </p>
             </li>
             <li>
@@ -96,6 +97,22 @@
             </li>
           </ul>
         </div>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            The certfile.txt file above is actually retrieved from <a class=
+            "ulink" href=
+            "https://hg.mozilla.org/releases/mozilla-release/file/default/security/nss/lib/ckfw/builtins/certdata.txt">
+            https://hg.mozilla.org/releases/mozilla-release/file/default/security/nss/lib/ckfw/builtins/certdata.txt</a>.
+            It is really an HTML file, but the text file can be retrieved
+            indirectly from the HTML file. The Download URL above automates
+            that process and also adds a line where the date can be extracted
+            as a revision number by the scripts below.
+          </p>
+        </div>
         <h3>
           Certificate Authority Certificates Dependencies
         </h3>
@@ -104,7 +121,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>
         </p>
         <h4>
           Recommended
@@ -128,11 +145,11 @@
           "systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">cat &gt; /bin/make-cert.pl &lt;&lt; "EOF"
+<kbd class="command">cat &gt; /usr/bin/make-cert.pl &lt;&lt; "EOF"
 <code class="literal">#!/usr/bin/perl -w
 
 # Used to generate PEM encoded files from Mozilla certdata.txt.
-# Run as ./mkcrt.pl &gt; certificate.crt
+# Run as ./make-cert.pl &gt; certificate.crt
 #
 # Parts of this script courtesy of RedHat (mkcabundle.pl)
 #
@@ -180,7 +197,7 @@ while ( &lt;IN&gt; )
 }</code>
 EOF
 
-chmod +x /bin/make-cert.pl</kbd>
+chmod +x /usr/bin/make-cert.pl</kbd>
 </pre>
         <p>
           The following script creates the certificates and a bundle of all
@@ -190,8 +207,8 @@ chmod +x /bin/make-cert.pl</kbd>
           this script as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">cat &gt; /bin/make-ca.sh &lt;&lt; "EOF"
-<code class="literal">#!/bin/bash
+<kbd class="command">cat &gt; /usr/bin/make-ca.sh &lt;&lt; "EOF"
+<code class="literal">#!/bin/sh
 # Begin make-ca.sh
 # Script to populate OpenSSL's CApath from a bundle of PEM formatted CAs
 #
@@ -222,12 +239,12 @@ VERSION=$(echo $REVISION | cut -f2 -d" ")
 TEMPDIR=$(mktemp -d)
 TRUSTATTRIBUTES="CKA_TRUST_SERVER_AUTH"
 BUNDLE="BLFS-ca-bundle-${VERSION}.crt"
-CONVERTSCRIPT="/bin/make-cert.pl"
+CONVERTSCRIPT="/usr/bin/make-cert.pl"
 SSLDIR="/etc/ssl"
 
 mkdir "${TEMPDIR}/certs"
 
-# Get a list of staring lines for each cert
+# Get a list of starting lines for each cert
 CERTBEGINLIST=$(grep -n "^# Certificate" "${certdata}" | cut -d ":" -f1)
 
 # Get a list of ending lines for each cert
@@ -245,7 +262,7 @@ for certbegin in ${CERTBEGINLIST}; do
   sed -n "${certbegin},${certend}p" "${certdata}" &gt; "${TEMPDIR}/certs/${certbegin}.tmp"
 done
 
-unset CERTBEGINLIST CERTDATA CERTENDLIST certebegin certend
+unset CERTBEGINLIST CERTDATA CERTENDLIST certbegin certend
 
 mkdir -p certs
 rm -f certs/*      # Make sure the directory is clean
@@ -288,7 +305,7 @@ cat certs/*.pem &gt;  ${BUNDLE}
 rm -r "${TEMPDIR}"</code>
 EOF
 
-chmod +x /bin/make-ca.sh</kbd>
+chmod +x /usr/bin/make-ca.sh</kbd>
 </pre>
         <p>
           Add a short script to remove expired certificates from a directory.
@@ -296,14 +313,14 @@ chmod +x /bin/make-ca.sh</kbd>
           "systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">cat &gt; /bin/remove-expired-certs.sh &lt;&lt; "EOF"
-<code class="literal">#!/bin/bash
-# Begin /bin/remove-expired-certs.sh
+<kbd class="command">cat &gt; /usr/bin/remove-expired-certs.sh &lt;&lt; "EOF"
+<code class="literal">#!/bin/sh
+# Begin /usr/bin/remove-expired-certs.sh
 #
 # Version 20120211
 
 # Make sure the date is parsed correctly on all systems
-function mydate()
+mydate()
 {
   local y=$( echo $1 | cut -d" " -f4 )
   local M=$( echo $1 | cut -d" " -f1 )
@@ -352,7 +369,7 @@ for cert in $certs; do
 done</code>
 EOF
 
-chmod +x /bin/remove-expired-certs.sh</kbd>
+chmod +x /usr/bin/remove-expired-certs.sh</kbd>
 </pre>
         <p>
           The following commands will fetch the certificates and convert them
@@ -364,26 +381,24 @@ chmod +x /bin/remove-expired-certs.sh</kbd>
         </p>
         <pre class="userinput">
 <kbd class=
-"command">certhost='http://mxr.mozilla.org'                        &amp;&amp;
-certdir='/mozilla/source/security/nss/lib/ckfw/builtins' &amp;&amp;
-url="$certhost$certdir/certdata.txt?raw=1"               &amp;&amp;
-
-wget --output-document certdata.txt $url &amp;&amp;
-unset certhost certdir url               &amp;&amp;
-make-ca.sh                               &amp;&amp;
-remove-expired-certs.sh certs</kbd>
+"command">URL=http://anduin.linuxfromscratch.org/sources/other/certdata.txt &amp;&amp;
+rm -f certdata.txt &amp;&amp;
+wget $URL          &amp;&amp;
+make-ca.sh         &amp;&amp;
+remove-expired-certs.sh certs &amp;&amp;
+unset URL</kbd>
 </pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
 <kbd class=
-"command">SSLDIR=/etc/ssl                                             &amp;&amp;
-install -d ${SSLDIR}/certs                                  &amp;&amp;
-cp -v certs/*.pem ${SSLDIR}/certs                           &amp;&amp;
-c_rehash                                                    &amp;&amp;
-install BLFS-ca-bundle*.crt ${SSLDIR}/ca-bundle.crt         &amp;&amp;
-ln -sv ../ca-bundle.crt ${SSLDIR}/certs/ca-certificates.crt &amp;&amp;
+"command">SSLDIR=/etc/ssl                                              &amp;&amp;
+install -d ${SSLDIR}/certs                                   &amp;&amp;
+cp -v certs/*.pem ${SSLDIR}/certs                            &amp;&amp;
+c_rehash                                                     &amp;&amp;
+install BLFS-ca-bundle*.crt ${SSLDIR}/ca-bundle.crt          &amp;&amp;
+ln -sfv ../ca-bundle.crt ${SSLDIR}/certs/ca-certificates.crt &amp;&amp;
 unset SSLDIR</kbd>
 </pre>
         <p>
@@ -439,9 +454,9 @@ unset SSLDIR</kbd>
                 </td>
                 <td>
                   <p>
-                    is a <span class="application">bash</span> script that
-                    reformats the <code class="filename">certdata.txt</code>
-                    file for use by <span class="application">openssl</span>.
+                    is a shell script that reformats the <code class=
+                    "filename">certdata.txt</code> file for use by
+                    <span class="application">openssl</span>.
                   </p>
                 </td>
               </tr>
@@ -483,15 +498,16 @@ unset SSLDIR</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 06:45:35 -0800
+        Last updated on 2014-09-11 23:27:59 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="attr.html" title="attr-2.4.47">Prev</a>
+          <a accesskey="p" href="vulnerabilities.html" title=
+          "Vulnerabilities">Prev</a>
           <p>
-            attr-2.4.47
+            Vulnerabilities
           </p>
         </li>
         <li class="next">
@@ -507,7 +523,7 @@ unset SSLDIR</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

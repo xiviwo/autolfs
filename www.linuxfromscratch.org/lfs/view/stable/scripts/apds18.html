@@ -5,58 +5,58 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      D.18.&nbsp;/etc/rc.d/init.d/sendsignals
+      D.18.&nbsp;/etc/rc.d/init.d/reboot
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds17.html" title=
-          "/etc/rc.d/init.d/network">Prev</a>
+          "/etc/rc.d/init.d/sendsignals">Prev</a>
           <p>
-            /etc/rc.d/init.d/network
+            /etc/rc.d/init.d/sendsignals
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds19.html" title=
-          "/etc/rc.d/init.d/reboot">Next</a>
+          "/etc/rc.d/init.d/halt">Next</a>
           <p>
-            /etc/rc.d/init.d/reboot
+            /etc/rc.d/init.d/halt
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="sendsignals" name="sendsignals"></a>D.18.
-        /etc/rc.d/init.d/sendsignals
+        <a id="rebootscript" name="rebootscript"></a>D.18.
+        /etc/rc.d/init.d/reboot
       </h1>
       <pre class="screen">
 #!/bin/sh
 ########################################################################
-# Begin sendsignals
+# Begin reboot
 #
-# Description : Sendsignals Script
+# Description : Reboot Scripts
 #
 # Authors     : Gerard Beekmans - gerard@linuxfromscratch.org
 #               DJ Lucas - dj@linuxfromscratch.org
@@ -67,15 +67,15 @@
 ########################################################################
 
 ### BEGIN INIT INFO
-# Provides:            sendsignals
+# Provides:            reboot
 # Required-Start:
 # Should-Start:
-# Required-Stop:       $local_fs swap localnet
+# Required-Stop:
 # Should-Stop:
-# Default-Start:
-# Default-Stop:        0 6
-# Short-Description:   Attempts to kill remaining processes.
-# Description:         Attempts to kill remaining processes.
+# Default-Start:       6
+# Default-Stop:
+# Short-Description:   Reboots the system.
+# Description:         Reboots the System.
 # X-LFS-Provided-By:   LFS
 ### END INIT INFO
 
@@ -83,29 +83,8 @@
 
 case "${1}" in
    stop)
-      log_info_msg "Sending all processes the TERM signal..."
-      killall5 -15
-      error_value=${?}
-
-      sleep ${KILLDELAY}
-
-      if [ "${error_value}" = 0 -o "${error_value}" = 2 ]; then
-         log_success_msg
-      else
-         log_failure_msg
-      fi
-
-      log_info_msg "Sending all processes the KILL signal..."
-      killall5 -9
-      error_value=${?}
-
-      sleep ${KILLDELAY}
-
-      if [ "${error_value}" = 0 -o "${error_value}" = 2 ]; then
-         log_success_msg
-      else
-         log_failure_msg
-      fi
+      log_info_msg "Restarting system..."
+      reboot -d -f -i
       ;;
 
    *)
@@ -115,35 +94,33 @@ case "${1}" in
 
 esac
 
-exit 0
-
-# End sendsignals
+# End reboot
 </pre>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds17.html" title=
-          "/etc/rc.d/init.d/network">Prev</a>
+          "/etc/rc.d/init.d/sendsignals">Prev</a>
           <p>
-            /etc/rc.d/init.d/network
+            /etc/rc.d/init.d/sendsignals
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds19.html" title=
-          "/etc/rc.d/init.d/reboot">Next</a>
+          "/etc/rc.d/init.d/halt">Next</a>
           <p>
-            /etc/rc.d/init.d/reboot
+            /etc/rc.d/init.d/halt
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

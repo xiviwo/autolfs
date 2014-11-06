@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="talloc.html" title="Talloc-2.1.0">Next</a>
+          <a accesskey="n" href="talloc.html" title="Talloc-2.1.1">Next</a>
           <p>
-            Talloc-2.1.0
+            Talloc-2.1.1
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -56,7 +56,7 @@
           maps JSON data to QVariant objects and vice versa.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -99,9 +99,9 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
+          <a class="xref" href="../x/qt4.html" title="Qt-4.8.6">Qt-4.8.6</a>
           and <a class="xref" href="cmake.html" title=
-          "CMake-2.8.12.2">CMake-2.8.12.2</a>
+          "CMake-3.0.1">CMake-3.0.1</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -119,8 +119,8 @@
         <pre class="userinput">
 <kbd class="command">mkdir build &amp;&amp;
 cd build &amp;&amp;
-cmake -DCMAKE_INSTALL_PREFIX=$QTDIR \
-      -DCMAKE_BUILD_TYPE=Release \
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release  \
       .. &amp;&amp;
 make</kbd>
 </pre>
@@ -160,8 +160,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directory:</strong>
-              <span class="segbody">$QTDIR/include/json and
-              $QTDIR/lib/cmake/qjson</span>
+              <span class="segbody">$QT4DIR/include/json and
+              $QT4DIR/lib/cmake/qjson</span>
             </div>
           </div>
         </div>
@@ -191,7 +191,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-27 09:10:28 -0800
+        Last updated on 2014-09-15 22:13:43 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -203,9 +203,9 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="talloc.html" title="Talloc-2.1.0">Next</a>
+          <a accesskey="n" href="talloc.html" title="Talloc-2.1.1">Next</a>
           <p>
-            Talloc-2.1.0
+            Talloc-2.1.1
           </p>
         </li>
         <li class="up">
@@ -214,7 +214,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

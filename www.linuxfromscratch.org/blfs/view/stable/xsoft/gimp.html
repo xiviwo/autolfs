@@ -5,26 +5,27 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Gimp-2.8.10
+      Gimp-2.8.14
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;38.&nbsp;Other X-based Programs
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="ekiga.html" title="Ekiga-4.0.1">Prev</a>
+          <a accesskey="p" href="fontforge.html" title=
+          "FontForge-2.0.20140101">Prev</a>
           <p>
-            Ekiga-4.0.1
+            FontForge-2.0.20140101
           </p>
         </li>
         <li class="next">
@@ -39,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gimp" name="gimp"></a>Gimp-2.8.10
+        <a id="gimp" name="gimp"></a>Gimp-2.8.14
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +58,7 @@
           image composition and image authoring.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -68,18 +69,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://artfiles.org/gimp.org/gimp/v2.8/gimp-2.8.10.tar.bz2">http://artfiles.org/gimp.org/gimp/v2.8/gimp-2.8.10.tar.bz2</a>
+                "http://download.gimp.org/pub/gimp/v2.8/gimp-2.8.14.tar.bz2">http://download.gimp.org/pub/gimp/v2.8/gimp-2.8.14.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gimp.org/pub/gimp/v2.8/gimp-2.8.10.tar.bz2">ftp://ftp.gimp.org/pub/gimp/v2.8/gimp-2.8.10.tar.bz2</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                Download MD5 sum: 84c964aab7044489af69f7319bb59b47
+                Download MD5 sum: 233c948203383fa078434cc3f8f925cb
               </p>
             </li>
             <li>
@@ -89,17 +84,17 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 570 MB (additional 553 MB to
-                run the test suite, the help files add from 288 MB (en only)
-                to 1.3 GB (all 18 languages), typically increasing by 54 MB
-                per translation)
+                Estimated disk space required: 642 MB (additional 553 MB to
+                run the test suite, the help files add from 307 MB (en only)
+                to reputedly 1.3 GB (all 18 languages), typically increasing
+                by 60 MB per translation)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 4.7 SBU (additional 0.9 SBU to run the
-                test suite, for the help files from 0.6 SBU (en only) to 19
-                SBU (all) - typically 1.3 SBU per translation)
+                Estimated build time: 4.2 SBU (additional 0.9 SBU to run the
+                test suite, and for the help files, from 0.6 SBU (en only) to
+                reputedly 19 SBU (all) - typically 1.3 SBU per translation)
               </p>
             </li>
           </ul>
@@ -112,31 +107,25 @@
             <li>
               <p>
                 Optional help files: <a class="ulink" href=
-                "ftp://gimp.org/pub/gimp/help/gimp-help-2.8.1.tar.bz2">ftp://gimp.org/pub/gimp/help/gimp-help-2.8.1.tar.bz2</a>
+                "http://download.gimp.org/pub/gimp/help/gimp-help-2.8.2.tar.bz2">
+                http://download.gimp.org/pub/gimp/help/gimp-help-2.8.2.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 7f48c64bcadab9611ce8d3d89d990bb4
+                Download MD5 sum: a591c8974b2f4f584d0a769d52ed6c5b
               </p>
             </li>
             <li>
               <p>
-                Download size: 133 MB
-              </p>
-            </li>
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/gimp-2.8.10-freetype-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/gimp-2.8.10-freetype-1.patch</a>
+                Download size: 152 MB
               </p>
             </li>
             <li>
               <p>
                 Optional patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/gimp-2.8.10-device_info-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/gimp-2.8.10-device_info-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/gimp-2.8.14-device_info-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/gimp-2.8.14-device_info-1.patch</a>
               </p>
             </li>
           </ul>
@@ -149,10 +138,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/gegl.html" title=
-          "gegl-0.2.0">gegl-0.2.0</a>, <a class="xref" href="../x/gtk2.html"
-          title="GTK+-2.24.22">GTK+-2.24.22</a> and <a class="xref" href=
-          "../general/intltool.html" title=
-          "Intltool-0.50.2">Intltool-0.50.2</a>
+          "gegl-0.2.0">gegl-0.2.0</a> and <a class="xref" href=
+          "../x/gtk2.html" title="GTK+-2.24.24">GTK+-2.24.24</a>
         </p>
         <h4>
           Recommended
@@ -169,35 +156,36 @@
           <a class="xref" href="../general/aalib.html" title=
           "AAlib-1.4rc5">AAlib-1.4rc5</a>, <a class="xref" href=
           "../multimedia/alsa-lib.html" title=
-          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>, <a class="xref" href=
-          "../basicnet/curl.html" title="cURL-7.35.0">cURL-7.35.0</a>,
+          "alsa-lib-1.0.28">alsa-lib-1.0.28</a>, <a class="xref" href=
+          "../basicnet/curl.html" title="cURL-7.37.1">cURL-7.37.1</a>,
           <a class="xref" href="../general/dbus-glib.html" title=
           "dbus-glib-0.102">dbus-glib-0.102</a>, <a class="xref" href=
-          "../pst/gs.html" title="ghostscript-9.10">ghostscript-9.10</a>
+          "../pst/gs.html" title="ghostscript-9.14">ghostscript-9.14</a>
           (with libgs installed), <a class="xref" href="../gnome/gvfs.html"
-          title="Gvfs-1.18.3">Gvfs-1.18.3</a>, <a class="xref" href=
-          "../general/iso-codes.html" title="ISO Codes-3.51">ISO
-          Codes-3.51</a>, <a class="xref" href="../general/jasper.html"
+          title="Gvfs-1.20.3">Gvfs-1.20.3</a>, <a class="xref" href=
+          "../general/iso-codes.html" title="ISO Codes-3.56">ISO
+          Codes-3.56</a>, <a class="xref" href="../general/jasper.html"
           title="JasPer-1.900.1">JasPer-1.900.1</a>, <a class="xref" href=
           "../general/lcms.html" title="Little CMS-1.19">Little CMS-1.19</a>
           or <a class="xref" href="../general/lcms2.html" title=
-          "Little CMS-2.5">Little CMS-2.5</a>, <a class="xref" href=
+          "Little CMS-2.6">Little CMS-2.6</a>, <a class="xref" href=
           "../general/libexif.html" title=
           "libexif-0.6.21">libexif-0.6.21</a>, <a class="xref" href=
           "../general/libmng.html" title="libmng-2.0.2">libmng-2.0.2</a>,
           <a class="xref" href="../general/librsvg.html" title=
-          "librsvg-2.40.1">librsvg-2.40.1</a>, <a class="ulink" href=
+          "librsvg-2.40.3">librsvg-2.40.3</a>, <a class="ulink" href=
           "http://wvware.sourceforge.net/libwmf.html">libwmf</a>, <a class=
           "xref" href="../general/poppler.html" title=
-          "Poppler-0.24.5">Poppler-0.24.5</a>, an <a class="xref" href=
+          "Poppler-0.26.4">Poppler-0.26.4</a>, an <a class="xref" href=
           "../server/mail.html" title=
           "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a> (that provides
           a <span class="command"><strong>sendmail</strong></span> program),
           <a class="xref" href="../general/udev-extras.html" title=
-          "Udev Extras (from systemd)">udev-extras (from systemd)</a> (for
-          GUdev), <a class="xref" href="../x/webkitgtk.html" title=
-          "WebKitGTK+-1.10.2">WebKitGTK+-1.10.2</a> and <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>
+          "Udev Extras (from eudev)">udev-extras (from eudev)</a> (for
+          GUdev), <a class="xref" href="../x/webkitgtk2.html" title=
+          "WebKitGTK+-2.4.5">WebKitGTK+-2.4.5</a> (required for the
+          help-plugin) and <a class="xref" href="../general/gtk-doc.html"
+          title="GTK-Doc-1.20">GTK-Doc-1.20</a>
         </p>
         <h4>
           Optional, for optimizing the PNG files in the help system
@@ -222,7 +210,7 @@
           the following patch:
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../gimp-2.8.10-device_info-1.patch</kbd>
+<kbd class="command">patch -Np1 -i ../gimp-2.8.14-device_info-1.patch</kbd>
 </pre>
         <p>
           Install <span class="application">Gimp</span> by running the
@@ -230,8 +218,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">patch -Np1 -i ../gimp-2.8.10-freetype-1.patch              &amp;&amp;
-./configure --prefix=/usr --sysconfdir=/etc --without-gvfs &amp;&amp;
+"command">./configure --prefix=/usr --sysconfdir=/etc --without-gvfs &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -295,9 +282,9 @@ chown -R root:root /usr/share/gimp/2.0/help</kbd>
             <code class=
             "filename">/usr/share/applications/mimeinfo.cache</code>. To
             perform the update you must have <a class="xref" href=
-            "../x/gtk2.html" title="GTK+-2.24.22">GTK+-2.24.22</a> or
+            "../x/gtk2.html" title="GTK+-2.24.24">GTK+-2.24.24</a> or
             <a class="xref" href="../x/gtk3.html" title=
-            "GTK+-3.10.7">GTK+-3.10.7</a> installed (for the icon cache) and
+            "GTK+-3.12.2">GTK+-3.12.2</a> installed (for the icon cache) and
             <a class="xref" href="../general/desktop-file-utils.html" title=
             "desktop-file-utils-0.22">desktop-file-utils-0.22</a> (for the
             desktop cache) and issue the following commands as the
@@ -405,6 +392,7 @@ update-desktop-database</kbd>
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/gimp, /usr/include/gimp-2.0,
               /usr/lib/gimp, /usr/share/gimp,
+              /usr/share/gimp/2.0/help/{en,lang2,lang3,...},
               /usr/share/gtk-doc/html/{libgimp,libgimpbase,libgimpcolor},
               /usr/share/gtk-doc/html/{libgimpconfig,libgimpmath},
               /usr/share/gtk-doc/html/{libgimpmodule,libgimpthumb} and
@@ -654,15 +642,16 @@ update-desktop-database</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-19 12:41:42 -0800
+        Last updated on 2014-09-13 17:48:40 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="ekiga.html" title="Ekiga-4.0.1">Prev</a>
+          <a accesskey="p" href="fontforge.html" title=
+          "FontForge-2.0.20140101">Prev</a>
           <p>
-            Ekiga-4.0.1
+            FontForge-2.0.20140101
           </p>
         </li>
         <li class="next">
@@ -677,7 +666,7 @@ update-desktop-database</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

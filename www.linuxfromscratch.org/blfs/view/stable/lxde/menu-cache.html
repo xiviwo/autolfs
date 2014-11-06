@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      menu-cache-0.5.1
+      menu-cache-0.7.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;34.&nbsp;LXDE Desktop
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="lxde-icon-theme.html" title=
-          "lxde-icon-theme-0.5.0">Prev</a>
+          <a accesskey="p" href="libfm-extra.html" title=
+          "libfm-extra-1.2.2.1">Prev</a>
           <p>
-            lxde-icon-theme-0.5.0
+            libfm-extra-1.2.2.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libfm.html" title="libfm-1.1.4">Next</a>
+          <a accesskey="n" href="libfm.html" title="libfm-1.2.2.1">Next</a>
           <p>
-            libfm-1.1.4
+            libfm-1.2.2.1
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="menu-cache" name="menu-cache"></a>menu-cache-0.5.1
+        <a id="menu-cache" name="menu-cache"></a>menu-cache-0.7.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           manipulation for freedesktop.org defined application menus.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,28 +69,29 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/lxde/menu-cache-0.5.1.tar.gz">
-                http://downloads.sourceforge.net/lxde/menu-cache-0.5.1.tar.gz</a>
+                "http://downloads.sourceforge.net/lxde/menu-cache-0.7.0.tar.xz">
+                http://downloads.sourceforge.net/lxde/menu-cache-0.7.0.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: fd296c317a235782fbbd37b6f54bc985
+                Download MD5 sum: 515a69ab45bc9963e053756ab7e5b529
               </p>
             </li>
             <li>
               <p>
-                Download size: 400 KB
+                Download size: 256 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 5.6 MB
+                Estimated disk space required: 3.2 MB (additional 0.5 MB to
+                build and install the API documentation)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.2 SBU
+                Estimated build time: less than 0.1 SBU
               </p>
             </li>
           </ul>
@@ -102,15 +103,15 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a>
+          <a class="xref" href="libfm-extra.html" title=
+          "libfm-extra-1.2.2.1">libfm-extra-1.2.2.1</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.19">GTK-Doc-1.19</a>
+          "GTK-Doc-1.20">GTK-Doc-1.20</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -149,9 +150,10 @@ make</kbd>
           switch prevents installation of static versions of the libraries.
         </p>
         <p>
-          <code class="option">--enable-gtk-doc</code>: Use this parameter if
+          <code class="option">--enable-gtk-doc</code>: Use this option if
           <span class="application">GTK-Doc</span> is installed and you wish
-          to rebuild and install the API documentation.
+          to build and install the API documentation. With this option
+          enabled, the package doesn't support parallel build.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -171,7 +173,7 @@ make</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/menu-cache,
-              /usr/lib/menu-cache, /usr/libexec/menu-cache and
+              /usr/libexec/menu-cache and
               /usr/share/gtk-doc/html/libmenu-cache</span>
             </div>
           </div>
@@ -203,22 +205,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-03 16:39:21 -0800
+        Last updated on 2014-09-13 22:25:33 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="lxde-icon-theme.html" title=
-          "lxde-icon-theme-0.5.0">Prev</a>
+          <a accesskey="p" href="libfm-extra.html" title=
+          "libfm-extra-1.2.2.1">Prev</a>
           <p>
-            lxde-icon-theme-0.5.0
+            libfm-extra-1.2.2.1
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libfm.html" title="libfm-1.1.4">Next</a>
+          <a accesskey="n" href="libfm.html" title="libfm-1.2.2.1">Next</a>
           <p>
-            libfm-1.1.4
+            libfm-1.2.2.1
           </p>
         </li>
         <li class="up">
@@ -227,7 +229,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

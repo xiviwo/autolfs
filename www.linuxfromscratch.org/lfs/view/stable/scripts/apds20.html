@@ -5,117 +5,133 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      D.20.&nbsp;/etc/rc.d/init.d/halt
+      D.20.&nbsp;/etc/rc.d/init.d/template
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds19.html" title=
-          "/etc/rc.d/init.d/reboot">Prev</a>
+          "/etc/rc.d/init.d/halt">Prev</a>
           <p>
-            /etc/rc.d/init.d/reboot
+            /etc/rc.d/init.d/halt
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds21.html" title=
-          "/etc/rc.d/init.d/template">Next</a>
+          "/etc/sysconfig/modules">Next</a>
           <p>
-            /etc/rc.d/init.d/template
+            /etc/sysconfig/modules
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="haltscript" name="haltscript"></a>D.20. /etc/rc.d/init.d/halt
+        <a id="template" name="template"></a>D.20. /etc/rc.d/init.d/template
       </h1>
       <pre class="screen">
 #!/bin/sh
 ########################################################################
-# Begin halt
+# Begin scriptname
 #
-# Description : Halt Script
+# Description :
 #
-# Authors     : Gerard Beekmans - gerard@linuxfromscratch.org
-#               DJ Lucas - dj@linuxfromscratch.org
-# Update      : Bruce Dubbs - bdubbs@linuxfromscratch.org
+# Authors     :
 #
-# Version     : LFS 7.0
+# Version     : LFS x.x
+#
+# Notes       :
 #
 ########################################################################
 
 ### BEGIN INIT INFO
-# Provides:            halt
+# Provides:            template
 # Required-Start:
 # Should-Start:
 # Required-Stop:
 # Should-Stop:
-# Default-Start:       0
+# Default-Start:
 # Default-Stop:
-# Short-Description:   Halts the system.
-# Description:         Halts the System.
-# X-LFS-Provided-By:   LFS
+# Short-Description:
+# Description:
+# X-LFS-Provided-By:
 ### END INIT INFO
 
+. /lib/lsb/init-functions
+
 case "${1}" in
+   start)
+      log_info_msg "Starting..."
+      start_daemon fully_qualified_path
+      ;;
+
    stop)
-      halt -d -f -i -p
+      log_info_msg "Stopping..."
+      killproc fully_qualified_path
+      ;;
+
+   restart)
+      ${0} stop
+      sleep 1
+      ${0} start
       ;;
 
    *)
-      echo "Usage: {stop}"
+      echo "Usage: ${0} {start|stop|restart}"
       exit 1
       ;;
 esac
 
-# End halt
+exit 0
+
+# End scriptname
 </pre>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds19.html" title=
-          "/etc/rc.d/init.d/reboot">Prev</a>
+          "/etc/rc.d/init.d/halt">Prev</a>
           <p>
-            /etc/rc.d/init.d/reboot
+            /etc/rc.d/init.d/halt
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds21.html" title=
-          "/etc/rc.d/init.d/template">Next</a>
+          "/etc/sysconfig/modules">Next</a>
           <p>
-            /etc/rc.d/init.d/template
+            /etc/sysconfig/modules
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

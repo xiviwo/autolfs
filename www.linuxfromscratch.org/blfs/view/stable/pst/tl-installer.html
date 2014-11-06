@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;48.&nbsp;Typesetting
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="texlive.html" title=
-          "texlive-20130530">Next</a>
+          "texlive-20140525">Next</a>
           <p>
-            texlive-20130530
+            texlive-20140525
           </p>
         </li>
         <li class="up">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -55,8 +55,8 @@
         </h2>
         <p>
           The <span class="application">TeX Live</span> package is a
-          comprehensive TeX document production system. It includes TEX,
-          LaTeX2e, ConTEXt, Metafont, MetaPost, BibTeX and many other
+          comprehensive TeX document production system. It includes TeX,
+          LaTeX2e, ConTeXt, Metafont, MetaPost, BibTeX and many other
           programs; an extensive collection of macros, fonts and
           documentation; and support for typesetting in many different
           scripts from around the world.
@@ -67,14 +67,15 @@
           supporting files and documentation. After that, you can rebuild the
           programs from source by following the instructions for <a class=
           "xref" href="texlive.html" title=
-          "texlive-20130530">texlive-20130530</a>. The installer is updated
-          frequently, so its md5sum will change if it is newer than what is
-          shown below. Newer versions of the installer are expected to work
-          with these instructions, for so long as they install to a
-          <code class="filename">2013/</code> directory.
+          "texlive-20140525">texlive-20140525</a> and <a class="xref" href=
+          "biber.html" title="biblatex-biber-1.8">biber-1.8</a>. The
+          installer is updated frequently, so its md5sum will change if it is
+          newer than what is shown below. Newer versions of the installer are
+          expected to work with these instructions, for so long as they
+          install to a <code class="filename">2014/</code> directory.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -91,13 +92,13 @@
             </li>
             <li>
               <p>
-                Download MD5 sum: d90a8e6b1d9d96210a95ed7901356f41 (at
-                20140213)
+                Download MD5 sum: f5b1e909d5c2380cefd2cda83d288c00 (at
+                20140628)
               </p>
             </li>
             <li>
               <p>
-                Download size: 2.9 MB
+                Download size: 3.2 MB
               </p>
             </li>
             <li>
@@ -119,38 +120,54 @@
         <p class="recommended">
           The binaries are mostly linked to static libraries such as
           <code class="filename">libc.a</code>, but a few of the programs and
-          several scripts will fail if the following packages are not present
-          - there may be other libraries which are dynamically loaded.
+          several scripts will fail if the following packages are not
+          present.
         </p>
         <p>
           <a class="xref" href="gs.html" title=
-          "ghostscript-9.10">ghostscript-9.10</a> is dynamically loaded by
-          (at least) asy.
-        </p>
-        <p>
-          <a class="xref" href="../x/libdrm.html" title=
-          "libdrm-2.4.52">libdrm-2.4.52</a>, <a class="xref" href=
-          "../x/freeglut.html" title="Freeglut-2.8.1">Freeglut-2.8.1</a> and
-          <a class="xref" href="../x/glu.html" title=
-          "GLU-9.0.0">GLU-9.0.0</a> are needed for asy.
+          "ghostscript-9.14">ghostscript-9.14</a> is dynamically loaded by
+          dvisvgm, which is used by <span class="application">asy</span>.
         </p>
         <p>
           <a class="xref" href="../x/x7lib.html" title="Xorg Libraries">Xorg
           Libraries</a> and <a class="xref" href="../x/libxcb.html" title=
-          "libxcb-1.10">libxcb-1.10</a> are needed for asy, inimf, mf,
-          pdfclose, pdfopen and xdvixaw.
+          "libxcb-1.11">libxcb-1.11</a> are needed for inimf, mf, pdfclose,
+          pdfopen and xdvixaw. But if you are using asy, or using
+          <span class="application">TeX</span> to create a PDF file, you will
+          need an <a class="xref" href="../x/installing.html" title=
+          "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
+          System</a> (for PDF files, this is to support a PDF viewer of your
+          choice, for example <a class="xref" href="epdfview.html" title=
+          "ePDFView-0.1.8">epdfview-0.1.8</a>).
         </p>
         <p>
-          the optional non-wide-character ncurses libraries (for "some
+          the optional non-wide-character ncurses library (for "some
           binary-only application") from the bottom of the <span class=
-          "application">Ncurses</span> page in LFS are needed for asy and
-          xindy.run.
+          "application">Ncurses</span> page in LFS is needed for xindy.run
+          which is used by <span class="application">xindy</span>
+        </p>
+        <p>
+          If you are building on 32-bit x86, the binary version of asy needs
+          <a class="ulink" href="http://www.fftw.org/">FFTW</a>, <a class=
+          "xref" href="../x/glu.html" title="GLU-9.0.0">GLU-9.0.0</a> and
+          <a class="ulink" href=
+          "ftp://ftp.gnu.org/gnu/readline/readline-5.2.tar.gz">libreadline-5.2</a>
+          : this only requires <code class=
+          "filename">libreadline.so.5.2</code> which can be manually copied
+          from the <code class="filename">shm/</code> directory after running
+          <span class="command"><strong>configure</strong></span> and
+          <span class="command"><strong>make</strong></span> and then
+          symlinked as <code class="filename">libreadline.so.5</code>.
+        </p>
+        <p>
+          <a class="xref" href="../general/python2.html" title=
+          "Python-2.7.8">Python-2.7.8</a> is used by many scripts.
         </p>
         <p>
           <a class="xref" href="../general/ruby.html" title=
-          "Ruby-2.1.0">Ruby-2.1.0</a> is used by many scripts, <a class=
-          "xref" href="../general/tk.html" title="Tk-8.6.1">Tk-8.6.1</a> is
-          used by epspdftk
+          "Ruby-2.1.2">Ruby-2.1.2</a> is used by some scripts, mostly within
+          mtx_context which is part of <span class=
+          "application">conTeXt</span>.
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -169,16 +186,12 @@
           "filename">/opt/texlive</code>.
         </p>
         <p>
-          First, unpack the installer and change into the installer's
+          As with any other package, unpack the installer and change into its
           directory, <code class=
           "filename">install-tl-&lt;CCYYMMDD&gt;</code>. This directory name
           changes when the installer is updated, so replace &lt;CCYYMMDD&gt;
           by the correct directory name.
         </p>
-        <pre class="userinput">
-<kbd class="command">tar -xf install-tl-unx.tar.gz &amp;&amp;
-cd install-tl-&lt;CCYYMMDD&gt; </kbd>
-</pre>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
           <h3>
@@ -196,7 +209,7 @@ cd install-tl-&lt;CCYYMMDD&gt; </kbd>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
-        <pre class="userinput">
+        <pre class="root">
 <kbd class="command">TEXLIVE_INSTALL_PREFIX=/opt/texlive ./install-tl</kbd>
 </pre>
         <p>
@@ -213,19 +226,21 @@ cd install-tl-&lt;CCYYMMDD&gt; </kbd>
           "../postlfs/profile.html" title="The Bash Shell Startup Files">The
           Bash Shell Startup Files</a>, update the needed paths by appending
           to the <code class="filename">extrapaths.sh</code> script. The
-          programs are always installed in an &lt;ARCH&gt;-linux
-          subdirectory. If you are not using x86_64, <span class=
-          "emphasis"><em>always</em></span> change that to your actual
-          installation location.
+          programs are always installed in an &lt;ARCH&gt;-linux subdirectory
+          and on 32-bit x86 this is always i386-linux. For x86_64 and i?86 we
+          can generate this as $TEXARCH:
         </p>
-        <pre class="userinput">
-<kbd class="command">cat &gt;&gt; /etc/profile.d/extrapaths.sh &lt;&lt; "EOF"
+        <pre class="root">
+<kbd class=
+"command">export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &amp;&amp;
+cat &gt;&gt; /etc/profile.d/extrapaths.sh &lt;&lt; EOF
 pathappend /usr/share/man                        MANPATH
-pathappend /opt/texlive/2013/texmf-dist/doc/man  MANPATH
+pathappend /opt/texlive/2014/texmf-dist/doc/man  MANPATH
 pathappend /usr/share/info                       INFOPATH
-pathappend /opt/texlive/2013/texmf-dist/doc/info INFOPATH
-pathappend /opt/texlive/2013/bin/x86_64-linux
-EOF</kbd>
+pathappend /opt/texlive/2014/texmf-dist/doc/info INFOPATH
+pathappend /opt/texlive/2014/bin/$TEXARCH
+EOF
+unset TEXARCH</kbd>
 </pre>
         <div class="admon note">
           <img alt="[Note]" src="../images/note.png" />
@@ -245,6 +260,19 @@ EOF</kbd>
         </p>
         <p>
           At this point the binary installation is complete.
+        </p>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">./install-tl --location
+          http://mirror.aut.ac.nz/CTAN/systems/texlive/tlnet/</code>: use a
+          variation of this if you wish to use a different mirror, e.g.
+          because you are in New Zealand but the installer chooses to use an
+          Australian mirror. The list of mirrors is at
+          http://ctan.org/mirrors.
         </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -286,12 +314,13 @@ EOF</kbd>
                 </td>
                 <td>
                   <p>
-                    included in the <span class="application">TeX Live</span>
-                    package are too numerous to individually list. Please
-                    refer to the individual program man and html pages in the
-                    installation directory's 2011/index.html directory, or
-                    the various PDF files within the subdirectories of
-                    texmf-dist.
+                    The programs included in <span class=
+                    "application">TeX</span> are too numerous to individually
+                    list. Please refer to the individual program HTML and PDF
+                    pages in the installation directory's <code class=
+                    "filename">2014/doc.html</code> file, or the various
+                    html, man, or pdf files within the subdirectories of
+                    <code class="filename">2014/texmf-dist/</code>.
                   </p>
                 </td>
               </tr>
@@ -300,7 +329,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 17:33:15 -0800
+        Last updated on 2014-09-20 00:07:29 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -314,9 +343,9 @@ EOF</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="texlive.html" title=
-          "texlive-20130530">Next</a>
+          "texlive-20140525">Next</a>
           <p>
-            texlive-20130530
+            texlive-20140525
           </p>
         </li>
         <li class="up">
@@ -325,7 +354,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

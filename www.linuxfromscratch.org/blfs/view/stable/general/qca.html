@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           using plugins known as Providers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -103,7 +103,7 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
+          <a class="xref" href="../x/qt4.html" title="Qt-4.8.6">Qt-4.8.6</a>
           and <a class="xref" href="which.html" title=
           "Which-2.20 and Alternatives">Which-2.20</a>
         </p>
@@ -123,9 +123,10 @@
         <pre class="userinput">
 <kbd class=
 "command">sed -i '217s@set@this-&gt;set@' src/botantools/botan/botan/secmem.h &amp;&amp;
-./configure --prefix=$QTDIR \
-            --certstore-path=/etc/ssl/ca-bundle.crt \
-            --no-separate-debug-info &amp;&amp;
+
+./configure --prefix=/usr            \
+                 --no-separate-debug-info \
+            --certstore-path=/etc/ssl/ca-bundle.crt &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -177,7 +178,7 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">$QTDIR/include/QtCrypto</span>
+              <span class="segbody">$QT4DIR/include/QtCrypto</span>
             </div>
           </div>
         </div>
@@ -221,7 +222,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-27 09:10:28 -0800
+        Last updated on 2014-09-15 22:13:43 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -244,7 +245,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

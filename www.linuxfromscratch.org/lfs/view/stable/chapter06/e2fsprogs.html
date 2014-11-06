@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.25.&nbsp;E2fsprogs-1.42.9
+      6.28.&nbsp;E2fsprogs-1.42.12
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -30,9 +30,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="coreutils.html" title=
-          "Coreutils-8.22">Next</a>
+          "Coreutils-8.23">Next</a>
           <p>
-            Coreutils-8.22
+            Coreutils-8.23
           </p>
         </li>
         <li class="up">
@@ -41,14 +41,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-e2fsprogs" name="ch-system-e2fsprogs"></a>6.25.
-        E2fsprogs-1.42.9
+        <a id="ch-system-e2fsprogs" name="ch-system-e2fsprogs"></a>6.28.
+        E2fsprogs-1.42.12
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -61,27 +61,19 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">1.7 SBU</span>
+              <span class="segbody">3.8 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">64 MB</span>
+              <span class="segbody">47 MB</span>
             </div>
           </div>
         </div>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.25.1. Installation of E2fsprogs
+          6.28.1. Installation of E2fsprogs
         </h2>
-        <p>
-          First fix a problem with running regression tests in the LFS chroot
-          environment:
-        </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i -e 's|^LD_LIBRARY_PATH.*|&amp;:/tools/lib|' tests/test_config</kbd>
-</pre>
         <p>
           The E2fsprogs documentation recommends that the package be built in
           a subdirectory of the source tree:
@@ -98,6 +90,7 @@ cd build</kbd>
 CFLAGS=-I/tools/include              \
 PKG_CONFIG_PATH=/tools/lib/pkgconfig \
 ../configure --prefix=/usr           \
+             --bindir=/bin           \
              --with-root-prefix=""   \
              --enable-elf-shlibs     \
              --disable-libblkid      \
@@ -119,13 +112,14 @@ PKG_CONFIG_PATH=/tools/lib/pkgconfig \
               <p>
                 These variables enable e2fsprogs to be built using the
                 <a class="xref" href="../chapter05/util-linux.html" title=
-                "5.33.&nbsp;Util-linux-2.24.1">Section&nbsp;5.33,
-                &ldquo;Util-linux-2.24.1&rdquo;</a> package built earlier.
+                "5.33.&nbsp;Util-linux-2.25.1">Section&nbsp;5.33,
+                &ldquo;Util-linux-2.25.1&rdquo;</a> package built earlier.
               </p>
             </dd>
             <dt>
               <span class="term"><em class=
-              "parameter"><code>--with-root-prefix=""</code></em></span>
+              "parameter"><code>--with-root-prefix=""</code></em> and
+              <em class="parameter"><code>--bindir=/bin</code></em></span>
             </dt>
             <dd>
               <p>
@@ -161,7 +155,7 @@ PKG_CONFIG_PATH=/tools/lib/pkgconfig \
                 "systemitem">libblkid</code> libraries, the <code class=
                 "systemitem">uuidd</code> daemon, and the <span class=
                 "command"><strong>fsck</strong></span> wrapper, as Util-Linux
-                installed all of them earlier.
+                installs more recent versions.
               </p>
             </dd>
           </dl>
@@ -173,10 +167,13 @@ PKG_CONFIG_PATH=/tools/lib/pkgconfig \
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          To set up and run the test suite we need to first link some
+          libraries from /tools/lib to a location where the test programs
+          look. To run the tests, issue:
         </p>
         <pre class="userinput">
-<kbd class="command">make check</kbd>
+<kbd class="command">ln -sfv /tools/lib/lib{blk,uu}id.so.1 lib
+make LD_LIBRARY_PATH=/tools/lib check</kbd>
 </pre>
         <p>
           One of the E2fsprogs tests will attempt to allocate 256 MB of
@@ -188,9 +185,7 @@ PKG_CONFIG_PATH=/tools/lib/pkgconfig \
           <a class="xref" href="../chapter02/mounting.html" title=
           "2.4.&nbsp;Mounting the New Partition">Section&nbsp;2.4,
           &ldquo;Mounting the New Partition&rdquo;</a> for details on
-          creating and enabling swap space. Additionally, three tests try to
-          allocate a two terabyte partition and will fail unless you have at
-          least that much unused disk space available.
+          creating and enabling swap space.
         </p>
         <p>
           Install the binaries, documentation, and shared libraries:
@@ -236,7 +231,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-e2fsprogs" name="contents-e2fsprogs"></a>6.25.2.
+          <a id="contents-e2fsprogs" name="contents-e2fsprogs"></a>6.28.2.
           Contents of E2fsprogs
         </h2>
         <div class="segmentedlist">
@@ -256,7 +251,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
               libext2fs.{a,so}, libquota.a, and libss.{a,so}</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
+              <strong class="segtitle">Installed directories:</strong>
               <span class="segbody">/usr/include/e2p, /usr/include/et,
               /usr/include/ext2fs, /usr/include/quota, /usr/include/ss,
               /usr/share/et, /usr/share/ss</span>
@@ -785,9 +780,9 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="coreutils.html" title=
-          "Coreutils-8.22">Next</a>
+          "Coreutils-8.23">Next</a>
           <p>
-            Coreutils-8.22
+            Coreutils-8.23
           </p>
         </li>
         <li class="up">
@@ -796,7 +791,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

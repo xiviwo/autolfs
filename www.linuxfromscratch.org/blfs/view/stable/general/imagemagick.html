@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      ImageMagick-6.8.8-6
+      ImageMagick-6.8.9-7
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;11.&nbsp;General Utilities
@@ -29,10 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="intltool.html" title=
-          "Intltool-0.50.2">Next</a>
+          <a accesskey="n" href="iso-codes.html" title=
+          "ISO Codes-3.56">Next</a>
           <p>
-            Intltool-0.50.2
+            ISO Codes-3.56
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="imagemagick" name="imagemagick"></a>ImageMagick-6.8.8-6
+        <a id="imagemagick" name="imagemagick"></a>ImageMagick-6.8.9-7
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,7 +61,7 @@
           available.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -72,31 +72,31 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-6.8.8-6.tar.xz">
-                ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-6.8.8-6.tar.xz</a>
+                "ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-6.8.9-7.tar.xz">
+                ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-6.8.9-7.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 3b9be99a2f49e60bc2acfde0c2bbe0c6
+                Download MD5 sum: 763db53af657867e067cc74d6a532f49
               </p>
             </li>
             <li>
               <p>
-                Download size: 7.2 MB
+                Download size: 7.3 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 156 MB (with typical
+                Estimated disk space required: 148 MB (with typical
                 dependencies, additional 29 MB to run the test suite,
                 reputedly 450 MB with all dependencies)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 2.3 SBU (typical build - additional 4.9
-                SBU to run the test suite and 6.0 SBU to run the validation
+                Estimated build time: 2.4 SBU (typical build - additional 5.4
+                SBU to run the test suite and 12.6 SBU to run the validation
                 suite)
               </p>
             </li>
@@ -118,8 +118,8 @@
             <code class="filename">legacy/</code> directory at <code class=
             "literal">ftp.ImageMagick.org/pub/ImageMagick</code> you can
             download it from the BLFS package server at <a class="ulink"
-            href="http://anduin.linuxfromscratch.org/sources/BLFS/svn/i/ImageMagick-6.8.8-6.tar.xz">
-            http://anduin.linuxfromscratch.org/sources/BLFS/svn/i/ImageMagick-6.8.8-6.tar.xz</a>.
+            href="http://anduin.linuxfromscratch.org/sources/BLFS/svn/i/ImageMagick-6.8.9-7.tar.xz">
+            http://anduin.linuxfromscratch.org/sources/BLFS/svn/i/ImageMagick-6.8.9-7.tar.xz</a>.
           </p>
         </div>
         <h3>
@@ -129,9 +129,8 @@
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="../x/installing.html" title=
-          "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
-          System</a>
+          <a class="xref" href="../x/x7lib.html" title="Xorg Libraries">Xorg
+          Libraries</a>
         </p>
         <p>
           The optional dependencies listed below should be installed if you
@@ -153,57 +152,62 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../pst/cups.html" title=
-          "Cups-1.7.1">Cups-1.7.1</a>, <a class="xref" href=
-          "../basicnet/curl.html" title="cURL-7.35.0">cURL-7.35.0</a>,
-          <a class="ulink" href="http://dmalloc.com/">Dmalloc</a>, <a class=
-          "ulink" href=
+          "Cups-1.7.5">Cups-1.7.5</a>, <a class="xref" href=
+          "../basicnet/curl.html" title="cURL-7.37.1">cURL-7.37.1</a>,
+          <a class="xref" href="../multimedia/ffmpeg.html" title=
+          "FFmpeg-2.3.3">FFmpeg-2.3.3</a>, <a class="xref" href="p7zip.html"
+          title="p7zip-9.20.1">p7zip-9.20.1</a> (LZMA), <a class="xref" href=
+          "../pst/sane.html" title="SANE-1.0.24">SANE-1.0.24</a>, <a class=
+          "xref" href="../basicnet/wget.html" title=
+          "Wget-1.15">Wget-1.15</a>, <a class="xref" href=
+          "../xsoft/xdg-utils.html" title=
+          "xdg-utils-1.1.0-rc2">xdg-utils-1.1.0-rc2</a>, <a class="xref"
+          href="../x/xterm.html" title="xterm-310">xterm-310</a>, <a class=
+          "ulink" href="http://dmalloc.com/">Dmalloc</a>, <a class="ulink"
+          href=
           "http://linux.softpedia.com/get/Programming/Debuggers/Electric-Fence-3305.shtml/">
-          Electric Fence</a>, <a class="xref" href=
-          "../multimedia/ffmpeg.html" title="FFmpeg-2.1.3">FFmpeg-2.1.3</a>,
-          <a class="ulink" href="http://www.fftw.org/">FFTW</a>, <a class=
-          "ulink" href="http://www.mupdf.com/">MuPDF</a>, <a class="ulink"
-          href="http://www.openpgp.org/resources/downloads">PGP</a> or
-          <a class="xref" href="../postlfs/gnupg.html" title=
-          "GnuPG-2.0.22">GnuPG-2.0.22</a> (you'll have to do some hacking to
+          Electric Fence</a>, <a class="ulink" href=
+          "http://www.fftw.org/">FFTW</a>, <a class="ulink" href=
+          "http://www.openpgp.org/resources/downloads">PGP</a> or <a class=
+          "xref" href="../postlfs/gnupg.html" title=
+          "GnuPG-2.0.26">GnuPG-2.0.26</a> (you'll have to do some hacking to
           use <span class="application">GnuPG</span>), <a class="ulink" href=
           "ftp://ftp.imagemagick.org/pub/ImageMagick/delegates/profiles.zip">Profiles</a>,
-          <a class="xref" href="../pst/sane.html" title=
-          "SANE-1.0.24">SANE-1.0.24</a>, <a class="ulink" href=
-          "http://ufraw.sourceforge.net/">ufraw</a> (for raw formats listed
-          in <code class="filename">www/formats.html</code>), <a class="xref"
-          href="../basicnet/wget.html" title="Wget-1.15">Wget-1.15</a>, and
-          <a class="xref" href="../xsoft/xdg-utils.html" title=
-          "xdg-utils-1.1.0-rc1">xdg-utils-1.1.0-rc1</a>
+          and <a class="ulink" href="http://ufraw.sourceforge.net/">ufraw</a>
+          (for raw formats listed in <code class=
+          "filename">www/formats.html</code>)
         </p>
         <h4>
           Optional Graphics Libraries
         </h4>
         <p class="optional">
-          <a class="ulink" href=
-          "http://corefonts.sourceforge.net/">corefonts</a>, <a class="ulink"
-          href="http://djvu.sourceforge.net/">DjVuLibre</a>, <a class="ulink"
-          href=
-          "ftp://ftp.imagemagick.org/pub/ImageMagick/delegates/">FlashPIX
-          (libfpx)</a>, <a class="xref" href="jasper.html" title=
-          "JasPer-1.900.1">JasPer-1.900.1</a>, <a class="ulink" href=
-          "http://www.cl.cam.ac.uk/~mgk25/jbigkit/">JBIG-KIT</a>, <a class=
-          "xref" href="lcms.html" title="Little CMS-1.19">Little CMS-1.19</a>
-          or <a class="xref" href="lcms2.html" title="Little CMS-2.5">Little
-          CMS-2.5</a>, <a class="xref" href="libexif.html" title=
+          <a class="xref" href="jasper.html" title=
+          "JasPer-1.900.1">JasPer-1.900.1</a>, <a class="xref" href=
+          "lcms.html" title="Little CMS-1.19">Little CMS-1.19</a> or
+          <a class="xref" href="lcms2.html" title="Little CMS-2.6">Little
+          CMS-2.6</a>, <a class="xref" href="libexif.html" title=
           "libexif-0.6.21">libexif-0.6.21</a>, <a class="xref" href=
-          "libjpeg.html" title="libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>,
+          "libjpeg.html" title="libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a>,
           <a class="xref" href="libpng.html" title=
-          "libpng-1.6.9">libpng-1.6.9</a>, <a class="xref" href=
-          "librsvg.html" title="librsvg-2.40.1">librsvg-2.40.1</a>, <a class=
+          "libpng-1.6.13">libpng-1.6.13</a>, <a class="xref" href=
+          "librsvg.html" title="librsvg-2.40.3">librsvg-2.40.3</a>, <a class=
           "xref" href="libtiff.html" title="LibTIFF-4.0.3">LibTIFF-4.0.3</a>,
           <a class="xref" href="libwebp.html" title=
-          "libwebp-0.4.0">libwebp-0.4.0</a>, <a class="ulink" href=
+          "libwebp-0.4.1">libwebp-0.4.1</a>, <a class="xref" href=
+          "../x/pango.html" title="Pango-1.36.7">Pango-1.36.7</a>, <a class=
+          "ulink" href="http://djvu.sourceforge.net/">DjVuLibre</a>,
+          <a class="ulink" href=
+          "ftp://ftp.imagemagick.org/pub/ImageMagick/delegates/">FlashPIX
+          (libfpx)</a>, <a class="ulink" href=
+          "http://www.cl.cam.ac.uk/~mgk25/jbigkit/">JBIG-KIT</a>, <a class=
+          "ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/libgxps/">libgxps</a>,
+          <a class="ulink" href=
           "http://liblqr.wikidot.com/en:download-page">Liquid Rescale</a>,
           <a class="ulink" href="http://www.openexr.com/">OpenEXR</a>,
-          <a class="xref" href="openjpeg.html" title=
-          "OpenJPEG-1.5.1">OpenJPEG-1.5.1</a>, <a class="xref" href=
-          "../x/pango.html" title="Pango-1.36.2">Pango-1.36.2</a>, and
           <a class="ulink" href=
+          "http://sourceforge.net/projects/openjpeg.mirror/">OpenJPEG 2</a>,
+          and <a class="ulink" href=
           "http://www.agocg.ac.uk/train/cgm/ralcgm.htm">RALCGM</a> (or
           <a class="ulink" href=
           "http://www.mcmurchy.com/ralcgm/ralcgm-3.51.tar.gz">ralcgm</a>)
@@ -212,42 +216,39 @@
           Optional Graphics Utilities
         </h4>
         <p class="optional">
-          <a class="ulink" href="http://www.blender.org/">Blender</a>,
-          <a class="ulink" href="http://dejavu.sourceforge.net/">DejaVu
-          fonts</a>, <a class="ulink" href=
-          "http://www.ghostscript.com/download/gpcldnld.html">GhostPCL</a> or
-          <a class="ulink" href=
-          "http://www.ghostscript.com/download/gpdldnld.html">GhostPDL</a>,
           <a class="xref" href="../pst/gs.html" title=
-          "ghostscript-9.10">ghostscript-9.10</a>, <a class="xref" href=
-          "../xsoft/gimp.html" title="Gimp-2.8.10">Gimp-2.8.10</a>, <a class=
-          "ulink" href="http://www.gnuplot.info/">Gnuplot</a>, <a class=
+          "ghostscript-9.14">ghostscript-9.14</a>, <a class="xref" href=
+          "../xsoft/gimp.html" title="Gimp-2.8.14">Gimp-2.8.14</a>, <a class=
           "xref" href="graphviz.html" title=
-          "Graphviz-2.36.0">Graphviz-2.36.0</a>, <a class="xref" href=
+          "Graphviz-2.38.0">Graphviz-2.38.0</a>, <a class="xref" href=
           "../xsoft/inkscape.html" title=
-          "Inkscape-0.48.4">Inkscape-0.48.4</a>, <a class="ulink" href=
-          "http://www.povray.org/">POV-Ray</a>, and <a class="ulink" href=
+          "Inkscape-0.48.5">Inkscape-0.48.5</a>, <a class="ulink" href=
+          "http://www.blender.org/">Blender</a>, <a class="ulink" href=
+          "http://corefonts.sourceforge.net/">corefonts</a>, <a class="ulink"
+          href="http://dejavu.sourceforge.net/">DejaVu fonts</a>, <a class=
+          "ulink" href=
+          "http://www.ghostscript.com/download/gpcldnld.html">GhostPCL</a>,
+          <a class="ulink" href="http://www.gnuplot.info/">Gnuplot</a>,
+          <a class="ulink" href="http://www.povray.org/">POV-Ray</a>, and
+          <a class="ulink" href=
           "http://radsite.lbl.gov/radiance/HOME.html">Radiance</a>
         </p>
         <h4>
           Optional Conversion Tools
         </h4>
         <p class="optional">
+          <a class="xref" href="../pst/enscript.html" title=
+          "Enscript-1.6.6">Enscript-1.6.6</a>, <a class="xref" href=
+          "../pst/texlive.html" title=
+          "texlive-20140525">texlive-20140525</a>, <a class="ulink" href=
+          "http://autotrace.sourceforge.net/">AutoTrace</a>, <a class="ulink"
+          href="http://www.lizardtech.com/downloads/category/">GeoExpress
+          Command Line Utilities, AKA MrSID Utilities (binary package)</a>,
           <a class="ulink" href=
-          "http://autotrace.sourceforge.net/">AutoTrace</a>, <a class="xref"
-          href="../pst/enscript.html" title=
-          "Enscript-1.6.6">Enscript-1.6.6</a>, <a class="ulink" href=
-          "http://www.lizardtech.com/downloads/category/">GeoExpress Command
-          Line Utilities, AKA MrSID Utilities (binary package)</a>, <a class=
-          "ulink" href="http://www.gnu.org/software/hp2xx/">hp2xx</a>,
+          "http://www.gnu.org/software/hp2xx/">hp2xx</a>, <a class="ulink"
+          href="http://user.it.uu.se/~jan/html2ps.html">html2ps</a>,
+          <a class="ulink" href="http://wvware.sourceforge.net/">libwmf</a>,
           <a class="ulink" href=
-          "http://user.it.uu.se/~jan/html2ps.html">html2ps</a>, <a class=
-          "ulink" href="http://wvware.sourceforge.net/">libwmf</a>, <a class=
-          "ulink" href="http://www.mpeg.org/MSSG/">MPEG-2 Video Codec</a>,
-          <a class="ulink" href="http://netpbm.sourceforge.net/">Netpbm</a>,
-          <a class="xref" href="../pst/texlive.html" title=
-          "texlive-20130530">texlive-20130530</a>, <a class="ulink" href=
-          "http://www.xfig.org/">Transfig</a>, <a class="ulink" href=
           "http://sk1project.org/modules.php?name=products&amp;product=uniconvertor">
           UniConvertor</a>, and <a class="ulink" href=
           "http://www.cs.utah.edu/gdc/projects/urt/">Utah Raster Toolkit</a>
@@ -264,12 +265,13 @@
           Installation of ImageMagick
         </h2>
         <p>
-          Install <span class="application">Imagemagick</span> by running the
+          Install <span class="application">ImageMagick</span> by running the
           following commands:
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr     \
             --sysconfdir=/etc \
+            --enable-hdri     \
             --with-modules    \
             --with-perl       \
             --disable-static  &amp;&amp;
@@ -287,7 +289,10 @@ make</kbd>
           <span class="application">ImageMagick</span> validation suite, also
           after the package is installed. Note that the EPS, PS, and PDF
           tests require a working <span class=
-          "application">Ghostscript</span>.
+          "application">Ghostscript</span>. One test needs "Helvetica" from
+          "Standard Fonts" which are optionally installed in <a class="xref"
+          href="../pst/gs.html" title=
+          "ghostscript-9.14">ghostscript-9.14</a>.
         </p>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -295,10 +300,8 @@ make</kbd>
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>--sysconfdir=/etc</code></em>: Install
-          the <code class="filename">.xml</code> configuration files into
-          <code class="filename">/etc/ImageMagick</code> instead of the
-          default <code class="filename">/usr/etc/ImageMagick</code>.
+          <em class="parameter"><code>--enable-hdri</code></em>: Enables
+          building of a high dynamic range version of ImageMagick.
         </p>
         <p>
           <em class="parameter"><code>--with-modules</code></em>: Enables
@@ -306,16 +309,15 @@ make</kbd>
         </p>
         <p>
           <em class="parameter"><code>--with-perl</code></em>: Enables
-          building and installing PerlMagick.
+          building and installing of PerlMagick.
         </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: Prevents
           the static libraries being built and installed.
         </p>
         <p>
-          <code class="option">--with-gslib=/usr/lib</code>: Enables support
-          to use the <span class="application">Ghostscript</span> shared
-          library.
+          <code class="option">--with-gslib</code>: Enables support to use
+          the <span class="application">Ghostscript</span> shared library.
         </p>
         <p>
           <code class="option">--with-rsvg</code>: Enables support to use the
@@ -364,25 +366,24 @@ make</kbd>
               <strong class="segtitle">Installed Programs:</strong>
               <span class="segbody">animate, compare, composite, conjure,
               convert, display, identify, import, Magick-config,
-              Magic++-config, MagickCore-config, MagickWand-config, mogrify,
+              Magick++-config, MagickCore-config, MagickWand-config, mogrify,
               montage, stream, and Wand-config</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libMagickCore-6.Q16.so,
-              libMagickWand-6.Q16.so, libMagick++-6.Q16.so, numerous modules
-              under /usr/lib/ImageMagick-6.8.8/modules-Q16/{coders,filters}/,
+              <span class="segbody">libMagickCore-6.Q16HDRI.so,
+              libMagickWand-6.Q16HDRI.so, libMagick++-6.Q16HDRI.so,
               /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/auto/Image/Magick/Magick.so,
               and
-              /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/auto/Image/Magick/Q16/Q16.so</span>
+              /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/auto/Image/Magick/Q16HDRI/Q16HDRI.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/ImageMagick-6,
-              /usr/include/ImageMagick-6, /usr/lib/ImageMagick-6.8.8,
-              /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/auto/Image,
-              /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/Image,
-              /usr/share/ImageMagick-6 and
+              /usr/include/ImageMagick-6, /usr/lib/ImageMagick-6.8.9,
+              /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/auto/Image/Magick,
+              /usr/lib/perl5/site_perl/&lt;5.x.y&gt;/&lt;arch-linux&gt;/Image/Magick,
+              /usr/share/ImageMagick-6, and
               /usr/share/doc/ImageMagick-6</span>
             </div>
           </div>
@@ -603,7 +604,7 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 13:02:22 -0800
+        Last updated on 2014-09-17 21:56:07 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -616,10 +617,10 @@ make</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="intltool.html" title=
-          "Intltool-0.50.2">Next</a>
+          <a accesskey="n" href="iso-codes.html" title=
+          "ISO Codes-3.56">Next</a>
           <p>
-            Intltool-0.50.2
+            ISO Codes-3.56
           </p>
         </li>
         <li class="up">
@@ -628,7 +629,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

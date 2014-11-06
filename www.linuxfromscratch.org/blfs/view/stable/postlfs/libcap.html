@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      libcap-2.24
+      libcap-2.24 with PAM
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -41,26 +41,25 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="libcap" name="libcap"></a>libcap-2.24
+        <a id="libcap-pam" name="libcap-pam"></a>libcap-2.24 with PAM
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
-          Introduction to libcap
+          Introduction to libcap with PAM
         </h2>
         <p>
-          The <span class="application">libcap</span> package implements the
-          user-space interfaces to the POSIX 1003.1e capabilities available
-          in Linux kernels. These capabilities are a partitioning of the all
-          powerful root privilege into a set of distinct privileges.
+          The <span class="application">libcap</span> package was installed
+          in LFS, but if PAM support is desired, it needs to be reinstalled
+          after PAM is built.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -111,13 +110,6 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="attr.html" title=
-          "attr-2.4.47">attr-2.4.47</a>
-        </p>
-        <h4>
-          Optional
-        </h4>
-        <p class="optional">
           <a class="xref" href="linux-pam.html" title=
           "Linux-PAM-1.1.8">Linux-PAM-1.1.8</a>
         </p>
@@ -289,7 +281,7 @@ ln -sfv ../../lib/libcap.so.2 /usr/lib/libcap.so</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-17 15:16:31 -0800
+        Last updated on 2014-09-10 06:19:10 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -314,7 +306,7 @@ ln -sfv ../../lib/libcap.so.2 /usr/lib/libcap.so</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

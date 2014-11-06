@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;42.&nbsp;CD/DVD-Writing Utilities
@@ -23,9 +23,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="libisofs.html" title=
-          "libisofs-1.3.4">Prev</a>
+          "libisofs-1.3.8">Prev</a>
           <p>
-            libisofs-1.3.4
+            libisofs-1.3.8
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           application for burning and extracting CDs and DVDs.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -103,15 +103,15 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/cmake.html" title=
-          "CMake-2.8.12.2">CMake-2.8.12.2</a> and <a class="xref" href=
-          "../x/gtk2.html" title="GTK+-2.24.22">GTK+-2.24.22</a>
+          "CMake-3.0.1">CMake-3.0.1</a> and <a class="xref" href=
+          "../x/gtk2.html" title="GTK+-2.24.24">GTK+-2.24.24</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
           <a class="xref" href="libisoburn.html" title=
-          "libisoburn-1.3.4">libisoburn-1.3.4</a>, <a class="xref" href=
+          "libisoburn-1.3.8">libisoburn-1.3.8</a>, <a class="xref" href=
           "cdparanoia.html" title=
           "CDParanoia-III-10.2">CDParanoia-III-10.2</a>, and <a class="xref"
           href="cdrdao.html" title="Cdrdao-1.2.3">Cdrdao-1.2.3</a>
@@ -122,7 +122,7 @@
         <p class="optional">
           <a class="xref" href="flac.html" title="FLAC-1.3.0">FLAC-1.3.0</a>,
           <a class="xref" href="mpg123.html" title=
-          "Mpg123-1.18.0">mpg123-1.18.0</a>, <a class="xref" href=
+          "Mpg123-1.20.1">mpg123-1.20.1</a>, <a class="xref" href=
           "vorbistools.html" title=
           "vorbis-tools-1.4.0">vorbis-tools-1.4.0</a>, <a class="xref" href=
           "lame.html" title="LAME-3.99.5">LAME-3.99.5</a>, <a class="xref"
@@ -150,8 +150,9 @@
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir build &amp;&amp;
-cd build &amp;&amp;
-cmake -DCMAKE_BUILD_TYPE=Release \
+cd    build &amp;&amp;
+
+cmake -DCMAKE_BUILD_TYPE=Release  \
       -DCMAKE_INSTALL_PREFIX=/usr \
       -DBURNING=LIBBURNIA .. &amp;&amp;
 make</kbd>
@@ -240,16 +241,16 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-25 03:54:44 -0800
+        Last updated on 2014-09-18 22:41:15 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="libisofs.html" title=
-          "libisofs-1.3.4">Prev</a>
+          "libisofs-1.3.8">Prev</a>
           <p>
-            libisofs-1.3.4
+            libisofs-1.3.8
           </p>
         </li>
         <li class="next">
@@ -265,7 +266,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

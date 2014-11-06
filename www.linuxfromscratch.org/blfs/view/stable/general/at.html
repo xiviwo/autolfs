@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      at-3.1.14
+      at-3.1.15
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;12.&nbsp;System Utilities
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="acpid.html" title="acpid-2.0.21">Prev</a>
+          <a accesskey="p" href="acpid.html" title="acpid-2.0.23">Prev</a>
           <p>
-            acpid-2.0.21
+            acpid-2.0.23
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="autofs.html" title="autofs-5.0.8">Next</a>
+          <a accesskey="n" href="autofs.html" title="autofs-5.1.0">Next</a>
           <p>
-            autofs-5.0.8
+            autofs-5.1.0
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="at" name="at"></a>at-3.1.14
+        <a id="at" name="at"></a>at-3.1.15
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,7 +57,7 @@
           Base (LSB) conformance.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -68,20 +68,20 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.de.debian.org/debian/pool/main/a/at/at_3.1.14.orig.tar.gz">
-                http://ftp.de.debian.org/debian/pool/main/a/at/at_3.1.14.orig.tar.gz</a>
+                "http://ftp.de.debian.org/debian/pool/main/a/at/at_3.1.15.orig.tar.gz">
+                http://ftp.de.debian.org/debian/pool/main/a/at/at_3.1.15.orig.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.de.debian.org/debian/pool/main/a/at/at_3.1.14.orig.tar.gz">
-                ftp://ftp.de.debian.org/debian/pool/main/a/at/at_3.1.14.orig.tar.gz</a>
+                "ftp://ftp.de.debian.org/debian/pool/main/a/at/at_3.1.15.orig.tar.gz">
+                ftp://ftp.de.debian.org/debian/pool/main/a/at/at_3.1.15.orig.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: d41cfd79033b6e49a8838add59a42ac6
+                Download MD5 sum: f0f96db22e3a174b53ce4beeeb848839
               </p>
             </li>
             <li>
@@ -91,7 +91,7 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 1.8 MB
+                Estimated disk space required: 1.5 MB
               </p>
             </li>
             <li>
@@ -127,6 +127,15 @@
         <h2 class="sect2">
           Installation of at
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            This package does not support parallel build.
+          </p>
+        </div>
         <p>
           Before building <span class="application">at</span>, as the
           <code class="systemitem">root</code> user you should create the
@@ -141,15 +150,22 @@ useradd -d /dev/null -c "atd daemon" -g atd -s /bin/false -u 17 atd &amp;&amp;
 mkdir -p /var/spool/cron</kbd>
 </pre>
         <p>
+          Fix <code class="filename">Makefile.in</code> so that the
+          documentation directory is installed in the specified docdir:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i '/docdir/s/=.*/= @docdir@/' Makefile.in</kbd>
+</pre>
+        <p>
           Install <span class="application">at</span> with the following
           commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --docdir=/usr/share/doc/at-3.1.14 \
+<kbd class="command">./configure --docdir=/usr/share/doc/at-3.1.15 \
             --with-daemon_username=atd        \
             --with-daemon_groupname=atd       \
             SENDMAIL=/usr/sbin/sendmail &amp;&amp;
-make</kbd>
+make -j1</kbd>
 </pre>
         <p>
           This package does not come with a test suite.
@@ -183,7 +199,7 @@ make</kbd>
             Install the <code class="filename">/etc/init.d/atd</code> init
             script from the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20140919</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-atd</kbd>
@@ -198,7 +214,8 @@ make</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">at, atd, atrun, and batch</span>
+              <span class="segbody">at, atd, atq (symlink), atrm (symlink),
+              atrun, and batch</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
@@ -206,7 +223,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/var/spool/{atjobs,atspool}</span>
+              <span class="segbody">/var/spool/{atjobs,atspool} and
+              /usr/share/doc/at-3.1.15</span>
             </div>
           </div>
         </div>
@@ -247,6 +265,33 @@ make</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="atq" name="atq"></a><span class=
+                    "term"><span class="command"><strong>atq</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    lists the user's pending jobs, or all jobs, if superuser.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="atrm" name="atrm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>atrm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    deletes jobs, identified by their job number.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="atrun" name="atrun"></a><span class=
                     "term"><span class=
                     "command"><strong>atrun</strong></span></span>
@@ -278,21 +323,21 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-23 03:31:30 -0800
+        Last updated on 2014-09-22 00:10:59 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="acpid.html" title="acpid-2.0.21">Prev</a>
+          <a accesskey="p" href="acpid.html" title="acpid-2.0.23">Prev</a>
           <p>
-            acpid-2.0.21
+            acpid-2.0.23
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="autofs.html" title="autofs-5.0.8">Next</a>
+          <a accesskey="n" href="autofs.html" title="autofs-5.1.0">Next</a>
           <p>
-            autofs-5.0.8
+            autofs-5.1.0
           </p>
         </li>
         <li class="up">
@@ -301,7 +346,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

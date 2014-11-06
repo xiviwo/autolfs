@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      PHP-5.5.9
+      PHP-5.6.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;13.&nbsp;Programming
@@ -29,9 +29,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="python2.html" title="Python-2.7.6">Next</a>
+          <a accesskey="n" href="python2.html" title="Python-2.7.8">Next</a>
           <p>
-            Python-2.7.6
+            Python-2.7.8
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="php" name="php"></a>PHP-5.5.9
+        <a id="php" name="php"></a>PHP-5.6.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           is also useful as a general purpose scripting language.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -70,12 +70,19 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://us2.php.net/distributions/php-5.5.9.tar.bz2">http://us2.php.net/distributions/php-5.5.9.tar.bz2</a>
+                "http://us2.php.net/distributions/php-5.6.0.tar.bz2">http://us2.php.net/distributions/php-5.6.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: c4a348a07b52f6e177d8fdc75fe507b1
+                Download (FTP): <a class="ulink" href=
+                "ftp://ftp.isu.edu.tw/pub/Unix/Web/PHP/distributions/php-5.6.0.tar.bz2">
+                ftp://ftp.isu.edu.tw/pub/Unix/Web/PHP/distributions/php-5.6.0.tar.bz2</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                Download MD5 sum: 1f889357528809a6675e2f23995832d7
               </p>
             </li>
             <li>
@@ -85,12 +92,13 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 391 MB
+                Estimated disk space required: 442 MB (additional 1 MB to run
+                the test suite and 102 MB for documentation)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 3.6 SBU (additional 2.9 SBU to run the
+                Estimated build time: 4 SBU (additional 1.9 SBU to run the
                 test suite)
               </p>
             </li>
@@ -107,13 +115,6 @@
                 "http://www.php.net/download-docs.php">http://www.php.net/download-docs.php</a>
               </p>
             </li>
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/php-5.5.9-libmagic_fix-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/php-5.5.9-libmagic_fix-1.patch</a>
-              </p>
-            </li>
           </ul>
         </div>
         <h3>
@@ -124,7 +125,7 @@
         </h4>
         <p class="recommended">
           <a class="xref" href="../server/apache.html" title=
-          "Apache-2.4.7">Apache-2.4.7</a> and <a class="xref" href=
+          "Apache-2.4.10">Apache-2.4.10</a> and <a class="xref" href=
           "libxml2.html" title="libxml2-2.9.1">libxml2-2.9.1</a>
         </p>
         <h4>
@@ -133,35 +134,33 @@
         <p class="optional">
           <a class="xref" href="libxslt.html" title=
           "libxslt-1.1.28">libxslt-1.1.28</a>, <a class="xref" href=
-          "pcre.html" title="PCRE-8.34">PCRE-8.34</a>, <a class="xref" href=
+          "pcre.html" title="PCRE-8.35">PCRE-8.35</a>, <a class="xref" href=
           "aspell.html" title="Aspell-0.60.6.1">Aspell-0.60.6.1</a>,
           <a class="xref" href="enchant.html" title=
-          "enchant-1.6.0">enchant-1.6.0</a>, <a class="xref" href=
-          "expat.html" title="Expat-2.1.0">expat-2.1.0</a> (deprecated
-          alternative to <a class="xref" href="libxml2.html" title=
-          "libxml2-2.9.1">libxml2-2.9.1</a>), <a class="ulink" href=
-          "http://www.ossp.org/pkg/lib/mm/">OSSP mm</a>, <a class="ulink"
-          href="http://www.net-snmp.org/">Net-SNMP</a>, <a class="xref" href=
-          "pth.html" title="Pth-2.0.7">Pth-2.0.7</a>, <a class="ulink" href=
-          "http://re2c.org/">re2c</a>, <a class="ulink" href=
-          "http://xmlrpc-epi.sourceforge.net/main.php?t=php_about">XMLRPC-EPI</a>,
-          <a class="ulink" href="http://dmalloc.com/">Dmalloc</a>, and an
-          <a class="xref" href="../server/mail.html" title=
+          "enchant-1.6.0">enchant-1.6.0</a>, <a class="xref" href="pth.html"
+          title="Pth-2.0.7">Pth-2.0.7</a>, an <a class="xref" href=
+          "../server/mail.html" title=
           "Chapter&nbsp;21.&nbsp;Mail Server Software">MTA</a> (that provides
           a <span class="command"><strong>sendmail</strong></span> command)
+          <a class="ulink" href="http://www.ossp.org/pkg/lib/mm/">OSSP
+          mm</a>, <a class="ulink" href=
+          "http://www.net-snmp.org/">Net-SNMP</a>, <a class="ulink" href=
+          "http://re2c.org/">re2c</a>, <a class="ulink" href=
+          "http://xmlrpc-epi.sourceforge.net/main.php?t=php_about">XMLRPC-EPI</a>,
+          and <a class="ulink" href="http://dmalloc.com/">Dmalloc</a>
         </p>
         <h4>
           Optional Graphics Utilities and Libraries
         </h4>
         <p class="optional">
           <a class="xref" href="libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
+          "libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a>, <a class="xref"
           href="libtiff.html" title="LibTIFF-4.0.3">LibTIFF-4.0.3</a>,
           <a class="xref" href="libpng.html" title=
-          "libpng-1.6.9">libpng-1.6.9</a>, <a class="xref" href=
+          "libpng-1.6.13">libpng-1.6.13</a>, <a class="xref" href=
           "libexif.html" title="libexif-0.6.21">libexif-0.6.21</a>, <a class=
           "xref" href="freetype2.html" title=
-          "FreeType-2.5.2">FreeType-2.5.2</a>, <a class="xref" href=
+          "FreeType-2.5.3">FreeType-2.5.3</a>, <a class="xref" href=
           "../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a>, <a class="ulink" href=
@@ -170,14 +169,15 @@
           "ulink" href=
           "http://fossies.org/linux/misc/t1lib-5.1.2.tar.gz/">t1lib</a>, and
           <a class="ulink" href=
-          "http://partners.adobe.com/asn/acrobat/forms.jsp">FDF Toolkit</a>
+          "http://www.adobe.com/devnet/acrobat/fdftoolkit.html">FDF
+          Toolkit</a>
         </p>
         <h4>
           Optional Web Utilities
         </h4>
         <p class="optional">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.35.0">cURL-7.35.0</a>, <a class="xref" href="tidy.html"
+          "cURL-7.37.1">cURL-7.37.1</a>, <a class="xref" href="tidy.html"
           title="HTML Tidy-cvs_20101110">HTML Tidy-cvs_20101110</a>,
           <a class="ulink" href=
           "http://www.mnogosearch.org/">mnoGoSearch</a>, <a class="ulink"
@@ -193,15 +193,15 @@
         <p class="optional">
           <a class="xref" href="../server/openldap.html" title=
           "OpenLDAP-2.4.39">OpenLDAP-2.4.39</a>, <a class="xref" href=
-          "../server/db.html" title="Berkeley DB-6.0.20">Berkeley
-          DB-6.0.20</a>, <a class="xref" href="../server/mariadb.html" title=
-          "MariaDB-10.0.8">MariaDB-10.0.8</a> or <a class="xref" href=
-          "../server/mysql.html" title="MySQL-5.6.16">MySQL-5.6.16</a>,
-          <a class="xref" href="../server/postgresql.html" title=
-          "PostgreSQL-9.3.3">PostgreSQL-9.3.3</a>, <a class="xref" href=
+          "../server/db.html" title="Berkeley DB-6.1.19">Berkeley
+          DB-6.1.19</a>, <a class="xref" href="../server/mariadb.html" title=
+          "MariaDB-10.0.13">MariaDB-10.0.13</a> or <a class="ulink" href=
+          "http://www.mysql.com/">MySQL</a>, <a class="xref" href=
+          "../server/postgresql.html" title=
+          "PostgreSQL-9.3.5">PostgreSQL-9.3.5</a>, <a class="xref" href=
           "unixodbc.html" title="unixODBC-2.3.2">unixODBC-2.3.2</a>,
           <a class="xref" href="../server/sqlite.html" title=
-          "SQLite-3.8.3.1">SQLite-3.8.3.1</a>, <a class="ulink" href=
+          "SQLite-3.8.6">SQLite-3.8.6</a>, <a class="ulink" href=
           "http://sourceforge.net/projects/qdbm">QDBM</a>, <a class="ulink"
           href="http://cr.yp.to/cdb.html">cdb</a>, <a class="ulink" href=
           "http://www.hughes.com.au/products/msql/">Mini SQL</a>, <a class=
@@ -224,10 +224,10 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, <a class="xref" href=
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>, <a class="xref" href=
           "../postlfs/cyrus-sasl.html" title="Cyrus SASL-2.1.26">Cyrus
           SASL-2.1.26</a>, <a class="xref" href="../postlfs/mitkrb.html"
-          title="MIT Kerberos V5-1.12.1">MIT Kerberos V5-1.12.1</a>,
+          title="MIT Kerberos V5-1.12.2">MIT Kerberos V5-1.12.2</a>,
           <a class="ulink" href=
           "http://mcrypt.sourceforge.net/">libmcrypt</a>, and <a class=
           "ulink" href="http://mhash.sourceforge.net/">mhash</a>
@@ -282,13 +282,14 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../php-5.5.9-libmagic_fix-1.patch &amp;&amp;
-sed -i -e 's/2.6.5 2.7/&amp; 3.0/' configure &amp;&amp;
-./configure --prefix=/usr                \
+<kbd class="command">./configure --prefix=/usr                \
             --sysconfdir=/etc            \
+            --localstatedir=/var         \
+            --datadir=/usr/share/php     \
             --mandir=/usr/share/man      \
-            --with-apxs2                 \
+            --enable-fpm                 \
+            --with-fpm-user=apache       \
+            --with-fpm-group=apache      \
             --with-config-file-path=/etc \
             --with-zlib                  \
             --enable-bcmath              \
@@ -305,7 +306,10 @@ make</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make
-          test</strong></span>. A few tests may fail.
+          test</strong></span>. A few tests may fail, in which case you are
+          asked whether you want to send the report to the PHP developpers.
+          If you want to automate the test, you may prefix the command with
+          <span class="command"><strong>yes "n" |</strong></span> .
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -314,14 +318,15 @@ make</kbd>
 <kbd class=
 "command">make install                                         &amp;&amp;
 install -v -m644 php.ini-production /etc/php.ini     &amp;&amp;
+mv -v /etc/php-fpm.conf{.default,}                   &amp;&amp;
 
-install -v -m755 -d /usr/share/doc/php-5.5.9 &amp;&amp;
+install -v -m755 -d /usr/share/doc/php-5.6.0 &amp;&amp;
 install -v -m644    CODING_STANDARDS EXTENSIONS INSTALL NEWS README* UPGRADING* php.gif \
-                    /usr/share/doc/php-5.5.9 &amp;&amp;
+                    /usr/share/doc/php-5.6.0 &amp;&amp;
 ln -v -sfn          /usr/lib/php/doc/Archive_Tar/docs/Archive_Tar.txt \
-                    /usr/share/doc/php-5.5.9 &amp;&amp;
+                    /usr/share/doc/php-5.6.0 &amp;&amp;
 ln -v -sfn          /usr/lib/php/doc/Structures_Graph/docs \
-                    /usr/share/doc/php-5.5.9</kbd>
+                    /usr/share/doc/php-5.6.0</kbd>
 </pre>
         <p>
           The pre-built HTML documentation is packaged in two forms: a
@@ -338,8 +343,8 @@ ln -v -sfn          /usr/lib/php/doc/Structures_Graph/docs \
         </p>
         <pre class="root">
 <kbd class="command">install -v -m644 ../php_manual_en.html.gz \
-    /usr/share/doc/php-5.5.9 &amp;&amp;
-gunzip -v /usr/share/doc/php-5.5.9/php_manual_en.html.gz</kbd>
+    /usr/share/doc/php-5.6.0 &amp;&amp;
+gunzip -v /usr/share/doc/php-5.6.0/php_manual_en.html.gz</kbd>
 </pre>
         <p>
           For the &ldquo;<span class="quote">Many HTML files</span>&rdquo;
@@ -347,7 +352,7 @@ gunzip -v /usr/share/doc/php-5.5.9/php_manual_en.html.gz</kbd>
         </p>
         <pre class="root">
 <kbd class="command">tar -xvf ../php_manual_en.tar.gz \
-    -C /usr/share/doc/php-5.5.9 --no-same-owner</kbd>
+    -C /usr/share/doc/php-5.6.0 --no-same-owner</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
@@ -355,14 +360,14 @@ gunzip -v /usr/share/doc/php-5.5.9/php_manual_en.html.gz</kbd>
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed -i -e 's/2.6.5 2.7/&amp; 3.0/'
-          configure</strong></span>: Make <code class=
-          "filename">configure</code> accept the version 3.0 of <span class=
-          "application">Bison</span> as a valid version.
+          <em class=
+          "parameter"><code>--with-datadir=/usr/share/php</code></em>: This
+          works around a bug in the build machinery, which installs some data
+          to a wrong location.
         </p>
         <p>
-          <em class="parameter"><code>--with-apxs2</code></em>: This
-          parameter builds the Apache HTTPD 2.0 module.
+          <em class="parameter"><code>--enable-fpm</code></em>: This
+          parameter allows building the fastCGI Process Manager.
         </p>
         <p>
           <em class=
@@ -412,9 +417,22 @@ gunzip -v /usr/share/doc/php-5.5.9/php_manual_en.html.gz</kbd>
           "application">Readline</span> support.
         </p>
         <p>
+          <code class="option">--with-mysql</code>: This option includes
+          <span class="application">MariaDB/MySQL</span> support.
+        </p>
+        <p>
           <code class="option">--disable-libxml</code>: This option allows
           building PHP without <span class="application">libxml2</span>
           installed.
+        </p>
+        <p>
+          <code class="option">--with-apxs2</code>: Instead of building the
+          fastCGI process manager, it is possible to build an <span class=
+          "application">apache</span> module. This has some performance
+          penalty for heavy loaded servers, but may be easier to set up. This
+          switch is incompatible with the <em class=
+          "parameter"><code>--enable-fpm</code></em> and <em class=
+          "parameter"><code>--with-fpm-...</code></em> switches.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -426,8 +444,9 @@ gunzip -v /usr/share/doc/php-5.5.9/php_manual_en.html.gz</kbd>
             <a id="php-config" name="php-config"></a>Config Files
           </h3>
           <p>
-            <code class="filename">/etc/php.ini</code> and <code class=
-            "filename">/etc/pear.conf</code>
+            <code class="filename">/etc/php.ini</code>, <code class=
+            "filename">/etc/pear.conf</code> and <code class=
+            "filename">/etc/php-fpm.conf</code>
           </p>
         </div>
         <div class="sect3" lang="en" xml:lang="en">
@@ -464,19 +483,30 @@ gunzip -v /usr/share/doc/php-5.5.9/php_manual_en.html.gz</kbd>
     /etc/php.ini</kbd>
 </pre>
           <p>
-            To enable PHP support in the <span class=
-            "application">Apache</span> web server, a new LoadModule (which
-            should be handled automatically by the <span class=
-            "command"><strong>make install</strong></span> command) and
-            AddType directives must be added to the <code class=
-            "filename">httpd.conf</code> file:
+            To enable fastCGI support in the <span class=
+            "application">Apache</span> web server, two LoadModule directives
+            must be added to the <code class="filename">httpd.conf</code>
+            file. They are commented out, so just issue the following command
+            as <code class="systemitem">root</code> user:
           </p>
-          <pre class="screen">
-<code class="literal">LoadModule php5_module lib/apache/libphp5.so
-AddType application/x-httpd-php .php</code>
+          <pre class="root">
+<kbd class="command">sed -i -e '/proxy_module/s/^#//'      \
+       -e '/proxy_fcgi_module/s/^#//' \
+       /etc/httpd/httpd.conf</kbd>
 </pre>
           <p>
-            Additionally, it can be useful to add an entry for <code class=
+            Those modules accept various <span class=
+            "command"><strong>ProxyPass</strong></span> directives. One
+            possibility is (as the <code class="systemitem">root</code>
+            user):
+          </p>
+          <pre class="root">
+<kbd class="command">echo \
+'ProxyPassMatch ^/(.*\.php)$ fcgi://127.0.0.1:9000/srv/www/$1' &gt;&gt; \
+/etc/httpd/httpd.conf</kbd>
+</pre>
+          <p>
+            Additionally, it may be useful to add an entry for <code class=
             "filename">index.php</code> to the DirectoryIndex directive of
             the <code class="filename">httpd.conf</code> file. Lastly, adding
             a line to setup the <code class="filename">.phps</code> extension
@@ -493,6 +523,23 @@ AddType application/x-httpd-php .php</code>
             file.
           </p>
         </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            <a id="php-init" name="php-init"></a>Boot Script
+          </h3>
+          <p>
+            To automatically start the <span class=
+            "command"><strong>php-fpm</strong></span> daemon when the system
+            is rebooted, install the <code class=
+            "filename">/etc/rc.d/init.d/php</code> bootscript from the
+            <a class="xref" href="../introduction/bootscripts.html" title=
+            "BLFS Boot Scripts">blfs-bootscripts-20140919</a> package as the
+            <code class="systemitem">root</code> user:
+          </p>
+          <pre class="root">
+<kbd class="command">make install-php</kbd>
+</pre>
+        </div>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -502,17 +549,18 @@ AddType application/x-httpd-php .php</code>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">pear, peardev, pecl, phar, phar.phar,
-              php, php-cgi, php-config, and phpize</span>
+              <span class="segbody">pear, peardev, pecl, phar (symlink),
+              phar.phar, php, php-cgi, php-config, php-fpm, and phpize</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed Library:</strong>
-              <span class="segbody">libphp5.so Apache module</span>
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">dba.{so,a} and opcache.{so,a} in
+              /usr/lib/php/extensions/no-debug-non-zts-20121212/</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/php, /usr/lib/php and
-              /usr/share/doc/php-5.5.9</span>
+              <span class="segbody">/usr/include/php, /usr/lib/php,
+              /usr/share/php and /usr/share/doc/php-5.6.0</span>
             </div>
           </div>
         </div>
@@ -553,12 +601,26 @@ AddType application/x-httpd-php .php</code>
                   </p>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="php-fpm" name="php-fpm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>php-fpm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the fastCGI process manager for PHP.
+                  </p>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-04 06:20:07 -0800
+        Last updated on 2014-09-21 01:03:52 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -571,9 +633,9 @@ AddType application/x-httpd-php .php</code>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="python2.html" title="Python-2.7.6">Next</a>
+          <a accesskey="n" href="python2.html" title="Python-2.7.8">Next</a>
           <p>
-            Python-2.7.6
+            Python-2.7.8
           </p>
         </li>
         <li class="up">
@@ -582,7 +644,7 @@ AddType application/x-httpd-php .php</code>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

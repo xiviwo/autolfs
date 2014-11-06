@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      libpeas-1.9.0
+      libpeas-1.10.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;30.&nbsp;GNOME Libraries and Utilities
@@ -23,15 +23,15 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="libgtop.html" title=
-          "libgtop-2.28.5">Prev</a>
+          "libgtop-2.30.0">Prev</a>
           <p>
-            libgtop-2.28.5
+            libgtop-2.30.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libwnck.html" title="libwnck-3.4.7">Next</a>
+          <a accesskey="n" href="libwnck.html" title="libwnck-3.4.9">Next</a>
           <p>
-            libwnck-3.4.7
+            libwnck-3.4.9
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="libpeas" name="libpeas"></a>libpeas-1.9.0
+        <a id="libpeas" name="libpeas"></a>libpeas-1.10.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           assume its own extensibility.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,30 +69,31 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://ftp.gnome.org/pub/gnome/sources/libpeas/1.9/libpeas-1.9.0.tar.xz">
-                http://ftp.gnome.org/pub/gnome/sources/libpeas/1.9/libpeas-1.9.0.tar.xz</a>
+                "http://ftp.gnome.org/pub/gnome/sources/libpeas/1.10/libpeas-1.10.1.tar.xz">
+                http://ftp.gnome.org/pub/gnome/sources/libpeas/1.10/libpeas-1.10.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.9/libpeas-1.9.0.tar.xz">
-                ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.9/libpeas-1.9.0.tar.xz</a>
+                "ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.10/libpeas-1.10.1.tar.xz">
+                ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.10/libpeas-1.10.1.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 54e7c7e80fd8737ffc0987fd09d1267a
+                Download MD5 sum: 62cda826762dd0ec9380f7af6637516a
               </p>
             </li>
             <li>
               <p>
-                Download size: 520 KB
+                Download size: 504 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 19 MB
+                Estimated disk space required: 16 MB (additional 6 MB for the
+                tests)
               </p>
             </li>
             <li>
@@ -110,18 +111,16 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a> and
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a> and
           <a class="xref" href="../x/gtk3.html" title=
-          "GTK+-3.10.7">GTK+-3.10.7</a>
+          "GTK+-3.12.2">GTK+-3.12.2</a>
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="gjs.html" title="Gjs-1.38.1">Gjs-1.38.1</a>
-          and <a class="xref" href=
-          "../general/python-modules.html#pygobject3" title=
-          "PyGObject-3.10.2">PyGObject-3.10.2</a> (<span class=
+          <a class="xref" href="../general/python-modules.html#pygobject3"
+          title="PyGObject-3.12.2">PyGObject-3.12.2</a> (<span class=
           "application">Python</span> 2 and <span class=
           "application">Python</span> 3 modules)
         </p>
@@ -130,12 +129,12 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gdb.html" title=
-          "GDB-7.7">GDB-7.7</a>, <a class="ulink" href=
-          "http://glade.gnome.org/">Glade</a>, <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>,
-          <a class="ulink" href=
-          "http://ftp.gnome.org/pub/gnome/sources/seed/">Seed</a>, and
-          <a class="ulink" href="http://www.valgrind.org">Valgrind</a>
+          "GDB-7.8">GDB-7.8</a>, <a class="xref" href=
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>,
+          <a class="xref" href="../general/valgrind.html" title=
+          "Valgrind-3.10.0">Valgrind-3.10.0</a>, <a class="ulink" href=
+          "http://glade.gnome.org/">Glade</a>, and <a class="ulink" href=
+          "http://ftp.gnome.org/pub/gnome/sources/seed/">Seed</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -155,8 +154,11 @@
 make</kbd>
 </pre>
         <p>
-          To test the results, issue: <span class="command"><strong>make -k
-          check</strong></span>. About 45 tests are "OK".
+          To test the results, issue: <span class="command"><strong>make
+          check 2&gt;&amp;1 | tee ../libpeas-make-check.log</strong></span>.
+          Check the results with <span class="command"><strong>egrep
+          '(FAIL|PASS)' ../libpeas-make-check.log</strong></span>. An active
+          graphical session with bus address is necessary to run the tests.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -187,8 +189,8 @@ make</kbd>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libpeas-1.0.so and
-              libpeas-gtk-1.0.so</span>
+              <span class="segbody">libpeas-1.0.so and libpeas-gtk-1.0.so and
+              several libraries under /usr/lib/{libpeas-1.0,peas-demo}</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
@@ -254,22 +256,22 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 07:06:53 -0800
+        Last updated on 2014-09-19 13:13:19 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="libgtop.html" title=
-          "libgtop-2.28.5">Prev</a>
+          "libgtop-2.30.0">Prev</a>
           <p>
-            libgtop-2.28.5
+            libgtop-2.30.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libwnck.html" title="libwnck-3.4.7">Next</a>
+          <a accesskey="n" href="libwnck.html" title="libwnck-3.4.9">Next</a>
           <p>
-            libwnck-3.4.7
+            libwnck-3.4.9
           </p>
         </li>
         <li class="up">
@@ -278,7 +280,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

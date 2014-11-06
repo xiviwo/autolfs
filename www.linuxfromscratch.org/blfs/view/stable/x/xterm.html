@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      xterm-301
+      xterm-310
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;24.&nbsp;X Window System Environment
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="xterm2" name="xterm2"></a>xterm-301
+        <a id="xterm2" name="xterm2"></a>xterm-310
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -61,7 +61,7 @@
           Xorg installation.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -72,22 +72,22 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://invisible-island.net/xterm/xterm-301.tgz">ftp://invisible-island.net/xterm/xterm-301.tgz</a>
+                "ftp://invisible-island.net/xterm/xterm-310.tgz">ftp://invisible-island.net/xterm/xterm-310.tgz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 50ba12a4decca06213203bff1b35ef19
+                Download MD5 sum: 6bada32548b66a805e9c4475a6736b43
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.1 MB
+                Download size: 1.2 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 15 MB
+                Estimated disk space required: 12 MB
               </p>
             </li>
             <li>
@@ -121,8 +121,8 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">sed -i '/v0/,+1s/new:/new:kb=^?:/' termcap &amp;&amp;
-echo -e '\tkbs=\\177,' &gt;&gt; terminfo &amp;&amp;
+<kbd class="command">sed -i '/v0/{n;s/new:/new:kb=^?:/}' termcap &amp;&amp;
+printf '\tkbs=\\177,\n' &gt;&gt; terminfo &amp;&amp;
 
 TERMINFO=/usr/share/terminfo \
 ./configure $XORG_CONFIG     \
@@ -147,7 +147,7 @@ make install-ti</kbd>
         </h2>
         <p>
           <span class="command"><strong>sed -i ... termcap</strong></span>,
-          <span class="command"><strong>echo ... &gt;&gt;
+          <span class="command"><strong>printf ... &gt;&gt;
           terminfo</strong></span>: These commands modify the terminal
           description, so that the Backspace key is expected to send the
           character with ASCII code 127, for consistency with the Linux
@@ -290,7 +290,7 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 12:55:40 -0800
+        Last updated on 2014-09-10 06:19:10 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -313,7 +313,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

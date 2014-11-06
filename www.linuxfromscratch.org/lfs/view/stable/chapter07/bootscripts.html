@@ -5,55 +5,57 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      7.6.&nbsp;LFS-Bootscripts-20130821
+      7.2.&nbsp;LFS-Bootscripts-20140815
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter07/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts
+        Chapter&nbsp;7.&nbsp;System Configuration and Bootscripts
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="symlinks.html" title=
-          "Creating Custom Symlinks to Devices">Prev</a>
+          <a accesskey="p" href="introduction.html" title=
+          "Introduction">Prev</a>
           <p>
-            Creating Custom Symlinks to Devices
+            Introduction
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="usage.html" title=
-          "How Do These Bootscripts Work?">Next</a>
+          <a accesskey="n" href="udev.html" title=
+          "Overview of Device and Module Handling">Next</a>
           <p>
-            How Do These Bootscripts Work?
+            Overview of Device and Module Handling
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="chapter07.html" title=
-          "Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts">Up</a>
+          "Chapter&nbsp;7.&nbsp;System Configuration and Bootscripts">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-scripts-bootscripts" name="ch-scripts-bootscripts"></a>7.6.
-        LFS-Bootscripts-20130821
+        <a id="ch-scripts-bootscripts" name="ch-scripts-bootscripts"></a>7.2.
+        LFS-Bootscripts-20140815
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
           The LFS-Bootscripts package contains a set of scripts to start/stop
-          the LFS system at bootup/shutdown.
+          the LFS system at bootup/shutdown. The configuration files and
+          procedures needed to customize the boot process are described in
+          the following sections.
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -63,14 +65,14 @@
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">260 KB</span>
+              <span class="segbody">244 KB</span>
             </div>
           </div>
         </div>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          7.6.1. Installation of LFS-Bootscripts
+          7.2.1. Installation of LFS-Bootscripts
         </h2>
         <p>
           Install the package:
@@ -81,7 +83,7 @@
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-bootscripts" name="contents-bootscripts"></a>7.6.2.
+          <a id="contents-bootscripts" name="contents-bootscripts"></a>7.2.2.
           Contents of LFS-Bootscripts
         </h2>
         <div class="segmentedlist">
@@ -460,8 +462,9 @@
                 <td>
                   <p>
                     Retries failed udev uevents, and copies generated rules
-                    files from to <code class=
-                    "filename">/etc/udev/rules.d</code> if required
+                    files from <code class="filename">/run/udev</code> to
+                    <code class="filename">/etc/udev/rules.d</code> if
+                    required
                   </p>
                 </td>
               </tr>
@@ -473,26 +476,26 @@
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="symlinks.html" title=
-          "Creating Custom Symlinks to Devices">Prev</a>
+          <a accesskey="p" href="introduction.html" title=
+          "Introduction">Prev</a>
           <p>
-            Creating Custom Symlinks to Devices
+            Introduction
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="usage.html" title=
-          "How Do These Bootscripts Work?">Next</a>
+          <a accesskey="n" href="udev.html" title=
+          "Overview of Device and Module Handling">Next</a>
           <p>
-            How Do These Bootscripts Work?
+            Overview of Device and Module Handling
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="chapter07.html" title=
-          "Chapter&nbsp;7.&nbsp;Setting Up System Bootscripts">Up</a>
+          "Chapter&nbsp;7.&nbsp;System Configuration and Bootscripts">Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

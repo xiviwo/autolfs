@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;4.&nbsp;Security
@@ -29,9 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libcap.html" title="libcap-2.24">Next</a>
+          <a accesskey="n" href="libcap.html" title=
+          "libcap-2.24 with PAM">Next</a>
           <p>
-            libcap-2.24
+            libcap-2.24 with PAM
           </p>
         </li>
         <li class="up">
@@ -40,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -429,7 +430,7 @@ iptables -A OUTPUT -o lo -j ACCEPT
 
 # Allow forwarding if the initiated on the intranet
 iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-iptables -A FORWARD  -i ! ppp+ -m conntrack --ctstate NEW      -j ACCEPT
+iptables -A FORWARD ! -i ppp+ -m conntrack --ctstate NEW       -j ACCEPT
 
 # Do masquerading
 # (not needed if intranet is not using private ip-addresses)
@@ -742,7 +743,7 @@ iptables -A INPUT -i ppp+ -s 192.168.0.0/16 -j DROP</code>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2012-10-16 10:13:00 -0700
+        Last updated on 2014-08-10 11:18:14 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -755,9 +756,10 @@ iptables -A INPUT -i ppp+ -s 192.168.0.0/16 -j DROP</code>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libcap.html" title="libcap-2.24">Next</a>
+          <a accesskey="n" href="libcap.html" title=
+          "libcap-2.24 with PAM">Next</a>
           <p>
-            libcap-2.24
+            libcap-2.24 with PAM
           </p>
         </li>
         <li class="up">
@@ -766,7 +768,7 @@ iptables -A INPUT -i ppp+ -s 192.168.0.0/16 -j DROP</code>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

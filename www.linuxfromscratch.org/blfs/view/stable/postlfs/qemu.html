@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      qemu-1.7.0
+      qemu-2.1.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;8.&nbsp;Virtualization
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="qemu" name="qemu"></a>qemu-1.7.0
+        <a id="qemu" name="qemu"></a>qemu-2.1.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           extensions (Intel VT or AMD-V).
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -70,27 +70,27 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://wiki.qemu.org/download/qemu-1.7.0.tar.bz2">http://wiki.qemu.org/download/qemu-1.7.0.tar.bz2</a>
+                "http://wiki.qemu.org/download/qemu-2.1.0.tar.bz2">http://wiki.qemu.org/download/qemu-2.1.0.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 32893941d40d052a5e649efcf06aca06
+                Download MD5 sum: 6726977292b448cbc7f89998fac6983b
               </p>
             </li>
             <li>
               <p>
-                Download size: 12 MB
+                Download size: 23 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 215 MB
+                Estimated disk space required: 287 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.7 SBU
+                Estimated build time: 1.4 SBU
               </p>
             </li>
           </ul>
@@ -103,25 +103,29 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a>, <a class="xref" href=
-          "../general/python2.html" title="Python-2.7.6">Python-2.7.6</a>,
-          <a class="xref" href="../multimedia/sdl.html" title=
-          "SDL-1.2.15">SDL-1.2.15</a>, and <a class="xref" href=
-          "../x/installing.html" title=
+          "GLib-2.40.0">GLib-2.40.0</a>, <a class="xref" href=
+          "../general/python2.html" title="Python-2.7.8">Python-2.7.8</a>,
+          and <a class="xref" href="../x/installing.html" title=
           "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a>
+        </p>
+        <h4>
+          Recommended
+        </h4>
+        <p class="recommended">
+          <a class="xref" href="../multimedia/sdl.html" title=
+          "SDL-1.2.15">SDL-1.2.15</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../multimedia/alsa.html" title=
-          "ALSA-1.0.27">ALSA-1.0.27</a>, <a class="xref" href="attr.html"
-          title="attr-2.4.47">attr-2.4.47</a>, <a class="xref" href=
-          "../general/check.html" title="Check-0.9.12">Check-0.9.12</a>,
+          "ALSA-1.0.28">ALSA-1.0.28</a>, <a class="xref" href=
+          "../general/check.html" title="Check-0.9.14">Check-0.9.14</a>,
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.35.0">cURL-7.35.0</a>, <a class="xref" href=
-          "../x/mesalib.html" title="MesaLib-10.0.3">MesaLib-10.0.3</a>, and
+          "cURL-7.37.1">cURL-7.37.1</a>, <a class="xref" href=
+          "../x/mesalib.html" title="MesaLib-10.2.7">MesaLib-10.2.7</a>, and
           <a class="xref" href="cyrus-sasl.html" title=
           "Cyrus SASL-2.1.26">Cyrus SASL-2.1.26</a>
         </p>
@@ -197,14 +201,6 @@ Device Drivers  ---&gt;
           Installation of qemu
         </h2>
         <p>
-          If <span class="application">xorg</span> is not installed in
-          <code class="filename">/usr</code>, then the linker needs to be
-          told where it is. For example:
-        </p>
-        <pre class="userinput">
-<kbd class="command">export LIBRARY_PATH=/opt/xorg/lib</kbd>
-</pre>
-        <p>
           Install <span class="application">qemu</span> by running the
           following commands:
         </p>
@@ -215,7 +211,7 @@ Device Drivers  ---&gt;
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/qemu-1.7.0 \
+            --docdir=/usr/share/doc/qemu-2.1.0 \
             --target-list=x86_64-softmmu &amp;&amp;
 make</kbd>
 </pre>
@@ -252,8 +248,7 @@ make</kbd>
         </p>
         <pre class="root">
 <kbd class="command">cat &gt; /lib/udev/rules.d/65-kvm.rules &lt;&lt; "EOF"
-<code class=
-"literal">KERNEL=="kvm", NAME="%k", GROUP="kvm", MODE="0660"</code>
+<code class="literal">KERNEL=="kvm", GROUP="kvm", MODE="0660"</code>
 EOF</kbd>
 </pre>
         <div class="admon note">
@@ -265,7 +260,7 @@ EOF</kbd>
             For convenience you may want to create a symbolic link to run
             <span class="command"><strong>qemu-system-x86_64</strong></span>:
           </p>
-          <pre class="userinput">
+          <pre class="root">
 <kbd class="command">ln -sv qemu-system-x86_64 /usr/bin/qemu</kbd>
 </pre>
         </div>
@@ -277,7 +272,7 @@ EOF</kbd>
         <p>
           <span class="command"><strong>sed -e '/#include ...
           fsdev/virtfs-proxy-helper.c</strong></span>: Fixes <span class=
-          "application">qemu-1.7.0</span> to build with <span class=
+          "application">qemu-2.1.0</span> to build with <span class=
           "application">libcap-2.24</span>.
         </p>
         <p>
@@ -326,7 +321,7 @@ EOF</kbd>
         </div>
         <p>
           To install an operating system, download an iso of your choice or
-          use a pre-intalled cdrom device. For the purposes of this example,
+          use a pre-installed cdrom device. For the purposes of this example,
           use Fedora 16 that is downloaded as <code class=
           "filename">Fedora-16-x86_64-Live-LXDE.iso</code> in the current
           directory. Run the following:
@@ -379,14 +374,14 @@ EOF</kbd>
               <p>
                 Allow the host system to forward IP packets.
               </p>
-              <pre class="userinput">
+              <pre class="root">
 <kbd class="command">sysctl -w net.ipv4.ip_forward=1</kbd>
 </pre>
               <p>
                 To make this permanent, add the command to <code class=
                 "filename">/etc/syssysctl.conf:</code>
               </p>
-              <pre class="userinput">
+              <pre class="root">
 <kbd class="command">cat &gt;&gt; /etc/sysctl.conf &lt;&lt; EOF
 net.ipv4.ip_forward=1
 EOF</kbd>
@@ -397,7 +392,7 @@ EOF</kbd>
                 Create scripts for qemu to attach the client network device,
                 usually visible as tap0, to the host bridge.
               </p>
-              <pre class="userinput">
+              <pre class="root">
 <kbd class="command">cat &gt; /etc/qemu-ifup &lt;&lt; EOF
 #!/bin/bash
 
@@ -418,7 +413,7 @@ EOF
 
 chmod +x /etc/qemu-ifup</kbd>
 </pre>
-              <pre class="userinput">
+              <pre class="root">
 <kbd class="command">cat &gt; /etc/qemu-ifdown &lt;&lt; EOF
 #!/bin/bash
 
@@ -487,7 +482,7 @@ chmod +x /etc/qemu-ifdown</kbd>
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/etc/qemu, /usr/include/cacard,
               /usr/lib/qemu, /usr/share/qemu, and
-              /usr/share/doc/qemu-1.7.0</span>
+              /usr/share/doc/qemu-2.1.0</span>
             </div>
           </div>
         </div>
@@ -592,7 +587,7 @@ chmod +x /etc/qemu-ifdown</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-03 10:55:42 -0800
+        Last updated on 2014-09-19 13:27:36 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -617,7 +612,7 @@ chmod +x /etc/qemu-ifdown</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

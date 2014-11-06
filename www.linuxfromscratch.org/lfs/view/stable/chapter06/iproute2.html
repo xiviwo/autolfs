@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.50.&nbsp;IPRoute2-3.12.0
+      6.57.&nbsp;IPRoute2-3.16.0
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="kbd.html" title="Kbd-2.0.1">Next</a>
+          <a accesskey="n" href="kbd.html" title="Kbd-2.0.2">Next</a>
           <p>
-            Kbd-2.0.1
+            Kbd-2.0.2
           </p>
         </li>
         <li class="up">
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-iproute2" name="ch-system-iproute2"></a>6.50.
-        IPRoute2-3.12.0
+        <a id="ch-system-iproute2" name="ch-system-iproute2"></a>6.57.
+        IPRoute2-3.16.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -57,18 +57,18 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">0.1 SBU</span>
+              <span class="segbody">0.2 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">7.3 MB</span>
+              <span class="segbody">8.3 MB</span>
             </div>
           </div>
         </div>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.50.1. Installation of IPRoute2
+          6.57.1. Installation of IPRoute2
         </h2>
         <p>
           The <span class="command"><strong>arpd</strong></span> binary
@@ -79,8 +79,8 @@
           "command"><strong>arpd</strong></span> binary is needed,
           instructions for compiling Berkeley DB can be found in the BLFS
           Book at <a class="ulink" href=
-          "http://www.linuxfromscratch.org/blfs/view/svn/server/databases.html#db">
-          http://www.linuxfromscratch.org/blfs/view/svn/server/databases.html#db</a>.
+          "http://www.linuxfromscratch.org/blfs/view/7.6/server/databases.html#db">
+          http://www.linuxfromscratch.org/blfs/view/7.6/server/databases.html#db</a>.
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i '/^TARGETS/s@arpd@@g' misc/Makefile
@@ -91,49 +91,28 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
           Compile the package:
         </p>
         <pre class="userinput">
-<kbd class="command">make DESTDIR=</kbd>
+<kbd class="command">make</kbd>
 </pre>
-        <div class="variablelist">
-          <p class="title">
-            <strong>The meaning of the make option:</strong>
-          </p>
-          <dl class="variablelist">
-            <dt>
-              <span class="term"><em class=
-              "parameter"><code>DESTDIR=</code></em></span>
-            </dt>
-            <dd>
-              <p>
-                This ensures that the IPRoute2 binaries will install into the
-                correct directory. By default, <em class=
-                "parameter"><code>DESTDIR</code></em> is set to <code class=
-                "filename">/usr</code>.
-              </p>
-            </dd>
-          </dl>
-        </div>
         <p>
           This package comes with a test suite, but due to assumptions it
           makes, it is not possible to reliably run these tests from within
           the chroot environment. If you wish to run these tests after
-          booting into your new LFS system, ensure you select <code class=
-          "filename">/proc/config.gz</code> CONFIG_IKCONFIG_PROC ("General
-          setup" -&gt; "Enable access to .config through /proc/config.gz")
-          support into your kernel then run 'make alltests' from the
+          booting into your new LFS system, ensure you enable <code class=
+          "filename">/proc/config.gz</code> support in your kernel ("General
+          setup" -&gt; "Enable access to .config through /proc/config.gz"
+          [CONFIG_IKCONFIG_PROC]), then run 'make alltests' from the
           <code class="filename">testsuite/</code> subdirectory.
         </p>
         <p>
           Install the package:
         </p>
         <pre class="userinput">
-<kbd class="command">make DESTDIR=              \
-     MANDIR=/usr/share/man \
-     DOCDIR=/usr/share/doc/iproute2-3.12.0 install</kbd>
+<kbd class="command">make DOCDIR=/usr/share/doc/iproute2-3.16.0 install</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-iproute2" name="contents-iproute2"></a>6.50.2.
+          <a id="contents-iproute2" name="contents-iproute2"></a>6.57.2.
           Contents of IPRoute2
         </h2>
         <div class="segmentedlist">
@@ -147,7 +126,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
               <span class="segbody">/etc/iproute2, /lib/tc,
-              /usr/share/doc/iproute2-3.12.0, /usr/lib/tc</span>
+              /usr/share/doc/iproute2-3.16.0, /usr/lib/tc</span>
             </div>
           </div>
         </div>
@@ -479,9 +458,9 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="kbd.html" title="Kbd-2.0.1">Next</a>
+          <a accesskey="n" href="kbd.html" title="Kbd-2.0.2">Next</a>
           <p>
-            Kbd-2.0.1
+            Kbd-2.0.2
           </p>
         </li>
         <li class="up">
@@ -490,7 +469,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

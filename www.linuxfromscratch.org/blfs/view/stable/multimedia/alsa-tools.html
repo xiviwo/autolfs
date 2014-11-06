@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      alsa-tools-1.0.27
+      alsa-tools-1.0.28
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;39.&nbsp;Multimedia Libraries and Drivers
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="alsa-utils.html" title=
-          "alsa-utils-1.0.27.2">Prev</a>
+          "alsa-utils-1.0.28">Prev</a>
           <p>
-            alsa-utils-1.0.27.2
+            alsa-utils-1.0.28
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="alsa-firmware.html" title=
-          "alsa-firmware-1.0.27">Next</a>
+          "alsa-firmware-1.0.28">Next</a>
           <p>
-            alsa-firmware-1.0.27
+            alsa-firmware-1.0.28
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="alsa-tools" name="alsa-tools"></a>alsa-tools-1.0.27
+        <a id="alsa-tools" name="alsa-tools"></a>alsa-tools-1.0.28
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           advanced tools for certain sound cards.
         </p>
         <p>
-          This package is known to build using an LFS 7.5 platform but has
+          This package is known to build using an LFS 7.6 platform but has
           not been tested.
         </p>
         <h3>
@@ -69,30 +69,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://alsa.cybermirror.org/tools/alsa-tools-1.0.27.tar.bz2">
-                http://alsa.cybermirror.org/tools/alsa-tools-1.0.27.tar.bz2</a>
+                "http://alsa.cybermirror.org/tools/alsa-tools-1.0.28.tar.bz2">
+                http://alsa.cybermirror.org/tools/alsa-tools-1.0.28.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.27.tar.bz2">
-                ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.27.tar.bz2</a>
+                "ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.28.tar.bz2">
+                ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.0.28.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 1ea381d00a6069a98613aa7effa4cb51
+                Download MD5 sum: e6c929175d8ee729c06d49b51439bad6
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.6 MB
+                Download size: 1.7 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 25 MB
+                Estimated disk space required: 24 MB
               </p>
             </li>
             <li>
@@ -110,22 +110,23 @@
         </h4>
         <p class="required">
           <a class="xref" href="alsa-lib.html" title=
-          "alsa-lib-1.0.27.2">alsa-lib-1.0.27.2</a>
+          "alsa-lib-1.0.28">alsa-lib-1.0.28</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.22">GTK+-2.24.22</a> (to build <span class=
+          "GTK+-2.24.24">GTK+-2.24.24</a> (to build <span class=
           "command"><strong>echomixer</strong></span>, <span class=
           "command"><strong>envy24control</strong></span> and <span class=
           "command"><strong>rmedigicontrol</strong></span>), <a class="xref"
-          href="../x/gtk3.html" title="GTK+-3.10.7">GTK+-3.10.7</a> (to build
+          href="../x/gtk3.html" title="GTK+-3.12.2">GTK+-3.12.2</a> (to build
           <span class="command"><strong>hdajackretask</strong></span>) and
-          <a class="ulink" href="http://www.fltk.org/">FLTK</a> (to build
-          <span class="command"><strong>hdspconf</strong></span> and
-          <span class="command"><strong>hdspmixer</strong></span>)
+          <a class="xref" href="../x/fltk.html" title=
+          "FLTK-1.3.2">FLTK-1.3.2</a> (to build <span class=
+          "command"><strong>hdspconf</strong></span> and <span class=
+          "command"><strong>hdspmixer</strong></span>)
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -136,25 +137,111 @@
         <h2 class="sect2">
           Installation of ALSA Tools
         </h2>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            When installing multiple packages in a script, the installation
+            needs to be done as the root user. There are three general
+            options that can be used to do this:
+          </p>
+          <div class="orderedlist">
+            <ol>
+              <li>
+                <p>
+                  Run the entire script as the root user (not recommended).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the <span class="command"><strong>sudo</strong></span>
+                  command from the <a class="xref" href=
+                  "../postlfs/sudo.html" title=
+                  "Sudo-1.8.10p3">Sudo-1.8.10p3</a> package.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use <span class="command"><strong>su -c "command
+                  arguments"</strong></span> (quotes required) which will ask
+                  for the root password for every iteration of the loop.
+                </p>
+              </li>
+            </ol>
+          </div>
+          <p>
+            One way to handle this situation is to create a short
+            <span class="command"><strong>bash</strong></span> function that
+            automatically selects the appropriate method. Once the command is
+            set in the environment, it does not need to be set again.
+          </p>
+          <pre class="userinput">
+<kbd class="command">as_root()
+{
+  if   [ $EUID = 0 ];        then $*
+  elif [ -x /usr/bin/sudo ]; then sudo $*
+  else                            su -c \\"$*\\"
+  fi
+}
+
+export -f as_root</kbd>
+</pre>
+        </div>
+        <p>
+          First, start a subshell that will exit on error:
+        </p>
+        <pre class="userinput">
+<kbd class="command">bash -e</kbd>
+</pre>
+        <p>
+          Now, remove a tool that needs <span class="application">Qt2 or
+          3</span> and two unneed files (for the BLFS instructions below):
+        </p>
+        <pre class="userinput">
+<kbd class="command">rm -rf qlo10k1 Makefile gitcompile</kbd>
+</pre>
         <p>
           The <span class="application">ALSA Tools</span> package is only
           needed by those with advanced requirements for their sound card.
-          The tools are not all built together, instead you need to
-          <span class="command"><strong>cd</strong></span> into the directory
-          of each tool you wish to compile and run the following commands:
+          The tools can be built all together at once, but if only a subset
+          is needed, you need to <span class=
+          "command"><strong>cd</strong></span> into the directory of each
+          tool you wish to compile and run the commands. Here, we present
+          instructions to build all tools.
+        </p>
+        <p>
+          Install all <span class="application">ALSA Tools</span> by running
+          the following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr &amp;&amp;
-make</kbd>
+<kbd class="command">for tool in *
+do
+  case $tool in
+    seq )
+      tool_dir=seq/sbiload
+    ;;
+    * )
+      tool_dir=$tool
+    ;;
+  esac
+
+  pushd $tool_dir
+    ./configure --prefix=/usr
+    make
+    as_root make install
+    as_root /sbin/ldconfig
+  popd
+
+done
+unset tool tool_dir</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          Finally, exit the shell that was started earlier:
         </p>
-        <p>
-          Now, as the <code class="systemitem">root</code> user:
-        </p>
-        <pre class="root">
-<kbd class="command">make install</kbd>
+        <pre class="userinput">
+<kbd class="command">exit</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -169,8 +256,8 @@ make</kbd>
               envy24control, hdajackretask, hda-verb, hdspconf, hdsploader,
               hdspmixer, hwmixvolume, init_audigy, init_audigy_eq10,
               init_live, lo10k1, ld10k1, ld10k1d, mixartloader, pcxhrloader,
-              qlo10k1, rmedigicontrol, sbiload, sscape_ctl, us428control,
-              usx2yloader and vxloader</span>
+              qlo10k1 (broken, needs Qt2 or 3), rmedigicontrol, sbiload,
+              sscape_ctl, us428control, usx2yloader and vxloader</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Library:</strong>
@@ -510,23 +597,23 @@ make</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-28 15:16:23 -0800
+        Last updated on 2014-09-18 14:33:53 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="alsa-utils.html" title=
-          "alsa-utils-1.0.27.2">Prev</a>
+          "alsa-utils-1.0.28">Prev</a>
           <p>
-            alsa-utils-1.0.27.2
+            alsa-utils-1.0.28
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="alsa-firmware.html" title=
-          "alsa-firmware-1.0.27">Next</a>
+          "alsa-firmware-1.0.28">Next</a>
           <p>
-            alsa-firmware-1.0.27
+            alsa-firmware-1.0.28
           </p>
         </li>
         <li class="up">
@@ -535,7 +622,7 @@ make</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

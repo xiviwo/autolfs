@@ -12,26 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;38.&nbsp;Other X-based Programs
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gimp.html" title="Gimp-2.8.10">Prev</a>
+          <a accesskey="p" href="gimp.html" title="Gimp-2.8.14">Prev</a>
           <p>
-            Gimp-2.8.10
+            Gimp-2.8.14
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gparted.html" title=
-          "Gparted-0.17.0">Next</a>
+          "Gparted-0.19.1">Next</a>
           <p>
-            Gparted-0.17.0
+            Gparted-0.19.1
           </p>
         </li>
         <li class="up">
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
           videos or simple flash animations.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -110,8 +110,8 @@
             <li>
               <p>
                 Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/gnash-0.8.10-CVE-2012-1175-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/gnash-0.8.10-CVE-2012-1175-1.patch</a>
+                "http://www.linuxfromscratch.org/patches/blfs/7.6/gnash-0.8.10-CVE-2012-1175-1.patch">
+                http://www.linuxfromscratch.org/patches/blfs/7.6/gnash-0.8.10-CVE-2012-1175-1.patch</a>
               </p>
             </li>
           </ul>
@@ -125,13 +125,13 @@
         <p class="required">
           <a class="xref" href="../x/agg.html" title="agg-2.5">agg-2.5</a>,
           <a class="xref" href="../general/boost.html" title=
-          "Boost-1.55.0">Boost-1.55.0</a>, <a class="xref" href=
-          "../basicnet/curl.html" title="cURL-7.35.0">cURL-7.35.0</a>,
+          "Boost-1.56.0">Boost-1.56.0</a>, <a class="xref" href=
+          "../basicnet/curl.html" title="cURL-7.37.1">cURL-7.37.1</a>,
           <a class="xref" href="../multimedia/gst-ffmpeg.html" title=
           "gst-ffmpeg-0.10.13">gst-ffmpeg-0.10.13</a>, <a class="xref" href=
           "../general/npapi-sdk.html" title=
           "NPAPI-SDK-0.27.2">NPAPI-SDK-0.27.2</a>, and <a class="xref" href=
-          "../general/giflib.html" title="giflib-5.0.5">giflib-5.0.5</a>
+          "../general/giflib.html" title="giflib-5.1.0">giflib-5.1.0</a>
         </p>
         <h4>
           Optional
@@ -141,13 +141,13 @@
           "DejaGnu-1.5.1">DejaGnu-1.5.1</a>, <a class="xref" href=
           "../gnome/GConf.html" title="GConf-3.2.6">GConf-3.2.6</a>,
           <a class="xref" href="../general/git.html" title=
-          "Git-1.9.0">git-1.9.0</a>, <a class="xref" href=
-          "../kde/kdelibs.html" title="Kdelibs-4.12.2">kdelibs-4.12.2</a>,
+          "Git-2.1.0">git-2.1.0</a>, <a class="xref" href=
+          "../kde/kdelibs.html" title="Kdelibs-4.14.1">kdelibs-4.14.1</a>,
           <a class="xref" href="../multimedia/libogg.html" title=
-          "libogg-1.3.1">libogg-1.3.1</a>, <a class="xref" href=
+          "libogg-1.3.2">libogg-1.3.2</a>, <a class="xref" href=
           "../multimedia/libvorbis.html" title=
           "libvorbis-1.3.4">libvorbis-1.3.4</a>, <a class="xref" href=
-          "../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>, <a class="xref"
+          "../x/qt4.html" title="Qt-4.8.6">Qt-4.8.6</a>, <a class="xref"
           href="../multimedia/speex.html" title=
           "Speex-1.2rc1">Speex-1.2rc1</a>, <a class="xref" href=
           "../basicnet/wget.html" title="Wget-1.15">Wget-1.15</a>, <a class=
@@ -176,9 +176,12 @@
 <kbd class=
 "command">patch -Np1 -i ../gnash-0.8.10-CVE-2012-1175-1.patch &amp;&amp;
 sed -i '/^LIBS/s/\(.*\)/\1 -lboost_system/' \
-  gui/Makefile.in utilities/Makefile.in &amp;&amp;
-sed -i "/DGifOpen/s:Data:&amp;, NULL:" libbase/GnashImageGif.cpp &amp;&amp;
+    gui/Makefile.in utilities/Makefile.in   &amp;&amp;
+sed -e '/DGifOpen/s:Data:&amp;, NULL:'          \
+    -e '/DGifCloseFile/s:_gif:&amp;, NULL:'     \
+    -i libbase/GnashImageGif.cpp            &amp;&amp;
 sed -i '/#include &lt;csignal&gt;/a\#include &lt;unistd.h&gt;' plugin/klash4/klash_part.cpp &amp;&amp;
+
 ./configure --prefix=/usr --sysconfdir=/etc               \
   --with-npapi-incl=/usr/include/npapi-sdk --enable-media=gst \
   --with-npapi-plugindir=/usr/lib/mozilla/plugins         \
@@ -207,8 +210,8 @@ make install-plugin</kbd>
           current <span class="application">boost</span> libraries.
         </p>
         <p>
-          <span class="command"><strong>sed -i "/DGifOpen/s:Data:&amp;,
-          NULL:" ...</strong></span>: This sed fixes building with recent
+          <span class="command"><strong>sed -e '/DGifOpen/s:Data:&amp;,
+          NULL:' ...</strong></span>: This sed fixes building with recent
           versions of <span class="application">Giflib</span>.
         </p>
         <p>
@@ -304,22 +307,22 @@ make install-plugin</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-01 19:40:57 -0800
+        Last updated on 2014-09-21 14:28:22 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gimp.html" title="Gimp-2.8.10">Prev</a>
+          <a accesskey="p" href="gimp.html" title="Gimp-2.8.14">Prev</a>
           <p>
-            Gimp-2.8.10
+            Gimp-2.8.14
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gparted.html" title=
-          "Gparted-0.17.0">Next</a>
+          "Gparted-0.19.1">Next</a>
           <p>
-            Gparted-0.17.0
+            Gparted-0.19.1
           </p>
         </li>
         <li class="up">
@@ -328,7 +331,7 @@ make install-plugin</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

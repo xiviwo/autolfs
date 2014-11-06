@@ -5,32 +5,32 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Poppler-0.24.5
+      Poppler-0.26.4
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;10.&nbsp;Graphics and Font Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="pixman.html" title="Pixman-0.32.4">Prev</a>
+          <a accesskey="p" href="pixman.html" title="Pixman-0.32.6">Prev</a>
           <p>
-            Pixman-0.32.4
+            Pixman-0.32.6
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="qpdf.html" title="Qpdf-5.1.1">Next</a>
+          <a accesskey="n" href="qpdf.html" title="Qpdf-5.1.2">Next</a>
           <p>
-            Qpdf-5.1.1
+            Qpdf-5.1.2
           </p>
         </li>
         <li class="up">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="poppler" name="poppler"></a>Poppler-0.24.5
+        <a id="poppler" name="poppler"></a>Poppler-0.26.4
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           a shared library.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,27 +69,30 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://poppler.freedesktop.org/poppler-0.24.5.tar.xz">http://poppler.freedesktop.org/poppler-0.24.5.tar.xz</a>
+                "http://poppler.freedesktop.org/poppler-0.26.4.tar.xz">http://poppler.freedesktop.org/poppler-0.26.4.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: 334f2ac95cc8039f2a57fe63e4a81c69
+                Download MD5 sum: e58cdddfc7dc01f00bf7394e0e4f21ce
               </p>
             </li>
             <li>
               <p>
-                Download size: 1.5 MB
+                Download size: 1.6 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 103 MB
+                Estimated disk space required: 145 MB (building Qt4 and Qt5
+                libraries, additional 46 MB for the test suite and 24 MB for
+                poppler-data)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 1.0 SBU
+                Estimated build time: 1.7 SBU (building Qt4 and Qt5
+                libraries, additional 0.2 SBU for the test suite for each Qt)
               </p>
             </li>
           </ul>
@@ -105,12 +108,12 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://poppler.freedesktop.org/poppler-data-0.4.6.tar.gz">http://poppler.freedesktop.org/poppler-data-0.4.6.tar.gz</a>
+                "http://poppler.freedesktop.org/poppler-data-0.4.7.tar.gz">http://poppler.freedesktop.org/poppler-data-0.4.7.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: a8a7ca808827dd674faba6e4fc73b471
+                Download MD5 sum: 636a8f2b9f6df9e7ced8ec0946961eaf
               </p>
             </li>
             <li>
@@ -136,7 +139,7 @@
         </h4>
         <p class="required">
           <a class="xref" href="fontconfig.html" title=
-          "Fontconfig-2.11.0">Fontconfig-2.11.0</a>
+          "Fontconfig-2.11.1">Fontconfig-2.11.1</a>
         </p>
         <h4>
           Recommended
@@ -144,30 +147,30 @@
         <p class="recommended">
           <a class="xref" href="../x/cairo.html" title=
           "Cairo-1.12.16">Cairo-1.12.16</a>, <a class="xref" href=
-          "libjpeg.html" title="libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>,
+          "libjpeg.html" title="libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a>,
           and <a class="xref" href="libpng.html" title=
-          "libpng-1.6.9">libpng-1.6.9</a>
+          "libpng-1.6.13">libpng-1.6.13</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../basicnet/curl.html" title=
-          "cURL-7.35.0">cURL-7.35.0</a>, <a class="xref" href=
+          "cURL-7.37.1">cURL-7.37.1</a>, <a class="xref" href=
           "gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a>,
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>,
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.22">GTK+-2.24.22</a>, <a class="xref" href="lcms.html"
+          "GTK+-2.24.24">GTK+-2.24.24</a>, <a class="xref" href="lcms.html"
           title="Little CMS-1.19">Little CMS-1.19</a> or <a class="xref"
-          href="lcms2.html" title="Little CMS-2.5">Little CMS-2.5</a>,
+          href="lcms2.html" title="Little CMS-2.6">Little CMS-2.6</a>,
           <a class="xref" href="libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>, <a class="xref" href=
-          "openjpeg.html" title="OpenJPEG-1.5.1">OpenJPEG-1.5.1</a>,
-          <a class="xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
+          "openjpeg.html" title="OpenJPEG-1.5.2">OpenJPEG-1.5.2</a>,
+          <a class="xref" href="../x/qt4.html" title="Qt-4.8.6">Qt-4.8.6</a>
           (the <code class="filename">libpoppler-qt4.so</code> library is
           needed for PDF support in <span class="application">Okular</span>),
           and <a class="xref" href="../x/qt5.html" title=
-          "Qt-5.2.1">Qt-5.2.1</a>
+          "Qt-5.3.1">Qt-5.3.1</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -179,15 +182,29 @@
           Installation of Poppler
         </h2>
         <p>
-          If you are building <span class="application">Qt5</span> library,
-          fix <span class="application">Qt5</span> detection by running the
-          following command:
+          In order to optionally run the test suite, additional download of
+          about 9 MB, using <a class="xref" href="git.html" title=
+          "Git-2.1.0">git-2.1.0</a>, is necessary. Make sure that you do not
+          have the directory ../test.
         </p>
         <pre class="userinput">
-<kbd class="command">sed -i -e "s:grep \"Qt 5\":grep \"Qt\\\|moc 5\":g" \
-                          -e "s:QT_SELECT=qt5:QT_SELECT=5:" \
-                          configure</kbd>
+<kbd class=
+"command">git clone git://git.freedesktop.org/git/poppler/test ../test</kbd>
 </pre>
+        <p>
+          If you are not building both <span class="application">Qt</span>
+          libraries, jump to the following paragraph. In order to build both
+          <span class="application">Qt4</span> and <span class=
+          "application">Qt5</span> libraries, you need to run the install
+          commands twice, because although both are detected, only wrapper
+          for the first <span class="application">Qt</span> version in PATH
+          is built. Either can be built first, but to facilitate the
+          explanation, we choose first the <span class=
+          "application">Qt4</span> library. You can do this using
+          <span class="command"><strong>source setqt4</strong></span> (script
+          from <a class="xref" href="../x/qt4.html" title=
+          "Qt-4.8.6">Qt-4.8.6</a>).
+        </p>
         <p>
           Install <span class="application">Poppler</span> by running the
           following commands:
@@ -200,23 +217,41 @@
 make</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          To test the results, issue: <span class="command"><strong>make
+          check</strong></span>.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class="command">make install &amp;&amp;
-install -v -m755 -d      /usr/share/doc/poppler-0.24.5 &amp;&amp;
-install -v -m644 README* /usr/share/doc/poppler-0.24.5</kbd>
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          If you are not building both <span class="application">Qt</span>
+          libraries, jump to the following paragraph. If you want to build
+          both <span class="application">Qt</span> libraries, first switch
+          back to unpriviledged user, run <span class=
+          "command"><strong>source setqt5</strong></span>, from <a class=
+          "xref" href="../x/qt5.html" title="Qt-5.3.1">Qt-5.3.1</a>, and
+          repeat the instructions from configuration until install. After
+          that, proceed to install the documents until the end.
+        </p>
+        <p>
+          The documents are installed using the following commands:
+        </p>
+        <pre class="root">
+<kbd class=
+"command">install -v -m755 -d      /usr/share/doc/poppler-0.26.4 &amp;&amp;
+install -v -m644 README* /usr/share/doc/poppler-0.26.4</kbd>
 </pre>
         <p>
           If you downloaded the additional encoding data package, install it
-          by issuing the following commands:
+          by issuing the following commands as the <code class=
+          "systemitem">root</code> user:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xf ../poppler-data-0.4.6.tar.gz &amp;&amp;
-cd poppler-data-0.4.6</kbd>
+<kbd class="command">tar -xf ../poppler-data-0.4.7.tar.gz &amp;&amp;
+cd poppler-data-0.4.7</kbd>
 </pre>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -266,7 +301,7 @@ cd poppler-data-0.4.6</kbd>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/include/poppler,
-              /usr/share/doc/poppler-0.24.5, /usr/share/gtk-doc/html/poppler,
+              /usr/share/doc/poppler-0.26.4, /usr/share/gtk-doc/html/poppler,
               and /usr/share/poppler</span>
             </div>
           </div>
@@ -530,21 +565,21 @@ cd poppler-data-0.4.6</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-18 18:25:11 -0800
+        Last updated on 2014-09-13 17:48:40 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="pixman.html" title="Pixman-0.32.4">Prev</a>
+          <a accesskey="p" href="pixman.html" title="Pixman-0.32.6">Prev</a>
           <p>
-            Pixman-0.32.4
+            Pixman-0.32.6
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="qpdf.html" title="Qpdf-5.1.1">Next</a>
+          <a accesskey="n" href="qpdf.html" title="Qpdf-5.1.2">Next</a>
           <p>
-            Qpdf-5.1.1
+            Qpdf-5.1.2
           </p>
         </li>
         <li class="up">
@@ -553,7 +588,7 @@ cd poppler-data-0.4.6</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

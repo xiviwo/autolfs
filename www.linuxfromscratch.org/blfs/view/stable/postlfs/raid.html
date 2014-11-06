@@ -12,25 +12,26 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;File Systems and Disk Management
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="lvm2.html" title="LVM2-2.02.105">Prev</a>
+          <a accesskey="p" href="aboutlvm.html" title=
+          "About Logical Volume Management (LVM)">Prev</a>
           <p>
-            LVM2-2.02.105
+            About Logical Volume Management (LVM)
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="mdadm.html" title="mdadm-3.3">Next</a>
+          <a accesskey="n" href="mdadm.html" title="mdadm-3.3.2">Next</a>
           <p>
-            mdadm-3.3
+            mdadm-3.3.2
           </p>
         </li>
         <li class="up">
@@ -39,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -66,7 +67,7 @@
         not a substitute for backups. A file deleted is still deleted on all
         the disks of a RAID array. Modern backups are generally done via
         <a class="xref" href="../basicnet/rsync.html" title=
-        "rsync-3.1.0">rsync-3.1.0</a>.
+        "rsync-3.1.1">rsync-3.1.1</a>.
       </p>
       <p>
         There are three major types of RAID implementation: Hardware RAID,
@@ -126,7 +127,7 @@
           to install and update and provides full capability on all or part
           of any drives available to the system. In BLFS, the RAID software
           is found in <a class="xref" href="mdadm.html" title=
-          "mdadm-3.3">mdadm-3.3</a>.
+          "mdadm-3.3.2">mdadm-3.3.2</a>.
         </p>
         <p>
           Configuring a RAID device is straight forward using <span class=
@@ -139,7 +140,7 @@
           The first step in creating a RAID array is to use partitioning
           software such as <strong class=
           "userinput"><code>fdisk</code></strong> or <a class="xref" href=
-          "parted.html" title="parted-3.1">parted-3.1</a> to define the
+          "parted.html" title="parted-3.2">parted-3.2</a> to define the
           partitions needed for the array. Usually, there will be one
           partition on each drive participating in the RAID array, but that
           is not strictly necessary. For this example, there will be four
@@ -231,7 +232,7 @@ Working Devices : 2
         <p>
           From this point, the partitions can be formated with the filesystem
           of choice (e.g. ext3, ext4, <a class="xref" href="xfsprogs.html"
-          title="xfsprogs-3.1.11">xfsprogs-3.1.11</a>, <a class="xref" href=
+          title="xfsprogs-3.2.1">xfsprogs-3.2.1</a>, <a class="xref" href=
           "reiserfs.html" title=
           "reiserfsprogs-3.6.24">reiserfsprogs-3.6.24</a>, etc). The
           formatted partitions can then be mounted. The <code class=
@@ -270,15 +271,16 @@ Working Devices : 2
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="lvm2.html" title="LVM2-2.02.105">Prev</a>
+          <a accesskey="p" href="aboutlvm.html" title=
+          "About Logical Volume Management (LVM)">Prev</a>
           <p>
-            LVM2-2.02.105
+            About Logical Volume Management (LVM)
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="mdadm.html" title="mdadm-3.3">Next</a>
+          <a accesskey="n" href="mdadm.html" title="mdadm-3.3.2">Next</a>
           <p>
-            mdadm-3.3
+            mdadm-3.3.2
           </p>
         </li>
         <li class="up">
@@ -287,7 +289,7 @@ Working Devices : 2
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -28,9 +28,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gcc.html" title="GCC-4.8.2">Next</a>
+          <a accesskey="n" href="gcc.html" title="GCC-4.9.1">Next</a>
           <p>
-            GCC-4.8.2
+            GCC-4.9.1
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -57,11 +57,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">0.4 SBU</span>
+              <span class="segbody">0.5 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">10.2 MB</span>
+              <span class="segbody">10.5 MB</span>
             </div>
           </div>
         </div>
@@ -74,13 +74,15 @@
           Prepare MPC for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr</kbd>
+<kbd class=
+"command">./configure --prefix=/usr --docdir=/usr/share/doc/mpc-1.0.2</kbd>
 </pre>
         <p>
-          Compile the package:
+          Compile the package and generate the HTML documentation:
         </p>
         <pre class="userinput">
-<kbd class="command">make</kbd>
+<kbd class="command">make
+make html</kbd>
 </pre>
         <p>
           To test the results, issue:
@@ -89,10 +91,11 @@
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          Install the package and its documentation:
         </p>
         <pre class="userinput">
-<kbd class="command">make install</kbd>
+<kbd class="command">make install
+make install-html</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
@@ -105,6 +108,10 @@
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
               <span class="segbody">libmpc.{a,so}</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directory:</strong>
+              <span class="segbody">/usr/share/doc/mpc-1.0.2</span>
             </div>
           </div>
         </div>
@@ -145,9 +152,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gcc.html" title="GCC-4.8.2">Next</a>
+          <a accesskey="n" href="gcc.html" title="GCC-4.9.1">Next</a>
           <p>
-            GCC-4.8.2
+            GCC-4.9.1
           </p>
         </li>
         <li class="up">
@@ -156,7 +163,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Wireshark-1.10.5
+      Wireshark-1.12.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;16.&nbsp;Networking Utilities
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="wireshark" name="wireshark"></a>Wireshark-1.10.5
+        <a id="wireshark" name="wireshark"></a>Wireshark-1.12.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -64,7 +64,7 @@
           capture files from many other popular network analyzers.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -75,28 +75,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://www.wireshark.org/download/src/all-versions/wireshark-1.10.5.tar.bz2">
-                http://www.wireshark.org/download/src/all-versions/wireshark-1.10.5.tar.bz2</a>
+                "http://www.wireshark.org/download/src/all-versions/wireshark-1.12.1.tar.bz2">
+                http://www.wireshark.org/download/src/all-versions/wireshark-1.12.1.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: a66894a62f05e1e7a3156a807f3296ea
+                Download MD5 sum: 14b3e3d8979d1eb27ff085bb5f400e67
               </p>
             </li>
             <li>
               <p>
-                Download size: 26 MB
+                Download size: 28 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 926 MB
+                Estimated disk space required: 1.4 GB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 5.2 SBU
+                Estimated build time: 6.2 SBU
               </p>
             </li>
           </ul>
@@ -126,38 +126,42 @@
         </h4>
         <p class="required">
           <a class="xref" href="../general/glib2.html" title=
-          "GLib-2.38.2">GLib-2.38.2</a> (to build the TTY-mode front-end
+          "GLib-2.40.0">GLib-2.40.0</a> (to build the TTY-mode front-end
           only)
         </p>
         <p>
           Note that you need <span class="application">Gtk+</span> or
-          <span class="application">Qt4</span> installed, otherwise, you will
-          need to pass <code class="option">--disable-wireshark</code> to the
-          <span class="command"><strong>configure</strong></span> command.
+          <span class="application">Qt4</span> installed, otherwise, pass
+          <code class="option">--disable-wireshark</code> to the <span class=
+          "command"><strong>configure</strong></span> command. SBU and disk
+          space required are larger for the Qt GUI.
         </p>
         <h4>
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="libpcap.html" title=
-          "libpcap-1.5.3">libpcap-1.5.3</a> (required to capture data)
+          <a class="xref" href="../x/gtk3.html" title=
+          "GTK+-3.12.2">GTK+-3.12.2</a> (to build the <span class=
+          "application">Gtk+3</span> GUI) and <a class="xref" href=
+          "libpcap.html" title="libpcap-1.6.2">libpcap-1.6.2</a> (required to
+          capture data)
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="ulink" href=
-          "http://www.gnu.org/software/adns/adns.html">adns</a>, <a class=
-          "ulink" href="http://www.maxmind.com/app/c">GeoIP</a>, <a class=
-          "xref" href="../postlfs/gnutls.html" title=
-          "GnuTLS-3.2.11">GnuTLS-3.2.11</a>, <a class="xref" href=
+          <a class="xref" href="../postlfs/gnutls.html" title=
+          "GnuTLS-3.3.7">GnuTLS-3.3.7</a>, <a class="xref" href=
           "../general/libgcrypt.html" title=
-          "libgcrypt-1.6.1">libgcrypt-1.6.1</a>, <a class="xref" href=
+          "libgcrypt-1.6.2">libgcrypt-1.6.2</a>, <a class="xref" href=
           "../general/lua.html" title="Lua-5.2.3">Lua-5.2.3</a>, <a class=
           "xref" href="../postlfs/mitkrb.html" title=
-          "MIT Kerberos V5-1.12.1">MIT Kerberos V5-1.12.1</a>, <a class=
+          "MIT Kerberos V5-1.12.2">MIT Kerberos V5-1.12.2</a>, <a class=
           "xref" href="../postlfs/openssl.html" title=
-          "OpenSSL-1.0.1f">OpenSSL-1.0.1f</a>, and <a class="ulink" href=
+          "OpenSSL-1.0.1i">OpenSSL-1.0.1i</a>, <a class="ulink" href=
+          "http://www.gnu.org/software/adns/adns.html">adns</a>, <a class=
+          "ulink" href="http://www.maxmind.com/app/c">GeoIP</a>, and
+          <a class="ulink" href=
           "http://www.portaudio.com/download.html">PortAudio</a>
         </p>
         <h4>
@@ -165,9 +169,9 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../x/gtk2.html" title=
-          "GTK+-2.24.22">GTK+-2.24.22</a>, <a class="xref" href=
-          "../x/gtk3.html" title="GTK+-3.10.7">GTK+-3.10.7</a>, or <a class=
-          "xref" href="../x/qt4.html" title="Qt-4.8.5">Qt-4.8.5</a>
+          "GTK+-2.24.24">GTK+-2.24.24</a>, <a class="xref" href=
+          "../x/qt4.html" title="Qt-4.8.6">Qt-4.8.6</a>, or <a class="xref"
+          href="../x/qt5.html" title="Qt-5.3.1">Qt-5.3.1</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -201,7 +205,7 @@
         <p>
           Optionally, fix the description of the program in the title. The
           first change overwrites the default "SVN Unknown" in the title and
-          the secong overwrites a utility script that resets the version to
+          the second overwrites a utility script that resets the version to
           "unknown".
         </p>
         <pre class="userinput">
@@ -225,11 +229,51 @@ EOF</kbd>
 <kbd class="command">groupadd -g 62 wireshark</kbd>
 </pre>
         <p>
+          If you want an unpriviledged user to execute <span class=
+          "application">wireshark</span>, run the following command as the
+          <code class="systemitem">root</code> user:
+        </p>
+        <pre class="userinput">
+<kbd class="command">usermod -a -G wireshark <em class=
+"replaceable"><code>&lt;username&gt;</code></em></kbd>
+</pre>
+        <p>
+          If you have <span class="application">GTK+2</span> and 3, and
+          <span class="application">Qt4</span> and 5, one GUI linked to
+          <span class="application">GTK+3</span> and another one linked to
+          <span class="application">Qt5</span> are built, by default.
+          Instead, we chose to only build the <span class=
+          "application">GTK+3</span> GUI, as the BLFS default. If you prefer
+          otherwise, some modifications are mecessary. For modifications in
+          the <span class="command"><strong>configure</strong></span>
+          switches, see "Command Explanations".
+        </p>
+        <p>
+          If you want to build a Qt GUI and have both <span class=
+          "application">Qt4</span> and 5 installed, issue either:
+        </p>
+        <pre class="userinput">
+<kbd class="command">source setqt5</kbd>
+</pre>
+        <p>
+          if you want the <span class="application">Qt5</span> GUI built, or:
+        </p>
+        <pre class="userinput">
+<kbd class="command">source setqt4 &amp;&amp;
+sed -i 's/Qt5 Qt/Qt/' configure</kbd>
+</pre>
+        <p>
+          if you want the <span class="application">Qt4</span> GUI built.
+        </p>
+        <p>
           Continue to install <span class="application">Wireshark</span> by
           running the following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --sysconfdir=/etc &amp;&amp;
+<kbd class="command">./configure --prefix=/usr     \
+            --with-gtk3=yes   \
+            --with-qt=no      \
+            --sysconfdir=/etc &amp;&amp;
 make</kbd>
 </pre>
         <p>
@@ -241,13 +285,13 @@ make</kbd>
         <pre class="root">
 <kbd class="command">make install &amp;&amp;
 
-install -v -m755 -d /usr/share/doc/wireshark-1.10.5 &amp;&amp;
+install -v -m755 -d /usr/share/doc/wireshark-1.12.1 &amp;&amp;
 install -v -m755 -d /usr/share/pixmaps/wireshark &amp;&amp;
 
 install -v -m644    README{,.linux} doc/README.* doc/*.{pod,txt} \
-                    /usr/share/doc/wireshark-1.10.5 &amp;&amp;
+                    /usr/share/doc/wireshark-1.12.1 &amp;&amp;
 
-pushd /usr/share/doc/wireshark-1.10.5 &amp;&amp;
+pushd /usr/share/doc/wireshark-1.12.1 &amp;&amp;
    for FILENAME in ../../wireshark/*.html; do
       ln -s -v -f $FILENAME .
    done &amp;&amp;
@@ -270,7 +314,7 @@ install -v -m644    image/*.{png,ico,xpm,bmp} \
         </p>
         <pre class="root">
 <kbd class="command">install -v -m644 <em class=
-"replaceable"><code>&lt;Downloaded_Files&gt;</code></em> /usr/share/doc/wireshark-1.10.5</kbd>
+"replaceable"><code>&lt;Downloaded_Files&gt;</code></em> /usr/share/doc/wireshark-1.12.1</kbd>
 </pre>
         <p>
           Now, set ownership and permissions of sensitive applications to
@@ -283,40 +327,47 @@ install -v -m644    image/*.{png,ico,xpm,bmp} \
 chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
 </pre>
         <p>
-          Finally, add any users to the wireshark group with <strong class=
-          "userinput"><code>usermod -a -G wireshark
-          &lt;username&gt;</code></strong>.
+          Finally, add any users to the wireshark group (as root user):
         </p>
+        <pre class="root">
+<kbd class="command">usermod -a -G wireshark &lt;username&gt;</kbd>
+</pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
         <h2 class="sect2">
           Command Explanations
         </h2>
         <p>
-          <em class="parameter"><code>--enable-threads</code></em>: This
-          parameter enables the use of threads in <span class=
-          "command"><strong>wireshark</strong></span>.
+          <span class="command"><strong>sed -i 's/Qt5 Qt/Qt/'
+          ...</strong></span>: This command is required because, without it,
+          libraries and includes from <span class="application">Qt5</span>
+          are found and used first, if both versions are installed, when
+          trying to build with <span class="application">Qt4</span>, and
+          <span class="command"><strong>make</strong></span> does not
+          complete.
         </p>
         <p>
           <code class="option">--disable-wireshark</code>: This option is
           required if you have <span class="application">GTK+</span>
-          installed but do not want to build the GUI.
+          installed but do not want to build the GTK+ and Qt GUIs.
         </p>
         <p>
-          <code class="option">--with-gtk3=yes</code>: This option is
-          required if you want to use <span class="application">GTK+</span>3
-          instead of 2, for the GUI.
+          <em class="parameter"><code>--with-gtk3=yes</code></em>: This
+          switch is required to use <span class="application">GTK+3</span>
+          for the GUI, if you are using <em class=
+          "parameter"><code>--with-qt=no</code></em>. Change gtk3 by gtk2,to
+          use <span class="application">GTK+3</span> for the GUI.
         </p>
         <p>
-          <code class="option">--with-qt=yes</code>: This option is required
-          if you want to use <span class="application">Qt</span> instead of
-          <span class="application">GTK+</span>, for the GUI.
+          <em class="parameter"><code>--with-qt=no</code></em>: This switch
+          disables build of the Qt GUI. Replace "no" by "yes", if you want it
+          to be built.
         </p>
         <p>
-          <code class="option">--with-ssl</code>: This option is required if
-          you are linking Kerberos libraries into the build so that the
-          <span class="application">OpenSSL</span> <code class=
-          "filename">libcrypto</code> library is found.
+          <code class="option">--with-gtk2=yes</code>: This option is
+          required if you want to use <span class="application">GTK+</span>2,
+          instead of 3, for the GUI. Notice that the GUI for only one GTK+
+          version (either 2 or 3) can be built.
         </p>
       </div>
       <div class="configuration" lang="en" xml:lang="en">
@@ -343,8 +394,40 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
             Guide</a> for configuration information. Most of <span class=
             "application">Wireshark</span>'s configuration can be
             accomplished using the menu options of the <span class=
-            "command"><strong>wireshark</strong></span> graphical interface.
+            "command"><strong>wireshark</strong></span> graphical interfaces.
           </p>
+        </div>
+        <div class="sect3" lang="en" xml:lang="en">
+          <h3 class="sect3">
+            Desktop file for the Qt GUI
+          </h3>
+          <p>
+            If Qt GUI was built and you wish an entry in the desktop menu,
+            there are two possibilities (instructions must be run as root).
+          </p>
+          <p>
+            If only the Qt GUI was built:
+          </p>
+          <pre class="root">
+<kbd class="command">mv -v /usr/share/applications/wireshark.desktop \
+      /usr/share/applications/wireshark-qt.desktop</kbd>
+</pre>
+          <p>
+            If both, GTK+ and Qt GUIs were built:
+          </p>
+          <pre class="root">
+<kbd class="command">cp -v /usr/share/applications/wireshark.desktop \
+      /usr/share/applications/wireshark-qt.desktop</kbd>
+</pre>
+          <p>
+            Now, fix it for <span class=
+            "command"><strong>wireshark-qt</strong></span>:
+          </p>
+          <pre class="root">
+<kbd class="command">sed -e 's/ireshark/&amp;-qt/' \
+    -e 's/^\(Icon=wireshark\)-qt/\1/' \
+    -i /usr/share/applications/wireshark-qt.desktop</kbd>
+</pre>
           <div class="admon note">
             <img alt="[Note]" src="../images/note.png" />
             <h3>
@@ -369,20 +452,20 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed Programs:</strong>
-              <span class="segbody">capinfos, dftest, dumpcap, editcap,
-              mergecap, randpkt, rawshark, reordercap, text2pcap, tshark, and
-              wireshark</span>
+              <span class="segbody">capinfos, captype, dftest, dumpcap,
+              editcap, mergecap, randpkt, rawshark, reordercap, text2pcap,
+              tshark, wireshark and wireshark-qt</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libwireshark.so, libwiretap.so,
-              libwsutil.so, and numerous plugin modules under
+              <span class="segbody">libfiletap.so, libwireshark.so,
+              libwiretap.so, libwsutil.so, and numerous modules under
               /usr/lib/wireshark/plugins</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
               <span class="segbody">/usr/lib/wireshark,
-              /usr/share/doc/wireshark-1.10.5, /usr/share/pixmaps/wireshark,
+              /usr/share/doc/wireshark-1.12.1, /usr/share/pixmaps/wireshark,
               and /usr/share/wireshark</span>
             </div>
           </div>
@@ -408,6 +491,20 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
                     several statistics about that file. It is able to detect
                     and read any capture supported by the <span class=
                     "application">Wireshark</span> package.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="captype" name="captype"></a><span class=
+                    "term"><span class=
+                    "command"><strong>captype</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    prints the file types of capture files.
                   </p>
                 </td>
               </tr>
@@ -560,7 +657,23 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
                 </td>
                 <td>
                   <p>
-                    is a GUI network protocol analyzer. It lets you
+                    is the GTK+ GUI network protocol analyzer. It lets you
+                    interactively browse packet data from a live network or
+                    from a previously saved capture file.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wireshark-qt-prog" name=
+                    "wireshark-qt-prog"></a><span class="term"><span class=
+                    "command"><strong>wireshark-qt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is the Qt GUI network protocol analyzer. It lets you
                     interactively browse packet data from a live network or
                     from a previously saved capture file.
                   </p>
@@ -605,7 +718,7 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-01 01:45:24 -0800
+        Last updated on 2014-09-19 21:15:05 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -629,7 +742,7 @@ chmod -v 6550 /usr/bin/{tshark,dumpcap}</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

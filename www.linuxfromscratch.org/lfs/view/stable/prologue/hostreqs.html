@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/prologue/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Preface
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -116,7 +116,7 @@
               <span class="strong"><strong>GCC-4.1.2</strong></span>
               including the C++ compiler, <span class=
               "command"><strong>g++</strong></span> (Versions greater than
-              4.8.2 are not recommended as they have not been tested)
+              4.9.1 are not recommended as they have not been tested)
             </p>
             <div class="admon note">
               <img alt="[Note]" src="../images/note.png" />
@@ -138,7 +138,7 @@
           <li class="listitem">
             <p>
               <span class="strong"><strong>Glibc-2.5.1</strong></span>
-              (Versions greater than 2.19 are not recommended as they have
+              (Versions greater than 2.20 are not recommended as they have
               not been tested)
             </p>
           </li>
@@ -272,8 +272,18 @@ echo 'main(){}' &gt; dummy.c &amp;&amp; g++ -o dummy dummy.c
 if [ -x dummy ]
   then echo "g++ compilation OK";
   else echo "g++ compilation failed"; fi
-rm -f dummy.c dummy
+rm -f dummy.c dummy</code>
 
+EOF
+
+bash version-check.sh</kbd>
+</pre>
+        <p>
+          Also check for some library consistency:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; library-check.sh &lt;&lt; "EOF"
+<code class="literal">#!/bin/bash
 for lib in lib{gmp,mpfr,mpc}.la; do
   echo $lib: $(if find /usr/lib* -name $lib|
                grep -q $lib;then :;else echo not;fi) found
@@ -281,8 +291,12 @@ done
 unset lib</code>
 EOF
 
-bash version-check.sh</kbd>
+bash library-check.sh</kbd>
 </pre>
+        <p>
+          The files identified by this script should be all present or all
+          absent, but not only one or two present.
+        </p>
       </div>
     </div>
     <div class="navfooter">
@@ -305,7 +319,7 @@ bash version-check.sh</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

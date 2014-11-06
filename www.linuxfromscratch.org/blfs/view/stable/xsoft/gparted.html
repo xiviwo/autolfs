@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      Gparted-0.17.0
+      Gparted-0.19.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;38.&nbsp;Other X-based Programs
@@ -29,9 +29,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="icedtea-web.html" title=
-          "IcedTea-Web-1.4.2">Next</a>
+          "IcedTea-Web-1.5.1">Next</a>
           <p>
-            IcedTea-Web-1.4.2
+            IcedTea-Web-1.5.1
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="gparted" name="gparted"></a>Gparted-0.17.0
+        <a id="gparted" name="gparted"></a>Gparted-0.19.1
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -58,7 +58,7 @@
           partitions.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -69,13 +69,13 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://downloads.sourceforge.net/gparted/gparted-0.17.0.tar.bz2">
-                http://downloads.sourceforge.net/gparted/gparted-0.17.0.tar.bz2</a>
+                "http://downloads.sourceforge.net/gparted/gparted-0.19.1.tar.bz2">
+                http://downloads.sourceforge.net/gparted/gparted-0.19.1.tar.bz2</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: ecd66491bb2061c6aa6077cc24823b9e
+                Download MD5 sum: 9aff8cef2c46e5ca4adaab43588c9e64
               </p>
             </li>
             <li>
@@ -85,13 +85,14 @@
             </li>
             <li>
               <p>
-                Estimated disk space required: 77 MB (additional 4 MB,
+                Estimated disk space required: 77 MB (additional 3 MB,
                 building the optional documentation)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 0.9 SBU
+                Estimated build time: 0.9 SBU (additional 0.1 SBU, building
+                the optional documentation)
               </p>
             </li>
           </ul>
@@ -104,10 +105,8 @@
         </h4>
         <p class="required">
           <a class="xref" href="../x/gtkmm2.html" title=
-          "Gtkmm-2.24.4">Gtkmm-2.24.4</a>, <a class="xref" href=
-          "../general/intltool.html" title=
-          "Intltool-0.50.2">Intltool-0.50.2</a> and <a class="xref" href=
-          "../postlfs/parted.html" title="parted-3.1">parted-3.1</a>
+          "Gtkmm-2.24.4">Gtkmm-2.24.4</a> and <a class="xref" href=
+          "../postlfs/parted.html" title="parted-3.2">parted-3.2</a>
         </p>
         <h4>
           Optional
@@ -172,11 +171,11 @@ make</kbd>
           LFS), <a class="xref" href="../postlfs/jfsutils.html" title=
           "jfsutils-1.1.15">jfsutils-1.1.15</a>, <a class="xref" href=
           "../postlfs/ntfs-3g.html" title=
-          "ntfs-3g-2013.1.13">ntfs-3g-2013.1.13</a>, <a class="xref" href=
+          "ntfs-3g-2014.2.15">ntfs-3g-2014.2.15</a>, <a class="xref" href=
           "../postlfs/reiserfs.html" title=
           "reiserfsprogs-3.6.24">reiserfsprogs-3.6.24</a>, <a class="xref"
           href="../postlfs/xfsprogs.html" title=
-          "xfsprogs-3.1.11">xfsprogs-3.1.11</a>, <a class="ulink" href=
+          "xfsprogs-3.2.1">xfsprogs-3.2.1</a>, <a class="ulink" href=
           "https://btrfs.wiki.kernel.org/index.php/Btrfs_source_repositories">
           btrfs-progs</a>, <a class="ulink" href=
           "http://www.daniel-baumann.ch/software/dosfstools/">dosfstools</a>,
@@ -200,7 +199,7 @@ make</kbd>
           "Polkit-0.112">Polkit-0.112</a>, but some configuration is
           necessary. Another simple solution is <a class="xref" href=
           "../postlfs/ssh-askpass.html" title=
-          "ssh-askpass-6.5p1">ssh-askpass-6.5p1</a>. Below, we describe these
+          "ssh-askpass-6.6p1">ssh-askpass-6.6p1</a>. Below, we describe these
           two alternatives: "ssh-askpass" and "pkexec".
         </p>
         <div class="sect3" lang="en" xml:lang="en">
@@ -210,7 +209,7 @@ make</kbd>
           <p>
             To optionally use <a class="xref" href=
             "../postlfs/ssh-askpass.html" title=
-            "ssh-askpass-6.5p1">ssh-askpass-6.5p1</a> if it is installed in
+            "ssh-askpass-6.6p1">ssh-askpass-6.6p1</a> if it is installed in
             your system, run the following commands as the <code class=
             "systemitem">root</code> user:
           </p>
@@ -241,7 +240,7 @@ sed -i 's/Exec=/Exec=sudo -A /'               /usr/share/applications/gparted.de
             "../postlfs/polkit.html" title="Polkit-0.112">Polkit-0.112</a>.
             As the <code class="systemitem">root</code> user, configure
             <a class="xref" href="gparted.html" title=
-            "Gparted-0.17.0">Gparted-0.17.0</a> and <a class="xref" href=
+            "Gparted-0.19.1">Gparted-0.19.1</a> and <a class="xref" href=
             "../postlfs/polkit.html" title="Polkit-0.112">Polkit-0.112</a>
             with the following commands:
           </p>
@@ -262,7 +261,7 @@ chmod -v 0755 /usr/sbin/gparted_polkit</kbd>
             Still as the <code class="systemitem">root</code> user, configure
             <a class="xref" href="../postlfs/polkit.html" title=
             "Polkit-0.112">Polkit-0.112</a> and <a class="xref" href=
-            "gparted.html" title="Gparted-0.17.0">Gparted-0.17.0</a> to use
+            "gparted.html" title="Gparted-0.19.1">Gparted-0.19.1</a> to use
             <span class="application">pkexec</span>:
           </p>
           <pre class="root">
@@ -375,7 +374,7 @@ chmod -v 0644 /usr/share/polkit-1/actions/org.gnome.gparted.policy</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-28 12:04:55 -0800
+        Last updated on 2014-09-21 14:28:22 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -388,9 +387,9 @@ chmod -v 0644 /usr/share/polkit-1/actions/org.gnome.gparted.policy</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="icedtea-web.html" title=
-          "IcedTea-Web-1.4.2">Next</a>
+          "IcedTea-Web-1.5.1">Next</a>
           <p>
-            IcedTea-Web-1.4.2
+            IcedTea-Web-1.5.1
           </p>
         </li>
         <li class="up">
@@ -399,7 +398,7 @@ chmod -v 0644 /usr/share/polkit-1/actions/org.gnome.gparted.policy</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

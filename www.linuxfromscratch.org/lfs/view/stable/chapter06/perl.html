@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      6.38.&nbsp;Perl-5.18.2
+      6.42.&nbsp;Perl-5.20.0
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter06/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;6.&nbsp;Installing Basic System Software
@@ -29,10 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="autoconf.html" title=
-          "Autoconf-2.69">Next</a>
+          <a accesskey="n" href="xml-parser.html" title=
+          "XML::Parser-2.42_01">Next</a>
           <p>
-            Autoconf-2.69
+            XML::Parser-2.42_01
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-system-perl" name="ch-system-perl"></a>6.38. Perl-5.18.2
+        <a id="ch-system-perl" name="ch-system-perl"></a>6.42. Perl-5.20.0
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -58,18 +58,18 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">6.7 SBU</span>
+              <span class="segbody">7.5 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">246 MB</span>
+              <span class="segbody">236 MB</span>
             </div>
           </div>
         </div>
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.38.1. Installation of Perl
+          6.42.1. Installation of Perl
         </h2>
         <p>
           First create a basic <code class="filename">/etc/hosts</code> file
@@ -81,17 +81,14 @@
 "command">echo "127.0.0.1 localhost $(hostname)" &gt; /etc/hosts</kbd>
 </pre>
         <p>
-          This version of Perl now builds the Compress::Raw::Zlib module. By
-          default Perl will use an internal copy of the Zlib source for the
-          build. Issue the following command so that Perl will use the Zlib
-          library installed on the system:
+          This version of Perl now builds the Compress::Raw::Zlib and
+          Compress::Raw::BZip2 modules. By default Perl will use an internal
+          copy of the sources for the build. Issue the following command so
+          that Perl will use the libraries installed on the system:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|"           \
-       -e "s|INCLUDE\s*= ./zlib-src|INCLUDE    = /usr/include|" \
-       -e "s|LIB\s*= ./zlib-src|LIB        = /usr/lib|"         \
-    cpan/Compress-Raw-Zlib/config.in</kbd>
+<kbd class="command">export BUILD_ZLIB=False
+export BUILD_BZIP2=0</kbd>
 </pre>
         <p>
           To have full control over the way Perl is set up, you can remove
@@ -132,9 +129,9 @@
             </dt>
             <dd>
               <p>
-                This corrects an error in the way that <span class=
-                "command"><strong>perldoc</strong></span> invokes the
-                <span class="command"><strong>less</strong></span> program.
+                This ensures that <strong class=
+                "userinput"><code>less</code></strong> is used instead of
+                <strong class="userinput"><code>more</code></strong>.
               </p>
             </dd>
             <dt>
@@ -174,15 +171,16 @@
 <kbd class="command">make -k test</kbd>
 </pre>
         <p>
-          Install the package:
+          Install the package and clean up:
         </p>
         <pre class="userinput">
-<kbd class="command">make install</kbd>
+<kbd class="command">make install
+unset BUILD_ZLIB BUILD_BZIP2</kbd>
 </pre>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
-          <a id="contents-perl" name="contents-perl"></a>6.38.2. Contents of
+          <a id="contents-perl" name="contents-perl"></a>6.42.2. Contents of
           Perl
         </h2>
         <div class="segmentedlist">
@@ -191,7 +189,7 @@
               <strong class="segtitle">Installed programs:</strong>
               <span class="segbody">a2p, c2ph, config_data, corelist, cpan,
               cpan2dist, cpanp, cpanp-run-perl, enc2xs, find2perl, h2ph,
-              h2xs, instmodsh, json_pp, libnetcfg, perl, perl5.18.2 (link to
+              h2xs, instmodsh, json_pp, libnetcfg, perl, perl5.20.0 (link to
               perl), perlbug, perldoc, perlivp, perlthanks (link to perlbug),
               piconv, pl2pm, pod2html, pod2latex, pod2man, pod2text,
               pod2usage, podchecker, podselect, prove, psed (link to s2p),
@@ -460,7 +458,7 @@
                   <p>
                     <a id="perl-version" name="perl-version"></a><span class=
                     "term"><span class=
-                    "command"><strong>perl5.18.2</strong></span></span>
+                    "command"><strong>perl5.20.0</strong></span></span>
                   </p>
                 </td>
                 <td>
@@ -837,10 +835,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="autoconf.html" title=
-          "Autoconf-2.69">Next</a>
+          <a accesskey="n" href="xml-parser.html" title=
+          "XML::Parser-2.42_01">Next</a>
           <p>
-            Autoconf-2.69
+            XML::Parser-2.42_01
           </p>
         </li>
         <li class="up">
@@ -849,7 +847,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

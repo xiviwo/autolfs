@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      texlive-20130530
+      texlive-20140525
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;48.&nbsp;Typesetting
@@ -29,10 +29,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="../appendices/creat-comm.html" title=
-          "Creative Commons License">Next</a>
+          <a accesskey="n" href="biber.html" title=
+          "biblatex-biber-1.8">Next</a>
           <p>
-            Creative Commons License
+            biblatex-biber-1.8
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="texlive" name="texlive"></a>texlive-20130530
+        <a id="texlive" name="texlive"></a>texlive-20140525
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -60,7 +60,7 @@
           rebuild the compiled programs from source.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -71,42 +71,28 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://tug.org/texlive/historic/2013/texlive-20130530-source.tar.xz">
-                ftp://tug.org/texlive/historic/2013/texlive-20130530-source.tar.xz</a>
+                "ftp://tug.org/texlive/historic/2014/texlive-20140525-source.tar.xz">
+                ftp://tug.org/texlive/historic/2014/texlive-20140525-source.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: f52599c99fb1035399b907f4c54f1125
+                Download MD5 sum: 09ee265ff51637827559affc7304078c
               </p>
             </li>
             <li>
               <p>
-                Download size: 172 MB
+                Download size: 40 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 1.6 GB
+                Estimated disk space required: 555 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 9.6 SBU
-              </p>
-            </li>
-          </ul>
-        </div>
-        <h3>
-          Additional Downloads
-        </h3>
-        <div class="itemizedlist">
-          <ul class="compact">
-            <li>
-              <p>
-                Required patch: <a class="ulink" href=
-                "http://www.linuxfromscratch.org/patches/blfs/7.5/texlive-20130530-source-fix_asymptote-1.patch">
-                http://www.linuxfromscratch.org/patches/blfs/7.5/texlive-20130530-source-fix_asymptote-1.patch</a>
+                Estimated build time: 8.4 SBU
               </p>
             </li>
           </ul>
@@ -115,42 +101,56 @@
           TeX Live Dependencies
         </h3>
         <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="tl-installer.html" title=
+          "install-tl-unx">install-tl-unx</a> or a previous version of TeX
+          Live (untested, you would need to alter the configure switches
+          which refer to 2014 so that it overwrites your existing
+          installation, or else copy everything to the location for the
+          current year), and <a class="xref" href="../general/clisp.html"
+          title="Clisp-2.49">Clisp-2.49</a> (to build <span class=
+          "command"><strong>xindy</strong></span> which is an index processor
+          for multi-lingual index creation)
+        </p>
+        <h4>
           Recommended
         </h4>
         <p class="recommended">
-          <a class="xref" href="../x/freeglut.html" title=
-          "Freeglut-2.8.1">Freeglut-2.8.1</a> (for asy), <a class="xref"
-          href="gs.html" title="ghostscript-9.10">ghostscript-9.10</a>,
-          <a class="xref" href="../x/installing.html" title=
-          "Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
+          <a class="xref" href="gs.html" title=
+          "ghostscript-9.14">ghostscript-9.14</a> (for dvisvgm - used by
+          asymptote which provides a mathematical coordinate-based framework
+          for technical drawing), <a class="xref" href="../x/installing.html"
+          title="Chapter&nbsp;24.&nbsp;X Window System Environment">X Window
           System</a>
         </p>
-        <p>
+        <p class="recommended">
           The source ships with its own versions of <span class=
           "emphasis"><em>many</em></span> libraries, and will use them unless
           it is forced to use the system versions. The following are
           recommended so that the system version will be used: <a class=
-          "xref" href="../general/icu.html" title="ICU-52.1">ICU-52.1</a>,
-          <a class="xref" href="../general/freetype2.html" title=
-          "FreeType-2.5.2">FreeType-2.5.2</a>, <a class="xref" href=
-          "../general/fontconfig.html" title=
-          "Fontconfig-2.11.0">Fontconfig-2.11.0</a>, <a class="xref" href=
-          "../general/graphite2.html" title=
+          "xref" href="../general/fontconfig.html" title=
+          "Fontconfig-2.11.1">Fontconfig-2.11.1</a>, <a class="xref" href=
+          "../general/freetype2.html" title=
+          "FreeType-2.5.3">FreeType-2.5.3</a>, <a class="xref" href=
+          "../general/gc.html" title="GC-7.4.2">GC-7.4.2</a>, <a class="xref"
+          href="../general/graphite2.html" title=
           "Graphite2-1.2.4">Graphite2-1.2.4</a>, <a class="xref" href=
           "../general/harfbuzz.html" title=
-          "Harfbuzz-0.9.26">Harfbuzz-0.9.26</a> (linked to graphite2),
-          <a class="xref" href="../general/libpng.html" title=
-          "libpng-1.6.9">libpng-1.6.9</a>, <a class="xref" href=
-          "../general/poppler.html" title="Poppler-0.24.5">Poppler-0.24.5</a>
+          "Harfbuzz-0.9.35">Harfbuzz-0.9.35</a> (linked to graphite2),
+          <a class="xref" href="../general/icu.html" title=
+          "ICU-53.1">ICU-53.1</a>, <a class="xref" href=
+          "../general/libpaper.html" title=
+          "libpaper-1.1.24+nmu3">libpaper-1.1.24+nmu3</a>, <a class="xref"
+          href="../general/libpng.html" title=
+          "libpng-1.6.13">libpng-1.6.13</a>, <a class="xref" href=
+          "../general/poppler.html" title="Poppler-0.26.4">Poppler-0.26.4</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
-          <a class="ulink" href="http://www.fftw.org/">FFTW</a> can be used
-          by asy.
-        </p>
-        <p>
           The source ships with its own versions of several libraries which
           are either not under active development, or only used for limited
           functionality. If you install these, as with some other optional
@@ -161,8 +161,7 @@
           "http://fossies.org/linux/misc/t1lib-5.1.2.tar.gz/">t1lib</a>,
           <a class="ulink" href=
           "http://sourceforge.net/projects/zziplib/">ZZIPlib</a>, <a class=
-          "ulink" href="http://www.gnu.org/software/clisp/">CLISP</a>,
-          <a class="ulink" href=
+          "ulink" href=
           "http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=TECkitDownloads">
           TECkit</a>
         </p>
@@ -171,9 +170,9 @@
         </h4>
         <p class="recommended">
           Some (re-installed) scripts will use <a class="xref" href=
-          "../general/ruby.html" title="Ruby-2.1.0">Ruby-2.1.0</a> and
-          <a class="xref" href="../general/tk.html" title=
-          "Tk-8.6.1">Tk-8.6.1</a> is used by epspdftk.
+          "../general/python2.html" title="Python-2.7.8">Python-2.7.8</a> or
+          <a class="xref" href="../general/ruby.html" title=
+          "Ruby-2.1.2">Ruby-2.1.2</a>.
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -206,57 +205,62 @@
           "filename">ls-R</code> files listing what was originally installed.
         </p>
         <p>
-          At the moment, these instructions do not rebuild <span class=
-          "application">xindy</span> which was installed by the binary
-          installer, due to a problem with the tarball's install procedure.
           Asy and the rest of asymptote is by default not rebuilt, so we have
           to separately run <span class=
           "command"><strong>configure</strong></span> and <span class=
           "command"><strong>make</strong></span> in its directory.
         </p>
         <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../texlive-20130530-source-fix_asymptote-1.patch &amp;&amp;
-
-mkdir texlive-build &amp;&amp;
+<kbd class="command">mkdir texlive-build &amp;&amp;
 cd texlive-build    &amp;&amp;
 
 ../configure                                        \
-    --prefix=/opt/texlive/2013                      \
-    --bindir=/opt/texlive/2013/bin/x86_64-linux     \
-    --datarootdir=/opt/texlive/2013                 \
+    --prefix=/opt/texlive/2014                      \
+    --bindir=/opt/texlive/2014/bin/x86_64-linux     \
+    --datarootdir=/opt/texlive/2014                 \
     --includedir=/usr/include                       \
-    --infodir=/opt/texlive/2013/texmf-dist/doc/info \
+    --infodir=/opt/texlive/2014/texmf-dist/doc/info \
     --libdir=/usr/lib                               \
-    --mandir=/opt/texlive/2013/texmf-dist/doc/man   \
+    --mandir=/opt/texlive/2014/texmf-dist/doc/man   \
     --disable-native-texlive-build                  \
     --disable-static --enable-shared                \
-    --with-system-libgs                             \
-    --with-system-poppler                           \
-    --with-system-freetype2                         \
+    --with-system-cairo                             \
     --with-system-fontconfig                        \
-    --with-system-libpng                            \
-    --with-system-icu                               \
+    --with-system-freetype2                         \
     --with-system-graphite2                         \
     --with-system-harfbuzz                          \
-    --with-system-xpdf                              \
-    --with-system-poppler                           \
-    --with-system-cairo                             \
+    --with-system-icu                               \
+    --with-system-libgs                             \
+    --with-system-libpng                            \
     --with-system-pixman                            \
+    --with-system-poppler                           \
+    --with-system-xpdf                              \
     --with-system-zlib                              \
-    --with-banner-add=" - BLFS" &amp;&amp;
+    --with-banner-add=" - BLFS"                     \
+    --enable-xindy                                  \
+    --enable-xindy-rules                            \
+    --enable-xindy-doc                              \
+    --with-clisp-runtime=system</kbd>
+</pre>
+        <p>
+          Asymptote has to be separately configured. It ships with its own
+          copy of the gc source tarball, and will only use the system version
+          if that local source is removed.
+        </p>
+        <pre class="userinput">
+<kbd class="command">pushd ../utils/asymptote &amp;&amp;
+rm -v gc-7.4.0.tar.gz &amp;&amp;
 
-pushd ../utils/asymptote &amp;&amp;
-    echo "ac_cv_lib_m_sqrt=yes"     &gt;config.cache &amp;&amp;
-    echo "ac_cv_lib_z_deflate=yes" &gt;&gt;config.cache &amp;&amp;
+echo "ac_cv_lib_m_sqrt=yes"     &gt;config.cache &amp;&amp;
+echo "ac_cv_lib_z_deflate=yes" &gt;&gt;config.cache &amp;&amp;
 
 ./configure LIBS="-ltirpc "                         \
-    --prefix=/opt/texlive/2013/                     \
-    --bindir=/opt/texlive/2013/bin/x86_64-linux     \
+    --prefix=/opt/texlive/2014/                     \
+    --bindir=/opt/texlive/2014/bin/x86_64-linux     \
     --enable-texlive-build                          \
-    --datarootdir=/opt/texlive/2013/texmf-dist      \
-    --infodir=/opt/texlive/2013/texmf-dist/doc/info \
-    --mandir=/opt/texlive/2013/texmf-dist/doc/man   \
+    --datarootdir=/opt/texlive/2014/texmf-dist      \
+    --infodir=/opt/texlive/2014/texmf-dist/doc/info \
+    --mandir=/opt/texlive/2014/texmf-dist/doc/man   \
     --cache-file=config.cache &amp;&amp;
 popd &amp;&amp;
 
@@ -265,7 +269,7 @@ make -C ../utils/asymptote</kbd>
 </pre>
         <p>
           To test the results, issue: <span class="command"><strong>make -k
-          chec &amp;&amp; make -C utils/asymptote checkk</strong></span>.
+          check &amp;&amp; make -C utils/asymptote check</strong></span>.
         </p>
         <p>
           Now, as the <code class="systemitem">root</code> user:
@@ -274,6 +278,10 @@ make -C ../utils/asymptote</kbd>
 <kbd class="command">make install &amp;&amp;
 make -C ../utils/asymptote install</kbd>
 </pre>
+        <p>
+          One part of the package remains to be rebuilt: <a class="xref"
+          href="biber.html" title="biblatex-biber-1.8">biber-1.8</a>.
+        </p>
       </div>
       <div class="commands" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -371,10 +379,13 @@ make -C ../utils/asymptote install</kbd>
                 </td>
                 <td>
                   <p>
-                    included in the <span class="application">TeX Live</span>
-                    package are too numerous to individually list. Please
-                    refer to the individual program man and html pages in the
-                    installation directory's 2011/index.html directory.
+                    The programs included in <span class=
+                    "application">TeX</span> are too numerous to individually
+                    list. Please refer to the individual program HTML and PDF
+                    pages in the installation directory's <code class=
+                    "filename">2014/doc.html</code> file, or the various
+                    html, man, or pdf files within the subdirectories of
+                    <code class="filename">2014/texmf-dist/</code>.
                   </p>
                 </td>
               </tr>
@@ -411,7 +422,7 @@ make -C ../utils/asymptote install</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 09:50:58 -0800
+        Last updated on 2014-09-19 14:19:42 -0700
       </p>
     </div>
     <div class="navfooter">
@@ -424,10 +435,10 @@ make -C ../utils/asymptote install</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="../appendices/creat-comm.html" title=
-          "Creative Commons License">Next</a>
+          <a accesskey="n" href="biber.html" title=
+          "biblatex-biber-1.8">Next</a>
           <p>
-            Creative Commons License
+            biblatex-biber-1.8
           </p>
         </li>
         <li class="up">
@@ -436,7 +447,7 @@ make -C ../utils/asymptote install</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      5.7.&nbsp;Glibc-2.19
+      5.7.&nbsp;Glibc-2.20
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/chapter05/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;5.&nbsp;Constructing a Temporary System
@@ -23,16 +23,16 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="linux-headers.html" title=
-          "Linux-3.13.3 API Headers">Prev</a>
+          "Linux-3.16.2 API Headers">Prev</a>
           <p>
-            Linux-3.13.3 API Headers
+            Linux-3.16.2 API Headers
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gcc-libstdc++.html" title=
-          "Libstdc++-4.8.2">Next</a>
+          "Libstdc++-4.9.1">Next</a>
           <p>
-            Libstdc++-4.8.2
+            Libstdc++-4.9.1
           </p>
         </li>
         <li class="up">
@@ -41,13 +41,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="ch-tools-glibc" name="ch-tools-glibc"></a>5.7. Glibc-2.19
+        <a id="ch-tools-glibc" name="ch-tools-glibc"></a>5.7. Glibc-2.20
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
@@ -60,11 +60,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">4.7 SBU</span>
+              <span class="segbody">5.0 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Required disk space:</strong>
-              <span class="segbody">567 MB</span>
+              <span class="segbody">592 MB</span>
             </div>
           </div>
         </div>
@@ -96,10 +96,10 @@ cd ../glibc-build</kbd>
           Next, prepare Glibc for compilation:
         </p>
         <pre class="userinput">
-<kbd class="command">../glibc-2.19/configure                             \
+<kbd class="command">../glibc-2.20/configure                             \
       --prefix=/tools                               \
       --host=$LFS_TGT                               \
-      --build=$(../glibc-2.19/scripts/config.guess) \
+      --build=$(../glibc-2.20/scripts/config.guess) \
       --disable-profile                             \
       --enable-kernel=2.6.32                        \
       --with-headers=/tools/include                 \
@@ -114,7 +114,7 @@ cd ../glibc-build</kbd>
           <dl class="variablelist">
             <dt>
               <span class="term"><em class="parameter"><code>--host=$LFS_TGT,
-              --build=$(../glibc-2.19/scripts/config.guess)</code></em></span>
+              --build=$(../glibc-2.20/scripts/config.guess)</code></em></span>
             </dt>
             <dd>
               <p>
@@ -230,29 +230,6 @@ cd ../glibc-build</kbd>
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          This package does come with a test suite, however, it cannot be run
-          at this time because we do not have a C++ compiler yet.
-        </p>
-        <div class="admon note">
-          <img alt="[Note]" src="../images/note.png" />
-          <h3>
-            Note
-          </h3>
-          <p>
-            The test suite also requires locale data to be installed in order
-            to run successfully. Locale data provides information to the
-            system regarding such things as the date, time, and currency
-            formats accepted and output by system utilities. If the test
-            suites are not being run in this chapter (as per the
-            recommendation), there is no need to install the locales now. The
-            appropriate locales will be installed in the next chapter. To
-            install the Glibc locales anyway, use instructions from <a class=
-            "xref" href="../chapter06/glibc.html" title=
-            "6.9.&nbsp;Glibc-2.19">Section&nbsp;6.9,
-            &ldquo;Glibc-2.19.&rdquo;</a>
-          </p>
-        </div>
-        <p>
           Install the package:
         </p>
         <pre class="userinput">
@@ -327,16 +304,16 @@ readelf -l a.out | grep ': /tools'</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="linux-headers.html" title=
-          "Linux-3.13.3 API Headers">Prev</a>
+          "Linux-3.16.2 API Headers">Prev</a>
           <p>
-            Linux-3.13.3 API Headers
+            Linux-3.16.2 API Headers
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="gcc-libstdc++.html" title=
-          "Libstdc++-4.8.2">Next</a>
+          "Libstdc++-4.9.1">Next</a>
           <p>
-            Libstdc++-4.8.2
+            Libstdc++-4.9.1
           </p>
         </li>
         <li class="up">
@@ -345,7 +322,7 @@ readelf -l a.out | grep ': /tools'</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

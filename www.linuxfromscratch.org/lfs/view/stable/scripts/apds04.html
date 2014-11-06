@@ -5,60 +5,59 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      D.4.&nbsp;/etc/rc.d/init.d/mountvirtfs
+      D.4.&nbsp;/etc/rc.d/init.d/modules
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
     <link rel="stylesheet" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
-  <body class="lfs" id="lfs-7.5">
+  <body class="lfs" id="lfs-7.6">
     <div class="navheader">
       <h4>
-        Linux From Scratch - Version 7.5
+        Linux From Scratch - Version 7.6
       </h4>
       <h3>
-        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821
+        Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds03.html" title=
-          "/etc/rc.d/init.d/functions">Prev</a>
+          "/etc/rc.d/init.d/mountvirtfs">Prev</a>
           <p>
-            /etc/rc.d/init.d/functions
+            /etc/rc.d/init.d/mountvirtfs
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds05.html" title=
-          "/etc/rc.d/init.d/modules">Next</a>
+          "/etc/rc.d/init.d/udev">Next</a>
           <p>
-            /etc/rc.d/init.d/modules
+            /etc/rc.d/init.d/udev
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="mountvirtfs" name="mountvirtfs"></a>D.4.
-        /etc/rc.d/init.d/mountvirtfs
+        <a id="modules" name="modules"></a>D.4. /etc/rc.d/init.d/modules
       </h1>
       <pre class="screen">
 #!/bin/sh
 ########################################################################
-# Begin mountvirtfs
+# Begin modules
 #
-# Description : Mount proc, sysfs, and run
+# Description : Module auto-loading script
 #
-# Authors     : Gerard Beekmans - gerard@linuxfromscratch.org
+# Authors     : Zack Winkles
 #               DJ Lucas - dj@linuxfromscratch.org
 # Update      : Bruce Dubbs - bdubbs@linuxfromscratch.org
 #
@@ -67,57 +66,62 @@
 ########################################################################
 
 ### BEGIN INIT INFO
-# Provides:            mountvirtfs
-# Required-Start:
+# Provides:            modules
+# Required-Start:      mountvirtfs sysctl
 # Should-Start:
 # Required-Stop:
 # Should-Stop:
 # Default-Start:       S
 # Default-Stop:
-# Short-Description:   Mounts /sys and /proc virtual (kernel) filesystems.
-#                      Mounts /run (tmpfs) and /dev (devtmpfs).
-# Description:         Mounts /sys and /proc virtual (kernel) filesystems.
-#                      Mounts /run (tmpfs) and /dev (devtmpfs).
+# Short-Description:   Loads required modules.
+# Description:         Loads modules listed in /etc/sysconfig/modules.
 # X-LFS-Provided-By:   LFS
 ### END INIT INFO
+
+# Assure that the kernel has module support.
+[ -e /proc/modules ] || exit 0
 
 . /lib/lsb/init-functions
 
 case "${1}" in
    start)
-      # Make sure /run/var is available before logging any messages
-      if ! mountpoint /run &gt;/dev/null; then
-         mount /run || failed=1
+      # Exit if there's no modules file or there are no
+      # valid entries
+      [ -r /etc/sysconfig/modules ]             || exit 0
+      egrep -qv '^($|#)' /etc/sysconfig/modules || exit 0
+
+      log_info_msg "Loading modules:" 
+
+      # Only try to load modules if the user has actually given us
+      # some modules to load.
+
+      while read module args; do
+
+         # Ignore comments and blank lines.
+         case "$module" in
+            ""|"#"*) continue ;;
+         esac
+
+         # Attempt to load the module, passing any arguments provided.
+         modprobe ${module} ${args} &gt;/dev/null
+
+         # Print the module name if successful, otherwise take note.
+         if [ $? -eq 0 ]; then
+            log_info_msg2 " ${module}" 
+         else
+            failedmod="${failedmod} ${module}"
+         fi
+      done &lt; /etc/sysconfig/modules
+
+      # Print a message about successfully loaded modules on the correct line.
+      log_success_msg2
+
+      # Print a failure message with a list of any modules that 
+      # may have failed to load.
+      if [ -n "${failedmod}" ]; then
+         log_failure_msg "Failed to load modules:${failedmod}" 
+         exit 1
       fi
-
-      mkdir -p /run/var /run/lock /run/shm
-      chmod 1777 /run/shm
-
-      log_info_msg "Mounting virtual file systems: ${INFO}/run" 
-
-      if ! mountpoint /proc &gt;/dev/null; then
-         log_info_msg2 " ${INFO}/proc"
-         mount -o nosuid,noexec,nodev /proc || failed=1
-      fi
-
-      if ! mountpoint /sys &gt;/dev/null; then
-         log_info_msg2 " ${INFO}/sys" 
-         mount -o nosuid,noexec,nodev /sys || failed=1
-      fi
-
-      if ! mountpoint /dev &gt;/dev/null; then
-         log_info_msg2 " ${INFO}/dev" 
-         mount -o mode=0755,nosuid /dev  || failed=1
-      fi
-
-      # Copy devices that Udev &gt;= 155 doesn't handle to /dev
-      cp -a /lib/udev/devices/* /dev
-
-      ln -sfn /run/shm /dev/shm
-      
-      (exit ${failed})
-      evaluate_retval
-      exit $failed
       ;;
 
    *)
@@ -126,33 +130,35 @@ case "${1}" in
       ;;
 esac
 
-# End mountvirtfs
+exit 0
+
+# End modules
 </pre>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
           <a accesskey="p" href="apds03.html" title=
-          "/etc/rc.d/init.d/functions">Prev</a>
+          "/etc/rc.d/init.d/mountvirtfs">Prev</a>
           <p>
-            /etc/rc.d/init.d/functions
+            /etc/rc.d/init.d/mountvirtfs
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="apds05.html" title=
-          "/etc/rc.d/init.d/modules">Next</a>
+          "/etc/rc.d/init.d/udev">Next</a>
           <p>
-            /etc/rc.d/init.d/modules
+            /etc/rc.d/init.d/udev
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20130821">
+          "Appendix&nbsp;D.&nbsp;Boot and sysconfig scripts version-20140815">
           Up</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.5">Home</a>
+          "Linux From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

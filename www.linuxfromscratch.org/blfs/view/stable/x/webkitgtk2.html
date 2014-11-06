@@ -5,34 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      WebKitGTK+-2.2.4
+      WebKitGTK+-2.4.5
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="webkitgtk.html" title=
-          "WebKitGTK+-1.10.2">Prev</a>
+          <a accesskey="p" href="startup-notification.html" title=
+          "startup-notification-0.12">Prev</a>
           <p>
-            WebKitGTK+-1.10.2
+            startup-notification-0.12
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="xulrunner.html" title=
-          "Xulrunner-27.0.1">Next</a>
+          <a accesskey="n" href="wm.html" title="Window Managers">Next</a>
           <p>
-            Xulrunner-27.0.1
+            Window Managers
           </p>
         </li>
         <li class="up">
@@ -41,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="webkitgtk2" name="webkitgtk2"></a>WebKitGTK+-2.2.4
+        <a id="webkitgtk2" name="webkitgtk2"></a>WebKitGTK+-2.4.5
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -57,10 +56,10 @@
           The <span class="application">WebKitGTK+</span> is the port of the
           portable web rendering engine <span class=
           "application">WebKit</span> to the <span class="application">GTK+
-          3</span> platform.
+          3</span> and/or <span class="application">GTK+ 2</span> platforms.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -71,27 +70,28 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "http://webkitgtk.org/releases/webkitgtk-2.2.4.tar.xz">http://webkitgtk.org/releases/webkitgtk-2.2.4.tar.xz</a>
+                "http://webkitgtk.org/releases/webkitgtk-2.4.5.tar.xz">http://webkitgtk.org/releases/webkitgtk-2.4.5.tar.xz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: d2af0d2d75f18cac33bd82ee63e22571
+                Download MD5 sum: c2e1687bb0314a0948fbf78e2d1e931f
               </p>
             </li>
             <li>
               <p>
-                Download size: 9.0 MB
+                Download size: 9.4 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 868 MB
+                Estimated disk space required: 1.5 GB (both built)
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: 57 SBU
+                Estimated build time: 138 SBU (both built, webkitgtk-3.0
+                takes a little longer than webkitgtk-1.0)
               </p>
             </li>
           </ul>
@@ -103,28 +103,39 @@
           Required
         </h4>
         <p class="required">
-          <a class="xref" href="../general/gperf.html" title=
-          "Gperf-3.0.4">Gperf-3.0.4</a>, <a class="xref" href=
-          "../multimedia/gst10-plugins-base.html" title=
-          "gst-plugins-base-1.2.3">gst-plugins-base-1.2.3</a>, <a class=
-          "xref" href="gtk3.html" title="GTK+-3.10.7">GTK+-3.10.7</a>,
-          <a class="xref" href="../general/icu.html" title=
-          "ICU-52.1">ICU-52.1</a>, <a class="xref" href=
-          "../gnome/libsecret.html" title=
-          "libsecret-0.16">libsecret-0.16</a>, <a class="xref" href=
+          <a class="xref" href="../multimedia/gst10-plugins-base.html" title=
+          "gst-plugins-base-1.4.1">gst-plugins-base-1.4.1</a>, <a class=
+          "xref" href="gtk2.html" title="GTK+-2.24.24">GTK+-2.24.24</a> or
+          <a class="xref" href="gtk3.html" title=
+          "GTK+-3.12.2">GTK+-3.12.2</a>, <a class="xref" href=
+          "../general/icu.html" title="ICU-53.1">ICU-53.1</a>, <a class=
+          "xref" href="../gnome/libsecret.html" title=
+          "libsecret-0.18">libsecret-0.18</a>, <a class="xref" href=
           "../basicnet/libsoup.html" title=
-          "libsoup-2.44.2">libsoup-2.44.2</a>, <a class="xref" href=
-          "../general/libwebp.html" title="libwebp-0.4.0">libwebp-0.4.0</a>,
+          "libsoup-2.46.0">libsoup-2.46.0</a>, <a class="xref" href=
+          "../general/libwebp.html" title="libwebp-0.4.1">libwebp-0.4.1</a>,
           <a class="xref" href="mesalib.html" title=
-          "MesaLib-10.0.3">MesaLib-10.0.3</a>, <a class="xref" href=
-          "../general/ruby.html" title="Ruby-2.1.0">Ruby-2.1.0</a>, <a class=
+          "MesaLib-10.2.7">MesaLib-10.2.7</a>, <a class="xref" href=
+          "../general/ruby.html" title="Ruby-2.1.2">Ruby-2.1.2</a>, <a class=
           "xref" href="../server/sqlite.html" title=
-          "SQLite-3.8.3.1">SQLite-3.8.3.1</a>, <a class="xref" href=
+          "SQLite-3.8.6">SQLite-3.8.6</a>, <a class="xref" href=
           "../general/udev-extras.html" title=
-          "Udev Extras (from systemd)">udev-extras (from systemd)</a> (for
-          GUdev) and <a class="xref" href="../general/which.html" title=
+          "Udev Extras (from eudev)">udev-extras (from eudev)</a> (for GUdev)
+          and <a class="xref" href="../general/which.html" title=
           "Which-2.20 and Alternatives">Which-2.20</a>
         </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            <span class="application">WebKit2</span> links
+            against<span class="application">GTK+ 2</span> (even if
+            <span class="application">GTK+ 3</span> is being used), in order
+            to be able to use NPAPI plugins such as Adobe Flash.
+          </p>
+        </div>
         <h4>
           Recommended
         </h4>
@@ -134,17 +145,21 @@
           "../basicnet/geoclue.html" title=
           "GeoClue-0.12.0">GeoClue-0.12.0</a>, <a class="xref" href=
           "../general/gobject-introspection.html" title=
-          "gobject-introspection-1.38.0">gobject-introspection-1.38.0</a> and
+          "gobject-introspection-1.40.0">gobject-introspection-1.40.0</a>,
           <a class="xref" href="../general/hicolor-icon-theme.html" title=
-          "hicolor-icon-theme-0.12">hicolor-icon-theme-0.12</a>
+          "hicolor-icon-theme-0.13">hicolor-icon-theme-0.13</a>
         </p>
         <h4>
           Optional
         </h4>
         <p class="optional">
           <a class="xref" href="../general/gtk-doc.html" title=
-          "GTK-Doc-1.19">GTK-Doc-1.19</a> and <a class="ulink" href=
-          "http://xsltml.sourceforge.net/">MathML</a>
+          "GTK-Doc-1.20">GTK-Doc-1.20</a>, <a class="xref" href=
+          "../general/harfbuzz.html" title=
+          "Harfbuzz-0.9.35">Harfbuzz-0.9.35</a>, <a class="xref" href=
+          "../general/llvm.html" title="LLVM-3.5.0">LLVM-3.5.0</a>, <a class=
+          "ulink" href="http://gitorious.org/geoclue2/">GeoClue2</a>, and
+          <a class="ulink" href="http://xsltml.sourceforge.net/">MathML</a>
         </p>
         <p class="usernotes">
           User Notes: <a class="ulink" href=
@@ -155,43 +170,45 @@
         <h2 class="sect2">
           Installation of WebKitGTK+
         </h2>
-        <div class="admon warning">
-          <img alt="[Warning]" src="../images/warning.png" />
-          <h3>
-            Warning
-          </h3>
-          <p>
-            If you are building <span class="application">WebKitGTK+</span>
-            with <span class="command"><strong>make</strong></span> 3.82,
-            make sure that you have built it with the following <a class=
-            "ulink" href=
-            "http://www.linuxfromscratch.org/patches/downloads/make/make-3.82-upstream_fixes-3.patch">
-            patch</a> applied or <span class="application">WebKitGTK+</span>
-            build may fail.
-          </p>
-        </div>
         <p>
           If you have not installed <a class="xref" href=
-          "../general/gtk-doc.html" title="GTK-Doc-1.19">GTK-Doc-1.19</a>,
+          "../general/gtk-doc.html" title="GTK-Doc-1.20">GTK-Doc-1.20</a>,
           fix a bug that will cause <span class="command"><strong>make
           install</strong></span> to fail:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i '/generate-gtkdoc --rebase/s:^:# :' GNUmakefile.in</kbd>
+<kbd class="command">sed -i '/generate-gtkdoc --rebase/s:^:# :' \
+                           GNUmakefile.in</kbd>
 </pre>
+        <p>
+          Upstream standard now is to link this package against <span class=
+          "application">GTK+ 3</span>. However, for backward compatibility,
+          manu users need also another instance, linked to <span class=
+          "application">GTK+ 2</span>. Both can be installed in the same
+          system, without problem. However, some packages can alternatively
+          be linked to either one. Here, both build methods are presented and
+          recommended to be built, but if you know which one you need, just
+          jump to the respective part.
+        </p>
+        <h3>
+          Build and install <span class="application">WebKitGTK+</span>
+          against <span class="application">GTK+ 3</span>
+        </h3>
         <p>
           Install <span class="application">WebKitGTK+</span> by running the
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr                    \
-            --enable-introspection &amp;&amp;
+<kbd class="command">mkdir -vp build-3           &amp;&amp;
+cp -a Documentation build-3 &amp;&amp;
+cd build-3                  &amp;&amp;
+
+../configure --prefix=/usr --enable-introspection &amp;&amp;
 make</kbd>
 </pre>
         <p>
           This package does not have a working testsuite. However, there are
-          two useable basic graphical web browsers in the source directory,
+          two useable basic graphical web browsers in the build directory,
           <span class="application">Programs/GtkLauncher</span> and
           <span class="application">Programs/MiniBrowser</span>. If launching
           any one fails, there is a problem with the build.
@@ -213,23 +230,80 @@ make</kbd>
           Now, as the <code class="systemitem">root</code> user:
         </p>
         <pre class="root">
-<kbd class=
-"command">make install                                    &amp;&amp;
-rm -rf /usr/share/gtk-doc/html/webkitgtk-2.0    &amp;&amp;
-mv -vi /usr/share/gtk-doc/html/webkitgtk{,-2.0}</kbd>
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          Finally, leave the buid directory:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cd ..</kbd>
+</pre>
+        <h3>
+          Build and install <span class="application">WebKitGTK+</span>
+          against <span class="application">GTK+ 2</span>
+        </h3>
+        <p>
+          Install <span class="application">WebKitGTK+</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mkdir -vp build-1</kbd>
+</pre>
+        <p>
+          If you have built and installed the package against <span class=
+          "application">GTK+ 3</span>. skip the following command, because
+          the previous docummentation also applies here:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cp -a Documentation build-1</kbd>
+</pre>
+        <p>
+          Now, change into the build directory and effectively start the
+          build and install:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cd build-1 &amp;&amp;
+
+
+../configure --prefix=/usr --with-gtk=2.0 --disable-webkit2 &amp;&amp;
+make</kbd>
+</pre>
+        <p>
+          This package does not have a working testsuite. However, there is
+          one useable basic graphical web browser in the build directory,
+          <span class="application">Programs/GtkLauncher</span>. If launching
+          it fails, there is a problem with the build.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            When installing, the Makefile does some additional compiling and
+            linking. If you do not have Xorg in /usr, the LIBRARY_PATH and
+            PKG_CONFIG_PATH variables need to be defined for the root user.
+            If using sudo to assume root, use the -E option to pass your
+            current environment variables for the install process.
+          </p>
+        </div>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root">
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          Finally, leave the buid directory:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cd ..</kbd>
 </pre>
       </div>
       <div class="commands" lang="en" xml:lang="en">
         <h2 class="sect2">
           Command Explanations
         </h2>
-        <p>
-          <span class="command"><strong>mv -vi
-          /usr/share/gtk-doc/html/webkitgtk{,-2.0}</strong></span>: There is
-          a conflict with the directory installed with same name by <a class=
-          "xref" href="webkitgtk.html" title=
-          "WebKitGTK+-1.10.2">WebKitGTK+-1.10.2</a>.
-        </p>
         <p>
           <code class="option">--enable-introspection</code>: This switch
           enables support for <span class="application">Gobject
@@ -250,13 +324,6 @@ mv -vi /usr/share/gtk-doc/html/webkitgtk{,-2.0}</kbd>
           <span class="application">GTK-Doc</span> is installed and you wish
           to rebuild and install the API documentation.
         </p>
-        <p>
-          <code class="option">--libexecdir=/usr/lib/webkitgtk3</code>: This
-          option puts the package's private programs into <code class=
-          "filename">/usr/lib/webkitgtk3</code> instead of <code class=
-          "filename">/usr/libexec</code> in accordance with the old version
-          of the FHS used before LFS-7.5.
-        </p>
       </div>
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -265,21 +332,24 @@ mv -vi /usr/share/gtk-doc/html/webkitgtk{,-2.0}</kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed Program:</strong>
-              <span class="segbody">jsc-3</span>
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">jsc-1, and jsc-3</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Libraries:</strong>
-              <span class="segbody">libjavascriptcoregtk-3.0.so,
-              libwebkit2gtk-3.0.so, libwebkitgtk-3.0.so and
-              /usr/lib/webkit2gtk-3.0/injected-bundle/libwebkit2gtkinjectedbundle.so</span>
+              <span class="segbody">libjavascriptcoregtk-1.0.so,
+              libjavascriptcoregtk-3.0.so, libwebkit2gtk-3.0.so,
+              libwebkitgtk-1.0.so, libwebkitgtk-3.0.so, and
+              webkit2gtk-3.0/injected-bundle/libwebkit2gtkinjectedbundle.so</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed Directories:</strong>
-              <span class="segbody">/usr/include/webkitgtk-3.0,
-              /usr/share/gtk-doc/html/webkitgtk-2.0,
-              /usr/share/gtk-doc/html/webkit2gtk and
-              /usr/share/webkitgtk-3.0</span>
+              <span class="segbody">/usr/include/webkitgtk-1.0,
+              /usr/include/webkitgtk-3.0, /usr/lib/webkit2gtk-3.0,
+              /usr/share/gtk-doc/html/webkit2gtk,
+              /usr/share/gtk-doc/html/webkitdomgtk,
+              /usr/share/gtk-doc/html/webkitgtk, /usr/share/webkitgtk-1.0,
+              and /usr/share/webkitgtk-3.0</span>
             </div>
           </div>
         </div>
@@ -290,6 +360,22 @@ mv -vi /usr/share/gtk-doc/html/webkitgtk{,-2.0}</kbd>
           <table border="0">
             <col align="left" valign="top" />
             <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="jsc-1" name="jsc-1"></a><span class=
+                    "term"><span class=
+                    "command"><strong>jsc-1</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command-line utility that allows you to run
+                    JavaScript programs outside of the context of a web
+                    browser.
+                  </p>
+                </td>
+              </tr>
               <tr>
                 <td>
                   <p>
@@ -309,6 +395,23 @@ mv -vi /usr/share/gtk-doc/html/webkitgtk{,-2.0}</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="libjavascriptcoregtk-1" name=
+                    "libjavascriptcoregtk-1"></a><span class=
+                    "term"><code class=
+                    "filename">libjavascriptcoregtk-1.0.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains core JavaScript API functions used by
+                    <span class="command"><strong>jsc-1</strong></span> and
+                    <code class="filename">libwebkitgtk-1.0.so</code>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="libjavascriptcoregtk-3" name=
                     "libjavascriptcoregtk-3"></a><span class=
                     "term"><code class=
@@ -320,6 +423,22 @@ mv -vi /usr/share/gtk-doc/html/webkitgtk{,-2.0}</kbd>
                     contains core JavaScript API functions used by
                     <span class="command"><strong>jsc-3</strong></span> and
                     <code class="filename">libwebkitgtk-3.0.so</code>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libwebkitgtk-1" name=
+                    "libwebkitgtk-1"></a><span class="term"><code class=
+                    "filename">libwebkitgtk-1.0.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the <span class="application">WebKitGTK+</span>
+                    API functions for <span class="application">GTK+
+                    2</span>.
                   </p>
                 </td>
               </tr>
@@ -359,23 +478,22 @@ mv -vi /usr/share/gtk-doc/html/webkitgtk{,-2.0}</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-03-04 05:30:09 -0800
+        Last updated on 2014-09-16 13:49:04 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="webkitgtk.html" title=
-          "WebKitGTK+-1.10.2">Prev</a>
+          <a accesskey="p" href="startup-notification.html" title=
+          "startup-notification-0.12">Prev</a>
           <p>
-            WebKitGTK+-1.10.2
+            startup-notification-0.12
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="xulrunner.html" title=
-          "Xulrunner-27.0.1">Next</a>
+          <a accesskey="n" href="wm.html" title="Window Managers">Next</a>
           <p>
-            Xulrunner-27.0.1
+            Window Managers
           </p>
         </li>
         <li class="up">
@@ -384,7 +502,7 @@ mv -vi /usr/share/gtk-doc/html/webkitgtk{,-2.0}</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

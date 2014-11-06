@@ -2,12 +2,14 @@
 #1.04 Change dist name
 #1.03 change allstr += "$(" + ch.name + ") " to allstr += ch.name
 # 1.02
-
-from lfs import Book,Chapter,Page,Package
+from book import Book
+from chapter import Chapter
+from page import Page
+from package import Package
 import time,glob,os
 from settings import *
-
-
+from mirror import DownMirror
+from consts import *
 
 link = "www.linuxfromscratch.org/blfs/view/stable/index.html"
 
@@ -16,7 +18,8 @@ SOURCES=LFS + '/sources'
 
 blfs = Book(link, Book("www.linuxfromscratch.org/lfs/view/stable/index.html"))
 
-
+versionlink = baselink + blfs.version + "/"
+dm = DownMirror(mfile)
 port 		= "/port"
 portdir 	=  LFS + port
 makefolder 	= portdir + "/makefiles"
@@ -113,6 +116,15 @@ define echo_message
 -------------------
   @echo -e $(BOLD)$(1) Package $(BLUE)$@$(BOLD)$(WHITE)
 endef
+define echo_summary
+  @echo -e $(BOLD)$(BLUE) Introduction: $(BOLD)$(GREEN)"$(1)"$(WHITE)
+endef
+define run_blfs_script
+  @source $(1) && time $(SHELL) $(D) $(SCRIPTDIR)/$@.sh $(REDIRECT)
+endef
+define run_lfs_script
+  @time LFS=$(1) $(SHELL) $(D) $(SCRIPTDIR)/$@.sh $(REDIRECT)
+endef
 
 '''
 
@@ -206,14 +218,21 @@ def main():
 	allstr += " \n\n"
 	mkfile= makefolder + "/Makefile"
 	mainfile = open(mkfile,'wb')
+	###alsa group
+	alsalist = blfs.search("alsa")
+	alsagroup = [ p.fullname.strip() if p.fullname.strip().startswith('alsa') else '' for p in alsalist ]
+	alsastr= 'alsa-' + alsalist[1].version + '  : ' + ' '.join( p for p in alsagroup)
 	mainfile.write(header)
 	mainfile.write(allstr)
 	mainfile.write(chapterstr)
+	mainfile.write(alsastr)
 	mainfile.write(chaptertgt)
+
 	mainfile.write(makestr)
 	mainfile.close
 
 base_init()
+#dm.download(versionlink)
 main()
 rwreplace_delete_log()
 create_wrapper()

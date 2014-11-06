@@ -12,25 +12,25 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;25.&nbsp;X Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gtkmm3.html" title="Gtkmm-3.10.1">Prev</a>
+          <a accesskey="p" href="gtkmm3.html" title="Gtkmm-3.12.0">Prev</a>
           <p>
-            Gtkmm-3.10.1
+            Gtkmm-3.12.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.52">Next</a>
+          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.56">Next</a>
           <p>
-            libdrm-2.4.52
+            libdrm-2.4.56
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -56,7 +56,7 @@
           fast file loading, saving, rendering and manipulation.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -108,12 +108,12 @@
         </h4>
         <p class="optional">
           <a class="xref" href="../general/libpng.html" title=
-          "libpng-1.6.9">libpng-1.6.9</a>, <a class="xref" href=
+          "libpng-1.6.13">libpng-1.6.13</a>, <a class="xref" href=
           "../general/libjpeg.html" title=
-          "libjpeg-turbo-1.3.0">libjpeg-turbo-1.3.0</a>, <a class="xref"
+          "libjpeg-turbo-1.3.1">libjpeg-turbo-1.3.1</a>, <a class="xref"
           href="../general/libtiff.html" title=
           "LibTIFF-4.0.3">LibTIFF-4.0.3</a>, <a class="xref" href=
-          "../general/giflib.html" title="giflib-5.0.5">giflib-5.0.5</a>, and
+          "../general/giflib.html" title="giflib-5.1.0">giflib-5.1.0</a>, and
           <a class="ulink" href=
           "http://sourceforge.net/projects/mad">libid3tag</a>
         </p>
@@ -131,9 +131,11 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i '/DGifOpen/s:fd:&amp;, NULL:' src/modules/loaders/loader_gif.c &amp;&amp;
-sed -i 's/@my_libs@//' imlib2-config.in &amp;&amp;
+<kbd class="command">sed -e '/DGifOpen/s:fd:&amp;, NULL:'           \
+    -e '/DGifCloseFile/s:gif:&amp;, NULL:'     \
+    -i src/modules/loaders/loader_gif.c    &amp;&amp;
+sed -i 's/@my_libs@//' imlib2-config.in    &amp;&amp;
+
 ./configure --prefix=/usr --disable-static &amp;&amp;
 make</kbd>
 </pre>
@@ -155,8 +157,8 @@ install -v -m644    doc/{*.gif,index.html} \
           Command Explanations
         </h2>
         <p>
-          <span class="command"><strong>sed -i ...</strong></span>: First
-          command fixes building with recent versions of <span class=
+          <span class="command"><strong>sed ...</strong></span>: The first
+          command fix building with recent versions of <span class=
           "application">Giflib</span> and the second one corrects linker
           flags for libImlib2 usage.
         </p>
@@ -215,21 +217,21 @@ install -v -m644    doc/{*.gif,index.html} \
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-20 04:20:28 -0800
+        Last updated on 2014-09-14 14:01:57 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="gtkmm3.html" title="Gtkmm-3.10.1">Prev</a>
+          <a accesskey="p" href="gtkmm3.html" title="Gtkmm-3.12.0">Prev</a>
           <p>
-            Gtkmm-3.10.1
+            Gtkmm-3.12.0
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.52">Next</a>
+          <a accesskey="n" href="libdrm.html" title="libdrm-2.4.56">Next</a>
           <p>
-            libdrm-2.4.52
+            libdrm-2.4.56
           </p>
         </li>
         <li class="up">
@@ -238,7 +240,7 @@ install -v -m644    doc/{*.gif,index.html} \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

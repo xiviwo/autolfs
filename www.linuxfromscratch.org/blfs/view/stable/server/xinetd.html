@@ -12,20 +12,20 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;23.&nbsp;Other Server Software
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="virtuoso.html" title=
-          "Virtuoso-6.1.8">Prev</a>
+          <a accesskey="p" href="unbound.html" title=
+          "Unbound-1.4.22">Prev</a>
           <p>
-            Virtuoso-6.1.8
+            Unbound-1.4.22
           </p>
         </li>
         <li class="next">
@@ -41,7 +41,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
           "command"><strong>inetd</strong></span>.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -70,8 +70,8 @@
             <li>
               <p>
                 Download (FTP): <a class="ulink" href=
-                "ftp://mirror.ovh.net/gentoo-distfiles/distfiles/xinetd-2.3.15.tar.gz">
-                ftp://mirror.ovh.net/gentoo-distfiles/distfiles/xinetd-2.3.15.tar.gz</a>
+                "ftp://anduin.linuxfromscratch.org/BLFS/svn/x/xinetd-2.3.15.tar.gz">
+                ftp://anduin.linuxfromscratch.org/BLFS/svn/x/xinetd-2.3.15.tar.gz</a>
               </p>
             </li>
             <li>
@@ -121,7 +121,7 @@
         </p>
         <pre class="userinput">
 <kbd class=
-"command">sed -i -e "s/exec_server/child_process/" xinetd/builtins.c        &amp;&amp;
+"command">sed -i -e "s/exec_server/child_process/" xinetd/builtins.c       &amp;&amp;
 sed -i -e "/register unsigned count/s/register//" xinetd/itox.c  &amp;&amp;
 ./configure --prefix=/usr --mandir=/usr/share/man --with-loadavg &amp;&amp;
 make</kbd>
@@ -369,7 +369,7 @@ EOF</kbd>
             <code class="filename">/etc/rc.d/init.d/xinetd</code> init script
             included in the <a class="xref" href=
             "../introduction/bootscripts.html" title=
-            "BLFS Boot Scripts">blfs-bootscripts-20140301</a> package.
+            "BLFS Boot Scripts">blfs-bootscripts-20140919</a> package.
           </p>
           <pre class="root">
 <kbd class="command">make install-xinetd</kbd>
@@ -470,16 +470,16 @@ EOF</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-22 11:08:28 -0800
+        Last updated on 2014-09-21 12:24:38 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="virtuoso.html" title=
-          "Virtuoso-6.1.8">Prev</a>
+          <a accesskey="p" href="unbound.html" title=
+          "Unbound-1.4.22">Prev</a>
           <p>
-            Virtuoso-6.1.8
+            Unbound-1.4.22
           </p>
         </li>
         <li class="next">
@@ -495,7 +495,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>

@@ -5,33 +5,33 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=iso-8859-1" />
     <title>
-      JSON-C-0.11
+      JSON-C-0.12
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="blfs" id="blfs-7.5">
+  <body class="blfs" id="blfs-7.6">
     <div class="navheader">
       <h4>
-        Beyond Linux<sup>®</sup> From Scratch - Version 7.5
+        Beyond Linux<sup>®</sup> From Scratch - Version 7.6
       </h4>
       <h3>
         Chapter&nbsp;9.&nbsp;General Libraries
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="JS.html" title="JS-17.0.0">Prev</a>
+          <a accesskey="p" href="JS2.html" title="JS-24.2.0">Prev</a>
           <p>
-            JS-17.0.0
+            JS-24.2.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="json-glib.html" title=
-          "JSON-GLib-0.16.2">Next</a>
+          "JSON-GLib-1.0.2">Next</a>
           <p>
-            JSON-GLib-0.16.2
+            JSON-GLib-1.0.2
           </p>
         </li>
         <li class="up">
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
     <div class="sect1" lang="en" xml:lang="en">
       <h1 class="sect1">
-        <a id="json-c" name="json-c"></a>JSON-C-0.11
+        <a id="json-c" name="json-c"></a>JSON-C-0.12
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <h2 class="sect2">
@@ -59,7 +59,7 @@
           formatted strings back into the C representation of JSON objects.
         </p>
         <p>
-          This package is known to build and work properly using an LFS-7.5
+          This package is known to build and work properly using an LFS-7.6
           platform.
         </p>
         <h3>
@@ -70,28 +70,29 @@
             <li>
               <p>
                 Download (HTTP): <a class="ulink" href=
-                "https://s3.amazonaws.com/json-c_releases/releases/json-c-0.11.tar.gz">
-                https://s3.amazonaws.com/json-c_releases/releases/json-c-0.11.tar.gz</a>
+                "https://s3.amazonaws.com/json-c_releases/releases/json-c-0.12.tar.gz">
+                https://s3.amazonaws.com/json-c_releases/releases/json-c-0.12.tar.gz</a>
               </p>
             </li>
             <li>
               <p>
-                Download MD5 sum: aa02367d2f7a830bf1e3376f77881e98
+                Download MD5 sum: 3ca4bbb881dfc4017e8021b5e0a8c491
               </p>
             </li>
             <li>
               <p>
-                Download size: 548 KB
+                Download size: 496 KB
               </p>
             </li>
             <li>
               <p>
-                Estimated disk space required: 5.0 MB
+                Estimated disk space required: 6.7 MB
               </p>
             </li>
             <li>
               <p>
-                Estimated build time: less than 0.1 SBU
+                Estimated build time: less than 0.1 SBU (add 1.0 SBU for
+                tests)
               </p>
             </li>
           </ul>
@@ -119,7 +120,8 @@
           following commands:
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --disable-static &amp;&amp;
+<kbd class="command">sed -i s/-Werror// Makefile.in             &amp;&amp;
+./configure --prefix=/usr --disable-static &amp;&amp;
 make -j1</kbd>
 </pre>
         <p>
@@ -137,6 +139,10 @@ make -j1</kbd>
         <h2 class="sect2">
           Command Explanations
         </h2>
+        <p>
+          <strong class="userinput"><code>sed ...</code></strong>: This
+          instruction removes a flag that prevents one file from compiling.
+        </p>
         <p>
           <em class="parameter"><code>--disable-static</code></em>: This
           switch prevents installation of static versions of the libraries.
@@ -203,22 +209,22 @@ make -j1</kbd>
         </div>
       </div>
       <p class="updated">
-        Last updated on 2014-02-25 04:04:57 -0800
+        Last updated on 2014-09-16 13:49:04 -0700
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="JS.html" title="JS-17.0.0">Prev</a>
+          <a accesskey="p" href="JS2.html" title="JS-24.2.0">Prev</a>
           <p>
-            JS-17.0.0
+            JS-24.2.0
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="json-glib.html" title=
-          "JSON-GLib-0.16.2">Next</a>
+          "JSON-GLib-1.0.2">Next</a>
           <p>
-            JSON-GLib-0.16.2
+            JSON-GLib-1.0.2
           </p>
         </li>
         <li class="up">
@@ -227,7 +233,7 @@ make -j1</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Beyond Linux® From Scratch - Version 7.5">Home</a>
+          "Beyond Linux® From Scratch - Version 7.6">Home</a>
         </li>
       </ul>
     </div>
