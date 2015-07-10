@@ -8,6 +8,7 @@ from chapter import Chapter
 from page import Page
 from package import Package
 import os,sys
+from consts import *
 
 book = ['lfs','blfs']
 my = os.path.basename(__file__)
@@ -22,10 +23,9 @@ elif sys.argv[1].lower() not in book:
 	print "Expecting lfs or blfs as target"
 	Usage()
 
-link = "www.linuxfromscratch.org/lfs/view/stable/index.html"
-link2 = "www.linuxfromscratch.org/blfs/view/stable/index.html"
-lfs = Book(link)
-blfs = Book(link2,lfs)
+
+lfs = Book(lfslink)
+blfs = Book(blfslink,lfs)
 target = None
 
 if sys.argv[1].lower() == book[0]:

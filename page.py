@@ -84,7 +84,8 @@ class Page(object):
 						dlink = alink.attrib['href'].strip()
 						if str(dlink ).endswith('/') \
 							or "certdata" in str(dlink ) \
-							or str(dlink ).endswith('.html') :
+							or str(dlink ).endswith('.html') \
+							or str(dlink ).endswith('dict')  :
 							pass  
 						else:
 							mirrorlink = self.mirror.search(dlink)
@@ -149,7 +150,17 @@ class Page(object):
 
 	def addpack(self,package):
 		self._packages.append(package)
-	
+
+	def mirrorsearch(self,link):
+		
+		mirrorlink = self.mirror.search(link)
+						
+		if mirrorlink:
+						
+			return mirrorlink
+		else:
+			return None
+
 	def parseexternal(self,link):
 		''' search the package on cpan.org and get the download link  '''
 		
@@ -159,7 +170,7 @@ class Page(object):
 			packlink = grep('/' + shortname + '-([0-9.]+)[^/]*\.tar\.((bz2)|(xz)|(gz))$' ,self.book.perl_packs)
 			
 		if packlink:
-			return packlink
+			return [packlink,self.mirrorsearch(packlink)]
 		else:
 			soup = etree.HTML(urllib2.urlopen(link).read())
 	
@@ -174,9 +185,9 @@ class Page(object):
 				file = open(perl_pack_lists,"a")
 				file.write(packlink)
 				file.close
-				return packlink
+				return [packlink,self.mirrorsearch(packlink)]
 			else:
-				return ""
+				return []
 
 	
 	def parseperldownload(self,link):
@@ -187,18 +198,17 @@ class Page(object):
 			if link.endswith('/'): 
 				#parse external link :http://search.cpan.org/~gaas/LWP-Protocol-https/
 			
-				return str(self.parseexternal(link))
+				return self.parseexternal(link)
 				
 
 			elif   ".html" in link:
 				# same page no need to parse,
 				#ex:# /www.linuxfromscratch.org/blfs/view/svn/general/perl-modules.html#perl-lwp
 				#within BLFS, no need to parse
-				return None
+				return []
 
 			else:# otherwises, need to parse all 
-
-				return link
+				return [link,self.mirrorsearch(link)]
 
 	
 	def parseperl(self,plist,i):
@@ -243,10 +253,15 @@ class Page(object):
 			
 			try:
 				dependlink = li.xpath("./div/p/a")
+				
 				dependtext = li.xpath("./div/p/a//text()")[0].strip()
+
 			except :
 				dependlink = li.xpath("./p/a")
-				dependtext = li.xpath("./p/a//text()")[0].strip()
+				if li.xpath("./p/a//text()"):
+					dependtext = li.xpath("./p/a//text()")[0].strip()
+				else :	
+					dependtext = ""
 			for a in dependlink:
 				
 				try:
@@ -261,7 +276,7 @@ class Page(object):
 				downloads = []
 	
 			else:#http://www.cpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.64.tar.gz/ TITLE
-				downloads = filter(None,[ self.parseperldownload(url) ])
+				downloads = filter(None,self.parseperldownload(url))
 			print 'down:',downloads
 
 			if downloads:
@@ -270,9 +285,10 @@ class Page(object):
 				
 				dependency += fullname(packname) + "  "
 			else:   # or parse its text as dependency 
+				print "dependtext:",dependtext
 				print li.xpath(".//a//text()"),dependtext
 				dependency += fullname(dependtext) + " "
-			print 'depend',dependency,li.xpath("./div")
+			print 'depend:',dependency,li.xpath("./div")
 
 			if downloads and len(li.xpath("./div")) == 1:
 				# li has not div descendants, mean there is no dependency along with it.
@@ -280,7 +296,7 @@ class Page(object):
 				
 				i += 1
 				packno = packno = str(self.no) + str(i)
-				print 'packname',packname,packno,downloads
+				print 'packname:',packname,packno,downloads
 				plist.append(
 				Package(packno,packname,perlcmd,downloads,"",self,self.chapter,self.book))
 				counter =  i

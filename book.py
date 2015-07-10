@@ -33,7 +33,7 @@ class Book(object):
 		else:
 			self.LFS = self
 
-		self.wgetlist = self.LFS.bookdir + "/wget-list"
+		self.wgetlist = self.LFS.bookdir + WGETLIST
 		if self.name == "BLFS":
 			blfsregx.append([r"udev-lfs(-([0-9]+))+",self.udev_version])
 			blfsreplace.append( ("UDEV=<version>","UDEV=%s"%self.udev_version))

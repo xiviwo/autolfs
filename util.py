@@ -60,7 +60,7 @@ def parselink(download_link):
 	packname=""
 	if download_link:
 		# changed in 7.6, /([-.\w]*[^/]*\.*(tar)*\.*((zip)|(tar)|(bz2)|(xz)|(gz)|(tgz)|(pm))+$)
-		packmat = re.search("/([^/]*)$",download_link)
+		packmat = re.search("/([^/]*)$",download_link.strip())
 	
 		try:
 			packname = packmat.group(1).strip()

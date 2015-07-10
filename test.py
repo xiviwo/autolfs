@@ -12,19 +12,20 @@ from consts import *
 perlcmd= ['perl Makefile.PL && make && make install\n']
 
 
-link = "www.linuxfromscratch.org/blfs/view/stable/index.html"
-link2 = "www.linuxfromscratch.org/lfs/view/stable/index.html"
 
 LFS=""
 SOURCES=LFS + '/sources'
 
-blfs = Book(link, Book("www.linuxfromscratch.org/lfs/view/stable/index.html"))
-pp =  blfs.search("alsa")#perl modules") 
+blfs = Book(blfslink, Book(lfslink))
+pp =  blfs.search("cups") #perl modules") 
 print len(pp)
-print ' '.join(p.fullname.strip() if p.fullname.strip().startswith('alsa') else '' for p in pp)
+#print ' '.join(p.fullname.strip() if p.fullname.strip().startswith('alsa') else '' for p in pp)
 for p in pp:
 	print p.name#,p.dependency
-
+	#print p.dependency
+	print p.commands
+	p.writescript(p.name,'.')
+	#print p.downloads
 #pp =  blfs.search("oss")
  
 #for p in pp:

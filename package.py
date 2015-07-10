@@ -40,7 +40,7 @@ esac
 nwget()
 {
 local packlink=$1
-wget --no-check-certificate -nc --timeout=60 --tries=5 $packlink -P ${SOURCES}
+wget --no-check-certificate -nc --timeout=60 --tries=5 $packlink -P ${SOURCES} || true
 }
 '''
 
@@ -110,7 +110,7 @@ class Package(object):
 			packmakeblock='''\
 	@$(call echo_message, Building)
 	@$(call echo_summary, ''' + \
-	str(self.page.summary if self.page.summary else self.fullname) + ''')
+	str(self.page.summary.replace(",","..") if self.page.summary else self.fullname) + ''')
 	@$(call run_blfs_script,/etc/profile)
 	@touch $@
 '''		
@@ -120,7 +120,7 @@ class Package(object):
 			packmakeblock='''\
 	@$(call echo_message, Building)
 	@$(call echo_summary, ''' + \
-	str(self.page.summary if self.page.summary else self.fullname) + ''')
+	str(self.page.summary.replace(",","..") if self.page.summary else self.fullname) + ''')
 	@$(call run_lfs_script,$(LFS))
 	@touch $@
 '''
@@ -408,7 +408,7 @@ class Package(object):
 		#if "udev" in short:
 		#		short = "systemd"
 		
-		if containsAny(short,['nss','json','pulseaudio','libiodbc']):
+		if containsAny(short,['nss','json','pulseaudio','libiodbc','sax']):
 			scriptstr += scriptheader1 + "\npkgname=" + short + "\nversion=" + \
 						 self.version + "\nexport MAKEFLAGS='-j 1'\n" 
 		else:
@@ -439,7 +439,7 @@ class Package(object):
 		scriptstr += "\n}\nbuild()\n{\n"
 		if self.commands:
 	
-			allline = '\n'.join(line for i,line in enumerate(self.commands))
+			allline = ''.join(line for i,line in enumerate(self.commands))
 
 			lastline = allline
 
@@ -461,29 +461,7 @@ class Package(object):
 		return scriptstr
 
 
-	
-	def findchildj(self,tag):
-		''' '''
-		cmdline=""
-		if tag.string!=None:
-			tmpstr = tag.string
-			cmdline = cmdline + "\n" + tmpstr
 
-		else:
-			cmdline = cmdline + "\n"
-			for code in tag.contents:
-				#L2
-				if code.string != None:
-					cmdline = cmdline + code.string
-				else:
-			
-					for em in code.contents:
-						#L3
-						if em.string != None:
-							cmdline = cmdline + "\t" +  em.string
-					
-			cmdline = cmdline + "\n"						
-		return cmdline
 	def match_block(self,start,end,line,lst,cont=True):
 		bregx = re.compile(r"'" + start + "(\n*[^" + end + "]*\n*)*" + end + ")'", re.MULTILINE)
 		pass
@@ -508,10 +486,11 @@ class Package(object):
 			else:
 				nline += l + "\n"
 		line = nline
+		
 		line = BookReplace(globalreplace,make_dummy).sub(line)
-
+		
 		line = BookRegex(globalregx,make_dummy).sub(line)
-
+		
 		return line
 
 			

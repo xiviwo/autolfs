@@ -185,7 +185,7 @@ class MultiRegex(object):
 		dispatch on self accordingly.
 		'''
 
-		print
+		#print mo.groupdict()
 
 		for k,v in mo.groupdict().iteritems():
 		    
@@ -246,12 +246,15 @@ def append_line(self,regx):
 
 def replace_line(self,i,regx):
     def _method(self,*args):
-
+	
 	for arg in args:
+		
 		if isinstance(arg, type(re.match("",""))):
 			line = arg.string
-
-			return regx[i][1]
+			
+			org= str(arg.group())
+			
+			return re.sub(regx[i][0],regx[i][1],org)
     return _method
 
 def move_line(self,mo,*args):

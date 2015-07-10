@@ -46,11 +46,10 @@ class Chapter(object):
 	def mkblock(self):
 		mkstr = "" 
 		if containsAny(self.name,['the-kde-core','kde-additional-packages']):
-			mkstr += "\n\n" + self.name + " : after-lfs-configuration-issues \
-											 kde-pre-installation-configuration"
-			
-		elif self.name not in "after-lfs-configuration-issues":
-			mkstr += "\n\n" + self.name + " : after-lfs-configuration-issues "
+			mkstr += "\n\n" + self.name + " : after-lfs-configuration-issues kde-pre-installation-configuration"
+
+		elif self.name not in "after-lfs-configuration-issues" and self.name not in "important-information":
+			mkstr += "\n\n" + self.name + " : version_info important-information after-lfs-configuration-issues "
 		else:
 			mkstr += "\n\n" + self.name + " : "
 		mkstr += '''

@@ -50,7 +50,7 @@ blfsreplace = [
 ("ln -s ",							"ln -svf "),
 ("<new-password>",					passwd),
 ("ln -sv ",							"ln -svf "),	
-		
+("<PREFIX>",				"/opt"),
 ]
 
 lfsregx = [
@@ -77,15 +77,17 @@ lfsregx = [
 
 blfsregx = [
 
-(r"mkdir\s*-v",							"mkdir -pv"),
+(r"mkdir\s*-v",						"mkdir -pv"),
 (r"mkdir\s*/",							"mkdir -pv /"),
 (r"mkdir\s*",							"mkdir -pv "),
-(r"export\s*LANG=((?!\n).)*",			"export LANG=en_US.utf8"),
-(r'"\s*<PREFIX>\s*"',					'"/opt"'),
-(r"\s*</path/to/unzipped/files>\s*",	''),
-(r'&&\n',								'\n'),
-(r'^/sbin/mdadm((?!\n).)*',				''),
-('exit\n',								''),
+(r"export\s*LANG=((?!\n).)*",					"export LANG=en_US.utf8"),
+(r'"\s*<PREFIX>\s*"',						'"/opt"'),
+(r"\s*</path/to/unzipped/files>\s*",				''),
+(r'&&\n',							'\n'),
+(r'^/sbin/mdadm((?!\n).)*',					''),
+('exit\n',							''),
+(r'(\s*useradd[^&&|^\n]*)',					r'\1 || true'),
+(r'(\s*groupadd[^&&|^\n]*)',					r'\1 || true'),
 ]
 
 
@@ -218,7 +220,9 @@ r'make[^/\n]*test((?!\n).)*',
 '((?!\n).)*~/MOUNTPATH',
 '(^kbd((?!\n).)*|^kadmin((?!\n).)*|^kinit((?!\n).)*|^klist((?!\n).)*|^ktutil((?!\n).)*)',
 'menuentry.*}|cat > /etc/X11/xorg.conf.d/.*EOF',
-'install -v -d -m755 /usr/share/fonts/dejavu.*/usr/share/fonts/dejavu',
+'install -v -d -m755 /usr/share/fonts/dejavu',
+'install -v -m644 *.ttf /usr/share/fonts/dejavu ',
+'make_check.log',
 ]
 
 SpecsSkipList = [
@@ -236,6 +240,11 @@ SpecsSkipList = [
 
 ]
 perl_pack_lists= "perl_pack_lists"
-mfile = "/port/mirrorfile"
+mfile = "mirrorfile"
 baselink="http://mirrors-usa.go-parts.com/blfs/"
-
+###Change from xxx to xxx.html in 7.7
+WGETLIST="/wget-list"
+MD5SUMS="/md5sums"
+####
+lfslink = "www.linuxfromscratch.org/lfs/view/stable/index.html"
+blfslink = "www.linuxfromscratch.org/blfs/view/stable/index.html"
